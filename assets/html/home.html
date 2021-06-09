@@ -8,18 +8,37 @@
     <!-- This <link> needs to be moved to head.html -->
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
+    <link href="../css/index.css" rel="stylesheet" />
 </head>
 <body>
     <!-- Header needs to be moved to header.html -->
     <header>
-        <a href='#'><img src='../img/logo-ontario-blk@2x.png'/></a>
-        <p>
-            <a>Ontario.ca</a>
-            <span>|</span>
-            <a>Français</a>
-        </p>
-        <p>Ministry of Government and Consumer Services</p> 
+        <div class='Header-Wrapper' >
+            <div class='d-flex flex-row justify-content-between'>
+                <div id='Header-Logo'>
+                    <a class="Header-Logo-Anchor" href='#'>
+                        <img src='../img/logo-ontario-blk@2x.png' width='150' height='40'/>
+                    </a>
+                </div>
+                <div>
+                    <p class="Nav-Flip">
+                        <a href='#'>Ontario.ca</a>
+                        <span>|</span>
+                        <a href='#'>Français</a>
+                    </p>
+                </div>
+            </div>
+            <p class='Ministry-Header'>Ministry of Government and Consumer Services</p> 
+            <div class='Header-Navigation'>
+                <a href='#'>ARCHIVES HOME</a>
+                |
+                <a href='#'>PREPARE FOR YOUR VISIT</a>
+                |
+                <a href='#'>START YOUR RESEARCH FROM HOME</a>
+                |
+                <a href='#'>CONTACT US</a>
+            </div>
+        </div>
     </header>
     <!-- <Script/body//html> need to be moved to footer.html -->
     <!-- JavaScript Bundle with Popper -->

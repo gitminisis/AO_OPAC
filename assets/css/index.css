@@ -1,0 +1,35 @@
+#Header-Logo {
+    margin: 10px;
+}
+
+.Header-Navigation {
+    background-color: #000;
+    text-align: center;
+    color: #FFF;
+    font-size: 1.25rem;
+    height: 100px;
+}   
+
+.Header-Navigation a {
+    color: #FFF;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+    text-decoration: none;
+}
+
+.Header-Navigation a:hover {
+    text-decoration: underline;
+}
+
+.Ministry-Header {
+    margin-left: 10px;
+    font-weight: bolder;
+}
+
+.Nav-Flip a {
+    margin: 10px; 
+    color: #000;
+    text-decoration: none;
+}
+
+.Nav-Flip a:hover {
+    text-decoration: underline;
+}
