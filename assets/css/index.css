@@ -1,74 +1,93 @@
-.Footer-Navigation a {
-    color: black;
-    text-decoration: none;
-    margin-left: 1%;
-    margin-right: 1%;
-}
-
-.Header-Navigation a:hover,
-.Footer-Navigation a:hover,
-.Nav-Flip a:hover {
-    text-decoration: underline;
-}
-
-.Form-Wrapper {
-    width: 70%;
-}
-
-#Header-Logo {
-    margin: 1%;
-}
-
-.Header-Navigation {
-    background-color: #000;
-    color: #FFF;
-    font-size: 1.25rem;
-    height: 50px;
-}   
-
-.Header-Navigation a {
-    color: #FFF;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-    text-decoration: none;
-    margin-left: 1%;
-    margin-right: 1%;
-}
-
-hr.Hr-1 {
-    border-top: 3px solid #101010;
-    margin-left: 1%;
-    margin-right: 1%;
-}
-
-.Ministry-Header {
-    margin-left: 1%;
-    font-weight: bolder;
-}
-
-.Nav-Flip a {
-    margin: 1%; 
-    color: #000;
-    text-decoration: none;
-}
-
-#Option-Choice,
-.Input-Wrapper label {
-    font-weight: bold;
-}
-
-#Panel-Left {
-    flex: 1;
-    background-color: pink;
-}
-
-#Panel-Main {
-    flex: 7;
-}
-
-#Panel-Right {
-    flex: 1;
-    background-color: lightcyan;
-}
-
-.Search-Options-Wrapper a {
-    color: black;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+    * {
+        font-family: Raleway, Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+    
+    .Footer-Navigation a {
+        color: black;
+        text-decoration: none;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    
+    .Header-Navigation a:hover,
+    .Footer-Navigation a:hover,
+    .Nav-Flip a:hover {
+        text-decoration: underline;
+    }
+    
+    .Form-Wrapper {
+        width: 70%;
+    }
+    
+    #Header-Logo {
+        margin: 1%;
+    }
+    
+    .Header-Navigation {
+        background-color: #000;
+        color: #FFF;
+        font-size: 1.25rem;
+        height: 50px;
+    }
+    
+    .Header-Navigation a {
+        color: #FFF;
+        text-decoration: none;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    
+    hr.Hr-1 {
+        border-top: 3px solid #101010;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    
+    .Ministry-Header {
+        margin-left: 1%;
+        font-weight: bolder;
+    }
+    
+    .Nav-Flip a {
+        margin: 1%;
+        color: #000;
+        text-decoration: none;
+    }
+    
+    #Option-Choice,
+    .Input-Wrapper label {
+        font-weight: bold;
+    }
+    
+    #Panel-Left {
+        flex: 1;
+        background-color: pink;
+    }
+    
+    #Panel-Main {
+        flex: 7;
+        margin-top: 1.5rem;
+        padding-left: .9375rem;
+        padding-right: .9375rem;
+    }
+    
+    #Panel-Right {
+        flex: 1;
+        background-color: lightcyan;
+    }
+    
+    .Search-Options-Wrapper a {
+        color: black;
+    }
+    /* START OF SIGN UP PAGE CSS */
+    
+    #Signup-Page .card {
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
+    
+    #Signup-Page .card-header h3 {
+        font-weight: bold !important;
+    }
+    /* END OF SIGN UP PAGE CSS */
