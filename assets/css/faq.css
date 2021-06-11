@@ -20,6 +20,22 @@
     font-weight: bold;
 }
 
+.FAQ-Wheel {
+    height: 100px;
+    width: 50%;
+    overflow: scroll;
+}
+
+
+.FAQ-Wheel::-webkit-scrollbar {
+    display: none;
+  }
+  
+.FAQ-Wheel {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
 .FAQ-Wrapper {
     background-color: #39b54a;
     color: #FFF;
