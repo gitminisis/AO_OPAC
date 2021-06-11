@@ -1,6 +1,6 @@
 #msform {
-    text-align: center;
-    position: relative;
+    /* text-align: center;
+    position: relative; */
     /* margin-top: 20px */
 }
 
@@ -35,7 +35,7 @@
     color: #9E9E9E
 }
 
-#msform input,
+#msform input:not([type=radio]),
 #msform textarea {
     padding: 0px 8px 4px 8px;
     border: none;
@@ -45,7 +45,6 @@
     margin-top: 2px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
     color: #2C3E50;
     font-size: 16px;
     letter-spacing: 1px
@@ -64,36 +63,36 @@
 
 #msform .action-button {
     width: 100px;
-    background: skyblue;
-    font-weight: bold;
+    /* background: skyblue; */
+    /* font-weight: bold;
     color: white;
     border: 0 none;
     border-radius: 0px;
-    cursor: pointer;
+    cursor: pointer; */
     padding: 10px 5px;
     margin: 10px 5px
 }
 
 #msform .action-button:hover,
 #msform .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+    /* box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue */
 }
 
 #msform .action-button-previous {
     width: 100px;
-    background: #616161;
+    /* background: #616161;
     font-weight: bold;
     color: white;
     border: 0 none;
     border-radius: 0px;
-    cursor: pointer;
+    cursor: pointer; */
     padding: 10px 5px;
     margin: 10px 5px
 }
 
 #msform .action-button-previous:hover,
 #msform .action-button-previous:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+    /* box-shadow: 0 0 0 2px white, 0 0 0 3px #616161 */
 }
 
 select.list-dt {
@@ -124,6 +123,7 @@ select.list-dt:focus {
 }
 
 #progressbar {
+    padding-left: 0px;
     margin-bottom: 30px;
     overflow: hidden;
     color: lightgrey
@@ -187,7 +187,7 @@ select.list-dt:focus {
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: skyblue
+    background: #3193CC
 }
 
 .radio-group {
@@ -200,7 +200,7 @@ select.list-dt:focus {
     width: 204;
     height: 104;
     border-radius: 0;
-    background: lightblue;
+    background: #3193CC;
     box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     cursor: pointer;

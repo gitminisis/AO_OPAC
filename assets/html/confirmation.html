@@ -68,39 +68,41 @@
                 <a class='Quick-Links-Item Color-Pink' href='#'>Crowdsourcing</a>
             </div>
         </div>
+
         <div id='Panel-Main' class='Main-Content d-flex flex-column align-items-center'>
-            <h1>Welcome to the Archives of Ontario!</h1>
-            <div class='Form-Wrapper'>
-                <p style='font-size: 2em'>
-                    This Ministerial Department is responsible of the collection, preservation and management of Ontario's History and Public Documentation
-                </p>
-                <form id='Main-Form'>
-                    <span id='Option-Choice'>Option 1: Keyword Search</span>
-                    <span id='Number-Results'></span>
-                    <div class='Input-Wrapper d-flex flex-column'>
-                        <label>Enter a search term or terms:</label>
-                        <input type='text' />
-                    </div>
-                    <div class='Radio-Wrapper d-flex justify-content-evenly'>
-                        <span>
-                                <input type='radio' id='All-Keywords' name='search' value='Keyword Search' onclick='onClickSearchOption(value)'/ checked>
-                                <label for='All-Keywords'>All of these keywords</label>
-                            </span>
-                        <span>
-                                <input type='radio' id='Any-Keywords' name='search' value='Keyword Search' onclick='onClickSearchOption(value)'/>
-                                <label for='Any-Keywords'>Any of these keywords</label>
-                            </span>
-                        <span>
-                                <input type='radio' id='Exact-Phrase' name='search' value='Exact Search' onclick='onClickSearchOption(value)'/>
-                                <label for='Exact-Phrase'>Exact Phrase</label>
-                            </span>
-                    </div>
-                    <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
-                        <input class='Search-Option-Button' type='button' value='SEARCH' />
-                        <a href='#'>ADVANCED SEARCH</a>
-                        <a href='#'>MORE SEARCH OPTIONS</a>
-                    </div>
-                </form>
+            <div id="Signup-Page">
+
+
+                <!-- breadcrumb -->
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Registration Confirmation</li>
+                    </ol>
+                </nav>
+
+
+                <div>
+                    <h1>Thank You for Registering</h1>
+                    <hr />
+                </div>
+                <div class="alert alert-success" role="alert">
+                    <strong> Your details have been registered successfully !</strong>
+                </div>
+
+                <div>
+                    <p>
+                        If you are already at the London Metropolitan Archives, please go to the Information Point, where one of our staff will check your registration details and your proof of identity, and will issue you with your History card.
+                    </p>
+                    <p>
+                        If you have registered from your computer at home or work, please go to the Information Point when you arrive on your next visit to the London Metropolitan Archives. Please ensure that you bring with you the proof of identity which you specified while
+                        registering.
+                    </p>
+                    <p>Please note that your details will be held for 30 days. If you do not visit the London Metropolitan Archives within this time to complete your registration, your details will be deleted.
+                    </p>
+                </div>
+
+                <a href="/"> <button class="btn btn-primary btn-lg" name="submit">Back to Homepage</button></a>
             </div>
         </div>
         <!-- This <div> is the Left-Panel and needs to be moved to leftPanel.html -->

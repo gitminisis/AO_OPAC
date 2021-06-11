@@ -1,0 +1,46 @@
+.FAQ-Btn {
+    width: 150px;
+    justify-content: center;
+    font-size: 1.5em;
+    color: #A5A8AC;
+}
+
+.FAQ-Btn,
+.FAQ-Input {
+    border-radius: 8px;
+    height: 50px;
+}
+
+.FAQ-Input {
+    width: 60%;
+}
+
+.FAQ-Input-Label {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.FAQ-Wheel {
+    height: 100px;
+    width: 50%;
+    overflow: scroll;
+}
+
+
+.FAQ-Wheel::-webkit-scrollbar {
+    display: none;
+  }
+  
+.FAQ-Wheel {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.FAQ-Wrapper {
+    background-color: #39b54a;
+    color: #FFF;
+    padding: 1em;
+    padding-top: 1px;
+}
+
+
