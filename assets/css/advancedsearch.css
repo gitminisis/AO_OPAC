@@ -5,12 +5,12 @@
 }
 
 ul.advsearch_checkbox li{
-margin: 0;
-width: 40%;
-padding: 5px 0px;
--moz-box-sizing: border-box;
--webkit-box-sizing: border-box;
-box-sizing: border-box;
-display: inline-block;
-vertical-align: top;
+    margin: 0;
+    width: 40%;
+    padding: 5px 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
 }
