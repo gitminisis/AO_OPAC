@@ -20,18 +20,18 @@
     font-weight: bold;
 }
 
-.FAQ-Wheel {
-    height: 100px;
+#FAQ-Wheel {
+    height: 120px;
     width: 50%;
     overflow: scroll;
 }
 
 
-.FAQ-Wheel::-webkit-scrollbar {
+#FAQ-Wheel::-webkit-scrollbar {
     display: none;
   }
   
-.FAQ-Wheel {
+#FAQ-Wheel {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
