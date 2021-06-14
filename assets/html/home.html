@@ -1,88 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!-- include virtual="[AO_INCLUDES]head.html"-->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search</title>
-    <!-- This <link> needs to be moved to head.html -->
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="../css/index.css" rel="stylesheet" />
-</head>
+    <body>
+        
+        <!-- include virtual="[AO_INCLUDES]header.html"-->
+        <title>Home</title>
+        
+        
+        <div id='Content-Wrapper' class='d-flex flex-row'>
+            
+        <!-- include virtual="[AO_INCLUDES]leftPanel.html"-->
 
-<body>
-    <!-- Header needs to be moved to header.html -->
-    <header>
-        <div class='Header-Wrapper'>
-            <div class='d-flex flex-row justify-content-between'>
-                <div id='Header-Logo'>
-                    <a class="Header-Logo-Anchor" href='#'>
-                        <img src='../img/logo-ontario-blk@2x.png' width='180' height='46' />
-                    </a>
-                </div>
-                <div>
-                    <p class="Nav-Flip">
-                        <a href='#'>Ontario.ca</a>
-                        <span>|</span>
-                        <a href='#'>Français</a>
+            <div id='Panel-Main' class='Main-Content d-flex flex-column align-items-center'>
+                <h1>Welcome to the Archives of Ontario!</h1>
+                <div class='Form-Wrapper'>
+                    <p style='font-size: 2em'>
+                        This Ministerial Department is responsible of the collection, preservation and management of Ontario's History and Public Documentation
                     </p>
-                </div>
-            </div>
-            <p class='Ministry-Header'>Ministry of Government and Consumer Services</p>
-            <div class='Header-Navigation d-flex justify-content-center align-items-center'>
-                <a href='#'>ARCHIVES HOME</a> |
-                <a href='#'>PREPARE FOR YOUR VISIT</a> |
-                <a href='#'>START YOUR RESEARCH FROM HOME</a> |
-                <a href='#'>CONTACT US</a>
-            </div>
-        </div>
-    </header>
-    <div id='Content-Wrapper' class='d-flex flex-row'>
-        <!-- This <div> is the Left-Panel and needs to be moved to leftPanel.html -->
-        <div id='Panel-Left'>
-            <div class='Quick-Links-Container d-flex flex-column'>
-                <h3>Quick Links</h3>
-                <br>
-                <a class='Quick-Links-Item Color-Purple' href='#'>Patron Registration</a>
-                <a class='Quick-Links-Item Color-Purple' href='#'>Patron Login</a>
-                <a class='Quick-Li  nks-Item Color-Green' href='./faq.html'>FAQ</a>
-                <span class='Color-Blue'><b>Submit an Enquiry</b></span>
-                <a class='Quick-Links-Item Color-Blue' href='#'>Submit a Question</a>
-                <a class='Quick-Links-Item Color-Blue' href='#'>Submit a FOI Request</a>
-                <a class='Quick-Links-Item Color-Blue' href='#'>Submit a Donation</a>
-                <span class='Color-Blue'><b>Request</b></span>
-                <a class='Quick-Links-Item Color-Orange' href='#'>Retrieval Services</a>
-                <a class='Quick-Links-Item Color-Orange' href='#'>Reproduction/Certifications</a>
-                <a class='Quick-Links-Item Color-Orange' href='#'>Copyright Services</a>
-                <a class='Quick-Links-Item Color-Orange' href='#'>Restricted Holdings</a>
-                <a class='Quick-Links-Item Color-Orange' href='#'>Loan</a>
-                <a class='Quick-Links-Item Color-Orange' href='#'>Semi-Active Archival Holdings</a>
-                <a class='Quick-Links-Item Color-Orange' href='#'>Art collection (only)</a>
-                <a class='Quick-Links-Item Color-Orange' href='#'>Archives Repository (only)</a>
-                <a class='Quick-Links-Item Color-Orange' href='#'>Library Holdings (only)</a>
-                <a class='Quick-Links-Item Color-Orange' href='#'>Vital Statistics Records</a>
-                <br>
-                <a class='Quick-Links-Item Color-Red' href='#'>Online Exhibits</a>
-                <a class='Quick-Links-Item Color-Pink' href='#'>Crowdsourcing</a>
-            </div>
-        </div>
-        <div id='Panel-Main' class='Main-Content d-flex flex-column align-items-center'>
-            <h1>Welcome to the Archives of Ontario!</h1>
-            <div class='Form-Wrapper'>
-                <p style='font-size: 2em'>
-                    This Ministerial Department is responsible of the collection, preservation and management of Ontario's History and Public Documentation
-                </p>
-                <form id='Main-Form'>
-                    <span id='Option-Choice'>Option 1: Keyword Search</span>
-                    <span id='Number-Results'></span>
-                    <div class='Input-Wrapper d-flex flex-column'>
-                        <label>Enter a search term or terms:</label>
-                        <input type='text' />
-                    </div>
-                    <div class='Radio-Wrapper d-flex justify-content-evenly'>
-                        <span>
+                    <form id='Main-Form'>
+                        <span id='Option-Choice'>Option 1: Keyword Search</span>
+                        <span id='Number-Results'></span>
+                        <div class='Input-Wrapper d-flex flex-column'>
+                            <label>Enter a search term or terms:</label>
+                            <input type='text' />
+                        </div>
+                        <div class='Radio-Wrapper d-flex justify-content-evenly'>
+                            <span>
                                 <input type='radio' id='All-Keywords' name='search' value='Keyword Search' onclick='onClickSearchOption(value)'/ checked>
                                 <label for='All-Keywords'>All of these keywords</label>
                             </span>
@@ -94,38 +38,28 @@
                                 <input type='radio' id='Exact-Phrase' name='search' value='Exact Search' onclick='onClickSearchOption(value)'/>
                                 <label for='Exact-Phrase'>Exact Phrase</label>
                             </span>
-                    </div>
-                    <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
-                        <input class='Search-Option-Button' type='button' value='SEARCH' />
-                        <a href='#'>ADVANCED SEARCH</a>
-                        <a href='#'>MORE SEARCH OPTIONS</a>
-                    </div>
-                </form>
+                        </div>
+                        <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
+                            <input class='Search-Option-Button' type='button' value='SEARCH'/>
+                            <a href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a>
+                            <a href='#'>MORE SEARCH OPTIONS</a>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-        <!-- This <div> is the Left-Panel and needs to be moved to leftPanel.html -->
-        <div id='Panel-Right' class='d-flex'>
-            <div class='Features-Container d-flex flex-column'>
-                This is the Right-Panel
-            </div>
+
+            <!-- include virtual="[AO_INCLUDES]rightPanel.html"-->
+            
         </div>
     </div>
 
-    <!-- This <footer> needs to be moved to footer.html -->
-    <footer>
-        <hr class='Hr-1'>
-        <div class='Footer-Navigation d-flex align-content-center'>
-            <a href='#'>CONTACT US</a> |
-            <a href='#'>ACCESSIBILITY</a> |
-            <a href='#'>PRIVACY</a> |
-            <a href='#'>TERMS OF USE</a>
-        </div>
-    </footer>
-    <!-- <Script/body//html> need to be moved to footer.html -->
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-    </script>
-    <script src='../js/index.js'></script>
-</body>
 
+
+        <!-- This <footer> needs to be moved to footer.html -->
+        
+        <!-- include virtual="[AO_INCLUDES]footer.html"-->
+        <!-- <Script/body//html> need to be moved to footer.html -->
+        <!-- JavaScript Bundle with Popper -->
+        
+    </body>
 </html>
