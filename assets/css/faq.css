@@ -1,3 +1,8 @@
+.accordion-button, 
+.accordion-header {
+    height: 30px;
+}
+
 .FAQ-Btn {
     width: 150px;
     justify-content: center;
@@ -20,9 +25,17 @@
     font-weight: bold;
 }
 
+.FAQ-Question-Item {
+    color: #000;
+}
+
+.FAQ-Sub-Container,
+.FAQ-Wrapper {
+    height: 100%;
+}
+
 #FAQ-Wheel {
-    height: 120px;
-    width: 50%;
+    /* height: 400px; */
     overflow: scroll;
 }
 
@@ -41,6 +54,38 @@
     color: #FFF;
     padding: 1em;
     padding-top: 1px;
+    height: 100%;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        font-size: 10px;
+    }
+
+    .FAQ-Btn {
+        font-size: 1em;
+    } 
+
+    .FAQ-Input-Label {
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+
+    body {
+        font-size: 18px;
+    }
+
+    .FAQ-Btn {
+        font-size: 1em;
+    } 
+
+    .FAQ-Input-Label {
+        font-size: 2em;
+    }
 }
 
 

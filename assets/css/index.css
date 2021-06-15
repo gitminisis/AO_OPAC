@@ -7,6 +7,12 @@ Subheader: Bold, Medium, or Regular (different from header)
 URL: Bold or Medium
 Logo: Right Side of Layout (Whenever possible) */
 
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
 body {
     padding-top: 1em;
     padding-left: 2em;
@@ -39,6 +45,7 @@ body {
 
 #Content-Wrapper {
     background-color: #F3F4F6;
+    width: 100%;
 }
 
 .Features-Container {
@@ -51,6 +58,10 @@ body {
     color: black;
     margin-left: 0.5em;
     margin-right: 0.5em;
+}
+
+.Form-Subheader {
+    font-size: 2em;
 }
 
 a.Footer-Navigation a,
@@ -123,6 +134,7 @@ hr.Hr-1 {
 #Panel-Main {
     flex: 7;
     padding: 3em;
+    padding-top: 1em;
 }
 
 #Panel-Right {
@@ -151,3 +163,37 @@ hr.Hr-1 {
 .Search-Options-Wrapper a {
     color: black;
 }
+
+
+
+@media only screen and (max-width: 1025px) {
+
+    body {
+        background-color: green;
+    }
+    
+    .Form-Subheader {
+        font-size: 1.25em;
+    }
+    
+    .Header-Navigation {
+        font-size: 1rem;
+    } 
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        background-color: purple;
+    }
+    
+    .Form-Subheader {
+        font-size: 1em;
+    }
+    
+    .Header-Navigation {
+        font-size: 0.75rem;
+    } 
+}
+
