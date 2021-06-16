@@ -151,3 +151,24 @@ hr.Hr-1 {
 .Search-Options-Wrapper a {
     color: black;
 }
+
+.alert {
+    border-left: .8rem solid;
+}
+
+.Sub-Heading{
+    font-size: 1.4rem;
+}
+
+.Page-Heading hr{
+    height:.4rem;
+}
+
+.Enquiry-Link{
+    color: #06c;
+    text-decoration: none;
+}
+.Enquiry-Link:hover{
+
+    text-decoration: underline;
+}
