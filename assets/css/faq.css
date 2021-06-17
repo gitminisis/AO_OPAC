@@ -1,5 +1,4 @@
-.accordion-button, 
-.accordion-header {
+.accordion-button {
     height: 30px;
 }
 
@@ -57,13 +56,37 @@
     height: 100%;
 }
 
+@media only screen and (max-width: 1680px) {
 
-@media only screen and (max-width: 600px) {
 
-    body {
-        font-size: 10px;
+}
+
+@media only screen and (max-width: 1280px) {
+    .FAQ-Btn {
+        font-size: 1em;
+    }
+    
+    /* Override h1 styling in index.css */
+    .FAQ-Header {
+        font-size: 2em;
     }
 
+    .FAQ-Input-Label {
+        font-size: 2em;
+    }
+
+}
+
+@media only screen and (max-width: 975px) {
+    
+    /* Override h1 styling in index.css */
+    .FAQ-Header {
+        font-size: 1.5em;
+    }
+
+}
+
+@media only screen and (max-width: 720px) {
     .FAQ-Btn {
         font-size: 1em;
     } 
@@ -71,21 +94,28 @@
     .FAQ-Input-Label {
         font-size: 1.5em;
     }
+
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 480px) {
 
-    body {
-        font-size: 18px;
-    }
 
-    .FAQ-Btn {
-        font-size: 1em;
-    } 
-
-    .FAQ-Input-Label {
-        font-size: 2em;
-    }
 }
+
+@media only screen and (max-width: 320px) {
+
+
+}
+
+
+
+
+
+
+/* 1050, 975, 600 */
+
+
+
+
 
 

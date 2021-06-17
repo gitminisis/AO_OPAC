@@ -11,6 +11,7 @@ html,
 body {
     height: 100%;
     width: 100%;
+    font-size: 18px;
 }
 
 body {
@@ -43,7 +44,11 @@ body {
     color: #ed037c;
 }
 
-#Content-Wrapper {
+.Content-Wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
     background-color: #F3F4F6;
     width: 100%;
 }
@@ -61,7 +66,7 @@ body {
 }
 
 .Form-Subheader {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 a.Footer-Navigation a,
@@ -127,25 +132,44 @@ hr.Hr-1 {
     font-weight: bold;
 }
 
-#Panel-Left {
+.Panel-Left {
     flex: 2;
 }
 
-#Panel-Main {
+.Panel-Main {
     flex: 7;
-    padding: 3em;
+    padding: 2em;
     padding-top: 1em;
 }
 
-#Panel-Right {
+.Panel-Right {
     flex: 1;
 }
 
 .Quick-Links-Container {
     border-right: 1px solid black;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 1em;
+    padding: 1em;
+}
+
+.Rale-Bold {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+
+.Rale-Bold-Italic {
+    font-family: 'Raleway', sans-serif;
+    font-style:italic;
+    font-weight: 700;
+}
+
+.Rale-Extra {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+}
+
+.Rale-Med {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
 }
 
 .Radio-Wrapper {
@@ -160,13 +184,39 @@ hr.Hr-1 {
     margin-top: 0.5em;
 }
 
+.Search-Options-Wrapper * {
+    margin-right: 10px;
+}
+
 .Search-Options-Wrapper a {
     color: black;
 }
 
 
+@media only screen and (max-width: 1680px) {
 
-@media only screen and (max-width: 1025px) {
+    body {
+        background-color: red;
+    }
+
+    .Header-Navigation {
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 1316px) {
+
+    body {
+        background-color: pink;
+    }
+    
+    h1 {
+        font-size: 1.85em;
+    }
+     
+}
+
+@media only screen and (max-width: 1280px) {
 
     body {
         background-color: green;
@@ -175,25 +225,83 @@ hr.Hr-1 {
     .Form-Subheader {
         font-size: 1.25em;
     }
+
+    h1 {
+        font-size: 1.85em;
+    }
     
     .Header-Navigation {
-        font-size: 1rem;
+        font-size: 0.85em;
     } 
 }
 
+@media only screen and (max-width: 1136px) {
 
-@media only screen and (max-width: 600px) {
+    body {
+        background-color: cyan;
+    }
+
+    h1 {
+        font-size: 1.85em;
+        text-align: center;
+    }
+}
+
+
+/* AWKWARD SPOT THIS WILL CHANGE WHEN FEATURES IS UP */
+@media only screen and (max-width: 794px) {
+
+    body {
+        background-color: violet;
+    }
+
+    .Content-Wrapper {
+        flex-direction: column;
+    }
+
+    .Quick-Links-Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 720px) {
 
     body {
         background-color: purple;
     }
+
+    .Content-Wrapper {
+        flex-direction: column;
+    }
     
     .Form-Subheader {
         font-size: 1em;
-    }
-    
-    .Header-Navigation {
-        font-size: 0.75rem;
     } 
+
+    .Quick-Links-Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
+
+@media only screen and (max-width: 480px) {
+
+    body {
+        background-color: blue;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+
+    body {
+        background-color: yellow;
+    }
+
+}
+
+/* 1180, 975, 600 */
 

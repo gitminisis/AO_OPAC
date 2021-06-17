@@ -1,106 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- include virtual="[AO_INCLUDES]head.html"-->
-    
+    <!-- include virtual="[AO_INCLUDES]head.htm"-->
     <body>
-        
-        <!-- include virtual="[AO_INCLUDES]header.html"-->
+        <!-- include virtual="[AO_INCLUDES]header.htm"-->
         <title>Advanced Search</title>
 
-        <div id='Content-Wrapper' class='d-flex flex-row'>
+        <div id='Content-Wrapper' class='Content-Wrapper d-flex flex-row flex-wrap'>
 
-            <!-- include virtual="[AO_INCLUDES]leftPanel.html"-->
+            <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
 
             <div id='Panel-Main' class='Main-Content d-flex flex-column align-items-center'>
-                <h1>Advanced Search</h1>
+                <h1  class='Rale-Extra'>Advanced Search</h1>
                 <div class='Form-Wrapper'>
                    
                     <form id='Main-Form'>
                         
                         <span id='Number-Results'></span>
                         <div class='Input-Wrapper d-flex flex-column'>
-                            <label>Keyword(s):</label>
+                            <label class='Rale-Bold'>Keyword(s):</label>
                             <input type='text' />
                         </div>
                         <div class='Radio-Wrapper d-flex justify-content-evenly'>
                             <span>
                                 <input type='radio' id='All-Keywords' name='search' value='Keyword Search' onclick='onClickSearchOption(value)'/ checked>
-                                <label for='All-Keywords'>All of these keywords</label>
+                                <label class='Rale-Med' for='All-Keywords'>All of these keywords</label>
                             </span>
                             <span>
                                 <input type='radio' id='Any-Keywords' name='search' value='Keyword Search' onclick='onClickSearchOption(value)'/>
-                                <label for='Any-Keywords'>Any of these keywords</label>
+                                <label class='Rale-Med' for='Any-Keywords'>Any of these keywords</label>
                             </span>
                             <span>
                                 <input type='radio' id='Exact-Phrase' name='search' value='Exact Search' onclick='onClickSearchOption(value)'/>
-                                <label for='Exact-Phrase'>Exact Phrase</label>
+                                <label class='Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
                             </span>
                         </div>
 
                         <ul class="advsearch_checkbox">
                             <li>
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Architectural Drawings
+                                <label class="form-check-label Rale-Med" for="flexCheckDefault">
+                                    Architectural Drawings
                                 </label>
                             </li>
                             <li>
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Photographs, Documentary Art and Posters
+                                <label class="form-check-label Rale-Med" for="flexCheckDefault">
+                                    Photographs, Documentary Art and Posters
                                 </label>
                             </li>
                             <li>
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Maps
+                                <label class="form-check-label Rale-Med" for="flexCheckDefault">
+                                    Maps
                                 </label>
                             </li>
                             <li>
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Sound Recordings
+                                <label class="form-check-label Rale-Med" for="flexCheckDefault">
+                                    Sound Recordings
                                 </label>
                             </li>
                             <li>
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Moving Images
+                                <label class="form-check-label Rale-Med" for="flexCheckDefault">
+                                    Moving Images
                                 </label>
                             </li>
                             <li>
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Textual Records (files and volumes)
+                                <label class="form-check-label Rale-Med" for="flexCheckDefault">
+                                    Textual Records (files and volumes)
                                 </label>
                             </li>
                             <li>
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Artifacts
+                                <label class="form-check-label Rale-Med" for="flexCheckDefault">
+                                    Artifacts
                                 </label>
                             </li>
                             <li>
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Electronic Records
+                                <label class="form-check-label Rale-Med" for="flexCheckDefault">
+                                    Electronic Records
                                 </label>
                             </li>
                         </ul>
 
-                        <div class='Input-Wrapper d-flex flex-column'>
+                        <div class='Input-Wrapper d-flex flex-column Rale-Bold'>
                             <label>Archival Reference Code: <em>(eg. RG 22-5300 or F 229)</em></label>
                             <input type='text' />
                         </div>
-                        <div class='Input-Wrapper d-flex flex-column'>
+                        <div class='Input-Wrapper d-flex flex-column Rale-Bold'>
                             <label>File/Item Reference Code: <em>(eg. F 245-23-0-160)</em></label>
                             <input type='text' />
                         </div>
-                        <div class='Input-Wrapper d-flex flex-column'>
+                        <div class='Input-Wrapper d-flex flex-column Rale-Bold'>
                             <label>Creator Code:</label>
                             <input type='text' />
                         </div>
-                        <div class='Input-Wrapper d-flex flex-column'>
+                        <div class='Input-Wrapper d-flex flex-column Rale-Bold'>
                             <label>Barcode:</label>
                             <input type='text' />
                         </div>
@@ -112,11 +110,11 @@
                 </div>
             </div>
 
-            <!-- include virtual="[AO_INCLUDES]rightPanel.html"-->
+            <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
 
         </div>
         
-        <!-- include virtual="[AO_INCLUDES]footer.html"-->
+        <!-- include virtual="[AO_INCLUDES]footer.htm"-->
 
     </body>
 </html>

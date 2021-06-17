@@ -14,3 +14,18 @@ ul.advsearch_checkbox li{
     display: inline-block;
     vertical-align: top;
 }
+
+@media only screen and (max-width: 1025px) {
+    
+    .Form-Subheader {
+        font-size: 1.25em;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    
+    .Form-Subheader {
+        font-size: 1em;
+    }
+}
