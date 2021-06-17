@@ -138,14 +138,14 @@ hr.Hr-1 {
 }
 
 .Panel-Main {
-    flex: 7;
+    flex: 6;
     padding: 2em;
     padding-top: 1em;
 }
 
-.Panel-Right {
-    flex: 1;
-}
+/* .Panel-Right {
+    flex: 2;
+} */
 
 .Quick-Links-Container {
     border-right: 1px solid black;
@@ -177,7 +177,6 @@ hr.Hr-1 {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
 } 
-}
 
 .Radio-Wrapper {
   margin-top: 0.5em;
