@@ -15,33 +15,33 @@ body {
 }
 
 body {
-    padding-top: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
+  padding-top: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .Color-Purple {
-    color: #92278f;
+  color: #92278f;
 }
 
 .Color-Green {
-    color: #39b54a;
+  color: #39b54a;
 }
 
 .Color-Blue {
-    color: #047bc1;
+  color: #047bc1;
 }
 
 .Color-Orange {
-    color: #f15a22;
+  color: #f15a22;
 }
 
 .Color-Red {
-    color: #ed1c24;
+  color: #ed1c24;
 }
 
 .Color-Pink {
-    color: #ed037c;
+  color: #ed037c;
 }
 
 .Content-Wrapper {
@@ -54,15 +54,15 @@ body {
 }
 
 .Features-Container {
-    border-left: 1px solid black;
-    margin-top: 1em;
-    margin-bottom: 1em;
+  border-left: 1px solid black;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .Footer-Navigation a {
-    color: black;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+  color: black;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .Form-Subheader {
@@ -73,22 +73,22 @@ a.Footer-Navigation a,
 .Header-Navigation a,
 .Nav-Flip a,
 .Quick-Links-Item {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .Header-Navigation a:hover,
 .Footer-Navigation a:hover,
 .Nav-Flip a:hover,
 .Quick-Links-Item:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .Form-Wrapper {
-    width: 90%;
+  width: 90%;
 }
 
 #Header-Logo {
-    margin: 0.5em;
+  margin: 0.5em;
 }
 
 .Header-Navigation {
@@ -100,37 +100,37 @@ a.Footer-Navigation a,
 }   
 
 .Header-Navigation a {
-    color: #FFF;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-    /* text-decoration: none; */
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+  color: #fff;
+  /* text-decoration: none; */
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 hr.Hr-1 {
-    border-top: 3px solid #101010;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+  border-top: 3px solid #101010;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 #Main-Form {
-    background-color: #FFF;
-    padding: 1em;
+  background-color: #fff;
+  padding: 1em;
 }
 
 .Ministry-Header {
-    margin-left: 0.5em;
-    font-weight: bolder;
+  margin-left: 0.5em;
+  font-weight: bolder;
 }
 
 .Nav-Flip a {
-    margin-top: 0.5em; 
-    color: #000;
-    /* text-decoration: none; */
+  margin-top: 0.5em;
+  color: #000;
+  /* text-decoration: none; */
 }
 
 #Option-Choice,
 .Input-Wrapper label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .Panel-Left {
@@ -180,7 +180,7 @@ hr.Hr-1 {
 }
 
 .Radio-Wrapper {
-    margin-top: 0.5em;
+  margin-top: 0.5em;
 }
 
 .Right-Panel {
@@ -188,11 +188,11 @@ hr.Hr-1 {
 }
 
 .Search-Option-Button {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 .Search-Options-Wrapper {
-    margin-top: 0.5em;
+  margin-top: 0.5em;
 }
 
 .Search-Options-Wrapper * {
