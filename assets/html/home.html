@@ -1,6 +1,5 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
 
-        
         <!-- include virtual="[AO_INCLUDES]header.htm"-->
         <title>Home</title>
         
@@ -15,7 +14,7 @@
                     <p style='font-size: 2em'>
                         This Ministerial Department is responsible of the collection, preservation and management of Ontario's History and Public Documentation
                     </p>
-                    <form id='Main-Form'>
+                    <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&DATABASE=DESCRIPTION&ERRMSG=[AO_INCLUDES]error\norecord.html">
                         <span id='Option-Choice'>Option 1: Keyword Search</span>
                         <span id='Number-Results'></span>
                         <div class='Input-Wrapper d-flex flex-column'>
@@ -24,15 +23,15 @@
                         </div>
                         <div class='Radio-Wrapper d-flex justify-content-evenly'>
                             <span>
-                                <input type='radio' id='All-Keywords' name='search' value='Keyword Search' onclick='onClickSearchOption(value)'/ checked>
+                                <input type='radio' id='All-Keywords' value='AND_WORD' name='FLDOP1' value='Keyword Search' onclick='onClickSearchOption(value)'/ checked>
                                 <label for='All-Keywords'>All of these keywords</label>
                             </span>
                             <span>
-                                <input type='radio' id='Any-Keywords' name='search' value='Keyword Search' onclick='onClickSearchOption(value)'/>
+                                <input type='radio' id='Any-Keywords' value='OR_WORD' name='FLDOP1' value='Keyword Search' onclick='onClickSearchOption(value)'/>
                                 <label for='Any-Keywords'>Any of these keywords</label>
                             </span>
                             <span>
-                                <input type='radio' id='Exact-Phrase' name='search' value='Exact Search' onclick='onClickSearchOption(value)'/>
+                                <input type='radio' id='Exact-Phrase' value='ADJ_WORD' name='FLDOP1' value='Exact Search' onclick='onClickSearchOption(value)'/>
                                 <label for='Exact-Phrase'>Exact Phrase</label>
                             </span>
                         </div>
