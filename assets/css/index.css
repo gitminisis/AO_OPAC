@@ -95,7 +95,8 @@ a.Footer-Navigation a,
     background-color: #000;
     color: #FFF;
     font-size: 1.25rem;
-    height: 50px;
+    padding: 15px;
+    /* height: 50px; */
 }   
 
 .Header-Navigation a {
@@ -169,11 +170,21 @@ hr.Hr-1 {
 
 .Rale-Med {
     font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+.Rale-Reg {
+    font-family: 'Raleway', sans-serif;
     font-weight: 400;
+} 
 }
 
 .Radio-Wrapper {
     margin-top: 0.5em;
+}
+
+.Right-Panel {
+    width: 250px;
 }
 
 .Search-Option-Button {
@@ -197,10 +208,6 @@ hr.Hr-1 {
 
     body {
         background-color: red;
-    }
-
-    .Header-Navigation {
-        font-size: 1em;
     }
 }
 
@@ -229,10 +236,6 @@ hr.Hr-1 {
     h1 {
         font-size: 1.85em;
     }
-    
-    .Header-Navigation {
-        font-size: 0.85em;
-    } 
 }
 
 @media only screen and (max-width: 1136px) {
