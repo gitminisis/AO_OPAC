@@ -177,7 +177,7 @@ hr.Hr-1 {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
 } 
-}
+
 
 .Radio-Wrapper {
   margin-top: 0.5em;
@@ -308,3 +308,47 @@ hr.Hr-1 {
 
 /* 1180, 975, 600 */
 
+.alert {
+  border-left: 0.8rem solid;
+}
+
+.Sub-Heading {
+  font-size: 1.4rem;
+}
+
+.Page-Heading hr {
+  height: 0.25rem;
+}
+
+.Enquiry-Link {
+  color: #06c;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+#Enquiry-List.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.Enquiry-Link:hover {
+  text-decoration: underline;
+}
+
+#Enquiry-Form {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 700px;
+}
+#Enquiry-Form .row {
+  margin-top: 5px;
+}
+
+#Enquiry-Button {
+  margin-top: 30px !important;
+}
+#Enquiry-Button #submitBtn {
+  text-align: right;
+}
+#Enquiry-Button #cancelBtn {
+  text-align: left;
+}
