@@ -177,3 +177,22 @@ hr.Hr-1 {
 .Enquiry-Link:hover {
   text-decoration: underline;
 }
+
+#Enquiry-Form {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 700px;
+}
+#Enquiry-Form .row {
+  margin-top: 5px;
+}
+
+#Enquiry-Button {
+  margin-top: 30px !important;
+}
+#Enquiry-Button #submitBtn {
+  text-align: right;
+}
+#Enquiry-Button #cancelBtn {
+  text-align: left;
+}
