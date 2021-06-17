@@ -1,3 +1,7 @@
+.accordion-button {
+    height: 30px;
+}
+
 .FAQ-Btn {
     width: 150px;
     justify-content: center;
@@ -20,18 +24,26 @@
     font-weight: bold;
 }
 
-.FAQ-Wheel {
-    height: 100px;
-    width: 50%;
+.FAQ-Question-Item {
+    color: #000;
+}
+
+.FAQ-Sub-Container,
+.FAQ-Wrapper {
+    height: 100%;
+}
+
+#FAQ-Wheel {
+    /* height: 400px; */
     overflow: scroll;
 }
 
 
-.FAQ-Wheel::-webkit-scrollbar {
+#FAQ-Wheel::-webkit-scrollbar {
     display: none;
   }
   
-.FAQ-Wheel {
+#FAQ-Wheel {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
@@ -41,6 +53,69 @@
     color: #FFF;
     padding: 1em;
     padding-top: 1px;
+    height: 100%;
 }
+
+@media only screen and (max-width: 1680px) {
+
+
+}
+
+@media only screen and (max-width: 1280px) {
+    .FAQ-Btn {
+        font-size: 1em;
+    }
+    
+    /* Override h1 styling in index.css */
+    .FAQ-Header {
+        font-size: 2em;
+    }
+
+    .FAQ-Input-Label {
+        font-size: 2em;
+    }
+
+}
+
+@media only screen and (max-width: 975px) {
+    
+    /* Override h1 styling in index.css */
+    .FAQ-Header {
+        font-size: 1.5em;
+    }
+
+}
+
+@media only screen and (max-width: 720px) {
+    .FAQ-Btn {
+        font-size: 1em;
+    } 
+
+    .FAQ-Input-Label {
+        font-size: 1.5em;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+
+}
+
+@media only screen and (max-width: 320px) {
+
+
+}
+
+
+
+
+
+
+/* 1050, 975, 600 */
+
+
+
+
 
 
