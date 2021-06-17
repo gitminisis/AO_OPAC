@@ -11,15 +11,15 @@
             <div id='Panel-Main' class='Main-Content d-flex flex-column align-items-center'>
                 <h1>Welcome to the Archives of Ontario!</h1>
                 <div class='Form-Wrapper'>
-                    <p style='font-size: 2em'>
+                    <p style='font-size: 2em; text-align: center;'>
                         This Ministerial Department is responsible of the collection, preservation and management of Ontario's History and Public Documentation
                     </p>
-                    <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&DATABASE=DESCRIPTION&ERRMSG=[AO_INCLUDES]error\norecord.html">
+                    <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&DATABASE=DESCRIPTION&ERRMSG=[AO_INCLUDES]error/norecord.htm">
                         <span id='Option-Choice'>Option 1: Keyword Search</span>
                         <span id='Number-Results'></span>
                         <div class='Input-Wrapper d-flex flex-column'>
                             <label>Enter a search term or terms:</label>
-                            <input type='text' />
+                            <input id="simple_search_input" type='text' name="KEYWORD_CLUSTER"/>
                         </div>
                         <div class='Radio-Wrapper d-flex justify-content-evenly'>
                             <span>
@@ -36,7 +36,7 @@
                             </span>
                         </div>
                         <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
-                            <input class='Search-Option-Button' type='button' value='SEARCH'/>
+                            <input class='Search-Option-Button' type='submit' value='SEARCH'/>
                             <a href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a>
                             <a href='#'>MORE SEARCH OPTIONS</a>
                         </div>
@@ -49,10 +49,7 @@
         </div>
     </div>
 
-
-
-        <!-- This <footer> needs to be moved to footer.html -->
         
-        <!-- include virtual="[AO_INCLUDES]footer.htm"-->
+<!-- include virtual="[AO_INCLUDES]footer.htm"-->
 
         
