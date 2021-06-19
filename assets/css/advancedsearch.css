@@ -29,3 +29,19 @@ ul.advsearch_checkbox li{
         font-size: 1em;
     }
 }
+
+#adv-search-field::placeholder{
+    font-style: italic;
+    white-space:pre-line;
+    position:relative;
+   
+}
+
+.form-control{
+    border-color:black !important;
+}
+.form-control:focus{
+    border-color:black !important;
+    border: 2px solid black;
+    box-shadow: none;
+}
