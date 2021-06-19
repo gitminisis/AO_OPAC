@@ -20,6 +20,15 @@ body {
   padding-right: 2em;
 }
 
+#accordion-button {
+  box-shadow: none;
+  background: none;
+}
+
+.alert {
+  border-left: 0.8rem solid;
+}
+
 .Color-Purple {
   color: #92278f;
 }
@@ -51,6 +60,48 @@ body {
 
     background-color: #F3F4F6;
     width: 100%;
+}
+
+.Enquiry-Link {
+  color: #06c;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+#Enquiry-List.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.Enquiry-Link:hover {
+  text-decoration: underline;
+}
+
+#Enquiry-Form {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+#Enquiry-Form .row {
+  margin-top: 5px;
+}
+
+#Enquiry-Button {
+  margin-top: 30px !important;
+}
+
+#Enquiry-Button #submitBtn {
+  text-align: right;
+}
+
+#Enquiry-Button #cancelBtn {
+  text-align: left;
+}
+
+.FAQ-Answer {
+  background-color: #000;
 }
 
 .Features-Container {
@@ -87,6 +138,11 @@ a.Footer-Navigation a,
   width: 90%;
 }
 
+.Header-Accordion-Btn::after {
+  content:none;
+  background: white;
+}
+
 #Header-Logo {
   margin: 0.5em;
 }
@@ -96,12 +152,10 @@ a.Footer-Navigation a,
     color: #FFF;
     font-size: 1.25rem;
     padding: 15px;
-    /* height: 50px; */
 }   
 
 .Header-Navigation a {
   color: #fff;
-  /* text-decoration: none; */
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
@@ -115,6 +169,62 @@ hr.Hr-1 {
 #Main-Form {
   background-color: #fff;
   padding: 1em;
+}
+
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+  /* border: 3px solid #fff; */
+}
+
+.menu-btn-burger {
+  width: 50px;
+  height: 6px;
+  background: #000;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255,101,47,.2);
+  transition: all .5s ease-in-out;
+}
+
+.menu-btn-burger::before,
+.menu-btn-burger::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background: #000;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255,101,47,.2);
+  transition: all .5s ease-in-out;
+}
+
+.menu-btn-burger::before {
+  transform: translateY(-16px);
+}
+
+.menu-btn-burger::after {
+  transform: translateY(16px);
+}
+
+/* ANIMATION */
+.menu-btn.open .menu-btn-burger {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+
+.menu-btn.open .menu-btn-burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn-burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
 }
 
 .Ministry-Header {
@@ -133,6 +243,10 @@ hr.Hr-1 {
   font-weight: bold;
 }
 
+.Page-Heading hr {
+  height: 0.25rem;
+}
+
 .Panel-Left {
     flex: 2;
 }
@@ -143,9 +257,9 @@ hr.Hr-1 {
     padding-top: 1em;
 }
 
-/* .Panel-Right {
+.Panel-Right {
     flex: 2;
-} */
+}
 
 .Quick-Links-Container {
     border-right: 1px solid black;
@@ -200,6 +314,10 @@ hr.Hr-1 {
 
 .Search-Options-Wrapper a {
     color: black;
+}
+
+.Sub-Heading {
+  font-size: 1.4rem;
 }
 
 
@@ -282,6 +400,10 @@ hr.Hr-1 {
         font-size: 1em;
     } 
 
+    .Header-Navigation {
+      font-size: 1.2rem;
+    }
+
     .Quick-Links-Container {
         display: flex;
         flex-direction: column;
@@ -289,12 +411,31 @@ hr.Hr-1 {
     }
 }
 
+@media only screen and (max-width: 557px) {
+
+  .Header-Navigation {
+    font-size: 1rem;
+  }
+
+}
 @media only screen and (max-width: 480px) {
 
     body {
         background-color: blue;
     }
 
+    .Header-Navigation {
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    #accordion-header {
+      display: flex;
+      justify-items: center;
+      justify-self: center;
+      align-items: center;
+      align-content: center;
+    }
 }
 
 @media only screen and (max-width: 320px) {
@@ -307,47 +448,5 @@ hr.Hr-1 {
 
 /* 1180, 975, 600 */
 
-.alert {
-  border-left: 0.8rem solid;
-}
 
-.Sub-Heading {
-  font-size: 1.4rem;
-}
 
-.Page-Heading hr {
-  height: 0.25rem;
-}
-
-.Enquiry-Link {
-  color: #06c;
-  text-decoration: none;
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-#Enquiry-List.row {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.Enquiry-Link:hover {
-  text-decoration: underline;
-}
-
-#Enquiry-Form {
-  width: 80%;
-  margin: 0 auto;
-  max-width: 700px;
-}
-#Enquiry-Form .row {
-  margin-top: 5px;
-}
-
-#Enquiry-Button {
-  margin-top: 30px !important;
-}
-#Enquiry-Button #submitBtn {
-  text-align: right;
-}
-#Enquiry-Button #cancelBtn {
-  text-align: left;
-}

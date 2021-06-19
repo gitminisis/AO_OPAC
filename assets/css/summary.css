@@ -1,0 +1,20 @@
+.pagination-btn {
+    margin: 5px;
+}
+
+.Record-Item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    margin: 5px;
+    padding: 1em;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.Record-Item:nth-child(even) {
+    background: red;
+  }

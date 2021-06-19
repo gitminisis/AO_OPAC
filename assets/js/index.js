@@ -4,26 +4,20 @@ const onClickSearchOption = (value) => {
     span.innerText = option + value;
 }
 
-let lastKnownScrollPosition = 0;
-let ticking = false;
 
-const  doSomething = (scrollPos) => {
-    // Do something with the scroll position
-    console.log(scrollPos)
-}
-
-let scroll = document.getElementById('FAQ-Wheel');
-
-scroll.addEventListener('scroll', function(e) {
-    lastKnownScrollPosition = scroll.scrollY;
-    console.log(e)
-  
-    if (!ticking) {
-      window.requestAnimationFrame(function() {
-        doSomething(lastKnownScrollPosition);
-        ticking = false;
-      });
-  
-      ticking = true;
+  const menuBtn = document.querySelector('.menu-btn')
+  console.log(menuBtn)
+  const accordion = document.getElementById('accordion-button'); // we get the accordion button to add eventlistner
+  let menuOpen = false;
+  accordion.addEventListener('click', () => {
+    if(!menuOpen) {
+      menuBtn.classList.add('open');
+      menuOpen = true;
+    } else {
+      menuBtn.classList.remove('open');
+      menuOpen = false;
     }
   });
+
+  const menuBtn2 = document.querySelectorAll('.menu-btn')
+  console.log(menuBtn2)
