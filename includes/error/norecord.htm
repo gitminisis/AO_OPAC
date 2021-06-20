@@ -1,18 +1,18 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
 
         <!-- include virtual="[AO_INCLUDES]header.htm"-->
-        <title>Home</title>
+        <title>Archives of Ontario - No Results</title>
         
         
-        <div id='Content-Wrapper' class='Content-Wrapper'>
+        <div id='Content-Wrapper' class='d-flex flex-row'>
             
         <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
 
-            <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
-                <h1 class="Rale-Extra">Welcome to the Archives of Ontario!</h1>
+            <div id='Panel-Main' class='Main-Content d-flex flex-column align-items-center'>
+                <h1>No Results Found</h1>
                 <div class='Form-Wrapper'>
                     <p style='font-size: 2em; text-align: center;'>
-                        This Ministerial Department is responsible of the collection, preservation and management of Ontario's History and Public Documentation
+                        Your search retured no results. Please try another search strategy.
                     </p>
                     <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&DATABASE=DESCRIPTION&ERRMSG=[AO_INCLUDES]error/norecord.htm">
                         <span id='Option-Choice'>Option 1: Keyword Search</span>
@@ -23,15 +23,15 @@
                         </div>
                         <div class='Radio-Wrapper d-flex justify-content-evenly'>
                             <span>
-                                <input type='radio' id='All-Keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")'/ checked>
+                                <input type='radio' id='All-Keywords' value='AND_WORD' name='FLDOP1' value='Keyword Search' onclick='onClickSearchOption(value)'/ checked>
                                 <label for='All-Keywords'>All of these keywords</label>
                             </span>
                             <span>
-                                <input type='radio' id='Any-Keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
+                                <input type='radio' id='Any-Keywords' value='OR_WORD' name='FLDOP1' value='Keyword Search' onclick='onClickSearchOption(value)'/>
                                 <label for='Any-Keywords'>Any of these keywords</label>
                             </span>
                             <span>
-                                <input type='radio' id='Exact-Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
+                                <input type='radio' id='Exact-Phrase' value='ADJ_WORD' name='FLDOP1' value='Exact Search' onclick='onClickSearchOption(value)'/>
                                 <label for='Exact-Phrase'>Exact Phrase</label>
                             </span>
                         </div>
@@ -45,6 +45,7 @@
             </div>
 
             <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+            
         </div>
     </div>
 
