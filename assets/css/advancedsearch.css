@@ -45,3 +45,14 @@ ul.advsearch_checkbox li{
     border: 2px solid black;
     box-shadow: none;
 }
+
+
+.btn:focus{
+    box-shadow: none !important;
+    border: 1px solid black;
+    border-radius: 0px;
+}
+
+.adv-operator-container{
+    border: 1px solid black;
+}
