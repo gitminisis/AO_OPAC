@@ -25,6 +25,21 @@ body {
   background: none;
 }
 
+.accordion-header {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+}
+
+/* .accordion-header .Header-Btn,
+.accordion-header .Quick-Btn {
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  align-self: center;
+} */
+
 .alert {
   border-left: 0.8rem solid;
 }
@@ -152,14 +167,20 @@ a.Footer-Navigation a,
   background-color: #000;
 }
 
-.Header-Navigation {
+.Header-Mobile-Nav {
+  display: none;
+}
+
+.Header-Navigation,
+.Header-Navigation-Mobile {
     background-color: #000;
     color: #FFF;
     font-size: 1.25rem;
     padding: 15px;
 }   
 
-.Header-Navigation a {
+.Header-Navigation a,
+.Header-Mobile-Links a {
   color: #fff;
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -275,14 +296,16 @@ hr.Hr-1 {
     flex: 2;
 }
 
-.Quick-Mobile::after, 
-.Quick-Mobile::before {
-  box-sizing: none;
-}
-
 .Quick-Links-Container {
     border-right: 1px solid #000;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
     padding: 1em;
+}
+
+.Quick-Mobile-Container {
+  display: none;
 }
 
 .Rale-Bold {
@@ -384,6 +407,12 @@ hr.Hr-1 {
         font-size: 1.85em;
         text-align: center;
     }
+
+    .Quick-Links-Container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
 }
 
 
@@ -398,10 +427,18 @@ hr.Hr-1 {
         flex-direction: column;
     }
 
-    .Quick-Links-Container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .Quick-Links-Container,
+    .Header-Navigation {
+      display: none !important;
+    }
+
+    .Quick-Mobile-Container,
+    .Header-Mobile-Nav {
+      display: block;
+    }
+
+    .Header-Mobile-Links {
+      text-align: center;
     }
 }
 
@@ -421,12 +458,6 @@ hr.Hr-1 {
 
     .Header-Navigation {
       font-size: 1.2rem;
-    }
-
-    .Quick-Links-Container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 }
 

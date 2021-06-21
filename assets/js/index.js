@@ -5,21 +5,25 @@ const onClickSearchOption = (value) => {
 }
 
 
-let open = false;
-const accordionOnClick = (e) => {
-  console.log(e);
-  console.log(e.parentNode)
-  console.log(e.classList[1])
-  if (!open) {
-    console.log('closed');
+let headOpen  = false;
+let quickOpen = false;
+const headAccordionOnClick = (e) => {
+  if (!headOpen) {
     e.parentNode.classList.add('open');
-    open = true;
-    console.log('opening');
+    headOpen = true;
   } else {
-    console.log('open');
     e.parentNode.classList.remove('open');
-    open = false;
-    console.log('closing');
+    headOpen = false;
+  }
+}
+
+const navAccordionOnClick = (e) => {
+  if (!quickOpen) {
+    e.parentNode.classList.add('open');
+    quickOpen = true;
+  } else {
+    e.parentNode.classList.remove('open');
+    quickOpen = false;
   }
 }
 
