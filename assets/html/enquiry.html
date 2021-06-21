@@ -1,67 +1,72 @@
-  <!-- include virtual="[AO_INCLUDES]head.htm"-->
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
 
-  <body>
-    <!-- include virtual="[AO_INCLUDES]header.htm"-->
-    <title>Enquiry</title>
+<body>
+  <!-- include virtual="[AO_INCLUDES]header.htm"-->
+  <title>Enquiry</title>
 
     <div id="Content-Wrapper" class="Content-Wrapper">
       <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
 
-      <div id="Panel-Main" class="Panel-Main Main-Content  align-items-center">
-        <div id="Enquiry-Page">
-          <!-- breadcrumb -->
-          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Enquiry
-              </li>
-            </ol>
-          </nav>
+    <div id="Panel-Main" class="Panel-Main Main-Content  align-items-center">
+      <div id="Enquiry-Page">
+        <!-- breadcrumb -->
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Enquiry
+            </li>
+          </ol>
+        </nav>
 
-          <div class="Page-Heading">
-            <h1>Enquiries and Donations, FOI and General Questions</h1>
-            <br />
-            <p class="Sub-Heading">Please select your type of Enquiry:</p>
-            <hr />
-          </div>
+        <div class="Page-Heading">
+          <h1 class="Rale-Bold d-flex justify-content-center">
+            Enquiries and Donations, FOI and General Questions
+          </h1>
+          <br />
+          <p class="Sub-Heading Rale-Bold">
+            Please select your type of Enquiry:
+          </p>
+          <hr />
+        </div>
 
-          <div id="Enquiry-List">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4 col-sm-12">
-                  <a href="" class="Enquiry-Link">I have a Question</a>
-                  <p>Test</p>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                  <a href="" class="Enquiry-Link">I have a Donation</a>
-                  <p>Test</p>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                  <a href="" class="Enquiry-Link">I have an FOI Request</a>
-                  <p>Test</p>
-                </div>
+        <div id="Enquiry-List">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4 col-md-12">
+                <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/question.html" class="Enquiry-Link">I have a Question</a>
+                <p>Test</p>
               </div>
-              <hr />
-              <div class="row">
-                <div class="col-md-4 col-sm-12">
-                  <a href="" class="Enquiry-Link">I want a Loan</a>
-                  <p>Test</p>
-                </div>
+              <div class="col-lg-4 col-md-12">
+                <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/donation.html" class="Enquiry-Link">I have a Donation</a>
+                <p>Test</p>
+              </div>
+              <div class="col-lg-4 col-md-12">
+                <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/FOI.html" class="Enquiry-Link">I have an FOI Request</a>
+                <p>Test</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-lg-4 col-md-12">
+                <a href="" class="Enquiry-Link">I want a Loan</a>
+                <p>Test</p>
               </div>
             </div>
           </div>
+        </div>
 
-          <div>
-            <a
-              href="/mwimain.dll?GET&APPLICATION=DESCRIPTION&LANGUAGE=144&FILE=[AO_ASSETS]html/signup.html"
-              ><button class="btn btn-primary btn-lg">
-                I want to create an account
-              </button></a
-            >
-          </div>
+        <div class="d-flex justify-content-center Enquiry-Button">
+          <a
+            href="^SESSID^?GET&FILE=[AO_ASSETS]html/signup.html"
+            ><button class="btn btn-primary btn-lg">
+              I want to create an account
+            </button></a
+          >
         </div>
       </div>
-      <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
     </div>
-    <!-- include virtual="[AO_INCLUDES]footer.htm"-->
+    <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+  </div>
+  <!-- include virtual="[AO_INCLUDES]footer.htm"-->
+</body>

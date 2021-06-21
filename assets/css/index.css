@@ -77,6 +77,8 @@ body {
     width: 100%;
 }
 
+/* START OF ENQUIRY CSS */
+
 .Enquiry-Link {
   color: #06c;
   text-decoration: none;
@@ -114,6 +116,13 @@ body {
 #Enquiry-Button #cancelBtn {
   text-align: left;
 }
+
+.Enquiry-Button {
+  margin-top:20px;
+}
+
+/* END OF ENQUIRY CSS */
+
 
 .FAQ-Answer {
   background-color: #FFF;
@@ -499,4 +508,15 @@ hr.Hr-1 {
 /* 1180, 975, 600 */
 
 
+#Enquiry-Form {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 900px;
+}
+#Enquiry-Form .row {
+  margin-top: 5px;
+}
 
+#enqDetail{
+  height: 150px;
+}
