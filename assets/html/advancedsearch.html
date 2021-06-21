@@ -13,9 +13,9 @@
                 <h1  class='Rale-Extra'>Advanced Search</h1>
                 <div class='Form-Wrapper'>
                    
-                    <form id='Main-Form'>
+                    <form id='Main-Form' method="post" name="adv_search" action="^SEARCH^&DATABASE=DESCRIPTION&ERRMSG=[AO_INCLUDES]error/norecord.htm">
                         
-                        <span id='Number-Results'></span>
+                        <!-- <span id='Number-Results'></span>
                         <div class='Input-Wrapper d-flex flex-column'>
                             <label class='Rale-Bold'>Keyword(s):</label>
                             <input type='text' />
@@ -33,7 +33,7 @@
                                 <input type='radio' id='Exact-Phrase' name='search' value='Exact Search' onclick='onClickSearchOption(value)'/>
                                 <label class='Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
                             </span>
-                        </div>
+                        </div> -->
 
                         <!-- <ul class="advsearch_checkbox">
                             <li>
@@ -95,7 +95,7 @@
                                 </select>
                             </div>
                             
-                            <input type="text" class="form-control" id="adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Reference Code">
+                            <input type="text" class="form-control" name="REFD" id="REFD" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Reference Code">
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
                             </div>
@@ -110,7 +110,7 @@
                                 </select>
                             </div>
                             
-                            <input type="text" class="form-control" id="adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Title">
+                            <input type="text" class="form-control" name="TITLE" id="TITLE adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Title">
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
                             </div>
@@ -124,7 +124,7 @@
                                     <option value="and not">Not</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control" id="adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Date">
+                            <input type="text" class="form-control" name="DATE_CR_INC" id="DATE_CR_INC adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Date">
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
                             </div>
@@ -138,7 +138,7 @@
                                     <option value="and not">Not</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control" id="adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Description">
+                            <input type="text" class="form-control" name="PHYSICAL_DESC" id="PHYSICAL_DESC adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Description">
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
                             </div>
@@ -152,7 +152,7 @@
                                     <option value="and not">Not</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control" id="adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Scope">
+                            <input type="text" class="form-control" name="SCOPE" id="SCOPE adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Scope">
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
                             </div>
@@ -166,7 +166,7 @@
                                     <option value="and not">Not</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control" id="adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Subject">
+                            <input type="text" class="form-control" name="SUBJECT" id="SUBJECT adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Subject">
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
                             </div>
@@ -181,7 +181,7 @@
                                 </select>
                             </div>
                             
-                            <input type="text" class="form-control" id="adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Origin">
+                            <input type="text" class="form-control" name="ORGINATOR" id="ORIGINATOR adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Origin">
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
                             </div>
@@ -204,8 +204,9 @@
                             <input type='text' />
                         </div> -->
                         <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
-                            <input class='Search-Option-Button' type='button' value='SEARCH'/>
-                            <a href='#'>MORE SEARCH OPTIONS</a>
+                            
+                            <input class='Search-Option-Button' type='submit' value='SEARCH'/>
+                            <button class="Search-Option-Button" id="clear" type="reset">Clear</button>
                         </div>
                     </form>
                 </div>
