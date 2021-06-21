@@ -101,7 +101,7 @@ body {
 }
 
 .FAQ-Answer {
-  background-color: #000;
+  background-color: #FFF;
 }
 
 .Features-Container {
@@ -138,13 +138,18 @@ a.Footer-Navigation a,
   width: 90%;
 }
 
-.Header-Accordion-Btn::after {
+.Header-Accordion-Btn::after,
+.Quick-Accordion-Btn::after {
   content:none;
   background: white;
 }
 
 #Header-Logo {
   margin: 0.5em;
+}
+
+.Header-Mobile {
+  background-color: #000;
 }
 
 .Header-Navigation {
@@ -171,7 +176,8 @@ hr.Hr-1 {
   padding: 1em;
 }
 
-.menu-btn {
+.Header-Btn,
+.Quick-Btn {
   position: relative;
   display: flex;
   justify-content: center;
@@ -183,7 +189,8 @@ hr.Hr-1 {
   /* border: 3px solid #fff; */
 }
 
-.menu-btn-burger {
+.Header-Btn-Hamburger,
+.Quick-Btn-Hamburger {
   width: 50px;
   height: 6px;
   background: #000;
@@ -192,8 +199,10 @@ hr.Hr-1 {
   transition: all .5s ease-in-out;
 }
 
-.menu-btn-burger::before,
-.menu-btn-burger::after {
+.Header-Btn-Hamburger::before,
+.Header-Btn-Hamburger::after,
+.Quick-Btn-Hamburger::before,
+.Quick-Btn-Hamburger::after {
   content: '';
   position: absolute;
   width: 50px;
@@ -204,26 +213,31 @@ hr.Hr-1 {
   transition: all .5s ease-in-out;
 }
 
-.menu-btn-burger::before {
+.Header-Btn-Hamburger::before, 
+.Quick-Btn-Hamburger::before {
   transform: translateY(-16px);
 }
 
-.menu-btn-burger::after {
+.Header-Btn-Hamburger::after,
+.Quick-Btn-Hamburger::after {
   transform: translateY(16px);
 }
 
 /* ANIMATION */
-.menu-btn.open .menu-btn-burger {
+.Header-Btn.open .Header-Btn-Hamburger, 
+.Quick-Btn.open .Quick-Btn-Hamburger {
   transform: translateX(-50px);
   background: transparent;
   box-shadow: none;
 }
 
-.menu-btn.open .menu-btn-burger::before {
+.Header-Btn.open .Header-Btn-Hamburger::before,
+.Quick-Btn.open .Quick-Btn-Hamburger::before {
   transform: rotate(45deg) translate(35px, -35px);
 }
 
-.menu-btn.open .menu-btn-burger::after {
+.Header-Btn.open .Header-Btn-Hamburger::after, 
+.Quick-Btn.open .Quick-Btn-Hamburger::after {
   transform: rotate(-45deg) translate(35px, 35px);
 }
 
@@ -261,8 +275,13 @@ hr.Hr-1 {
     flex: 2;
 }
 
+.Quick-Mobile::after, 
+.Quick-Mobile::before {
+  box-sizing: none;
+}
+
 .Quick-Links-Container {
-    border-right: 1px solid black;
+    border-right: 1px solid #000;
     padding: 1em;
 }
 

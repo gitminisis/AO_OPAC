@@ -5,19 +5,34 @@ const onClickSearchOption = (value) => {
 }
 
 
-  const menuBtn = document.querySelector('.menu-btn')
-  console.log(menuBtn)
-  const accordion = document.getElementById('accordion-button'); // we get the accordion button to add eventlistner
-  let menuOpen = false;
-  accordion.addEventListener('click', () => {
-    if(!menuOpen) {
-      menuBtn.classList.add('open');
-      menuOpen = true;
-    } else {
-      menuBtn.classList.remove('open');
-      menuOpen = false;
-    }
-  });
+let open = false;
+const accordionOnClick = (e) => {
+  console.log(e);
+  console.log(e.parentNode)
+  console.log(e.classList[1])
+  if (!open) {
+    console.log('closed');
+    e.parentNode.classList.add('open');
+    open = true;
+    console.log('opening');
+  } else {
+    console.log('open');
+    e.parentNode.classList.remove('open');
+    open = false;
+    console.log('closing');
+  }
+}
 
-  const menuBtn2 = document.querySelectorAll('.menu-btn')
-  console.log(menuBtn2)
+  // const headerBurger = document.querySelector('.Header-Btn')
+  // const accordion = document.getElementById('accordion-button'); // we get the accordion button to add eventlistner
+  // let burgerOpen = false;
+  // accordion.addEventListener('click', () => {
+  //   if(!burgerOpen) {
+  //     headerBurger.classList.add('open');
+  //     burgerOpen = true;
+  //   } else {
+  //     headerBurger.classList.remove('open');
+  //     burgerOpen = false;
+  //   }
+  // });
+
