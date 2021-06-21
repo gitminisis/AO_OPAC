@@ -66,3 +66,20 @@ function setCookie(name, value, days) {
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
+
+  const menuBtn = document.querySelector('.menu-btn')
+  console.log(menuBtn)
+  const accordion = document.getElementById('accordion-button'); // we get the accordion button to add eventlistner
+  let menuOpen = false;
+  accordion.addEventListener('click', () => {
+    if(!menuOpen) {
+      menuBtn.classList.add('open');
+      menuOpen = true;
+    } else {
+      menuBtn.classList.remove('open');
+      menuOpen = false;
+    }
+  });
+
+  const menuBtn2 = document.querySelectorAll('.menu-btn')
+  console.log(menuBtn2)

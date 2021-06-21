@@ -2,6 +2,10 @@
     height: 30px;
 }
 
+.alert {
+    border-left: 0.8rem solid;
+  }
+
 .FAQ-Btn {
     width: 150px;
     justify-content: center;
@@ -106,13 +110,6 @@
 
 
 }
-
-
-
-
-
-
-/* 1050, 975, 600 */
 
 
 
