@@ -132,7 +132,7 @@ $ADD_REPORT
 ¶PRINT_LIT_EXP¶Pagination
 ¶PRINT_COND_DISP¶X
 ¶PRINT_RPT_RTN¶PAGE_INDEX_URL
-¶PRINT_UR_PARM¶NUMINDEX=10
+¶PRINT_UR_PARM¶numindex=10,next_kw="<i class='fas fa-angle-double-right'></i>",prev_kw="<i class='fas fa-angle-double-left'></i>",start_marker=" ",end_marker=" "
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶1
 ¶PRINT_LIT_EXP¶<span class="btn btn-outline-danger pagination-btn">Next</span>
@@ -154,7 +154,7 @@ $ADD_REPORT
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶0
-¶PRINT_LIT_EXP¶<div class=Record-Fields>
+¶PRINT_LIT_EXP¶<div class='Record-Fields'>
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶0
@@ -192,7 +192,23 @@ $ADD_REPORT
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶0
-¶PRINT_LIT_EXP¶<div class='Field-Btns'>
+¶PRINT_LIT_EXP¶<div class='Record-Btns'>
+¶PRINT_COND_DISP¶X
+¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
+¶STATEMENT_LEVEL¶0
+¶PRINT_LIT_EXP¶<button class='Record-Btn Crowd-Source'>Crowd Source</button>
+¶PRINT_COND_DISP¶X
+¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
+¶STATEMENT_LEVEL¶0
+¶PRINT_LIT_EXP¶<button class='Record-Btn Reproduction'>Reproduction</button>
+¶PRINT_COND_DISP¶X
+¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
+¶STATEMENT_LEVEL¶0
+¶PRINT_LIT_EXP¶<button class='Record-Btn Req-Material'>Request Material</button>
+¶PRINT_COND_DISP¶X
+¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
+¶STATEMENT_LEVEL¶0
+¶PRINT_LIT_EXP¶<button class='Record-Btn Bookmark'>Bookmark</button>
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶0

@@ -4,7 +4,7 @@
 
 .Record-Item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex: 1;
 
     margin: 5px;
@@ -15,6 +15,24 @@
     box-shadow: 5px 5px 10px #888888;
 }
 
+.Record-Fields {
+    display: flex;
+    flex-direction: column;
+    flex: 8;
+}
+
+.Record-Btns {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.Record-Btn {
+    margin: 5px;
+    border-radius: 4px;
+}
+
+
 .Record-Item:nth-child(even) {
-    background: red;
-  }
+    background: #ECECEA;
+}
