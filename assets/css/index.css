@@ -9,9 +9,9 @@ Logo: Right Side of Layout (Whenever possible) */
 
 html,
 body {
-    height: 100%;
-    width: 100%;
-    font-size: 18px;
+  height: 100%;
+  width: 100%;
+  font-size: 18px;
 }
 
 body {
@@ -54,12 +54,12 @@ body {
 }
 
 .Content-Wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
-    background-color: #F3F4F6;
-    width: 100%;
+  background-color: #f3f4f6;
+  width: 100%;
 }
 
 /* START OF ENQUIRY CSS */
@@ -103,11 +103,10 @@ body {
 }
 
 .Enquiry-Button {
-  margin-top:20px;
+  margin-top: 20px;
 }
 
 /* END OF ENQUIRY CSS */
-
 
 .FAQ-Answer {
   background-color: #000;
@@ -126,7 +125,7 @@ body {
 }
 
 .Form-Subheader {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 a.Footer-Navigation a,
@@ -148,7 +147,7 @@ a.Footer-Navigation a,
 }
 
 .Header-Accordion-Btn::after {
-  content:none;
+  content: none;
   background: white;
 }
 
@@ -157,11 +156,11 @@ a.Footer-Navigation a,
 }
 
 .Header-Navigation {
-    background-color: #000;
-    color: #FFF;
-    font-size: 1.25rem;
-    padding: 15px;
-}   
+  background-color: #000;
+  color: #fff;
+  font-size: 1.25rem;
+  padding: 15px;
+}
 
 .Header-Navigation a {
   color: #fff;
@@ -188,7 +187,7 @@ hr.Hr-1 {
   width: 80px;
   height: 80px;
   cursor: pointer;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   /* border: 3px solid #fff; */
 }
 
@@ -197,20 +196,20 @@ hr.Hr-1 {
   height: 6px;
   background: #000;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(255,101,47,.2);
-  transition: all .5s ease-in-out;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
 }
 
 .menu-btn-burger::before,
 .menu-btn-burger::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 50px;
   height: 6px;
   background: #000;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(255,101,47,.2);
-  transition: all .5s ease-in-out;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
 }
 
 .menu-btn-burger::before {
@@ -257,56 +256,56 @@ hr.Hr-1 {
 }
 
 .Panel-Left {
-    flex: 2;
+  flex: 2;
 }
 
 .Panel-Main {
-    flex: 6;
-    padding: 2em;
-    padding-top: 1em;
+  flex: 6;
+  padding: 2em;
+  padding-top: 1em;
 }
 
 .Panel-Right {
-    flex: 2;
+  flex: 2;
 }
 
 .Quick-Links-Container {
-    border-right: 1px solid black;
-    padding: 1em;
+  border-right: 1px solid black;
+  padding: 1em;
 }
 
 .Rale-Bold {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 700;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
 }
 
 .Rale-Bold-Italic {
-    font-family: 'Raleway', sans-serif;
-    font-style:italic;
-    font-weight: 700;
+  font-family: "Raleway", sans-serif;
+  font-style: italic;
+  font-weight: 700;
 }
 
 .Rale-Extra {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 800;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
 }
 
 .Rale-Med {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 500;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
 }
 
 .Rale-Reg {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-} 
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
 
 .Radio-Wrapper {
   margin-top: 0.5em;
 }
 
 .Right-Panel {
-    width: 250px;
+  width: 250px;
 }
 
 .Search-Option-Button {
@@ -318,146 +317,132 @@ hr.Hr-1 {
 }
 
 .Search-Options-Wrapper * {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .Search-Options-Wrapper a {
-    color: black;
+  color: black;
 }
 
 .Sub-Heading {
   font-size: 1.4rem;
 }
 
-
 @media only screen and (max-width: 1680px) {
-
-    body {
-        background-color: red;
-    }
+  body {
+    background-color: red;
+  }
 }
 
 @media only screen and (max-width: 1316px) {
+  body {
+    background-color: pink;
+  }
 
-    body {
-        background-color: pink;
-    }
-    
-    h1 {
-        font-size: 1.85em;
-    }
-     
+  h1 {
+    font-size: 1.85em;
+  }
 }
 
 @media only screen and (max-width: 1280px) {
+  body {
+    background-color: green;
+  }
 
-    body {
-        background-color: green;
-    }
-    
-    .Form-Subheader {
-        font-size: 1.25em;
-    }
+  .Form-Subheader {
+    font-size: 1.25em;
+  }
 
-    h1 {
-        font-size: 1.85em;
-    }
+  h1 {
+    font-size: 1.85em;
+  }
 }
 
 @media only screen and (max-width: 1136px) {
+  body {
+    background-color: cyan;
+  }
 
-    body {
-        background-color: cyan;
-    }
-
-    h1 {
-        font-size: 1.85em;
-        text-align: center;
-    }
+  h1 {
+    font-size: 1.85em;
+    text-align: center;
+  }
 }
-
 
 /* AWKWARD SPOT THIS WILL CHANGE WHEN FEATURES IS UP */
 @media only screen and (max-width: 794px) {
+  body {
+    background-color: violet;
+  }
 
-    body {
-        background-color: violet;
-    }
+  .Content-Wrapper {
+    flex-direction: column;
+  }
 
-    .Content-Wrapper {
-        flex-direction: column;
-    }
-
-    .Quick-Links-Container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .Quick-Links-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media only screen and (max-width: 720px) {
+  body {
+    background-color: purple;
+  }
 
-    body {
-        background-color: purple;
-    }
+  .Content-Wrapper {
+    flex-direction: column;
+  }
 
-    .Content-Wrapper {
-        flex-direction: column;
-    }
-    
-    .Form-Subheader {
-        font-size: 1em;
-    } 
+  .Form-Subheader {
+    font-size: 1em;
+  }
 
-    .Header-Navigation {
-      font-size: 1.2rem;
-    }
+  .Header-Navigation {
+    font-size: 1.2rem;
+  }
 
-    .Quick-Links-Container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .Quick-Links-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media only screen and (max-width: 557px) {
-
   .Header-Navigation {
     font-size: 1rem;
   }
-
 }
 @media only screen and (max-width: 480px) {
+  body {
+    background-color: blue;
+  }
 
-    body {
-        background-color: blue;
-    }
+  .Header-Navigation {
+    font-size: 1rem;
+    text-align: center;
+  }
 
-    .Header-Navigation {
-      font-size: 1rem;
-      text-align: center;
-    }
-
-    #accordion-header {
-      display: flex;
-      justify-items: center;
-      justify-self: center;
-      align-items: center;
-      align-content: center;
-    }
+  #accordion-header {
+    display: flex;
+    justify-items: center;
+    justify-self: center;
+    align-items: center;
+    align-content: center;
+  }
 }
 
 @media only screen and (max-width: 320px) {
-
-    body {
-        background-color: yellow;
-    }
-
+  body {
+    background-color: yellow;
+  }
 }
 
 /* 1180, 975, 600 */
 
-
+/* Start of Enquiry styling */
 #Enquiry-Form {
   width: 90%;
   margin: 0 auto;
@@ -467,6 +452,9 @@ hr.Hr-1 {
   margin-top: 5px;
 }
 
-#enqDetail{
+#enqDetail {
   height: 150px;
 }
+
+/* End of Enquiry styling */
+
