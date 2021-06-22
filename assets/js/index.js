@@ -5,19 +5,38 @@ const onClickSearchOption = (value) => {
 }
 
 
-  const menuBtn = document.querySelector('.menu-btn')
-  console.log(menuBtn)
-  const accordion = document.getElementById('accordion-button'); // we get the accordion button to add eventlistner
-  let menuOpen = false;
-  accordion.addEventListener('click', () => {
-    if(!menuOpen) {
-      menuBtn.classList.add('open');
-      menuOpen = true;
-    } else {
-      menuBtn.classList.remove('open');
-      menuOpen = false;
-    }
-  });
+let headOpen  = false;
+let quickOpen = false;
+const headAccordionOnClick = (e) => {
+  if (!headOpen) {
+    e.parentNode.classList.add('open');
+    headOpen = true;
+  } else {
+    e.parentNode.classList.remove('open');
+    headOpen = false;
+  }
+}
 
-  const menuBtn2 = document.querySelectorAll('.menu-btn')
-  console.log(menuBtn2)
+const navAccordionOnClick = (e) => {
+  if (!quickOpen) {
+    e.parentNode.classList.add('open');
+    quickOpen = true;
+  } else {
+    e.parentNode.classList.remove('open');
+    quickOpen = false;
+  }
+}
+
+  // const headerBurger = document.querySelector('.Header-Btn')
+  // const accordion = document.getElementById('accordion-button'); // we get the accordion button to add eventlistner
+  // let burgerOpen = false;
+  // accordion.addEventListener('click', () => {
+  //   if(!burgerOpen) {
+  //     headerBurger.classList.add('open');
+  //     burgerOpen = true;
+  //   } else {
+  //     headerBurger.classList.remove('open');
+  //     burgerOpen = false;
+  //   }
+  // });
+
