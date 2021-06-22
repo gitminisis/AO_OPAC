@@ -1,7 +1,7 @@
 <div class="row">
   <div id="Enquiry-Form">
     <form>
-      <div class="row g-3">
+      <div class="row g-3 Rale-Med">
         <div class="col-md-6 col-sm-12">
           <label for="enqFirstName" class="form-label">First Name</label>
           <input
@@ -47,10 +47,10 @@
         </div>
       </div>
 
-      <div class="row g-3">
+      <div class="row g-3 Rale-Med">
         <div class="col-md-12">
           <label for="enqTopic" class="form-label">Topic</label>
-          <select id="enqTopic" class="form-select" disabled>
+          <select id="enqTopic" class="form-select Rale-Reg" disabled>
             <option class="Question-Option">I have a question</option>
             <option class="Donation-Option">I have a donation</option>
             <option class="FOI-Option">I have a FOI request</option>
@@ -60,9 +60,9 @@
 
       <div class="row g-3">
         <div class="col-md-12">
-          <label for="enqDetail">Detail</label>
+          <label for="enqDetail Rale-Med">Detail</label>
           <textarea
-            class="form-control"
+            class="form-control Rale-Reg"
             placeholder="Leave a comment here"
             id="enqDetail"
           ></textarea>
@@ -71,16 +71,16 @@
 
       <div class="row g-3">
         <div class="col-md-6 col-sm-12">
-          <label for="enqPriority" class="form-label">Priority</label>
-          <select id="enqPriority" class="form-select">
+          <label for="enqPriority" class="form-label Rale-Med">Priority</label>
+          <select id="enqPriority" class="form-select Rale-Med">
             <option selected>Low</option>
             <option>Medium</option>
             <option>High</option>
           </select>
         </div>
         <div class="col-md-6 col-sm-12">
-          <label for="enqAffliation" class="form-label">Affliation</label>
-          <select id="enqAffliation" class="form-select">
+          <label for="enqAffliation" class="form-label Rale-Med">Affliation</label>
+          <select id="enqAffliation" class="form-select Rale-Med">
             <option selected>Low</option>
             <option>Medium</option>
             <option>High</option>
@@ -88,7 +88,7 @@
         </div>
       </div>
 
-      <div class="row" id="Enquiry-Button">
+      <div class="row Rale-Med" id="Enquiry-Button">
         <div class="col-md-6" id="submitBtn">
           <button class="btn btn-primary" type="submit">
             Submit
