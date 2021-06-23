@@ -1,3 +1,14 @@
+/* Start of Login styling */
+#Login-Form {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+  }
+  #Login-Form .form-card {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+  }
+  /* End of Login styling */
+  
 #msform {
     /* text-align: center;
     position: relative; */
