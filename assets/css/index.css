@@ -378,7 +378,7 @@ hr.Hr-1 {
 @media only screen and (max-width: 1680px) {
 
     body {
-        background-color: red;
+        /* background-color: red; */
     }
 }
 
