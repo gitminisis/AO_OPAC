@@ -18,3 +18,10 @@
 .Record-Item:nth-child(even) {
     background: red;
   }
+  
+.Unchecked-Bookmark input[type='checkbox']{
+    display:none;
+}
+.Unchecked-Bookmark label{
+    cursor: pointer;
+}
