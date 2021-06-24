@@ -22,6 +22,11 @@
 .Unchecked-Bookmark input[type='checkbox']{
     display:none;
 }
+
 .Unchecked-Bookmark label{
     cursor: pointer;
+}
+
+.Delete-Bookmark input[type='checkbox']{
+    display:none;
 }
