@@ -19,7 +19,6 @@ body {
 .accordion-header {
   display: flex;
   flex-direction: row;
-
   justify-content: center;
 } 
 
@@ -120,6 +119,7 @@ body {
 /* END OF ENQUIRY CSS */
 
 .FAQ-Answer {
+  background-color: #000;
   background-color: #FFF;
 }
 
@@ -183,11 +183,13 @@ a.Footer-Navigation a,
     color: #FFF;
     font-size: 1.25rem;
     padding: 15px;
+    /* height: 50px; */
 }   
 
 .Header-Navigation a,
 .Header-Mobile-Links a {
   color: #fff;
+  /* text-decoration: none; */
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
@@ -340,6 +342,7 @@ hr.Hr-1 {
 
 .Radio-Wrapper {
   margin-top: 0.5em;
+  margin-bottom: 1em;
 }
 
 .Right-Panel {
@@ -367,9 +370,10 @@ hr.Hr-1 {
 }
 
 @media only screen and (max-width: 1680px) {
-  body {
-    background-color: red;
-  }
+
+    body {
+        /* background-color: red; */
+    }
 }
 
 @media only screen and (max-width: 1316px) {
@@ -489,6 +493,53 @@ hr.Hr-1 {
 }
 
 
+.alert {
+  border-left: 0.8rem solid;
+}
 
-/* End of Enquiry styling */
+.Sub-Heading {
+  font-size: 1.4rem;
+}
 
+.Page-Heading hr {
+  height: 0.25rem;
+}
+
+.Enquiry-Link {
+  color: #06c;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+#Enquiry-List.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.Enquiry-Link:hover {
+  text-decoration: underline;
+}
+
+#Enquiry-Form {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 700px;
+  /* width: 90%;
+  margin: 0 auto;
+  max-width: 900px; */
+}
+#Enquiry-Form .row {
+  margin-top: 5px;
+}
+
+#Enquiry-Button {
+  margin-top: 30px !important;
+}
+#Enquiry-Button #submitBtn {
+  text-align: right;
+}
+#Enquiry-Button #cancelBtn {
+  text-align: left;
+}
+#enqDetail{
+  height: 150px;
+}

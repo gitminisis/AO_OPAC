@@ -13,9 +13,9 @@
                 <h1  class='Rale-Extra'>Advanced Search</h1>
                 <div class='Form-Wrapper'>
                    
-                    <form id='Main-Form'>
+                    <form id='Main-Form' method="post" name="adv_search" action="^SEARCH^&DATABASE=DESCRIPTION&ERRMSG=[AO_INCLUDES]error/norecord.htm">
                         
-                        <span id='Number-Results'></span>
+                        <!-- <span id='Number-Results'></span>
                         <div class='Input-Wrapper d-flex flex-column'>
                             <label class='Rale-Bold'>Keyword(s):</label>
                             <input type='text' />
@@ -33,9 +33,9 @@
                                 <input type='radio' id='Exact-Phrase' name='search' value='Exact Search' onclick='onClickSearchOption(value)'/>
                                 <label class='Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
                             </span>
-                        </div>
+                        </div> -->
 
-                        <ul class="advsearch_checkbox">
+                        <!-- <ul class="advsearch_checkbox">
                             <li>
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label Rale-Med" for="flexCheckDefault">
@@ -84,8 +84,110 @@
                                     Electronic Records
                                 </label>
                             </li>
-                        </ul>
+                        </ul> -->
 
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B01" id="B01" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            
+                            <input type="text" class="form-control" name="REFD" id="REFD" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Reference Code">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B02" id="B02" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            
+                            <input type="text" class="form-control" name="TITLE" id="TITLE adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Title">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B03" id="B03 adv_operators" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" name="DATE_CR_INC" id="DATE_CR_INC adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Date">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B04" id="B04" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" name="PHYSICAL_DESC" id="PHYSICAL_DESC adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Description">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B05" id="B05" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" name="SCOPE" id="SCOPE adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Scope">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B06" id="B06" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" name="SUBJECT" id="SUBJECT adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Subject">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+                
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B07" id="B07" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            
+                            <input type="text" class="form-control" name="ORGINATOR" id="ORIGINATOR adv-search-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Origin">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-toggle="modal" data-target="#fullHeightModalRight" id="whoclusterButton"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- <div class='Input-Wrapper d-flex flex-column Rale-Bold'>
                         <div class='Input-Wrapper d-flex flex-column Rale-Bold'>
                             <label>Archival Reference Code: <em>(eg. RG 22-5300 or F 229)</em></label>
                             <input type='text' />
@@ -101,10 +203,11 @@
                         <div class='Input-Wrapper d-flex flex-column Rale-Bold'>
                             <label>Barcode:</label>
                             <input type='text' />
-                        </div>
+                        </div> -->
                         <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
-                            <input class='Search-Option-Button' type='button' value='SEARCH'/>
-                            <a href='#'>MORE SEARCH OPTIONS</a>
+                            
+                            <input class='Search-Option-Button' type='submit' value='SEARCH'/>
+                            <button class="Search-Option-Button" id="clear" type="reset">CLEAR</button>
                         </div>
                     </form>
                 </div>
