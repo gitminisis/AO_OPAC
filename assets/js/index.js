@@ -1,6 +1,45 @@
 var HOME_SESSID = getCookie("HOME_SESSID");
 var SESSID = getCookie("SESSID");
 
+/* * * * * * * * * * * *
+ * *                 * *
+ * *  Document Ready * *
+ * *                 * *
+ * * * * * * * * * * * */
+$(document).ready(function() {
+
+    // Summary Report "Save to Bookmark" 
+    $('div.summary_result_check label').click(function() {
+        // Basically, we want to check the invisible checkbox and submit the form
+        // so that the "label" acts like a button.
+        console.log("clicked");
+        $(this).parent('div.summary_result_check').find('input[type=checkbox]').attr('checked', 'checked');
+        
+        $('#web_sum_form').submit();
+    });
+    // Detail Report "Save to Bookmark" 
+    $('div.detail_result_check label').click(function() {
+      // Basically, we want to check the invisible checkbox and submit the form
+      // so that the "label" acts like a button.
+      $(this).parent('div.detail_result_check').find('input[type=checkbox]').attr('checked', 'checked');
+      $('#web_det_form').submit();
+    });
+
+    // Detail Bookmark 
+    // When Clicked ajax sends href to minisis to add selected record to list.
+    // Once success, reload the page. Report Checks whether record is in the list or not
+    // to color in the bookmark heart
+    $('.bookmarkbutton').on('click',function() {
+        $.ajax({
+          type: "GET",
+          url:$(this).attr('href'),
+          success:function() {
+            location.reload();
+          }
+        });
+    });
+});
+
 const onClickSearchOption = (value) => {
     let option = value == 'Keyword Search' ? 'Option 1: ' : 'Option 2: ';
     let span = document.getElementById('Option-Choice');
@@ -102,19 +141,4 @@ const navAccordionOnClick = (e) => {
   //   }
   // });
 
-    // Summary Report "Save to Bookmark" 
-    $('div.summary_result_check label').click(function() {
-        // Basically, we want to check the invisible checkbox and submit the form
-        // so that the "label" acts like a button.
-        console.log("clicked");
-        $(this).parent('div.summary_result_check').find('input[type=checkbox]').attr('checked', 'checked');
-        
-        $('#web_sum_form').submit();
-    });
-    // Detail Report "Save to Bookmark" 
-    $('div.detail_result_check label').click(function() {
-      // Basically, we want to check the invisible checkbox and submit the form
-      // so that the "label" acts like a button.
-      $(this).parent('div.detail_result_check').find('input[type=checkbox]').attr('checked', 'checked');
-      $('#web_det_form').submit();
-    });
+
