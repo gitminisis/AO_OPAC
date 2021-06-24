@@ -27,28 +27,32 @@ body {
   border-left: 0.8rem solid;
 }
 
-.Color-Purple {
-  color: #92278f;
+.Color-Blue {
+  color: #047bc1;
+}
+
+.Color-Coast {
+  color: #49a7a2;
 }
 
 .Color-Green {
   color: #39b54a;
 }
 
-.Color-Blue {
-  color: #047bc1;
-}
-
 .Color-Orange {
   color: #f15a22;
 }
 
-.Color-Red {
-  color: #ed1c24;
-}
-
 .Color-Pink {
   color: #ed037c;
+}
+
+.Color-Purple {
+  color: #92278f;
+}
+
+.Color-Red {
+  color: #ed1c24;
 }
 
 .Content-Wrapper {
@@ -78,10 +82,19 @@ body {
   text-decoration: underline;
 }
 
-#Enquiry-Form {
+/* #Enquiry-Form {
   width: 80%;
   margin: 0 auto;
   max-width: 700px;
+} */
+#Enquiry-Form {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+#enqDetail {
+  height: 150px;
 }
 
 #Enquiry-Form .row {
@@ -114,6 +127,8 @@ body {
   border-left: 1px solid black;
   margin-top: 1em;
   margin-bottom: 1em;
+
+  padding: 1em;
 }
 
 .Footer-Navigation a {
@@ -273,7 +288,9 @@ hr.Hr-1 {
   height: 0.25rem;
 }
 
-.Panel-Left {
+.Panel-Left,
+.Panel-Right {
+  display: flex;
   flex: 2;
 }
 
@@ -281,10 +298,6 @@ hr.Hr-1 {
   flex: 6;
   padding: 2em;
   padding-top: 1em;
-}
-
-.Panel-Right {
-  flex: 2;
 }
 
 .Quick-Links-Container {
@@ -414,19 +427,25 @@ hr.Hr-1 {
     flex-direction: column;
   }
 
-    .Quick-Links-Container,
-    .Header-Navigation {
-      display: none !important;
-    }
+  
+  .Header-Mobile-Links {
+    text-align: center;
+  }
 
-    .Quick-Mobile-Container,
-    .Header-Mobile-Nav {
-      display: block;
-    }
+  .Quick-Links-Container,
+  .Header-Navigation {
+    display: none !important;
+  }
+  
+  .Quick-Mobile-Container,
+  .Header-Mobile-Nav {
+    display: block;
+  }
 
-    .Header-Mobile-Links {
-      text-align: center;
-    }
+  .Panel-Left,
+  .Panel-Right {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 720px) {
@@ -461,14 +480,6 @@ hr.Hr-1 {
     font-size: 1rem;
     text-align: center;
   }
-
-  #accordion-header {
-    display: flex;
-    justify-items: center;
-    justify-self: center;
-    align-items: center;
-    align-content: center;
-  }
 }
 
 @media only screen and (max-width: 320px) {
@@ -477,18 +488,7 @@ hr.Hr-1 {
   }
 }
 
-#Enquiry-Form {
-  width: 90%;
-  margin: 0 auto;
-  max-width: 900px;
-}
-#Enquiry-Form .row {
-  margin-top: 5px;
-}
 
-#enqDetail {
-  height: 150px;
-}
 
 /* End of Enquiry styling */
 

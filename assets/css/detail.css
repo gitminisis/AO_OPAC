@@ -1,7 +1,17 @@
+.Detail-Container {
+  padding: 1em;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+
 #Detail-Content {
   width: 100%;
   margin-top: 30px;
   padding: 0.1rem;
+}
+
+.detail-buttons {
+  width: 100px;
 }
 
 #detail-function {
@@ -15,11 +25,16 @@
   max-width: 300px;
   margin-top: 5px;
   margin-bottom: 5px;
+  background-color: #047bc1;
+  border-color: #047bc1;
 }
 
 #next-record {
   float: right;
 }
-.detail-buttons {
-  width: 100px;
+
+table {
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
 }
