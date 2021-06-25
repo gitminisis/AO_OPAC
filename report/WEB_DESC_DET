@@ -48,7 +48,7 @@ $ADD_REPORT
 ¶PRINT_UR_PARM¶[AO_INCLUDES]header.htm
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶1
-¶PRINT_LIT_EXP¶<title>Archives of Ontario - Summary</title>
+¶PRINT_LIT_EXP¶<title class='Rale-Med'>Archives of Ontario - Summary</title>
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶1
@@ -73,7 +73,7 @@ $ADD_REPORT
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶1
-¶PRINT_LIT_EXP¶<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb"> <ol class="breadcrumb"> <li class="breadcrumb-item"><a href="/">Home</a></li> <li class="breadcrumb-item active" aria-current="page">  
+¶PRINT_LIT_EXP¶<nav class='Rale-Med' style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb"> <ol class="breadcrumb"> <li class="breadcrumb-item"><a href="/">Home</a></li> <li class="breadcrumb-item active" aria-current="page"> 
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶1
@@ -90,6 +90,10 @@ $ADD_REPORT
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶1
 ¶PRINT_LIT_EXP¶</li>  <li class="breadcrumb-item active" aria-current="page"> Detail Page </li> </ol> </nav>
+¶PRINT_COND_DISP¶X
+¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
+¶STATEMENT_LEVEL¶1
+¶PRINT_LIT_EXP¶<div class='Detail-Container'>
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶9
 ¶STATEMENT_LEVEL¶0
@@ -109,7 +113,7 @@ $ADD_REPORT
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶0
-¶PRINT_LIT_EXP¶<div id="detail-function" class="row">
+¶PRINT_LIT_EXP¶<div id="detail-function" class="row Rale-Med">
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶0
@@ -133,7 +137,7 @@ $ADD_REPORT
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶0
-¶PRINT_LIT_EXP¶<table class="clearfix table table-striped">
+¶PRINT_LIT_EXP¶<table class="clearfix table table-striped Rale-Reg">
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶0
@@ -215,11 +219,11 @@ $ADD_REPORT
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶0
-¶PRINT_LIT_EXP¶<button class="btn btn-primary detail-buttons" id="previous-record">Previous</button>
+¶PRINT_LIT_EXP¶<button class="btn btn-primary detail-buttons Rale-Med" id="previous-record">Previous</button>
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶0
-¶PRINT_LIT_EXP¶<button class="btn btn-primary detail-buttons" id="next-record">Next</button>
+¶PRINT_LIT_EXP¶<button class="btn btn-primary detail-buttons Rale-Med" id="next-record">Next</button>
 ¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶0
@@ -232,6 +236,10 @@ $ADD_REPORT
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶4
 ¶STATEMENT_LEVEL¶0
 ¶IF_EXP¶$LAST_MEMBER
+¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
+¶STATEMENT_LEVEL¶1
+¶PRINT_LIT_EXP¶</div>
+¶PRINT_COND_DISP¶X
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶1
 ¶PRINT_LIT_EXP¶</div>

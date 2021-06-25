@@ -176,6 +176,17 @@ $ADD_REPORT
 ¶PRINT_COND_DISP¶X
 ¶PRINT_SORTOCC¶1
 ¶PRINT_EQ_SUPP¶1
+¶PRINT_RPT_RTN¶RECORD_URL
+¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
+¶STATEMENT_LEVEL¶0
+¶PRINT_EXP¶TITLE
+¶PRINT_LITERAL1¶<p class='Record-Title Rale-Reg'><b class='Rale-Bold'>Title: </b>
+¶PRINT_LIT1_TYPE¶1
+¶PRINT_LITERAL2¶</p>
+¶PRINT_LIT2_TYPE¶2
+¶PRINT_COND_DISP¶X
+¶PRINT_SORTOCC¶1
+¶PRINT_EQ_SUPP¶1
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶0
 ¶PRINT_EXP¶DATE_CR_INC
@@ -239,7 +250,7 @@ $ADD_REPORT
 ¶PRINT_LIT_EXP¶Pagination
 ¶PRINT_COND_DISP¶X
 ¶PRINT_RPT_RTN¶PAGE_INDEX_URL
-¶PRINT_UR_PARM¶NUMINDEX=10
+¶PRINT_UR_PARM¶numindex=10,next_kw="<i class='fas fa-angle-double-right'></i>",prev_kw="<i class='fas fa-angle-double-left'></i>",start_marker=" ",end_marker=" "
 ¶PROC_STATEMENT¶¶STATEMENT_TYPE¶1
 ¶STATEMENT_LEVEL¶1
 ¶PRINT_LIT_EXP¶<span class="btn btn-outline-danger pagination-btn">Next</span>
