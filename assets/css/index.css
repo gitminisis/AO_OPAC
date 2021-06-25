@@ -159,6 +159,20 @@ a.Footer-Navigation a,
   width: 90%;
 }
 
+.H2-Mobile-Nav {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.Mobile-Nav-Title,
+.Mobile-Quick-Title {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin: 0px;
+}
+
 .Header-Accordion-Btn::after,
 .Quick-Accordion-Btn::after {
   content:none;
@@ -211,8 +225,8 @@ hr.Hr-1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 50px;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   /* border: 3px solid #fff; */
@@ -370,16 +384,10 @@ hr.Hr-1 {
 }
 
 @media only screen and (max-width: 1680px) {
-
-    body {
-        /* background-color: red; */
-    }
+   /* something will go here */
 }
 
 @media only screen and (max-width: 1316px) {
-  body {
-    background-color: pink;
-  }
 
   h1 {
     font-size: 1.85em;
@@ -387,9 +395,6 @@ hr.Hr-1 {
 }
 
 @media only screen and (max-width: 1280px) {
-  body {
-    background-color: green;
-  }
 
   .Form-Subheader {
     font-size: 1.25em;
@@ -401,13 +406,6 @@ hr.Hr-1 {
 }
 
 @media only screen and (max-width: 1136px) {
-  body {
-    background-color: cyan;
-  }
-
-    body {
-        background-color: cyan;
-    }
 
     h1 {
         font-size: 1.85em;
@@ -423,9 +421,6 @@ hr.Hr-1 {
 
 /* AWKWARD SPOT THIS WILL CHANGE WHEN FEATURES IS UP */
 @media only screen and (max-width: 794px) {
-  body {
-    background-color: violet;
-  }
 
   .Content-Wrapper {
     flex-direction: column;
@@ -453,9 +448,6 @@ hr.Hr-1 {
 }
 
 @media only screen and (max-width: 720px) {
-  body {
-    background-color: purple;
-  }
 
   .Content-Wrapper {
     flex-direction: column;
@@ -476,9 +468,6 @@ hr.Hr-1 {
   }
 }
 @media only screen and (max-width: 480px) {
-  body {
-    background-color: blue;
-  }
 
   .Header-Navigation {
     font-size: 1rem;
@@ -487,9 +476,7 @@ hr.Hr-1 {
 }
 
 @media only screen and (max-width: 320px) {
-  body {
-    background-color: yellow;
-  }
+  /* something will go here */
 }
 
 
