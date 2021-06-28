@@ -124,11 +124,13 @@ body {
 
 
 .FAQ-Answer {
-  background-color: #000;
-  background-color: #FFF;
+  /* background-color: #000;
+  background-color: #FFF; */
 }
 
 .Features-Container {
+  width: 100%;
+  padding: 1em;
   border-left: 1px solid black;
   margin-top: 1em;
   margin-bottom: 1em;
