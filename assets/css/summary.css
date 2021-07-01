@@ -1,0 +1,53 @@
+.pagination-btn {
+    margin: 5px;
+}
+
+.Record-Item {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+
+    margin: 5px;
+    padding: 1em;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.Record-Fields {
+    display: flex;
+    flex-direction: column;
+    flex: 8;
+}
+
+.Record-Btns {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.Record-Btn {
+    margin: 5px;
+    border-radius: 4px;
+}
+.filter-ul{
+    padding: 0 !important;
+    text-align: center;
+}
+
+/* .Record-Item:nth-child(even) {
+    background: red;
+  } */
+  
+.Unchecked-Bookmark input[type='checkbox']{
+    display:none;
+}
+
+.Unchecked-Bookmark label{
+    cursor: pointer;
+}
+
+.Delete-Bookmark input[type='checkbox']{
+    display:none;
+}
