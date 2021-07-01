@@ -29,51 +29,47 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-
-/* .accordion-header .Header-Btn,
-.accordion-header .Quick-Btn {
-  display: flex;
-  flex-direction: row;
-  justify-self: center;
-  align-self: center;
-} */
+} 
 
 .alert {
   border-left: 0.8rem solid;
-}
-
-.Color-Purple {
-  color: #92278f;
-}
-
-.Color-Green {
-  color: #39b54a;
 }
 
 .Color-Blue {
   color: #047bc1;
 }
 
-.Color-Orange {
-  color: #f15a22;
+.Color-Coast {
+  color: #49a7a2;
 }
 
-.Color-Red {
-  color: #ed1c24;
+.Color-Green {
+  color: #39b54a;
+}
+
+.Color-Orange {
+  color: #f15a22;
 }
 
 .Color-Pink {
   color: #ed037c;
 }
 
-.Content-Wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.Color-Purple {
+  color: #92278f;
+}
 
-    background-color: #F3F4F6;
-    width: 100%;
+.Color-Red {
+  color: #ed1c24;
+}
+
+.Content-Wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  background-color: #f3f4f6;
+  width: 100%;
 }
 
 /* START OF ENQUIRY CSS */
@@ -94,14 +90,26 @@ body {
   text-decoration: underline;
 }
 
-#Enquiry-Form {
+/* #Enquiry-Form {
   width: 80%;
   margin: 0 auto;
   max-width: 700px;
+} */
+#Enquiry-Form {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+#enqDetail {
+  height: 150px;
 }
 
 #Enquiry-Form .row {
   margin-top: 5px;
+}
+#Enquiry-List .row div {
+  height: 150px;
 }
 
 #Enquiry-Button {
@@ -117,23 +125,22 @@ body {
 }
 
 .Enquiry-Button {
-  margin-top:20px;
+  margin-top: 20px;
 }
 
 /* END OF ENQUIRY CSS */
 
-
 .FAQ-Answer {
-  /* background-color: #000;
-  background-color: #FFF; */
+  background-color: #000;
+  background-color: #FFF;
 }
 
 .Features-Container {
-  width: 100%;
-  padding: 1em;
   border-left: 1px solid black;
   margin-top: 1em;
   margin-bottom: 1em;
+  width: 100% !important;
+  padding: 1em;
 }
 
 .Footer-Navigation a {
@@ -143,7 +150,7 @@ body {
 }
 
 .Form-Subheader {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 a.Footer-Navigation a,
@@ -162,6 +169,20 @@ a.Footer-Navigation a,
 
 .Form-Wrapper {
   width: 90%;
+}
+
+.H2-Mobile-Nav {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.Mobile-Nav-Title,
+.Mobile-Quick-Title {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin: 0px;
 }
 
 .Header-Accordion-Btn::after,
@@ -216,10 +237,10 @@ hr.Hr-1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 50px;
   cursor: pointer;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   /* border: 3px solid #fff; */
 }
 
@@ -229,8 +250,8 @@ hr.Hr-1 {
   height: 6px;
   background: #000;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(255,101,47,.2);
-  transition: all .5s ease-in-out;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
 }
 
 .Header-Btn-Hamburger::before,
@@ -243,8 +264,8 @@ hr.Hr-1 {
   height: 6px;
   background: #000;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(255,101,47,.2);
-  transition: all .5s ease-in-out;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
 }
 
 .Header-Btn-Hamburger::before, 
@@ -295,18 +316,16 @@ hr.Hr-1 {
   height: 0.25rem;
 }
 
-.Panel-Left {
-    flex: 2;
+.Panel-Left,
+.Panel-Right {
+  display: flex;
+  flex: 2;
 }
 
 .Panel-Main {
-    flex: 6;
-    padding: 2em;
-    padding-top: 1em;
-}
-
-.Panel-Right {
-    flex: 2;
+  flex: 6;
+  padding: 2em;
+  padding-top: 1em;
 }
 
 .Quick-Links-Container {
@@ -322,30 +341,30 @@ hr.Hr-1 {
 }
 
 .Rale-Bold {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 700;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
 }
 
 .Rale-Bold-Italic {
-    font-family: 'Raleway', sans-serif;
-    font-style:italic;
-    font-weight: 700;
+  font-family: "Raleway", sans-serif;
+  font-style: italic;
+  font-weight: 700;
 }
 
 .Rale-Extra {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 800;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
 }
 
 .Rale-Med {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 500;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
 }
 
 .Rale-Reg {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-} 
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
 
 .Radio-Wrapper {
   margin-top: 0.5em;
@@ -353,7 +372,7 @@ hr.Hr-1 {
 }
 
 .Right-Panel {
-    width: 250px;
+  width: 250px;
 }
 
 .Search-Option-Button {
@@ -365,57 +384,40 @@ hr.Hr-1 {
 }
 
 .Search-Options-Wrapper * {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .Search-Options-Wrapper a {
-    color: black;
+  color: black;
 }
 
 .Sub-Heading {
   font-size: 1.4rem;
 }
 
-
 @media only screen and (max-width: 1680px) {
-
-    body {
-        /* background-color: red; */
-    }
+   /* something will go here */
 }
 
 @media only screen and (max-width: 1316px) {
 
-    body {
-        background-color: pink;
-    }
-    
-    h1 {
-        font-size: 1.85em;
-    }
-     
+  h1 {
+    font-size: 1.85em;
+  }
 }
 
 @media only screen and (max-width: 1280px) {
 
-    body {
-        background-color: green;
-    }
-    
-    .Form-Subheader {
-        font-size: 1.25em;
-    }
+  .Form-Subheader {
+    font-size: 1.25em;
+  }
 
-    h1 {
-        font-size: 1.85em;
-    }
+  h1 {
+    font-size: 1.85em;
+  }
 }
 
 @media only screen and (max-width: 1136px) {
-
-    body {
-        background-color: cyan;
-    }
 
     h1 {
         font-size: 1.85em;
@@ -429,46 +431,43 @@ hr.Hr-1 {
   }
 }
 
-
 /* AWKWARD SPOT THIS WILL CHANGE WHEN FEATURES IS UP */
 @media only screen and (max-width: 794px) {
 
-    body {
-        background-color: violet;
-    }
+  .Content-Wrapper {
+    flex-direction: column;
+  }
 
-    .Content-Wrapper {
-        flex-direction: column;
-    }
+  
+  .Header-Mobile-Links {
+    text-align: center;
+  }
 
-    .Quick-Links-Container,
-    .Header-Navigation {
-      display: none !important;
-    }
+  .Quick-Links-Container,
+  .Header-Navigation {
+    display: none !important;
+  }
+  
+  .Quick-Mobile-Container,
+  .Header-Mobile-Nav {
+    display: block;
+  }
 
-    .Quick-Mobile-Container,
-    .Header-Mobile-Nav {
-      display: block;
-    }
-
-    .Header-Mobile-Links {
-      text-align: center;
-    }
+  .Panel-Left,
+  .Panel-Right {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 720px) {
 
-    body {
-        background-color: purple;
-    }
+  .Content-Wrapper {
+    flex-direction: column;
+  }
 
-    .Content-Wrapper {
-        flex-direction: column;
-    }
-    
-    .Form-Subheader {
-        font-size: 1em;
-    } 
+  .Form-Subheader {
+    font-size: 1em;
+  }
 
     .Header-Navigation {
       font-size: 1.2rem;
@@ -476,41 +475,22 @@ hr.Hr-1 {
 }
 
 @media only screen and (max-width: 557px) {
-
   .Header-Navigation {
     font-size: 1rem;
   }
-
 }
 @media only screen and (max-width: 480px) {
 
-    body {
-        background-color: blue;
-    }
-
-    .Header-Navigation {
-      font-size: 1rem;
-      text-align: center;
-    }
-
-    #accordion-header {
-      display: flex;
-      justify-items: center;
-      justify-self: center;
-      align-items: center;
-      align-content: center;
-    }
+  .Header-Navigation {
+    font-size: 1rem;
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: 320px) {
-
-    body {
-        background-color: yellow;
-    }
-
+  /* something will go here */
 }
 
-/* 1180, 975, 600 */
 
 .alert {
   border-left: 0.8rem solid;

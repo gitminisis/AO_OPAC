@@ -1,105 +1,67 @@
 <div class="row">
-  <div id="Enquiry-Form">
-    <form>
-      <div class="row g-3">
-        <div class="col-md-6 col-sm-12">
-          <label for="enqFirstName" class="form-label">First Name</label>
-          <input
-            id="enqFirstName"
-            type="text"
-            class="form-control"
-            placeholder="First name"
-            aria-label="First name"
-          />
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <label for="enqLastName" class="form-label">Last Name</label>
-          <input
-            type="text"
-            id="enqLastName"
-            class="form-control"
-            placeholder="Last name"
-            aria-label="Last name"
-          />
-        </div>
-      </div>
+    <div id="Enquiry-Form">
+        <form method="POST" action="^SESSID^?SAVERECORD">
+            <input type="text" name="ENQ_ID" readonly value="E-2021-261">
+            <input type="text" name="ENQ_USER_GROUP" readonly value="Donations">
+            <input type="text" name="ENQ_STATUS" readonly value="Request">
+            <div class="row g-3 Rale-Med">
+                <div class="col-md-6 col-sm-12">
+                    <label for="enqFullName" class="form-label">Full Name</label>
+                    <input id="enqFullName" type="text" class="form-control" placeholder="Full name" aria-label="Full name" name="ENQ_PATRON_NAME" />
+                </div>
+                <div class="col-md-6 col-sm-12 ">
+                    <label for="enqEmail " class="form-label ">Email</label>
+                    <input name="ENQ_PATRON_EMAIL" id="enqEmail " type="text " class="form-control " placeholder="Email " aria-label="Email " />
+                </div>
+            </div>
 
-      <div class="row g-3">
-        <div class="col-md-6 col-sm-12">
-          <label for="enqEmail" class="form-label">Email</label>
-          <input
-            id="enqEmail"
-            type="text"
-            class="form-control"
-            placeholder="Email"
-            aria-label="Email"
-          />
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <label for="enqPhone" class="form-label">Telephone</label>
-          <input
-            id="enqPhone"
-            type="text"
-            class="form-control"
-            placeholder="Telephone"
-            aria-label="Telephone"
-          />
-        </div>
-      </div>
 
-      <div class="row g-3">
-        <div class="col-md-12">
-          <label for="enqTopic" class="form-label">Topic</label>
-          <select id="enqTopic" class="form-select" disabled>
-            <option class="Question-Option">I have a question</option>
-            <option class="Donation-Option">I have a donation</option>
-            <option class="FOI-Option">I have a FOI request</option>
+            <div class="row g-3 Rale-Med ">
+                <div class="col-md-12 ">
+                    <label for="enqTopic " class="form-label ">Topic</label>
+                    <select id="enqTopic " class="form-select Rale-Reg " disabled name="ENQ_TOPIC">
+            <option class="Question-Option " value="Donations">I have a donation</option>
+            <option class="Donation-Option " value="donation ">I have a donation</option>
+            <option class="FOI-Option ">I have a FOI request</option>
           </select>
-        </div>
-      </div>
+                </div>
+            </div>
 
-      <div class="row g-3">
-        <div class="col-md-12">
-          <label for="enqDetail">Detail</label>
-          <textarea
-            class="form-control"
-            placeholder="Leave a comment here"
-            id="enqDetail"
-          ></textarea>
-        </div>
-      </div>
+            <div class="row g-3 ">
+                <div class="col-md-12 ">
+                    <label for="enqDetail Rale-Med ">Detail</label>
+                    <textarea class="form-control Rale-Reg " placeholder="Leave a comment here " id="enqDetail" name="ENQ_TOPIC_DETAIL"></textarea>
+                </div>
+            </div>
 
-      <div class="row g-3">
-        <div class="col-md-6 col-sm-12">
-          <label for="enqPriority" class="form-label">Priority</label>
-          <select id="enqPriority" class="form-select">
+            <div class="row g-3 ">
+                <div class="col-md-6 col-sm-12 ">
+                    <label for="enqPriority " class="form-label Rale-Med ">Priority</label>
+                    <select id="enqPriority" class="form-select Rale-Med " name="ENQ_PRIORITY">
             <option selected>Low</option>
             <option>Medium</option>
             <option>High</option>
           </select>
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <label for="enqAffliation" class="form-label">Affliation</label>
-          <select id="enqAffliation" class="form-select">
-            <option selected>Low</option>
-            <option>Medium</option>
-            <option>High</option>
-          </select>
-        </div>
-      </div>
+                </div>
+                <div class="col-md-6 col-sm-12 ">
+                    <label for="enqAffliation " class="form-label Rale-Med ">Affliation</label>
+                    <input name="ENQ_AFFILIATE" id="enqAffliation" type="text " class="form-control " placeholder="Affliation " aria-label="Affliation " />
+                </div>
+            </div>
 
-      <div class="row" id="Enquiry-Button">
-        <div class="col-md-6" id="submitBtn">
-          <button class="btn btn-primary" type="submit">
+            <div class="row Rale-Med " id="Enquiry-Button ">
+                <div class="col-md-6 " id="submitBtn ">
+                    <button class="btn btn-primary " type="submit ">
             Submit
           </button>
-        </div>
-        <div class="col-md-6" id="cancelBtn">
-          <button class="btn btn-secondary">
-            Cancel
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
+                </div>
+                <div class="col-md-6 " id="cancelBtn ">
+                    <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/enquiry.html ">
+                        <button class="btn btn-secondary ">
+              Cancel
+            </button></a>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
