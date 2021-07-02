@@ -61,6 +61,11 @@
 .Record-Item:nth-child(even) {
     background: rgb(221, 218, 218);
   }
+
+  .filter-ul{
+    padding: 0 !important;
+    text-align: center;
+}
   
 .Unchecked-Bookmark input[type='checkbox']{
     display:none;
@@ -79,7 +84,3 @@
 .Delete-Bookmark input[type='checkbox']{
     display:none;
 }
-
-/* .Bookmarked-Record {
- 
-} */

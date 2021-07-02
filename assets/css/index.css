@@ -99,6 +99,9 @@ body {
 #Enquiry-Form .row {
   margin-top: 5px;
 }
+#Enquiry-List .row div {
+  height: 150px;
+}
 
 #Enquiry-Button {
   margin-top: 30px !important;
@@ -118,18 +121,27 @@ body {
 
 /* END OF ENQUIRY CSS */
 
+<<<<<<< HEAD
 /* .FAQ-Answer {
   background-color: #000;
   background-color: #FFF;
 } */
+=======
+.FAQ-Answer {
+  background-color: #000;
+  background-color: #FFF;
+}
+>>>>>>> b50ad6a7110f9e9b86476137b192999ce932c09c
 
 .Features-Container {
-  width: 100%;
-  padding: 1em;
   border-left: 1px solid black;
   margin-top: 1em;
   margin-bottom: 1em;
+<<<<<<< HEAD
 
+=======
+  width: 100% !important;
+>>>>>>> b50ad6a7110f9e9b86476137b192999ce932c09c
   padding: 1em;
 }
 
