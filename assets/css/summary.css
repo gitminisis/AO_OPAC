@@ -1,3 +1,28 @@
+.Annotation-Wrapper,
+.Source-Wrapper {
+    border-radius:5px;
+    /* display:inline-block; */
+    /* overflow:hidden; */
+    /* background:#cccccc; */
+    border:1px solid #cccccc;
+  }
+
+  #Annotation-Drop,
+  #Source-Db-Drop {
+    /* width:140px;
+    height:40px; */
+    border:0px;
+    outline:none;
+  }
+
+.Label {
+    margin-right: 5px;
+}
+
+.Modal-Body-Item {
+    margin: 5px;
+}
+
 .pagination-btn {
     margin: 5px;
 }
@@ -34,7 +59,7 @@
 
 
 .Record-Item:nth-child(even) {
-    background: red;
+    background: rgb(221, 218, 218);
   }
   
 .Unchecked-Bookmark input[type='checkbox']{
@@ -45,10 +70,16 @@
     cursor: pointer;
 }
 
+#User-Id-Input {
+    border: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 .Delete-Bookmark input[type='checkbox']{
     display:none;
 }
 
-.Bookmarked-Record {
+/* .Bookmarked-Record {
  
-}
+} */
