@@ -1,3 +1,28 @@
+.Annotation-Wrapper,
+.Source-Wrapper {
+    border-radius:5px;
+    /* display:inline-block; */
+    /* overflow:hidden; */
+    /* background:#cccccc; */
+    border:1px solid #cccccc;
+  }
+
+  #Annotation-Drop,
+  #Source-Db-Drop {
+    /* width:140px;
+    height:40px; */
+    border:0px;
+    outline:none;
+  }
+
+.Label {
+    margin-right: 5px;
+}
+
+.Modal-Body-Item {
+    margin: 5px;
+}
+
 .pagination-btn {
     margin: 5px;
 }
@@ -37,14 +62,22 @@
     margin: 5px;
     border-radius: 4px;
 }
-.filter-ul{
+
+
+.Record-Item:nth-child(even) {
+    background: rgb(221, 218, 218);
+  }
+
+  .filter-ul{
     padding: 0 !important;
     text-align: center;
 }
 
-/* .Record-Item:nth-child(even) {
-    background: red;
-  } */
+textarea {
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #000;
+    border: 1px solid transparent;
+}
   
 .Unchecked-Bookmark input[type='checkbox']{
     display:none;
@@ -54,10 +87,17 @@
     cursor: pointer;
 }
 
+#User-Id-Input {
+    border: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 .Delete-Bookmark input[type='checkbox']{
     display:none;
 }
 
+<<<<<<< HEAD
 .previous-button, 
 .next-button{
     color: black;
@@ -74,3 +114,6 @@
 .summary_result_check{
     text-align: center;
 }
+=======
+
+>>>>>>> 6ba26101fee825234daa0dcff0fcff692757756a
