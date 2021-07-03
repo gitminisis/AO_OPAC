@@ -13,8 +13,6 @@ const setModalAttributes = (list) => {
     {
         // The crowd source button of the record item
         let trigger = list[i].parentNode.childNodes[3].childNodes[1];
-        // The h5 of the modal of the record item
-        let h5 = list[i].childNodes[1].childNodes[1].childNodes[1].childNodes[1];
         // The button for closing the modal
         let button = list[i].childNodes[1].childNodes[1].childNodes[1].childNodes[3];
 
@@ -28,9 +26,7 @@ const setModalAttributes = (list) => {
         trigger.setAttribute('data-bs-target', `#modal-${i}`);
         list[i].setAttribute('id', `modal-${i}`);
         list[i].setAttribute('aria-labelledby', `modal-label-${i}`);
-        h5.setAttribute('id', `modal-label-${i}`);
-        h5.appendChild(textNode);
-        
+
     }
 }
 

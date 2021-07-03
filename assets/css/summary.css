@@ -66,6 +66,12 @@
     padding: 0 !important;
     text-align: center;
 }
+
+textarea {
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #000;
+    border: 1px solid transparent;
+}
   
 .Unchecked-Bookmark input[type='checkbox']{
     display:none;
@@ -84,3 +90,5 @@
 .Delete-Bookmark input[type='checkbox']{
     display:none;
 }
+
+
