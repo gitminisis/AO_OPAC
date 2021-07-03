@@ -1,25 +1,23 @@
 <div class="row">
     <div id="Enquiry-Form">
-        <form method="POST" action="^SESSID^?SAVERECORD">
-            <input type="text" name="ENQ_ID" readonly value="E-2021-261">
-            <input type="text" name="ENQ_USER_GROUP" readonly value="Donations">
-            <input type="text" name="ENQ_STATUS" readonly value="Request">
+        <form method="POST" action="^SAVERECORD^">
+
             <div class="row g-3 Rale-Med">
                 <div class="col-md-6 col-sm-12">
-                    <label for="enqFullName" class="form-label">Full Name</label>
-                    <input id="enqFullName" type="text" class="form-control" placeholder="Full name" aria-label="Full name" name="ENQ_PATRON_NAME" />
+                    <label for="enqFullName" class="form-label">Full Name*</label>
+                    <input id="enqFullName" type="text" class="form-control" placeholder="Full name" aria-label="Full name" name="ENQ_PATRON_NAME" required/>
                 </div>
                 <div class="col-md-6 col-sm-12 ">
-                    <label for="enqEmail " class="form-label ">Email</label>
-                    <input name="ENQ_PATRON_EMAIL" id="enqEmail " type="text " class="form-control " placeholder="Email " aria-label="Email " />
+                    <label for="enqEmail " class="form-label ">Email*</label>
+                    <input name="ENQ_PATRON_EMAIL" id="enqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required />
                 </div>
             </div>
 
 
             <div class="row g-3 Rale-Med ">
                 <div class="col-md-12 ">
-                    <label for="enqTopic " class="form-label ">Topic</label>
-                    <select id="enqTopic " class="form-select Rale-Reg " disabled name="ENQ_TOPIC">
+                    <label for="enqTopic " class="form-label ">Topic*</label>
+                    <select id="enqTopic " class="form-select Rale-Reg" disabled name="ENQ_TOPIC" required>
             <option class="Question-Option " value="Donations">I have a donation</option>
             <option class="Donation-Option " value="donation ">I have a donation</option>
             <option class="FOI-Option ">I have a FOI request</option>
@@ -29,8 +27,8 @@
 
             <div class="row g-3 ">
                 <div class="col-md-12 ">
-                    <label for="enqDetail Rale-Med ">Detail</label>
-                    <textarea class="form-control Rale-Reg " placeholder="Leave a comment here " id="enqDetail" name="ENQ_TOPIC_DETAIL"></textarea>
+                    <label for="enqDetail Rale-Med ">Detail*</label>
+                    <textarea class="form-control Rale-Reg " placeholder="Leave a comment here " id="enqDetail" name="ENQ_TOPIC_DETAIL" required></textarea>
                 </div>
             </div>
 
@@ -44,8 +42,8 @@
           </select>
                 </div>
                 <div class="col-md-6 col-sm-12 ">
-                    <label for="enqAffliation " class="form-label Rale-Med ">Affliation</label>
-                    <input name="ENQ_AFFILIATE" id="enqAffliation" type="text " class="form-control " placeholder="Affliation " aria-label="Affliation " />
+                    <label for="enqAffliation " class="form-label Rale-Med ">Affliation*</label>
+                    <input name="ENQ_AFFILIATE" id="enqAffliation" type="text " class="form-control " placeholder="Affliation " aria-label="Affliation " required/>
                 </div>
             </div>
 

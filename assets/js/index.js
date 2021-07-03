@@ -67,7 +67,7 @@ $(document).ready(function() {
          filter_dropdown_id += x.toString(); // create different filter id in order to append next ul
          newline = "<br/>";
        }
-       $('.filter-class').append($( newline + "<h4 class='filter-title'>- " + filter_title + " -</h4><ul id=" + filter_dropdown_id + " list-group' class='general-desc filter-ul'></ul>"));
+       $('.filter-class').append($( newline + "<h4 class='filter-title' style='font-size:18px; text-align:center;'><b>" + filter_title + "</b></h4><ul id=" + filter_dropdown_id + " list-group' class='general-desc filter-ul'></ul>"));
       //  $('.filter_list_container').append($( newline + "<div class='filter_list_container_inner'><ul id='filter_ul_main'><li id='filter_li_main'><div id='filter_title'><a href='#' name='filter_title'>" + filter_title + " <i class='fa fa-caret-down'/></a></div><ul id=" + filter_dropdown_id + " style='padding-left:0;'></ul></li></ul></div>")); 
        
        for(i = 0; i < item_group_count; i++) {
@@ -85,13 +85,13 @@ $(document).ready(function() {
             item_value = "Yes";
         }
         if (item_value == 'DESCRIPTION_WEB' ) {
-          item_value = "DESCRIPTION";
+          item_value = "Description";
         }
         if (item_value == 'COLLECTIONS_WEB' ) {
-          item_value = "COLLECTIONS";
+          item_value = "Collections";
         }
         if (item_value == 'BIBLIO_WEB' ) {
-          item_value = "BIBLIO";
+          item_value = "Biblio";
         }
         //console.log("Item Value: " + item_value + "\n" + "Item Freq: " + item_frequency + "\n");
 
@@ -112,6 +112,14 @@ const onClickSearchOption = (value) => {
     let option = value == 'Keyword Search' ? 'Option 1: ' : 'Option 2: ';
     let span = document.getElementById('Option-Choice');
     span.innerText = option + value;
+}
+/* * * * * * * * * * * * *
+ * *                   * *
+ * *      Bookmark     * *
+ * *                   * *
+ * * * * * * * * * * * * */
+function bookmark(){
+
 }
 
 /* * * * * * * * * * * * *

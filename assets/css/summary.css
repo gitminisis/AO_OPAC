@@ -2,6 +2,12 @@
     margin: 5px;
 }
 
+.pagination-container a {
+    text-decoration: none;
+}
+.pagination-container a:hover {
+    text-decoration: underline;
+}
 .Record-Item {
     display: flex;
     flex-direction: row;
@@ -50,4 +56,21 @@
 
 .Delete-Bookmark input[type='checkbox']{
     display:none;
+}
+
+.previous-button, 
+.next-button{
+    color: black;
+    text-decoration: none !important;
+    padding: 0 10px 0 10px;
+    background-color:none;
+    font-size: 18px !important;
+}
+.previous-button:hover,
+.next-button:hover{
+    font-weight: bold;
+}
+
+.summary_result_check{
+    text-align: center;
 }
