@@ -1,10 +1,25 @@
-$(document).ready(function() {
-  if (document.querySelector("#Question-Form")) {
-    document.querySelector(".Question-Option").selected = true;
-  } else if (document.querySelector("#Donation-Form")) {
+$(document).ready(function () {
 
-    document.querySelector(".Donation-Option").selected = true;
-  } else if (document.querySelector("#FOI-Form")) {
-    document.querySelector(".FOI-Option").selected = true;
-  }
+
+
 });
+
+let fullName = ''
+$('#enqFirstName').change(function () {
+  console.log('test')
+  let firstName = document.getElementById('enqFirstName').value;
+  let lastName = document.getElementById('enqLastName').value;
+
+  fullName = firstName + ' ' + lastName;
+  document.getElementById('enqFullName').value = fullName
+})
+
+$('#enqLastName').change(function () {
+  console.log('test')
+  let firstName = document.getElementById('enqFirstName').value;
+  let lastName = document.getElementById('enqLastName').value;
+
+  fullName = firstName + ' ' + lastName;
+  document.getElementById('enqFullName').value = fullName
+})
+

@@ -97,7 +97,6 @@ textarea {
     display:none;
 }
 
-<<<<<<< HEAD
 .previous-button, 
 .next-button{
     color: black;
@@ -114,6 +113,47 @@ textarea {
 .summary_result_check{
     text-align: center;
 }
-=======
 
->>>>>>> 6ba26101fee825234daa0dcff0fcff692757756a
+.web_sum_form{
+    text-align: center;
+}
+button.Bookmark{
+    width:93%;
+}
+
+/*
+#cboxContent{
+    background:white !important;
+    border: 1px solid black !important;
+    
+}
+*/
+
+form div .Crowd-Header-Title{
+    text-align: center !important;
+    padding: 20px 0 20px 0 !important;
+}
+.Crowd-Body-Item{
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 10px 0 10px 0 !important;
+}
+.Crowd-Body-Content{
+    
+}
+
+/*
+#cboxLoadedContent {
+    height:714px !important;
+}
+#cboxLoadedContent iframe{
+    width: 100% !important;
+    height: 100% !important;
+
+}
+*/
+
+#cs-form{
+    font-family: "Raleway", sans-serif !important;
+    font-weight: 400;
+}

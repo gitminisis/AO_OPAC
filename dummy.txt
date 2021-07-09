@@ -1,0 +1,10 @@
+<option>Retrieval Services</option>
+   <option>Reproduction/Certifications</option>
+   <option>Copyright Services</option>
+   <option>Restricted Holdings</option>
+   <option>Loan</option>
+   <option>Semi-Active Archival Holdings</option>
+   <option>Art collection (only)</option>
+   <option>Archives Repository (only)</option>
+   <option>Library Holdings (only)</option>
+   <option>Vital Statistics Records</option>

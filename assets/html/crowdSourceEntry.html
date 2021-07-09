@@ -1,0 +1,78 @@
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+        <!-- include virtual="[AO_INCLUDES]header.htm"-->
+        
+<form method="POST" id="cs-form" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/crowdSourceConfirmation.html">
+    <div class='Crowd-Body-Content'>
+        <h3 class='Crowd-Header-Title'>Crowd Source Data Entry</h3>
+
+
+        <div class='Crowd-Body-Item'>
+            <label class='Label Creator-Label' for='creator'><b>Creator:</b></label>
+            <input name='CREATOR' id='creator' type='text' required>
+        </div>
+
+        <div class='Crowd-Body-Item'>
+            <label class='Label Item-Id-Label' for='itemId'><b>Item ID:</b></label>
+            <input name='COMMENTS_ITEM_ID' id='Item-Id-Input' type='text' name='itemId' readonly>
+        </div>
+
+        <div class='Crowd-Body-Item'>
+            <label class='Label User-Id-Label' for='userId'><b>Item Source:</b></label>
+            <input name='COMMENTS_SOURCE' id='User-Item-Source' type='text' name='userId' readonly>
+        </div>
+
+        <div class='Crowd-Body-Item d-flex flex-row'><label class='Label Comments-Keyword-Label' for='COMMENTS_KEYWORD'><b>Annotation Type:</b></label>
+            <div class='Comments-Keyword-Wrapper'>
+                <select id='Comments-Keyword-Drop COMMENTS_KEYWORD' name='COMMENTS_KEYWORD'>
+                    <option value='AIR TRANSPORT'>AIR TRANSPORT</option>
+                    <option value='ARCHTECTURE'>ARCHTECTURE</option>
+                    <option value='ATTORNEYS'>ATTORNEYS</option>
+                    <option value='BANKRUPTS'>BANKRUPTS</option>
+                    <option value='DEATHS'>DEATHS</option>
+                    <option value='EMIGRATION'>EMIGRATION</option>
+                    <option value='FOREIGN AFFAIRS'>FOREIGN AFFAIRS</option>
+                    <option value='INDIGENOUS'>INDIGENOUS</option>
+                    <option value='PENSIONS'>PENSIONS</option>
+                </select>
+            </div>
+        </div>
+
+        <div class='Crowd-Body-Item d-flex flex-row'><label class='Label Annotation-Label' for='ANNOTATION_TYPE'><b>Annotation Type:</b></label>
+            <div class='Annotation-Wrapper'>
+                <select id='Annotation-Drop ANNOTATION_TYPE' name='ANNOTATION_TYPE'>
+                    <option value='Interpretation'>Interpretation</option>
+                    <option value='Comments'>Comments</option>
+                    <option value='Transcription'>Transcription</option>
+                    <option value='Translated'>Translated</option>
+                    <option value='Other'>Other</option>
+                </select>
+            </div>
+        </div>
+        <div class='Crowd-Body-Item'>
+            <div class='Modal-Body-Item'>
+                <textarea id='Crowd-Source-Comment COMMENTS' name='COMMENTS' rows='4' cols='50' placeholder='Enter Comment Here'></textarea>
+            </div>
+        </div>
+        <button id="cs-submit-btn" class="btn btn-primary" type="submit">
+            Submit
+        </button>
+    </div>
+
+
+</form>
+    <script>
+
+
+        var input_tag   = document.getElementById("Item-Id-Input");
+        input_tag.value = parent.$tmp_data;
+
+        var input_tag2   = document.getElementById("User-Item-Source");
+        input_tag2.value = parent.$tmp_data2;
+
+        if ( parent.$tmp_data3 != '' ) {
+          var input_tag3   = document.getElementById("creator");
+          input_tag3.value = parent.$tmp_data3;
+        }
+    </script>
+<!-- include virtual="[AO_INCLUDES]footer.htm"-->

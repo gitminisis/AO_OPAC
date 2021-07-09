@@ -1,7 +1,27 @@
 
+/* * * * * * * * * * * * *
+ * *                   * *
+ * *   Document Ready  * *
+ * *                   * *
+ * * * * * * * * * * * * */
+$(document).ready(function() {
 
-$(document).ready(function(){
-    $("button.colorbox").click(function(e) {
+    // Detail Bookmark
+    // When Clicked ajax sends href to minisis to add selected record to list.
+    // Once success, reload the page. Report Checks whether record is in the list or not
+    $('.bookmarkbutton').on('click',function() {
+        $.ajax({
+        type: "GET",
+        url:$(this).attr('href'),
+        success:function() {
+            location.reload();
+        }
+        });
+    });
+
+
+
+    $("button.colorbox-detail").click(function(e) {
         let evt = e;
         // $(this).parent().parent().find(".cs-item-sisn");
 
@@ -9,12 +29,11 @@ $(document).ready(function(){
         var test2 = $(this).parent().parent().find(".cs-item-src");
         var test3 = client_name;
 
-
         $.colorbox({
             iframe:true,
             transition: "elastic",
-			width:"1200px",
-			height:"780px",
+            width:"1200px",
+            height:"780px",
             overlayClose: true,
             href:HOME_SESSID + "?addsinglerecord&database=COMMENTS_VIEW&de_form=[AO_ASSETS]html/crowdSourceEntry.html&new=y",
             onLoad: function() {
@@ -31,7 +50,6 @@ $(document).ready(function(){
                 $tmp_data2 = test2.text(); // DESCRIPTION COLLECTION LIBRARY
                 $tmp_data3 = test3;
 
-
             },
             onComplete: function() {
                 //$("#test_btn").click();
@@ -43,37 +61,7 @@ $(document).ready(function(){
                 delete $tmp_data3;
             }
 
-
-
-
-        });
-
-
-    });
-
-    // Summary Bookmark
-    $('#bookmark-id-btn').on('click',function() {
-        $.ajax({
-        type: "GET",
-        url:$(this).attr('href'),
-        success:function() {
-            location.reload();
-        }
         });
     });
-
-    var bookmark_desc = document.getElementById("bookmark-database")
-    // $.ajax({
-    //     url: $("#bookmark-id-btn").attr("action"),
-    //     type: "POST",
-    //     data: "?ADDSELECTION&COOKIE=BOOKMARK&DBNAME=",
-    //   }).then(function (data) {
-    //     location.reload();
-    //   });
-
 
 });
-
-
-
-

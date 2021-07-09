@@ -16,9 +16,9 @@
                         <p class="Rale-Reg">Fill all form field to go to next step</p>
                         <div class="row">
                             <div class="col-md-12 mx-0">
-                                <form id="msform" method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html%5cconfirmation.html">
-                                    <input type="text" name="SISN" placeholder="Address 1" value="93" hidden/>
-                                    <input type="text" name="c_reg_status" placeholder="Address 1" value="NEW" hidden />
+                                <form id="msform" method="POST" action="^saverecord^">
+
+                                    <input type="text" name="C_REG_STATUS" value="Pending" hidden />
                                     <ul id="progressbar">
                                         <li class="active Rale-Bold" id="account">
                                             <strong>Your Details</strong>
@@ -26,8 +26,11 @@
                                         <li id="personal" class="Rale-Bold">
                                             <strong>Current Addess</strong>
                                         </li>
+                                        <li id="confirm" class="Rale-Bold">
+                                            <strong>Contacts</strong>
+                                        </li>
                                         <li id="payment" class="Rale-Bold">
-                                            <strong>Reason for Visit</strong>
+                                            <strong>Research Interest</strong>
                                         </li>
                                     </ul>
 
@@ -35,14 +38,16 @@
                                         <div class="form-card">
                                             <h2 class="fs-title Rale-Bold">Your Details</h2>
                                             <input class="Rale-Reg" type="text" name="C_TITLE" placeholder="Title" />
-                                            <input class="Rale-Reg" type="text" name="C_NAME_FIRST" placeholder="First Name*" required/>
-                                            <input class="Rale-Reg" type="text" name="C_NAME_LAST" placeholder="Last Name*" required/>
-                                            <input class="Rale-Reg" type="email" name="C_EMAIL" placeholder="Email address*" size="25" required/>
+                                            <input class="Rale-Reg" type="text" name="C_NAME_FIRST" placeholder="First Name*" required />
+                                            <input class="Rale-Reg" type="text" name="C_NAME_LAST" placeholder="Last Name*" required />
+                                            <input class="Rale-Reg" type="email" name="C_EMAIL" placeholder="Email address*" size="25" required />
+                                            <input class="Rale-Reg" type="password" name="PATRON_PID" placeholder="Password*" required />
                                         </div>
                                         <button class="next action-button btn btn-primary Rale-Reg" type="button" name="next">
-                      Next
-                    </button>
+                                            Next
+                                        </button>
                                     </fieldset>
+
 
 
 
@@ -59,58 +64,86 @@
                                             <input type="text" name="C_COUNTRY" placeholder="Country" />
                                         </div>
                                         <button type="button" name="previous" class="previous action-button-previous btn btn-primary">
-                      Previous
-                    </button>
+                                            Previous
+                                        </button>
                                         <button type="button" name="next" class="next action-button btn btn-primary">
-                      Next
-                    </button>
+                                            Next
+                                        </button>
                                     </fieldset>
 
                                     <fieldset>
                                         <div class="form-card">
-                                            <h2 class="fs-title">Reason for visit</h2>
+                                            <h2 class="fs-title">Contacts</h2>
+                                            <input type="text" name="C_ORGANIZATION" placeholder="Organization" />
+                                            <input type="text" name="C_TEL_WORK" placeholder="Work Number" />
+                                            <input type="text" name="C_TEL_HOME" placeholder="Phone Number" />
+                                            <input type="text" name="C_TEL_FAX" placeholder="Fax Number" />
+
+                                        </div>
+                                        <button type="button" name="previous" class="previous action-button-previous btn btn-primary">
+                                            Previous
+                                        </button>
+                                        <button type="button" name="next" class="next action-button btn btn-primary">
+                                            Next
+                                        </button>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="form-card">
+                                            <h2 class="fs-title">Research Interest</h2>
                                             <strong>What is the main reason for wishing to visit Archives of Ontario?
-                      </strong>
+                                            </strong>
                                             <p>(Please select one from the list)</p>
 
                                             <div class="form-check">
-                        <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault1" value="Personal leisure/recreation" checked/>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Personal leisure/recreation
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault2" value="Non-leisure personal or family business"/>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          Non-leisure personal or family business
-                        </label>
-                      </div>
+                                                <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault1" value="Personal leisure/recreation" checked />
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    Personal leisure/recreation
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault2" value="Non-leisure personal or family business" />
+                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                    Non-leisure personal or family business
+                                                </label>
+                                            </div>
 
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault3" value="Formal education as teacher"/>
-                        <label class="form-check-label" for="flexRadioDefault3">
-                          Formal education as teacher
-                        </label>
-                      </div>
-                    </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault3" value="Formal education as teacher" />
+                                                <label class="form-check-label" for="flexRadioDefault3">
+                                                    Formal education as teacher
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault4" value="Formal education as student/researcher" />
+                                                <label class="form-check-label" for="flexRadioDefault4">
+                                                    Formal education as student/researcher
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault5" value=" Work in connection with employment" />
+                                                <label class="form-check-label" for="flexRadioDefault5">
+                                                    Work in connection with employment
+                                                </label>
+                                            </div>
+                                        </div>
 
-                                            <button type="button" class="previous action-button-previous btn btn-primary">
-                        Previous
-                      </button>
-                                            <button id="submit_registation" type="submit" class=" action-button btn btn-primary">
-                        Confirm
-                      </button>
+                                        <button type="button" class="previous action-button-previous btn btn-primary">
+                                            Previous
+                                        </button>
+                                        <button id="submit_registation" type="submit" class=" action-button btn btn-primary">
+                                            Confirm
+                                        </button>
                                     </fieldset>
                                 </form>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
     </div>
 
-    <!-- include virtual="[AO_INCLUDES]footer.htm"-->
+    <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+</div>
+
+<!-- include virtual="[AO_INCLUDES]footer.htm"-->

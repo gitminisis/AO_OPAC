@@ -14,7 +14,9 @@
                     <p style='font-size: 2em; text-align: center;'>
                         Your search returned no results. Please try another search strategy.
                     </p>
-                    <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&database=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecord.htm">
+                    <!-- <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&database=UNION_VIEW&ERRMSG=[AO_INCLUDES]error/norecord.htm"> -->
+                        <form id='Main-Form' method="post" name="simple_search" action="?UNIONSEARCH&APPLICATION=UNION_VIEW&ERRMSG=[AO_INCLUDES]error/norecord.htm">
+                        
                         <span id='Option-Choice'>Option 1: Keyword Search</span>
                         <span id='Number-Results'></span>
                         <div class='Input-Wrapper d-flex flex-column'>
