@@ -11,12 +11,20 @@ getClientInfo();
 onDonationRequest();
 }
 function addRequesLink() {
-    var patron_id = getCookie('M2L_PATRON_ID');
+    var patron_id   = getCookie('M2L_PATRON_ID');
     var patron_name = getCookie('M2L_PATRON_NAME');
-    let requestLink = `<a class='Quick-Links-Item Color-Orange Rale-Med' href='${HOME_SESSID}?addsinglerecord&database=REQUEST_VIEW&de_form=[AO_ASSETS]html/request.html'><b>Submit a Request</b></a>`
-    if (patron_name) {
-        $('#Request-Link').append(requestLink)
+    // let requestLink = `<a class='Quick-Links-Item Color-Orange Rale-Med' href='${HOME_SESSID}?addsinglerecord&database=REQUEST_VIEW&de_form=[AO_ASSETS]html/request.html'><b>Submit a Request</b></a>`
+    let reqArr      = document.getElementsByClassName('Req-Topic');
+
+    for (let i = 0; i < reqArr.length; i++) 
+    {
+        reqArr[i].setAttribute('href', `${HOME_SESSID}?addsinglerecord&database=REQUEST_VIEW&de_form=[AO_ASSETS]html/${reqArr[i].name}.html`)
+        reqArr[i].hidden=false
     }
+
+    // if (patron_name) {
+    //     $('#Request-Link').append(requestLink)
+    // }
 }
 
 function onDonationRequest() {
