@@ -1,6 +1,14 @@
-var HOME_SESSID = getCookie("HOME_SESSID");
-var SESSID = getCookie("SESSID");
-var client_name = '';
+let HOME_SESSID = getCookie("HOME_SESSID");
+let SESSID = getCookie("SESSID");
+let client_name = '';
+
+let sessid = "^SESSID^";
+let patron_id = getCookie("M2L_PATRON_ID");
+let patron_name = getCookie("M2L_PATRON_NAME");
+
+console.log(getCookie('M2L_PATRON_ID'))
+console.log(getCookie('M2L_PATRON_NAME'))
+)
 
 /* * * * * * * * * * * *
  * *                 * *

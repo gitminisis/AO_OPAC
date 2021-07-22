@@ -1,17 +1,26 @@
 $(document).ready(function () {
-    getClientInfo()
+    getPatronClientInfo()
 });
 
-
-function getClientInfo() {
+/*
+ This function gets a clients information by taking a cookie (eg. M2L_Patron_ID) and creating a GET request
+ for the clients information from the requisite MINISIS Database.
+ It then pre-fills out the Patron Profile for display to the Patron.
+*/
+function getPatronClientInfo() {
+    // Stored cookie containing a string of the Patron's ID
     var patron_id = getCookie('M2L_PATRON_ID');
     patron_id     = patron_id.split(']')[1];
+
     // let url = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
     let url       = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%2020210001?SESSIONSEARCH`
     
     let tempString = window.location.href;
+
+    // Split the URI on "/" and take the last element of the array
     let tempUrlCheck = tempString.split("/");
-    console.log(tempUrlCheck[tempUrlCheck.length - 1])    
+
+    // Check that the current window.location is patronProfile.html
     if (tempUrlCheck[tempUrlCheck.length - 1] == 'patronProfile.html') {
 
         $.ajax(url).done(function (res) {
