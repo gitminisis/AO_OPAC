@@ -1,25 +1,25 @@
 <div class="row">
     <span id="requestFormPage"></span>
-    <div id="Enquiry-Form">
+    <div id="Request-Form">
         <form method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/requestConfirmation.html">
             <input id="reqFullName" hidden value="" name="REQ_PATRON_NAME" />
             <div class="row g-3 Rale-Med">
                 <div class="col-md-6 col-sm-12">
-                    <label for="enqFirstName" class="form-label">First Name*</label>
-                    <input id="enqFirstName" type="text" class="form-control" placeholder="First name" aria-label="First name" name="" required />
+                    <label for="reqFirstName" class="form-label">First Name*</label>
+                    <input id="reqFirstName" type="text" class="form-control" placeholder="First name" aria-label="First name" name="" required />
                 </div>
                 <div class="col-md-6 col-sm-12">
-                    <label for="enqLastName" class="form-label">Last Name*</label>
-                    <input id="enqLastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="" required />
+                    <label for="reqLastName" class="form-label">Last Name*</label>
+                    <input id="reqLastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="" required />
                 </div>
                 <div class="col-md-6 col-sm-12">
-                    <label for="enqEmail" class="form-label">Email*</label>
-                    <input name="REQ_PATRON_EMAIL" id="enqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required />
+                    <label for="reqEmail" class="form-label">Email*</label>
+                    <input name="REQ_PATRON_EMAIL" id="reqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required />
                 </div>
-                <!-- <div class="col-md-6 col-sm-12">
-                    <label for="enqTelephone" class="form-label">Telephone</label>
-                    <input name="REQ_PATRON_TELEPHONE" id="enqTelephone" type="tel" class="form-control" size="25" placeholder="Telephone" aria-label="Telephone" required />
-                </div> -->
+                <div class="col-md-6 col-sm-12">
+                    <label for="reqTelephone" class="form-label">Telephone</label>
+                    <input name="REQ_TELEPHONE" id="reqTelephone" type="tel" class="form-control" size="25" placeholder="Telephone" aria-label="Telephone" required />
+                </div>
             </div>
 
 
@@ -108,7 +108,7 @@
                             <label for="recTax" class="form-label">Tax Receipt Required</label>
 
 
-                            <select id="enqPriority" class="form-select Rale-Med" name="R_RECEIPT"> 
+                            <select id="reqPriority" class="form-select Rale-Med" name="R_RECEIPT"> 
                                 <option value="N" selected>No</option>
         
                                 <option value="Y">Yes</option>
@@ -128,16 +128,16 @@
 
             <div class="row g-3">
                 <div class="col-md-12">
-                    <label for="enqDetail Rale-Med" class="form-label">Additional Information*</label>
-                    <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="enqDetail" name="REQ_TOPIC_GL" required></textarea>
+                    <label for="reqDetail Rale-Med" class="form-label">Additional Information*</label>
+                    <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="reqDetail" name="REQ_TOPIC_GL" required></textarea>
                 </div>
             </div>
 
             <div class="row g-3">
 
                 <div class="col-md-12 col-sm-12">
-                    <label for="enqAffliation" class="form-label Rale-Med">Affliation*</label>
-                    <input name="REQ_AFFILIATE" id="enqAffliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affliation" required />
+                    <label for="reqAffliation" class="form-label Rale-Med">Affliation*</label>
+                    <input name="REQ_AFFILIATE" id="reqAffliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affliation" required />
                 </div>
             </div>
 

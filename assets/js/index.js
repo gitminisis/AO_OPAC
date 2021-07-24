@@ -8,7 +8,7 @@ let patron_name = getCookie("M2L_PATRON_NAME");
 
 console.log(getCookie('M2L_PATRON_ID'))
 console.log(getCookie('M2L_PATRON_NAME'))
-)
+
 
 /* * * * * * * * * * * *
  * *                 * *
