@@ -1,8 +1,10 @@
 <div class="row">
     <div id="Enquiry-Form">
         <form method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/enquiryConfirmation.html">
-            <input id="enqFullName" hidden value="" name="ENQ_PATRON_NAME" />
-            <input id="enqMethod" hidden value="Web" name="E_METHOD_REQUEST" />
+            <input id="enqFullName" hidden value="" name="E_PATRON_NAME" />
+            <!-- <input id="enqFullName" hidden value="" name="ENQ_PATRON_NAME" /> -->
+            <input id="enqMethod" hidden value="Web" name="ENQ_METHOD_REQUEST" />
+            <!-- <input id="enqMethod" hidden value="Web" name="E_METHOD_REQUEST" /> -->
             <input id="enqCorrespondence" hidden value="Incoming" name="CORRESPOND_TYPE" />
             <div class=" row g-3 Rale-Med">
                 <div class="col-md-6 col-sm-12">
@@ -15,13 +17,15 @@
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <label for="enqEmail" class="form-label">Email*</label>
-                    <input name="ENQ_PATRON_EMAIL" id="enqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required />
+                    <input name="E_PATRON_EMAIL" id="enqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required />
+                    <!-- <input name="ENQ_PATRON_EMAIL" id="enqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required /> -->
                 </div>
 
                 <!-- This does not see mto exist in M2ADemo yet [ENQ_PATRON_TELEPHONE] -->
                 <div class="col-md-6 col-sm-12">
                     <label for="enqTelephone" class="form-label">Telephone</label>
                     <input name="ENQ_TELEPHONE" id="enqTelephone" type="Telephone" class="form-control" size="25" placeholder="Telephone" aria-label="Telephone" required />
+                    <!-- <input name="ENQ_TELEPHONE" id="enqTelephone" type="Telephone" class="form-control" size="25" placeholder="Telephone" aria-label="Telephone" required /> -->
                 </div>
             </div>
 
@@ -29,7 +33,8 @@
             <div class="row g-3 Rale-Med">
                 <div class="col-md-12">
                     <label for="enqTopic" class="form-label">Topic*</label>
-                    <select id="enqTopic" class="form-select Rale-Reg" name="ENQ_TOPIC" required>
+                    <select id="enqTopic" class="form-select Rale-Reg" name="E_TOPIC" required>
+                    <!-- <select id="enqTopic" class="form-select Rale-Reg" name="ENQ_TOPIC" required> -->
                         <option selected="">General</option>
                         <option>Acquisitions</option>
                         <option>Art</option>
@@ -69,14 +74,16 @@
             <div class="row g-3">
                 <div class="col-md-12">
                     <label for="enqDetail Rale-Med" class="form-label">Detail*</label>
-                    <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="enqDetail" name="ENQ_TOPIC_DETAIL" required></textarea>
+                    <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="enqDetail" name="E_TOPIC_DETAIL" required></textarea>
+                    <!-- <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="enqDetail" name="ENQ_TOPIC_DETAIL" required></textarea> -->
                 </div>
             </div>
 
             <div class="row g-3">
                 <div class="col-md-6 col-sm-12">
                     <label for="enqPriority" class="form-label Rale-Med">Priority</label>
-                    <select id="enqPriority" class="form-select Rale-Med" name="ENQ_HIGH_PRI"> 
+                    <select id="enqPriority" class="form-select Rale-Med" name="E_HIGH_PRI"> 
+                    <!-- <select id="enqPriority" class="form-select Rale-Med" name="ENQ_HIGH_PRI">  -->
                         <option value="N" selected>Low</option>
 
                         <option value="Y">High</option>
@@ -84,7 +91,8 @@
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <label for="enqAffliation" class="form-label Rale-Med">Affliation*</label>
-                    <input name="ENQ_AFFILIATE" id="enqAffliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affliation" required />
+                    <input name="E_AFFILIATE" id="enqAffliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affliation" required />
+                    <!-- <input name="ENQ_AFFILIATE" id="enqAffliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affliation" required /> -->
                 </div>
             </div>
 

@@ -4,7 +4,7 @@
 <title>Registration</title>
 
 <div id="Content-Wrapper" class="Content-Wrapper">
-    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+    <!-- include virtual="[AO_INCLUDES]leftPanel.htm" -->
     <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
         <div class="container-fluid" id="grad1">
             <div class="row justify-content-center mt-0">
@@ -38,12 +38,16 @@
                                         <div class="form-card">
                                             <h2 class="fs-title Rale-Bold">Your Details</h2>
                                             <input class="Rale-Reg" type="text" name="C_TITLE" placeholder="Title" />
-                                            <input class="Rale-Reg" type="text" name="C_NAME_FIRST" placeholder="First Name*" required />
-                                            <input class="Rale-Reg" type="text" name="C_NAME_LAST" placeholder="Last Name*" required />
-                                            <input class="Rale-Reg" type="email" name="C_EMAIL" placeholder="Email address*" size="25" required />
-                                            <input class="Rale-Reg" type="password" name="PATRON_PID" placeholder="Password*" required />
+                                            <input id="reg-firstname" class="Rale-Reg" type="text" name="C_NAME_FIRST" placeholder="First Name*" required />
+                                            <input id="reg-lastname" class="Rale-Reg" type="text" name="C_NAME_LAST" placeholder="Last Name*" required />
+                                            <!-- <span> <input class="Rale-Reg" type="email" name="C_EMAIL" id="c_email"
+                                                    placeholder="Email address*" size="25" required /> <span
+                                                    class=" btn btn-warning btn-sm" id="email-check">Verify
+                                                    </button></span> -->
+                                            <input class="Rale-Reg" type="email" name="C_EMAIL" id="c_email" placeholder="Email address*" size="25" required />
+                                            <input id="reg-password" class="Rale-Reg" type="password" name="PATRON_PID" placeholder="Password*" maxlength="20" required />
                                         </div>
-                                        <button class="next action-button btn btn-primary Rale-Reg" type="button" name="next">
+                                        <button id="detail-next" class="next action-button btn btn-primary Rale-Reg" type="button" name="next">
                                             Next
                                         </button>
                                     </fieldset>
@@ -130,7 +134,7 @@
                                         <button type="button" class="previous action-button-previous btn btn-primary">
                                             Previous
                                         </button>
-                                        <button id="submit_registation" type="submit" class=" action-button btn btn-primary">
+                                        <button id="submit_registation" type="submit" class="action-button btn btn-primary">
                                             Confirm
                                         </button>
                                     </fieldset>
@@ -142,7 +146,25 @@
             </div>
         </div>
     </div>
+    <div id="reg_modal" class="modal fade" role="dialog" style=" top:25%;">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="text-align: center;">
+                    <h3>Account Registration </h3>
+                </div>
+                <div class="modal-body">
+                    <!-- <p>Some text in the modal.</p> -->
+                    <p id="reg_msg"></p>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> -->
+            </div>
+
+        </div>
+    </div>
     <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
 </div>
 

@@ -30,6 +30,7 @@ $(document).ready(function(){
                 $tmp_data = test1.text(); // F 26 G
                 $tmp_data2 = test2.text(); // DESCRIPTION COLLECTION LIBRARY
                 $tmp_data3 = test3;
+                $tmp_data4 = client_id;
 
 
             },
@@ -41,6 +42,7 @@ $(document).ready(function(){
                 delete $tmp_data;
                 delete $tmp_data2;
                 delete $tmp_data3;
+                delete $tmp_data4;
             }
 
 

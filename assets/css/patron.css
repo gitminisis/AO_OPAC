@@ -1,16 +1,76 @@
-#Patron-Bookmarks-Container {
-    flex: 1;
-    border: 1px solid #000;
-    border-radius: 5px;
-    box-shadow: 0 0 0 1px #000;
-    margin: 5px;
 
+#Client-Bookmarks,
+#Client-Crowd-Sourcing,
+#Client-Enquiry,
+#Client-Request {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 170px;
+    width: 150px;
+    margin: 5px;
+    background-color: #fff;
+
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px 1px #888888;
 }
 
-#Patron-Crowd-Sourcing-Container {
-    flex: 1;
-    border: 1px solid #000;
-    border-radius: 5px;
-    box-shadow: 0 0 0 1px #000;
-    margin: 5px;
+#Client-Bookmarks:hover,
+#Client-Crowd-Sourcing:hover,
+#Client-Enquiry:hover,
+#Client-Request:hover {
+    background-color: #808080;
+    cursor: pointer;
 }
+#Client-Container {
+    display: flex;
+    align-items:center;
+    width: 85%;
+}
+
+#Client-Info {
+    display: flex;
+    width: 90%;
+
+    margin-top: 10px;
+}
+
+.Client-Info-Item {
+    width: 100%;
+}
+
+.Client-Info-Title {
+    display: flex;
+    flex: 4;
+}
+
+.Client-Info-Value {
+    display: flex;
+    flex: 4;
+
+    margin-left: 10px;
+}
+
+.Link-Image {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+
+    height: 100px;    
+}
+
+#Client-Link-Container-Top,
+#Client-Link-Container-Bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+.temp-style {
+    display: flex;
+    flex: 2;
+}
+
+

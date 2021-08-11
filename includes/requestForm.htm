@@ -3,6 +3,7 @@
     <div id="Request-Form">
         <form method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/requestConfirmation.html">
             <input id="reqFullName" hidden value="" name="REQ_PATRON_NAME" />
+            <!-- <input id="reqFullName" hidden value="" name="R_PATRON_NAME" /> -->
             <div class="row g-3 Rale-Med">
                 <div class="col-md-6 col-sm-12">
                     <label for="reqFirstName" class="form-label">First Name*</label>
@@ -15,10 +16,12 @@
                 <div class="col-md-6 col-sm-12">
                     <label for="reqEmail" class="form-label">Email*</label>
                     <input name="REQ_PATRON_EMAIL" id="reqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required />
+                    <!-- <input name="R_PATRON_EMAIL" id="reqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required /> -->
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <label for="reqTelephone" class="form-label">Telephone</label>
                     <input name="REQ_TELEPHONE" id="reqTelephone" type="tel" class="form-control" size="25" placeholder="Telephone" aria-label="Telephone" required />
+                    <!-- <input name="R_TELEPHONE" id="reqTelephone" type="tel" class="form-control" size="25" placeholder="Telephone" aria-label="Telephone" required /> -->
                 </div>
             </div>
 
@@ -27,6 +30,7 @@
                 <div class="col-md-12">
                     <label for="reqTopic" class="form-label">Topic*</label>
                     <select id="reqTopic" class="form-select Rale-Reg" name="REQ_TOPIC" required>
+                    <!-- <select id="reqTopic" class="form-select Rale-Reg" name="R_TOPIC" required> -->
                         <option selected="">General</option>
                         <option>Acquisitions</option>
                         <option>Art</option>
@@ -78,7 +82,8 @@
                         </div>
                         <div class="col-md-12 col-sm-12">
                             <label for="reqInfo" class="form-label">Colection Information</label>
-                            <input name="R_COLLECT_INFO" id="reqInfo" type="test" class="form-control" placeholder="Collection Information" aria-label="Collection Information" />
+                            <!-- <input name="R_COLLECT_INFO" id="reqInfo" type="test" class="form-control" placeholder="Collection Information" aria-label="Collection Information" /> -->
+                            <input name="REQ_COLLECT_INFO" id="reqInfo" type="test" class="form-control" placeholder="Collection Information" aria-label="Collection Information" />
                         </div>
                     </div>
 
@@ -130,6 +135,7 @@
                 <div class="col-md-12">
                     <label for="reqDetail Rale-Med" class="form-label">Additional Information*</label>
                     <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="reqDetail" name="REQ_TOPIC_GL" required></textarea>
+                    <!-- <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="reqDetail" name="R_TOPIC_GL" required></textarea> -->
                 </div>
             </div>
 
@@ -138,6 +144,7 @@
                 <div class="col-md-12 col-sm-12">
                     <label for="reqAffliation" class="form-label Rale-Med">Affliation*</label>
                     <input name="REQ_AFFILIATE" id="reqAffliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affliation" required />
+                    <!-- <input name="R_AFFILIATE" id="reqAffliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affliation" required /> -->
                 </div>
             </div>
 

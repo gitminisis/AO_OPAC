@@ -3,10 +3,8 @@
  * a successful account registration
  */
 
-console.log('test')
 $(document).ready(function () {
     if (document.getElementById('confirmationPage')) {
-        console.log('test')
         var SESSID = getCookie("HOME_SESSID");
         let subject = "Registration Confirmation";
         let client_email = document.getElementById('client_email').innerText;
@@ -18,7 +16,7 @@ $(document).ready(function () {
         body += "<br /><strong>Thank you for you interest and usage of Ontario’s largest repository of public and government records:</strong>"
         body += "<br/> <a href='https://webmail.telushosting.com/archives.gov.on.ca'><strong>The Archives of Ontario</strong></a>"
 
-        let url = `http://aoopac.minisisinc.com/scripts/mwimain.dll/142170001?save_mail_form&TEMPLATE=[AO_ASSETS]html/mailBody.txt&async=y&xml=y&subject_default=${subject}&from_default=noreply@minisisinc.com&to_default=${client_email}`;
+        let url = `${SESSID}?save_mail_form&TEMPLATE=[AO_ASSETS]html/mailBody.txt&async=y&xml=y&subject_default=${subject}&from_default=noreply@minisisinc.com&to_default=${client_email}`;
         console.log(url)
         $.ajax({
             type: "POST",

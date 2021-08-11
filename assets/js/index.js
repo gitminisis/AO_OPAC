@@ -1,13 +1,11 @@
 let HOME_SESSID = getCookie("HOME_SESSID");
 let SESSID = getCookie("SESSID");
 let client_name = '';
+let client_id = '';
 
 let sessid = "^SESSID^";
 let patron_id = getCookie("M2L_PATRON_ID");
 let patron_name = getCookie("M2L_PATRON_NAME");
-
-console.log(getCookie('M2L_PATRON_ID'))
-console.log(getCookie('M2L_PATRON_NAME'))
 
 
 /* * * * * * * * * * * *
@@ -19,6 +17,7 @@ $(document).ready(function () {
 
    client_name = getCookie('M2L_PATRON_NAME');
    client_name = unescapeString(client_name);
+   client_id = getCookie('M2L_PATRON_ID');
 
   // Display Account Info after Login
   getAccountInfo();
@@ -43,7 +42,6 @@ $(document).ready(function () {
   // Detail Bookmark
   // When Clicked ajax sends href to minisis to add selected record to list.
   // Once success, reload the page. Report Checks whether record is in the list or not
-  // to color in the bookmark heart
   $('.bookmarkbutton').on('click', function () {
     $.ajax({
       type: "GET",
@@ -188,26 +186,47 @@ function setCookie(name, value, days) {
   document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
-function ReadCookie(nom) {
-  var arg = nom + "=";
+function WriteCookie(name, value)
+{
+    var argv = WriteCookie.arguments;
+    var argc = WriteCookie.arguments.length;
+    var expires  =(argc > 2) ? argv[2] : null;
+    var path = (argc > 3) ? argv[3] : null;
+    var domain = (argc > 4) ? argv[4] : null;
+    var secure = (argc > 5) ? argv[5] : false;
+
+    document.cookie = name + "=" + value + ((expires==null) ? "" : ("; expires="+expires.toGMTString())) + "; path=/" + ((domain==null) ? "" : ("; domain="+domain)) + ((secure==true) ? "; secure" : "");
+}
+
+function getCookieVal(offset) {
+  var endstr = document.cookie.indexOf (";", offset);
+  if (endstr == -1) {
+      endstr=document.cookie.length;
+  }
+  return (document.cookie.substring(offset, endstr));
+}
+
+function ReadCookie(name) {
+  var arg = name + "=";
   var alen = arg.length;
   var clen = document.cookie.length;
   var i = 0;
-
+  
   while (i < clen) {
-    var var2;
-    var j = i + alen;
-    if (document.cookie.substring(i, j) == arg) {
-      var2 = getCookieVal(j);
-      var2 = replaceAll(escape(var2), "%20%A0", "+");
-      var2 = replaceAll(var2, "%A0", "+");
-      var2 = replaceAll(var2, "%20", "+");
-      return var2;
-    }
-    i = document.cookie.indexOf(" ", i) + 1;
-    if (i == 0) break;
+      var var2;
+      var j = i + alen;
+      if (document.cookie.substring(i, j) == arg) {
+          var2 = getCookieVal(j);
+          return unescape(var2);
+      }
+      
+      i = document.cookie.indexOf(" ", i) + 1;
+      
+      if (i == 0) {
+          break;
+      }
   }
-  return null;
+  return "null";
 }
 
 
@@ -251,4 +270,14 @@ function getAccountInfo() {
 
 function unescapeString(str) {
   return str.replace(/%20/g,' ').replace(/%28/g,'(').replace(/%29/g,')').replace(/%26/g,'&').replace(/%2f/g,'/').replace(/%3f/g,'?').replace(/%5c/g,'\\').replace(/%2c/g,',').replace(/%25/g,'%');
+}
+
+// prompt user to edit enquiry record
+function editEnquiry( sessid )
+{
+  var enquiry_id = prompt("Enter Enquiry ID ", "");
+  if ( enquiry_id !== null && enquiry_id != '' ) {
+    var url = sessid + '?changesinglerecord&database=ENQUIRIES_VIEW&de_form=[AO_ASSETS]html/enquiry.html&exp=ENQ_ID%20"' + enquiry_id + '"';
+    window.location = url;
+  }
 }

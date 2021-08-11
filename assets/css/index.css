@@ -122,6 +122,31 @@ body {
 }
 
 
+/* .slick-prev,
+.slick-next {
+    background: black;
+    color: red;
+} */
+
+.cor-btn {
+    position: absolute;
+    top: 100%;
+    margin-top: 15px
+}
+
+.cor-prev-btn {
+    left: 40%
+}
+
+.cor-next-btn {
+    right: 40%
+}
+
+#cor_div {
+    margin-bottom: 50px;
+}
+
+
 /* END OF ENQUIRY CSS */
 
 
@@ -323,6 +348,8 @@ hr.Hr-1 {
     flex: 6;
     padding: 2em;
     padding-top: 1em;
+
+    background-color: #F6F7FC;
 }
 
 .Quick-Links-Container {

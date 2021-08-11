@@ -234,3 +234,17 @@ select.list-dt:focus {
     width: 100%;
     object-fit: cover
 }
+
+#c_email {
+    /* width: 75% !important; */
+}
+
+#email-check {
+    width: 20% !important;
+    border: 0.5px solid black;
+    font-size: .75rem;
+}
+
+#reg_msg {
+    text-align: center;
+}

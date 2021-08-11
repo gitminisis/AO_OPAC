@@ -1,41 +1,94 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
 
-        <!-- include virtual="[AO_INCLUDES]header.htm"-->
-        <title>Home</title>
-        
-        
-        <div id='Content-Wrapper' class='Content-Wrapper'>
-            
-            <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
-            <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'> 
-                <div id='Paton-Container d-flex flex-column'>
-                    <div id='Patron-Info'>
-                        <h1 class='Rale-Extra'>Patron Profile</h1>
-                        <p class='Rale-Reg'><span class='Rale-Bold'>Last Name: </span><span id='Patron-Last'></span> </p>
-                        <p class='Rale-Reg'><span class='Rale-Bold'>First Name: </span><span id='Patron-First'></span> </p>
-                        <p class='Rale-Reg'><span class='Rale-Bold'>Full Name: </span><span id='Patron-Full'></span> </p>
-                        <p class='Rale-Reg'><span class='Rale-Bold'>Email: </span> <a id='Patron-Email'></a></p>
-                        <p class='Rale-Reg'><span class='Rale-Bold'>Organization: </span> <span id='Patron-Org'></span></p>
-                        <p class='Rale-Reg'><span class='Rale-Bold'>Card: </span> <span id='Patron-Card'></span></p>
-                        <p class='Rale-Reg'><span class='Rale-Bold'>Tel: </span> <span id='Patron-Tel'>640.998.8430</span></p>
-                    </div>
-                    <div id='Patron-Bookmarks'>
-                        <a class=" btn-sm form-check-label" href="^HOME_SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\nobookmark.htm&COOKIE=BOOKMARK"><em class="icon-list-alt"></em><h3 class='Rale-Bold'>Bookmarks (^ITEMCOUNT=BOOKMARK^ items)</h3></a>
-                        <div id='Patron-Bookmarks-Container'>
+<!-- include virtual="[AO_INCLUDES]header.htm"-->
+<title>Home</title>
 
-                        </div>
-                    </div>
-                    <div id='Patron-Crowd-Sourcing'>
-                        <h3 class='Rale-Bold'>Your Crowd-Sourcing</h3>
-                        <div id='Patron-Crowd-Sourcing-Container'>
 
-                        </div>
-                    </div>
-                </div> 
-                    
+<div id='Content-Wrapper' class='Content-Wrapper'>
+
+    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+    <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+        <div id='Client-Container' class='d-flex flex-column'>
+            <h1 class='Rale-Extra'>Client Profile</h1>
+            <div id='Client-Info' class='d-flex flex-column'>
+
+                <div class='Client-Info-Item d-flex flex-row'>
+                    <div class='temp-style'></div>
+                    <p class='Client-Info-Title Rale-Bold'>First Name: </p>
+                    <p  id='Client-First' class='Client-Info-Value Rale-Reg'></p>
+                </div>
+                <div class='Client-Info-Item d-flex flex-row'>
+                    <div class='temp-style'></div>
+                    <p class='Client-Info-Title Rale-Bold'>Last Name: </p>
+                    <p id='Client-Last' class='Client-Info-Value Rale-Reg'></p>
+                </div>
+                <div class='Client-Info-Item d-flex flex-row'>
+                    <div class='temp-style'></div>
+                    <p class='Client-Info-Title Rale-Bold'>Full Name: </p>
+                    <p id='Client-Full' class='Client-Info-Value Rale-Reg'></p>
+                </div>
+                <div class='Client-Info-Item d-flex flex-row'>
+                    <div class='temp-style'></div>
+                    <p class='Client-Info-Title Rale-Bold'>Email: </p>
+                    <p class='Client-Info-Value Rale-Reg'>
+                        <a id='Client-Email'></a>
+                    </p>
+                </div>
+                <div class='Client-Info-Item d-flex flex-row'>
+                    <div class='temp-style'></div>
+                    <p class='Client-Info-Title Rale-Bold'>Organization: </p>
+                    <p id='Client-Org' class='Client-Info-Value Rale-Reg'></p>
+                </div>
+                <div class='Client-Info-Item d-flex flex-row'>
+                    <div class='temp-style'></div>
+                    <p class='Client-Info-Title Rale-Bold'>Card: </p>
+                    <p id='Client-Card' class='Client-Info-Value Rale-Reg'></p>
+                </div>
+                <div class='Client-Info-Item d-flex flex-row'>
+                    <div class='temp-style'></div>
+                   <p class='Client-Info-Title Rale-Bold'>Tel: </p> 
+                   <p id='Client-Tel' class='Client-Info-Value Rale-Reg'></p>
+                </div>
             </div>
-            <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+            <hr>
+            <br>
+            <div id='Client-Link-Container-Top'>
+                <div id='Client-Bookmarks' onclick="ClientLinkOnclick(this)">
+                    <!-- <a class="Bookmark-Link btn-sm d-flex flex-column form-check-label" href="^HOME_SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\nobookmark.htm&COOKIE=BOOKMARK"><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Bookmarks (^ITEMCOUNT=BOOKMARK^ items)</h4></a> -->
+                    <div class='Link-Image'>
+                        <img src="/assets/img/bookmark.png" alt='Your Bookmarks' width='50' height='50'>
+                    </div>
+                    <p>Bookmarks <br> (^ITEMCOUNT=BOOKMARK^ items)</p>
+                </div>
+                <div id='Client-Request' onclick="ClientLinkOnclick(this)">
+                    <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
+                    <div class='Link-Image'>
+                        <img src="/assets/img/request.png" alt='Your Request' width='50' height='50'>
+                    </div>
+                    <p>Your Requests</p>
+                </div>
+            </div>
+            <div id='Client-Link-Container-Bottom' >
+                <div id='Client-Enquiry' onclick="ClientLinkOnclick(this)">
+                    <!-- <a class="Client-Enquiry-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Enquiries</h4></a> -->
+                    <div class='Link-Image'>
+                        <img src="/assets/img/enquiry.jpg" alt='Your Enquiries' width='50' height='50'>
+                    </div>
+                    <p>Your Enquiries</p>
+                </div>
+                <div id='Client-Crowd-Sourcing' onclick="ClientLinkOnclick(this)">
+                    <!-- <a class="Client-Crowd-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Crowdsourced</h4></a> -->
+                    <div class='Link-Image'>
+                        <img src="/assets/img/comment.png" alt='Your Comments' width='50' height='50'>
+                    </div>
+                    <p>Your Crowdsourced</p>
+                </div>
+            </div>
         </div>
 
-        
+    </div>
+    <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+</div>
+
+
 <!-- include virtual="[AO_INCLUDES]footer.htm"-->

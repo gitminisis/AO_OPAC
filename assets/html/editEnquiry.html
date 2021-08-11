@@ -20,7 +20,7 @@
                 </ol>
             </nav>
             <div class="Page-Heading">
-                <h1 class='Rale-Bold d-flex justify-content-center '>Submit an Enquiry
+                <h1 class='Rale-Bold d-flex justify-content-center '>Update an Enquiry
                 </h1>
                 <hr />
             </div>
@@ -34,14 +34,13 @@
                     <form method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/enquiryConfirmation.html" onsubmit="return setSubmitFlag();">
                         <input id="enqFullName" name="ENQ_PATRON_NAME" type="hidden" value="^VALUE^" />
                         <input id="enqMethod" name="E_METHOD_REQUEST" type="hidden" value="Web" />
-                        <input id="enqPatronID" name="ENQ_PATRON_ID" type="hidden" value="" />
-
-                        <span id="first_cor">
-                            <input id="enqCorDate" name="CORRESPOND_DATE" type="hidden" />
-                            <input id="enqCorType" name="CORRESPOND_TYPE" type="hidden" value="Incoming" />
-                            <input id="enqCorWho" name="CORRESPOND_WHO" type="hidden" />
-                            <input id="enqCorSub" name="CORRESPOND_SUBJ" type="hidden" />
-                            <input id="enqCorText" name="MESSAGE_TEXT" type="hidden" />
+                        <input id="enqID" name="ENQ_ID" type="hidden" value="^VALUE^" />
+                        <span id="edit_enq">
+                            <!-- <input id="enqCorDate" name="CORRESPOND_DATE$1$1" type="hidden" value="^VALUE^"/>
+                            <input id="enqCorType" name="CORRESPOND_TYPE$1$1" type="hidden"value="^VALUE^" />
+                            <input id="enqCorWho" name="CORRESPOND_WHO$1$1" type="hidden" value="^VALUE^"/>
+                            <input id="enqCorSub" name="CORRESPOND_SUBJ$1$1" type="hidden" value="^VALUE^" />
+                            <input id="enqCorText" name="MESSAGE_TEXT$1$1" type="hidden" value="^VALUE^" /> -->
                         </span>
 
 
@@ -62,11 +61,10 @@
                                 <label for="enqPhone" class="form-label">Phone Number</label>
                                 <input id="enqPhone" type="text" class="form-control" placeholder="Phone Number" aria-label="Phone Number" name="ENQ_TELEPHONE" value="^VALUE^" />
                             </div>
-
                         </div>
 
 
-                        <div class=" row g-3 Rale-Med">
+                        <div class="row g-3 Rale-Med">
                             <div class="col-md-12">
                                 <label for="enqTopic" class="form-label">Topic*</label>
                                 <select id="enqTopic" class="form-select Rale-Reg" name="ENQ_TOPIC" value="^VALUE^" required>
@@ -112,6 +110,15 @@
 
 
                         <div class="row g-3">
+                            <div class="col-md-12">
+                                <div class="accordion" id="cor_div"> </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row g-3">
                             <div class="col-md-6 col-sm-12">
                                 <label for="enqPriority" class="form-label Rale-Med">Priority</label>
                                 <select id="enqPriority" class="form-select Rale-Med" name="ENQ_HIGH_PRI" value="^VALUE^">
@@ -122,7 +129,7 @@
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <label for="enqAffliation" class="form-label Rale-Med">Affliation*</label>
-                                <input readonly name="ENQ_AFFILIATE" type="text" id="enqAffliation" class="form-control" placeholder="Affliation" aria-label="Affliation" required />
+                                <input readonly name="ENQ_AFFILIATE" type="text" value="^VALUE^" id="enqAffliation" class="form-control" placeholder="Affliation" aria-label="Affliation" required />
                             </div>
                         </div>
 

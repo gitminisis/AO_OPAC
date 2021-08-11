@@ -1,4 +1,4 @@
-export const profanityArr = 
+const profanityArr = 
 [
     "abbo",
     "abo",
@@ -59,7 +59,6 @@ export const profanityArr =
     "beatyourmeat",
     "bestial",
     "bestiality",
-    "bi",
     "biatch",
     "bigass",
     "bigbastard",

@@ -8,18 +8,26 @@
 // });
 
 // Creates a dictionary/hashmap of the key (id of <h1> which is in class Page-Heading) and the value which is the reqTopic drowdown <option>
-const requestDict = new Map()
-requestDict.set('General', 'General');
-requestDict.set('Vital', 'Vital statistics');
-requestDict.set('Semi-Holding', 'Semi-active collections');
-requestDict.set('Retrieval', 'Retrieval Services');
-requestDict.set('Restricted', 'Restricted');
-requestDict.set('Reproduction', 'Reproduction/Certification Services');
-requestDict.set('Loan', 'Loan/Exhibitions');
-requestDict.set('Copyright', 'Copyright Services');
+// const requestDict = new Map()
+// requestDict.set('General', 'General');
+// requestDict.set('Vital', 'Vital -active collections');
+// requestDict.set('Retrieval', 'Retrievstatistics');
+// requestDict.set('Semi-Holding', 'Semial Services');
+// requestDict.set('Restricted', 'Restricted');
+// requestDict.set('Reproduction', 'Reproduction/Certification Services');
+// requestDict.set('Loan', 'Loan/Exhibitions');
+// requestDict.set('Copyright', 'Copyright Services');
 
 
-
+const requestLinks = ["retrieval.html", 
+    "request.html",
+                      
+                      "reproductionCertification.html", 
+                      "copyright.html", 
+                      "restrictedHolding.html", 
+                      "loan.html", 
+                      "semiHolding.html", 
+                      "vitalStats.html"];
 
 // Look for class Page-Heading in page. If found grab the id of the <h1> tag (it's first direct child)
 let pageHeading = document.getElementsByClassName('Page-Heading')[0]
@@ -30,17 +38,22 @@ if (document.getElementById('donationForm')) {
 
 // if (document.getElementById('requestFormPage')) {
 if (patron_id) {
-    addRequesLink();
+    // addRequesLink();
+    displayAccountLinks(false);  
     removePatronLoginLink();
     getClientInfo();
     onDonationRequest();
 }
-
-if (pageHeading) 
+else
 {
-    let pageForm = pageHeading.children[0].getAttribute('id');
-    selectElement('reqTopic', requestDict.get(pageForm));
+    displayAccountLinks(true);
 }
+
+// if (pageHeading) 
+// {
+//     let pageForm = pageHeading.children[0].getAttribute('id');
+//     selectElement('reqTopic', requestDict.get(pageForm));
+// }
 
 
 
@@ -52,20 +65,23 @@ function addRequesLink() {
 
     for (let i = 0; i < reqArr.length; i++) 
     {
-        reqArr[i].setAttribute('href', `${HOME_SESSID}?addsinglerecord&database=REQUEST_VIEW&de_form=[AO_ASSETS]html/${reqArr[i].name}.html`)
-        reqArr[i].hidden=false
+        reqArr[i].setAttribute('href', `${HOME_SESSID}?addsinglerecord&database=REQUEST_VIEW&de_form=[AO_ASSETS]html/${reqArr[i].name}.html`);
+        reqArr[i].hidden=false;
     }
+}
 
-    // if (patron_name) {
-    //     $('#Request-Link').append(requestLink)
-    // }
+function displayAccountLinks(bool) {
+    let clientProfile = document.getElementsByClassName('Client-Profile');
+    for (let i = 0; i < clientProfile.length; i++) 
+        clientProfile[i].hidden = bool;
 }
 
 function removePatronLoginLink() {
-    let regLinks = document.getElementsByClassName('Patron-Reg');
+    let regLink = document.getElementById('Patron-Reg');
+    let regLogin = document.getElementById('Patron-Login');
 
-    for (link of regLinks) 
-        link.hidden = true;
+    regLink.hidden  = true;
+    regLogin.hidden = true;
 }
 
 function onDonationRequest() {
@@ -92,30 +108,31 @@ function getClientInfo() {
 
     // Split the URI on "/" and take the last element of the array
     let tempUrlCheck = tempString.split("/");
+    for (i = 0; i < requestLinks.length; i++) {
+        if (tempUrlCheck[tempUrlCheck.length - 1] == requestLinks[i]) {
 
-    if (tempUrlCheck[tempUrlCheck.length - 1] == 'request.html') {
+            let url = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
+            $.ajax(url).done(function (res) {
+                console.log(res)
+                let x2js = new X2JS();
 
-        let url = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
-        $.ajax(url).done(function (res) {
-            console.log(res)
-            let x2js = new X2JS();
+                let jsonObj = x2js.xml2json(res);
+                let first_name = jsonObj.client.name_first;
+                let last_name = jsonObj.client.name_last;
+                let full_name = jsonObj.client.name_full;
+                let email = jsonObj.client.email;
 
-            let jsonObj = x2js.xml2json(res);
-            let first_name = jsonObj.client.name_first;
-            let last_name = jsonObj.client.name_last;
-            let full_name = jsonObj.client.name_full;
-            let email = jsonObj.client.email;
+                document.getElementById('reqFullName').value = full_name;
+                document.getElementById('reqFirstName').value = first_name;
+                document.getElementById('reqFirstName').readOnly = true;
+                document.getElementById('reqLastName').value = last_name;
+                document.getElementById('reqLastName').readOnly = true;
+                document.getElementById('reqEmail').value = email;
+                document.getElementById('reqEmail').readOnly = true;
 
-            document.getElementById('reqFullName').value = full_name;
-            document.getElementById('enqFirstName').value = first_name;
-            document.getElementById('enqFirstName').readOnly = true;
-            document.getElementById('enqLastName').value = last_name;
-            document.getElementById('enqLastName').readOnly = true;
-            document.getElementById('enqEmail').value = email;
-            document.getElementById('enqEmail').readOnly = true;
-
-        })
-    } else return;
+            })
+        } 
+    } 
 
 }
 

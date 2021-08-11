@@ -1,0 +1,55 @@
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+        <!-- include virtual="[AO_INCLUDES]header.htm"-->
+        <title>Archives of Ontario - No Results</title>
+        
+        
+        <div id='Content-Wrapper' class='d-flex flex-row'>
+            
+        <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+
+            <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+                <h1>No Requested Records</h1>
+                <div class='Form-Wrapper'>
+                    <p style='font-size: 2em; text-align: center;'>
+                        There are no saved request(s). Click the Request Material button icon to request record.
+                    </p>
+                    <form id='Main-Form' method="post" name="simple_search" action="?UNIONSEARCH&APPLICATION=UNION_VIEW&ERRMSG=[AO_INCLUDES]error/norecord.htm">
+                        <span id='Option-Choice'>Option 1: Keyword Search</span>
+                        <span id='Number-Results'></span>
+                        <div class='Input-Wrapper d-flex flex-column'>
+                            <label>Enter a search term or terms:</label>
+                            <input id="simple_search_input" type='text' name="KEYWORD_CLUSTER"/>
+                        </div>
+                        <div class='Radio-Wrapper d-flex justify-content-evenly'>
+                            <span>
+                                <input type='radio' id='All-Keywords' value='AND_WORD' name='FLDOP1' value='Keyword Search' onclick='onClickSearchOption(value)'/ checked>
+                                <label for='All-Keywords'>All of these keywords</label>
+                            </span>
+                            <span>
+                                <input type='radio' id='Any-Keywords' value='OR_WORD' name='FLDOP1' value='Keyword Search' onclick='onClickSearchOption(value)'/>
+                                <label for='Any-Keywords'>Any of these keywords</label>
+                            </span>
+                            <span>
+                                <input type='radio' id='Exact-Phrase' value='ADJ_WORD' name='FLDOP1' value='Exact Search' onclick='onClickSearchOption(value)'/>
+                                <label for='Exact-Phrase'>Exact Phrase</label>
+                            </span>
+                        </div>
+                        <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
+                            <input class='Search-Option-Button' type='submit' value='SEARCH'/>
+                            <a href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a>
+                            <a href='#'>MORE SEARCH OPTIONS</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+            
+        </div>
+    </div>
+
+        
+<!-- include virtual="[AO_INCLUDES]footer.htm"-->
+
+        
