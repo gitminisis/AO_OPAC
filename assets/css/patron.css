@@ -2,7 +2,9 @@
 #Client-Bookmarks,
 #Client-Crowd-Sourcing,
 #Client-Enquiry,
-#Client-Request {
+#Client-Request,
+#Client-Copyright,
+#Client-Reproduction {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -21,11 +23,26 @@
 #Client-Bookmarks:hover,
 #Client-Crowd-Sourcing:hover,
 #Client-Enquiry:hover,
-#Client-Request:hover {
+#Client-Request:hover,
+#Client-Copyright:hover,
+#Client-Reproduction:hover {
     background-color: #808080;
     cursor: pointer;
 }
-#Client-Container {
+
+
+#Client-Bookmarks > p,
+#Client-Crowd-Sourcing > p,
+#Client-Enquiry > p,
+#Client-Request > p,
+#Client-Copyright > p,
+#Client-Reproduction > p {
+    margin: 0;
+}
+
+
+
+#Client-Container{
     display: flex;
     align-items:center;
     width: 85%;
@@ -68,9 +85,44 @@
     flex-direction: row;
 }
 
-.temp-style {
+.patron-temp {
     display: flex;
     flex: 2;
 }
+.clientMainSection,
+.clientAddressSection,
+.clientShipAddressSection,
+.clientTelephoneSection {
+    padding:0 1rem 1.5rem 1rem;
+    margin-top:1rem;
+    margin-bottom:1.5rem;
+    border-radius:7px;
+}
 
+#FormHeader{
+    text-decoration: underline;
+}
+.client-button-row{
+    text-align: center !important;
+    margin:0 1rem 1rem 1.5rem;
+}
 
+#Client-Crowd-Sourcing
+
+/* Your Enquiry*/
+
+/* Your Request */
+#my-requests {
+    margin: 2rem 0 2rem 0;
+    background:white;
+}
+.my-req-header {
+    margin-bottom: 1rem;
+}
+.my-req-desc {
+    margin-left: 0.5rem;
+}
+.my-req-text-cont {
+    background: white;
+}
+/* Your Crowdsourced */

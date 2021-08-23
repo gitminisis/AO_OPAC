@@ -3,135 +3,72 @@
     <div id="Request-Form">
         <form method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/requestConfirmation.html">
             <input id="reqFullName" hidden value="" name="REQ_PATRON_NAME" />
+            
             <!-- <input id="reqFullName" hidden value="" name="R_PATRON_NAME" /> -->
+            <input id="reqClientID" hidden value="" name="REQ_PATRON_ID" />
+
             <div class="row g-3 Rale-Med">
-                <div class="col-md-6 col-sm-12">
+                <div class="reqFirstNameContainer col-md-6 col-sm-12">
                     <label for="reqFirstName" class="form-label">First Name*</label>
                     <input id="reqFirstName" type="text" class="form-control" placeholder="First name" aria-label="First name" name="" required />
                 </div>
-                <div class="col-md-6 col-sm-12">
+                <div class="reqLastNameContainer col-md-6 col-sm-12">
                     <label for="reqLastName" class="form-label">Last Name*</label>
                     <input id="reqLastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="" required />
                 </div>
-                <div class="col-md-6 col-sm-12">
+                <div class="reqEmailContainer col-md-6 col-sm-12">
                     <label for="reqEmail" class="form-label">Email*</label>
                     <input name="REQ_PATRON_EMAIL" id="reqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required />
                     <!-- <input name="R_PATRON_EMAIL" id="reqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required /> -->
                 </div>
-                <div class="col-md-6 col-sm-12">
-                    <label for="reqTelephone" class="form-label">Telephone</label>
-                    <input name="REQ_TELEPHONE" id="reqTelephone" type="tel" class="form-control" size="25" placeholder="Telephone" aria-label="Telephone" required />
-                    <!-- <input name="R_TELEPHONE" id="reqTelephone" type="tel" class="form-control" size="25" placeholder="Telephone" aria-label="Telephone" required /> -->
-                </div>
+              
             </div>
 
-
-            <div class="row g-3 Rale-Med">
+            <div class="reqAffiliationContainer g-3 Rale-Med">
+                <div class="col-md-6 col-sm-12">
+                    <label for="reqAffiliation" class="form-label Rale-Med">Affiliation*</label>
+                    <input name="REQ_AFFILIATE" id="reqAffiliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affiliation" required />
+                    <!-- <input name="R_AFFILIATE" id="reqAffiliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affliation" required /> -->
+                </div>
+            </div>
+            
+            <div class="reqTopicContainer g-3 Rale-Med">
                 <div class="col-md-12">
                     <label for="reqTopic" class="form-label">Topic*</label>
                     <select id="reqTopic" class="form-select Rale-Reg" name="REQ_TOPIC" required>
                     <!-- <select id="reqTopic" class="form-select Rale-Reg" name="R_TOPIC" required> -->
-                        <option selected="">General</option>
-                        <option>Acquisitions</option>
-                        <option>Art</option>
-                        <option>Donations</option>
-                        <option>Family History</option>
-                        <option>FOI Requests</option>
-                        <option>Retrieval Services</option>
-                        <option>Reproduction/Certification Services</option>
-                        <option>Preservation</option>
-                        <option>Copyright Services</option>
-                        <option>Loan/Exhibitions</option>
-                        <option>Website</option>
-                        <option>Library Collection</option>
-                        <option>Vital statistics</option>
-                        <option>Litigation</option>
-                        <option>Semi-active collections</option>
-                        <option>Recordkeeping</option>
-                        <option>Access &amp; Privacy</option>
-
-                        <option>Request Transfer</option>
-
-                        <option>Request Refile/Interfile</option>
-
-                        <option>Record Schedule</option>
-
-                        <option>Transfer Agreement</option>
-
-                        <option>Record Disposition</option>
-
-                        <option>Other</option>
-
-                        <option>Special Request</option>
+                        <option id="reqGeneral" selected="">General</option>
+                        <option id="reqAcq">Acquisitions</option>
+                        <option id="reqArt">Art</option>
+                        <option id="reqDonation">Donations</option>
+                        <option id="reqFH">Family History</option>
+                        <option id="reqFOI">FOI Requests</option>
+                        <option id="reqRS">Retrieval Services</option>
+                        <option id="reqReproduction">Reproduction/Certification Services</option>
+                        <option id="reqPreserve">Preservation</option>
+                        <option id="reqCopyright">Copyright Services</option>
+                        <option id="reqLoan">Loan/Exhibitions</option>
+                        <option id="reqWebsite">Website</option>
+                        <option id="reqLibraryColl">Library Collection</option>
+                        <option id="reqVitalstat">Vital statistics</option>
+                        <option id="reqLitigation">Litigation</option>
+                        <option id="reqSemiActive">Semi-active collections</option>
+                        <option id="reqRecordKeep">Recordkeeping</option>
+                        <option id="reqAccessPrivacy">Access &amp; Privacy</option>
+                        <option id="reqRequestTrans">Request Transfer</option>
+                        <option id="reqRefileInterfile">Request Refile/Interfile</option>
+                        <option id="reqRecordSched">Record Schedule</option>
+                        <option id="reqTransAgreement">Transfer Agreement</option>
+                        <option id="reqRecDiposition">Record Disposition</option>
+                        <option id="reqOther">Other</option>
+                        <option id="reqSpecialReq">Special Request</option>
                     </select>
                 </div>
             </div>
 
-            <div id="donationForm" class="card">
-
-                <div class="card-body">
-                    <h5 class="card-title">General Information </h5>
-                    <div class="row g-3 Rale-Med">
-                        <div class="col-md-6 col-sm-12">
-                            <label for="reqDonor" class="form-label">Donor Type</label>
-                            <input id="reqDonor" type="text" class="form-control" placeholder="Donor Type" aria-label="Donor Type" name="R_DONOR_TYPE" />
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <label for="reqCreator" class="form-label">Creator</label>
-                            <input id="reqCreator" type="text" class="form-control" placeholder="Creator" aria-label="Creator" name="R_CREATOR" />
-                        </div>
-                        <div class="col-md-12 col-sm-12">
-                            <label for="reqInfo" class="form-label">Colection Information</label>
-                            <!-- <input name="R_COLLECT_INFO" id="reqInfo" type="test" class="form-control" placeholder="Collection Information" aria-label="Collection Information" /> -->
-                            <input name="REQ_COLLECT_INFO" id="reqInfo" type="test" class="form-control" placeholder="Collection Information" aria-label="Collection Information" />
-                        </div>
-                    </div>
 
 
-                    <div class="row g-3 Rale-Med">
-                        <div class="col-md-6 col-sm-12">
-                            <label for="reqExtent" class="form-label">Extent of Collection</label>
-                            <input id="reqExtent" type="text" class="form-control" placeholder="Extent of Collection" aria-label="Extent of Collection" name="R_EXTENT_COLLECT" />
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <label for="reqCreator" class="form-label">Size of Collection Items</label>
-                            <input id="reqCreator" type="text" class="form-control" placeholder="Size of Collection Items" aria-label="Size of Collection Items" name="R_SIZE_COLLECT" />
-                        </div>
-
-                    </div>
-
-
-                    <div class="row g-3 Rale-Med">
-                        <div class="col-md-6 col-sm-12">
-                            <label for="reqGeo" class="form-label">Geographic Location</label>
-                            <input id="reqGeo" type="text" class="form-control" placeholder="Geographic Location" aria-label="Geographic Location" name="R_GEOG_LOC" />
-                        </div>
-
-
-
-                        <div class="col-md-6 col-sm-12">
-                            <label for="recTax" class="form-label">Tax Receipt Required</label>
-
-
-                            <select id="reqPriority" class="form-select Rale-Med" name="R_RECEIPT"> 
-                                <option value="N" selected>No</option>
-        
-                                <option value="Y">Yes</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-12 col-sm-12">
-                            <label for="reqPrevDonation" class="form-label">Previous Donations</label>
-                            <input id="reqPrevDonation" type="text" class="form-control" placeholder="Previous Donations" aria-label="Previous Donations" name="R_PREV_DONATE" />
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="row g-3">
+            <div class="reqAdditionalInfo g-3 Rale-Med">
                 <div class="col-md-12">
                     <label for="reqDetail Rale-Med" class="form-label">Additional Information*</label>
                     <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="reqDetail" name="REQ_TOPIC_GL" required></textarea>
@@ -139,14 +76,7 @@
                 </div>
             </div>
 
-            <div class="row g-3">
-
-                <div class="col-md-12 col-sm-12">
-                    <label for="reqAffliation" class="form-label Rale-Med">Affliation*</label>
-                    <input name="REQ_AFFILIATE" id="reqAffliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affliation" required />
-                    <!-- <input name="R_AFFILIATE" id="reqAffliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affliation" required /> -->
-                </div>
-            </div>
+            
 
             <div class="row Rale-Med" id="Request-Button">
                 <div class="col-md-6" id="submitBtn">

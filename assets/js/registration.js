@@ -1,6 +1,14 @@
 let emailCheck = false;
 $(document).ready(function() {
 
+    $("#msform").on("keypress", function(event) {
+        console.log("aaya");
+        var keyPressed = event.keyCode || event.which;
+        if (keyPressed === 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
     let current_fs, next_fs, previous_fs; //fieldsets
     let opacity;
     var chk1, chk2, chk3, chk4;
@@ -25,7 +33,9 @@ $(document).ready(function() {
         } else if (!emailCheck) {
             checkEmail().then(res => {
                 console.log(password.value)
-                if (!res) {
+                if (document.getElementById('c_email').value.trim() === '') {
+                    showMessage("Please fill out your email address.")
+                } else if (!res) {
                     showMessage('This email address has already been registered ! Please use another email address.')
                 } else if (!password.value.match(passwordRegex)) {
                     showMessage("Password must contain at least eight characters, at least one uppercase letter, one lowercase letter, one special character and one number.")

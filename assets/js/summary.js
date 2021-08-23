@@ -30,7 +30,7 @@ $(document).ready(function(){
                 $tmp_data = test1.text(); // F 26 G
                 $tmp_data2 = test2.text(); // DESCRIPTION COLLECTION LIBRARY
                 $tmp_data3 = test3;
-                $tmp_data4 = client_id;
+                $tmp_data4 = client_id.split(']')[1];
 
 
             },
@@ -59,12 +59,13 @@ $(document).ready(function(){
         type: "GET",
         url:$(this).attr('href'),
         success:function() {
+            console.log("success")
             location.reload();
         }
         });
     });
 
-    var bookmark_desc = document.getElementById("bookmark-database")
+    // var bookmark_desc = document.getElementById("bookmark-database")
     // $.ajax({
     //     url: $("#bookmark-id-btn").attr("action"),
     //     type: "POST",

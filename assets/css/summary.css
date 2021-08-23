@@ -1,6 +1,6 @@
 .Annotation-Wrapper,
-.Source-Wrapper {
-    border-radius:5px;
+.Comments-Keyword-Wrapper {
+    border-radius:3px;
     /* display:inline-block; */
     /* overflow:hidden; */
     /* background:#cccccc; */
@@ -8,16 +8,14 @@
   }
 
   #Annotation-Drop,
-  #Source-Db-Drop {
-    /* width:140px;
-    height:40px; */
+  #Comments-Keyword-Drop {
+    /* width:140px; */
+    height:35px;
+    width: 99%;
     border:0px;
+    padding-left: 5px;
     outline:none;
   }
-
-.Label {
-    margin-right: 5px;
-}
 
 .Modal-Body-Item {
     margin: 5px;
@@ -133,13 +131,41 @@ form div .Crowd-Header-Title{
     text-align: center !important;
     padding: 20px 0 20px 0 !important;
 }
+
+
 .Crowd-Body-Item{
     text-align: center !important;
     justify-content: center !important;
     padding: 10px 0 10px 0 !important;
 }
 
+.Crowd-Container {
+    display: flex;
+    flex-direction: column;
 
+    width: 70%;
+}
+
+.Comments-Input {
+    display: flex;
+    flex: 54;
+}
+
+.crowd-temp-start {
+    display: flex; 
+    flex: 9;
+}
+.crowd-temp-end {
+    display: flex;
+    flex: 9;
+}
+
+.Label {
+    display: flex;
+    flex: 28;
+
+    margin-right: 5px;
+}
 /*
 #cboxLoadedContent {
     height:714px !important;

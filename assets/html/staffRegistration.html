@@ -49,17 +49,22 @@
                                             <input id="reg-alias" class="Rale-Reg" type="text" name="C_NAME_ALIAS" placeholder="Name Alias" />
 
                                             <div class="row" style="margin-bottom:25px">
-                                                <div class="col-12"> <select style="width:100%" id="C_TYPE" class="Rale-Reg list-dt" name="C_TYPE" value="Public User" disabled>
+                                                <div class="col-12"> <select disabled style="width:100%" id="C_TYPE" class="Rale-Reg list-dt" name="C_TYPE">
                                                    
-
-                                                        
-                                                        <option value="Public User" selected>Public User</option>
-                                                  
+                                                        <option value="Staff" selected>Staff </option>
+                                               
                                                     
                                                     </select>
                                                 </div>
                                             </div>
-
+                                            <div class="row">
+                                                <div class="col-12"> <select disabled style="width:100%" id="DIVISION" class="Rale-Reg list-dt" name="DIVISION">
+                                                    
+                                                
+                                                        <option selected>Ministry of Government and Consumer Services</option>
+                                                       
+                                                    </select></div>
+                                            </div>
 
                                         </div>
                                         <button id="detail-next" class="next action-button btn btn-primary Rale-Reg" type="button" name="next">
@@ -93,7 +98,7 @@
                                     <fieldset>
                                         <div class="form-card">
                                             <h2 class="fs-title">Contacts</h2>
-                                            <input type="text" name="C_ORGANIZATION" placeholder="Organization" />
+                                            <!-- <input type="text" name="C_ORGANIZATION" placeholder="Organization" /> -->
                                             <input type="text" name="C_TEL_WORK" placeholder="Work Number" />
                                             <input type="text" name="C_TEL_HOME" placeholder="Phone Number" />
                                             <input type="text" name="C_TEL_FAX" placeholder="Fax Number" />

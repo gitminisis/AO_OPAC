@@ -1,10 +1,14 @@
-<option>Retrieval Services</option>
-   <option>Reproduction/Certifications</option>
-   <option>Copyright Services</option>
-   <option>Restricted Holdings</option>
-   <option>Loan</option>
-   <option>Semi-Active Archival Holdings</option>
-   <option>Art collection (only)</option>
-   <option>Archives Repository (only)</option>
-   <option>Library Holdings (only)</option>
-   <option>Vital Statistics Records</option>
+<div id="req-later-right" class="summon_index">
+<h4>Select a visit date to continue.</h4>
+<div class="row mb-2">
+<div class="col-md-3 form-group">
+<label for="req-later-date">Visit start date:</label>
+<div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group">
+<input type="text" class="form-control" autocomplete="off" id="dateDebut" name="DATE_NEEDED" maxlength="10" >
+</div></div></div>
+<div class="row mb-2">
+<div class="col-md-3 form-group">
+<label for="dateEnd">Visit end date: </label><input type="text" class="form-control" autocomplete="off"  id="dateEnd" name="END_DATE_NEEDED" maxlength="10" onblur="checkDate()" value="">
+</div></div>
+<input id="time_picker" name="COLLECTION_TIME" type="hidden" value="8:00">
+</div> 

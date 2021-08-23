@@ -54,6 +54,7 @@ $(document).ready(function () {
 
   // Filters
   if ($("#filter_results").length) {
+    if (document.getElementById('filter_xml') != null) {
     var filter_inner_xml = $("div").find('#filter_xml')[0].innerHTML;
     let filter_xml = "<filter_xml>\n" + filter_inner_xml + "</filter_xml>\n";
     //console.log(filter_xml);
@@ -114,7 +115,7 @@ $(document).ready(function () {
 
       }
     }
-
+    }
   }// Filter End
   // .Crowd-Source
   if (getCookie("M2L_PATRON_ID") === "") {
@@ -123,12 +124,23 @@ $(document).ready(function () {
     var crowdSource = document.querySelectorAll(".Crowd-Source");
     var reproduction = document.querySelectorAll(".Reproduction");
     var request = document.querySelectorAll(".Req-Material");
+    var copyright = document.querySelectorAll(".Copyright");
 
     // removes these buttons for 10 records per page
     for (var i = 0; i < 10; i++) {
       // crowdSource[i].style.display = "none";
-      reproduction[i].style.display = "none";
-      request[i].style.display = "none";
+      if(crowdSource[i] != null){
+        crowdSource[i].style.display = "none";
+      }
+      if(reproduction[i] != null){
+        reproduction[i].style.display = "none";
+      }
+      if(request[i] != null){
+        request[i].style.display = "none";
+      }
+      if(copyright[i] != null){
+        copyright[i].style.display = "none";
+      }
     }
   }
   else {
@@ -281,3 +293,5 @@ function editEnquiry( sessid )
     window.location = url;
   }
 }
+
+

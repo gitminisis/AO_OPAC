@@ -1,0 +1,151 @@
+<div class="row">
+    <span id="ClientFormPage"></span>
+    <div id="Client-Form">
+        <form method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/editProfileConfirmation.html">
+           
+           <!-- Main -->
+            <div class="clientMainSection shadow-lg border border-dark border-2 row g-3 Rale-Med">
+                <h3 id="FormHeader" class="Rale-Bold d-flex justify-content-left">Main
+                </h3>
+
+                <div class="clientIDContainer col-md-4 col-sm-12">
+                    <label for="clientID" class="form-label">Client ID*</label>
+                    <input id="clientID" type="text" class="form-control" placeholder="Client ID" aria-label="Client ID" name="C_CARD_NUMBER" required />
+                </div>
+
+                <div class="clientEmailContainer col-md-4 col-sm-12">
+                    <label for="clientEmail" class="form-label">Email*</label>
+                    <input name="C_EMAIL" id="clientEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required />
+                </div>
+
+                <div class="clientFirstNameContainer col-md-4 col-sm-12">
+                    <label for="clientFirstName" class="form-label">First Name*</label>
+                    <input id="clientFirstName" type="text" class="form-control" placeholder="First name" aria-label="First name" name="C_NAME_FIRST" required />
+                </div>
+
+                <div class="clientLastNameContainer col-md-4 col-sm-12">
+                    <label for="clientLastName" class="form-label">Last Name*</label>
+                    <input id="clientLastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="C_NAME_LAST" required />
+                </div>
+
+                <div class="clientMiddleNameContainer col-md-4 col-sm-12">
+                    <label for="clientMiddleName" class="form-label">Middle Name</label>
+                    <input id="clientMiddleName" type="text" class="form-control" placeholder="Middle name" aria-label="Middle name" name="C_NAME_INIT" required />
+                </div>
+
+                <div class="clientAliasContainer col-md-4 col-sm-12">
+                    <label for="clientAlias" class="form-label">Alias</label>
+                    <input id="clientAlias" type="text" class="form-control" placeholder="Alias" aria-label="Alias" name="" required />
+                </div>
+                
+
+
+                
+                
+            </div>
+
+            <!-- Address -->
+            <div class="clientAddressSection shadow-lg border border-dark border-2 row g-3 Rale-Med">
+                <h3 id="FormHeader" class="Rale-Bold d-flex justify-content-left">Address
+                </h3>
+                <div class="clientStreetOneContainer col-md-4 col-sm-12">
+                    <label for="clientStreetOne" class="form-label">Line 1</label>
+                    <input id="clientStreetOne" type="text" class="form-control" placeholder="Street" aria-label="Line 1" name="C_STREET" />
+                </div>
+                <div class="clientStreetTwoContainer col-md-4 col-sm-12">
+                    <label for="clientStreetTwo" class="form-label">Line 2</label>
+                    <input id="clientStreetTwo" type="text" class="form-control" placeholder="Street" aria-label="Line 2" name="C_STREET2" />
+                </div>
+                <div class="clientStreetThreeContainer col-md-4 col-sm-12">
+                    <label for="clientStreetThree" class="form-label">Line 3</label>
+                    <input id="clientStreetThree" type="text" class="form-control" placeholder="Street" aria-label="Line 3" name="C_STREET3" />
+                </div>
+
+                <div class="clientCityContainer col-md-4 col-sm-12">
+                    <label for="clientCity" class="form-label">City</label>
+                    <input id="clientCity" type="text" class="form-control" placeholder="City" aria-label="City" name="C_CITY"  />
+                </div>
+                <div class="clientProvContainer col-md-4 col-sm-12">
+                    <label for="clientProv" class="form-label">Province</label>
+                    <input id="clientProv" type="text" class="form-control" placeholder="Province" aria-label="Province" name="C_PROV_STATE"  />
+                </div>
+                <div class="clientCountryContainer col-md-4 col-sm-12">
+                    <label for="clientCountry" class="form-label">Country</label>
+                    <input id="clientCountry" type="text" class="form-control" placeholder="Country" aria-label="Country" name="C_COUNTRY"  />
+                </div>
+                <div class="clientPostalContainer col-md-4 col-sm-12">
+                    <label for="clientPostal" class="form-label">Postal Code</label>
+                    <input id="clientPostal" type="text" class="form-control" placeholder="Postal Code" aria-label="Postal Code" name="C_POSTAL_ZIP"  />
+                </div>
+
+            
+            </div>
+
+            <!-- Shipping Address -->
+            <!-- <div class="clientShipAddressSection shadow-lg border border-dark border-2 row g-3 Rale-Med">
+                <h3 id="FormHeader" class="Rale-Bold d-flex justify-content-left">Shipping Address
+                </h3>
+                <div class="clientFirstNameContainer col-md-4 col-sm-12">
+                    <label for="clientFirstName" class="form-label">First Name*</label>
+                    <input id="clientFirstName" type="text" class="form-control" placeholder="First name" aria-label="First name" name="" required />
+                </div>
+                <div class="clientLastNameContainer col-md-4 col-sm-12">
+                    <label for="clientLastName" class="form-label">Last Name*</label>
+                    <input id="clientLastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="" required />
+                </div>
+                
+            </div> -->
+
+            <!-- Telephone -->
+            <div class="clientTelephoneSection shadow-lg border border-dark border-2 row g-3 Rale-Med">
+                <h3 id="FormHeader" class="Rale-Bold d-flex justify-content-left">
+                    Telephone
+                </h3>
+                <div class="clientHomePhoneContainer col-md-3 col-sm-12">
+                    <label for="clientHomePhone" class="form-label">
+                        Home
+                    </label>
+                    <input id="clientHomePhone" type="text" class="form-control" placeholder="Home Telephone" aria-label="Home Telepone" name="C_TEL_PHONE" />
+                </div>
+
+                <div class="clientWorkPhoneContainer col-md-3 col-sm-12">
+                    <label for="clientWorkPhone" class="form-label">
+                        Work
+                    </label>
+                    <input id="clientWorkPhone" type="text" class="form-control" placeholder="Work Telephone" aria-label="Work Telepone" name="C_TEL_WORK" />
+                </div>
+
+                <div class="clientCellPhoneContainer col-md-3 col-sm-12">
+                    <label for="clientCellPhone" class="form-label">
+                        Cell
+                    </label>
+                    <input id="clientCellPhone" type="text" class="form-control" placeholder="Cell Telephone" aria-label="Cell Telepone" name="C_TEL_CELL" />
+                </div>
+
+                <div class="clientFaxPhoneContainer col-md-3 col-sm-12">
+                    <label for="clientFaxPhone" class="form-label">
+                        Fax
+                    </label>
+                    <input id="clientFaxPhone" type="text" class="form-control" placeholder="Fax Telephone" aria-label="Fax Telepone" name="C_TEL_FAX" />
+                </div>
+                
+             
+            </div>
+
+
+            <div class="row Rale-Med" id="Client-Button">
+                <div class="col-md-6" id="submitBtn">
+                    <button class="btn btn-primary" type="submit">
+                        Submit
+                    </button>
+                </div>
+                <div class="col-md-6" id="cancelBtn">
+                    <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/home.html">
+                        <button class="btn btn-secondary" type="button">
+                            Cancel
+                        </button></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
