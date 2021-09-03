@@ -12,6 +12,8 @@ Date.prototype.yyyymmdd = function() {
 
 $(document).ready(function() {
 
+
+    enableDatePicker()
     let enq_id_confirm = $('#enq_id_confirm').text();
     // console.log(document.getElementById('enq_id_confirm'))
     if (enq_id_confirm) {
@@ -47,6 +49,7 @@ $(document).ready(function() {
                 let last_name = jsonObj.client.name_last;
                 let full_name = `${first_name} ${last_name}`
                 let email = jsonObj.client.email;
+                let tel = jsonObj.client.tel_home;
 
 
                 document.getElementById('enqFullName').value = full_name;
@@ -56,6 +59,12 @@ $(document).ready(function() {
                 document.getElementById('enqLastName').readOnly = true;
                 document.getElementById('enqEmail').value = email;
                 document.getElementById('enqEmail').readOnly = true;
+                if (tel) {
+                    document.getElementById('enqPhone').value = tel;
+                    document.getElementById('enqPhone').readOnly = true;
+                }
+
+
 
                 setAffinity(jsonObj.client.client_type);
 
@@ -247,7 +256,7 @@ function generateEditableCorrespondence() {
             })
             // console.log($('#cor_div'))
         $('#cor_div').append(generateCorForm(null, len, len, true))
-
+        $('#corDate').datepicker({ format: 'yyyy-mm-dd', minDate: today, maxDate: today })
         $('#cor_div').slick({
             infinite: false,
             draggable: false,
@@ -261,21 +270,22 @@ function generateEditableCorrespondence() {
 function generateCorForm(data, idx, len, edit = false) {
     let newOcc =
         `$${Number.parseInt(len) + 1}$1`;
+
     return (`<div class="card"> <div class="card-header"> <h5 class="mb-0"> <button class="btn" type="button" data-toggle="collapse show" data-target="collapse${idx}" aria-expanded="true" aria-controls="collapse${idx}">  Response ${Number.parseInt(idx) + 1}/${len + 1}: ${data ? data.cor_sub : "New Reply"}  </button> </h5> </div> <div id="collapse${idx}" class="collapse show" aria-labelledby="headingOne" data-parent="cor_div"> <div class="card-body"> 
 
     <div class="col-md-12 col-sm-12">
     <label for="corDate" class="form-label">Date</label>
-    <input name=${edit ? `CORRESPOND_DATE${newOcc}` : `"" `}  value=${edit ? ' "" ' : data.cor_date}  type="text" id="corDate" class="form-control" placeholder="Date" aria-label="Date"   ${edit ? '' : 'readonly'}/>
+    <input name=${edit ? `CORRESPOND_DATE${newOcc}` : `"" `}  value=${edit ? ' "" ' : data.cor_date}  type="text" id=${edit?' "corDate" ':' "" '}class="form-control" placeholder="Date" aria-label="Date"   ${edit ? '' : 'readonly'}/>
     </div>
     <br />
     <div class="col-md-12 col-sm-12">
     <label for="corType" class="form-label">Type</label>
-    <input name=${edit ? `CORRESPOND_TYPE${newOcc}` : `"" `} value=${edit ? ' "" ': data.cor_type} type="text" id="corType" class="form-control" placeholder="Type" aria-label="Type"  ${edit ? '' : 'readonly'}/>
+    <input name=${edit ? `CORRESPOND_TYPE${newOcc}` : `"" `} value=${edit ? ' "" ' : data.cor_type} type="text" id="corType" class="form-control" placeholder="Type" aria-label="Type"  ${edit ? '' : 'readonly'}/>
     </div>
     <br />
     <div class="col-md-12 col-sm-12">
     <label for="corWho" class="form-label">Sender</label>
-    <input name=${edit ? `CORRESPOND_WHO${newOcc}` : `"" `} value=${edit ? ' "" ': ` "${data.cor_who}" `} type="text" id="corWho" class="form-control" placeholder="Sender" aria-label="Sender"  ${edit ? '' : 'readonly'} />
+    <input name=${edit ? `CORRESPOND_WHO${newOcc}` : `"" `} value=${edit ? ' "" ' : ` "${data.cor_who}" `} type="text" id="corWho" class="form-control" placeholder="Sender" aria-label="Sender"  ${edit ? '' : 'readonly'} />
     </div>
     <br />
     <div class="col-md-12 col-sm-12">
@@ -314,11 +324,13 @@ const setEnquiryTopic = () => {
 }
 
 function decodeTextField(str) {
+    console.log(str)
     str = str.replace(new RegExp("&amp;", "gi"), "&");
     str = str.replace(new RegExp("&lt;", "gi"), "<");
     str = str.replace(new RegExp("&#60;", "gi"), "<");
     str = str.replace(new RegExp("&gt;", "gi"), ">");
     str = str.replace(new RegExp("&#62;", "gi"), ">");
+    console.log(str)
     return str;
 }
 
@@ -340,4 +352,12 @@ function setupTopicForm(value) {
     toggleTopicForm(value, "Transfer Agreement", "transferForm")
     toggleTopicForm(value, "Record Disposition", "dispositionForm")
     toggleTopicForm(value, "Acquisitions", "acquisitionForm")
+}
+
+function enableDatePicker() {
+    let format = { format: 'yyyy-mm-dd' }
+    today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    $('#enqAcqDate').datepicker(format)
+    $('#enqLoanDate').datepicker(format)
+    $('#corDate').datepicker({ format: 'yyyy-mm-dd', minDate: today, maxDate: today })
 }

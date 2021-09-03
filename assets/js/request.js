@@ -34,6 +34,9 @@ $(document).ready(function() {
         document.getElementById('reqID').value = parent.$tmp_data;
         document.getElementById('reqSource').value = parent.$tmp_data2;
         document.getElementById('reqTitle').value = parent.$tmp_data3;
+        document.getElementById('reqItemTitle').value = parent.$tmp_data3;
+        document.getElementById('reqMethodRequest').value = "Web";
+
 
     }
 
@@ -48,6 +51,8 @@ $(document).ready(function() {
         document.getElementById('reqID').value = parent.$tmp_data;
         document.getElementById('reqSource').value = parent.$tmp_data2;
         document.getElementById('reqTitle').value = parent.$tmp_data3;
+        document.getElementById('reqItemTitle').value = parent.$tmp_data3;
+        document.getElementById('reqMethodRequest').value = "Web";
     }
     
         // let value = document.getElementById('reqTopic').value;
@@ -119,14 +124,18 @@ function displayAccountLinks(bool) {
 }
 
 function removePatronLoginLink() {
+    console.log('do I get called?')
     if(document.getElementById('Patron-Login') != null){
+        console.log('do I get called too?')
         let regLink = document.getElementsByClassName('Patron-Reg');
-        let regLogin = document.getElementById('Patron-Login');
+        let regLogin = document.getElementById('Patron-Login');      
+        let regLoginMobile = document.getElementById('Patron-Login-Mobile');      
 
+        regLogin.hidden = true;
+        regLoginMobile.hidden = true;
         for (let i = 0; i < regLink.length; i++) {
             regLink[i].hidden = true;
         }
-        regLogin.hidden = true;
     }
 }
 
@@ -134,7 +143,6 @@ function removePatronLoginLink() {
 function getRequestClientInfo() {
 
     let patron_id = getCookie('M2L_PATRON_ID');
-
     patron_id = patron_id.split(']')[1];
 
 
@@ -143,45 +151,43 @@ function getRequestClientInfo() {
     // let tempString = window.location.href;
     // let tempUrlCheck = tempString.split("/");
 
+    if (document.getElementById('Request-Form') != null) {
+
+        $.ajax(url).done(function(res) {
+            let x2js = new X2JS();
+
+            let jsonObj = x2js.xml2json(res);
+            let first_name = jsonObj.client.name_first;
+            let last_name = jsonObj.client.name_last;
+            let full_name = `${first_name} ${last_name}`
+            let email = jsonObj.client.email;
+            let c_type = jsonObj.client.client_type;
+            let client_id = jsonObj.client.card_number;
 
 
-    $.ajax(url).done(function(res) {
-        let x2js = new X2JS();
-
-        let jsonObj = x2js.xml2json(res);
-        let first_name = jsonObj.client.name_first;
-        let last_name = jsonObj.client.name_last;
-        let full_name = `${first_name} ${last_name}`
-        let email = jsonObj.client.email;
-        let c_type = jsonObj.client.client_type;
-        let client_id = jsonObj.client.card_number;
-
-
-        console.log(jsonObj);
-        document.getElementById('reqFullName').value = full_name;
-        document.getElementById('reqFirstName').value = first_name;
-        document.getElementById('reqFirstName').readOnly = true;
-        document.getElementById('reqLastName').value = last_name;
-        document.getElementById('reqLastName').readOnly = true;
-        document.getElementById('reqEmail').value = email;
-        document.getElementById('reqEmail').readOnly = true;
-        document.getElementById('reqAffiliation').value = c_type;
-        document.getElementById('reqAffiliation').readOnly = true;
-        document.getElementById('reqClientID').value = client_id;
-        document.getElementById('reqTopic').readOnly = true;
+            console.log(jsonObj);
+            document.getElementById('reqFullName').value = full_name;
+            document.getElementById('reqFirstName').value = first_name;
+            document.getElementById('reqFirstName').readOnly = true;
+            document.getElementById('reqLastName').value = last_name;
+            document.getElementById('reqLastName').readOnly = true;
+            document.getElementById('reqEmail').value = email;
+            document.getElementById('reqEmail').readOnly = true;
+            document.getElementById('reqAffiliation').value = c_type;
+            document.getElementById('reqAffiliation').readOnly = true;
+            document.getElementById('reqClientID').value = client_id;
+            document.getElementById('reqTopic').readOnly = true;
 
 
-        // document.getElementById('reqAffiliation').hidden = true;
+            // document.getElementById('reqAffiliation').hidden = true;
+            // document.getElementById('reqPatronID').value = patron_id;
+
+        
 
 
-        // document.getElementById('reqPatronID').value = patron_id;
+        });
 
-
-
-
-    })
-
-
+    }
 
 }
 

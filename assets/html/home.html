@@ -22,26 +22,28 @@
                         <span id='Number-Results'></span>
                         <div class='Input-Wrapper d-flex flex-column'>
                             <label class='Rale-Bold'>Enter a search term or terms:</label>
-                            <input id="simple_search_input" type='text' name="KEYWORD_CLUSTER"/>
+                            <input id="simple_search_input" type='text' title='Enter a search term or terms' name="KEYWORD_CLUSTER"/>
                         </div>
                         <div class='Radio-Wrapper d-flex justify-content-evenly'>
                             <span>
-                                <input type='radio' id='All-Keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
-                                <label class='Rale-Med' for='All-Keywords'>All of these keywords</label>
+                                <input type='radio' id='All-Keywords' title='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
+                                <label class='Rale-Med'  for='All-Keywords'>All of these keywords</label>
                             </span>
                             <span>
-                                <input type='radio' id='Any-Keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
-                                <label class='Rale-Med' for='Any-Keywords'>Any of these keywords</label>
+                                <input type='radio' id='Any-Keywords' title='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
+                                <label class='Rale-Med'  for='Any-Keywords'>Any of these keywords</label>
                             </span>
                             <span>
-                                <input type='radio' id='Exact-Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
-                                <label class='Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
+                                <input type='radio' id='Exact-Phrase' title='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
+                                <label class='Rale-Med'  for='Exact-Phrase'>Exact Phrase</label>
                             </span>
                         </div>
                         <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
-                            <input class='Search-Option-Button' type='submit' value='SEARCH'/>
-                            <a class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a>
-                            <a class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a>
+                            <input class='Search-Option-Button Search-Btn' alt='Search' title='Search' type='submit' value='SEARCH'/>
+                            <!-- <a class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a> -->
+                            <button class='Search-Btn' alt='Advanced Search'  title='Advanced Search'><a id='Advanced-Search' class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a></button>
+                            <!-- <a class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a> -->
+                            <button class='Search-Btn' alt='More Search Options' title='More Search Options'><a id='More-Search' class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a></button>
                         </div>
                     </form>
                 </div>

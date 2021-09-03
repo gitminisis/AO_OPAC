@@ -1,0 +1,120 @@
+
+    <!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+        
+        <!-- include virtual="[AO_INCLUDES]header.htm"-->
+        <title>Advanced Search - Archives</title>
+
+        <div id='Content-Wrapper' class='Content-Wrapper'>
+
+            <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+
+            <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+                <h1  class='Rale-Extra'>Archives Advanced Search</h1>
+                <div class='Form-Wrapper'>
+                   
+                    <form id='Main-Form' method="post" name="adv_search" action="^SEARCH^&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm">
+                        
+                        
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B01" id="B01" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            
+                            <input type="text" class="form-control" name="REFD_CL"  aria-label="Sizing example input" placeholder="Reference Code" title="Reference Code">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="REFD_CL"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B02" id="B02" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            
+                            <input type="text" class="form-control" name="TITLE_CL" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Title" title="Title">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="TITLE_CL"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B03" id="B03 adv_operators" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" name="DATE_CR_INC_CL" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Date" title="Date">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="DATE_CR_INC_CL"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                         <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B04" id="B04" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" name="PHYS_DESC_CL" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Description" title="Description">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="PHYS_DESC_CL"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B05" id="B05" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" name="FORM_CL" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Format" title="Format">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="FORM_CL"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container">
+                                <select name="B06" id="B06" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" name="LEVEL_DESC_CL" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Description Level" title="Description Level">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="LEVEL_DESC_CL"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+               
+                        
+                        <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
+                            <button class="btn btn-primary" type="submit" title="Submit" value='SEARCH'>Submit</button>
+                            <button class="btn btn-outline-primary" id="clear" type="reset" title="Clear" value='SEARCH'>Clear</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+
+        </div>
+        <!-- include virtual="[AO_INCLUDES]advSearchBrowse.htm"-->
+        
+        <!-- include virtual="[AO_INCLUDES]footer.htm"-->

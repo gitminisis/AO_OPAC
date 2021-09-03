@@ -2,7 +2,7 @@
 
 <body>
 
-    <!-- include virtual="[AO_INCLUDES]header.htm"-->
+    <!-- include virtual="[AO_INCLUDES]simpleHeader.htm"-->
     <title>Request - Reproduction</title>
 
 
@@ -12,15 +12,6 @@
 
         <div id='Panel-Main' class='Panel-Main Main-Content align-items-center'>
             <div id="Request-Page">
-                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">
-                            <a href="^SESSID^?addsinglerecord&database=REQUEST_VIEW&de_form=[AO_ASSETS]html/request.html">Request</a>
-                        </li>
-
-                    </ol>
-                </nav>
                 <div class="Page-Heading">
                     <h1 id='Reproduction' class='Rale-Bold d-flex justify-content-center '>Reproduction/Certifications
                     </h1>
@@ -40,5 +31,10 @@
         
     </div>
     </div>
-    <script></script>
-    <!-- include virtual="[AO_INCLUDES]footer.htm"-->
+    <script>
+        $('#reqCancel').on('click', function () {
+            parent.$.colorbox.close();
+        });
+    </script>
+    
+<!-- include virtual="[AO_INCLUDES]simpleFooter.htm"-->

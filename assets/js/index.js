@@ -3,6 +3,7 @@ let SESSID = getCookie("SESSID");
 let client_name = '';
 let client_id = '';
 
+let home_sessid = HOME_SESSID.split('-')[0];
 let sessid = "^SESSID^";
 let patron_id = getCookie("M2L_PATRON_ID");
 let patron_name = getCookie("M2L_PATRON_NAME");
@@ -22,15 +23,7 @@ $(document).ready(function () {
   // Display Account Info after Login
   getAccountInfo();
 
-  // Summary Report "Save to Bookmark"
-  // $('div.summary_result_check label').click(function () {
-  //   // Basically, we want to check the invisible checkbox and submit the form
-  //   // so that the "label" acts like a button.
-  //   console.log("clicked");
-  //   $(this).parent('div.summary_result_check').find('input[type=checkbox]').attr('checked', 'checked');
 
-  //   $('#web_sum_form').submit();
-  // });
   // Detail Report "Save to Bookmark"
   $('div.detail_result_check label').click(function () {
     // Basically, we want to check the invisible checkbox and submit the form
@@ -154,14 +147,6 @@ const onClickSearchOption = (value) => {
   let span = document.getElementById('Option-Choice');
   span.innerText = option + value;
 }
-/* * * * * * * * * * * * *
- * *                   * *
- * *      Bookmark     * *
- * *                   * *
- * * * * * * * * * * * * */
-function bookmark() {
-
-}
 
 /* * * * * * * * * * * * *
  * *                   * *
@@ -244,7 +229,7 @@ function ReadCookie(name) {
 
 let headOpen = false;
 let quickOpen = false;
-const headAccordionOnClick = (e) => {
+const headAccordionOnclick = (e) => {
   if (!headOpen) {
     e.parentNode.classList.add('open');
     headOpen = true;
@@ -263,8 +248,6 @@ const navAccordionOnClick = (e) => {
     quickOpen = false;
   }
 }
-
-
 
 function getAccountInfo() {
   var patron_id = getCookie('M2L_PATRON_ID');
@@ -293,5 +276,3 @@ function editEnquiry( sessid )
     window.location = url;
   }
 }
-
-

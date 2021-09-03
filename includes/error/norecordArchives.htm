@@ -1,7 +1,7 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
 
         <!-- include virtual="[AO_INCLUDES]header.htm"-->
-        <title>Archives of Ontario - No Results</title>
+        <title>Archives of Ontario - No Archives Results</title>
         
         
         <div id='Content-Wrapper' class='d-flex flex-row'>
@@ -9,17 +9,19 @@
         <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
 
             <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
-                <h1>No Requested Records</h1>
+                <h1>No Results Found in Archives</h1>
                 <div class='Form-Wrapper'>
                     <p style='font-size: 2em; text-align: center;'>
-                        There are no saved request(s). Click the Request Material button icon to request record.
+                        Your search returned no results. Please try another search strategy.
                     </p>
-                    <form id='Main-Form' method="post" name="simple_search" action="?UNIONSEARCH&APPLICATION=UNION_VIEW&ERRMSG=[AO_INCLUDES]error/norecord.htm">
+                    <!-- <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&database=UNION_VIEW&ERRMSG=[AO_INCLUDES]error/norecord.htm"> -->
+                        <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm">
+                        
                         <span id='Option-Choice'>Option 1: Keyword Search</span>
                         <span id='Number-Results'></span>
                         <div class='Input-Wrapper d-flex flex-column'>
                             <label>Enter a search term or terms:</label>
-                            <input id="simple_search_input" type='text' name="KEYWORD_CLUSTER" title="Enter a search term or terms"/>
+                            <input id="simple_search_input" type='text' title="Enter a search term or terms" name="KEYWORD_CLUSTER"/>
                         </div>
                         <div class='Radio-Wrapper d-flex justify-content-evenly'>
                             <span>
@@ -37,7 +39,7 @@
                         </div>
                         <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
                             <input class='Search-Option-Button' type='submit' title="Search" value='SEARCH'/>
-                            <a href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a>
+                            <a href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArchives.html'>ADVANCED SEARCH</a>
                             <a href='#'>MORE SEARCH OPTIONS</a>
                         </div>
                     </form>

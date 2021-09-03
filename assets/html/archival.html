@@ -14,33 +14,32 @@
                     <p class='Form-Subheader Rale-Bold'>
                         This Ministerial Department is responsible of the collection, preservation and management of Ontario's History and Public Documentation
                     </p>
-                    <!-- <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&DATABASE=DESCRIPTION&ERRMSG=[AO_INCLUDES]error/norecord.htm"> -->
-                    <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecord.htm">
-                       
-                        <!-- https://search.lma.gov.uk/scripts/mwimain.dll/382872043?UNIONSEARCH&APPLICATION=UNION_VIEW&LANGUAGE=144&simple_exp=y&HISTORY=LMA_DESCRIPTION&ERRMSG=[WWW_LMA]err.htm&REPORT=WEB_SUMMARY -->
+
+                    <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm">
+
                         <span id='Option-Choice' class='Rale-Bold'>Option 1: Keyword Search</span>
                         <span id='Number-Results'></span>
                         <div class='Input-Wrapper d-flex flex-column'>
                             <label class='Rale-Bold'>Enter a search term or terms:</label>
-                            <input id="simple_search_input" type='text' name="KEYWORD_CLUSTER"/>
+                            <input id="simple_search_input" type='text' title="Enter a search term or terms" name="KEYWORD_CLUSTER"/>
                         </div>
                         <div class='Radio-Wrapper d-flex justify-content-evenly'>
                             <span>
-                                <input type='radio' id='All-Keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
+                                <input type='radio' id='All-Keywords' title='All-Keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
                                 <label class='Rale-Med' for='All-Keywords'>All of these keywords</label>
                             </span>
                             <span>
-                                <input type='radio' id='Any-Keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
+                                <input type='radio' id='Any-Keywords' title='Any-Keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
                                 <label class='Rale-Med' for='Any-Keywords'>Any of these keywords</label>
                             </span>
                             <span>
-                                <input type='radio' id='Exact-Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
+                                <input type='radio' id='Exact-Phrase' title='Exact-Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
                                 <label class='Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
                             </span>
                         </div>
                         <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
-                            <input class='Search-Option-Button' type='submit' value='SEARCH'/>
-                            <a class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a>
+                            <input class='Search-Option-Button' type='submit' title="Search" value='SEARCH'/>
+                            <a class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArchives.html'>ADVANCED SEARCH</a>
                             <a class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a>
                         </div>
                     </form>

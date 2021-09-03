@@ -1,54 +1,86 @@
 $(document).ready(function() {
+   
     getPatronClientInfo()
+    $('#clientPassword').on('input', function() {
+        var password = document.getElementById('clientPassword');
+        let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
+        // if (!password.value.match(passwordRegex)) {
+        //     alert("Password must contain at least eight characters, at least one uppercase letter, one lowercase letter, one special character and one number.")
+        // }
+    });
+    $("button#editClientSubmit").click(function(){
+        
+
+        // setTimeout(updatedProfile(), 9500);
+        // function updatedProfile(){
+        //     location.reload();
+        // }
+    });
+
+    function showMessage(text) {
+        $('#reg_msg').html(`<b>${text}</b>`)
+        $('#reg_modal').modal('show')
+        setTimeout(function() { $('#reg_modal').modal('hide'); }, 1400);
+    }
 
     $("button.colorbox-edit-client").click(function(e) {
         let evt = e;
         // $(this).parent().parent().find(".cs-item-sisn");
-
         var accession = $(this).parent().parent().find(".cs-item-id");
         var reqSource = $(this).parent().parent().find(".cs-item-src");
         var title = $(this).parent().parent().find(".cs-item-title");
         var topicCheck = "reproductions";
+        
+        var patron_id = getCookie('M2L_PATRON_ID');
+        patron_id = patron_id.split(']')[1];
+
+        let url = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
 
 
-        $.colorbox({
-            iframe:true,
-            transition: "elastic",
-            width:"1200px",
-            height:"780px",
-            overlayClose: true,
-            href:HOME_SESSID + "?addsinglerecord&database=CLIENT_VIEW&de_form=[AO_ASSETS]html/editProfile.html&new=y",
-            onLoad: function() {
+        $.ajax(url).done(function(res) {
+            var x2js = new X2JS();
 
-                console.log(evt);
-                console.log(evt.target.id);
+            var jsonObj = x2js.xml2json(res);
+            console.log(jsonObj);
+            let card_number = jsonObj.client.card_number;
 
+        
+            $.colorbox({
+                iframe:true,
+                transition: "elastic",
+                width:"1200px",
+                height:"780px",
+                overlayClose: true,
+                href:HOME_SESSID + "?changesinglerecord&database=CLIENT_VIEW&de_form=[AO_ASSETS]html/editProfile.html&EXP=C_CARD_NUMBER%20"+ card_number,
+                onLoad: function() {
+                    console.log(evt);
+                    console.log(evt.target.id);
+                    $tmp_data = accession.text(); // ACCESSION NUMBER --- F 26 G
+                    $tmp_data2 = reqSource.text(); // REQ_SOURCE DESCRIPTION COLLECTION LIBRARY
+                    $tmp_data3 = title.text(); // LEGAL_TITLE -- Story Book Woman
 
-                $tmp_data = accession.text(); // ACCESSION NUMBER --- F 26 G
-                $tmp_data2 = reqSource.text(); // REQ_SOURCE DESCRIPTION COLLECTION LIBRARY
-                $tmp_data3 = title.text(); // LEGAL_TITLE -- Story Book Woman
+                    $tmp_topic = topicCheck;
+                },
+                onComplete: function() {
+                    //$("#test_btn").click();
+                },
+                onClose: function() {
+                    delete $tmp_data;
+                    delete $tmp_data2;
+                    delete $tmp_data3;
 
-                $tmp_topic = topicCheck;
-              
+                    delete $tmp_topic;
+                }
 
-            },
-            onComplete: function() {
-                //$("#test_btn").click();
-                
-            },
-            onClose: function() {
-                delete $tmp_data;
-                delete $tmp_data2;
-                delete $tmp_data3;
+            });
+    })
 
-                delete $tmp_topic;
-
-           }
-
-        });
     });
 
+    if(document.getElementById('editProfileForm') != null ){
+        getEditProfileInfo();
+    }
 });
 
 /*
@@ -88,15 +120,15 @@ function getPatronClientInfo() {
 
             var jsonObj = x2js.xml2json(res);
             console.log(jsonObj)
+
             let first_name = jsonObj.client.name_first;
             let last_name = jsonObj.client.name_last;
            //let full_name = `${first_name} ${last_name}`
-            let organization = jsonObj.client.organization
-            let tel = jsonObj.client.tel_home
-            let card_number = jsonObj.client.card_numbe;
+            let organization = jsonObj.client.organization;
+            let card_number = jsonObj.client.card_number;
             let email = jsonObj.client.email;
             let emailLink = `mailto: ${email}`
-
+            let tel = jsonObj.client.tel_home;
 
             document.getElementById('Client-First').innerText = first_name;
             document.getElementById('Client-First').readOnly = true;
@@ -107,6 +139,7 @@ function getPatronClientInfo() {
             document.getElementById('Client-Email').innerText = email;
             document.getElementById('Client-Email').setAttribute("href", emailLink);
 
+            
             if(organization != null) {
                 document.getElementById('Client-Org').innerText = organization;
                 document.getElementById('Client-Org').readOnly = true;
@@ -130,7 +163,9 @@ function getPatronClientInfo() {
         })
     } else return;
 
-
+    if(document.getElementById('clientBookmarkInner')){
+        $("#clientBookmarkInner").append("<a class='btn btn-primary btn-sm Client-Profile Rale-Reg' id='login-btn' href='http://aoopac.minisisinc.com/scripts/mwimain.dll/182155290?GET&amp;FILE=[AO_ASSETS]html/patronProfile.html'>Back to Client Profile</a>");
+    }
 
 }
 
@@ -159,3 +194,103 @@ const clientLinkOnclick = (e) => {
         window.location = bookmarkURL;
 }
 
+function getEditProfileInfo(){
+    var patron_id = getCookie('M2L_PATRON_ID');
+    patron_id = patron_id.split(']')[1];
+
+    let url = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`;
+
+    $.ajax(url).done(function(res) {
+        var x2js = new X2JS();
+
+        var jsonObj = x2js.xml2json(res);
+        console.log(jsonObj);
+
+        // Main 
+        var card_number = jsonObj.client.card_number;
+        var email       = jsonObj.client.email;
+        var password    = jsonObj.client.password;
+        var first_name  = jsonObj.client.name_first;
+        var last_name   = jsonObj.client.name_last;
+        var middle_name = jsonObj.client.middle_name;
+        var alias_name  = jsonObj.client.alias_name;
+        var full_name   = jsonObj.client.full_name;
+        var division    = jsonObj.client.client_division;
+        var c_type      = jsonObj.client.client_type;
+        var title       = jsonObj.client.title;
+        var suffix      = jsonObj.client.suffix;
+        var language    = jsonObj.client.language;
+        var org         = jsonObj.client.organization;
+
+        // Address
+        var line_1    = jsonObj.client.address_line1;
+        var line_2    = jsonObj.client.address_line2;
+        var line_3    = jsonObj.client.address_line3;
+        var city      = jsonObj.client.address_city;
+        var prov      = jsonObj.client.address_prov;
+        var country   = jsonObj.client.address_country;
+        var zip       = jsonObj.client.address_zip;
+
+        // Shipping Address
+        var ship_line_1   = jsonObj.client.ship_address_line1;
+        var ship_line_2   = jsonObj.client.ship_address_line2;
+        var ship_line_3   = jsonObj.client.ship_address_line3;
+        var ship_city     = jsonObj.client.ship_address_city;
+        var ship_prov     = jsonObj.client.ship_address_prov;
+        var ship_country  = jsonObj.client.ship_address_country;
+        var ship_zip      = jsonObj.client.ship_address_zip;
+
+        // Telephone 
+        var tel_home   = jsonObj.client.tel_home;
+        var tel_work   = jsonObj.client.tel_work;
+        var tel_cell   = jsonObj.client.tel_cell;
+        var tel_fax    = jsonObj.client.tel_fax;
+
+
+        document.getElementById('clientID').value = card_number;
+        document.getElementById('clientID').readOnly = true;
+        document.getElementById('clientEmail').value = email;
+        document.getElementById('clientEmail').readOnly = true;
+        document.getElementById('clientPassword').value = password;
+        document.getElementById('clientFirstName').value = first_name;
+        document.getElementById('clientFirstName').readOnly = true;
+        document.getElementById('clientLastName').value = last_name;
+        document.getElementById('clientLastName').readOnly = true;
+        middle_name ? document.getElementById('clientMiddleName').value = middle_name : '';
+        alias_name ? document.getElementById('clientAlias').value = alias_name : '';
+        if(c_type == "Public Body") {
+            document.getElementById('clientDivision').value = division;
+        } else {
+            document.getElementById('clientDivisionID').remove();
+        }
+        document.getElementById('clientRole').value = c_type;
+        document.getElementById('clientRole').readOnly = true;
+        document.getElementById('clientLanguage').value = language;
+        document.getElementById('clientRole').value = c_type;
+        document.getElementById('clientOrg').value = org;
+
+
+        line_1 != null ? document.getElementById('clientStreetOne').value = line_1 : '';
+        line_2  ? document.getElementById('clientStreetTwo').value = line_2 : '';
+        line_3  ? document.getElementById('clientStreetThree').value = line_3 : '';
+        city    ? document.getElementById('clientCity').value = city : '';
+        prov    ? document.getElementById('clientProv').value = prov : '';
+        country ? document.getElementById('clientCountry').value = country : '';
+        zip     ? document.getElementById('clientPostal').value = zip : '';
+
+        ship_line_1  ? document.getElementById('clientShipStreetOne').value = ship_line_1 : '';
+        ship_line_2  ? document.getElementById('clientShipStreetTwo').value = ship_line_2 : '';
+        ship_line_3  ? document.getElementById('clientShipStreetThree').value = ship_line_3 : '';
+        ship_city    ? document.getElementById('clientShipCity').value = ship_city : '';
+        ship_prov    ? document.getElementById('clientShipProv').value = ship_prov : '';
+        ship_country ? document.getElementById('clientShipCountry').value = ship_country : '';
+        ship_zip     ? document.getElementById('clientShipPostal').value = ship_zip : '';
+        
+        tel_home ? document.getElementById('clientHomePhone').value = tel_home : '';
+        tel_work ? document.getElementById('clientWorkPhone').value = tel_work : '';
+        tel_cell ? document.getElementById('clientCellPhone').value = tel_cell : '';
+        tel_fax  ? document.getElementById('clientFaxPhone').value = tel_fax : '';
+
+ 
+    })
+}

@@ -38,6 +38,7 @@
 
     margin: 5px;
     padding: 1em;
+    background-color: #FFF;
 
     border: 1px solid black;
     border-radius: 5px;
@@ -63,10 +64,10 @@
 
 
 .Record-Item:nth-child(even) {
-    background: rgb(221, 218, 218);
-  }
+    /* background: rgb(221, 218, 218); */
+}
 
-  .filter-ul{
+.filter-ul{
     padding: 0 !important;
     text-align: center;
 }
@@ -142,10 +143,13 @@ form div .Crowd-Header-Title{
 .Crowd-Container {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
-    width: 70%;
 }
 
+#cs-btn-row {
+    text-align: center;
+}
 .Comments-Input {
     display: flex;
     flex: 54;

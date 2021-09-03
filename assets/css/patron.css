@@ -89,6 +89,10 @@
     display: flex;
     flex: 2;
 }
+
+.clientBookmark {
+    margin: 0 0 0.5rem 0;
+}
 .clientMainSection,
 .clientAddressSection,
 .clientShipAddressSection,

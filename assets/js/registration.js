@@ -11,7 +11,7 @@ $(document).ready(function() {
     });
     let current_fs, next_fs, previous_fs; //fieldsets
     let opacity;
-    var chk1, chk2, chk3, chk4;
+    
     $(".next").click(function() {
 
         // Page 1 - Registration Details Requirements
@@ -20,9 +20,9 @@ $(document).ready(function() {
         var email = document.getElementById('c_email');
         var password = document.getElementById('reg-password');
         let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-            // Page 2 - Registration Details Requirements
-            // Page 3 - Registration Details Requirements
-            // Page 4 - Registration Details Requirements
+        // Page 2 - Registration Details Requirements
+        // Page 3 - Registration Details Requirements
+        // Page 4 - Registration Details Requirements
 
 
 

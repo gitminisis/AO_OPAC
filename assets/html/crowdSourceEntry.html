@@ -3,10 +3,16 @@
         <!-- include virtual="[AO_INCLUDES]simpleHeader.htm"-->
         <form method="POST" id="cs-form" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/crowdSourceConfirmation.html">
             <div class='Crowd-Body-Content d-flex flex-column align-items-center'>
-                <h3 class='Crowd-Header-Title'>Crowd Source Data Entry</h3>
-
-                <div class='Crowd-Container'>
-
+                
+                <div id="" class='Crowd-Container Panel-Main'>
+                    <div id="Request-Page">
+                        <div class="Page-Heading">
+                            <h1 id="Reproduction" class="Rale-Bold d-flex justify-content-center ">CrowdSourced
+                            </h1>
+                            <hr>
+                        </div>
+                    </div>
+    
                     <div class='Crowd-Body-Item d-flex flex-row'>
                         <div class='crowd-temp-start'></div>
                         <label class='Label Creator-Label' for='creator'><b>Creator:</b></label>
@@ -64,13 +70,18 @@
                     </div>
                     <div class='Crowd-Body-Item d-flex flex-row'>
                         <div class='Modal-Body-Item'>
-                            <textarea id='Crowd-Source-Comment' name='COMMENTS' rows='4' cols='60' placeholder='Enter Comment Here' onblur='validateComment()'></textarea>
+                            <textarea id='Crowd-Source-Comment' name='COMMENTS' rows='4' cols='60' placeholder='Enter Comment Here' title='Enter Comment Here' onblur='validateComment()'></textarea>
                         </div>
                     </div>
+                    <div class="row">
+                        <div id="cs-btn-row" class="col-12">
+                        <button id="cs-submit-btn" class="col-md-3 btn btn-primary" title='Submit' disabled>
+                            Submit
+                        </button>
+                    </div>
+                    </div>
                 </div>
-                <button id="cs-submit-btn" class="btn btn-primary" disabled>
-                    Submit
-                </button>
+                
             </div>
 
 

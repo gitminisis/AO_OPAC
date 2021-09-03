@@ -45,7 +45,7 @@ $(document).ready(function(){
                 delete $tmp_data4;
             }
 
-
+            
 
 
         });
@@ -53,16 +53,27 @@ $(document).ready(function(){
 
     });
 
+    // $("#cpa-form").submit(function(e){
+    //     return false;
+    // });
+    //onchange="this.form.submit()"
     // Summary Bookmark
-    $('#bookmark-id-btn').on('click',function() {
-        $.ajax({
-        type: "GET",
-        url:$(this).attr('href'),
-        success:function() {
+
+    var count = false;
+    
+    $('.bookmark-btn').on('click',function() {
+        if (count == false){
+            count = true;
             console.log("success")
+        $.ajax({
+        type: "POST",
+        url:$(".web_sum_form").attr('data-action'),
+        data:$(this).find("input").attr('name') + "=" + $(this).find("input").attr('value'),
+        }).done(function(){
             location.reload();
-        }
         });
+    }
+
     });
 
     // var bookmark_desc = document.getElementById("bookmark-database")

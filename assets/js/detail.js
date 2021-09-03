@@ -167,4 +167,20 @@ $(document).ready(function() {
         });
     });
 
+
+    
 });
+
+$("#crowd-source-comment").on("load", function(){
+    iframe = document.getElementById('crowd-source-comment');
+
+
+    let h3 = iframe.contentWindow.document.getElementsByTagName("H3")[0];
+    
+    let isComment = h3.innerHTML !== null ? false : true;
+    
+    if (!isComment)
+    iframe.style.display = 'none';
+    
+});
+

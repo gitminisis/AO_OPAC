@@ -6,31 +6,31 @@
             
             <!-- <input id="reqFullName" hidden value="" name="R_PATRON_NAME" /> -->
             <input id="reqClientID" hidden value="" name="REQ_PATRON_ID" />
+            <input id="reqMethodRequest" hidden value="" name="METHOD_REQUEST" />
+            <input id="reqItemTitle" hidden value="" name="REQ_TITLE" />
+
 
             <div class="row g-3 Rale-Med">
                 <div class="reqFirstNameContainer col-md-6 col-sm-12">
                     <label for="reqFirstName" class="form-label">First Name*</label>
-                    <input id="reqFirstName" type="text" class="form-control" placeholder="First name" aria-label="First name" name="" required />
+                    <input id="reqFirstName" type="text" class="form-control" placeholder="First name" title="First name" aria-label="First name" name="" required />
                 </div>
                 <div class="reqLastNameContainer col-md-6 col-sm-12">
                     <label for="reqLastName" class="form-label">Last Name*</label>
-                    <input id="reqLastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="" required />
+                    <input id="reqLastName" type="text" class="form-control" placeholder="Last name" title="Last name" aria-label="Last name" name="" required />
                 </div>
                 <div class="reqEmailContainer col-md-6 col-sm-12">
                     <label for="reqEmail" class="form-label">Email*</label>
-                    <input name="REQ_PATRON_EMAIL" id="reqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required />
+                    <input name="REQ_PATRON_EMAIL" id="reqEmail" type="email" class="form-control" size="25" placeholder="Email" title="Email" aria-label="Email" required />
                     <!-- <input name="R_PATRON_EMAIL" id="reqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required /> -->
                 </div>
               
-            </div>
-
-            <div class="reqAffiliationContainer g-3 Rale-Med">
-                <div class="col-md-6 col-sm-12">
+                <div class="reqAffiliationContainer col-md-6 col-sm-12">
                     <label for="reqAffiliation" class="form-label Rale-Med">Affiliation*</label>
-                    <input name="REQ_AFFILIATE" id="reqAffiliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affiliation" required />
-                    <!-- <input name="R_AFFILIATE" id="reqAffiliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affliation" required /> -->
+                    <input name="REQ_AFFILIATE" id="reqAffiliation" type="text" class="form-control" placeholder="Affliation" title="Affliation" aria-label="Affiliation" required />
                 </div>
             </div>
+
             
             <div class="reqTopicContainer g-3 Rale-Med">
                 <div class="col-md-12">
@@ -71,7 +71,7 @@
             <div class="reqAdditionalInfo g-3 Rale-Med">
                 <div class="col-md-12">
                     <label for="reqDetail Rale-Med" class="form-label">Additional Information*</label>
-                    <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="reqDetail" name="REQ_TOPIC_GL" required></textarea>
+                    <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" title="Leave a comment here" id="reqDetail" name="REQ_TOPIC_GL" required></textarea>
                     <!-- <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="reqDetail" name="R_TOPIC_GL" required></textarea> -->
                 </div>
             </div>
@@ -80,13 +80,13 @@
 
             <div class="row Rale-Med" id="Request-Button">
                 <div class="col-md-6" id="submitBtn">
-                    <button class="btn btn-primary" type="submit">
+                    <button class="btn btn-primary" type="submit" title="Submit">
                         Submit
                     </button>
                 </div>
                 <div class="col-md-6" id="cancelBtn">
-                    <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/home.html">
-                        <button class="btn btn-secondary" type="button">
+                    <a id="reqCancel" href="^SESSID^?GET&FILE=[AO_ASSETS]html/home.html">
+                        <button class="btn btn-secondary" type="button" title="Cancel">
                             Cancel
                         </button></a>
                 </div>
