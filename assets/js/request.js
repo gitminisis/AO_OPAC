@@ -124,9 +124,7 @@ function displayAccountLinks(bool) {
 }
 
 function removePatronLoginLink() {
-    console.log('do I get called?')
     if(document.getElementById('Patron-Login') != null){
-        console.log('do I get called too?')
         let regLink = document.getElementsByClassName('Patron-Reg');
         let regLogin = document.getElementById('Patron-Login');      
         let regLoginMobile = document.getElementById('Patron-Login-Mobile');      
@@ -165,7 +163,7 @@ function getRequestClientInfo() {
             let client_id = jsonObj.client.card_number;
 
 
-            console.log(jsonObj);
+            // console.log(jsonObj);
             document.getElementById('reqFullName').value = full_name;
             document.getElementById('reqFirstName').value = first_name;
             document.getElementById('reqFirstName').readOnly = true;

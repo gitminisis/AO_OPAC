@@ -1,0 +1,37 @@
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
+    <!-- login username
+    paymount
+    locale
+    prod_id
+    return_on_cancel
+    return_on_success -->
+
+    <!-- include virtual="[AO_INCLUDES]header.htm"-->
+    <title>PaymentRequest</title>
+    <div id='Content-Wrapper' class='Content-Wrapper'>
+        <!-- include virtual="[AO_INCLUDES]leftPanel.htm" -->
+        <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'> 
+            <div id='Pay-Container'>
+                <h2>Pay Request Information</h2>
+                <input id='Pay-Language' type='text' hidden>
+                <input id='Return-Cancel' type='text' hidden>
+                <input id='Return-Success' type='text' hidden>
+                <div class='Pay-Item'>
+                     <label class='label Pay-Id-Label'>Client Id:</label>
+                    <input id='Pay-Client-Id' type='number' readonly >
+                </div>
+                <div class='Pay-Item'>
+                    <label class='label Pay-Prod-Label'>Product Id:</label>
+                    <input id="Pay-Product-Id" type='text' readonly >
+                </div>
+                <div class='Pay-Item'>
+                    <label class='label Pay-Amount-Label'>Pay Amount:</label>
+                    <input id='Pay-Amount' type='number' readonly>
+                </div>
+                <button type='submit' title='Submit' class='action-button btn btn-primary'>Submit Order</button>
+      
+            </div>
+        </div>
+        <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+    </div>
+<!-- include virtual="[AO_INCLUDES]footer.htm"-->

@@ -1,0 +1,37 @@
+
+#Pay-Container {
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #888888;
+
+}
+
+#Pay-Container > h1 {
+    margin-bottom: 1em;
+}
+
+.Pay-Item {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.Pay-Item > label {
+    display: flex;
+    flex: 1;
+}
+
+.Pay-Item > input {
+    display: flex;
+    flex: 1;
+}
+
+#Pay-Container > button {
+    margin-top: 25px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- PubSecureLogout.html -->
+<!--
+	Call this page to log out of public secure. 
+	Should log out of MINISIS first and then log out of public secure.
+-->
+<html>
+
+<head>
+	<script src="https://global.oktacdn.com/okta-auth-js/5.3.1/okta-auth-js.polyfill.js"
+		type="text/javascript"></script>
+	<script src="https://global.oktacdn.com/okta-auth-js/5.3.1/okta-auth-js.min.js" type="text/javascript"></script>
+	<script src="../js/configps.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<script>
+		const authClient = new OktaAuth(conectoptions);
+
+		async function logout() {
+			if ( await authClient.isAuthenticated() ) {
+				// logged into public secure sign out of public secure.
+				// after the signout() call Public secure will then redirect back to this page.
+				authClient.revokeAccessToken();
+				await authClient.signOut();
+			}
+			else {
+				// Already logged out of public secure. 
+				// Add code to log out of MINISIS and go to home page.
+			}
+		}
+
+		logout();
+
+</script>
+
+<p>On logout page</p>
+</body>
+
+</html>

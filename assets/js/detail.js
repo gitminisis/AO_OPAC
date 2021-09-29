@@ -91,8 +91,8 @@ $(document).ready(function() {
             href:HOME_SESSID + "?addsinglerecord&database=REQUEST_VIEW&de_form=[AO_ASSETS]html/copyright.html&new=y",
             onLoad: function() {
 
-                console.log(evt);
-                console.log(evt.target.id);
+                // console.log(evt);
+                // console.log(evt.target.id);
                 
 
                 $tmp_data = accession.text(); // ACCESSION NUMBER --- F 26 G
@@ -139,8 +139,8 @@ $(document).ready(function() {
             href:HOME_SESSID + "?addsinglerecord&database=REQUEST_VIEW&de_form=[AO_ASSETS]html/reproductionCertification.html&new=y",
             onLoad: function() {
 
-                console.log(evt);
-                console.log(evt.target.id);
+                // console.log(evt);
+                // console.log(evt.target.id);
                 
 
                 $tmp_data = accession.text(); // ACCESSION NUMBER --- F 26 G

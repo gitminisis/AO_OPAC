@@ -125,7 +125,7 @@ function getPatronClientInfo() {
             let last_name = jsonObj.client.name_last;
            //let full_name = `${first_name} ${last_name}`
             let organization = jsonObj.client.organization;
-            let card_number = jsonObj.client.card_number;
+            let id_number = jsonObj.client.card_number;         // this is not a card the number is actually the user ID
             let email = jsonObj.client.email;
             let emailLink = `mailto: ${email}`
             let tel = jsonObj.client.tel_home;
@@ -147,11 +147,12 @@ function getPatronClientInfo() {
                 $(".organization-item").remove();
             }
             
-            if(card_number != null) {
-                document.getElementById('Client-Card').innerText = card_number;
-                document.getElementById('Client-Card').readOnly = true;
+            // switch from card_number to id_number
+            if(id_number != null) {
+                document.getElementById('Client-Id').innerText = id_number;
+                document.getElementById('Client-Id').readOnly = true;
             } else {
-                $(".card-item").remove();
+                $(".card-id").remove();
             }
             
             if(tel != null) {
