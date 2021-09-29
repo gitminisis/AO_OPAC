@@ -24,37 +24,37 @@ $(document).ready(function() {
     // console.log(parent.$tmp_data3)
     if (document.getElementById('reqTopic') != null) {
 
-    if (parent.$tmp_topic == "copyrightServices") {
-        $("#reqTopic option#reqGeneral").removeAttr("selected");
-        $("#reqTopic option#reqCopyright").attr('selected', true);
-        //$("select#reqTopic").attr("disabled", true);
-        $(".reqEmailContainer").after("<div class='reqIDContainer col-md-6 col-sm-12'><label for='reqID' class='form-label'>Item ID*</label><input id='reqID' type='text' class='form-control' placeholder='Accession Number' aria-label='Accession Number' name='REQ_ITEM_ID' required='' readonly=''></div>" +
-            "<div class='reqSourceContainer col-md-6 col-sm-12'><label for='reqSource' class='form-label'>Item Source*</label><input id='reqSource' type='text' class='form-control' placeholder='Item Source' aria-label='Item Source' name='REQ_DB_NAME' required='' readonly=''></div>" +
-            "<div class='reqTitleContainer col-md-6 col-sm-12'><label for='reqTitle' class='form-label'>Item Title*</label><input id='reqTitle' type='text' class='form-control' placeholder='Item Title' aria-label='Item Title' name='REQ_ITEM_TITLE' required='' readonly=''></div>");
-        document.getElementById('reqID').value = parent.$tmp_data;
-        document.getElementById('reqSource').value = parent.$tmp_data2;
-        document.getElementById('reqTitle').value = parent.$tmp_data3;
-        document.getElementById('reqItemTitle').value = parent.$tmp_data3;
-        document.getElementById('reqMethodRequest').value = "Web";
+        if (parent.$tmp_topic == "copyrightServices") {
+            $("#reqTopic option#reqGeneral").removeAttr("selected");
+            $("#reqTopic option#reqCopyright").attr('selected', true);
+            //$("select#reqTopic").attr("disabled", true);
+            $(".reqEmailContainer").after("<div class='reqIDContainer col-md-6 col-sm-12'><label for='reqID' class='form-label'>Item ID*</label><input id='reqID' type='text' class='form-control' placeholder='Accession Number' aria-label='Accession Number' name='REQ_ITEM_ID' required='' readonly=''></div>" +
+                "<div class='reqSourceContainer col-md-6 col-sm-12'><label for='reqSource' class='form-label'>Item Source*</label><input id='reqSource' type='text' class='form-control' placeholder='Item Source' aria-label='Item Source' name='REQ_DB_NAME' required='' readonly=''></div>" +
+                "<div class='reqTitleContainer col-md-6 col-sm-12'><label for='reqTitle' class='form-label'>Item Title*</label><input id='reqTitle' type='text' class='form-control' placeholder='Item Title' aria-label='Item Title' name='REQ_ITEM_TITLE' required='' readonly=''></div>");
+            document.getElementById('reqID').value = parent.$tmp_data;
+            document.getElementById('reqSource').value = parent.$tmp_data2;
+            document.getElementById('reqTitle').value = parent.$tmp_data3;
+            document.getElementById('reqItemTitle').value = parent.$tmp_data3;
+            document.getElementById('reqMethodRequest').value = "Web";
 
 
-    }
+        }
 
-    if (parent.$tmp_topic == "reproductions") {
-        $("#reqTopic option#reqGeneral").removeAttr("selected");
-        $("#reqTopic option#reqReproduction").attr('selected', 'selected');
-        //$("select#reqTopic").attr("disabled", true);
+        if (parent.$tmp_topic == "reproductions") {
+            $("#reqTopic option#reqGeneral").removeAttr("selected");
+            $("#reqTopic option#reqReproduction").attr('selected', 'selected');
+            //$("select#reqTopic").attr("disabled", true);
 
-        $(".reqEmailContainer").after("<div class='reqIDContainer col-md-6 col-sm-12'><label for='reqID' class='form-label'>Item ID*</label><input id='reqID' type='text' class='form-control' placeholder='Accession Number' aria-label='Accession Number' name='REQ_ITEM_ID' required='' readonly=''></div>" +
-            "<div class='reqSourceContainer col-md-6 col-sm-12'><label for='reqSource' class='form-label'>Item Source*</label><input id='reqSource' type='text' class='form-control' placeholder='Item Source' aria-label='Item Source' name='REQ_DB_NAME' required='' readonly=''></div>" +
-            "<div class='reqTitleContainer col-md-6 col-sm-12'><label for='reqTitle' class='form-label'>Item Title*</label><input id='reqTitle' type='text' class='form-control' placeholder='Item Title' aria-label='Item Title' name='REQ_ITEM_TITLE' required='' readonly=''></div>");
-        document.getElementById('reqID').value = parent.$tmp_data;
-        document.getElementById('reqSource').value = parent.$tmp_data2;
-        document.getElementById('reqTitle').value = parent.$tmp_data3;
-        document.getElementById('reqItemTitle').value = parent.$tmp_data3;
-        document.getElementById('reqMethodRequest').value = "Web";
-    }
-    
+            $(".reqEmailContainer").after("<div class='reqIDContainer col-md-6 col-sm-12'><label for='reqID' class='form-label'>Item ID*</label><input id='reqID' type='text' class='form-control' placeholder='Accession Number' aria-label='Accession Number' name='REQ_ITEM_ID' required='' readonly=''></div>" +
+                "<div class='reqSourceContainer col-md-6 col-sm-12'><label for='reqSource' class='form-label'>Item Source*</label><input id='reqSource' type='text' class='form-control' placeholder='Item Source' aria-label='Item Source' name='REQ_DB_NAME' required='' readonly=''></div>" +
+                "<div class='reqTitleContainer col-md-6 col-sm-12'><label for='reqTitle' class='form-label'>Item Title*</label><input id='reqTitle' type='text' class='form-control' placeholder='Item Title' aria-label='Item Title' name='REQ_ITEM_TITLE' required='' readonly=''></div>");
+            document.getElementById('reqID').value = parent.$tmp_data;
+            document.getElementById('reqSource').value = parent.$tmp_data2;
+            document.getElementById('reqTitle').value = parent.$tmp_data3;
+            document.getElementById('reqItemTitle').value = parent.$tmp_data3;
+            document.getElementById('reqMethodRequest').value = "Web";
+        }
+
         // let value = document.getElementById('reqTopic').value;
         // setupTopicForm(value);
         // $('#reqTopic').on('change', function(e) {
@@ -124,10 +124,10 @@ function displayAccountLinks(bool) {
 }
 
 function removePatronLoginLink() {
-    if(document.getElementById('Patron-Login') != null){
+    if (document.getElementById('Patron-Login') != null) {
         let regLink = document.getElementsByClassName('Patron-Reg');
-        let regLogin = document.getElementById('Patron-Login');      
-        let regLoginMobile = document.getElementById('Patron-Login-Mobile');      
+        let regLogin = document.getElementById('Patron-Login');
+        let regLoginMobile = document.getElementById('Patron-Login-Mobile');
 
         regLogin.hidden = true;
         regLoginMobile.hidden = true;
@@ -180,7 +180,7 @@ function getRequestClientInfo() {
             // document.getElementById('reqAffiliation').hidden = true;
             // document.getElementById('reqPatronID').value = patron_id;
 
-        
+
 
 
         });
@@ -249,7 +249,7 @@ function goToClientRequest() {
     var patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
 
-    window.location(`http://aoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20${patron_id}&NOMSG=[AO_INCLUDES]error\\norequest.htm`)
+    window.location(`https://aoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20${patron_id}&NOMSG=[AO_INCLUDES]error\\norequest.htm`)
 }
 
 function toggleReqTopicForm(value, option, id) {

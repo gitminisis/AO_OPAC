@@ -1,5 +1,5 @@
 $(document).ready(function() {
-   
+
     getPatronClientInfo()
     $('#clientPassword').on('input', function() {
         var password = document.getElementById('clientPassword');
@@ -9,8 +9,8 @@ $(document).ready(function() {
         //     alert("Password must contain at least eight characters, at least one uppercase letter, one lowercase letter, one special character and one number.")
         // }
     });
-    $("button#editClientSubmit").click(function(){
-        
+    $("button#editClientSubmit").click(function() {
+
 
         // setTimeout(updatedProfile(), 9500);
         // function updatedProfile(){
@@ -31,7 +31,7 @@ $(document).ready(function() {
         var reqSource = $(this).parent().parent().find(".cs-item-src");
         var title = $(this).parent().parent().find(".cs-item-title");
         var topicCheck = "reproductions";
-        
+
         var patron_id = getCookie('M2L_PATRON_ID');
         patron_id = patron_id.split(']')[1];
 
@@ -45,14 +45,14 @@ $(document).ready(function() {
             console.log(jsonObj);
             let card_number = jsonObj.client.card_number;
 
-        
+
             $.colorbox({
-                iframe:true,
+                iframe: true,
                 transition: "elastic",
-                width:"1200px",
-                height:"780px",
+                width: "1200px",
+                height: "780px",
                 overlayClose: true,
-                href:HOME_SESSID + "?changesinglerecord&database=CLIENT_VIEW&de_form=[AO_ASSETS]html/editProfile.html&EXP=C_CARD_NUMBER%20"+ card_number,
+                href: HOME_SESSID + "?changesinglerecord&database=CLIENT_VIEW&de_form=[AO_ASSETS]html/editProfile.html&EXP=C_CARD_NUMBER%20" + card_number,
                 onLoad: function() {
                     console.log(evt);
                     console.log(evt.target.id);
@@ -74,11 +74,11 @@ $(document).ready(function() {
                 }
 
             });
-    })
+        })
 
     });
 
-    if(document.getElementById('editProfileForm') != null ){
+    if (document.getElementById('editProfileForm') != null) {
         getEditProfileInfo();
     }
 });
@@ -102,13 +102,13 @@ function getPatronClientInfo() {
     // Split the URI on "/" and take the last element of the array
     let tempUrlCheck = tempString.split("/");
 
-    let myRequestURL = `http://aoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`
+    let myRequestURL = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`
         // $("a.Patron-Link").attr("href", myRequestURL);
 
-    let myPatronLink = `http://aoopac.minisisinc.com/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`
+    let myPatronLink = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`
         // $(".Patron-Enquiry-Link").on('click', function() { window.location = myPatronLink })
 
-    let myCrowdURL = `http://aoopac.minisisinc.com/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`
+    let myCrowdURL = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`
         // $("a.Patron-Crowd-Link").attr("href", myCrowdURL);
 
 
@@ -123,9 +123,9 @@ function getPatronClientInfo() {
 
             let first_name = jsonObj.client.name_first;
             let last_name = jsonObj.client.name_last;
-           //let full_name = `${first_name} ${last_name}`
+            //let full_name = `${first_name} ${last_name}`
             let organization = jsonObj.client.organization;
-            let id_number = jsonObj.client.card_number;         // this is not a card the number is actually the user ID
+            let id_number = jsonObj.client.card_number; // this is not a card the number is actually the user ID
             let email = jsonObj.client.email;
             let emailLink = `mailto: ${email}`
             let tel = jsonObj.client.tel_home;
@@ -139,23 +139,23 @@ function getPatronClientInfo() {
             document.getElementById('Client-Email').innerText = email;
             document.getElementById('Client-Email').setAttribute("href", emailLink);
 
-            
-            if(organization != null) {
+
+            if (organization != null) {
                 document.getElementById('Client-Org').innerText = organization;
                 document.getElementById('Client-Org').readOnly = true;
             } else {
                 $(".organization-item").remove();
             }
-            
+
             // switch from card_number to id_number
-            if(id_number != null) {
+            if (id_number != null) {
                 document.getElementById('Client-Id').innerText = id_number;
                 document.getElementById('Client-Id').readOnly = true;
             } else {
                 $(".card-id").remove();
             }
-            
-            if(tel != null) {
+
+            if (tel != null) {
                 document.getElementById('Client-Tel').innerText = tel;
                 document.getElementById('Client-Tel').readOnly = true;
             } else {
@@ -164,8 +164,8 @@ function getPatronClientInfo() {
         })
     } else return;
 
-    if(document.getElementById('clientBookmarkInner')){
-        $("#clientBookmarkInner").append("<a class='btn btn-primary btn-sm Client-Profile Rale-Reg' id='login-btn' href='http://aoopac.minisisinc.com/scripts/mwimain.dll/182155290?GET&amp;FILE=[AO_ASSETS]html/patronProfile.html'>Back to Client Profile</a>");
+    if (document.getElementById('clientBookmarkInner')) {
+        $("#clientBookmarkInner").append("<a class='btn btn-primary btn-sm Client-Profile Rale-Reg' id='login-btn' href='https://aoopac.minisisinc.com/scripts/mwimain.dll/182155290?GET&amp;FILE=[AO_ASSETS]html/patronProfile.html'>Back to Client Profile</a>");
     }
 
 }
@@ -175,12 +175,12 @@ const clientLinkOnclick = (e) => {
 
     // let bookmarkURL = '^HOME_SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\\nobookmark.htm&COOKIE=BOOKMARK'
     let bookmarkURL = `${HOME_SESSID}?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\\nobookmark.htm&COOKIE=BOOKMARK`;
-    let myRequestURL = `http://aoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`;
-    let myClientLink = `http://aoopac.minisisinc.com/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`;
-    let myCrowdURL = `http://aoopac.minisisinc.com/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`;
-    let myCopyright = `http://aoopac.minisisinc.com/scripts/mwimain.dll/144/REQUEST_VIEW/COPYRIGHT_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Copyright%20Services` + `&NOMSG=[AO_INCLUDES]error\\nocopyright.htm`;
-    let myReproduction = `http://aoopac.minisisinc.com/scripts/mwimain.dll/144/REQUEST_VIEW/REPROD_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Reproduction%2FCertification%20Services` + `&NOMSG=[AO_INCLUDES]error\\noreproduction.htm`;
-    
+    let myRequestURL = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`;
+    let myClientLink = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`;
+    let myCrowdURL = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`;
+    let myCopyright = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/REQUEST_VIEW/COPYRIGHT_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Copyright%20Services` + `&NOMSG=[AO_INCLUDES]error\\nocopyright.htm`;
+    let myReproduction = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/REQUEST_VIEW/REPROD_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Reproduction%2FCertification%20Services` + `&NOMSG=[AO_INCLUDES]error\\noreproduction.htm`;
+
     if (e.getAttribute('id') == 'Client-Request')
         window.location = myRequestURL;
     else if (e.getAttribute('id') == 'Client-Crowd-Sourcing')
@@ -195,7 +195,7 @@ const clientLinkOnclick = (e) => {
         window.location = bookmarkURL;
 }
 
-function getEditProfileInfo(){
+function getEditProfileInfo() {
     var patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
 
@@ -209,43 +209,43 @@ function getEditProfileInfo(){
 
         // Main 
         var card_number = jsonObj.client.card_number;
-        var email       = jsonObj.client.email;
-        var password    = jsonObj.client.password;
-        var first_name  = jsonObj.client.name_first;
-        var last_name   = jsonObj.client.name_last;
+        var email = jsonObj.client.email;
+        var password = jsonObj.client.password;
+        var first_name = jsonObj.client.name_first;
+        var last_name = jsonObj.client.name_last;
         var middle_name = jsonObj.client.middle_name;
-        var alias_name  = jsonObj.client.alias_name;
-        var full_name   = jsonObj.client.full_name;
-        var division    = jsonObj.client.client_division;
-        var c_type      = jsonObj.client.client_type;
-        var title       = jsonObj.client.title;
-        var suffix      = jsonObj.client.suffix;
-        var language    = jsonObj.client.language;
-        var org         = jsonObj.client.organization;
+        var alias_name = jsonObj.client.alias_name;
+        var full_name = jsonObj.client.full_name;
+        var division = jsonObj.client.client_division;
+        var c_type = jsonObj.client.client_type;
+        var title = jsonObj.client.title;
+        var suffix = jsonObj.client.suffix;
+        var language = jsonObj.client.language;
+        var org = jsonObj.client.organization;
 
         // Address
-        var line_1    = jsonObj.client.address_line1;
-        var line_2    = jsonObj.client.address_line2;
-        var line_3    = jsonObj.client.address_line3;
-        var city      = jsonObj.client.address_city;
-        var prov      = jsonObj.client.address_prov;
-        var country   = jsonObj.client.address_country;
-        var zip       = jsonObj.client.address_zip;
+        var line_1 = jsonObj.client.address_line1;
+        var line_2 = jsonObj.client.address_line2;
+        var line_3 = jsonObj.client.address_line3;
+        var city = jsonObj.client.address_city;
+        var prov = jsonObj.client.address_prov;
+        var country = jsonObj.client.address_country;
+        var zip = jsonObj.client.address_zip;
 
         // Shipping Address
-        var ship_line_1   = jsonObj.client.ship_address_line1;
-        var ship_line_2   = jsonObj.client.ship_address_line2;
-        var ship_line_3   = jsonObj.client.ship_address_line3;
-        var ship_city     = jsonObj.client.ship_address_city;
-        var ship_prov     = jsonObj.client.ship_address_prov;
-        var ship_country  = jsonObj.client.ship_address_country;
-        var ship_zip      = jsonObj.client.ship_address_zip;
+        var ship_line_1 = jsonObj.client.ship_address_line1;
+        var ship_line_2 = jsonObj.client.ship_address_line2;
+        var ship_line_3 = jsonObj.client.ship_address_line3;
+        var ship_city = jsonObj.client.ship_address_city;
+        var ship_prov = jsonObj.client.ship_address_prov;
+        var ship_country = jsonObj.client.ship_address_country;
+        var ship_zip = jsonObj.client.ship_address_zip;
 
         // Telephone 
-        var tel_home   = jsonObj.client.tel_home;
-        var tel_work   = jsonObj.client.tel_work;
-        var tel_cell   = jsonObj.client.tel_cell;
-        var tel_fax    = jsonObj.client.tel_fax;
+        var tel_home = jsonObj.client.tel_home;
+        var tel_work = jsonObj.client.tel_work;
+        var tel_cell = jsonObj.client.tel_cell;
+        var tel_fax = jsonObj.client.tel_fax;
 
 
         document.getElementById('clientID').value = card_number;
@@ -259,7 +259,7 @@ function getEditProfileInfo(){
         document.getElementById('clientLastName').readOnly = true;
         middle_name ? document.getElementById('clientMiddleName').value = middle_name : '';
         alias_name ? document.getElementById('clientAlias').value = alias_name : '';
-        if(c_type == "Public Body") {
+        if (c_type == "Public Body") {
             document.getElementById('clientDivision').value = division;
         } else {
             document.getElementById('clientDivisionID').remove();
@@ -272,26 +272,26 @@ function getEditProfileInfo(){
 
 
         line_1 != null ? document.getElementById('clientStreetOne').value = line_1 : '';
-        line_2  ? document.getElementById('clientStreetTwo').value = line_2 : '';
-        line_3  ? document.getElementById('clientStreetThree').value = line_3 : '';
-        city    ? document.getElementById('clientCity').value = city : '';
-        prov    ? document.getElementById('clientProv').value = prov : '';
+        line_2 ? document.getElementById('clientStreetTwo').value = line_2 : '';
+        line_3 ? document.getElementById('clientStreetThree').value = line_3 : '';
+        city ? document.getElementById('clientCity').value = city : '';
+        prov ? document.getElementById('clientProv').value = prov : '';
         country ? document.getElementById('clientCountry').value = country : '';
-        zip     ? document.getElementById('clientPostal').value = zip : '';
+        zip ? document.getElementById('clientPostal').value = zip : '';
 
-        ship_line_1  ? document.getElementById('clientShipStreetOne').value = ship_line_1 : '';
-        ship_line_2  ? document.getElementById('clientShipStreetTwo').value = ship_line_2 : '';
-        ship_line_3  ? document.getElementById('clientShipStreetThree').value = ship_line_3 : '';
-        ship_city    ? document.getElementById('clientShipCity').value = ship_city : '';
-        ship_prov    ? document.getElementById('clientShipProv').value = ship_prov : '';
+        ship_line_1 ? document.getElementById('clientShipStreetOne').value = ship_line_1 : '';
+        ship_line_2 ? document.getElementById('clientShipStreetTwo').value = ship_line_2 : '';
+        ship_line_3 ? document.getElementById('clientShipStreetThree').value = ship_line_3 : '';
+        ship_city ? document.getElementById('clientShipCity').value = ship_city : '';
+        ship_prov ? document.getElementById('clientShipProv').value = ship_prov : '';
         ship_country ? document.getElementById('clientShipCountry').value = ship_country : '';
-        ship_zip     ? document.getElementById('clientShipPostal').value = ship_zip : '';
-        
+        ship_zip ? document.getElementById('clientShipPostal').value = ship_zip : '';
+
         tel_home ? document.getElementById('clientHomePhone').value = tel_home : '';
         tel_work ? document.getElementById('clientWorkPhone').value = tel_work : '';
         tel_cell ? document.getElementById('clientCellPhone').value = tel_cell : '';
-        tel_fax  ? document.getElementById('clientFaxPhone').value = tel_fax : '';
+        tel_fax ? document.getElementById('clientFaxPhone').value = tel_fax : '';
 
- 
+
     })
 }
