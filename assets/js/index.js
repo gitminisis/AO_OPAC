@@ -4,6 +4,7 @@ let client_name = '';
 let client_id = '';
 
 let home_sessid = HOME_SESSID.split('-')[0];
+let sessionId = home_sessid.split('/').pop();
 let sessid = "^SESSID^";
 let patron_id = getCookie("M2L_PATRON_ID");
 let patron_name = getCookie("M2L_PATRON_NAME");

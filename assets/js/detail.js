@@ -19,7 +19,17 @@ $(document).ready(function() {
         });
     });
 
-
+    // $('#test-slick').slick({
+    //     dots: false,
+    //     arrows: true,
+    //     fade: true,
+    //     speed: 500,
+        
+    //     nextArrow:
+    //       '<button class="slick-next btn bt-default"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
+    //     prevArrow:
+    //       '<button class="slick-prev btn bt-default"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
+    //   });
 
     $("button.colorbox-detail").click(function(e) {
         let evt = e;
@@ -29,7 +39,7 @@ $(document).ready(function() {
         var test2 = $(this).parent().parent().find(".cs-item-src");
         var test3 = client_name;
         
-        console.log('this from detail')
+        // console.log('this from detail')
         $.colorbox({
             iframe:true,
             transition: "elastic",
@@ -168,19 +178,63 @@ $(document).ready(function() {
     });
 
 
-    
+    showSingleImage();
+
 });
 
 $("#crowd-source-comment").on("load", function(){
-    iframe = document.getElementById('crowd-source-comment');
+    let iframe = document.getElementById('crowd-source-comment');
+    let doc = document.getElementById('crowd-source-comment').contentWindow.document;
+    let arr = doc.getElementsByClassName('comment-container')
 
-
-    let h3 = iframe.contentWindow.document.getElementsByTagName("H3")[0];
+    if (arr.length === 0)
+        iframe.style.display = 'none';
+    // let h3 = iframe.contentWindow.document.getElementsByTagName("H3")[0];
     
-    let isComment = h3.innerHTML !== null ? false : true;
+    // let isComment = h3.innerHTML !== null ? false : true;
     
-    if (!isComment)
-    iframe.style.display = 'none';
+    // if (!isComment)
+    // iframe.style.display = 'none';
     
 });
 
+const showSingleImage = () => {
+    let arr = document.getElementsByClassName('img-container');
+    if (arr.length > 1) {
+        for (let i = 1; i < arr.length; i++)
+        {
+            arr[i].style.display = 'none';
+        }
+    }
+}
+
+// Initialise Carousel
+const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
+    Dots: false,
+  });
+  
+  // Thumbnails
+  const thumbCarousel = new Carousel(document.querySelector("#thumbCarousel"), {
+    Sync: {
+      target: mainCarousel,
+      friction: 0,
+    },
+    Dots: false,
+    Navigation: false,
+    center: true,
+    slidesPerPage: 1,
+    infinite: false,
+  });
+  
+  // Customize Fancybox
+  Fancybox.bind('[data-fancybox="gallery"]', {
+    Carousel: {
+      on: {
+        change: (that) => {
+          mainCarousel.slideTo(mainCarousel.findPageForSlide(that.page), {
+            friction: 0,
+          });
+        },
+      },
+    },
+  });

@@ -47,12 +47,18 @@ $(document).ready(function() {
 
             $(".reqEmailContainer").after("<div class='reqIDContainer col-md-6 col-sm-12'><label for='reqID' class='form-label'>Item ID*</label><input id='reqID' type='text' class='form-control' placeholder='Accession Number' aria-label='Accession Number' name='REQ_ITEM_ID' required='' readonly=''></div>" +
                 "<div class='reqSourceContainer col-md-6 col-sm-12'><label for='reqSource' class='form-label'>Item Source*</label><input id='reqSource' type='text' class='form-control' placeholder='Item Source' aria-label='Item Source' name='REQ_DB_NAME' required='' readonly=''></div>" +
-                "<div class='reqTitleContainer col-md-6 col-sm-12'><label for='reqTitle' class='form-label'>Item Title*</label><input id='reqTitle' type='text' class='form-control' placeholder='Item Title' aria-label='Item Title' name='REQ_ITEM_TITLE' required='' readonly=''></div>");
+                "<div class='reqTitleContainer col-md-6 col-sm-12'><label for='reqTitle' class='form-label'>Item Title*</label><input id='reqTitle' type='text' class='form-control' placeholder='Item Title' aria-label='Item Title' name='REQ_ITEM_TITLE' required='' readonly=''><input id='reqRepro' type='text' class='form-control' placeholder='Reproduction?' aria-label='Reproduction?' name='REQ_REPRO' required='' readonly='' hidden><input id='reqQueue' type='text' class='form-control' placeholder='Queue' aria-label='Queue' name='REQ_QUEUE' required='' readonly='' hidden><input id='reqSelected' type='text' class='form-control' placeholder='Selected' aria-label='Selected' name='REQ_SELECTED' required='' readonly='' hidden><input id='recStatus' type='text' class='form-control' placeholder='Status' aria-label='Status' name='REC_STATUS' required='' readonly='' hidden><input id='reqStatus' type='text' class='form-control' placeholder='Request Status' aria-label='Request Status' name='REQ_STATUS' required='' readonly='' hidden></div>");
             document.getElementById('reqID').value = parent.$tmp_data;
             document.getElementById('reqSource').value = parent.$tmp_data2;
             document.getElementById('reqTitle').value = parent.$tmp_data3;
             document.getElementById('reqItemTitle').value = parent.$tmp_data3;
             document.getElementById('reqMethodRequest').value = "Web";
+            document.getElementById('reqRepro').value = "Y";
+            document.getElementById('reqQueue').value = "X";
+            document.getElementById('reqSelected').value = "X";
+            document.getElementById('recStatus').value = "Active";
+            document.getElementById('reqStatus').value = "Retrieve";
+
         }
 
         // let value = document.getElementById('reqTopic').value;

@@ -3,15 +3,12 @@ $(document).ready(function() {
     let reproductionPage = document.getElementsByClassName('Reproduction')[0];
 
     if (reproductionPage)
-    {
         giveAttributePaymentButton();
-    }
 
 })
 
 const giveAttributePaymentButton = () => 
 {
-    console.log('init stuff')
     let counter = 0;
     let enqTds = [...document.getElementsByClassName('enq-payment')];
     enqTds.shift();
@@ -23,27 +20,33 @@ const giveAttributePaymentButton = () =>
         });
 }
 
-const payBtnClick = (evt) => {
-    console.log(evt);
+const payBtnClick = async (evt) => {
+    let trElement = evt.parentNode.parentNode;
 
-
+    // Create a new Payment Item specifically for the <tr> element representing a reproduction
+    // record for payment.
+    let PaymentItem = new Payment(trElement);  
     $.colorbox({
         // iframe:true,
         transition: "elastic",
         width:"1200px",
         height:"780px",
         overlayClose: true,
-        href:"https://aoopac.minisisinc.com/scripts/mwimain.dll/113296019?GET&FILE=[AO_ASSETS]html/payment.html",
-        onLoad: function() {
-            console.log('something goes here')
-        },
+        href:`https://aoopac.minisisinc.com/scripts/mwimain.dll/${sessionId}?GET&FILE=[AO_ASSETS]html/payment.html`,
+        onLoad:  function(evt) {
+            // Nothing to do here yet
+       },
         onComplete: function() {
-            //$("#test_btn").click();
+            PaymentItem.initClientSidePayment();
         },
         onClose: function() {
-            console.log('something leaves here')
+            console.log('something leaves here');
         }
 
     });
 
 }
+
+
+
+

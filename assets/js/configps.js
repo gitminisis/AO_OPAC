@@ -27,7 +27,7 @@ const conectoptions = {
 
 const conectoptions = {
 	issuer: 'https://test1.signin.ontario.ca/oauth2/aus184uex4Ryfr3uH5d7',
-	clientId: '0oa1m8qc5i2P65bsU5d7',
+	clientId: 'pa-AIMS-dev',
 	redirectUri: 'https://aoopac.minisisinc.com/assets/html/PubSecureLogin.html',
 	scopes: ['openid', 'profile', 'email'],
 	postLogoutRedirectUri: 'https://aoopac.minisisinc.com/assets/html/PubSecureLogout.html',

@@ -1,4 +1,5 @@
-<!-- login username
+<!-- 
+login username
 paymount
 locale
 prod_id
@@ -13,26 +14,46 @@ return_on_success -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div id='Content-Wrapper' class='Content-Wrapper'>
-        <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'> 
-            <div id='Pay-Container'>
-                <h2>Pay Request Information</h2>
-                <input id='Pay-Language' type='text' hidden>
-                <input id='Return-Cancel' type='text' hidden>
-                <input id='Return-Success' type='text' hidden>
-                <div class='Pay-Item'>
-                     <label class='label Pay-Id-Label'>Client Id:</label>
-                    <input id='Pay-Client-Id' type='number' readonly >
-                </div>
-                <div class='Pay-Item'>
-                    <label class='label Pay-Prod-Label'>Product Id:</label>
-                    <input id="Pay-Product-Id" type='text' readonly >
-                </div>
-                <div class='Pay-Item'>
-                    <label class='label Pay-Amount-Label'>Pay Amount:</label>
-                    <input id='Pay-Amount' type='number' readonly>
-                </div>
-                <button type='submit' title='Submit' class='action-button btn btn-primary'>Submit Order</button>
+    <div id='Pay-Wrapper' class='Pay-Wrapper'>
+        <div id='Pay-Main' class='Pay-Main Pay-Content d-flex flex-column align-items-center'> 
+            <div id='Pay-Container' class='Rale-Reg'>
+                <h1 class='Rale-Extra'>Pay Request Information</h1>
+                    <input id='Pay-Language' type='text' hidden>
+                    <input id='Return-Cancel' type='text' hidden>
+                    <input id='Return-Success' type='text' hidden>
+                    <div class='Pay-Item'>
+                        <label class='label Pay-Id-Label Rale-Bold'>Client Id:</label>
+                        <div id='Pay-Client-Id' type='number' class='Pay-Item-Value' ></div>
+                    </div>
+                    <div class='Pay-Item'>
+                        <label class='label Pay-Id-Label Rale-Bold'>Order No.:</label>
+                        <div id='Pay-Merchant-Num' type='number' class='Pay-Item-Value' ></div>
+                    </div>
+                    <div class='Pay-Item'>
+                        <label class='label Pay-Prod-Label Rale-Bold'>Product Id:</label>
+                        <div id="Pay-Product-Id" type='text' class='Pay-Item-Value' ></div>
+                    </div>
+                    <div class='Pay-Item'>
+                        <label class='label Pay-Prod-Label Rale-Bold'>Action:</label>
+                        <div id="Pay-Product-Topic" type='text' class='Pay-Item-Value' ></div>
+                    </div>
+                    <div class='Pay-Item'>
+                        <label class='label Pay-Prod-Label Rale-Bold'>Product Title:</label>
+                        <div id="Pay-Product-Title" type='text' class='Pay-Item-Value' ></div>
+                    </div>
+                    <div class='Pay-Item'>
+                        <label class='label Pay-Tax-Label Rale-Bold'>Tax:</label>
+                        <div id='Pay-Tax' type='number' class='Pay-Item-Value'> </div>
+                    </div>
+                    <div class='Pay-Item'>
+                        <label class='label Pay-Handling-Label Rale-Bold'>Handling:</label>
+                        <div id='Pay-Handling' type='number' class='Pay-Item-Value'> </div>
+                    </div>
+                    <div class='Pay-Item'>
+                        <label class='label Pay-Amount-Label Rale-Bold'>Pay Amount:</label>
+                        <div id='Pay-Amount' type='number' class='Pay-Item-Value'> </div>
+                    </div>
+                    <button type='submit' title='Submit' class='action-button btn btn-primary' onclick="requestOrder()">Request Order</button>
       
             </div>
         </div>

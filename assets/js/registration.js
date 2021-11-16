@@ -2,7 +2,6 @@ let emailCheck = false;
 $(document).ready(function() {
 
     $("#msform").on("keypress", function(event) {
-        console.log("aaya");
         var keyPressed = event.keyCode || event.which;
         if (keyPressed === 13) {
             event.preventDefault();

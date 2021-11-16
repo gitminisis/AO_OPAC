@@ -1,0 +1,42 @@
+
+.tree-highlight i {
+    color: white !important;
+  }
+  
+  #tree {
+    /* max-height: 500px; */
+    overflow-y: auto;
+  }
+  
+  #treeTest ul {
+    /* width: 90%; */
+    /* white-space: initial; */
+    /* word-wrap: break-word !important; */
+  }
+  
+  .jstree-default a {
+    white-space: normal !important;
+    height: auto;
+  }
+  .jstree-anchor.record{
+    width: 90%;
+  }
+  .jstree-anchor {
+    /*enable wrapping*/
+    white-space: normal !important;
+    /*ensure lower nodes move down*/
+    height: auto !important;
+    /* padding-right: 24px !important; */
+  }
+  
+  .jstree-default li>ins {
+    vertical-align: top;
+  }
+  
+  .jstree-leaf {
+    height: auto;
+  }
+  
+  .jstree-leaf a {
+    height: auto !important;
+  }

@@ -4,11 +4,11 @@
 const profanityDict = new Set();
 
 // Create local copy of arr from profanity.js
-let arr = profanityArr;
+let localProfanityArr = profanityArr;
 
 // Initialize values of set profanityDict
-for (let i = 0; i < arr.length; i++) 
-    profanityDict.add(arr[i]);
+for (let i = 0; i < localProfanityArr.length; i++) 
+    profanityDict.add(localProfanityArr[i]);
 
 const splitComment = (comment) => 
 {
@@ -17,11 +17,11 @@ const splitComment = (comment) =>
     return string.toLowerCase().split(' ');
 }
 
-const validateWords = (arr) => 
+const validateWords = (localProfanityArr) => 
 {
 
-    for (let i = 0; i < arr.length; i++)
-        if (profanityDict.has(arr[i])) return false;
+    for (let i = 0; i < localProfanityArr.length; i++)
+        if (profanityDict.has(localProfanityArr[i])) return false;
     return true;
 }
 

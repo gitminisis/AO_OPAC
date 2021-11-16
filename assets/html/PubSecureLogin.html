@@ -21,13 +21,16 @@
 
 
 		async function main() {
-			// debugger;
+			//alert("Start of login page");
+			//debugger;
 			var userinfo = null;
 			var useremail = null;
 			var usersubscription = null;
 
 			if (authClient.isLoginRedirect()) { // check if this is a redirect
 				try {
+					//alert("In the login redirect");
+					// debugger;
 					// parse tokens from the redirect and store.
 					await authClient.storeTokensFromRedirect();
 					// get the user info.
@@ -39,6 +42,7 @@
 
 						console.log(useremail);
 						console.log(usersubscription);
+						window.location = "https://aoopac.minisisinc.com";
 						/*
 							if (useremail is a MINISIS user) {
 								log in to MINISIS using this email.
@@ -64,7 +68,7 @@
 						// console.log('Could not get the user info');
 						// debugger;
 
-						// window.location = "https://aoopac.minisisinc.com";
+						window.location = "https://aoopac.minisisinc.com";
 					}
 				}
 				catch (e) {
@@ -73,13 +77,14 @@
 					// console.log(e);
 					// debugger;
 
-					// window.location = "https://aoopac.minisisinc.com";
+					window.location = "https://aoopac.minisisinc.com";
 				}
 			}
 			else if (!await authClient.isAuthenticated()) {
 				// Not logged in. Redirect to the public secure logon page.
 				// After the user signs into public secure they will be redirected to this page
 				// with tokens in the URL
+				//alert("In the sign in with redirect");
 				authClient.signInWithRedirect();
 
 			}
@@ -87,7 +92,7 @@
 				// user is already logged in - Could add some checks that the user is logged in on the MINISIS 
 				// side and then redirect back to the home page.
 
-				// window.location = "https://aoopac.minisisinc.com";
+				window.location = "https://aoopac.minisisinc.com";
 			}
 		}
 

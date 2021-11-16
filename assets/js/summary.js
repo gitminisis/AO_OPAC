@@ -85,8 +85,23 @@ $(document).ready(function(){
     //     location.reload();
     //   });
 
+    checkMedia();
 
 });
+
+const checkMedia = () => {
+    let x  = document.getElementsByClassName('media-container');
+    for (let i = 0; i < x.length; i++) {
+        let iconSet1 = x[i].children[2].children[0].children.length;
+        let iconSet2 = x[i].children[2].children[1].children.length;
+        let iconSets =  iconSet1 + iconSet2;
+
+        console.log(iconSets)
+
+        if (iconSets === 0)
+            x[i].style.display = 'none';
+    }
+}
 
 
 

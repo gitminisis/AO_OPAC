@@ -1,3 +1,4 @@
+
 .Detail-Container {
   padding: 1em;
   background-color: #FFF;
@@ -32,6 +33,12 @@
   border-color: #047bc1;
 }
 
+.img-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
 #next-record {
   float: right;
 }
@@ -60,8 +67,10 @@ button.bookmarkbutton a:hover{
 }
 
 .cs-iframe-detail{
-  width:100%; 
-  height:300px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
   margin-bottom:20px;
   border: 1px solid black;
   border-radius: 10px;
@@ -71,8 +80,10 @@ button.bookmarkbutton a:hover{
   background-color:#f5f5f5;
 }
 
-.detail-label{
-  font-weight: bold;
+
+.modal-body-audio,
+.modal-body-video{
+  text-align:-webkit-center;
 }
 
 /* CROWDSOURCE CSS */
@@ -187,6 +198,55 @@ button.bookmarkbutton a:hover{
 .float-left {
   float: left !important;
 }
+#treeTest {
+  margin-top: 100px;
+}
+.audio-slick .slick-arrow {
+  position: absolute;
+  top: 20%;
+}
+.audio-slick .slick-prev {
+  left: 0px;
+  z-index: 1;
+}
+.audio-slick .slick-next {
+  right: 0px;
+  z-index: 1;
+}
+
+.video-slick .slick-arrow {
+  position: absolute;
+  top: 40%;
+}
+.video-slick .slick-prev {
+  left: -10px;
+  z-index: 1;
+}
+.video-slick .slick-next {
+  right: -10px;
+  z-index: 1;
+}
+
+.docu-slick .slick-arrow {
+  position: absolute;
+  top: 45%;
+}
+.docu-slick .slick-prev {
+  left: -17px;
+  z-index: 1;
+}
+.docu-slick .slick-next {
+  right: -17px;
+  z-index: 1;
+}
+.audio-slick .btn:focus,
+.video-slick .btn:focus,
+.docu-slick .btn:focus {
+  border:none;
+}
+.docu-slick {
+  text-align: center;
+}
 /* CROWDSOURCE CSS END */
 
 
@@ -215,3 +275,59 @@ button.bookmarkbutton a:hover{
   padding: 1rem;
 }
 /* Request Material CSS END */
+
+/* Detail Carousel BEGIN */
+#mainCarousel {
+  width: 600px;
+  margin: 0 auto 1rem auto;
+
+  --carousel-button-color: #170724;
+  --carousel-button-bg: #fff;
+  --carousel-button-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%),
+    0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+
+  --carousel-button-svg-width: 20px;
+  --carousel-button-svg-height: 20px;
+  --carousel-button-svg-stroke-width: 2.5;
+}
+
+#mainCarousel .carousel__slide {
+  display: flex; 
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+}
+
+#mainCarousel .carousel__button.is-prev {
+  left: -1.5rem;
+}
+
+#mainCarousel .carousel__button.is-next {
+  right: -1.5rem;
+}
+
+#mainCarousel .carousel__button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #A78BFA;
+}
+
+#thumbCarousel .carousel__slide {
+  opacity: 0.5;
+  padding: 0;
+  margin: 0.25rem;
+  width: 96px;
+  height: 64px;
+}
+
+#thumbCarousel .carousel__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+#thumbCarousel .carousel__slide.is-nav-selected {
+  opacity: 1;
+}
+
+/* Detail Carousel END */
