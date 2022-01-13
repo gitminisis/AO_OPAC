@@ -1,3 +1,20 @@
 #my-requests {
     font-size: 14px;
 }
+
+.reprod-item {
+    display: flex;
+    flex-direction: row;
+}
+
+.reprod-item > span {
+    display: flex;
+    flex: 7
+    /* justify-content: flex-start; */
+}
+
+.reprod-item > label {
+    display: flex;
+    flex :3
+    /* justify-content: flex-start; */
+}

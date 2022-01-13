@@ -1,3 +1,14 @@
+window.onload = () => {
+    setpayCss();  // temporary measure for proof of concept
+
+    console.log('I do the payments')
+
+    if (document.getElementById('cancel-page'))
+        cancelLast();
+    else if (document.getElementById('receipt-page'))
+        setPartialPaid();
+}
+
 // An enum representing the indexes of desired nodes of an HTMLCOLLECTION object for a <tr> element 
 // (if you look at the HTMLCOLLECTION object you will see that every over index/property is filled with empty-string text)
 let ReproEnum = {
@@ -7,7 +18,8 @@ let ReproEnum = {
     TITLE:       7,
     AMOUNT:      11,
     TAX:         17,
-    HANDLING:    19
+    HANDLING:    19,
+    CHARGE:      21
 }
 
 class Payment {
@@ -34,6 +46,7 @@ class Payment {
         let formValues = {};
         let childNodes = node.childNodes;
 
+        console.log(childNodes)
         
         formValues.patronId    = patron_id.split(']')[1];
         formValues.merchantNum = childNodes[ReproEnum.MERCHANTNUM].innerText;
@@ -42,8 +55,9 @@ class Payment {
         formValues.topic       = childNodes[ReproEnum.TOPIC].innerText;
         formValues.title       = childNodes[ReproEnum.TITLE].innerText;
         formValues.amt         = childNodes[ReproEnum.AMOUNT].innerText;
-        formValues.tax         =childNodes[ReproEnum.TAX].innerText;
-        formValues.handling         =childNodes[ReproEnum.HANDLING].innerText;
+        formValues.tax         = childNodes[ReproEnum.TAX].innerText;
+        formValues.handling    = childNodes[ReproEnum.HANDLING].innerText;
+        formValues.charge      = childNodes[ReproEnum.CHARGE].innerText;
         formValues.successUrl  = undefined;
         formValues.cancelUrl   = undefined;
     
@@ -66,6 +80,7 @@ class Payment {
         payNodes.amt.innerText = formValues.amt;
         payNodes.tax.innerText = formValues.tax;
         payNodes.handling.innerText = formValues.handling;
+        payNodes.charge.innerText = formValues.charge;
     }
     
     /*
@@ -82,9 +97,10 @@ class Payment {
         let amt = document.getElementById('Pay-Amount');
         let tax = document.getElementById('Pay-Tax');
         let handling = document.getElementById('Pay-Handling');
+        let charge = document.getElementById('Pay-Charge');
 
     
-        return { patronId, merchantNum, prodId, topic, title, amt, tax, handling };
+        return { patronId, merchantNum, prodId, topic, title, amt, tax, handling, charge };
     }
 
 }
@@ -101,14 +117,16 @@ const requestOrder = () => {
     // let tax = document.getElementById('Pay-Tax').innerText;
     // let handling = document.getElementById('Pay-Handling').innerText;
 
+    // AOPay expected POST data for InitPay
     let myData = 
     {
         "req_order_num": merchantNum,
         "req_patron_id": patronId,
         "pay_amount": amt,
-        "success_url": "https://aoopac.minisisinc.com/assets/html/paymentSuccess.html?req_order_num=${merchantNum}",
-        "cancel_url": "https://aoopac.minisisinc.com/assets/html/paymentCancel.html?req_order_num=${merchantNum}",
-        "locale": "en"
+        "success_url": `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+        "cancel_url": `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+        "locale": "en",
+        testLevel: 1
     }
 
 
@@ -121,8 +139,211 @@ const requestOrder = () => {
         body: JSON.stringify(myData)
     })
     .then  (res => res.json())
-    .then  (data => { console.log('Success:', data) })
+    .then  (data => { 
+        console.log('Success:', data) 
+        window.location = data.redirect_url;
+    })
     .catch (err => { console.error(`Error: ${err}`) })
 
 }
+
+const setpayCss = () => {
+    let head = document.getElementsByTagName('head');
+    let paymentLink = document.createElement('link');
+
+    paymentLink.setAttribute('href', '/assets/css/payment.css');
+    paymentLink.setAttribute('rel', 'stylesheet');
+
+    head[0].append(paymentLink);
+}
+
+const completePayment = async () => {
+    console.log('starting payment completion')
+    let orderNum = document.getElementById('req-order-num').innerHTML 
+
+    settlePay(orderNum);     // Settle the payment with CCPAY
+}
+
+const settlePay = (orderNum) => {
+
+    console.log('settling payment')
+
+    // AOPay expected POST data for SettleLast
+    let postData =
+    {
+        req_order_num: orderNum
+    }
+    
+    fetch ('https://aopay.minisisinc.com/api/SettleLast', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+    .then  ( res => res.json())
+    .then  ( data => {
+        console.log(data)
+        queryLast(orderNum)
+    })
+    .catch ( err => { throw new Error (`HTTP error! status: ${err}`) })
+
+}
+
+const setFields = (orderNum, authCode, authTime, card, name) => {
+    
+    console.log('setting record fields')
+
+    // AOPay expected POST data for SetFields
+    let postData = {req_order_num: orderNum,
+        gwy_auth_code: authCode,
+        gwy_auth_time: authTime,
+        maskedCard: card,
+        nameOnCard: name
+    }
+
+    console.log(JSON.stringify(postData))   
+
+    fetch ('https://aopay.minisisinc.com/api/SetFields', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+    .then  ( data => { 
+        console.log("Finished setting fields")
+        console.log(data)
+        successRedirectToProfile(orderNum)
+    })
+    .catch ( err => { throw new Error (`HTTP error! status: ${err}`) })
+
+}
+
+const queryLast = (orderNum) => {
+
+    console.log('querying last')
+
+    // AOPay expected POST data for QueryLast
+    let postData = 
+    {
+        req_order_num: orderNum
+    }
+
+    fetch ('https://aopay.minisisinc.com/api/QueryLast', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+    .then  ( res => res.json())
+    .then  ( data => { 
+        console.log(data)
+        let code = data.gwy_auth_code;
+        let time = data.gwy_auth_time;
+        let card = data.maskedCard;
+        let name = data.nameOnCard;
+        setFields(orderNum, code, time, card, name); 
+    })
+    .catch ( err => { throw new Error (`HTTP error! status: ${err}`) })
+}
+
+
+
+const cancelLast = () => {
+    console.log('getting cancel information');
+
+    let orderNum = document.getElementById('req-order-num').innerHTML
+    let postData = 
+    {
+        req_order_num: orderNum
+    }
+
+    fetch ('https://aopay.minisisinc.com/api/CancelLast', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+    .then  ( res => res.json())
+    .then  ( data => console.log(data))
+    .catch ( err => { throw new Error (`HTTP error! status: ${err}`) })
+}
+
+const setPartialPaid = () => {
+
+    console.log('partial paid reporting in')
+
+    let orderNum = document.getElementById('req-order-num').innerHTML;
+    let amt = document.getElementById('req-paid-amt').innerHTML;
+
+    console.log(orderNum, amt)
+
+    let postData = 
+    {
+        req_order_num: orderNum,
+        req_partial_paid: amt
+    }
+
+    fetch ('https://aopay.minisisinc.com/api/SetPartialPaid', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+    // .then  ( res => res.json())
+    .then  ( data =>{
+        console.log('set partial paid')
+         console.log(data)})
+    .catch ( err => { throw new Error (`HTTP error! status: ${err}`) })
+}
+
+const agreementChecked = () => {
+    let checkbox = document.getElementById('pay-agreement');
+    let payBtn   = document.getElementById('complete-pay-btn'); 
+
+    if (checkbox.checked == true) payBtn.disabled = false;
+    else payBtn.disabled = true;
+}
+const backToProfile = () => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const sess = urlParams.get('sess')
+
+    window.location = `https://aoopac.minisisinc.com/scripts/mwimain.dll/${sess}?GET&FILE=[AO_ASSETS]html/patronProfile.html`
+}
+
+const successRedirectToProfile = async (orderNum) => {
+    let url       = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_FINAL/REQ_ORDER_NUM ${orderNum}?COMMANDSEARCH&sess=${sessionId}`
+    let animation = document.getElementById('animation-loader');
+
+    animation.style.display = 'flex';
+
+    let start = await new Promise(resolve => setTimeout(resolve, 5000));
+    clearTimeout(start);
+
+    animation.style.display = 'none';
+    console.log('Success: redirecting back now');
+    window.location = url;
+}
+
+const getReceiptOnClick = (e) => 
+{
+    let url = `${home_sessid}/REQ_ORDER_NUM ${e.dataset.searchExp}?SEARCH_N_OUTPUTFILE&DATABASE=REQUEST_INFO&REPORT=CCPAY_PAY_RECEIPT&DOWNLOADPAGE=[AO_INCLUDES]pdf.htm&NOMSG=[AO_INCLUDES]error/nopayreceipt.htm&EXTENSION=PDF`;
+    // let url = `${home_sessid}/REQ_ORDER_NUM ${e.dataset.searchExp}?SEARCH_N_OUTPUTFILE&DATABASE=REQUEST_INFO&REPORT=CCPAY_PAY_RECEIPT&NOMSG=[AO_INCLUDES]error/nopayreceipt.htm&EXTENSION=PDF`;
+    console.log(url);
+
+    // <!-- RL-20211221 - load /includes/load_pdf.htm page in the separate form tab -->
+    $outputfile_url = url;
+    window.open ('/includes/load_pdf.htm', "_blank");
+}
+
 

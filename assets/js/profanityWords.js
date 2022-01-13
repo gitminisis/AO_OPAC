@@ -409,6 +409,7 @@ const profanityArr =
      "hussy",
      "hymen",
      "hymie",
+     "hypno-toad",
      "iblowu",
      "insest",
      "intheass",

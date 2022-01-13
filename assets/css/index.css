@@ -2,7 +2,7 @@ html,
 body {
     /* height: 100%;
     width: 100%; */
-    font-size: 18px;
+    font-size: 24px;
 }
 
 body {
@@ -204,6 +204,11 @@ body {
     padding: 1em;
 }
 
+.Footer-Navigation {
+    display: flex;
+    align-content: center;
+}
+
 .Footer-Navigation a {
     color: black;
     margin-left: 0.5em;
@@ -290,6 +295,8 @@ hr.Hr-1 {
 #Main-Form {
     background-color: #fff;
     padding: 1em;
+
+    font-size: 0.8rem;
 }
 
 .Header-Btn,
@@ -302,7 +309,6 @@ hr.Hr-1 {
     height: 50px;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
-    /* border: 3px solid #fff; */
 }
 
 .Header-Btn-Hamburger,
@@ -429,9 +435,26 @@ hr.Hr-1 {
     font-weight: 400;
 }
 
-.Radio-Wrapper {
+.Radio-Wrapper > fieldset {
+    display: flex;
+    justify-content: space-evenly;
     margin-top: 0.5em;
     margin-bottom: 1em;
+
+}
+
+.visually-hidden { 
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* added line */
+}
+
+.Radio-Wrapper-Mobile {
+    display: none;
 }
 
 .Right-Panel {
@@ -441,10 +464,13 @@ hr.Hr-1 {
 .Search-Btn{
     border-radius: 5px;
     text-align: center;
-    margin: auto;
+    margin-bottom: 5px;
+    /* margin: auto; */
 }
 
 .Search-Options-Wrapper {
+    display: flex;
+    justify-content: space-evenly;
     margin-top: 0.5em;
 }
 
@@ -540,6 +566,10 @@ hr.Hr-1 {
         width: 100%;
     }
 
+    .Features-Container {
+        border: none;
+    }
+
     
 }
 
@@ -558,6 +588,34 @@ hr.Hr-1 {
 @media only screen and (max-width: 557px) {
     .Header-Navigation {
         font-size: 0.5rem;
+    }
+
+    .Search-Options-Wrapper {
+        flex-direction: column;
+        justify-items: center;
+    }
+
+    .Footer-Navigation {
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .Radio-Wrapper {
+        display: none;
+    }
+    .Search-Type-Item-Mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
+}
+
+@media only screen and (max-width: 450px) {
+    .Footer-Navigation {
+        font-size: 0.85rem;
     }
 }
 

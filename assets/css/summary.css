@@ -28,7 +28,11 @@
     padding: 10px;
 }
 
-.media-icon {
+.media-icon,
+.image-icon,
+.audio-icon,
+.video-icon,
+.doc-icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,13 +107,15 @@
     display: flex;
     flex-direction: column;
     flex: 2;
+
+    align-items: center;
+    justify-items: center;
 }
 
 .Record-Btn {
     margin: 5px;
     border-radius: 4px;
 }
-
 
 .Record-Item:nth-child(even) {
     /* background: rgb(221, 218, 218); */
@@ -164,8 +170,18 @@ textarea {
 .web_sum_form{
     text-align: center;
 }
-button.Bookmark{
-    width:93%;
+
+.web_sum_form {
+    width: 100%
+}
+.Bookmark,
+.Crowd-Source
+{
+    width: 93% ;
+}
+
+button.Bookmark {
+    width:93% !important;
 }
 
 /*
@@ -232,4 +248,24 @@ form div .Crowd-Header-Title{
 #cs-form{
     font-family: "Raleway", sans-serif !important;
     font-weight: 400;
+}
+.media-icon:hover,
+.image-icon:hover,
+.audio-icon:hover,
+.video-icon:hover,
+.doc-icon:hover {
+    cursor:pointer;
+    color: #6f6f6f;
+}
+.ca_name-sum-1{
+    padding-right: 0px;
+}
+.ca_name-sum-2{
+    padding:0px !important;
+}
+
+@media only screen and (max-width: 500px) {
+    .Record-Item {
+        flex-direction: column;
+    }
 }

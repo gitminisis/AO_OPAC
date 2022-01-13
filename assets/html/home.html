@@ -21,27 +21,47 @@
                         <span id='Option-Choice' class='Rale-Bold'>Option 1: Keyword Search</span>
                         <span id='Number-Results'></span>
                         <div class='Input-Wrapper d-flex flex-column'>
-                            <label class='Rale-Bold'>Enter a search term or terms:</label>
-                            <input id="simple_search_input" type='text' title='Enter a search term or terms' name="KEYWORD_CLUSTER"/>
+                            <label class='Rale-Bold' for="simple_search_input">Enter a search term or terms:</label>
+                            <input id="simple_search_input" type='text' alt='Enter a search term or terms' name="KEYWORD_CLUSTER"/>
                         </div>
-                        <div class='Radio-Wrapper d-flex justify-content-evenly'>
-                            <span>
-                                <input type='radio' id='All-Keywords' title='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
-                                <label class='Rale-Med'  for='All-Keywords'>All of these keywords</label>
-                            </span>
-                            <span>
-                                <input type='radio' id='Any-Keywords' title='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
-                                <label class='Rale-Med'  for='Any-Keywords'>Any of these keywords</label>
-                            </span>
-                            <span>
-                                <input type='radio' id='Exact-Phrase' title='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
-                                <label class='Rale-Med'  for='Exact-Phrase'>Exact Phrase</label>
-                            </span>
+                        <div class='Radio-Wrapper'>
+                            <fieldset>
+                                <legend class='visually-hidden'>Search Type</legend>
+                                <span>
+                                    <input type='radio' id='All-Keywords' class='search-input' title='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
+                                    <label class='Rale-Med class='search-label' for='All-Keywords'>All of these keywords</label>
+                                </span>
+                                <span>
+                                    <input type='radio' id='Any-Keywords' class='search-input' title='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
+                                    <label class='Rale-Med class='search-label' for='Any-Keywords'>Any of these keyword</label>
+                                </span>
+                                <span>
+                                    <input type='radio' id='Exact-Phrase' class='search-input' title='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
+                                    <label class='Rale-Med' class='search-label for='Exact-Phrase'>Exact Phrase</label>
+                                </span>
+                            </fieldset>
                         </div>
-                        <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
+                        <div class='Radio-Wrapper-Mobile'>
+                            <fieldset>
+                                <legend class='visually-hidden'>Search Type</legend>
+                                <div class='Search-Type-Item-Mobile'>
+                                    <input type='radio' id='All-Keywords-Mobile' class='search-input-mobile' title='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
+                                    <label class='Rale-Med' class='search-label-mobile' for='All-Keywords-Mobile'>All keywords</label>
+                                </div>
+                                <div class='Search-Type-Item-Mobile'>
+                                    <input type='radio' id='Any-Keywords-Mobile' class='search-input-mobile' title='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
+                                    <label class='Rale-Med' class='search-label-mobile' for='Any-Keywords-Mobile'>Any keyword</label>
+                                </div>
+                                <div class='Search-Type-Item-Mobile'>
+                                    <input type='radio' id='Exact-Phrase-Mobile' class='search-input-mobile' title='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
+                                    <label class='Rale-Med' class='search-label-mobile' for='Exact-Phrase-Mobile'>Exact Phrase</label>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class='Search-Options-Wrapper'>
                             <input class='Search-Option-Button Search-Btn' alt='Search' title='Search' type='submit' value='SEARCH'/>
                             <!-- <a class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a> -->
-                            <button class='Search-Btn' alt='Advanced Search'  title='Advanced Search'><a id='Advanced-Search' class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a></button>
+                            <button class='Search-Btn' alt='Advanced Search' title='Advanced Search'><a id='Advanced-Search' class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a></button>
                             <!-- <a class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a> -->
                             <button class='Search-Btn' alt='More Search Options' title='More Search Options'><a id='More-Search' class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a></button>
                         </div>

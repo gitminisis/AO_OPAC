@@ -119,7 +119,6 @@ function getPatronClientInfo() {
             var x2js = new X2JS();
 
             var jsonObj = x2js.xml2json(res);
-            console.log(jsonObj)
 
             let first_name = jsonObj.client.name_first;
             let last_name = jsonObj.client.name_last;

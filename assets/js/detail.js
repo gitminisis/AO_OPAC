@@ -4,7 +4,16 @@
  * *   Document Ready  * *
  * *                   * *
  * * * * * * * * * * * * */
+
 $(document).ready(function() {
+    
+    
+    if($(".pub-det-field").length){
+        const x = document.getElementsByClassName("pub-det-field")[0].innerText;
+        document.getElementsByClassName("pub-det-field")[0].innerHTML= unescapeHtml(x);
+    }
+    
+    
 
     // Detail Bookmark
     // When Clicked ajax sends href to minisis to add selected record to list.
@@ -177,10 +186,13 @@ $(document).ready(function() {
         });
     });
 
-
+     
+    
     showSingleImage();
 
 });
+
+
 
 $("#crowd-source-comment").on("load", function(){
     let iframe = document.getElementById('crowd-source-comment');
@@ -213,28 +225,36 @@ const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
     Dots: false,
   });
   
-  // Thumbnails
-  const thumbCarousel = new Carousel(document.querySelector("#thumbCarousel"), {
-    Sync: {
-      target: mainCarousel,
-      friction: 0,
+// Thumbnails
+const thumbCarousel = new Carousel(document.querySelector("#thumbCarousel"), {
+Sync: {
+    target: mainCarousel,
+    friction: 0,
+},
+Dots: false,
+Navigation: false,
+center: true,
+slidesPerPage: 1,
+infinite: false,
+});
+
+// Customize Fancybox
+Fancybox.bind('[data-fancybox="gallery"]', {
+Carousel: {
+    on: {
+    change: (that) => {
+        mainCarousel.slideTo(mainCarousel.findPageForSlide(that.page), {
+        friction: 0,
+        });
     },
-    Dots: false,
-    Navigation: false,
-    center: true,
-    slidesPerPage: 1,
-    infinite: false,
-  });
-  
-  // Customize Fancybox
-  Fancybox.bind('[data-fancybox="gallery"]', {
-    Carousel: {
-      on: {
-        change: (that) => {
-          mainCarousel.slideTo(mainCarousel.findPageForSlide(that.page), {
-            friction: 0,
-          });
-        },
-      },
     },
-  });
+},
+});
+
+function unescapeHtml(safe) {
+    return safe.replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'");
+}

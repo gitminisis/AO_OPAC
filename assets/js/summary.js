@@ -1,6 +1,48 @@
 
 
 $(document).ready(function(){
+
+    let countImg = 1, countDoc = 1, countAud = 1, countVid = 1;
+    let countImg2 = 1, countDoc2 = 1, countAud2 = 1, countVid2 = 1;
+    let countMarcBtn = 1, countMarcXML = 1, countMarcModal = 1;
+    if($(".Detail-Container").length === 0) {
+        $(".image-icon").each(function() {      
+            $(this).attr("data-bs-target", "#detailModalImage" + countImg++);
+        });
+        $(".doc-icon").each(function() {      
+            $(this).attr("data-bs-target", "#detailModalDoc" + countDoc++);
+        });
+        $(".audio-icon").each(function() {      
+            $(this).attr("data-bs-target", "#detailModalAudio" + countAud++);
+        });
+        $(".video-icon").each(function() {      
+            $(this).attr("data-bs-target", "#detailModalVideo" + countVid++);
+        });
+
+        $(".modal#detailModalImage").each(function() {    
+            $(this).attr("id", "detailModalImage" + countImg2++);
+        });
+        $(".modal#detailModalAudio").each(function() {    
+            $(this).attr("id", "detailModalAudio" + countAud2++);
+        });
+        $(".modal#detailModalVideo").each(function() {    
+            $(this).attr("id", "detailModalVideo" + countVid2++);
+        });
+        $(".modal#detailModalDoc").each(function() {    
+            $(this).attr("id", "detailModalDoc" + countDoc2++);
+        });
+    }
+
+    $(".marc-btn").each(function() {      
+        $(this).attr("data-bs-target", "#marcModal" + countMarcBtn++);
+    });
+    $("marc#marc").each(function() {      
+        $(this).attr("id", "marc" + countMarcXML++);
+    });
+
+    // $("#marcModal").each(function() {      
+    //     $(this).attr("id", "marcModal" + countMarcModal++);
+    // });
     $("button.colorbox").click(function(e) {
         let evt = e;
         // $(this).parent().parent().find(".cs-item-sisn");
@@ -65,14 +107,14 @@ $(document).ready(function(){
         if (count == false){
             count = true;
             console.log("success")
-        $.ajax({
-        type: "POST",
-        url:$(".web_sum_form").attr('data-action'),
-        data:$(this).find("input").attr('name') + "=" + $(this).find("input").attr('value'),
-        }).done(function(){
-            location.reload();
-        });
-    }
+            $.ajax({
+                type: "POST",
+                url:$(".web_sum_form").attr('data-action'),
+                data:$(this).find("input").attr('name') + "=" + $(this).find("input").attr('value'),
+            }).done(function(){
+                location.reload();
+            });
+        }
 
     });
 
@@ -87,19 +129,23 @@ $(document).ready(function(){
 
     checkMedia();
 
+
 });
 
 const checkMedia = () => {
+
     let x  = document.getElementsByClassName('media-container');
+    console.log(x)
     for (let i = 0; i < x.length; i++) {
         let iconSet1 = x[i].children[2].children[0].children.length;
         let iconSet2 = x[i].children[2].children[1].children.length;
         let iconSets =  iconSet1 + iconSet2;
 
-        console.log(iconSets)
+        //console.log(iconSets)
 
-        if (iconSets === 0)
+        if (iconSets === 0) {
             x[i].style.display = 'none';
+        }
     }
 }
 
