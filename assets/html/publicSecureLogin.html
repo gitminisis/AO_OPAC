@@ -1,0 +1,50 @@
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+<!-- include virtual="[AO_INCLUDES]header.htm"-->
+<form id="msform" method="POST" action="/scripts/mwimain.dll?patronlogin&application=UNION_VIEW&language=144&file=[AO_ASSETS]html%5chome.html" hidden>
+    <fieldset id="Login-Form">
+        <div class="form-card">
+            <h2 class="fs-title Rale-Bold">Your Account</h2>
+
+            <input class="Rale-Reg" type="text" id="username" name="C_CLIENT_NUMBER" autocomplete="off" placeholder="Account Number" title="Account Number" />
+
+            <input class="Rale-Reg" type="password" id="password" name="PATRON_PID" placeholder="Password" title="Password" />
+        </div>
+        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/signup.html">
+            <button type="button" title="Previous" class="action-button-previous btn btn-secondary">
+                                              Signup
+                                            </button></a>
+        <button type="submit" title="Submit" id="submitlogin" class="action-button btn btn-primary">
+                                              Login
+                                        </button>
+    </fieldset>
+</form>
+
+
+
+
+<script src="/assets/js/dynpkey.js"></script>
+<script>
+    // function generateDynamicPassword() {
+    //     // get user name
+    //     var username = $("#username").val();
+    //     if (typeof username != 'undefined' && username != '' && username.indexOf('@') > 0) {
+    //         var password = dynamicPassword(username);
+    //         // alert ( password );
+    //         $("#password").val(password);
+    //     }
+    //     return true;
+    // }
+
+    $(document).ready(function() {
+        let username = sessionStorage.getItem('useremail');
+        $("#username").val(username)
+        if (typeof username != 'undefined' && username != '' && username.indexOf('@') > 0) {
+            var password = dynamicPassword(username);
+            // alert ( password );
+            $("#password").val(password);
+        }
+        console.log('submit form')
+        $('#submitlogin').click();
+    })
+</script>

@@ -11,6 +11,10 @@ body {
     padding-right: 2em;
 }
 
+.minimum-font-size {
+    font-size: 18.667px;
+}
+
 #accordion-button {
     box-shadow: none;
     background: none;
@@ -233,6 +237,10 @@ a.Footer-Navigation a,
     text-decoration: underline;
 }
 
+.Quick-Links-Item {
+    color: #000
+}
+
 .Form-Wrapper {
     width: 90%;
     margin: 2em 0 2em 0;
@@ -295,8 +303,6 @@ hr.Hr-1 {
 #Main-Form {
     background-color: #fff;
     padding: 1em;
-
-    font-size: 0.8rem;
 }
 
 .Header-Btn,

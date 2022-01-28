@@ -1,5 +1,10 @@
 let emailCheck = false;
 $(document).ready(function() {
+    let useremail = sessionStorage.getItem('useremail');
+    document.getElementById('c_email').value = useremail;
+    // var password = dynamicPassword(useremail);
+    // // alert ( password );
+    // $("#reg-password").val(password);
 
     $("#msform").on("keypress", function(event) {
         var keyPressed = event.keyCode || event.which;
@@ -29,47 +34,47 @@ $(document).ready(function() {
             showMessage("First name must only contain letters or non-empty.")
         } else if ((!lastName.value.match(/^[A-Za-z]+$/)) || (lastName.value === '')) {
             showMessage("Last name must only contain letters or non-empty.")
-        } else if (!emailCheck) {
-            checkEmail().then(res => {
-                console.log(password.value)
-                if (document.getElementById('c_email').value.trim() === '') {
-                    showMessage("Please fill out your email address.")
-                } else if (!res) {
-                    showMessage('This email address has already been registered ! Please use another email address.')
-                } else if (!password.value.match(passwordRegex)) {
-                    showMessage("Password must contain at least eight characters, at least one uppercase letter, one lowercase letter, one special character and one number.")
-                } else {
-                    current_fs = $(this).parent();
-                    next_fs = $(this).parent().next();
+        } else {
 
-                    //Add Class Active
-                    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+            // if (document.getElementById('c_email').value.trim() === '') {
+            //     // showMessage("Please fill out your email address.")
+            // } else if (!res) {
+            //     // showMessage('This email address has already been registered ! Please use another email address.')
+            // } else if (!password.value.match(passwordRegex)) {
+            //     // showMessage("Password must contain at least eight characters, at least one uppercase letter, one lowercase letter, one special character and one number.")
+            // } else {
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
 
-                    //show the next fieldset
-                    next_fs.show();
-                    //hide the current fieldset with style
-                    current_fs.animate({
-                        opacity: 0
-                    }, {
-                        step: function(now) {
-                            // for making fielset appear animation
-                            opacity = 1 - now;
+            //Add Class Active
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
-                            current_fs.css({
-                                'display': 'none',
-                                'position': 'relative'
-                            });
-                            next_fs.css({
-                                'opacity': opacity
-                            });
-                        },
-                        duration: 600
+            //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({
+                opacity: 0
+            }, {
+                step: function(now) {
+                    // for making fielset appear animation
+                    opacity = 1 - now;
+
+                    current_fs.css({
+                        'display': 'none',
+                        'position': 'relative'
                     });
-                }
+                    next_fs.css({
+                        'opacity': opacity
+                    });
+                },
+                duration: 600
             });
+            // }
+
 
 
         }
+
     });
 
     // disables Next button whenever email field add/delete characters

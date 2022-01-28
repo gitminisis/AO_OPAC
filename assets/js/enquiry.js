@@ -324,13 +324,49 @@ const setEnquiryTopic = () => {
 }
 
 function decodeTextField(str) {
+    const SCarray = {
+                    "&#126;": "~",
+                    "&#96;" : "`",
+                    "&#33;" : "!",
+                    "&#35;" : "#",
+                    "&#34;" : "\"",
+                    "&#quot;" : "\"",
+                    "&#36;" : "$",
+                    "&#37;" : "%",
+                    "&amp;" : "&",
+                    "&#38;" : "&",
+                    "&#39;" : "'",
+                    "&#40;" : "(",
+                    "&#41;" : ")",
+                    "&#42;" : "*",
+                    "&#43;" : "+",
+                    "&#44;" : ",",
+                    "&#45;" : "-",
+                    "&#46;" : ".",
+                    "&#47;" : "/",
+                    "&#58;" : ":",
+                    "&#59;" : ";",
+                    "&#61;" : "=",
+                    "&lt;"  : "<", 
+                    "&#60;" : "<",
+                    "&gt;"  : ">",
+                    "&#62;" : ">",
+                    "&#63;" : "?",
+                    "&#64;" : "@",
+                    "&#91;" : "[",
+                    "&#92;" : "\\",
+                    "&#93;" : "]",
+                    "&#94;" : "^",
+                    "&#95;" : "_",
+                    "&#123;" : "{",
+                    "&#124;" : "|",
+                    "&#125;" : "}",
+                };
+    for(const [key,value] of Object.entries(SCarray)){
+        str = str.replace(new RegExp(`${key}`, "gi"), `${value}`);
+    }
     console.log(str)
-    str = str.replace(new RegExp("&amp;", "gi"), "&");
-    str = str.replace(new RegExp("&lt;", "gi"), "<");
-    str = str.replace(new RegExp("&#60;", "gi"), "<");
-    str = str.replace(new RegExp("&gt;", "gi"), ">");
-    str = str.replace(new RegExp("&#62;", "gi"), ">");
-    console.log(str)
+    // str = str.replace(new RegExp("&amp;", "gi"), "&");
     return str;
 }
 

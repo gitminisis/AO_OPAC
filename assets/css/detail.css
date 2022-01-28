@@ -15,15 +15,27 @@
 }
 
 .detail-buttons {
-  width: 100px;
+  width: 125px;
 }
 
 #detail-function {
-  text-align: center;
+  display: flex; 
+  flex-direction: row;
+
+  /* text-align: center;
   margin-top: 20px;
 
-  margin-bottom: 35px;
+  margin-bottom: 35px; */
 }
+
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
 .function-buttons {
   width: 80%;
   max-width: 300px;
@@ -57,6 +69,25 @@ table {
   cursor: default;
 }
 
+.btn-primary,
+.btn-primary > a {
+  font-size: 0.8rem;
+}
+
+.rec-det-btn {
+  display: flex;
+  justify-content: center;
+
+  width: 80%;
+}
+
+#request_form,
+#web_det_form {
+  display: flex;
+  justify-content: center;
+  width: 100%
+}
+
 button.bookmarkbutton a{
   color:white;
   text-decoration: none;
@@ -88,7 +119,12 @@ button.bookmarkbutton a:hover{
 
 .repeat-ul-det{
   padding:0;
+  list-style-type:none;
 }
+.repeat-ul-det li{
+  margin: 0px 0 5px 0;
+}
+
 .repeat-ul-holdings-det{
   padding:0;
   text-align:center;

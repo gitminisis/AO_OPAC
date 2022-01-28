@@ -6,7 +6,10 @@ window.onload = () => {
     if (document.getElementById('cancel-page'))
         cancelLast();
     else if (document.getElementById('receipt-page'))
-        setPartialPaid();
+    {
+        console.log('setting partial paid')
+        // setPartialPaid();
+    }
 }
 
 // An enum representing the indexes of desired nodes of an HTMLCOLLECTION object for a <tr> element 
@@ -122,12 +125,14 @@ const requestOrder = () => {
     {
         "req_order_num": merchantNum,
         "req_patron_id": patronId,
-        "pay_amount": amt,
+        "pay_amount": amt.replace('$', '').toString(),
         "success_url": `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
         "cancel_url": `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
         "locale": "en",
         testLevel: 1
     }
+
+    console.log(myData)
 
 
     fetch('https://aopay.minisisinc.com/api/initPay', {
@@ -141,12 +146,83 @@ const requestOrder = () => {
     .then  (res => res.json())
     .then  (data => { 
         console.log('Success:', data) 
-        window.location = data.redirect_url;
+        // window.location = data.redirect_url;
     })
     .catch (err => { console.error(`Error: ${err}`) })
 
 }
 
+// const requestOrder = async () => {
+    
+//     console.log('inside new request order method')
+
+//     let patronId = document.getElementById('Pay-Client-Id').innerText;
+//     let merchantNum = document.getElementById('Pay-Merchant-Num').innerText;
+//     // let prodId = document.getElementById('Pay-Product-Id').innerText;
+//     // let topic = document.getElementById('Pay-Product-Topic').innerText;
+//     // let title = document.getElementById('Pay-Product-Title').innerText;
+//     let amt = document.getElementById('Pay-Amount').innerText;
+//     // let tax = document.getElementById('Pay-Tax').innerText;
+//     // let handling = document.getElementById('Pay-Handling').innerText;
+
+//     // AOPay expected POST data for InitPay
+//     let myData = 
+//     {
+//         "req_order_num": merchantNum,
+//         "req_patron_id": patronId,
+//         "pay_amount": amt,
+//         "success_url": `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+//         "cancel_url": `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+//         "locale": "en",
+//         testLevel: 1
+//     }
+
+    
+//     try {
+//         console.log('trying to fetch now')
+//         let response = await (fetch('https://aopay.minisisinc.com/api/initPay', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Accept': 'application.json'
+//             },
+//             body: JSON.stringify(myData)
+//         }));
+    
+//         if (!response.ok) 
+//         {
+//             console.error(`Error: ${response.status}`);
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+    
+//         let result = response.json();
+    
+//         console.log('Success:', result);
+//         console.log('finished the fetch now')
+//         window.location = result.redicrect_url;
+//     } catch (e)
+//     {
+//         console.error(`Error: ${e}`)
+//     }
+
+//     console.log('leaving new request order method')
+
+// }
+
+// const fetchOrder = () => {
+//     fetch('https://aopay.minisisinc.com/api/initPay', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application.json'
+//         },
+//         body: JSON.stringify(myData)
+//     })
+// }
+
+/*
+    Function sets rel stylesheet in the head of the DOM
+*/
 const setpayCss = () => {
     let head = document.getElementsByTagName('head');
     let paymentLink = document.createElement('link');
@@ -157,6 +233,9 @@ const setpayCss = () => {
     head[0].append(paymentLink);
 }
 
+/*
+    Function begins process of clientside payment settlement.
+*/
 const completePayment = async () => {
     console.log('starting payment completion')
     let orderNum = document.getElementById('req-order-num').innerHTML 
@@ -164,6 +243,13 @@ const completePayment = async () => {
     settlePay(orderNum);     // Settle the payment with CCPAY
 }
 
+
+/*
+    Functions sends a POST requestion to call SettleLast endpoint which in turn calls CCPAY API 
+    to settle the payment transaction.
+
+    SettleLast endpoint returns the data of the last settle call made to CCPay API 
+*/
 const settlePay = (orderNum) => {
 
     console.log('settling payment')

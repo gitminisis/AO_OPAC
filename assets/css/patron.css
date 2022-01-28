@@ -91,6 +91,13 @@
     flex-direction: row;
 }
 
+#Client-Link-Container-Top,
+#Client-Link-Container-Bottom,
+#Client-Mobile-Container
+{
+    font-size: 0.8rem;
+}
+
 #Client-Mobile-Container {
     display: none;
 }
