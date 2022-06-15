@@ -20,31 +20,18 @@
                 <h2 class="Rale-Extra main-title-h2">Welcome to the Art Collection!</h2>
                 <div class='Form-Wrapper'>
                     <p class='page-description Rale-Bold'>
-                        Explore a wide range of selected images from the Ontario Government's Art Collection. 
-                        These images depict the province of Ontario's history, people and landscape.
-                        <br><br>    
-                        Images are continually being added to the database, so check back often.
+                        Explore a wide range of selected images from the Ontario Government's Art Collection. These images depict the province of Ontario's history, people and landscape.
+                        <br><br> Images are continually being added to the database, so check back often.
                     </p>
 
-                    <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search"
-                        action="^SEARCH^&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm">
+                    <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^SEARCH^&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm">
                         <div class='main-form-left'>
                             <div class='main-login-mobile Rale-Bold'>
-                                <button 
-                                    type='button' 
-                                    id='pub-sec-login-btn' 
-                                    class='main-form-btn Rale-Bold'
-                                    onclick='onClickLoginBtn()' 
-                                    title='Go to client login portal'>
+                                <button type='button' id='pub-sec-login-btn' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>
                                     Client Portal Login
                                 </button>
                                 <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                                <button 
-                                    type='button' 
-                                    id='main-form-info' 
-                                    class='main-form-btn Rale-Bold' 
-                                    onclick=''
-                                    title='To to further information on how to search AIMS'>
+                                <button type='button' id='main-form-info' class='main-form-btn Rale-Bold' onclick='' title='To to further information on how to search AIMS'>
                                         For further information on
                                         how to search within AIMS click here
                                 </button>
@@ -57,10 +44,8 @@
                             <div class='Input-Wrapper d-flex flex-column'>
                                 <label class='Rale-Bold' for="simple_search_input">Enter a search term or terms:</label>
                                 <div id='simple-search-container'>
-                                    <input id="simple_search_input" type='text' alt='Enter a search term or terms'
-                                        name="KEYWORD_CLUSTER" />
-                                    <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search'
-                                        title='Search' type='submit' value='SEARCH' />
+                                    <input id="simple_search_input" type='text' alt='Enter a search term or terms' name="KEYWORD_CLUSTER" />
+                                    <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='SEARCH' />
                                 </div>
                             </div>
                             <div class='Radio-Wrapper'>
@@ -92,23 +77,17 @@
                                 <fieldset>
                                     <legend class='visually-hidden'>Search Type</legend>
                                     <div class='Search-Type-Item-Mobile'>
-                                        <input type='radio' id='All-Keywords-Mobile' class='search-input-mobile'
-                                            title='All of these keywords' value='AND_WORD' name='FLDOP1'
-                                            onclick='onClickSearchOption("All Keyword Search")' checked />
+                                        <input type='radio' id='All-Keywords-Mobile' class='search-input-mobile' title='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
                                         <label class='search-label-mobile Rale-Med' for='All-Keywords-Mobile'>All
                                             keywords</label>
                                     </div>
                                     <div class='Search-Type-Item-Mobile'>
-                                        <input type='radio' id='Any-Keywords-Mobile' class='search-input-mobile'
-                                            title='Any of these keywords' value='OR_WORD' name='FLDOP1'
-                                            onclick='onClickSearchOption("Any Keyword Search")' />
+                                        <input type='radio' id='Any-Keywords-Mobile' class='search-input-mobile' title='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")' />
                                         <label class='search-label-mobile Rale-Med' for='Any-Keywords-Mobile'>Any
                                             keyword</label>
                                     </div>
                                     <div class='Search-Type-Item-Mobile'>
-                                        <input type='radio' id='Exact-Phrase-Mobile' class='search-input-mobile'
-                                            title='Exact Phrase' value='ADJ_WORD' name='FLDOP1'
-                                            onclick='onClickSearchOption("Exact Phrase")' />
+                                        <input type='radio' id='Exact-Phrase-Mobile' class='search-input-mobile' title='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")' />
                                         <label class='search-label-mobile Rale-Med' for='Exact-Phrase-Mobile'>Exact
                                             Phrase</label>
                                     </div>
@@ -116,29 +95,20 @@
                             </div>
                             <div class='Search-Options-Wrapper'>
                                 <!-- <a class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArt.html'>ADVANCED SEARCH</a> -->
-                                <button 
-                                    id='Advanced-Search' 
-                                    type='button'
-                                     class='Search-Btn Rale-Bold' 
-                                    alt='Advanced Search' 
-                                    title='Go to advanced search options'
-                                    onclick="redirectToArtAdvance()">
+                                <button id='Advanced-Search' type='button' class='Search-Btn Rale-Bold' alt='Advanced Search' title='Go to advanced search options' onclick="redirectToArtAdvance()">
                                     ADVANCED SEARCH
                                 </button>
                                 <!-- <a class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a> -->
-                                <button class='Search-Btn Rale-Bold' alt='More Search Options'
-                                    title='More Search Options'><a id='More-Search'
+                                <button class='Search-Btn Rale-Bold' alt='More Search Options' title='More Search Options'><a id='More-Search'
                                         href='^SESSID^?GET&FILE=[AO_ASSETS]html/moreSearchOptions.html'>MORE SEARCH
                                         OPTIONS</a></button>
                             </div>
                         </div>
                         <div class='main-form-right Rale-Bold'>
-                            <button type='button' id='pub-sec-login-btn' class='main-form-btn Rale-Bold'
-                                onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal
+                            <button type='button' id='pub-sec-login-btn' class='main-form-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal
                                 Login</button>
                             <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                            <button type='button' id='main-form-info' class='main-form-btn Rale-Bold' onclick=''
-                                title='To to further information on how to search AIMS'>For further information on how
+                            <button type='button' id='main-form-info' class='main-form-btn Rale-Bold' onclick='' title='To to further information on how to search AIMS'>For further information on how
                                 to search within AIMS click here</button>
                         </div>
                     </form>
@@ -148,19 +118,19 @@
             <div id="art-content-aside">
                 <div id="art-carousel">
                     <ul class="bxslider">
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac692880.jpg" sisn=215 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac693132.jpg" sisn=230 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac658489.jpg" sisn=696 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac632657.jpg" sisn=1140 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac632617.jpg" sisn=1337 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac623523.jpg" sisn=1409 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac622040.jpg" sisn=1647 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac624405.jpg" sisn=1448 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac621152.jpg" sisn=1752 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac619721.jpg" sisn=1760 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac619802.jpg" sisn=2124 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac619812.jpg" sisn=2132 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
-                        <li><img class='art-carousel-img'src="https://uataoopac.minisisinc.com/media/ac619835.jpg" sisn=2151 width="200" height="150" onclick='carouselImgOnclick(this)'/></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac692880.jpg" sisn=215 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac693132.jpg" sisn=230 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac658489.jpg" sisn=696 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac632657.jpg" sisn=1140 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac632617.jpg" sisn=1337 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac623523.jpg" sisn=1409 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac622040.jpg" sisn=1647 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac624405.jpg" sisn=1448 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac621152.jpg" sisn=1752 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac619721.jpg" sisn=1760 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac619802.jpg" sisn=2124 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac619812.jpg" sisn=2132 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac619835.jpg" sisn=2151 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
                 </div>
             </div>
         </div>

@@ -143,7 +143,7 @@
             var parser = new DOMParser();
             var doc = parser.parseFromString(data, "text/html");
             let count = doc.getElementById('email-count').innerText;
-            console.log(count)
+
             if (count === '0') {
                 return true;
             }
@@ -172,8 +172,7 @@
                         useremail = userinfo.email;
                         usersubscription = userinfo.sub;
 
-                        // console.log(useremail);
-                        // console.log(usersubscription);
+
                         sessionStorage.setItem("useremail", useremail);
                         sessionStorage.setItem("usersub", userinfo.sub);
                         checkEmail(useremail).then(res => {
@@ -203,7 +202,7 @@
                         window.location = "https://uataoopac.minisisinc.com";
                     }
                 } catch (e) {
-                    console.log(e);
+
                     if (e.errorCode === 'access_denied' && e.errorSummary === 'User is not assigned to the client application.') {
                         window.location = 'https://stage.profile.signin.ontario.ca/login?cid=' + conectoptions.clientId
                     }

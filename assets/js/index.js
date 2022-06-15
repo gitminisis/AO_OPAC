@@ -290,7 +290,7 @@ const navAccordionOnClick = (e) => {
         quickOpen = false;
     }
 
-    if (navBody.classList.contains('show')){
+    if (navBody.classList.contains('show')) {
         e.parentNode.classList.add('open');
         quickOpen = true;
     }
@@ -302,10 +302,10 @@ function getAccountInfo() {
 
     if (patron_name) {
         $('#accountInfo').append(`<p>Welcome, <strong>${patron_name}</strong></p>`)
-        let logout = `<form method="get" action="/assets/html/PubSecureLogout.html" id="logout-form">` +
+        let logout = `` +
 
-            '<input type="submit" class="btn btn-dark btn-sm" value="Log Out" id="logout">' +
-            '</form>';
+            '<a  class="btn btn-dark btn-sm" value="Log Out" id="logout" href="/assets/html/PubSecureLogout.html"> Log Out </a>' +
+            '';
         $('#accountInfo').append(logout)
     }
 }

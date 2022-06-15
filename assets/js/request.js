@@ -9,11 +9,11 @@ $(document).ready(function() {
     // console.log(parent.$tmp_data);
     // console.log(parent.$tmp_data2)
     // console.log(parent.$tmp_data3)
- 
+
     if (document.getElementById('reqTopic') != null) {
 
         if (parent.$tmp_topic == "copyrightServices") {
-            
+
             $("#reqTopic option#reqGeneral").removeAttr("selected");
             $("#reqTopic option#reqCopyright").attr('selected', 'selected');
             //$("select#reqTopic").attr("disabled", true);
@@ -59,7 +59,7 @@ $(document).ready(function() {
         //     let value = e.target.value
         //     setupReqTopicForm(value)
         // })
-    } 
+    }
 });
 
 // Look for class Page-Heading in page. If found grab the id of the <h1> tag (it's first direct child)
@@ -76,7 +76,7 @@ if (patron_id != '') {
     removePatronLoginLink();
     // Error below. ID Request-Page is in the colorbox and cannot be grabbed when its not open where JS loads before the colorbox is even clicked(Copyright, Reproduction, etc..)
     // if (document.getElementById('Request-Page')) {
-        getRequestClientInfo();
+    getRequestClientInfo();
     // } 
 } else {
     displayAccountLinks(true);
@@ -89,14 +89,13 @@ function displayAccountLinks(bool) {
 }
 
 function removePatronLoginLink() {
-    let loginBtn = document.getElementsByClassName('pub-sec-login-btn')[0];
+    let loginBtn = document.getElementsByClassName('pub-sec-login-btn');
     try {
+        for (let i = 0; i < loginBtn.length; i++) {
+            loginBtn[i].hidden = true;
+        }
 
-        console.log(loginBtn)
-        loginBtn.hidden = true;
-    }
-    catch (e)
-    {
+    } catch (e) {
         console.log('Error: ', e)
     }
 }
@@ -130,7 +129,7 @@ function getRequestClientInfo() {
             document.getElementById('reqFirstName').readOnly = true;
             document.getElementById('reqLastName').value = last_name;
             document.getElementById('reqLastName').readOnly = true;
-            document.getElementById('reqEmail').value = email;      
+            document.getElementById('reqEmail').value = email;
             document.getElementById('reqEmail').readOnly = true;
             document.getElementById('reqAffiliation').value = c_type;
             document.getElementById('reqAffiliation').readOnly = true;
