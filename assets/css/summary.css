@@ -73,6 +73,13 @@
     margin: 5px;
 }
 
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .pagination-btn {
     margin: 5px;
 }
@@ -83,6 +90,7 @@
 .pagination-container a:hover {
     text-decoration: underline;
 }
+
 .Record-Item {
     display: flex;
     flex-direction: row;
@@ -100,7 +108,11 @@
 .Record-Fields {
     display: flex;
     flex-direction: column;
-    flex: 8;
+    flex: 7;
+
+    border: 1px solid #000;
+    border-right: none;
+    padding: 5px;
 }
 
 .Record-Btns {
@@ -110,11 +122,30 @@
 
     align-items: center;
     justify-items: center;
+
+    border: 1px solid #000;
+    padding: 5px;
 }
 
 .Record-Btn {
     margin: 5px;
     border-radius: 4px;
+}
+
+.record-img {
+    display: flex;
+    flex: 1;
+
+    border: 1px solid #000;
+    padding: 5px;
+    border-right: none;
+}
+
+
+.record-info {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
 }
 
 .Record-Item:nth-child(even) {
@@ -181,7 +212,7 @@ textarea {
 }
 
 button.Bookmark {
-    width:93% !important;
+    width:93%;
 }
 
 /*
@@ -257,15 +288,117 @@ form div .Crowd-Header-Title{
     cursor:pointer;
     color: #6f6f6f;
 }
+
+.Record-Date > .row {
+    display: flex;
+    flex-direction: row;
+}
+
 .ca_name-sum-1{
     padding-right: 0px;
 }
 .ca_name-sum-2{
+    display: flex;
+    flex-wrap: wrap;
     padding:0px !important;
+}
+
+.ca_name-sum-1,
+.pauthor-sum-1 {
+    display: flex;
+    min-width: 120px;
 }
 
 @media only screen and (max-width: 500px) {
     .Record-Item {
         flex-direction: column;
     }
+}
+
+.list-grid-view{
+    padding: 0 1em 0 1em;
+}
+
+.Records-Container-Grid{
+    margin-top:1em;
+}
+
+.Record-Item-Grid{
+    display: flex;
+    flex-direction: row;
+    margin-bottom:10px;
+    padding: 1em;
+    background-color: #FFF;
+    border: 1px solid black;
+    border-radius: 5px;
+    justify-content: center;
+    /* box-shadow: 5px 5px 10px #888888; */
+
+}
+.Record-Btns-Grid{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+
+    align-items: center;
+    justify-items: center;
+    justify-content: flex-end;
+}
+.Record-Fields-Grid{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+}
+/* .Record-Title{
+    position: sticky;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+
+.bookmark-grid{
+    width:50% !important;
+}
+@media only screen and (min-width: 1670px) {
+    .crowdsourced-grid{
+        width:50% !important;
+    }
+}
+.marc-grid{
+    width:50% !important;
+}
+@media only screen and (max-width: 1444px) {
+    .bookmark-grid{
+        width:75% !important;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    /* .pagination {
+        flex-direction: column;
+    } */
+}
+
+.media-container-grid {
+    display: flex; 
+    flex-direction: column;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    margin: 5px;
+    padding: 3px;
+}
+.media-icon-container-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#search-result-container{
+    padding-left:20px;
+    padding-bottom:10px;
 }

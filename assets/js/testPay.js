@@ -3,13 +3,13 @@ window.onload = () => {
 }
 
 
-// REMINDER https://aoopac.minisisinc.com/scripts/mwimain.dll/177070042?GET&FILE=[AO_ASSETS]html/patronProfile.html
+// REMINDER https://uataoopac.minisisinc.com/scripts/mwimain.dll/177070042?GET&FILE=[AO_ASSETS]html/patronProfile.html
 
 
 let req_order_num = '0000000894';
-// let nomsg = 'https://aoopac.minisisinc.com/scripts/mwimain.dll/?GET&FILE=[AO_INCLUDES]error/nopayreceipt.html';
+// let nomsg = 'https://uataoopac.minisisinc.com/scripts/mwimain.dll/?GET&FILE=[AO_INCLUDES]error/nopayreceipt.html';
 // let testSuccessUrl2 = `${home_sessid}/144/REQUEST_INFO/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${req_order_num}?SESSIONSEARCH`;
-let  testSuccessUrl = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${req_order_num}?COMMANDSEARCH`;
+let  testSuccessUrl = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${req_order_num}?COMMANDSEARCH`;
 
 
 {/* <Site Address>
@@ -37,7 +37,7 @@ let testPay = {
     req_patron_id: "karl@minisisinc.com",
     pay_amount: "10.00",
     success_url: testSuccessUrl,
-    cancel_url: `https://aoopac.minisisinc.com/assets/html/paymentCancel.html?REQ_ORDER_NUM=${req_order_num}`,
+    cancel_url: `https://uataoopac.minisisinc.com/assets/html/paymentCancel.html?REQ_ORDER_NUM=${req_order_num}`,
     locale: "en",
     testLevel: 1
 }
@@ -53,7 +53,7 @@ const setTestPayForm = (testPay) => {
 }
 
 const requestTestOrder = () => {
-    fetch('https://aopay.minisisinc.com/api/initPay', {
+    fetch('https://uataopay.minisisinc.com/api/initPay', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

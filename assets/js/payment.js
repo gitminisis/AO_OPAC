@@ -1,14 +1,12 @@
 window.onload = () => {
     setpayCss();  // temporary measure for proof of concept
 
-    console.log('I do the payments')
-
     if (document.getElementById('cancel-page'))
         cancelLast();
     else if (document.getElementById('receipt-page'))
     {
         console.log('setting partial paid')
-        // setPartialPaid();
+        setPartialPaid();
     }
 }
 
@@ -81,9 +79,9 @@ class Payment {
         payNodes.topic.innerText = formValues.topic;
         payNodes.title.innerText = formValues.title;
         payNodes.amt.innerText = formValues.amt;
-        payNodes.tax.innerText = formValues.tax;
-        payNodes.handling.innerText = formValues.handling;
-        payNodes.charge.innerText = formValues.charge;
+        payNodes.tax.innerText = `$${formValues.tax}`;
+        payNodes.handling.innerText = `$${formValues.handling}`;
+        payNodes.charge.innerText = `$${formValues.charge}`;
     }
     
     /*
@@ -126,17 +124,29 @@ const requestOrder = () => {
         "req_order_num": merchantNum,
         "req_patron_id": patronId,
         "pay_amount": amt.replace('$', '').toString(),
-        "success_url": `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
-        "cancel_url": `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+        "success_url": `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+        "cancel_url": `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
         "locale": "en",
         testLevel: 1
     }
 
     console.log(myData)
 
+    reqInitPay(myData);
 
-    fetch('https://aopay.minisisinc.com/api/initPay', {
+}
+
+const reqInitPay = (myData) => {
+
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    setTimeout(() => controller.abort(), 3000);
+
+
+    fetch('https://uataopay.minisisinc.com/api/initPay', {
         method: 'POST',
+        signal: signal,
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application.json'
@@ -146,79 +156,16 @@ const requestOrder = () => {
     .then  (res => res.json())
     .then  (data => { 
         console.log('Success:', data) 
-        // window.location = data.redirect_url;
+        window.location = data.redirect_url;
     })
-    .catch (err => { console.error(`Error: ${err}`) })
-
+    .catch (err => { 
+        if (err.name === 'AbortError') {
+            console.log('Fetch aborted');   
+            reqInitPay(myData)
+        } 
+        else console.error(`Error: ${err}`) 
+    })
 }
-
-// const requestOrder = async () => {
-    
-//     console.log('inside new request order method')
-
-//     let patronId = document.getElementById('Pay-Client-Id').innerText;
-//     let merchantNum = document.getElementById('Pay-Merchant-Num').innerText;
-//     // let prodId = document.getElementById('Pay-Product-Id').innerText;
-//     // let topic = document.getElementById('Pay-Product-Topic').innerText;
-//     // let title = document.getElementById('Pay-Product-Title').innerText;
-//     let amt = document.getElementById('Pay-Amount').innerText;
-//     // let tax = document.getElementById('Pay-Tax').innerText;
-//     // let handling = document.getElementById('Pay-Handling').innerText;
-
-//     // AOPay expected POST data for InitPay
-//     let myData = 
-//     {
-//         "req_order_num": merchantNum,
-//         "req_patron_id": patronId,
-//         "pay_amount": amt,
-//         "success_url": `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
-//         "cancel_url": `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
-//         "locale": "en",
-//         testLevel: 1
-//     }
-
-    
-//     try {
-//         console.log('trying to fetch now')
-//         let response = await (fetch('https://aopay.minisisinc.com/api/initPay', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': 'application.json'
-//             },
-//             body: JSON.stringify(myData)
-//         }));
-    
-//         if (!response.ok) 
-//         {
-//             console.error(`Error: ${response.status}`);
-//             throw new Error(`HTTP error! status: ${response.status}`);
-//         }
-    
-//         let result = response.json();
-    
-//         console.log('Success:', result);
-//         console.log('finished the fetch now')
-//         window.location = result.redicrect_url;
-//     } catch (e)
-//     {
-//         console.error(`Error: ${e}`)
-//     }
-
-//     console.log('leaving new request order method')
-
-// }
-
-// const fetchOrder = () => {
-//     fetch('https://aopay.minisisinc.com/api/initPay', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Accept': 'application.json'
-//         },
-//         body: JSON.stringify(myData)
-//     })
-// }
 
 /*
     Function sets rel stylesheet in the head of the DOM
@@ -254,14 +201,20 @@ const settlePay = (orderNum) => {
 
     console.log('settling payment')
 
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    setTimeout(() => controller.abort(), 3000);
+
     // AOPay expected POST data for SettleLast
     let postData =
     {
         req_order_num: orderNum
     }
     
-    fetch ('https://aopay.minisisinc.com/api/SettleLast', {
+    fetch ('https://uataopay.minisisinc.com/api/SettleLast', {
         method: 'POST',
+        signal: signal,
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -273,13 +226,23 @@ const settlePay = (orderNum) => {
         console.log(data)
         queryLast(orderNum)
     })
-    .catch ( err => { throw new Error (`HTTP error! status: ${err}`) })
+    .catch ( err => { 
+        if (err.name === 'AbortError') {
+            console.log('Fetch aborted');
+            settlePay(orderNum)
+        } 
+        else throw new Error (`HTTP error! status: ${err}`) 
+    })
 
 }
 
 const setFields = (orderNum, authCode, authTime, card, name) => {
     
     console.log('setting record fields')
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    setTimeout(() => controller.abort(), 3000);
 
     // AOPay expected POST data for SetFields
     let postData = {req_order_num: orderNum,
@@ -291,8 +254,9 @@ const setFields = (orderNum, authCode, authTime, card, name) => {
 
     console.log(JSON.stringify(postData))   
 
-    fetch ('https://aopay.minisisinc.com/api/SetFields', {
+    fetch ('https://uataopay.minisisinc.com/api/SetFields', {
         method: 'POST',
+        signal: signal,
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -304,7 +268,13 @@ const setFields = (orderNum, authCode, authTime, card, name) => {
         console.log(data)
         successRedirectToProfile(orderNum)
     })
-    .catch ( err => { throw new Error (`HTTP error! status: ${err}`) })
+    .catch ( err => { 
+        if (err.name === 'AbortError') {
+            console.log('Fetch aborted');
+            setFields = (orderNum, authCode, authTime, card, name)
+        } 
+        else throw new Error (`HTTP error! status: ${err}`) 
+    })
 
 }
 
@@ -312,14 +282,20 @@ const queryLast = (orderNum) => {
 
     console.log('querying last')
 
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    setTimeout(() => controller.abort(), 3000);
+
     // AOPay expected POST data for QueryLast
     let postData = 
     {
         req_order_num: orderNum
     }
 
-    fetch ('https://aopay.minisisinc.com/api/QueryLast', {
+    fetch ('https://uataopay.minisisinc.com/api/QueryLast', {
         method: 'POST',
+        signal: signal,
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -335,7 +311,13 @@ const queryLast = (orderNum) => {
         let name = data.nameOnCard;
         setFields(orderNum, code, time, card, name); 
     })
-    .catch ( err => { throw new Error (`HTTP error! status: ${err}`) })
+    .catch ( err => { 
+        if (err.name === 'AbortError') {
+            console.log('Fetch aborted');
+            queryLast(orderNum)
+        } 
+        else throw new Error (`HTTP error! status: ${err}`) 
+    })
 }
 
 
@@ -349,7 +331,7 @@ const cancelLast = () => {
         req_order_num: orderNum
     }
 
-    fetch ('https://aopay.minisisinc.com/api/CancelLast', {
+    fetch ('https://uataopay.minisisinc.com/api/CancelLast', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -377,7 +359,7 @@ const setPartialPaid = () => {
         req_partial_paid: amt
     }
 
-    fetch ('https://aopay.minisisinc.com/api/SetPartialPaid', {
+    fetch ('https://uataopay.minisisinc.com/api/SetPartialPaid', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -404,11 +386,11 @@ const backToProfile = () => {
     const urlParams = new URLSearchParams(queryString);
     const sess = urlParams.get('sess')
 
-    window.location = `https://aoopac.minisisinc.com/scripts/mwimain.dll/${sess}?GET&FILE=[AO_ASSETS]html/patronProfile.html`
+    window.location = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/${sess}?GET&FILE=[AO_ASSETS]html/patronProfile.html`
 }
 
 const successRedirectToProfile = async (orderNum) => {
-    let url       = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_FINAL/REQ_ORDER_NUM ${orderNum}?COMMANDSEARCH&sess=${sessionId}`
+    let url       = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_FINAL/REQ_ORDER_NUM ${orderNum}?COMMANDSEARCH&sess=${sessionId}`
     let animation = document.getElementById('animation-loader');
 
     animation.style.display = 'flex';

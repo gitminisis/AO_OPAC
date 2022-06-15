@@ -16,7 +16,7 @@
                     <div class='Crowd-Body-Item d-flex flex-row'>
                         <div class='crowd-temp-start'></div>
                         <label class='Label Creator-Label' for='creator'><b>Creator:</b></label>
-                        <input class='Comments-Input' name='CREATOR' id='creator' type='text' readonly required>
+                        <input id='creator'class='Comments-Input' name='CREATOR' id='creator' type='text' readonly required>
                         <input name='CREATOR_ID' id='creator_id' type='hidden'>
                         <div class='crowd-temp-end'></div>
                     </div>
@@ -24,20 +24,20 @@
                     <div class='Crowd-Body-Item d-flex flex-row'>
                         <div class='crowd-temp-start'></div>
                         <label class='Label Item-Id-Label' for='itemId'><b>Item ID:</b></label>
-                        <input class='Comments-Input' name='COMMENTS_ITEM_ID' id='Item-Id-Input' type='text' name='itemId' readonly>
+                        <input id="itemId" class='Comments-Input' name='COMMENTS_ITEM_ID' id='Item-Id-Input' type='text' name='itemId' readonly>
                         <div class='crowd-temp-end'></div>
                     </div>
             
                     <div class='Crowd-Body-Item d-flex flex-row'>
                         <div class='crowd-temp-start'></div>
                         <label class='Label User-Id-Label' for='userId'><b>Item Source:</b></label>
-                        <input class='Comments-Input' name='COMMENTS_SOURCE' id='User-Item-Source' type='text' name='userId' readonly>
+                        <input id="userId" class='Comments-Input' name='COMMENTS_SOURCE' id='User-Item-Source' type='text' name='userId' readonly>
                         <div class='crowd-temp-end'></div>
                     </div>
             
                     <div class='Crowd-Body-Item d-flex flex-row'>
                         <div class='crowd-temp-start'></div>
-                        <label class='Label Comments-Keyword-Label' for='COMMENTS_KEYWORD'><b>Comments Keyword:</b></label>
+                        <label class='Label Comments-Keyword-Label' for='Comments-Keyword-Drop'><b>Comments Keyword:</b></label>
                         <div class='Comments-Keyword-Wrapper Comments-Input'>
                             <select id='Comments-Keyword-Drop' name='COMMENTS_KEYWORD'>
                                 <option value='AIR TRANSPORT'>AIR TRANSPORT</option>
@@ -56,7 +56,7 @@
             
                     <div class='Crowd-Body-Item d-flex flex-row'>
                         <div class='crowd-temp-start'></div>
-                        <label class='Label Annotation-Label' for='ANNOTATION_TYPE'><b>Annotation Type:</b></label>
+                        <label class='Label Annotation-Label' for='Annotation-Drop'><b>Annotation Type:</b></label>
                         <div class='Annotation-Wrapper Comments-Input'>
                             <select id='Annotation-Drop' name='ANNOTATION_TYPE'>
                                 <option value='Interpretation'>Interpretation</option>
@@ -70,6 +70,7 @@
                     </div>
                     <div class='Crowd-Body-Item d-flex flex-row'>
                         <div class='Modal-Body-Item'>
+                            <label for='Crowd-Source-Comment' hidden aria-hidden="true">Comment:</label>
                             <textarea id='Crowd-Source-Comment' name='COMMENTS' rows='4' cols='60' placeholder='Enter Comment Here' title='Enter Comment Here' onblur='validateComment()'></textarea>
                         </div>
                     </div>

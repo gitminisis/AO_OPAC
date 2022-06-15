@@ -20,8 +20,8 @@
                 </ol>
             </nav>
             <div class="Page-Heading">
-                <h1 class='Rale-Bold d-flex justify-content-center '>Submit an Enquiry
-                </h1>
+                <h2 class='Rale-Bold d-flex enquiry-title justify-content-center '>Submit an Enquiry
+                </h2>
                 <hr />
             </div>
         </div>
@@ -72,31 +72,21 @@
                             <div class="col-md-12">
                                 <label for="enqTopic" class="form-label">Topic*</label>
                                 <select id="enqTopic" class="form-select Rale-Reg" name="ENQ_TOPIC" value="^VALUE^" required>
-                                    <option selected="">General</option>
-                                    <option>Acquisitions</option>
-                                    <option>Art</option>
-                                    <option>Donations</option>
-                                    <option>Family History</option>
-                                    <option>FOI Requests</option>
-                                    <option>Retrieval Services</option>
-                                    <option>Reproduction/Certification Services</option>
-                                    <option>Preservation</option>
-                                    <option>Copyright Services</option>
-                                    <option>Loan/Exhibitions</option>
-                                    <option>Website</option>
-                                    <option>Library Collection</option>
-                                    <option>Vital statistics</option>
-                                    <option>Litigation</option>
-                                    <option>Semi-active collections</option>
-                                    <option>Recordkeeping</option>
-                                    <option>Access &amp; Privacy</option>
-                                    <option>Request Transfer</option>
-                                    <option>Request Refile/Interfile</option>
-                                    <option>Record Schedule</option>
-                                    <option>Transfer Agreement</option>
-                                    <option>Record Disposition</option>
+                                    <option selected>General Information</option>
+                                    <option>Accessing Collection Items</option>
+                                    <option>Finding Collection Items</option>
+                                    <option>Obtaining Reproductions</option>
+                                    <option>Art Collection Inquiries</option>
+                                    <option>Donations - Art</option>
+                                    <option>Educational Resources and Workshops</option>
+                                    <option>Loans - Digitization</option>
+                                    <option>Tours and Events</option>
+                                    <option>Exhibits</option>
+                                    <option>Website Technical Issues</option>
+                                    <option>Corrections to Descriptions</option>
+                                    <option>Loans - Exhibition</option>
+                                    <option>Donations - Archival and Library</option>
                                     <option>Other</option>
-                                    <option>Special Request</option>
                                 </select>
                             </div>
 
@@ -110,7 +100,7 @@
                                     <div class="row g-3 Rale-Med">
                                         <div class="col-md-12 col-sm-12">
                                             <label for="enqGenInfo" class="form-label">Additional Information</label>
-                                            <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" title="Leave a comment here" id="enqGemeralInfo" name="ENQ_TOPIC_DETAIL"></textarea>
+                                            <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" title="Leave a comment here" id="enqGenInfo" name="ENQ_TOPIC_DETAIL"></textarea>
                                         </div>
 
 
@@ -146,11 +136,11 @@
                                     <div class="row g-3 Rale-Med">
                                         <div class="col-md-6 col-sm-12">
                                             <label for="reqExtent" class="form-label">Extent of Collection</label>
-                                            <input id="reqExtent" type="text" class="form-control" placeholder="Extent of Collection"  title="Extent of Collection" aria-label="Extent of Collection" name="E_EXTENT_COLLECT" />
+                                            <input id="reqExtent" type="text" class="form-control" placeholder="Extent of Collection" title="Extent of Collection" aria-label="Extent of Collection" name="E_EXTENT_COLLECT" />
                                         </div>
                                         <div class="col-md-6 col-sm-12">
-                                            <label for="reqCreator" class="form-label">Size of Collection Items</label>
-                                            <input id="reqCreator" type="text" class="form-control" placeholder="Size of Collection Items" title="Size of Collection Items"  aria-label="Size of Collection Items" name="E_SIZE_COLLECT" />
+                                            <label for="reqSizeCollection" class="form-label">Size of Collection Items</label>
+                                            <input id="reqSizeCollection" type="text" class="form-control" placeholder="Size of Collection Items" title="Size of Collection Items" aria-label="Size of Collection Items" name="E_SIZE_COLLECT" />
                                         </div>
 
                                     </div>
@@ -168,7 +158,7 @@
                                             <label for="recTax" class="form-label">Tax Receipt Required</label>
 
 
-                                            <select id="reqPriority" class="form-select Rale-Med" name="E_RECEIPT">
+                                            <select id="recTax" class="form-select Rale-Med" name="E_RECEIPT">
                                                 <option selected></option>
                                                 <option value="N">No</option>
 
@@ -227,8 +217,8 @@
                                         </div>
 
                                         <div class="col-md-6 col-sm-12">
-                                            <label for="enqLoanRelocation" class="form-label">Removal</label>
-                                            <select id="enqLoanRelocation" class="form-select Rale-Reg" name="E_REMOVE_YN">
+                                            <label for="enqLoanRmv" class="form-label">Removal</label>
+                                            <select id="enqLoanRmv" class="form-select Rale-Reg" name="E_REMOVE_YN">
                                                 <option selected=""></option>
                                                 <option>Y</option>
                                                 <option>N</option>
@@ -261,9 +251,9 @@
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
-                                            <label for="enqTransferName" class="form-label">Ministry/Public Body
+                                            <label for="enqTransferName2" class="form-label">Ministry/Public Body
                                                 Name</label>
-                                            <input id="enqTransferName" type="text" class="form-control" placeholder="Ministry/Public Body Name" title="Ministry/Public Body Name" aria-label="Minist ry/Public Body Name" name="E_TRANSFER_NAME" />
+                                            <input id="enqTransferName2" type="text" class="form-control" placeholder="Ministry/Public Body Name" title="Ministry/Public Body Name" aria-label="Minist ry/Public Body Name" name="E_TRANSFER_NAME" />
                                         </div>
 
                                         <div class="col-md-6 col-sm-12">
@@ -277,9 +267,9 @@
                                         </div>
 
                                         <div class="col-md-6 col-sm-12">
-                                            <label for="enqTransferContact" class="form-label">Contact
+                                            <label for="enqTransferContact2" class="form-label">Contact
                                                 Information</label>
-                                            <input id="enqTransferContact" type="text" class="form-control" placeholder="Contact Information" title="Contact Information" aria-label="Contact Information" name="E_CONTACT_INFO" />
+                                            <input id="enqTransferContact2" type="text" class="form-control" placeholder="Contact Information" title="Contact Information" aria-label="Contact Information" name="E_CONTACT_INFO" />
                                         </div>
 
 
@@ -305,17 +295,17 @@
                                         </div>
 
                                         <div class="col-md-12 col-sm-12">
-                                            <label for="enqTransferAddress" class="form-label">Special
+                                            <label for="enqTransferAddress2" class="form-label">Special
                                                 Instructions</label>
 
-                                            <input name="E_SPECIAL_INST" id="enqTransferAddress" type="text" class="form-control" placeholder="Special Instructions" title="Special Instructions" aria-label="Special Instructions" />
+                                            <input name="E_SPECIAL_INST" id="enqTransferAddress2" type="text" class="form-control" placeholder="Special Instructions" title="Special Instructions" aria-label="Special Instructions" />
                                         </div>
 
 
                                         <div class="col-md-6 col-sm-12">
-                                            <label for="enqTransferCust" class="form-label">Courier Instruction</label>
+                                            <label for="enqTransferCust3" class="form-label">Courier Instruction</label>
 
-                                            <input name="E_COURIER_INFO" id="enqTransferCust" type="text" class="form-control" placeholder="Courier Instruction" title="Courier Instruction" aria-label="Courier Instruction" />
+                                            <input name="E_COURIER_INFO" id="enqTransferCust3" type="text" class="form-control" placeholder="Courier Instruction" title="Courier Instruction" aria-label="Courier Instruction" />
                                         </div>
 
                                         <div class="col-md-6 col-sm-12">
@@ -347,8 +337,8 @@
 
                                     <div class="row g-3 Rale-Med">
                                         <div class="col-md-6 col-sm-12">
-                                            <label for="enqTransferType" class="form-label">Transfer Type</label>
-                                            <select id="enqTransferType" class="form-select Rale-Reg" name="E_REFILE_TYPE">
+                                            <label for="enqTransferTypeRef" class="form-label">Transfer Type</label>
+                                            <select id="enqTransferTypeRef" class="form-select Rale-Reg" name="E_REFILE_TYPE">
                                                 <option selected></option>
                                                 <option>New Transfer </option>
                                                 <option>Direct Transfer</option>
@@ -366,8 +356,8 @@
                                             <input id="enqTransferBranch" type="text" class="form-control" placeholder="Branch/Program Area" aria-label="Branch/Program Area" name="EF_PROG_AREA" />
                                         </div> -->
                                         <div class="col-md-6 col-sm-12">
-                                            <label for="enqTransferCode" class="form-label">Branch Code</label>
-                                            <input id="enqTransferCode" type="text" class="form-control" placeholder="Branch Code" title="Branch Code" aria-label="Branch Code" name="EF_BRANCH_CODE" />
+                                            <label for="enqTransferCode2" class="form-label">Branch Code</label>
+                                            <input id="enqTransferCode2" type="text" class="form-control" placeholder="Branch Code" title="Branch Code" aria-label="Branch Code" name="EF_BRANCH_CODE" />
                                         </div>
 
                                         <div class="col-md-6 col-sm-12">
@@ -378,18 +368,18 @@
 
 
                                         <div class="col-md-6 col-sm-12">
-                                            <label for="enqTransferSecondary" class="form-label">Secondary
+                                            <label for="enqTransferSecondary2" class="form-label">Secondary
                                                 Contact</label>
-                                            <input id="enqTransferSecondary" type="text" class="form-control" placeholder="Secondary Contact" title="Secondary Contact" aria-label="Secondary Contact" name="EF_2ND_CONTACT" />
+                                            <input id="enqTransferSecondary2" type="text" class="form-control" placeholder="Secondary Contact" title="Secondary Contact" aria-label="Secondary Contact" name="EF_2ND_CONTACT" />
                                         </div>
 
 
 
                                         <div class="col-md-12 col-sm-12">
-                                            <label for="enqTransferCust" class="form-label">Custodial Office
+                                            <label for="enqTransferCust4" class="form-label">Custodial Office
                                                 Information</label>
 
-                                            <input name="EF_CUSTODIAL" id="enqTransferCust" type="text" class="form-control" placeholder="Custodial Office Information" title="Custodial Office Information" aria-label="Custodial Office Information" />
+                                            <input name="EF_CUSTODIAL" id="enqTransferCust4" type="text" class="form-control" placeholder="Custodial Office Information" title="Custodial Office Information" aria-label="Custodial Office Information" />
                                         </div>
 
                                         <!-- <div class="col-md-12 col-sm-12">
@@ -399,23 +389,23 @@
                                         </div> -->
 
                                         <div class="col-md-12 col-sm-12">
-                                            <label for="enqTransferAddress" class="form-label">Special
+                                            <label for="enqTransferAddress4" class="form-label">Special
                                                 Instructions</label>
 
-                                            <input name="EF_SPECIAL_INST" id="enqTransferAddress" type="text" class="form-control" placeholder="Special Instructions" title="Special Instructions" aria-label="Special Instructions" />
+                                            <input name="EF_SPECIAL_INST" id="enqTransferAddress4" type="text" class="form-control" placeholder="Special Instructions" title="Special Instructions" aria-label="Special Instructions" />
                                         </div>
 
 
                                         <div class="col-md-6 col-sm-12">
-                                            <label for="enqTransferCust" class="form-label">Courier Instruction</label>
+                                            <label for="enqTransferCust2" class="form-label">Courier Instruction</label>
 
-                                            <input name="EF_COURIER_INFO" id="enqTransferCust" type="text" class="form-control" placeholder="Courier Instruction" title="Courier Instruction" aria-label="Courier Instruction" />
+                                            <input name="EF_COURIER_INFO" id="enqTransferCust2" type="text" class="form-control" placeholder="Courier Instruction" title="Courier Instruction" aria-label="Courier Instruction" />
                                         </div>
 
                                         <div class="col-md-6 col-sm-12">
-                                            <label for="enqTransferGTA" class="form-label">In GTA</label>
+                                            <label for="enqTransferGTA2" class="form-label">In GTA</label>
 
-                                            <select id="enqTransferGTA" class="form-select Rale-Reg" name="E_GTA_AREA">
+                                            <select id="enqTransferGTA2" class="form-select Rale-Reg" name="E_GTA_AREA">
                                                 <option selected>Y</option>
                                                 <option>N</option>
                                             </select>
@@ -587,7 +577,7 @@
                                             </select>
                                         </div>
                                         <div class="col-md-12">
-                                            <label for="enqDisDetail Rale-Med" class="form-label">Hold Details</label>
+                                            <label for="enqDisDetail" class="form-label Rale-Med">Hold Details</label>
                                             <textarea class="form-control Rale-Reg" placeholder="Enter detail" title="Enter detail" id="enqDisDetail" name="E_HOLD_DETAILS"></textarea>
                                         </div>
 
@@ -619,7 +609,7 @@
                                             <input id="enqAcqDate" type="text" class="form-control" placeholder="Proposed Date" title="Proposed Date" aria-label="Proposed Date" name="E_ACQ_DATE" />
                                         </div>
                                         <div class="col-md-12">
-                                            <label for="enqAcqDetail Rale-Med" class="form-label">Additional
+                                            <label for="enqAcqDetail " class="form-label">Additional
                                                 Information</label>
                                             <textarea class="form-control Rale-Reg" placeholder="Enter detail" title="Enter detail" id="enqAcqDetail" name="ENQ_TOPIC_ACQ"></textarea>
                                         </div>
@@ -638,18 +628,18 @@
                         </div>
                         <div class="row g-3">
                             <div class="col-md-12 col-sm-12">
-                                <label for="enqTitle" class="form-label">Title*</label>
-                                <input name="ENQ_TITLE" type="text" value="^VALUE^" id="enqTitle" class="form-control" placeholder="Title" title="Title" aria-label="Title" required />
+                                <label for="enqTitle" class="form-label">Subject*</label>
+                                <input name="ENQ_TITLE" type="text" value="^VALUE^" id="enqTitle" class="form-control" placeholder="Subject" title="Title" aria-label="Title" required />
                             </div>
                             <div class="col-md-12">
-                                <label for="enqDetail Rale-Med" class="form-label">Detail*</label>
-                                <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" title="Leave a comment here" id="enqDetail" name="ENQ_TOPIC_DETAIL" required>^VALUE^</textarea>
+                                <label for="enqDetail2" class="form-label">Inquiry*</label>
+                                <textarea class="form-control Rale-Reg" placeholder="Details" title="Leave a comment here" id="enqDetail2" name="ENQ_TOPIC_DETAIL" required>^VALUE^</textarea>
                             </div>
                         </div>
 
 
-                        <div class="row g-3">
-                            <div class="col-md-6 col-sm-12">
+                        <!-- <div class="row g-3">
+                            <div class="col-md-12 col-sm-12">
                                 <label for="enqPriority" class="form-label Rale-Med">Priority</label>
                                 <select id="enqPriority" class="form-select Rale-Med" name="ENQ_HIGH_PRI" value="^VALUE^">
                                     <option value="N" selected>Low</option>
@@ -661,7 +651,7 @@
                                 <label for="enqAffliation" class="form-label Rale-Med">Affliation*</label>
                                 <input readonly name="ENQ_AFFILIATE" type="text" id="enqAffliation" class="form-control" placeholder="Affliation" aria-label="Affliation" required />
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row Rale-Med" id="Enquiry-Button">
                             <div class="col-md-6" id="submitBtn">

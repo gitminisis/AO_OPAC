@@ -8,29 +8,61 @@
 const CLUSTER_BODY_ID         = "cluster-body";
 const KEYLIST_MODAL_DIALOG_ID = "fullHeightModalRight";
 
-const UN_TITLE_FIELD = "UN_TITLE";
+const UN_TITLE_FIELD = "UN_TITLE_CL";
 
-
+// DESC
 const REFD_FIELD = "REFD";
 const TITLE_FIELD = "TITLE";
-const DATE_FIELD = "DATE_CR_INC";
-const PHYS_DESC_FIELD = "PHYSICAL_DESC";
-const FORM_FIELD = "FORM";
+const SCOPE_FIELD = "SCOPE";
+const ORIGINATOR_FIELD = "ORIGINATOR";
+const ASSO_ORG_FIELD = "ASSO_ORG_CL";
 const LEVEL_DESC_FIELD = "LEVEL_DESC";
+const SEARCH_DATE_FIELD = "DATE_SEARCH";
+const PHYS_DESC_FIELD = "PHYSICAL_DESC";
+const FINDAID_FIELD = "FINDAIDLINK";
 
+const DATE_FIELD = "DATE_CR_INC";
+const FORM_FIELD = "FORM";
+
+
+// COLL
+const AN_FIELD = "ACCESSION_NUMBER";
 const LEGAL_TITLE_FIELD = "LEGAL_TITLE";
+const OBJ_DESC_FIELD = "OBJ_DESCRIPTION";
+const OBJ_TYPE_FIELD = "OBJ_TYPE";
+const SUB_KEYWORD_FIELD = "SUB_KEYWORD";
 const EARLY_FIELD = "EARLY";
+const MAKER_FULLNAME_FIELD = "MAKER_FULLNAME";
+const MAKE_ORG_FIELD = "MAKER_ORG";
+const MEDIUM_FIELD = "MEDIUM";
+const MATERIAL_FIELD = "MATERIAL_COO";
 const OBJECT_NAME_FIELD = "OBJECT_NAME";
 const PRIMARY_FIELD = "PRIMARY";
-const AN_FIELD = "ACCESSION_NUMBER";
+const BUILDING_FIELD = "BUILDING";
 
+
+// BIBLIO
 const ALL_TITLE_FIELD = "ALL_TITLE_WORD";
 const AUTHOR_FIELD = "AUTHOR_WORD";
+const LIB_PUB_FIELD = "LIB_PUB_CL";
 const SUBJECT_FIELD = "SUBJECT_WORD";
 const SERIES_FIELD  = "SERIES_WORD";
+const ISBN_FIELD = "020_A";
+const ISSN_FIELD = "022_A";
+const CIT_REF_FIELD = "511_A";
+const MEDIA_TYPE_FIELD = "MEDIA_TYPE";//
+const MAT_TYPE_FIELD = "I_COLLECT_CODE";//
+const HOLD_CENTRE_FIELD = "HOLDING_CENTRE";//
+const BARCODE_FIELD = "BARCODE";//
+const OTHER_ID_FIELD = "024_A";
+
 const FIELD_020_A = "020_A";
 const FIELD_022_A = "022_A";
 
+
+// PEOPLE_VAL
+const FULLNAME3_FIELD = "FULLNAME3";
+const ORG_MAIN_BODY_FIELD = "ORG_MAIN_BODY";
 
 var clustername = "";
 
@@ -53,7 +85,7 @@ function load_index_page ( url ) {
   xhttp.send();
 }
 
-
+// UNION
 $("#UN_TITLE_CL").on("click", function() {
   var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=UN_TITLE_CL&DATABASE=UNION_VIEW&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
   load_index_page ( url );
@@ -73,11 +105,22 @@ $("#TITLE_CL").on("click", function() {
   load_index_page ( url );
   clustername = TITLE_FIELD;
 });
-
-$("#DATE_CR_INC_CL").on("click", function() {
-  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=DATE_CR_INC&DATABASE=DESCRIPTION_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+$("#SCOPE_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=SCOPE&DATABASE=DESCRIPTION_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
   load_index_page ( url );
-  clustername = DATE_FIELD;
+  clustername = SCOPE_FIELD;
+});
+
+$("#ORIGIN_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ORIGINATOR&DATABASE=DESCRIPTION_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = ORIGINATOR_FIELD;
+});
+
+$("#ASSO_ORG_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ASSO_ORG_CL&DATABASE=DESCRIPTION_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = ASSO_ORG_FIELD;
 });
 
 $("#PHYS_DESC_CL").on("click", function() {
@@ -86,10 +129,10 @@ $("#PHYS_DESC_CL").on("click", function() {
   clustername = PHYS_DESC_FIELD;
 });
 
-$("#FORM_CL").on("click", function() {
-  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=FORM&DATABASE=DESCRIPTION_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+$("#SEARCH_DATE_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=DATE_SEARCH&DATABASE=DESCRIPTION_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
   load_index_page ( url );
-  clustername = FORM_FIELD;
+  clustername = SEARCH_DATE_FIELD;
 });
 
 $("#LEVEL_DESC_CL").on("click", function() {
@@ -98,9 +141,19 @@ $("#LEVEL_DESC_CL").on("click", function() {
   clustername = LEVEL_DESC_FIELD;
 });
 
+$("#FINDAID_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=FINDAIDLINK&DATABASE=DESCRIPTION_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = FINDAID_FIELD;
+});
 
 
 // COLLECTIONS
+$("#AN_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ACCESSION_NUMBER&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = AN_FIELD;
+});
 
 $("#LEGAL_TITLE_CL").on("click", function() {
   var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=LEGAL_TITLE&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
@@ -108,11 +161,59 @@ $("#LEGAL_TITLE_CL").on("click", function() {
   clustername = LEGAL_TITLE_FIELD;
 });
 
+$("#OBJ_DESC_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=OBJ_DESCRIPTION&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = OBJ_DESC_FIELD;
+});
+
+$("#OBJ_TYPE_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=OBJECT_TYPE&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = OBJ_TYPE_FIELD;
+});
+
+$("#SUB_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=SUB_KEYWORD&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = SUB_KEYWORD_FIELD;
+});
+
 $("#EARLY_CL").on("click", function() {
   var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=EARLY&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
   load_index_page ( url );
   clustername = EARLY_FIELD;
 });
+
+$("#MAKER_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=MAKER_FULLNAME&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = MAKER_FULLNAME_FIELD;
+});
+
+$("#MAKER_ORG_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=MAKER_ORG&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = MAKE_ORG_FIELD;
+});
+
+$("#MEDIUM_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=MEDIUM&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = MEDIUM_FIELD;
+});
+$("#MATERIAL_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=MATERIAL_COO&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = MATERIAL_FIELD;
+});
+
+$("#BUILDING_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=BUILDING&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = BUILDING_FIELD;
+});
+
 
 $("#OBJ_NAME_CL").on("click", function() {
   var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=OBJECT_NAME&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
@@ -126,11 +227,7 @@ $("#PRIMARY_CL").on("click", function() {
   clustername = PRIMARY_FIELD;
 });
 
-$("#AN_CL").on("click", function() {
-  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ACCESSION_NUMBER&DATABASE=COLLECTIONS_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
-  load_index_page ( url );
-  clustername = AN_FIELD;
-});
+
 
 // LIBRARY 
 
@@ -145,28 +242,79 @@ $("#AUTHOR_CL").on("click", function() {
   load_index_page ( url );
   clustername = AUTHOR_FIELD;
 });
+
+$("#LIB_PUB_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=LIB_PUB_CL&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = LIB_PUB_FIELD;
+});
+$("#ISBN_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=020_A&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = ISBN_FIELD;
+});
+$("#ISSN_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=022_A&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = ISSN_FIELD;
+});
 $("#SUBJECT_CL").on("click", function() {
   var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=SUBJECT_WORD&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
   load_index_page ( url );
   clustername = SUBJECT_FIELD;
 });
-$("#SERIES_CL").on("click", function() {
-  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=SERIES_WORD&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+$("#CIT_REF_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=511_A&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
   load_index_page ( url );
-  clustername = SERIES_FIELD;
+  clustername = CIT_REF_FIELD;
 });
-$("#020_A_CL").on("click", function() {
-  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=020_A&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+
+$("#MEDIA_TYPE_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=MEDIA_TYPE&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
   load_index_page ( url );
-  clustername = FIELD_020_A;
+  clustername = MEDIA_TYPE_FIELD;
 });
-$("#022_A_CL").on("click", function() {
-  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=022_A&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+
+$("#MAT_TYPE_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=I_COLLECT_CODE&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
   load_index_page ( url );
-  clustername = FIELD_022_A;
+  clustername = MAT_TYPE_FIELD;
+});
+
+$("#HOLD_CENTRE_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=HOLDING_CENTRE&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = HOLD_CENTRE_FIELD;
+});
+
+$("#BARCODE_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=BARCODE&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = BARCODE_FIELD;
+});
+
+$("#OTHER_ID_CL").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=024_A&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = OTHER_ID_FIELD;
 });
 
 
+
+
+// PEOPLE_VAL_SYN
+$("#FULLNAME3").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=FULLNAME3&DATABASE=PEOPLE_VAL_SYN&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = FULLNAME3_FIELD;
+});
+
+// ORGANIZATION_VAL_SYN
+$("#ORG_MAIN_BODY").on("click", function() {
+  var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ORG_MAIN_BODY&DATABASE=ORGANIZATION_VAL_SYN&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+  load_index_page ( url );
+  clustername = ORG_MAIN_BODY_FIELD;
+});
 
 // paste selected value to search form
 function assignValue() {
@@ -180,6 +328,7 @@ function assignValue() {
       jquery_input = $("input[name=UN_TITLE_CL]");
       break;
 
+
     // DESCRIPTION
     case REFD_FIELD:
       jquery_input = $("input[name=REFD_CL]");
@@ -187,25 +336,58 @@ function assignValue() {
     case TITLE_FIELD:
       jquery_input = $("input[name=TITLE_CL]");
       break;
-    case DATE_FIELD:
-      jquery_input = $("input[name=DATE_CR_INC_CL]");
+    case SCOPE_FIELD:
+      jquery_input = $("input[name=SCOPE_CL]");
       break;
-    case PHYS_DESC_FIELD:
-      jquery_input = $("input[name=PHYS_DESC_CL]");
+    case ORIGINATOR_FIELD:
+      jquery_input = $("input[name=ORIGIN_CL]");
       break;
-    case FORM_FIELD:
-      jquery_input = $("input[name=FORM_CL]");
+    case ASSO_ORG_FIELD:
+      jquery_input = $("input[name=ASSO_ORG_CL]");
       break;
     case LEVEL_DESC_FIELD:
       jquery_input = $("input[name=LEVEL_DESC_CL]");
       break;
+    case SEARCH_DATE_FIELD:
+      jquery_input = $("input[name=SEARCH_DATE_CL]");
+      break;
+    case PHYS_DESC_FIELD:
+      jquery_input = $("input[name=PHYS_DESC_CL]");
+      break;
+    case FINDAID_FIELD:
+      jquery_input = $("input[name=FINDAID_CL]");
+      break;
 
     // COLLECTIONS
+    case AN_FIELD:
+      jquery_input = $("input[name=ACCESSION_NUMBER]");
+      break;
     case LEGAL_TITLE_FIELD:
-      jquery_input = $("input[name=LEGAL_TITLE_CL]");
+      jquery_input = $("input[name=LEGAL_TITLE]");
+      break;
+    case OBJ_DESC_FIELD:
+      jquery_input = $("input[name=OBJ_DESCRIPTION]");
+      break;
+    case OBJ_TYPE_FIELD:
+      jquery_input = $("input[name=OBJECT_TYPE]");
+      break;
+    case SUB_KEYWORD_FIELD:
+      jquery_input = $("input[name=SUB_KEYWORD]");
       break;
     case EARLY_FIELD:
-      jquery_input = $("input[name=EARLY_CL]");
+      jquery_input = $("input[name=EARLY]");
+      break;
+    case MAKER_FULLNAME_FIELD:
+      jquery_input = $("input[name=MAKER_FULLNAME]");
+      break;
+    case MAKE_ORG_FIELD:
+      jquery_input = $("input[name=MAKER_ORG]");
+      break;
+    case MEDIUM_FIELD:
+      jquery_input = $("input[name=MEDIUM]");
+      break;
+    case MATERIAL_FIELD:
+      jquery_input = $("input[name=MATERIAL_COO]");
       break;
     case OBJECT_NAME_FIELD:
       jquery_input = $("input[name=OBJ_NAME_CL]");
@@ -213,10 +395,10 @@ function assignValue() {
     case PRIMARY_FIELD:
       jquery_input = $("input[name=PRIMARY_CL]");
       break;
-    case AN_FIELD:
-      jquery_input = $("input[name=AN_CL]");
-      break;
-      
+    case BUILDING_FIELD:
+      jquery_input = $("input[name=BUILDING]");
+    break;
+
     // LIBRARY
     case ALL_TITLE_FIELD:
       jquery_input = $("input[name=ALL_TITLE_CL]");
@@ -224,18 +406,49 @@ function assignValue() {
     case AUTHOR_FIELD:
       jquery_input = $("input[name=AUTHOR_CL]");
       break;
+    case LIB_PUB_FIELD:
+      jquery_input = $("input[name=LIB_PUB_CL]");
+      break;
     case SUBJECT_FIELD:
       jquery_input = $("input[name=SUBJECT_CL]");
       break;
     case SERIES_FIELD:
       jquery_input = $("input[name=SERIES_CL]");
       break;
-    case FIELD_020_A:
-      jquery_input = $("input[name=020_A_CL]");
+    case ISBN_FIELD:
+      jquery_input = $("input[name=ISBN_CL]");
       break;
-    case FIELD_022_A:
-      jquery_input = $("input[name=022_A_CL]");
+    case ISSN_FIELD:
+      jquery_input = $("input[name=ISSN_CL]");
       break;
+    case CIT_REF_FIELD:
+      jquery_input = $("input[name=CIT_REF_CL]");
+      break;
+    case MEDIA_TYPE_FIELD:
+      jquery_input = $("input[name=MEDIA_TYPE_CL]");
+      break;
+    case MAT_TYPE_FIELD:
+      jquery_input = $("input[name=MAT_TYPE_CL]");
+      break;
+    case HOLD_CENTRE_FIELD:
+      jquery_input = $("input[name=HOLD_CENTRE_CL]");
+      break;
+    case BARCODE_FIELD:
+      jquery_input = $("input[name=BARCODE_CL]");
+      break; 
+    case OTHER_ID_FIELD:
+      jquery_input = $("input[name=OTHER_ID_CL]");
+      break;
+
+  // PEOPLE_VAL
+  case FULLNAME3_FIELD:
+    jquery_input = $("input[name=FULLNAME3]");
+    break;
+  case ORG_MAIN_BODY_FIELD:
+    jquery_input = $("input[name=ORG_MAIN_BODY]");
+    break;
+
+
   }
 
   if ( jquery_input != null ) {

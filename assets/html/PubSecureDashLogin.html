@@ -52,7 +52,7 @@
         const authClient = new OktaAuth(conectoptions);
         let checkEmail = async(email) => {
 
-            const res = await fetch(`https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[AO_INCLUDES]noEmail.xml`)
+            const res = await fetch(`https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[AO_INCLUDES]noEmail.xml`)
             const data = await res.text()
 
 
@@ -90,6 +90,7 @@
                         console.log(useremail);
                         console.log(usersubscription);
                         sessionStorage.setItem("useremail", useremail);
+                        sessionStorage.setItem("usersub", usersubscription);
                         checkEmail(useremail).then(res => {
                                 let HOME_SESSID = getCookie("HOME_SESSID");
 
@@ -103,10 +104,10 @@
                                 // Existing Account
                                 else {
                                     console.log('Existing Acc')
-                                    window.location = `https://aoopac.minisisinc.com/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html`
+                                    window.location = `https://uataoopac.minisisinc.com/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html`
                                 }
                             })
-                            // window.location = "https://aoopac.minisisinc.com";
+                            // window.location = "https://uataoopac.minisisinc.com";
                             /*
                                 if (useremail is a MINISIS user) {
                                     log in to MINISIS using this email.
@@ -131,7 +132,7 @@
                         // console.log('Could not get the user info');
                         // debugger;
 
-                        // window.location = "https://aoopac.minisisinc.com";
+                        // window.location = "https://uataoopac.minisisinc.com";
                     }
                 } catch (e) {
                     // the most likely cause of an exception will be an URL with bad parameters that the 
@@ -139,7 +140,7 @@
                     // console.log(e);
                     // debugger;
 
-                    // window.location = "https://aoopac.minisisinc.com";
+                    // window.location = "https://uataoopac.minisisinc.com";
                 }
             } else if (!await authClient.isAuthenticated()) {
                 // Not logged in. Redirect to the public secure logon page.
@@ -150,19 +151,20 @@
 
             } else {
                 if (getCookie('M2L_AUDIENCE') && getCookie('M2L_PATRON_ID') && getCookie('M2L_PATRON_NAME')) {
-                    window.location = "https://aoopac.minisisinc.com";
+                    window.location = "https://uataoopac.minisisinc.com";
                 } else {
                     // parse tokens from the redirect and store.
-                    await authClient.storeTokensFromRedirect();
+                    // await authClient.storeTokensFromRedirect();
                     // get the user info.
                     let userinfo = await authClient.getUser();
                     useremail = userinfo.email;
                     usersubscription = userinfo.sub;
                     sessionStorage.setItem("useremail", useremail);
+                    sessionStorage.setItem("usersub", usersubscription);
                     // window.location = `${getCookie('HOME_SESSID')}?GET&FILE=[AO_ASSETS]html/publicSecureLogin.html`
                     console.log('has not log in')
                     console.log(userinfo)
-                    window.location = `https://aoopac.minisisinc.com/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html`
+                    window.location = `https://uataoopac.minisisinc.com/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html`
                 }
                 // user is already logged in - Could add some checks that the user is logged in on the MINISIS 
                 // side and then redirect back to the home page.

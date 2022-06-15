@@ -248,3 +248,10 @@ select.list-dt:focus {
 #reg_msg {
     text-align: center;
 }
+
+#reg-ass-type {
+    width: 100%;
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+}

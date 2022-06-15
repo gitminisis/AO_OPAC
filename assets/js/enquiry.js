@@ -33,7 +33,7 @@ $(document).ready(function() {
             patron_id = patron_id.split(']')[1];
 
 
-            let url = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
+            let url = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
 
             let tempString = window.location.href;
             let tempUrlCheck = tempString.split("/");
@@ -62,7 +62,9 @@ $(document).ready(function() {
                 if (tel) {
                     document.getElementById('enqPhone').value = tel;
                     document.getElementById('enqPhone').readOnly = true;
-                }
+                } else document.getElementById('enqPhone').focus();
+
+
 
 
 
@@ -99,10 +101,11 @@ $(document).ready(function() {
             getClientInfo();
 
         } else {
-            console.log('test')
+
             setAffinity('Public User')
 
             document.getElementById('enqLastName').value
+            document.getElementById('enqFirstName').focus();
         }
 
         // Confirm Page
@@ -110,7 +113,7 @@ $(document).ready(function() {
 
 
         $('#enqFirstName').on('change', function() {
-            console.log('test')
+
             let firstName = document.getElementById('enqFirstName').value;
             let lastName = document.getElementById('enqLastName').value;
 
@@ -122,7 +125,7 @@ $(document).ready(function() {
         })
 
         $('#enqLastName').on('change', function() {
-            console.log('test')
+
             let firstName = document.getElementById('enqFirstName').value;
             let lastName = document.getElementById('enqLastName').value;
 
@@ -139,7 +142,8 @@ $(document).ready(function() {
                 document.getElementById('enqCorSub').value = $(this).val()
             }
         })
-        $('#enqDetail').on('change', function() {
+
+        $('#enqDetail').on('change', 'input', function() {
 
             if (document.getElementById('first_cor')) {
                 document.getElementById('enqCorText').value = $(this).val()
@@ -148,7 +152,7 @@ $(document).ready(function() {
 
 
         $('#enqTopic').on('change', function(e) {
-            console.log(e.target.value)
+
             let value = e.target.value
             setupTopicForm(value)
         })
@@ -233,7 +237,7 @@ function setAffinity(affinity) {
 function generateEditableCorrespondence() {
 
     let enq_id = document.getElementById('enqID').value;
-    let url_str = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_DETAIL?SESSIONSEARCH&EXP=ENQ_ID ${enq_id}&NOMSG=[AO_INCLUDES]error\noenquiry.htm#`
+    let url_str = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_DETAIL?SESSIONSEARCH&EXP=ENQ_ID ${enq_id}&NOMSG=[AO_INCLUDES]error\noenquiry.htm#`
 
     $.ajax(url_str).done(function(res) {
 
@@ -275,7 +279,7 @@ function generateCorForm(data, idx, len, edit = false) {
 
     <div class="col-md-12 col-sm-12">
     <label for="corDate" class="form-label">Date</label>
-    <input name=${edit ? `CORRESPOND_DATE${newOcc}` : `"" `}  value=${edit ? ' "" ' : data.cor_date}  type="text" id=${edit?' "corDate" ':' "" '}class="form-control" placeholder="Date" aria-label="Date"   ${edit ? '' : 'readonly'}/>
+    <input name=${edit ? `CORRESPOND_DATE${newOcc}` : `"" `}  value=${edit ? ' "" ' : data.cor_date}  type="text" id=${edit ? ' "corDate" ' : ' "" '}class="form-control" placeholder="Date" aria-label="Date"   ${edit ? '' : 'readonly'}/>
     </div>
     <br />
     <div class="col-md-12 col-sm-12">
@@ -296,7 +300,7 @@ function generateCorForm(data, idx, len, edit = false) {
     <div class="col-md-12 col-sm-12">
     <label for="corSubj" class="form-label">Message Text</label>
 
-    ${edit ? ` <textarea class="form-control Rale-Reg"  placeholder="Leave a message here" id="enqDetail" name=${`MESSAGE_TEXT${newOcc}`} }></textarea>` : `<div class="enqCorrespondenceTextbox"> ${decodeTextField(data.cor_text)}</div>`}
+    ${edit ? ` <textarea class="form-control Rale-Reg"  placeholder="Leave a message here" id="enqDetail" name=${`MESSAGE_TEXT${newOcc}`} }></textarea>` : `<div class="enqCorrespondenceTextbox"> ${data.cor_text ? decodeTextField(data.cor_text) : ""}</div>`}
    
 
  
@@ -324,45 +328,48 @@ const setEnquiryTopic = () => {
 }
 
 function decodeTextField(str) {
+    if (str === undefined || str === null) {
+        return '';
+    }
     const SCarray = {
-                    "&#126;": "~",
-                    "&#96;" : "`",
-                    "&#33;" : "!",
-                    "&#35;" : "#",
-                    "&#34;" : "\"",
-                    "&#quot;" : "\"",
-                    "&#36;" : "$",
-                    "&#37;" : "%",
-                    "&amp;" : "&",
-                    "&#38;" : "&",
-                    "&#39;" : "'",
-                    "&#40;" : "(",
-                    "&#41;" : ")",
-                    "&#42;" : "*",
-                    "&#43;" : "+",
-                    "&#44;" : ",",
-                    "&#45;" : "-",
-                    "&#46;" : ".",
-                    "&#47;" : "/",
-                    "&#58;" : ":",
-                    "&#59;" : ";",
-                    "&#61;" : "=",
-                    "&lt;"  : "<", 
-                    "&#60;" : "<",
-                    "&gt;"  : ">",
-                    "&#62;" : ">",
-                    "&#63;" : "?",
-                    "&#64;" : "@",
-                    "&#91;" : "[",
-                    "&#92;" : "\\",
-                    "&#93;" : "]",
-                    "&#94;" : "^",
-                    "&#95;" : "_",
-                    "&#123;" : "{",
-                    "&#124;" : "|",
-                    "&#125;" : "}",
-                };
-    for(const [key,value] of Object.entries(SCarray)){
+        "&#126;": "~",
+        "&#96;": "`",
+        "&#33;": "!",
+        "&#35;": "#",
+        "&#34;": "\"",
+        "&#quot;": "\"",
+        "&#36;": "$",
+        "&#37;": "%",
+        "&amp;": "&",
+        "&#38;": "&",
+        "&#39;": "'",
+        "&#40;": "(",
+        "&#41;": ")",
+        "&#42;": "*",
+        "&#43;": "+",
+        "&#44;": ",",
+        "&#45;": "-",
+        "&#46;": ".",
+        "&#47;": "/",
+        "&#58;": ":",
+        "&#59;": ";",
+        "&#61;": "=",
+        "&lt;": "<",
+        "&#60;": "<",
+        "&gt;": ">",
+        "&#62;": ">",
+        "&#63;": "?",
+        "&#64;": "@",
+        "&#91;": "[",
+        "&#92;": "\\",
+        "&#93;": "]",
+        "&#94;": "^",
+        "&#95;": "_",
+        "&#123;": "{",
+        "&#124;": "|",
+        "&#125;": "}",
+    };
+    for (const [key, value] of Object.entries(SCarray)) {
         str = str.replace(new RegExp(`${key}`, "gi"), `${value}`);
     }
     console.log(str)

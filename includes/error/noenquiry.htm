@@ -4,44 +4,81 @@
 <title>Archives of Ontario - No Results</title>
 
 
-<div id='Content-Wrapper' class='d-flex flex-row'>
+<div id='Content-Wrapper' class='Content-Wrapper'>
 
     <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
 
     <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
-        <h1>No Enquiry Records</h1>
+        <div class='back-nav'>
+            <i class="fas fa-arrow-circle-left back-profile" onclick='returnToProfile()'></i>
+        </div>
+        <h2 class='Rale-Extra main-title-h2'>No Enquiry Records</h2>
         <div class='Form-Wrapper'>
             <p style='font-size: 2em; text-align: center;'>
                 There are no available enquiries. Click the Submit an Enquiry link to start an enquiry.
             </p>
-            <form id='Main-Form' method="post" name="simple_search" action="?UNIONSEARCH&APPLICATION=UNION_VIEW&ERRMSG=[AO_INCLUDES]error/norecord.htm">
-                <span id='Option-Choice'>Option 1: Keyword Search</span>
-                <span id='Number-Results'></span>
-                <div class='Input-Wrapper d-flex flex-column'>
-                    <label>Enter a search term or terms:</label>
-                    <input id="simple_search_input" type='text' title="Enter a search term or terms" name="KEYWORD_CLUSTER" />
+            <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="?UNIONSEARCH&APPLICATION=UNION_VIEW&ERRMSG=[AO_INCLUDES]error/norecord.htm">
+                <div class='main-form-left'>
+                    <div class='main-login-mobile Rale-Bold'>
+                        <button type='button' id='pub-sec-login-btn' class='main-form-btn pub-sec-login-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
+                        <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                        <button type='button' id='main-form-info' class='main-form-btn Rale-Bold' onclick='' title='To to further information on how to search AIMS'>How to search our database</button>
+                    </div>
+                    <!-- https://search.lma.gov.uk/scripts/mwimain.dll/382872043?UNIONSEARCH&APPLICATION=UNION_VIEW&LANGUAGE=144&simple_exp=y&HISTORY=LMA_DESCRIPTION&ERRMSG=[WWW_LMA]err.htm&REPORT=WEB_SUMMARY -->
+                    <span class='Rale-Reg'>Search archival, art, and library collection</span>
+                    <br>
+                    <span id='Option-Choice' class='Rale-Bold'>Option 1: Keyword Search</span>
+                    <span id='Number-Results'></span>
+                    <div class='Input-Wrapper d-flex flex-column'>
+                        <label class='Rale-Bold' for="simple_search_input">Enter a search term or terms:</label>
+                        <input id="simple_search_input" type='text' alt='Enter a search term or terms' name="KEYWORD_CLUSTER" />
+                    </div>
+                    <div class='Radio-Wrapper'>
+                        <fieldset>
+                            <legend class='visually-hidden'>Search Type</legend>
+                            <span>
+                                       <input type='radio' id='All-Keywords' class='search-input' title='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
+                                       <label class='search-label Rale-Med' for='All-Keywords'>All of these keywords</label>
+                                   </span>
+                            <span>
+                                       <input type='radio' id='Any-Keywords' class='search-input' title='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
+                                       <label class='search-label Rale-Med' for='Any-Keywords'>Any of these keyword</label>
+                                   </span>
+                            <span>
+                                       <input type='radio' id='Exact-Phrase' class='search-input' title='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
+                                       <label class='search-label Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
+                                   </span>
+                        </fieldset>
+                    </div>
+                    <div class='Radio-Wrapper-Mobile'>
+                        <fieldset>
+                            <legend class='visually-hidden'>Search Type</legend>
+                            <div class='Search-Type-Item-Mobile'>
+                                <input type='radio' id='All-Keywords-Mobile' class='search-input-mobile' title='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
+                                <label class='search-label-mobile Rale-Med' for='All-Keywords-Mobile'>All keywords</label>
+                            </div>
+                            <div class='Search-Type-Item-Mobile'>
+                                <input type='radio' id='Any-Keywords-Mobile' class='search-input-mobile' title='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")' />
+                                <label class='search-label-mobile Rale-Med' for='Any-Keywords-Mobile'>Any keyword</label>
+                            </div>
+                            <div class='Search-Type-Item-Mobile'>
+                                <input type='radio' id='Exact-Phrase-Mobile' class='search-input-mobile' title='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")' />
+                                <label class='search-label-mobile Rale-Med' for='Exact-Phrase-Mobile'>Exact Phrase</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class='Search-Options-Wrapper'>
+                        <input class='Search-Option-Button Search-Btn Rale-Bold' alt='Search' title='Search' type='submit' value='SEARCH' />
+                        <!-- <a class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a> -->
+                        <button class='Search-Btn Rale-Bold' alt='Advanced Search' title='Advanced Search'><a id='Advanced-Search' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html' title='Go to advanced search options'>ADVANCED SEARCH</a></button>
+                        <!-- <a class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a> -->
+                        <button class='Search-Btn Rale-Bold' alt='More Search Options' title='More Search Options'><a id='More-Search' href='^SESSID^?GET&FILE=[AO_ASSETS]html/moreSearchOptions.html' title='Go to more search options'>MORE SEARCH OPTIONS</a></button>
+                    </div>
                 </div>
-                <div class='Radio-Wrapper d-flex justify-content-evenly'>
-                    <span>
-                        <input type='radio' id='All-Keywords' value='AND_WORD' name='FLDOP1' title="All of these keywords" value='Keyword Search'
-                            onclick='onClickSearchOption(value)' checked>
-                        <label for='All-Keywords'>All of these keywords</label>
-                    </span>
-                    <span>
-                        <input type='radio' id='Any-Keywords' value='OR_WORD' name='FLDOP1' title="Any of these keywords" value='Keyword Search'
-                            onclick='onClickSearchOption(value)' />
-                        <label for='Any-Keywords'>Any of these keywords</label>
-                    </span>
-                    <span>
-                        <input type='radio' id='Exact-Phrase' value='ADJ_WORD' name='FLDOP1' title="Exact Phrase" value='Exact Search'
-                            onclick='onClickSearchOption(value)' />
-                        <label for='Exact-Phrase'>Exact Phrase</label>
-                    </span>
-                </div>
-                <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
-                    <input class='Search-Option-Button' type='submit' title="Search" value='SEARCH' />
-                    <a href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a>
-                    <a href='#'>MORE SEARCH OPTIONS</a>
+                <div class='main-form-right Rale-Bold'>
+                    <button type='button' id='pub-sec-login-btn' class='main-form-btn pub-sec-login-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
+                    <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                    <button type='button' id='main-form-info' class='main-form-btn Rale-Bold' onclick='' title='To to further information on how to search AIMS'>How to search our database</button>
                 </div>
             </form>
         </div>

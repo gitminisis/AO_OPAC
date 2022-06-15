@@ -1,47 +1,97 @@
-<!-- include virtual="[AO_INCLUDES]head.htm"-->
+<!DOCTYPE html>
 
-<!-- include virtual="[AO_INCLUDES]header.htm"-->
-<title>Login</title>
+<html>
 
-<div id="Content-Wrapper" class="Content-Wrapper">
-    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
-    <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
-        <div class="container-fluid" id="grad1">
-            <div class="row justify-content-center mt-0">
-                <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
-                    <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                        <h2 class="Rale-Extra"><strong>Sign In To Your Account</strong></h2>
+<head>
 
-                        <div class="row">
-                            <div class="col-md-12 mx-0">
-                                <form id="msform" method="POST" action="/scripts/mwimain.dll?patronlogin&application=UNION_VIEW&language=144&file=[AO_ASSETS]html%5chome.html">
-                                    <fieldset id="Login-Form">
-                                        <div class="form-card">
+    <style>
+        #loading-spinner {
+            font-family: "Raleway", sans-serif;
+            display: inline;
+            position: relative;
+            z-index: 999999;
+            top: 30vh;
+            text-align: center;
+        }
+        
+        #loading-spinner .spin-icon {
+            margin: auto;
+            width: 80px;
+            height: 80px;
+            border: solid 3px transparent;
+            border-top-color: #666;
+            border-left-color: #666;
+            border-radius: 80px;
+            -webkit-animation: loading-spinner 500ms linear infinite;
+            -moz-animation: loading-spinner 500ms linear infinite;
+            -ms-animation: loading-spinner 500ms linear infinite;
+            -o-animation: loading-spinner 500ms linear infinite;
+            animation: loading-spinner 500ms linear infinite;
+        }
+        
+        @-webkit-keyframes loading-spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        @-moz-keyframes loading-spinner {
+            0% {
+                -moz-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -moz-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        @-o-keyframes loading-spinner {
+            0% {
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        @-ms-keyframes loading-spinner {
+            0% {
+                -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -ms-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes loading-spinner {
+            0% {
+                transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
 
-                                            <h2 class="fs-title Rale-Bold">Your Account</h2>
-                                            <p style="text-align: center; color:red">Invalid Account Number or Password</p>
-                                            <input class="Rale-Reg" type="text" id="username" name="C_CLIENT_NUMBER" autocomplete="off" placeholder="Account Number" title="Account Number" />
-
-                                            <input class="Rale-Reg" type="password" id="password" name="PATRON_PID" placeholder="Password" title="Password" />
-                                        </div>
-                                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/signup.html">
-                                            <button type="button" name="previous" title="Signup" class="action-button-previous btn btn-secondary">
-                        Signup
-                      </button></a>
-                                        <button type="submit" name="submit" title="Login" class=" action-button btn btn-primary">
-                      Login
-                    </button>
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<body>
+    <div id="loading-spinner">
+        <div class="spin-icon"></div>
+        <h1>Please wait for a moment ...</h1>
     </div>
-
-    <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
-</div>
-
-<!-- include virtual="[AO_INCLUDES]footer.htm"-->
+    <script>
+        window.location = '/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html'
+    </script>
+</body>

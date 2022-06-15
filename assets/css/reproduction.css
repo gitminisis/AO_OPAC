@@ -1,5 +1,5 @@
 #my-requests {
-    font-size: 14px;
+    font-size: 0.85rem;
 }
 
 .reprod-item {
@@ -18,3 +18,14 @@
     flex :3
     /* justify-content: flex-start; */
 }
+
+.enq-title,
+.enq-topic {
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: wrap;  
+
+    width: 10%;
+    
+}
+

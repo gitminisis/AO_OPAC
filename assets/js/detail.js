@@ -1,20 +1,204 @@
+const ITEM_INFO_FIELDS = {
 
+    copy_number: {
+      type: "field",
+      title: "Copy",
+    },
+    item_call_number: {
+      type: "field",
+      title: "Call Number",
+    },
+    volume_id: {
+      type: "field",
+      title: "Vol/Issue",
+    },
+    location: {
+      type: "field",
+      title: "Location",
+    },
+    public_note: {
+      type: "field",
+      title: "Note",
+    },
+    i_collect_code: {
+      type: "field",
+      title: "Media",
+    },
+    item_status: {
+      type: "field",
+      title: "Circ Status",
+    },
+    barcode: {
+      type: "field",
+      title: "Order",
+    },
+};
+
+
+  /**
+ * This function takes a XML Element and converts it to
+ * JSON object, specifically for Itenm Info Object from
+ * BIBLIO
+ *
+ * The XML is created in WEB_BIBLIO_ITEM_INFO
+ *
+ *
+ * @param {XML Node Element} xml
+ */
+function toJson(xml) {
+    /**
+     * Specify which one is an array of objects
+     */
+    var x2js = new X2JS({
+      arrayAccessFormPaths: [
+        "item_info.item_detail"
+      ],
+    });
+    var jsonObj = x2js.xml_str2json(xml);
+    return jsonObj;
+  }
+  
+
+/**
+ *  Return a HTML Table in the Items Detail Table
+ */
+ function renderItemInfoTable(itemInfoTable) {
+    let itemInfoObject = itemInfoTable.renderedItem;
+    let index = itemInfoTable.currentIndex;
+    let length = itemInfoTable.length;
+    let tableParent = $("#item-detail");
+  
+    let renderedItem = itemInfoObject.item_detail[index];
+  
+    /**
+     * Empty the table
+     */
+    tableParent.empty();
+  
+    let table =
+    '<table id="items-detail-table" class="table"><tr><td class="item-detail-label" colspan="" style=" font-weight:bold;">ITEMS DETAIL (' +
+      Number(index + 1) +
+      "/" +
+      length +
+      ")</td></tr>";
+  
+    /**
+     * For each property, table will append a new row
+     */
+    for (let prop in ITEM_INFO_FIELDS) {
+      if (renderedItem[prop]) {
+        table += renderItemInfoField(renderedItem, prop);
+      }
+    }
+  
+    // Render the arrow buttons here
+    let arrow_row =
+      '<tr style="background:#efefef"><div class="col-12">' +
+      '<button id="prev-item" class="btn btn-default" style="width:100px; margin: 0.5em;" title="View Previous Copy">&laquo; Previous</button>' + 
+      '<button id="next-item" class="btn btn-default" style="float:right; width:100px; margin: 0.5em;" title="View Next Copy">Next &raquo; </button>' +
+      "</div><div class='col-12' style='text-align:center; margin-bottom:0.5em'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#viewAllItemDetail' title='Click to view all item detail' style='width:50%;'>View All</button></div></tr>";
+    if (itemInfoTable.length > 1) {
+      table += arrow_row;
+    }
+  
+    table += "</table></div>";
+    //tableParent.html(table);
+  
+    /**
+     * Adding click functions for the previous
+     * and next button
+     */
+    $("#next-item").on("click", function () {
+      itemInfoTable.nextItem();
+    });
+  
+    $("#prev-item").on("click", function () {
+      itemInfoTable.prevItem();
+    });
+  
+    /**
+     * Prevent users from going back when the table shows
+     * the first item and going next when the table shows
+     * the last item
+     */
+    if (index === 0) {
+      $("#prev-item").remove();
+    } else if (index === itemInfoTable.length - 1) {
+      $("#next-item").remove();
+    }
+  }
+
+  function renderFieldItem(item, field) {
+    let value = item[field];
+    return (
+      "<tr style='background:#efefef'><p class='item-detail-label' style='margin: 1em 0; padding:0 0.75rem 0 0.75rem;'>" +
+      ITEM_INFO_FIELDS[field].title +
+      ": " +
+      value +
+      "</p></tr>"
+    );
+  }
 /* * * * * * * * * * * * *
  * *                   * *
  * *   Document Ready  * *
  * *                   * *
  * * * * * * * * * * * * */
-
 $(document).ready(function() {
     
-    
+    let xml = document.getElementById("item_info");
+    console.log(xml);
+    if (xml) {
+      let xmlText = new XMLSerializer().serializeToString(xml);
+      let itemInfoObject = toJson(xmlText);
+      //console.log(itemInfoObject.item_info)
+    //   if (itemInfoObject) {
+    //     let itemInfoTable = new ItemsInfoTable(itemInfoObject.item_info);
+    //     itemInfoTable.render();
+    //   }
+    }
+  
+    let xmlText = new XMLSerializer().serializeToString(xml);
+    let itemInfoObject = toJson(xmlText);
+    console.log(itemInfoObject)
+    var itemDetailLength = itemInfoObject.item_info.item_detail.length;
+    var itemNum = 1;
+    var itemDetailJson = itemInfoObject.item_info.item_detail;
+    let holdingsAction = 'action=' + document.getElementsByClassName("holdings-action")[0].innerHTML;
+    let holdingsSISN = document.getElementsByClassName("holdings-sisn")[0].innerHTML
+    console.log(holdingsAction)
+    console.log(itemDetailJson);
+    if(itemDetailLength > 1){
+      let itemTable='<tr><table class="holdings-table">';
+  
+      itemTable += "<tr class='holdings-title'><th>Copy</th><th>Call Number</th><th>Vol/Issue</th><th>Location</th><th>Note</th><th>Media</th><th>Circ Type</th><th>Order</th></tr>";
+  
+      for (var i=0; i < itemDetailLength; ++i) {
+        itemTable += "<tr class='holdings-record-row'>";
+        itemTable += "<td>" + (itemDetailJson[i].copy_number != null ? itemDetailJson[i].copy_number : "N/A") + "</td>";
+        itemTable += "<td>" + (itemDetailJson[i].item_call_number != null ? itemDetailJson[i].item_call_number : "N/A") + "</td>";
+        itemTable += "<td>" + (itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id : "N/A") + "</td>";
+        itemTable += "<td>" + (itemDetailJson[i].location != null ? itemDetailJson[i].location : "N/A") + "</td>";
+        itemTable += "<td>" + (itemDetailJson[i].public_note != null ? itemDetailJson[i].public_note : "N/A") + "</td>";
+        itemTable += "<td>" + (itemDetailJson[i].i_collect_code != null ? itemDetailJson[i].i_collect_code : "N/A") + "</td>";
+        itemTable += "<td>" + (itemDetailJson[i].item_status != null ? itemDetailJson[i].item_status : "N/A") + "</td>";
+        itemTable += "<td>" + (itemDetailJson[i].barcode != null ? "<form class='form-request' method='post' id='request_form' " + holdingsAction + "><input type='hidden' name='ITEM_REQ_TIME' value='9:00'><input type='hidden' name='METHOD_REQUEST' value='Web'><input type='hidden' name='REQ_TOPIC' value='Retrieval Services'><input type='hidden' name='REQ_APPL_NAME' value='M2A'><input type='hidden' name='REQ_DB_NAME' value='LIBRARY'><input type='hidden' name='REQ_DB_RECID' value='BARCODE'><input type='hidden' name='REQ_TITLE' value='View item " + itemDetailJson[i].barcode + "'><input type='hidden' name='REQ_DB_LINK3' value='" + holdingsSISN + "'><input type='hidden' name='REQ_ITEM_ID' value='" + itemDetailJson[i].barcode + "'><input type='hidden' name='REQ_ITEM_TITLE' value='" + itemDetailJson[i].barcode + "'><input type='hidden' name='REQ_QUEUE' value='X'><button id='holdings_record_" + itemDetailJson[i].barcode +  "'>Order</button>" : "Unavailable")  + "</form></td>";
+        itemTable += "</tr>";
+      }
+      itemTable += "</table></tr>";
+      console.log(itemTable)
+      $('#item-details').addClass('item-details');
+      if (document.getElementById("item-details")) {
+        document.getElementById("item-details").innerHTML = itemTable;
+      }
+    }
+
+
+
     if($(".pub-det-field").length){
         const x = document.getElementsByClassName("pub-det-field")[0].innerText;
         document.getElementsByClassName("pub-det-field")[0].innerHTML= unescapeHtml(x);
     }
     
-    
-
     // Detail Bookmark
     // When Clicked ajax sends href to minisis to add selected record to list.
     // Once success, reload the page. Report Checks whether record is in the list or not
@@ -27,18 +211,6 @@ $(document).ready(function() {
         }
         });
     });
-
-    // $('#test-slick').slick({
-    //     dots: false,
-    //     arrows: true,
-    //     fade: true,
-    //     speed: 500,
-        
-    //     nextArrow:
-    //       '<button class="slick-next btn bt-default"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
-    //     prevArrow:
-    //       '<button class="slick-prev btn bt-default"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
-    //   });
 
     $("button.colorbox-detail").click(function(e) {
         let evt = e;
@@ -89,17 +261,15 @@ $(document).ready(function() {
 
 
     // Copyright Form Button Click
-    $("button.colorbox-copyright").click(function(e) {
-        let evt = e;
+    $("button.colorbox-copyright").click(function() {
         // $(this).parent().parent().find(".cs-item-sisn");
-
-        var accession = $(this).parent().parent().find(".cs-item-id");
-        var reqSource = $(this).parent().parent().find(".cs-item-src");
-        var title = $(this).parent().parent().find(".cs-item-title");
-        
+        // var accession = $(this).parent().parent().find(".cs-item-id");
+        // var reqSource = $(this).parent().parent().find(".cs-item-src");
+        // var title = $(this).parent().parent().find(".cs-item-title");
+        var accession = document.getElementsByClassName("cs-item-id")[0];
+        var reqSource = document.getElementsByClassName("cs-item-src")[0];
+        var title = document.getElementsByClassName("cs-item-title")[0];
         var topicCheck = "copyrightServices";
-        
-
 
         $.colorbox({
             iframe:true,
@@ -110,44 +280,40 @@ $(document).ready(function() {
             href:HOME_SESSID + "?addsinglerecord&database=REQUEST_VIEW&de_form=[AO_ASSETS]html/copyright.html&new=y",
             onLoad: function() {
 
-                // console.log(evt);
-                // console.log(evt.target.id);
-                
-
-                $tmp_data = accession.text(); // ACCESSION NUMBER --- F 26 G
-                $tmp_data2 = reqSource.text(); // REQ_SOURCE DESCRIPTION COLLECTION LIBRARY
-                $tmp_data3 = title.text(); // LEGAL_TITLE -- Story Book Woman
-
+                $tmp_data = accession.textContent; // ACCESSION NUMBER --- F 26 G
+                $tmp_data2 = reqSource.textContent; // REQ_SOURCE DESCRIPTION COLLECTION LIBRARY
+                $tmp_data3 = title.textContent; // LEGAL_TITLE -- Story Book Woman   
                 $tmp_topic = topicCheck;
-             
+
+                console.log('copyright')
+                console.log($tmp_data, $tmp_data2, $tmp_data3)
+
+                
 
             },
             onComplete: function() {
-                
-                
+                let message = document.getElementById('reqDetail')
+                console.log(message)
             },
             onClose: function() {
-                delete $tmp_data; // accession
-                delete $tmp_data2; // reqSource
-                delete $tmp_data3; // title
-
+                delete $tmp_data;
+                delete $tmp_data2;
+                delete $tmp_data3;
                 delete $tmp_topic;
-
            }
-
         });
     });
 
 
-    $("button.colorbox-reproduction").click(function(e) {
-        let evt = e;
+    $("button.colorbox-reproduction").click(function() {
         // $(this).parent().parent().find(".cs-item-sisn");
-
-        var accession = $(this).parent().parent().find(".cs-item-id");
-        var reqSource = $(this).parent().parent().find(".cs-item-src");
-        var title = $(this).parent().parent().find(".cs-item-title");
+        // var accession = $(this).parent().parent().find(".cs-item-id");
+        // var reqSource = $(this).parent().parent().find(".cs-item-src");
+        // var title = $(this).parent().parent().find(".cs-item-title");
+        var accession = document.getElementsByClassName("cs-item-id")[0];
+        var reqSource = document.getElementsByClassName("cs-item-src")[0];
+        var title = document.getElementsByClassName("cs-item-title")[0];
         var topicCheck = "reproductions";
-
 
         $.colorbox({
             iframe:true,
@@ -158,38 +324,28 @@ $(document).ready(function() {
             href:HOME_SESSID + "?addsinglerecord&database=REQUEST_VIEW&de_form=[AO_ASSETS]html/reproductionCertification.html&new=y",
             onLoad: function() {
 
-                // console.log(evt);
-                // console.log(evt.target.id);
-                
-
-                $tmp_data = accession.text(); // ACCESSION NUMBER --- F 26 G
-                $tmp_data2 = reqSource.text(); // REQ_SOURCE DESCRIPTION COLLECTION LIBRARY
-                $tmp_data3 = title.text(); // LEGAL_TITLE -- Story Book Woman
-
+                $tmp_data = accession.textContent; // ACCESSION NUMBER --- F 26 G
+                $tmp_data2 = reqSource.textContent; // REQ_SOURCE DESCRIPTION COLLECTION LIBRARY
+                $tmp_data3 = title.textContent; // LEGAL_TITLE -- Story Book Woman   
                 $tmp_topic = topicCheck;
-              
 
+                console.log('reproduction')
+                console.log($tmp_data, $tmp_data2, $tmp_data3)
             },
             onComplete: function() {
-                //$("#test_btn").click();
-                
             },
             onClose: function() {
+
+                console.log('reproduction close')
                 delete $tmp_data;
                 delete $tmp_data2;
                 delete $tmp_data3;
-
                 delete $tmp_topic;
-
            }
-
         });
     });
 
-     
-    
     showSingleImage();
-
 });
 
 
@@ -200,14 +356,7 @@ $("#crowd-source-comment").on("load", function(){
     let arr = doc.getElementsByClassName('comment-container')
 
     if (arr.length === 0)
-        iframe.style.display = 'none';
-    // let h3 = iframe.contentWindow.document.getElementsByTagName("H3")[0];
-    
-    // let isComment = h3.innerHTML !== null ? false : true;
-    
-    // if (!isComment)
-    // iframe.style.display = 'none';
-    
+        iframe.style.display = 'none';    
 });
 
 const showSingleImage = () => {

@@ -3,11 +3,14 @@
     <div id="Request-Form">
         <form method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/requestConfirmation.html">
             <input id="reqFullName" hidden value="" name="REQ_PATRON_NAME" />
-            
+            <label for="reqFullName" hidden aria-hidden="true">placeholder</label>
             <!-- <input id="reqFullName" hidden value="" name="R_PATRON_NAME" /> -->
-            <input id="reqClientID" hidden value="" name="REQ_PATRON_ID" />
-            <input id="reqMethodRequest" hidden value="" name="METHOD_REQUEST" />
-            <input id="reqItemTitle" hidden value="" name="REQ_TITLE" />
+            <input id="reqClientID" hidden value="" name="REQ_PATRON_ID" aria-hidden="true"/>
+            <label for="reqClientID" hidden aria-hidden="true">placeholder</label>
+            <input id="reqMethodRequest" hidden value="" name="METHOD_REQUEST" aria-hidden="true"/>
+            <label for="reqMethodRequest" hidden aria-hidden="true">placeholder</label>
+            <input id="reqItemTitle" hidden value="" name="REQ_TITLE" aria-hidden="true"/>
+            <label for="reqItemTitle" hidden aria-hidden="true">placeholder</label>
 
 
             <div class="row g-3 Rale-Med">
@@ -80,7 +83,7 @@
                             <option id="reqFOI">Print up to 11" x 36"</option>
                             <option id="reqRS">Certified Copies</option>
                         </select>
-                        <a href="/assets/pdf/customer_service_guide_105_reproduction_services_and_fees.pdf" target="_blank"><i class="far fa-question-circle fa-2x"></i></a>
+                        <a href="/assets/pdf/customer_service_guide_105_reproduction_services_and_fees.pdf" target="_blank"><span hidden aria-hidden="true">placeholder</span><i class="far fa-question-circle fa-2x"></i></a>
                     </div>
                 </div>
             </div>
@@ -94,8 +97,8 @@
 
             <div class="reqAdditionalInfo g-3 Rale-Med">
                 <div class="col-md-12">
-                    <label for="reqDetail Rale-Med" class="form-label">Additional Information*</label>
-                    <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" title="Leave a comment here" id="reqDetail" name="REQ_TOPIC_GL" required></textarea>
+                    <label for="reqDetail" class="form-label Rale-Med">Additional Information*</label>
+                    <textarea id="reqDetail" class="form-control Rale-Reg" placeholder="Leave a comment here" title="Leave a comment here" id="reqDetail" name="REQ_TOPIC_GL" required></textarea>
                     <!-- <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="reqDetail" name="R_TOPIC_GL" required></textarea> -->
                 </div>
             </div>

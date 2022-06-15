@@ -32,7 +32,7 @@ const payBtnClick = async (evt) => {
         width:"1200px",
         height:"780px",
         overlayClose: true,
-        href:`https://aoopac.minisisinc.com/scripts/mwimain.dll/${sessionId}?GET&FILE=[AO_ASSETS]html/payment.html`,
+        href:`https://uataoopac.minisisinc.com/scripts/mwimain.dll/${sessionId}?GET&FILE=[AO_ASSETS]html/payment.html`,
         onLoad:  function(evt) {
             // Nothing to do here yet
        },

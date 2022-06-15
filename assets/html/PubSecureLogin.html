@@ -26,9 +26,93 @@
             return true;
         }
     </script>
+    <style>
+        #loading-spinner {
+            font-family: "Raleway", sans-serif;
+            display: inline;
+            position: relative;
+            z-index: 999999;
+            top: 30vh;
+            text-align: center;
+        }
+        
+        #loading-spinner .spin-icon {
+            margin: auto;
+            width: 80px;
+            height: 80px;
+            border: solid 3px transparent;
+            border-top-color: #666;
+            border-left-color: #666;
+            border-radius: 80px;
+            -webkit-animation: loading-spinner 500ms linear infinite;
+            -moz-animation: loading-spinner 500ms linear infinite;
+            -ms-animation: loading-spinner 500ms linear infinite;
+            -o-animation: loading-spinner 500ms linear infinite;
+            animation: loading-spinner 500ms linear infinite;
+        }
+        
+        @-webkit-keyframes loading-spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        @-moz-keyframes loading-spinner {
+            0% {
+                -moz-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -moz-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        @-o-keyframes loading-spinner {
+            0% {
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        @-ms-keyframes loading-spinner {
+            0% {
+                -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -ms-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes loading-spinner {
+            0% {
+                transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div id="loading-spinner">
+        <div class="spin-icon"></div>
+        <h1>Please wait for a moment ...</h1>
+    </div>
     <form id="msform" method="POST" action="/scripts/mwimain.dll?patronlogin&application=UNION_VIEW&language=144&file=[AO_ASSETS]html%5chome.html" onsubmit="return generateDynamicPassword();" hidden>
         <fieldset id="Login-Form">
             <div class="form-card">
@@ -51,8 +135,8 @@
     <script>
         const authClient = new OktaAuth(conectoptions);
         let checkEmail = async(email) => {
-
-            const res = await fetch(`https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[AO_INCLUDES]noEmail.xml`)
+            //TODO: Change lang depends $LANG
+            const res = await fetch(`https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[AO_INCLUDES]noEmail.xml`)
             const data = await res.text()
 
 
@@ -75,9 +159,10 @@
             var usersubscription = null;
 
             if (authClient.isLoginRedirect()) { // check if this is a redirect
+
                 try {
-                    //alert("In the login redirect");
-                    // debugger;
+
+
                     // parse tokens from the redirect and store.
                     await authClient.storeTokensFromRedirect();
                     // get the user info.
@@ -87,59 +172,47 @@
                         useremail = userinfo.email;
                         usersubscription = userinfo.sub;
 
-                        console.log(useremail);
-                        console.log(usersubscription);
+                        // console.log(useremail);
+                        // console.log(usersubscription);
                         sessionStorage.setItem("useremail", useremail);
+                        sessionStorage.setItem("usersub", userinfo.sub);
                         checkEmail(useremail).then(res => {
-                                let HOME_SESSID = getCookie("HOME_SESSID");
+                            let HOME_SESSID = getCookie("HOME_SESSID");
 
-                                // Account has not been created
-                                if (res) {
-                                    console.log('not yet created')
+                            // Account has not been created
+                            if (res) {
 
 
-                                    window.location = `${HOME_SESSID}?addsinglerecord&database=client_registration&de_form=[AO_ASSETS]html/registration.html`
-                                }
-                                // Existing Account
-                                else {
-                                    console.log('Existing Acc')
-                                    window.location = `https://aoopac.minisisinc.com/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html`
-                                }
-                            })
-                            // window.location = "https://aoopac.minisisinc.com";
-                            /*
-                                if (useremail is a MINISIS user) {
-                                    log in to MINISIS using this email.
-                                    redirect back to main page with the user logged in.
-                                }
-                                else {
-                                    if (usersubscription exists in the user database) {
-                                        The user has changed their email address in public secure.
-                                        Update user name (email) in user profile.
-                                        log in to MINISIS using this new email.
-                                        redirect back to main page with the user logged in.
-                                    }
-                                    else {
-                                        new user - handle as new user create the new user in MINISIS
-                                        redirect user to filling out the rest of the MINISIS user profile.
-                                    }
-                                }
-                            */
+
+                                window.location = `https://uataoopac.minisisinc.com/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSignup.html`
+                                    // window.location = `${HOME_SESSID}?addsinglerecord&database=client_registration&de_form=[AO_ASSETS]html/registration.html`
+                            }
+                            // Existing Account
+                            else {
+
+                                window.location = `https://uataoopac.minisisinc.com/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html`
+                            }
+                        })
+
 
                     } else {
                         // for some reason the user information can not be retrieved error message or redirect to home page.
                         // console.log('Could not get the user info');
                         // debugger;
 
-                        // window.location = "https://aoopac.minisisinc.com";
+                        window.location = "https://uataoopac.minisisinc.com";
                     }
                 } catch (e) {
+                    console.log(e);
+                    if (e.errorCode === 'access_denied' && e.errorSummary === 'User is not assigned to the client application.') {
+                        window.location = 'https://stage.profile.signin.ontario.ca/login?cid=' + conectoptions.clientId
+                    }
                     // the most likely cause of an exception will be an URL with bad parameters that the 
                     // Okta library could not handle. Should most likely redirect to the home page or display an error.
                     // console.log(e);
                     // debugger;
 
-                    // window.location = "https://aoopac.minisisinc.com";
+
                 }
             } else if (!await authClient.isAuthenticated()) {
                 // Not logged in. Redirect to the public secure logon page.
@@ -150,7 +223,7 @@
 
             } else {
                 if (getCookie('M2L_AUDIENCE') && getCookie('M2L_PATRON_ID') && getCookie('M2L_PATRON_NAME')) {
-                    window.location = "https://aoopac.minisisinc.com";
+                    window.location = "https://uataoopac.minisisinc.com";
                 } else {
                     // parse tokens from the redirect and store.
                     // await authClient.storeTokensFromRedirect();
@@ -159,10 +232,26 @@
                     useremail = userinfo.email;
                     usersubscription = userinfo.sub;
                     sessionStorage.setItem("useremail", useremail);
-                    // window.location = `${getCookie('HOME_SESSID')}?GET&FILE=[AO_ASSETS]html/publicSecureLogin.html`
-                    console.log('has not log in')
-                    console.log(userinfo)
-                    window.location = `https://aoopac.minisisinc.com/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html`
+                    sessionStorage.setItem("usersub", userinfo.sub);
+                    checkEmail(useremail).then(res => {
+                        // console.log(res);
+                        let HOME_SESSID = getCookie("HOME_SESSID");
+
+                        // Account has not been created
+                        if (res) {
+
+
+
+                            window.location = `https://uataoopac.minisisinc.com/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSignup.html`
+                        }
+                        // Existing Account
+                        else {
+
+                            window.location = `https://uataoopac.minisisinc.com/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html`
+                        }
+                    })
+
+
                 }
                 // user is already logged in - Could add some checks that the user is logged in on the MINISIS 
                 // side and then redirect back to the home page.

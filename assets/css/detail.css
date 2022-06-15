@@ -1,4 +1,9 @@
 
+.audio-caption-label,
+.video-caption-label {
+  margin-right: 5px;
+}
+
 .Detail-Container {
   padding: 1em;
   background-color: #FFF;
@@ -9,6 +14,8 @@
 }
 
 #Detail-Content {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin-top: 30px;
   padding: 0.1rem;
@@ -18,32 +25,112 @@
   width: 125px;
 }
 
-#detail-function {
-  display: flex; 
-  flex-direction: row;
-
-  /* text-align: center;
-  margin-top: 20px;
-
-  margin-bottom: 35px; */
+#detail-buttons-wrapper,
+#detail-img {
+  border: 1px solid #000;
+  border-radius: 8px;
 }
 
-.left-column,
+#detail-buttons-wrapper {
+  display: flex; 
+  flex-direction: column;
+  flex: 1;
+  margin: 0;
+  justify-content: center;
+
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.detail-buttons-container {
+  display: flex;
+  /* width: 80%; */
+  justify-content: center;
+  padding: 0;
+}
+
+#detail-img {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+
+  border-right: none;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding: 5px;
+}
+
+#detail-top-content {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  /* align-content: left; */
+  width: 40%;
+  padding: 0;
+
+  margin-left: 10px;
+
+}
+
 .right-column {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  flex: 1;
+  /* align-content: right; */
+  width: 40%;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.left-column > .rec-det-btn,
+.left-column > #web_det_form,
+.left-column > #request_form {
+  justify-content: flex-start
+}
+
+.right-column > .rec-det-btn,
+.right-column > #web_det_form-det-btn,
+.right-column > #request_form-det-btn {
+  justify-content: flex-end;
 }
 
 .function-buttons {
-  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
   max-width: 300px;
   margin-top: 5px;
   margin-bottom: 5px;
   background-color: #047bc1;
   border-color: #047bc1;
 }
+
+/* .function-buttons-2 {
+  width: 80%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #047bc1;
+  border-color: #047bc1;
+} */
+
+.rec-det-btn {
+  display: flex;
+  width: 100%;
+}
+
+
+#request_form,
+#web_det_form {
+  width: 100%;
+
+  margin: 0;
+}
+
 
 .img-container {
   display: flex;
@@ -55,10 +142,24 @@
   float: right;
 }
 
+.detail-field {
+  word-break: break-word;
+  word-wrap: break-word;
+  white-space: wrap;
+  padding: 0.5rem 0 !important;
+}
+
+.detail-label {
+  width: 25%;
+}
+
 table {
+  table-layout: fixed;
+
   border-collapse: collapse;
   border-radius: 8px;
   overflow: hidden;
+  width: 100%;
 }
 
 #web_det_form{  
@@ -66,7 +167,12 @@ table {
 }
 
 #detail-bookmark{
-  cursor: default;
+  cursor: pointer;
+}
+
+#detail-copyright:hover,
+#detail-reproduction:hover {
+  cursor: pointer !important;
 }
 
 .btn-primary,
@@ -74,19 +180,7 @@ table {
   font-size: 0.8rem;
 }
 
-.rec-det-btn {
-  display: flex;
-  justify-content: center;
 
-  width: 80%;
-}
-
-#request_form,
-#web_det_form {
-  display: flex;
-  justify-content: center;
-  width: 100%
-}
 
 button.bookmarkbutton a{
   color:white;
@@ -95,6 +189,12 @@ button.bookmarkbutton a{
 
 button.bookmarkbutton a:hover{
   color:white;
+}
+
+.caption-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .cs-iframe-detail{
@@ -125,26 +225,44 @@ button.bookmarkbutton a:hover{
   margin: 0px 0 5px 0;
 }
 
+
+
+/* HOLDINGS TABLE */
+.holdings-title{
+  text-align: center;
+}
+.holdings-record-row{
+  text-align: center;
+}
+.holdings-table tbody tr:nth-child(even){
+  background-color:gainsboro;
+}
+/* HOLDINGS TABLE END */
+
+
+
 .repeat-ul-holdings-det{
   padding:0;
-  text-align:center;
+  text-align: center;
   list-style: none;
 }
 .biblio-holdings-table{
-  width:100%;
+  width: 100%;
 }
 .biblio-holdings-table th{
-  padding:10px;
+  padding: 3px;
   text-align: center;
 }
 .biblio-holdings-table td{
-  padding:10px;
-  font-size:16px
+  padding: 10px;
+  font-size: 16px
 }
 .biblio-holdings-table li{
-  padding:3px;
+  padding: 3px;
 }
-
+.btn-secondary{
+  font-size: 0.8rem;
+}
 /* CROWDSOURCE CSS */
 .card {
   border: 1px solid rgba(0,0,0,.125)
@@ -372,11 +490,11 @@ button.bookmarkbutton a:hover{
 }
 
 #mainCarousel .carousel__button.is-prev {
-  left: -1.5rem;
+  left: 2rem;
 }
 
 #mainCarousel .carousel__button.is-next {
-  right: -1.5rem;
+  right: 2rem;
 }
 
 #mainCarousel .carousel__button:focus {
@@ -404,3 +522,10 @@ button.bookmarkbutton a:hover{
 }
 
 /* Detail Carousel END */
+
+
+@media only screen and (max-width: 1006px) {
+  .detail-label {
+    width: 40%;
+  }
+}

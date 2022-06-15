@@ -3,7 +3,7 @@
  * a successful account registration
  */
 
-$(document).ready(function () {
+$(document).ready(function() {
     if (document.getElementById('confirmationPage')) {
         var SESSID = getCookie("HOME_SESSID");
         let subject = "Registration Confirmation";
@@ -23,8 +23,18 @@ $(document).ready(function () {
             url: url,
             data: `sender=noreply@minisisinc.com&receiver=${client_email}&subject=${subject}`,
 
-        }).done(function (res) {
-            console.log(res)
+        }).done(function(res) {
+            let time = 10;
+            let interval = setInterval(function() {
+                $('#confirmTime').text(time)
+                if (time === 0) {
+                    clearInterval(interval)
+                    window.location = `https://uataoopac.minisisinc.com/assets/html/PubSecureLogin.html`
+
+                } else {
+                    time--;
+                }
+            }, 1000)
         });
     }
 

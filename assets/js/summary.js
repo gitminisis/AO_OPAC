@@ -1,7 +1,5 @@
-
-
 $(document).ready(function(){
-
+    
     let countImg = 1, countDoc = 1, countAud = 1, countVid = 1;
     let countImg2 = 1, countDoc2 = 1, countAud2 = 1, countVid2 = 1;
     let countMarcBtn = 1, countMarcXML = 1, countMarcModal = 1;
@@ -73,12 +71,9 @@ $(document).ready(function(){
                 $tmp_data2 = test2.text(); // DESCRIPTION COLLECTION LIBRARY
                 $tmp_data3 = test3;
                 $tmp_data4 = client_id.split(']')[1];
-
-
             },
             onComplete: function() {
                 //$("#test_btn").click();
-
             },
             onClose: function() {
                 delete $tmp_data;
@@ -86,15 +81,10 @@ $(document).ready(function(){
                 delete $tmp_data3;
                 delete $tmp_data4;
             }
-
-            
-
-
         });
-
-
     });
 
+    
     // $("#cpa-form").submit(function(e){
     //     return false;
     // });
@@ -115,7 +105,6 @@ $(document).ready(function(){
                 location.reload();
             });
         }
-
     });
 
     // var bookmark_desc = document.getElementById("bookmark-database")
@@ -128,24 +117,34 @@ $(document).ready(function(){
     //   });
 
     checkMedia();
+    // Remove minisis search cluster
+    $("div#search-statement").html($("div#search-statement").html().replace(/KEYWORD_CLUSTER |TITLE_CL |SCOPE_CL |DATE_CL |REFD_CL |ORIGINATOR_CL |PHYSICAL_DESC_CL |FORMATS_CL |SUBJECT_CL |RELATED_MAT_CL /g,''));
+
+    
+    // Truncate any fields in records that exceeds over a certain character amount
+    var truncateTitle = document.querySelectorAll('.Record-Title b a');
+
+    for(var i = 0; i < truncateTitle.length; i++){
+        if(truncateTitle[i].innerText.length > 75){
+            truncateTitle[i].innerText = truncateTitle[i].innerText.substring(0,75)+ "...";
+        }
+    }
 
 
-});
+
+   
+}); // document end
 
 const checkMedia = () => {
-
     let x  = document.getElementsByClassName('media-container');
-    console.log(x)
+
     for (let i = 0; i < x.length; i++) {
         let iconSet1 = x[i].children[2].children[0].children.length;
         let iconSet2 = x[i].children[2].children[1].children.length;
         let iconSets =  iconSet1 + iconSet2;
 
-        //console.log(iconSets)
-
-        if (iconSets === 0) {
-            x[i].style.display = 'none';
-        }
+        if (iconSets === 0)  x[i].style.display = "none";
+        
     }
 }
 

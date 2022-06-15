@@ -1,7 +1,7 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
 
         <!-- include virtual="[AO_INCLUDES]header.htm"-->
-        <title>Library</title>
+        <title>Art</title>
         
         
         <div id='Content-Wrapper' class='Content-Wrapper'>
@@ -11,63 +11,21 @@
             <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
                 <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner (003).jpg"  alt="Archives of Ontario banner"></div>
                 <br> 
-                <h2 class="Rale-Extra main-title-h2">Welcome to the Library Holdings!</h2>
+                <h2 class="Rale-Extra main-title-h2">Welcome to the Art Collection!</h2>
                 <div class='Form-Wrapper'>
                     <p class='page-description Rale-Bold'>
-                        Search for more than 35,000 titles held by the Archives of Ontario Library, including:
+                        This Ministerial Department is responsible of the collection, preservation and management of Ontario's History and Public Documentation
                     </p>
-                    
-                    <div class="page-description-list Rale-Bold">
-                        <ul>
-                            <li>Books</li>
-                            <li>Pamphlets</li>
-                            <li>Periodicals</li>
-                            <li>Ontario Government Publications</li>
-                        </ul>
-                        <ul>
-                            <li>Directories, School books, Almanacs and Voters Lists</li>
-                            <li>Microfiche and Microfilm</li>
-                            <li>Electronic resources</li>
-                        </ul>
-                    </div>
-                    <div class="page-links Rale-Bold">
-                        <a 
-                            href='http://www.archives.gov.on.ca/en/about/library.aspx' 
-                            title="Got to J.J. Talman Library"
-                        >
-                                More about the library
-                        </a>
-                        <a 
-                            href="http://www.archives.gov.on.ca/en/historical_documents_project/historical_document_project.aspx" 
-                            title="Go to Digitized Government Publications"
-                        >
-                            Digitized Government Publications
-                        </a>
-                    </div>
 
-                    <form id='Main-Form' class="minimum-font-size" method="post" name="simple_search" action="^SEARCH^&DATABASE=BIBLIO_WEB&ERRMSG=[AO_INCLUDES]error/norecordLibrary.htm">
+                    <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^SEARCH^&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm">
                         <div class='main-form-left'>
                             <div class='main-login-mobile Rale-Bold'>
-                                <button 
-                                    type='button' 
-                                    id='pub-sec-login-btn' 
-                                    class='main-form-btn Rale-Bold' 
-                                    onclick='onClickLoginBtn()' 
-                                    title='Go to client login portal'>
-                                        Client Portal Login
-                                </button>
+                                <button type='button' id='pub-sec-login-btn' class='main-form-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
                                 <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                                <button 
-                                    type='button' 
-                                    id='main-form-info' 
-                                    class='main-form-btn Rale-Bold' 
-                                    onclick='' 
-                                    title='To to further information on how to search AIMS'>
-                                        How to search our database
-                                </button>
+                                <button type='button' id='main-form-info' class='main-form-btn Rale-Bold' onclick='' title='To to further information on how to search AIMS'>How to search our database</button>
                             </div>
                             <!-- https://search.lma.gov.uk/scripts/mwimain.dll/382872043?UNIONSEARCH&APPLICATION=UNION_VIEW&LANGUAGE=144&simple_exp=y&HISTORY=LMA_DESCRIPTION&ERRMSG=[WWW_LMA]err.htm&REPORT=WEB_SUMMARY -->
-                            <span class='Rale-Reg'>Search all Library Titles/items only</span>
+                            <span class='Rale-Reg'>Search archival, art, and library collection</span>
                             <br>
                             <span id='Option-Choice' class='Rale-Bold'>Option 1: Keyword Search</span>
                             <span id='Number-Results'></span>
@@ -114,7 +72,7 @@
                             </div>
                             <div class='Search-Options-Wrapper'>
                                 <!-- <a class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArt.html'>ADVANCED SEARCH</a> -->
-                                <button class='Search-Btn Rale-Bold' alt='Advanced Search' title='Advanced Search'><a id='Advanced-Search' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchLibrary.html' title='Go to advanced search options'>ADVANCED SEARCH</a></button>
+                                <button class='Search-Btn Rale-Bold' alt='Advanced Search' title='Advanced Search'><a id='Advanced-Search' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArt.html' title='Go to advanced search options'>ADVANCED SEARCH</a></button>
                                 <!-- <a class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a> -->
                                 <button class='Search-Btn Rale-Bold' alt='More Search Options' title='More Search Options'><a id='More-Search' href='^SESSID^?GET&FILE=[AO_ASSETS]html/moreSearchOptions.html'>MORE SEARCH OPTIONS</a></button>
                             </div>

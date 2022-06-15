@@ -129,9 +129,16 @@
     text-decoration: underline;
 }
 .client-button-row{
+    display: flex;
+    justify-content: center;
     text-align: center !important;
     margin:0 1rem 1rem 1.5rem;
     width: 80%;
+}
+
+.client-profile-title {
+    font-size: 60px;
+    text-align: center;
 }
 
 #Client-Crowd-Sourcing
@@ -145,12 +152,17 @@
 }
 .my-req-header {
     margin-bottom: 1rem;
+    font-size: 60px;
 }
 .my-req-desc {
     margin-left: 0.5rem;
 }
 .my-req-text-cont {
     background: white;
+}
+
+.patron-p {
+    text-align: center;
 }
 /* Your Crowdsourced */
 

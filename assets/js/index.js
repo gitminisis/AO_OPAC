@@ -9,6 +9,13 @@ let sessid = "^SESSID^";
 let patron_id = getCookie("M2L_PATRON_ID");
 let patron_name = getCookie("M2L_PATRON_NAME");
 
+const accessLinks = {
+    1: '/scripts/mwimain.dll/144/DESCRIPTION_WEB?DIRECTSEARCH',
+    2: '/scripts/mwimain.dll/144/BIBLIO_WEB?DIRECTSEARCH',
+    3: '/scripts/mwimain.dll/144/COLLECTIONS_WEB?DIRECTSEARCH',
+    4: 'http://ao.minisisinc.com/scripts/mwimain.dll/144/IMAGES?DIRECTSEARCH'
+}
+
 
 /* * * * * * * * * * * *
  * *                 * *
@@ -117,30 +124,62 @@ $(document).ready(function() {
 
         var crowdSource = document.querySelectorAll(".Crowd-Source");
         var reproduction = document.querySelectorAll(".Reproduction");
-        var request = document.querySelectorAll(".Req-Material");
+        //var request = document.querySelectorAll(".Req-Material");
         var copyright = document.querySelectorAll(".Copyright");
 
         // removes these buttons for 10 records per page
         for (var i = 0; i < 10; i++) {
-            // crowdSource[i].style.display = "none";
             if (crowdSource[i] != null) {
                 crowdSource[i].style.display = "none";
             }
             if (reproduction[i] != null) {
-                reproduction[i].style.display = "none";
+                let parent = reproduction[i].parentNode;
+                parent.style.cursor = "pointer";
+                reproduction[i].disabled = true;
+                reproduction[i].style.background = 'grey';
+                reproduction[i].style.borderColor = 'grey';
+                loginOrRegListener(parent)
             }
-            if (request[i] != null) {
-                request[i].style.display = "none";
-            }
+            // if (request[i] != null) {
+            //     request[i].style.display = "none";
+            // }
             if (copyright[i] != null) {
-                copyright[i].style.display = "none";
+                let parent = copyright[i].parentNode;
+                parent.style.cursor = "pointer";
+                copyright[i].disabled = true;
+                copyright[i].style.background = 'grey';
+                copyright[i].style.borderColor = 'grey';
+                loginOrRegListener(parent)
+
             }
         }
     } else {
         $('#User-Id-Input').append(getCookie("M2L_PATRON_ID"));
     }
 
+    try {
+        $(function() {
+            $('.bxslider').bxSlider({
+                mode: 'vertical',
+                easing: 'ease',
+                slideWidth: 300,
+                adaptiveHeight: true,
+                adaptiveHeightSpeed: 60,
+                responsive: true,
+                pager: false,
+                minSlides: 5,
+                wrapperClass: 'MyWrapper'
+            });
+        });
+    } catch (e) {
+        console.log('bxSlider Error: ', e)
+    }
+
 });
+
+const loginOrRegListener = (node) => {
+    node.addEventListener('click', () => alert("Please login or signup to use this feature"))
+}
 
 const onClickSearchOption = (value) => {
     let option = value == 'Keyword Search' ? 'Option 1: ' : 'Option 2: ';
@@ -229,8 +268,10 @@ function ReadCookie(name) {
 let headOpen = false;
 let quickOpen = false;
 const headAccordionOnclick = (e) => {
+    let navBody = document.getElementById('panelsStayOpen-collapseheaderMobile');
     if (!headOpen) {
         e.parentNode.classList.add('open');
+        navBody.classList.add('show');
         headOpen = true;
     } else {
         e.parentNode.classList.remove('open');
@@ -239,12 +280,19 @@ const headAccordionOnclick = (e) => {
 }
 
 const navAccordionOnClick = (e) => {
+    let navBody = document.getElementById('panelsStayOpen-collapse-quick-mobile');
     if (!quickOpen) {
         e.parentNode.classList.add('open');
+        navBody.classList.add('show');
         quickOpen = true;
     } else {
         e.parentNode.classList.remove('open');
         quickOpen = false;
+    }
+
+    if (navBody.classList.contains('show')){
+        e.parentNode.classList.add('open');
+        quickOpen = true;
     }
 }
 
@@ -274,3 +322,22 @@ function editEnquiry(sessid) {
         window.location = url;
     }
 }
+
+const onClickLoginBtn = () => window.location = '/assets/html/PubSecureLogin.html';
+
+const onClickRegistrationBtn = () => window.location = 'https://stage.signin.ontario.ca/signin/register';
+
+const accessCardListener = (card) => window.location = accessLinks[card];
+
+const carouselImgOnclick = (e) => {
+    // The img file name
+    let sisn = e.getAttribute('sisn')
+    console.log(sisn)
+    let siteAddress = 'https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/COLLECTIONS_WEB/WEB_COLL_DET'
+    window.location = `${siteAddress}?SESSIONSEARCH&EXP=SISN ${sisn}&ERRMSG=[AO_INCLUDES]error/norecordArt.htm`
+
+}
+
+const redirectToArtAdvance = () => window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]html/advancedsearchArt.html`;
+const redirectToArchiveAdvance = () => window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]html/advancedsearchArchives.html`;
+const redirectToLibraryAdvance = () => window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]html/advancedsearchLibrary.html`;

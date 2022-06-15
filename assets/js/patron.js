@@ -35,7 +35,7 @@ $(document).ready(function() {
         var patron_id = getCookie('M2L_PATRON_ID');
         patron_id = patron_id.split(']')[1];
 
-        let url = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
+        let url = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
 
 
         $.ajax(url).done(function(res) {
@@ -93,8 +93,8 @@ function getPatronClientInfo() {
     var patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
 
-    let url = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
-        // let url = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%2020210001?SESSIONSEARCH`
+    let url = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
+        // let url = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%2020210001?SESSIONSEARCH`
 
 
     let tempString = window.location.href;
@@ -102,13 +102,13 @@ function getPatronClientInfo() {
     // Split the URI on "/" and take the last element of the array
     let tempUrlCheck = tempString.split("/");
 
-    let myRequestURL = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`
+    let myRequestURL = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`
         // $("a.Patron-Link").attr("href", myRequestURL);
 
-    let myPatronLink = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`
+    let myPatronLink = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`
         // $(".Patron-Enquiry-Link").on('click', function() { window.location = myPatronLink })
 
-    let myCrowdURL = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`
+    let myCrowdURL = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`
         // $("a.Patron-Crowd-Link").attr("href", myCrowdURL);
 
 
@@ -164,7 +164,7 @@ function getPatronClientInfo() {
     } else return;
 
     if (document.getElementById('clientBookmarkInner')) {
-        $("#clientBookmarkInner").append("<a class='btn btn-primary btn-sm Client-Profile Rale-Reg' id='login-btn' href='https://aoopac.minisisinc.com/scripts/mwimain.dll/182155290?GET&amp;FILE=[AO_ASSETS]html/patronProfile.html'>Back to Client Profile</a>");
+        $("#clientBookmarkInner").append("<a class='btn btn-primary btn-sm Client-Profile Rale-Reg' id='login-btn' href='https://uataoopac.minisisinc.com/scripts/mwimain.dll/182155290?GET&amp;FILE=[AO_ASSETS]html/patronProfile.html'>Back to Client Profile</a>");
     }
 
 }
@@ -174,11 +174,11 @@ const clientLinkOnclick = (e) => {
 
     // let bookmarkURL = '^HOME_SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\\nobookmark.htm&COOKIE=BOOKMARK'
     let bookmarkURL    = `${HOME_SESSID}?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\\nobookmark.htm&COOKIE=BOOKMARK`;
-    let myRequestURL   = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`;
-    let myClientLink   = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`;
-    let myCrowdURL     = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`;
-    let myCopyright    = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/REQUEST_VIEW/COPYRIGHT_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Copyright%20Services` + `&NOMSG=[AO_INCLUDES]error\\nocopyright.htm`;
-    let myReproduction = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/REQUEST_VIEW/REPROD_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Reproduction%2FCertification%20Services` + `&NOMSG=[AO_INCLUDES]error\\noreproduction.htm`;
+    let myRequestURL   = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`;
+    let myClientLink   = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`;
+    let myCrowdURL     = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`;
+    let myCopyright    = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/REQUEST_VIEW/COPYRIGHT_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Copyright%20Services` + `&NOMSG=[AO_INCLUDES]error\\nocopyright.htm`;
+    let myReproduction = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/REQUEST_VIEW/REPROD_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Reproduction%2FCertification%20Services` + `&NOMSG=[AO_INCLUDES]error\\noreproduction.htm`;
 
     if (e.getAttribute('id') == 'Client-Request')
         window.location = myRequestURL;
@@ -198,7 +198,7 @@ function getEditProfileInfo() {
     var patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
 
-    let url = `https://aoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`;
+    let url = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`;
 
     $.ajax(url).done(function(res) {
         var x2js = new X2JS();
@@ -295,4 +295,9 @@ function getEditProfileInfo() {
 
 
     })
+}
+
+const returnToProfile = () => {
+    const url = `${home_sessid}?GET&FILE=[AO_ASSETS]html/patronProfile.html`
+    window.location = url
 }

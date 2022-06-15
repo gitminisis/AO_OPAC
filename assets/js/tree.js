@@ -11,6 +11,9 @@ const NEXT_TITLE = "Click To View Next Page ...";
 const PREV_TITLE = "Click To View Previous Page ...";
 let REFD = document.getElementById('hiddenREFD').innerText;
 
+let showTree = false;
+
+
 // let REFD = getCookie("$REFD");
 /**
  *
@@ -318,7 +321,7 @@ function Tree() {
         $("#treeTest")
             .on("refresh.jstree", function() {
                 formatLineIndentation();
-                $("#treeTest").prepend('<h3>Description Tree</h3>')
+                $("#treeTest").prepend('<h3 id="description-tree" tabindex="-1">Description Hiearchy</h3>')
             })
             .on("ready.jstree", function(e, data) {
                 let curNode = $("#treeTest").jstree(true).get_node(tree.currentRefd);
@@ -330,7 +333,7 @@ function Tree() {
                 jsTree.jstree("open_node", tree.currentRefd);
 
                 tree.refreshTree(tree.getNodeArray());
-                $("#treeTest").prepend('<h3>Description Tree</h3>')
+                $("#treeTest").prepend('<h3 id="description-tree" tabindex="-1">Description Hiearchy</h3>')
             })
             .on("select_node.jstree", function(e, data) {
                 let node = tree.getNode(data.node.id);
@@ -456,7 +459,7 @@ function main() {
     tree.initTree(REFD, tree).then(function(res) {
         let data = tree.getNodeArray();
         tree.renderTree(data, REFD);
-
+        enableTreeDisplay();
         // let records = document.querySelectorAll(".record");
     });
 
@@ -466,6 +469,35 @@ $(document).ready(function() {
     if (document.getElementById("treeTest")) {
         // console.log(REFD);
         // console.log("test");
+        disableTreeDisplay(); 
         main();
     }
 });
+
+
+const enableTreeDisplay = () => {
+    let treeBtn = document.getElementsByClassName('tree-btn')[0];
+    treeBtn.disabled = false;
+    treeBtn.style.background = '#047BC1'
+    treeBtn.style.borderColor = '#047BC1'
+}
+
+const disableTreeDisplay = () => {
+    let treeBtn = document.getElementsByClassName('tree-btn')[0];
+    treeBtn.style.background  = 'grey';
+    treeBtn.style.borderColor = 'grey';
+}
+
+const focusTree = () => {
+    let tree = document.getElementsByClassName('jstree-1')[0];
+
+    if (!showTree)
+    {   
+        tree.scrollIntoView({behavior: 'smooth'});
+        showTree = true;
+    }
+    else showTree = false;
+    
+      
+}
+

@@ -18,9 +18,10 @@
                             <div class="col-md-12 mx-0">
                                 <form id="msform" method="POST" action="^saverecord^">
 
-                                    <input type="text" name="C_REG_STATUS" value="Pending" hidden />
+                                    <input type="text" id="hidden_reg_status" name="C_REG_STATUS" value="Pending" hidden />
+                                    <label for="hidden_reg_status" hidden>Reg status</label>
                                     <ul id="progressbar">
-                                        <li class="active Rale-Bold" id="account">
+                                        <li class="active Rale-Bold " id="account">
                                             <strong>Your Details</strong>
                                         </li>
                                         <li id="personal" class="Rale-Bold">
@@ -45,12 +46,27 @@
                                                     placeholder="Email address*" size="25" required /> <span
                                                     class=" btn btn-warning btn-sm" id="email-check">Verify
                                                     </button></span> -->
+                                            <input id="reg-status" class="Rale-Reg" type="text" name="C_REG_STATUS" value="APPROVED" hidden />
 
-                                            <input id="reg-password" class="Rale-Reg" type="password" name="PATRON_PID" placeholder="Password*" title="Password*" maxlength="20" required />
-                                            <input id="reg-alias" class="Rale-Reg" type="text" name="C_NAME_ALIAS" placeholder="Name Alias" title="Name Alias" />
+                                            <input id="reg-password" class="Rale-Reg" type="password" name="PATRON_PID" placeholder="Password*" title="Password*" maxlength="20" hidden />
+                                            <!-- <input id="reg-alias" class="Rale-Reg" type="text" name="C_NAME_ALIAS" placeholder="Name Alias" title="Name Alias" /> -->
+                                            <input id="AOR_CARD_NO" class="Rale-Reg" type="text" name="AOR_CARD_NO" placeholder="AOR Card #" title="AOR Card #" />
+                                            <select class="Rale-Reg" name="REG_ASS_TYPE" id="reg-ass-type">
+                                                <option value="Association">Association</option>
+                                                <option value="Society">Society</option>
+                                                <option value="Organization">Organization</option>
+                                                <option value="Business">Business</option>
+                                                <option value="Government">Government</option>
+                                                <option value="Student">Student</option>
+                                                <option value="Legal">Legal</option>
+                                                <option value="Media">Media</option>
+                                                <option value="Private Citizen">Private Citizen</option>
+                                                <option value="Other">Other</option>
+                                            </select>
 
 
-                                            <input id="reg-role" class="Rale-Reg" type="text" name="C_TYPE" placeholder="Role" value="Public User" readonly />
+
+                                            <!-- <input id="reg-role" class="Rale-Reg" type="text" name="C_TYPE" placeholder="Role" value="Public User" title="User Role" readonly /> -->
 
 
                                         </div>
@@ -67,12 +83,12 @@
                                     <fieldset>
                                         <div class="form-card">
                                             <h2 class="fs-title">Current Address</h2>
-                                            <input type="text" name="C_STREET" placeholder="Address 1" title="Address 1" />
+                                            <input type="text" id="c_street" name="C_STREET" placeholder="Address 1*" title="Address 1" required />
                                             <input type="text" name="C_STREET2" placeholder="Address 2" title="Address 2" />
-                                            <input type="text" name="C_CITY" placeholder="City" title="City" />
-                                            <input type="text" name="C_PROV_STATE" placeholder="Province/State" title="Province/State" />
-                                            <input type="text" name="C_POSTAL_ZIP" placeholder="Postal Code" title="Postal Code" />
-                                            <input type="text" name="C_COUNTRY" placeholder="Country" title="Country" />
+                                            <input type="text" id="c_city" name="C_CITY" placeholder="City*" title="City" required />
+                                            <input type="text" id="c_prov_state" name="C_PROV_STATE" placeholder="Province/State*" title="Province/State" required />
+                                            <input type="text" id="c_postal_zip" name="C_POSTAL_ZIP" placeholder="Postal Code*" title="Postal Code" required />
+                                            <input type="text" id="c_country" name="C_COUNTRY" placeholder="Country*" title="Country" required />
                                         </div>
                                         <button type="button" name="previous" title="Previous" class="previous action-button-previous btn btn-primary">
                                             Previous

@@ -1,0 +1,71 @@
+    <!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+        
+        <!-- include virtual="[AO_INCLUDES]header.htm"-->
+        <title>More Search Options - Authority</title>
+
+        <div id='Content-Wrapper' class='Content-Wrapper'>
+
+            <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+
+            <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+                <h1  class='Rale-Extra Adv-Title'>Browse Record Creators</h1>
+                
+                <div class='Form-Wrapper'>
+                    
+                    <p class='Rale-Reg'>
+                        To browse an alphabetical list of people and families who have created archival records use the Browse Index button to the right of the <b>Individual or People Specific Names</b> search field.</p>
+                    <p class='Rale-Reg'>
+                        To browse an alphabetical list of Government of Ontario agencies and private sector organizations who have created archival records use the Browse Index button to the right of the <b>Organisation Specific Names</b> search field. 
+                    </p>
+                    <form id='Main-Form' class="Advanced-Form" method="post" name="adv_search"  action="^SEARCH^&DATABASE=PEOPLE_VAL_SYN&ERRMSG=[AO_INCLUDES]error/norecord.htm">  
+                        
+                      
+                        <div class="input-group mb-3 Rale-Reg">
+                 
+                            <input type="text" class="form-control" name="FULLNAME3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Individual or People Specific Names" title="People Names">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="FULLNAME3"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                        
+                        <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
+                            <button class="btn btn-primary" type="submit" title="Submit" value='SEARCH'>Search</button>
+                            <button class="btn btn-outline-primary" id="clear" type="reset" title="Clear" value='SEARCH'>Clear</button>
+                        </div>
+                    </form>
+                            
+                </div>
+
+                <div class='Form-Wrapper'>
+                   
+                    <!-- <form id='Main-Form' class="Advanced-Form" method="post" name="adv_search" action="^SEARCH^&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm"> -->
+                    <form id='Main-Form' class="Advanced-Form" method="post" name="adv_search"  action="^SEARCH^&DATABASE=ORGANIZATION_VAL_SYN&ERRMSG=[AO_INCLUDES]error/norecord.htm">
+                        
+
+                        <div class="input-group mb-3 Rale-Reg">
+                  
+                            
+                            <input type="text" class="form-control" name="ORG_MAIN_BODY" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Organisation Specific Names" title="Organisation Names">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="ORG_MAIN_BODY"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+               
+                        
+                        <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
+                            <button class="btn btn-primary" type="submit" title="Submit" value='SEARCH'>Search</button>
+                            <button class="btn btn-outline-primary" id="clear" type="reset" title="Clear" value='SEARCH'>Clear</button>
+                        </div>
+                    </form>
+                            
+                </div>
+            </div>
+
+            <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+
+        </div>
+        <!-- include virtual="[AO_INCLUDES]advSearchBrowse.htm"-->
+        
+        <!-- include virtual="[AO_INCLUDES]footer.htm"-->
