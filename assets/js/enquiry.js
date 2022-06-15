@@ -137,69 +137,67 @@ $(document).ready(function() {
         })
 
         $('#enqTitle').on('change', function() {
-
             if (document.getElementById('first_cor')) {
                 document.getElementById('enqCorSub').value = $(this).val()
             }
         })
 
-        $('#enqDetail').on('change', 'input', function() {
-
+        $('#enqDetail').on('keyup', function() {
             if (document.getElementById('first_cor')) {
                 document.getElementById('enqCorText').value = $(this).val()
             }
         })
 
 
-        $('#enqTopic').on('change', function(e) {
+    $('#enqTopic').on('change', function(e) {
 
-            let value = e.target.value
-            setupTopicForm(value)
-        })
-
-
+        let value = e.target.value
+        setupTopicForm(value)
+    })
 
 
-        // parse ENQ_PATRON_NAME
-        var full_name = '';
-        if (document.getElementById('enqFullName') != null) {
-            full_name = document.getElementById('enqFullName').value;
-        }
-        var name_comp = full_name.split(' ');
-        var ix = 0;
 
-        // extract first name
-        while (ix < name_comp.length && name_comp[ix] == '') {
-            ix++;
-        }
-        if (ix < name_comp.length) {
-            // set "enqFirstName" field to first name
-            document.getElementById('enqFirstName').value = name_comp[ix].replace(',', '');
-            ix++;
-        }
 
-        // extract last name
-        while (ix < name_comp.length && name_comp[ix] == '') {
-            ix++;
-        }
-        if (ix < name_comp.length) {
-            // set "enqLastName" field to last name
-            document.getElementById('enqLastName').value = name_comp[ix].replace(',', '');
-            ix++;
-        }
-
-        window.addEventListener('beforeunload', function(e) {
-            // e.preventDefault();  // turn off confirmation message
-
-            if (typeof enquiry_submitted != 'undefined' && !enquiry_submitted) {
-                if (typeof close_enquiry_url != 'undefined') {
-                    unlockRecord(close_enquiry_url);
-                }
-            }
-            return true; // return true to close web page
-        });
-        // if statement end
+    // parse ENQ_PATRON_NAME
+    var full_name = '';
+    if (document.getElementById('enqFullName') != null) {
+        full_name = document.getElementById('enqFullName').value;
     }
+    var name_comp = full_name.split(' ');
+    var ix = 0;
+
+    // extract first name
+    while (ix < name_comp.length && name_comp[ix] == '') {
+        ix++;
+    }
+    if (ix < name_comp.length) {
+        // set "enqFirstName" field to first name
+        document.getElementById('enqFirstName').value = name_comp[ix].replace(',', '');
+        ix++;
+    }
+
+    // extract last name
+    while (ix < name_comp.length && name_comp[ix] == '') {
+        ix++;
+    }
+    if (ix < name_comp.length) {
+        // set "enqLastName" field to last name
+        document.getElementById('enqLastName').value = name_comp[ix].replace(',', '');
+        ix++;
+    }
+
+    window.addEventListener('beforeunload', function(e) {
+        // e.preventDefault();  // turn off confirmation message
+
+        if (typeof enquiry_submitted != 'undefined' && !enquiry_submitted) {
+            if (typeof close_enquiry_url != 'undefined') {
+                unlockRecord(close_enquiry_url);
+            }
+        }
+        return true; // return true to close web page
+    });
+    // if statement end
+}
 }); //Document Ready Function End
 
 
