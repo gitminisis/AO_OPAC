@@ -88,6 +88,12 @@ function displayAccountLinks(bool) {
         clientProfile[i].hidden = bool;
 }
 
+
+/**
+ * 06/15/2022
+ * Mike Hoang
+ * Added for loop to hide all Login Buttons
+ */
 function removePatronLoginLink() {
     let loginBtn = document.getElementsByClassName('pub-sec-login-btn');
     try {

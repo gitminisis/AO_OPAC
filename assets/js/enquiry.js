@@ -95,6 +95,7 @@ $(document).ready(function() {
 
 
 
+
         let patron_id = getCookie("M2L_PATRON_ID");
 
         if (patron_id) {
@@ -108,6 +109,14 @@ $(document).ready(function() {
             document.getElementById('enqFirstName').focus();
         }
 
+
+        if (document.getElementById('enqStatus').value === "Close") {
+            document.getElementById('enqTopic').disabled = true;
+            document.getElementById('enqTitle').readOnly = true;
+            document.getElementById('enqDetail').readOnly = true;
+
+
+        }
         // Confirm Page
 
 
@@ -149,55 +158,55 @@ $(document).ready(function() {
         })
 
 
-    $('#enqTopic').on('change', function(e) {
+        $('#enqTopic').on('change', function(e) {
 
-        let value = e.target.value
-        setupTopicForm(value)
-    })
-
-
+            let value = e.target.value
+            setupTopicForm(value)
+        })
 
 
-    // parse ENQ_PATRON_NAME
-    var full_name = '';
-    if (document.getElementById('enqFullName') != null) {
-        full_name = document.getElementById('enqFullName').value;
-    }
-    var name_comp = full_name.split(' ');
-    var ix = 0;
 
-    // extract first name
-    while (ix < name_comp.length && name_comp[ix] == '') {
-        ix++;
-    }
-    if (ix < name_comp.length) {
-        // set "enqFirstName" field to first name
-        document.getElementById('enqFirstName').value = name_comp[ix].replace(',', '');
-        ix++;
-    }
 
-    // extract last name
-    while (ix < name_comp.length && name_comp[ix] == '') {
-        ix++;
-    }
-    if (ix < name_comp.length) {
-        // set "enqLastName" field to last name
-        document.getElementById('enqLastName').value = name_comp[ix].replace(',', '');
-        ix++;
-    }
-
-    window.addEventListener('beforeunload', function(e) {
-        // e.preventDefault();  // turn off confirmation message
-
-        if (typeof enquiry_submitted != 'undefined' && !enquiry_submitted) {
-            if (typeof close_enquiry_url != 'undefined') {
-                unlockRecord(close_enquiry_url);
-            }
+        // parse ENQ_PATRON_NAME
+        var full_name = '';
+        if (document.getElementById('enqFullName') != null) {
+            full_name = document.getElementById('enqFullName').value;
         }
-        return true; // return true to close web page
-    });
-    // if statement end
-}
+        var name_comp = full_name.split(' ');
+        var ix = 0;
+
+        // extract first name
+        while (ix < name_comp.length && name_comp[ix] == '') {
+            ix++;
+        }
+        if (ix < name_comp.length) {
+            // set "enqFirstName" field to first name
+            document.getElementById('enqFirstName').value = name_comp[ix].replace(',', '');
+            ix++;
+        }
+
+        // extract last name
+        while (ix < name_comp.length && name_comp[ix] == '') {
+            ix++;
+        }
+        if (ix < name_comp.length) {
+            // set "enqLastName" field to last name
+            document.getElementById('enqLastName').value = name_comp[ix].replace(',', '');
+            ix++;
+        }
+
+        window.addEventListener('beforeunload', function(e) {
+            // e.preventDefault();  // turn off confirmation message
+
+            if (typeof enquiry_submitted != 'undefined' && !enquiry_submitted) {
+                if (typeof close_enquiry_url != 'undefined') {
+                    unlockRecord(close_enquiry_url);
+                }
+            }
+            return true; // return true to close web page
+        });
+        // if statement end
+    }
 }); //Document Ready Function End
 
 
@@ -257,7 +266,11 @@ function generateEditableCorrespondence() {
                 // $('#cor_div').append(generateCorForm(el, idx, len, false))
             })
             // console.log($('#cor_div'))
-        $('#cor_div').append(generateCorForm(null, len, len, true))
+        let status = document.getElementById('enqStatus').value;
+        if (status !== "Close") {
+            $('#cor_div').append(generateCorForm(null, len, len, true))
+        }
+
         $('#corDate').datepicker({ format: 'yyyy-mm-dd', minDate: today, maxDate: today })
         $('#cor_div').slick({
             infinite: false,
@@ -270,10 +283,12 @@ function generateEditableCorrespondence() {
 }
 
 function generateCorForm(data, idx, len, edit = false) {
+    let status = document.getElementById('enqStatus').value;
+    let maxLength = status === "Close" ? len : len + 1;
     let newOcc =
         `$${Number.parseInt(len) + 1}$1`;
 
-    return (`<div class="card"> <div class="card-header"> <h5 class="mb-0"> <button class="btn" type="button" data-toggle="collapse show" data-target="collapse${idx}" aria-expanded="true" aria-controls="collapse${idx}">  Response ${Number.parseInt(idx) + 1}/${len + 1}: ${data ? data.cor_sub : "New Reply"}  </button> </h5> </div> <div id="collapse${idx}" class="collapse show" aria-labelledby="headingOne" data-parent="cor_div"> <div class="card-body"> 
+    return (`<div class="card"> <div class="card-header"> <h5 class="mb-0"> <button class="btn" type="button" data-toggle="collapse show" data-target="collapse${idx}" aria-expanded="true" aria-controls="collapse${idx}">  Response ${Number.parseInt(idx) + 1}/${maxLength}: ${data ? data.cor_sub : "New Reply"}  </button> </h5> </div> <div id="collapse${idx}" class="collapse show" aria-labelledby="headingOne" data-parent="cor_div"> <div class="card-body"> 
 
     <div class="col-md-12 col-sm-12">
     <label for="corDate" class="form-label">Date</label>
@@ -287,7 +302,7 @@ function generateCorForm(data, idx, len, edit = false) {
     <br />
     <div class="col-md-12 col-sm-12">
     <label for="corWho" class="form-label">Sender</label>
-    <input name=${edit ? `CORRESPOND_WHO${newOcc}` : `"" `} value=${edit ? ' "" ' : ` "${data.cor_who}" `} type="text" id="corWho" class="form-control" placeholder="Sender" aria-label="Sender"  ${edit ? '' : 'readonly'} />
+    <input name=${edit ? `CORRESPOND_WHO${newOcc}` : `"" `} value=${edit ? ' "" ' : ` "${data.cor_who ? data.cor_who : ""}" `} type="text" id="corWho" class="form-control" placeholder="Sender" aria-label="Sender"  ${edit ? '' : 'readonly'} />
     </div>
     <br />
     <div class="col-md-12 col-sm-12">
