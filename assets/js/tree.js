@@ -321,7 +321,7 @@ function Tree() {
         $("#treeTest")
             .on("refresh.jstree", function() {
                 formatLineIndentation();
-                $("#treeTest").prepend('<h3 id="description-tree" tabindex="-1">Description Hiearchy</h3>')
+                $("#treeTest").prepend('<h3 id="description-tree" tabindex="-1">Description Hierarchy</h3>')
             })
             .on("ready.jstree", function(e, data) {
                 let curNode = $("#treeTest").jstree(true).get_node(tree.currentRefd);
@@ -333,7 +333,7 @@ function Tree() {
                 jsTree.jstree("open_node", tree.currentRefd);
 
                 tree.refreshTree(tree.getNodeArray());
-                $("#treeTest").prepend('<h3 id="description-tree" tabindex="-1">Description Hiearchy</h3>')
+                $("#treeTest").prepend('<h3 id="description-tree" tabindex="-1">Description Hierarchy</h3>')
             })
             .on("select_node.jstree", function(e, data) {
                 let node = tree.getNode(data.node.id);

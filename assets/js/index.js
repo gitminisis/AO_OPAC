@@ -124,7 +124,7 @@ $(document).ready(function() {
 
         var crowdSource = document.querySelectorAll(".Crowd-Source");
         var reproduction = document.querySelectorAll(".Reproduction");
-        //var request = document.querySelectorAll(".Req-Material");
+        var request = document.querySelectorAll(".Req-Material");
         var copyright = document.querySelectorAll(".Copyright");
 
         // removes these buttons for 10 records per page
@@ -322,6 +322,22 @@ function editEnquiry(sessid) {
         window.location = url;
     }
 }
+
+/**
+ * Rework Simple Search Behaviour. 
+ * Enable display for loading spinner
+ * Disable simple search button
+ * Submit form
+ */
+function submitSimpleSearch() {
+    $("#Main-Form").on('submit', function(e) {
+        $(".icon-container").css('display', 'block');
+        $(".simple-search-btn").attr('disabled', true);
+
+    })
+}
+
+submitSimpleSearch();
 
 const onClickLoginBtn = () => window.location = '/assets/html/PubSecureLogin.html';
 
