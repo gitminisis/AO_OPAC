@@ -2,12 +2,13 @@ let HOME_SESSID = getCookie("HOME_SESSID");
 let SESSID = getCookie("SESSID");
 let client_name = '';
 let client_id = '';
-
 let home_sessid = HOME_SESSID.split('-')[0];
 let sessionId = home_sessid.split('/').pop();
 let sessid = "^SESSID^";
 let patron_id = getCookie("M2L_PATRON_ID");
 let patron_name = getCookie("M2L_PATRON_NAME");
+let timeout = 900; // Timeout in seconds
+let curWidth = window.innerWidth
 
 const accessLinks = {
     1: '/scripts/mwimain.dll/144/DESCRIPTION_WEB?DIRECTSEARCH',
@@ -23,7 +24,7 @@ const accessLinks = {
  * *                 * *
  * * * * * * * * * * * */
 $(document).ready(function() {
-
+    timerCountdown();
     client_name = getCookie('M2L_PATRON_NAME');
     client_name = unescapeString(client_name);
     client_id = getCookie('M2L_PATRON_ID');
@@ -44,10 +45,12 @@ $(document).ready(function() {
     // When Clicked ajax sends href to minisis to add selected record to list.
     // Once success, reload the page. Report Checks whether record is in the list or not
     $('.bookmarkbutton').on('click', function() {
+        console.log($(this).attr('url'))
         $.ajax({
             type: "GET",
-            url: $(this).attr('href'),
+            url: $(this).attr('url'),
             success: function() {
+                console.log(this.url)
                 location.reload();
             }
         });
@@ -82,7 +85,15 @@ $(document).ready(function() {
                     filter_dropdown_id += x.toString(); // create different filter id in order to append next ul
                     newline = "<br/>";
                 }
-                $('.filter-class').append($(newline + "<h4 class='filter-title' style='font-size:18px; text-align:center;'><b>" + filter_title + "</b></h4><ul id=" + filter_dropdown_id + " list-group' class='general-desc filter-ul'></ul>"));
+                var filter_ul_responsive = xml_doc.getElementsByTagName("filter")[x].getAttribute("title");
+
+                if (filter_ul_responsive == "Database" || filter_ul_responsive == "Digital Media Present" || filter_ul_responsive == "Holdings") {
+                    filter_ul_responsive = "filter_ul_responsive";
+                } else {
+                    filter_ul_responsive = "";
+                }
+
+                $('.filter-class').append($(newline + "<h4 class='filter-title' style='font-size:18px; text-align:center;'><b>" + filter_title + "</b></h4><ul id=" + filter_dropdown_id + " list-group' class='general-desc filter-ul " + filter_ul_responsive + "'></ul>"));
                 //  $('.filter_list_container').append($( newline + "<div class='filter_list_container_inner'><ul id='filter_ul_main'><li id='filter_li_main'><div id='filter_title'><a href='#' name='filter_title'>" + filter_title + " <i class='fa fa-caret-down'/></a></div><ul id=" + filter_dropdown_id + " style='padding-left:0;'></ul></li></ul></div>"));
 
                 for (i = 0; i < item_group_count; i++) {
@@ -100,18 +111,18 @@ $(document).ready(function() {
                         item_value = "Yes";
                     }
                     if (item_value == 'DESCRIPTION_WEB') {
-                        item_value = "Description";
+                        item_value = "Archives";
                     }
                     if (item_value == 'COLLECTIONS_WEB') {
-                        item_value = "Collections";
+                        item_value = "Art";
                     }
                     if (item_value == 'BIBLIO_WEB') {
-                        item_value = "Biblio";
+                        item_value = "Library";
                     }
                     //console.log("Item Value: " + item_value + "\n" + "Item Freq: " + item_frequency + "\n");
 
 
-                    $('#' + filter_dropdown_id).append($("<li class='list-group-item filter-li'><a class='secondary-blue' href=" + item_link + ">" + item_value + " (" + item_frequency + ") " + "</a></li>")); //change here
+                    $('#' + filter_dropdown_id).append($("<li class='list-group-item filter-li'><a class='secondary-blue filter-record-link' href=" + item_link + ">" + item_value + " (" + item_frequency + ") " + "</a></li>")); //change here
 
 
                 }
@@ -156,26 +167,40 @@ $(document).ready(function() {
     } else {
         $('#User-Id-Input').append(getCookie("M2L_PATRON_ID"));
     }
+    checkOrgAuthTable()
 
+    $(window).on('load', function() {
+        chooseSlider(curWidth)
+        window.addEventListener('resize', widthDidChange);
+    })
+
+})
+
+const checkOrgAuthTable = () => {
+    let page = document.getElementsByClassName('Org-Dext');
+    if (page.length > 1) return;
+    let auth1 = null;
+    let auth2 = null;
+    let auth3 = null;
     try {
-        $(function() {
-            $('.bxslider').bxSlider({
-                mode: 'vertical',
-                easing: 'ease',
-                slideWidth: 300,
-                adaptiveHeight: true,
-                adaptiveHeightSpeed: 60,
-                responsive: true,
-                pager: false,
-                minSlides: 5,
-                wrapperClass: 'MyWrapper'
-            });
-        });
+        auth1 = document.getElementById('authority-1')
+        auth2 = document.getElementById('authority-2')
+        auth3 = document.getElementById('authority-3')
     } catch (e) {
-        console.log('bxSlider Error: ', e)
+        // console.log(e);
+        return;
+    }
+    if (auth1 && auth1.childElementCount === 1) {
+        document.getElementById('table-container-1').style.display = 'none';
+    }
+    if (auth2 && auth2.childElementCount === 1) {
+        document.getElementById('table-container-2').style.display = 'none';
+    }
+    if (auth3 && auth3.childElementCount === 1) {
+        document.getElementById('table-container-3').style.display = 'none';
     }
 
-});
+}
 
 const loginOrRegListener = (node) => {
     node.addEventListener('click', () => alert("Please login or signup to use this feature"))
@@ -184,7 +209,55 @@ const loginOrRegListener = (node) => {
 const onClickSearchOption = (value) => {
     let option = value == 'Keyword Search' ? 'Option 1: ' : 'Option 2: ';
     let span = document.getElementById('Option-Choice');
+    span.setAttribute('aria-label', `Search type ${value}`)
     span.innerText = option + value;
+}
+
+const searchBtnDict = {
+    1: '?GET&FILE=[AO_ASSETS]html/advancedsearch.html',
+    2: 'https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html',
+    3: '?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html',
+    4: '?GET&FILE=[AO_ASSETS]html/advancedsearchOrganization.html',
+    5: '?GET&FILE=[AO_ASSETS]/html/advancedsearchArt.html',
+    6: '?GET&FILE=[AO_ASSETS]/html/advancedsearchArchives.html',
+    7: '?GET&FILE=[AO_ASSETS]/html/advancedsearchLibrary.html',
+    8: '?GET&file=[ao_assets]html~5chome.html&rid=aims-home'
+}
+
+const onClickNavigationBtn = page => {
+    let url = null;
+    if ( page === 2 ) url = searchBtnDict[page];                                                                                                    
+    else url = `${home_sessid}${searchBtnDict[page]}`
+    window.location = url;
+}
+
+const redirectToArtAdvance = () => window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]/html/advancedsearchArt.html`;
+const redirectToArchiveAdvance = () => window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]/html/advancedsearchArchives.html`;
+const redirectToLibraryAdvance = () => window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]/html/advancedsearchLibrary.html`;
+
+let timerCountdown = () => {
+    let timer = setInterval(() => {
+        timeout--;
+        if (timeout === 20) {
+            $('body').append(`<div id="timeoutModal" class="modal fade " tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Notification</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" > <p id="timeoutModalBody">Your session is going to timeout and you will be logged out in ${timeout} second(s)</p> </div> <div class="modal-footer"> <button type="button" id="sessionContinue" class="btn btn-primary">Continue</button> <button type="button" id="sessionEnd"  class="btn btn-secondary" data-dismiss="modal">Logout</button> </div> </div> </div> </div>`)
+            var myModal = new bootstrap.Modal(document.getElementById('timeoutModal'))
+            myModal.show()
+
+            $("#sessionContinue").on('click', function() {
+                clearInterval(timer)
+                location.reload();
+            })
+            $("#sessionEnd").on('click', function() {
+                window.location = '/assets/html/PubSecureLogout.html'
+            })
+        } else if (timeout < 20 && timeout >= 0) {
+            $('#timeoutModalBody').text(`Your session is going to timeout and you will be logged out in ${timeout} second(s)`)
+        }
+        if (timeout === 0) {
+            clearInterval(timer)
+            window.location = '/assets/html/PubSecureLogout.html'
+        }
+    }, 1000);
 }
 
 /* * * * * * * * * * * * *
@@ -202,14 +275,15 @@ function getCookie(cname) {
     var ca = decodedCookie.split(";");
     for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
-        while (c.charAt(0) == " ") {
-            c = c.substring(1);
+        while (c.charAt(0) === " ") {
+            c = c.substring(1, c.length);
         }
-        if (c.indexOf(name) == 0) {
+        if (c.indexOf(name) === 0) {
             return c.substring(name.length, c.length);
         }
     }
     return "";
+
 }
 
 function setCookie(name, value, days) {
@@ -297,16 +371,19 @@ const navAccordionOnClick = (e) => {
 }
 
 function getAccountInfo() {
-    var patron_id = getCookie('M2L_PATRON_ID');
-    var patron_name = getCookie('M2L_PATRON_NAME');
 
     if (patron_name) {
-        $('#accountInfo').append(`<p>Welcome, <strong>${patron_name}</strong></p>`)
-        let logout = `` +
-
-            '<a  class="btn btn-dark btn-sm" value="Log Out" id="logout" href="/assets/html/PubSecureLogout.html"> Log Out </a>' +
+        $('#accountInfo').append(`<p> Welcome, <strong>${patron_name}</strong></p>`);
+        let logout = `
+                                ` +
+            '<a  class="btn right-panel-btn btn-dark btn-sm" aria-label="Logout" value="Log Out" id="logout" href="/assets/html/PubSecureLogout.html"> Log Out </a>' +
             '';
-        $('#accountInfo').append(logout)
+        $('#accountInfo').append(logout);
+        let myOntarioAccount = `<a class="btn right-panel-btn btn-dark btn-sm" style="margin-top:20px;width:100%" aria-label="Go to My Ontario Account" value="My Ontario Account" id="ontarioAccount" href="https://stage.signin.ontario.ca/enduser/settings"> My Ontario Account </a>`;
+        $('#accountInfo').append(myOntarioAccount);
+
+
+
     }
 }
 
@@ -332,13 +409,15 @@ function editEnquiry(sessid) {
 function submitSimpleSearch() {
     $("#Main-Form").on('submit', function(e) {
         $(".icon-container").css('display', 'block');
+        $(".icon-container")[0].setAttribute('tabindex', "0")
+        $(".icon-container")[0].focus()
         $(".simple-search-btn").attr('disabled', true);
-
     })
 }
 
 submitSimpleSearch();
 
+// Added hard-code lang paramter in the URL
 const onClickLoginBtn = () => window.location = '/assets/html/PubSecureLogin.html';
 
 const onClickRegistrationBtn = () => window.location = 'https://stage.signin.ontario.ca/signin/register';
@@ -349,11 +428,122 @@ const carouselImgOnclick = (e) => {
     // The img file name
     let sisn = e.getAttribute('sisn')
     console.log(sisn)
-    let siteAddress = 'https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/COLLECTIONS_WEB/WEB_COLL_DET'
-    window.location = `${siteAddress}?SESSIONSEARCH&EXP=SISN ${sisn}&ERRMSG=[AO_INCLUDES]error/norecordArt.htm`
+    let siteAddress = 'https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/COLLECTIONS_WEB/WEB_COLL_DET'
+    window.location = `${home_sessid}/SISN/${sisn}?KEYSEARCH&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm`
+}
+
+
+const howToSearch = (db) => {
+    switch (db) {
+        case "desc":
+            window.location = "http://www.archives.gov.on.ca/en/db/add/help/h-searching_add.aspx";
+            break;
+        case "art":
+            window.location = "http://www.archives.gov.on.ca/en/db/goac/goac_help.aspx";
+            break;
+        case "biblio":
+            window.location = "http://ao.minisisinc.com/aolib/biblionhelp.htm"
+            break;
+        default:
+            window.location = "http://www.archives.gov.on.ca/en/db/add/help/h-searching_add.aspx";
+
+    }
+}
+
+const detectWidth = () => window.innerWidth
+const widthDidChange = () => {
+    let newWidth = detectWidth();
+    if (curWidth >= 768 && newWidth >= 768) return;
+    else if (curWidth >= 425 && curWidth < 768 && newWidth >= 425 && newWidth < 768) return;
+    else if (curWidth < 425 && newWidth < 425) return;
+    else {
+        curWidth = newWidth;
+        chooseSlider(curWidth);
+    }
 
 }
 
-const redirectToArtAdvance = () => window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]html/advancedsearchArt.html`;
-const redirectToArchiveAdvance = () => window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]html/advancedsearchArchives.html`;
-const redirectToLibraryAdvance = () => window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]html/advancedsearchLibrary.html`;
+const chooseSlider = (width) => {
+    if (document.getElementById('art-content-container' == null)) return;
+
+    if (width >= 768) {
+        try {
+            // slider.destroySlider();
+            $(function() {
+                $('.bxslider').bxSlider({
+                    mode: 'vertical',
+                    easing: 'ease',
+                    slideWidth: 300,
+                    adaptiveHeight: true,
+                    adaptiveHeightSpeed: 60,
+                    responsive: true,
+                    pager: false,
+                    minSlides: 5,
+                    wrapperClass: 'slideWrapper',
+                    infiniteLoop: false
+                });
+            });
+        } catch (e) {
+            console.log('bxSlider Error: ', e)
+        }
+    } else if (width >= 425) {
+        try {
+            // slider.destroySlider();
+            $(function() {
+                $('.bxslider-tab').bxSlider({
+                    mode: 'horizontal',
+                    easing: 'ease',
+                    slideWidth: 210,
+                    shrinkItems: true,
+                    adaptiveHeight: true,
+                    adaptiveHeightSpeed: 60,
+                    ariaLive: true,
+                    ariaHidden: true,
+                    responsive: true,
+                    pager: true,
+                    minSlides: 5,
+                    infiniteLoop: false
+                    // wrapperClass: 'tabWrapper'
+                });
+            });
+        } catch (e) {
+            console.log('bxSlider Error: ', e)
+        }
+    } else {
+        try {
+            // slider.destroySlider();
+            $(function() {
+                $('.bxslider-mobile').bxSlider({
+                    mode: 'horizontal',
+                    easing: 'ease',
+                    slideWidth: 280,
+                    adaptiveHeight: true,
+                    adaptiveHeightSpeed: 60,
+                    responsive: true,
+                    pager: true,
+                    minSlides: 1,
+                    infiniteLoop: false
+                    // wrapperClass: 'mobWrapper'
+                });
+            });
+        } catch (e) {
+            console.log('bxSlider Error: ', e)
+        }
+    }
+}
+
+const getDocumentCookie = name => {
+    let regex = `/.\$${name}=[^;]+/gm`;
+    console.log(regex)
+    document.cookie.match(regex).at(2);
+}
+
+const checkCookieExists = name => {
+    let regex = `/.\$${name}=[^;]+/gm`;
+    // console.log(regex)
+    let cookie = document.cookie.match(regex)
+    if (cookie) return 1 // true
+    else return 0 // false
+}
+
+

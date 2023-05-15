@@ -9,15 +9,17 @@
     <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
 
     <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
-        <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner (003).jpg" alt="Archives of Ontario banner"></div>
+        <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner.jpg" alt="A banner of AIMS  the Archives and Information Management System"></div>
         <br>
         <h2 class="Rale-Extra main-title-h2">Welcome to the Library Holdings!</h2>
-        <div class='Form-Wrapper'>
-            <p class='page-description Rale-Bold'>
+        <div id="maincontent">
+        </div>
+        <div id='biblio-home-page' class='Form-Wrapper'>
+            <p class='page-description subheader Rale-Bold'>
                 Search for more than 35,000 titles held by the Archives of Ontario Library, including:
             </p>
 
-            <div class="page-description-list Rale-Bold">
+            <div class="page-description-list subheader Rale-Bold">
                 <ul>
                     <li>Books</li>
                     <li>Pamphlets</li>
@@ -30,89 +32,75 @@
                     <li>Electronic resources</li>
                 </ul>
             </div>
-            <div class="page-links Rale-Bold">
-                <a href='http://www.archives.gov.on.ca/en/about/library.aspx' title="Got to J.J. Talman Library">
+            <div class="page-links subheader Rale-Bold">
+                <a href='http://www.archives.gov.on.ca/en/about/library.aspx' aria-label="Click to see the J.J. Talman Library" title="Got to J.J. Talman Library">
                                 More about the library
                         </a>
-                <a href="http://www.archives.gov.on.ca/en/historical_documents_project/historical_document_project.aspx" title="Go to Digitized Government Publications">
+                <a href="http://www.archives.gov.on.ca/en/historical_documents_project/historical_document_project.aspx" aria-label="Click to see Digitized Government Publications" title="Go to Digitized Government Publications">
                             Digitized Government Publications
                         </a>
             </div>
 
-            <form id='Main-Form' class="minimum-font-size" method="post" name="simple_search" action="^SEARCH^&DATABASE=BIBLIO_WEB&ERRMSG=[AO_INCLUDES]error/norecordLibrary.htm">
+            <!-- <form id='Main-Form' class="minimum-font-size" method="post" name="simple_search" action="^HOME_SESSID^?UNIONSEARCH&DATABASE=BIBLIO_WEB&REPORT=WEB_BIBLIO_SUM&KEEP=Y&ERRMSG=[AO_INCLUDES]error/norecordLibrary.htm"> -->
+            <form id='Main-Form' class="minimum-font-size" method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=BIBLIO_WEB&ERRMSG=[AO_INCLUDES]error/norecordLibrary.htm">
+
                 <div class='main-form-left'>
                     <div class='main-login-mobile Rale-Bold'>
-                        <button type='button' id='pub-sec-login-btn' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>
+                        <button type='button' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>
                                         Client Portal Login
                                 </button>
                         <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                        <button type='button' id='main-form-info' class='main-form-btn Rale-Bold' onclick='' title='To to further information on how to search AIMS'>
+                        <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS'>
                                         How to search our database
                                 </button>
                     </div>
-                    <!-- https://search.lma.gov.uk/scripts/mwimain.dll/382872043?UNIONSEARCH&APPLICATION=UNION_VIEW&LANGUAGE=144&simple_exp=y&HISTORY=LMA_DESCRIPTION&ERRMSG=[WWW_LMA]err.htm&REPORT=WEB_SUMMARY -->
-                    <span class='Rale-Reg'>Search all Library Titles/items only</span>
+                    <h3 class='search-area-h3 Rale-Reg'>Search all Library Titles/items only</h3>
                     <br>
-                    <span id='Option-Choice' class='Rale-Bold'>Option 1: Keyword Search</span>
+                    <div class="icon-container general-focus focus-red" aria-label="Searching for records">
+                        <i class="loader"></i> Searching records ...
+                    </div>
+                    <span id='Option-Choice' class='Rale-Bold' aria-label='Search type All Keywords Search'>Option 1: Keyword Search</span>
                     <span id='Number-Results'></span>
                     <div class='Input-Wrapper d-flex flex-column'>
-                        <label class='Rale-Bold' for="simple_search_input">Enter a search term or terms:</label>
+                        <label id="simple_search_input_label" class='Rale-Bold' for="simple_search_input">Enter a search term or terms:</label>
                         <div id='simple-search-container'>
-                            <input id="simple_search_input" type='text' alt='Enter a search term or terms' name="KEYWORD_CLUSTER" />
+                            <input id="simple_search_input" type='text' aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus/>
                             <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='SEARCH' />
                         </div>
-                        <div class="icon-container">
-                            <i class="loader"></i> Searching Records ...
-                        </div>
+
                     </div>
                     <div class='Radio-Wrapper'>
                         <fieldset>
                             <legend class='visually-hidden'>Search Type</legend>
                             <span>
-                                        <input type='radio' id='All-Keywords' class='search-input' title='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
-                                        <label class='search-label Rale-Med' for='All-Keywords'>All of these keywords</label>
-                                    </span>
+                                <input type='radio' id='All-Keywords' class='search-input' aria-label='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
+                                <label class='search-label Rale-Med' for='All-Keywords'>All of these keywords</label>
+                            </span>
                             <span>
-                                        <input type='radio' id='Any-Keywords' class='search-input' title='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
-                                        <label class='search-label Rale-Med' for='Any-Keywords'>Any of these keyword</label>
-                                    </span>
+                                <input type='radio' id='Any-Keywords' class='search-input' aria-label='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
+                                <label class='search-label Rale-Med' for='Any-Keywords'>Any of these Keywords</label>
+                            </span>
                             <span>
-                                        <input type='radio' id='Exact-Phrase' class='search-input' title='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
-                                        <label class='search-label Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
-                                    </span>
+                                <input type='radio' id='Exact-Phrase' class='search-input' aria-label='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
+                                <label class='search-label Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
+                            </span>
                         </fieldset>
                     </div>
-                    <div class='Radio-Wrapper-Mobile'>
-                        <fieldset>
-                            <legend class='visually-hidden'>Search Type</legend>
-                            <div class='Search-Type-Item-Mobile'>
-                                <input type='radio' id='All-Keywords-Mobile' class='search-input-mobile' title='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
-                                <label class='search-label-mobile Rale-Med' for='All-Keywords-Mobile'>All keywords</label>
-                            </div>
-                            <div class='Search-Type-Item-Mobile'>
-                                <input type='radio' id='Any-Keywords-Mobile' class='search-input-mobile' title='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")' />
-                                <label class='search-label-mobile Rale-Med' for='Any-Keywords-Mobile'>Any keyword</label>
-                            </div>
-                            <div class='Search-Type-Item-Mobile'>
-                                <input type='radio' id='Exact-Phrase-Mobile' class='search-input-mobile' title='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")' />
-                                <label class='search-label-mobile Rale-Med' for='Exact-Phrase-Mobile'>Exact Phrase</label>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class='Search-Options-Wrapper'>
-                        <!-- <a class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArt.html'>ADVANCED SEARCH</a> -->
-                        <button class='Search-Btn Rale-Bold' alt='Advanced Search' title='Advanced Search'><a id='Advanced-Search' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchLibrary.html' title='Go to advanced search options'>ADVANCED SEARCH</a></button>
-                        <!-- <a class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a> -->
-                        <button class='Search-Btn Rale-Bold' alt='More Search Options' title='More Search Options'><a id='More-Search' href='^SESSID^?GET&FILE=[AO_ASSETS]html/moreSearchOptions.html'>MORE SEARCH OPTIONS</a></button>
+                    <div class='Search-Options-Container'>
+                        <div class='search-options-top'>
+                            <button id='Advanced-Search' type='button' class='Search-Btn Rale-Bold' alt='Advanced Search' title='Go to advanced search options' aria-label='Go to advanced search options' onclick="onClickNavigationBtn(7)">
+                                ADVANCED SEARCH
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class='main-form-right Rale-Bold'>
-                    <button type='button' id='pub-sec-login-btn' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
+                    <button type='button' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
                     <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                    <button type='button' id='main-form-info' class='main-form-btn Rale-Bold' onclick='' title='To to further information on how to search AIMS'>How to search our database</button>
+                    <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS' onclick="howToSearch('biblio')">How to search our database</button>
                 </div>
             </form>
-        </div>
+        </div>  
     </div>
 
     <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->

@@ -1,13 +1,32 @@
-
+.no-margin{
+  margin:0;
+}
 .audio-caption-label,
 .video-caption-label {
   margin-right: 5px;
 }
 
-.Detail-Container {
-  padding: 1em;
-  background-color: #FFF;
+.authority-h3 {
+  font-size: 24px;
+  padding: 0 0.5rem;
+}
 
+.authority-h4 {
+  font-size: 24px !important;
+  padding: 0 0.5rem;
+}
+
+.bar-td-details {
+  word-wrap: wrap;
+}
+
+.Detail-Container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: #FFF;
   border: 1px solid #000;
   border-radius: 4px;
   box-shadow: 5px 5px 10px #888888;
@@ -19,6 +38,7 @@
   width: 100%;
   margin-top: 30px;
   padding: 0.1rem;
+  font-size: 20px;
 }
 
 .detail-buttons {
@@ -61,11 +81,22 @@
 }
 
 #detail-top-content {
+  width: 100%;
   display: flex;
   margin-bottom: 10px;
 }
 
+#digital-links {
+  max-height: 250px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 
+#digital-links > * {
+  flex: 1 1 2
+  px;
+}
 
 .left-column {
   display: flex;
@@ -97,6 +128,11 @@
 .right-column > #web_det_form-det-btn,
 .right-column > #request_form-det-btn {
   justify-content: flex-end;
+}
+#skip-carousel {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .function-buttons {
@@ -155,11 +191,11 @@
 
 table {
   table-layout: fixed;
-
   border-collapse: collapse;
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
+  font-size: 24px;
 }
 
 #web_det_form{  
@@ -181,6 +217,14 @@ table {
 }
 
 
+.bookmarkbutton{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.fas.fa-bookmark{
+  padding: 0 0.25rem;
+}
 
 button.bookmarkbutton a{
   color:white;
@@ -438,6 +482,7 @@ button.bookmarkbutton a:hover{
 .docu-slick {
   text-align: center;
 }
+
 /* CROWDSOURCE CSS END */
 
 
@@ -469,8 +514,8 @@ button.bookmarkbutton a:hover{
 
 /* Detail Carousel BEGIN */
 #mainCarousel {
-  width: 600px;
-  margin: 0 auto 1rem auto;
+  max-width: 600px;
+  /* margin: 0 auto 1rem auto; */
 
   --carousel-button-color: #170724;
   --carousel-button-bg: #fff;
@@ -483,18 +528,10 @@ button.bookmarkbutton a:hover{
 }
 
 #mainCarousel .carousel__slide {
+  width: 100% !important;
   display: flex; 
   justify-content: center;
-  width: 100%;
   padding: 0;
-}
-
-#mainCarousel .carousel__button.is-prev {
-  left: 2rem;
-}
-
-#mainCarousel .carousel__button.is-next {
-  right: 2rem;
 }
 
 #mainCarousel .carousel__button:focus {
@@ -527,5 +564,170 @@ button.bookmarkbutton a:hover{
 @media only screen and (max-width: 1006px) {
   .detail-label {
     width: 40%;
+    overflow-wrap: break-word;
   }
+}
+
+
+/* Authority Table - WEB_DESC_DET */
+.authority-container{
+  padding: 0.5rem 0 !important;
+}
+
+.authority-date-td{
+  font-size:20px;
+  white-space: nowrap; 
+}
+
+.authority-officeA-td{
+  font-size:20px;
+  width:50%;
+  text-align:left;
+  padding:0 0.5em;
+}
+
+.authority-arrow-td{
+  white-space: nowrap;
+  padding: 0 0.5em;
+}
+
+.authority-officeC-td{
+  font-size:20px;
+  width:35%;
+  text-align:left;
+  padding-left:0.5em;
+}
+.authority-table-row{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0.2em 0;
+}
+@media only screen and (min-width: 1007px) and (max-width: 1440px) {
+  .authority-officeA-td,
+  .authority-date-td,
+  .authority-officeC-td{
+    font-size:18px;
+  }
+}
+
+@media only screen and (max-width: 1006px) {
+  /* .authority-arrow-td{
+    display:none;
+  } */
+  .authority-officeA-td,
+  .authority-date-td,
+  .authority-officeC-td{
+    font-size:16px;
+    text-align: center;
+    overflow-wrap: break-word;
+  }
+  .authority-table-row{
+    padding:0 0.25em;
+  }
+
+  #digital-links {
+    max-height: 400px;
+  }
+
+}
+
+@media only screen and (max-width: 841px) {
+  #detail-img {
+    border-bottom: none;
+    border-right: 1px solid #000;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 0px;
+  }
+
+  #detail-buttons-wrapper {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  #detail-top-content {
+    flex-direction: column;
+  }
+
+  #digital-links {
+    height: auto;
+    max-height: none;
+    flex-wrap: nowrap
+  }
+
+  #digital-links > *{
+    margin-bottom: 10px;
+  }
+}
+
+
+
+@media only screen and (max-width: 690px) {
+
+  .authority-table-row{
+    overflow-x: scroll;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  #lightgallery,
+  #mainCarousel,
+  .carousel_viewport,
+  .carousel__track,
+  .carousel__slide,
+  .is-selected {
+    width: 100% !important
+  }
+}
+
+.CP-Detail{
+  margin: 1em 0;
+}
+.early-late-title{
+  margin: 0;
+}
+.breadcrumb{
+  margin:0.5rem 0;
+}
+#marc-table{
+  overflow-wrap:break-word;
+}
+.People-Det, 
+.Org-Det,
+.People-Sum,
+.Org-Sum,
+.Heirs-Sum,
+.Heirs-Det,
+.Hawke-Sum,
+.Hawke-Det{
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  height:100%;
+}
+
+.heirs-det-title,
+.hawke-det-title{
+  text-align: -webkit-center;
+  margin-bottom:-0.5em;
+}
+.heirs-sum-title,
+.hawke-sum-title{
+  text-align: -webkit-center;
+  margin-bottom:0;
+}
+
+.heirs-search-result,
+.hawke-search-result{
+  display:flex;
+  justify-content: center;
+  padding:15px 0 0 0 !important;
+}
+
+#perma-btn {
+  width: 100%;
+  max-width: 300px;
 }

@@ -1,0 +1,111 @@
+<!-- include virtual="[ao_opac]/145/includes/head.htm"-->
+
+<!-- include virtual="[ao_opac]/145/includes/header.htm"-->
+<title>Library</title>
+
+
+<div id='Content-Wrapper' class='Content-Wrapper'>
+
+    <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm"-->
+
+    <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+        <div id='banner'><img id='banner-img' src="/145/assets/img/AIMS_portal_FR_banner.jpg" alt="Une banni&egrave;re d'AIMS le syst&egrave;me de gestion des archives et de l'information"></div>
+        <br>
+        <h2 class="Rale-Extra main-title-h2">Bienvenue au catalogue en ligne de la biblioth&egrave;que des Archives publiques de l'Ontario
+        </h2>
+        <div id="maincontent">
+            <div id='biblio-home-page' class='Form-Wrapper'>
+                <p class='page-description subheader Rale-Bold'>
+                    Effectuez une recherche parmi plus de 35000 publications de la collection de la biblioth&egrave;que des Archives publiques de l'Ontario, y compris:
+                </p>
+    
+                <div class="page-description-list subheader Rale-Bold">
+                    <ul>
+                        <li>Livres</li>
+                        <li>Pamphlets</li>
+                        <li>P&eacute;riodiques</li>
+                        <li>Publications du gouvernement de lOntario et rapports imp&eacute;rieux</li>
+                    </ul>
+                    <ul>
+                        <li>Annuaires, manuels scolaires, almanachs et listes d'&eacute;lecteurs</li>
+                        <li>Microfiches et microfilms</li>
+                        <li>Ressources &eacute;lectroniques</li>
+                    </ul>
+                </div>
+                <div class="page-links subheader Rale-Bold">
+                    <a href='http://www.archives.gov.on.ca/fr/about/library.aspx' aria-label="Cliquez pour voir le J.J. Biblioth&egrave;que de Talman" title="Got to J.J. Talman Library">
+                        Pour en savoir plus sur la biblioth&egrave;que
+                            </a>
+                    <a href="http://www.archives.gov.on.ca/fr/historical_documents_project/historical_document_project.aspx" aria-label="Cliquez pour voir les publications gouvernementales num&eacute;ris&eacute;es" title="Go to Digitized Government Publications">
+                                Publications gouvernementales num&eacute;ris&eacute;es
+                            </a>
+                </div>
+    
+                <form id='Main-Form' class="minimum-font-size" method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=145&DATABASE=BIBLIO_WEB&ERRMSG=[ao_opac]/145/includes/error/norecordLibrary.htm">
+                    <div class='main-form-left'>
+                        <div class='main-login-mobile Rale-Bold'>
+                            <button type='button' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>
+                                            Connexion au portail client
+                                    </button>
+                            <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                            <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS'>
+                                            Comment chercher dans notre base de donn&egrave;es
+                                    </button>
+                        </div>
+                        <h3 class='search-area-h3 Rale-Reg'>Rechercher le titre/les &eacute;l&eacute;ments de la biblioth&egrave;que uniquement</h3>
+                        <br>
+                        <div class="icon-container general-focus focus-red" aria-label="recherche d'enregistrements">
+                            <i class="loader"></i> Recherche d'enregistrements ...
+                        </div>
+                        <span id='Option-Choice' class='Rale-Bold' aria-label='Type de recherche Tous ces mots-cl&eacute;s'>Option 1 : Recherche par mot-cl&eacute;</span>
+                        <span id='Number-Results'></span>
+                        <div class='Input-Wrapper d-flex flex-column'>
+                            <label class='Rale-Bold' aria-label="simple_search_input_label" for="simple_search_input">Saisissez un ou plusieurs termes de recherche :</label>
+                            <div id='simple-search-container'>
+                                <input id="simple_search_input" type='text' aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus/>
+                                <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='Recherche' />
+                            </div>
+    
+                        </div>
+                        <div class='Radio-Wrapper'>
+                            <fieldset>
+                                <legend class='visually-hidden'>Search Type</legend>
+                                <span>
+                                            <input type='radio' id='All-Keywords' class='search-input' aria-label='Tous ces mots-cl&eacute;s' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("Recherche par mot-cl&eacute;")' checked />
+                                            <label class='search-label Rale-Med' for='All-Keywords'>Tous ces mots-cl&eacute;s</label>
+                                        </span>
+                                <span>
+                                            <input type='radio' id='Any-Keywords' class='search-input' aria-label="N'importe lequel de ces mots-cl&eacute;s" value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("N&#39;importe lequel de ces mots-cl&eacute;s")'/>
+                                            <label class='search-label Rale-Med' for='Any-Keywords'>N'importe lequel de ces mots-cl&eacute;s</label>
+                                        </span>
+                                <span>
+                                            <input type='radio' id='Exact-Phrase' class='search-input' aria-label='Termes exacts' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Termes exacts")'/>
+                                            <label class='search-label Rale-Med' for='Exact-Phrase'>Termes exacts</label>
+                                        </span>
+                            </fieldset>
+                        </div>
+                        <div class='Search-Options-Container'>
+                            <!-- <a class='Rale-Med' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/advancedsearch.html'>RECHERCHE AVANC&Eacute;E</a> -->
+                            <div class='search-options-top'>
+                                <button type='button' class='Search-Btn search-btn-fr Rale-Bold general-focus' alt='Advanced Search' title='Aller &agrave; la RECHERCHE AVANC&Eacute;E' aria-label='Aller &agrave; la RECHERCHE AVANC&Eacute;E' onclick="onClickNavigationBtn(7)">
+                                    RECHERCHE AVANC&Egrave;E
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='main-form-right Rale-Bold'>
+                        <button type='button' class='main-form-btn Rale-Bold pub-sec-login-btn general-focus' onclick='onClickLoginBtn()' title='Go to client login portal'>Connexion au portail client</button>
+                        <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                        <button type='button' class='main-form-btn Rale-Bold main-form-info general-focus' title='For further information on how to search AIMS' onclick="howToSearch('biblio')">Comment chercher dans notre base de donn&eacute;es</button>
+                    </div>
+                </form>
+            </div>                
+        </div>
+    </div>
+
+    <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
+</div>
+</div>
+
+
+<!-- include virtual="[ao_opac]/145/includes/footer.htm"-->

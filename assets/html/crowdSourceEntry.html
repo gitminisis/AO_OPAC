@@ -30,8 +30,8 @@
             
                     <div class='Crowd-Body-Item d-flex flex-row'>
                         <div class='crowd-temp-start'></div>
-                        <label class='Label User-Id-Label' for='userId'><b>Item Source:</b></label>
-                        <input id="userId" class='Comments-Input' name='COMMENTS_SOURCE' id='User-Item-Source' type='text' name='userId' readonly>
+                        <label class='Label User-Id-Label' for='itemSrc'><b>Item Source:</b></label>
+                        <input id="itemSrc" class='Comments-Input' name='COMMENTS_SOURCE' id='User-Item-Source' type='text' name='itemSrc' readonly>
                         <div class='crowd-temp-end'></div>
                     </div>
             
@@ -71,12 +71,12 @@
                     <div class='Crowd-Body-Item d-flex flex-row'>
                         <div class='Modal-Body-Item'>
                             <label for='Crowd-Source-Comment' hidden aria-hidden="true">Comment:</label>
-                            <textarea id='Crowd-Source-Comment' name='COMMENTS' rows='4' cols='60' placeholder='Enter Comment Here' title='Enter Comment Here' onblur='validateComment()'></textarea>
+                            <textarea id='Crowd-Source-Comment' name='COMMENTS' rows='4' cols='60' placeholder='Enter Comment Here' title='Enter Comment Here' onblur='validateComment()' autofocus></textarea>
                         </div>
                     </div>
                     <div class="row">
                         <div id="cs-btn-row" class="col-12">
-                        <button id="cs-submit-btn" class="col-md-3 btn btn-primary" title='Submit' disabled>
+                        <button id="cs-submit-btn" class="btn btn-primary general-focus" title='Submit' disabled>
                             Submit
                         </button>
                     </div>
@@ -90,10 +90,10 @@
             <script>
 
 
-                var input_tag   = document.getElementById("Item-Id-Input");
+                var input_tag   = document.getElementById("itemId");
                 input_tag.value = parent.$tmp_data;
 
-                var input_tag2   = document.getElementById("User-Item-Source");
+                var input_tag2   = document.getElementById("itemSrc");
                 input_tag2.value = parent.$tmp_data2;
 
                 if ( parent.$tmp_data3 != '' ) {

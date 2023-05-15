@@ -40,7 +40,6 @@ const MARC_TITLE = {
     785: "Succeeding Titles",
     800: "Series Records",
     810: "Series Records",
-    "852_B": "Holdings",
   };
   
   /**

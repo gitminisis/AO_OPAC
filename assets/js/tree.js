@@ -9,8 +9,11 @@ const CURRENT_RECORD_STYLE = {
 const RECORD_STYLE = { class: "record" };
 const NEXT_TITLE = "Click To View Next Page ...";
 const PREV_TITLE = "Click To View Previous Page ...";
-let REFD = document.getElementById('hiddenREFD').innerText;
-
+let REFD = '';
+if ( document.getElementById('hiddenREFD') != null ) {
+  REFD = document.getElementById('hiddenREFD').innerText;
+}
+let isLoaded = false;
 let showTree = false;
 
 
@@ -73,9 +76,9 @@ function Node(refd, tree) {
 
         this.link =
             SESSION_ID +
-            "/DESCRIPTION/REFD/" +
+            "/DESCRIPTION_WEB/REFD/" +
             this.tree.encodeRefd(this.refd) +
-            "/$/WEB_DESCR_DETAIL_REPORT?JUMP";
+            "/$/WEB_DESC_DET?JUMP";
 
         $("#modifed-parent").text(links.record_title);
     };
@@ -246,10 +249,11 @@ function Tree() {
     };
 
     this.getTree = function(refd, tree, url) {
+        // console.log(url)
         if (!url) {
             url = tree.getURL(refd);
         } else {
-            url = url.substring(0, url.length - 1);
+            // url = url.substring(0, url.length - 1);
         }
 
         return $.ajax(url).then(function(response) {
@@ -341,6 +345,7 @@ function Tree() {
                     window.location = node.link;
                 } else {
                     let url = node.link;
+
                     tree.getTree(node.parent, tree, url).then(function(res) {});
                 }
             })
@@ -413,9 +418,9 @@ function Tree() {
     this.getURL = function(refd) {
         return (
             SESSION_ID +
-            "/DESCRIPTION/REFD/" +
+            "/DESCRIPTION_WEB/REFD/" +
             this.encodeRefd(refd) +
-            "/EXTRACT_TREE_PAGE?JUMP&DATABASE=DESCRIPTION&SHARE_SESSID=AO_SHARE_SESSID&SHOWSINGLE=Y&M_GVAR1=START_ENTRY:0&M_GVAR2=TREE_FORMAT:XML"
+            "/EXTRACT_TREE_PAGE?JUMP&DATABASE=DESCRIPTION_WEB&SHARE_SESSID=AO_SHARE_SESSID&SHOWSINGLE=Y&M_GVAR1=START_ENTRY:0&M_GVAR2=TREE_FORMAT:XML"
         );
     };
 }
@@ -456,21 +461,21 @@ function main() {
     let tree = new Tree();
     REFD = REFD.replace(/&amp;/g, "&");
     tree.getCurrentRecord(REFD);
-    tree.initTree(REFD, tree).then(function(res) {
+    return tree.initTree(REFD, tree).then(function(res) {
         let data = tree.getNodeArray();
         tree.renderTree(data, REFD);
-        enableTreeDisplay();
-        // let records = document.querySelectorAll(".record");
+        let treeView = document.getElementsByClassName('jstree-1')[0];
+
+        treeView.scrollIntoView({ behavior: 'smooth' });
     });
 
 }
 
 $(document).ready(function() {
     if (document.getElementById("treeTest")) {
-        // console.log(REFD);
-        // console.log("test");
-        disableTreeDisplay(); 
-        main();
+        // disableTreeDisplay();
+        enableTreeDisplay();
+
     }
 });
 
@@ -483,21 +488,28 @@ const enableTreeDisplay = () => {
 }
 
 const disableTreeDisplay = () => {
-    let treeBtn = document.getElementsByClassName('tree-btn')[0];
-    treeBtn.style.background  = 'grey';
-    treeBtn.style.borderColor = 'grey';
+    let treeBtn;
+    try {
+        treeBtn = document.getElementsByClassName('tree-btn')[0];
+        treeBtn.style.background = 'grey';
+        treeBtn.style.borderColor = 'grey';
+    } catch (e) { console.log(e) }
 }
 
 const focusTree = () => {
-    let tree = document.getElementsByClassName('jstree-1')[0];
 
-    if (!showTree)
-    {   
-        tree.scrollIntoView({behavior: 'smooth'});
-        showTree = true;
+
+    if (isLoaded) {
+        let tree = document.getElementsByClassName('jstree-1')[0];
+
+        if (!showTree) {
+            tree.scrollIntoView({ behavior: 'smooth' });
+            showTree = true;
+
+        } else showTree = false;
+    } else {
+        main();
+        isLoaded = true;
     }
-    else showTree = false;
-    
-      
-}
 
+}

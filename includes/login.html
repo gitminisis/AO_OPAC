@@ -19,7 +19,8 @@
                                         <div class="form-card">
                                             <h2 class="fs-title Rale-Bold">Your Account</h2>
 
-                                            <input class="Rale-Reg" type="text" id="username" name="C_CLIENT_NUMBER" autocomplete="off" placeholder="Account Number" title="Account Number"  onblur="generateDynamicPassword();" />
+                                            <!-- <input class="Rale-Reg" type="text" id="username" name="C_CLIENT_NUMBER" autocomplete="off" placeholder="Account Number" title="Account Number"  onblur="generateDynamicPassword();" /> -->
+                                            <input class="Rale-Reg" type="text" id="username" name="C_CLIENT_NUMBER" autocomplete="off" placeholder="Account Number" title="Account Number" />
 
                                             <input class="Rale-Reg" type="password" id="password" name="PATRON_PID" placeholder="Password" title="Password" />
                                         </div>
@@ -43,15 +44,18 @@
     <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
 </div>
 
-<script src="/assets/js/dynpkey.js"></script>
+<!-- <script src="/assets/js/dynpkey.js"></script> -->
 <script>
   function generateDynamicPassword() {
     // get user name
     var username = $("#username").val();
     if ( typeof username != 'undefined' && username != '' && username.indexOf('@') > 0 ) {
-      var password = dynamicPassword( username );
-      // alert ( password );
-      $("#password").val(password);
+	  var password_value = $("#password").val();
+	  if ( typeof password_value == 'undefined' || password_value == '' ) { 
+        var password = dynamicPassword( username );
+        // alert ( password );
+        $("#password").val(password);   
+      }
     }
     return true;
   }

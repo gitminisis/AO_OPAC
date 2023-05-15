@@ -13,184 +13,201 @@
                 <p class='Form-Subheader Rale-Reg'>
                     Refine your search using one or many of the specific search fields below.
                 </p>
-                <div class='Form-Wrapper'>
+                <div id="maincontent">
+                    <div class='Form-Wrapper'>
+                       
+                        <form id='Main-Form' class="Advanced-Form" method="post" name="adv_search" action="^SEARCH^&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm">
+                            
+                            
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B01" id="B01" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                        
+                                <input type="text" class="form-control" name="ACCESSION_NUMBER" aria-label="Search by Accession Number" placeholder="Accession Number" title="Accession Number" autofocus>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="AN_CL" aria-label="Browse Accession Numbers"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B02" id="B02" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="LEGAL_TITLE" aria-label="Search by Title" placeholder="Title" title="Title">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="LEGAL_TITLE_CL" aria-label="Browse Legal Titles"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B03" id="B03" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="OBJ_DESCRIPTION" aria-label="Search by Object description" placeholder="Object Description" title="Object Description">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="OBJ_DESC_CL" aria-label="Browse Object Descriptions"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B04" id="B04" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>   
+                                </div>
+                                
+                                <input type="text" class="form-control" name="OBJECT_TYPE" aria-label="Search by Category or Type" placeholder="Category/Type" title="Category/Type">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="OBJ_TYPE_CL" aria-label="Browse Catergories and Types"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B05" id="B05" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="SUB_KEYWORD" aria-label="Search by Subject" placeholder="Subject" title="Subject">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="SUB_CL" aria-label="Browse Subjects"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+    
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B06" id="B06" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="EARLY" aria-label="Search by Date" placeholder="Date" title="Date">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="EARLY_CL" aria-label="Browse Dates"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B07" id="B07" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="MAKER_FULLNAME" aria-label="Search by Maker Person" placeholder="Artist" title="Maker Person">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="MAKER_CL" aria-label="Browse Makers"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B08" id="B08" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="MAKER_ORG" aria-label="Search by Maker Organization" placeholder="Maker (Organisation)" title="Maker Organization">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="MAKER_ORG_CL" aria-label="Browse Maker Organizations"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B09" id="B09" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="MEDIUM" aria-label="Search by Medium" placeholder="Medium" title="Medium">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="MEDIUM_CL" aria-label="Browse Mediums"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B10" id="B10" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="MATERIAL_COO" aria-label="Search by Material" placeholder="Material" title="Material">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="MATERIAL_CL" aria-label="Browse Materials"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B11" id="B11" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="OBJECT_STATUS" aria-label="Search by Status" placeholder="Status" title="Status">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="OBJ_STATUS_CL" aria-label="Browse Status"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
                    
-                    <form id='Main-Form' class="Advanced-Form" method="post" name="adv_search" action="^SEARCH^&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm">
-                        
-                        
-                        <div class="input-group mb-3 Rale-Reg">
-                            <div class="input-group-prepend adv-operator-container">
-                                <select name="B01" id="B01" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
-                                    <option value="and" selected="">And</option>
-                                    <option value="or">Or</option>
-                                    <option value="and not">Not</option>
-                                </select>
-                            </div>
+                            <!-- <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B11" id="B11" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="BUILDING" aria-label="Search by " placeholder="Location" title="Location">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="BUILDING_CL" aria-label="Select operator" aria-label="Browse Locations"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div> -->
                             
-                            <input type="text" class="form-control" name="ACCESSION_NUMBER" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Accession Number" title="Accession Number">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="AN_CL"><i class="fas fa-bars"></i></button>
+                            <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
+                                <button class="btn btn-outline-primary general-focus" type="submit" title="Submit" value='SEARCH'>Submit</button>
+                                <button class="btn btn-outline-primary general-focus" id="clear" type="reset" title="Clear" value='SEARCH'>Clear</button>
                             </div>
-                        </div>
-
-                        <div class="input-group mb-3 Rale-Reg">
-                            <div class="input-group-prepend adv-operator-container">
-                                <select name="B02" id="B02" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
-                                    <option value="and" selected="">And</option>
-                                    <option value="or">Or</option>
-                                    <option value="and not">Not</option>
-                                </select>
-                            </div>
-                            
-                            <input type="text" class="form-control" name="LEGAL_TITLE" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Title" title="Title">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="LEGAL_TITLE_CL"><i class="fas fa-bars"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3 Rale-Reg">
-                            <div class="input-group-prepend adv-operator-container">
-                                <select name="B03" id="B03" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
-                                    <option value="and" selected="">And</option>
-                                    <option value="or">Or</option>
-                                    <option value="and not">Not</option>
-                                </select>
-                            </div>
-                            
-                            <input type="text" class="form-control" name="OBJ_DESCRIPTION" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Object Description" title="Object Description">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="OBJ_DESC_CL"><i class="fas fa-bars"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3 Rale-Reg">
-                            <div class="input-group-prepend adv-operator-container">
-                                <select name="B04" id="B04" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
-                                    <option value="and" selected="">And</option>
-                                    <option value="or">Or</option>
-                                    <option value="and not">Not</option>
-                                </select>
-                            </div>
-                            
-                            <input type="text" class="form-control" name="OBJECT_TYPE" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Category/Type" title="Category/Type">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="OBJ_TYPE_CL"><i class="fas fa-bars"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3 Rale-Reg">
-                            <div class="input-group-prepend adv-operator-container">
-                                <select name="B05" id="B05" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
-                                    <option value="and" selected="">And</option>
-                                    <option value="or">Or</option>
-                                    <option value="and not">Not</option>
-                                </select>
-                            </div>
-                            
-                            <input type="text" class="form-control" name="SUB_KEYWORD" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Subject" title="Subject">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="SUB_CL"><i class="fas fa-bars"></i></button>
-                            </div>
-                        </div>
-
-
-                        <div class="input-group mb-3 Rale-Reg">
-                            <div class="input-group-prepend adv-operator-container">
-                                <select name="B06" id="B06" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
-                                    <option value="and" selected="">And</option>
-                                    <option value="or">Or</option>
-                                    <option value="and not">Not</option>
-                                </select>
-                            </div>
-                            
-                            <input type="text" class="form-control" name="EARLY" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Date" title="Date">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="EARLY_CL"><i class="fas fa-bars"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3 Rale-Reg">
-                            <div class="input-group-prepend adv-operator-container">
-                                <select name="B07" id="B07" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
-                                    <option value="and" selected="">And</option>
-                                    <option value="or">Or</option>
-                                    <option value="and not">Not</option>
-                                </select>
-                            </div>
-                            
-                            <input type="text" class="form-control" name="MAKER_FULLNAME" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Artist" title="Maker Person">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="MAKER_CL"><i class="fas fa-bars"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3 Rale-Reg">
-                            <div class="input-group-prepend adv-operator-container">
-                                <select name="B08" id="B08" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
-                                    <option value="and" selected="">And</option>
-                                    <option value="or">Or</option>
-                                    <option value="and not">Not</option>
-                                </select>
-                            </div>
-                            
-                            <input type="text" class="form-control" name="MAKER_ORG" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Maker (Organisation)" title="Maker Organization">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="MAKER_ORG_CL"><i class="fas fa-bars"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3 Rale-Reg">
-                            <div class="input-group-prepend adv-operator-container">
-                                <select name="B09" id="B09" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
-                                    <option value="and" selected="">And</option>
-                                    <option value="or">Or</option>
-                                    <option value="and not">Not</option>
-                                </select>
-                            </div>
-                            
-                            <input type="text" class="form-control" name="MEDIUM" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Medium" title="Medium">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="MEDIUM_CL"><i class="fas fa-bars"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3 Rale-Reg">
-                            <div class="input-group-prepend adv-operator-container">
-                                <select name="B10" id="B10" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
-                                    <option value="and" selected="">And</option>
-                                    <option value="or">Or</option>
-                                    <option value="and not">Not</option>
-                                </select>
-                            </div>
-                            
-                            <input type="text" class="form-control" name="MATERIAL_COO" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Material" title="Material">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="MATERIAL_CL"><i class="fas fa-bars"></i></button>
-                            </div>
-                        </div>
-               
-                        <div class="input-group mb-3 Rale-Reg">
-                            <div class="input-group-prepend adv-operator-container">
-                                <select name="B11" id="B11" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
-                                    <option value="and" selected="">And</option>
-                                    <option value="or">Or</option>
-                                    <option value="and not">Not</option>
-                                </select>
-                            </div>
-                            
-                            <input type="text" class="form-control" name="BUILDING" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Location" title="Location">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="BUILDING_CL"><i class="fas fa-bars"></i></button>
-                            </div>
-                        </div>
-                        
-                        <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
-                            <button class="btn btn-primary" type="submit" title="Submit" value='SEARCH'>Submit</button>
-                            <button class="btn btn-outline-primary" id="clear" type="reset" title="Clear" value='SEARCH'>Clear</button>
-                        </div>
-                    </form>
-                            
-
+                        </form>
+                                
+    
+                    </div>
                 </div>
             </div>
 

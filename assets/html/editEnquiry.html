@@ -1,7 +1,7 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
 
 <!-- include virtual="[AO_INCLUDES]header.htm"-->
-<title>Enquiry</title>
+<title>Inquiry</title>
 
 
 <div id='Content-Wrapper' class='Content-Wrapper'>
@@ -9,483 +9,248 @@
     <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
 
     <div id='Panel-Main' class='Panel-Main Main-Content align-items-center'>
-        <div id="Update-Enquiry-Page">
-            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <div id="maincontent">
+            <div id="Update-Enquiry-Page">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
 
-                    <li class="breadcrumb-item active" aria-current="page">
-                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/patronProfile.html">Client Profile</a>
-                    </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/patronProfile.html">Client Profile</a>
+                        </li>
 
 
 
-                </ol>
-            </nav>
-            <div class="Page-Heading">
-                <h1 class='Rale-Bold d-flex justify-content-center '>Update an Enquiry
-                </h1>
-                <hr />
+                    </ol>
+                </nav>
+                <div class="Page-Heading">
+                    <h1 class='Rale-Bold d-flex justify-content-center '>Update an Inquiry
+                    </h1>
+                    <hr />
+                </div>
             </div>
-        </div>
-        <!-- <h2 class=" Rale-Bold d-flex justify-content-center">
-                I have a Donation
-            </h2> -->
-        <div>
-            <div class="row">
-                <div id="Enquiry-Form">
-                    <form method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/enquiryConfirmation.html" onsubmit="return setSubmitFlag();">
-                        <input id="enqFullName" name="ENQ_PATRON_NAME" type="hidden" value="^VALUE^" />
-                        <input id="enqMethod" name="E_METHOD_REQUEST" type="hidden" value="Web" />
-                        <input id="enqID" name="ENQ_ID" type="hidden" value="^VALUE^" />
-                        <input id="enqStatus" name="ENQ_STATUS" type="hidden" value="^VALUE^" />
-                        <span id="edit_enq">
-                            <!-- <input id="enqCorDate" name="CORRESPOND_DATE$1$1" type="hidden" value="^VALUE^"/>
-                            <input id="enqCorType" name="CORRESPOND_TYPE$1$1" type="hidden"value="^VALUE^" />
-                            <input id="enqCorWho" name="CORRESPOND_WHO$1$1" type="hidden" value="^VALUE^"/>
-                            <input id="enqCorSub" name="CORRESPOND_SUBJ$1$1" type="hidden" value="^VALUE^" />
-                            <input id="enqCorText" name="MESSAGE_TEXT$1$1" type="hidden" value="^VALUE^" /> -->
-                        </span>
+            <!-- <h2 class=" Rale-Bold d-flex justify-content-center">
+                    I have a Donation
+                </h2> -->
+            <div>
+                <div class="row">
+                    <div id="Enquiry-Form">
+                        <form method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/enquiryConfirmation.html"
+                            onsubmit="return setSubmitFlag();">
+                            <input id="enqFullName" name="ENQ_PATRON_NAME" type="hidden" value="^VALUE^" />
+                            <input id="enqMethod" name="E_METHOD_REQUEST" type="hidden" value="Web" />
+                            <input id="enqID" name="ENQ_ID" type="hidden" value="^VALUE^" />
+                            <input id="enqStatus" name="ENQ_STATUS" type="hidden" value="^VALUE^" />
+                            <span id="edit_enq">
+                                <!-- <input id="enqCorDate" name="CORRESPOND_DATE$1$1" type="hidden" value="^VALUE^"/>
+                                <input id="enqCorType" name="CORRESPOND_TYPE$1$1" type="hidden"value="^VALUE^" />
+                                <input id="enqCorWho" name="CORRESPOND_WHO$1$1" type="hidden" value="^VALUE^"/>
+                                <input id="enqCorSub" name="CORRESPOND_SU889BJ$1$1" type="hidden" value="^VALUE^" />
+                                <input id="enqCorText" name="MESSAGE_TEXT$1$1" type="hidden" value="^VALUE^" /> -->
+                            </span>
 
 
-                        <div class=" row g-3 Rale-Med">
-                            <div class="col-md-6 col-sm-12">
-                                <label for="enqFirstName" class="form-label">First Name*</label>
-                                <input id="enqFirstName" type="text" class="form-control" placeholder="First name" title="First name" aria-label="First name" required />
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <label for="enqLastName" class="form-label">Last Name*</label>
-                                <input id="enqLastName" type="text" class="form-control" placeholder="Last name" title="Last name" aria-label="Last name" required />
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <label for="enqEmail" class="form-label">Email*</label>
-                                <input name="ENQ_PATRON_EMAIL" type="email" value="^VALUE^" id="enqEmail" class="form-control" size="25" placeholder="Email" title="Email" aria-label="Email" required />
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <label for="enqPhone" class="form-label">Phone Number</label>
-                                <input id="enqPhone" type="text" class="form-control" placeholder="Phone Number" title="Phone Number" aria-label="Phone Number" name="ENQ_TELEPHONE" value="^VALUE^" />
-                            </div>
-                        </div>
-
-
-                        <div class="row g-3 Rale-Med">
-                            <div class="col-md-12">
-                                <label for="enqTopic" class="form-label">Topic*</label>
-                                <select id="enqTopic" class="form-select Rale-Reg" name="ENQ_TOPIC" value="^VALUE^" required>
-                                    <option selected>General Information</option>
-                                    <option>Accessing Collection Items</option>
-                                    <option>Finding Collection Items</option>
-                                    <option>Obtaining Reproductions</option>
-                                    <option>Art Collection Inquiries</option>
-                                    <option>Donations - Art</option>
-                                    <option>Educational Resources and Workshops</option>
-                                    <option>Loans - Digitization</option>
-                                    <option>Tours and Events</option>
-                                    <option>Exhibits</option>
-                                    <option>Website Technical Issues</option>
-                                    <option>Corrections to Descriptions</option>
-                                    <option>Loans - Exhibition</option>
-                                    <option>Donations - Archival and Library</option>
-                                    <option>Other</option>
-                                </select>
+                            <div class=" row g-3 Rale-Med">
+                                <div class="col-md-6 col-sm-12">
+                                    <label for="enqFirstName" class="form-label">First Name*</label>
+                                    <input id="enqFirstName" type="text" class="form-control" placeholder="First name"
+                                        title="First name" aria-label="First name" required />
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <label for="enqLastName" class="form-label">Last Name*</label>
+                                    <input id="enqLastName" type="text" class="form-control" placeholder="Last name"
+                                        title="Last name" aria-label="Last name" required />
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <label for="enqEmail" class="form-label">Email*</label>
+                                    <input name="ENQ_PATRON_EMAIL" type="email" value="^VALUE^" id="enqEmail"
+                                        class="form-control" size="25" placeholder="Email" title="Email"
+                                        aria-label="Email" required />
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <label for="enqPhone" class="form-label">Phone Number</label>
+                                    <input id="enqPhone" type="text" class="form-control" placeholder="Phone Number"
+                                        title="Phone Number" aria-label="Phone Number" name="ENQ_TELEPHONE"
+                                        value="^VALUE^" />
+                                </div>
                             </div>
 
-                            <div id="secondaryForm">
 
-                                <div id="donationForm" class="card secondForm">
-
-                                    <div class="card-body">
-
-                                        <div class="row g-3 Rale-Med">
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="reqDonor" class="form-label">Donor Type</label>
-                                                <input id="reqDonor" type="text" class="form-control" placeholder="Donor Type" title="Donor Type" aria-label="Donor Type" name="E_DONOR_TYPE" value="^VALUE^" />
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="reqCreator" class="form-label">Creator</label>
-                                                <input id="reqCreator" type="text" class="form-control" placeholder="Creator" n placeholder="Creator" aria-label="Creator" name="E_CREATOR" value="^VALUE^" />
-                                            </div>
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="reqInfo" class="form-label">Collection Information</label>
-                                                <input name="E_COLLECT_INFO" id="reqInfo" type="test" class="form-control" placeholder="Collection Information" title="Collection Information" aria-label="Collection Information" value="^VALUE^" />
-                                                <!-- <input name="E_COLLECT_INFO" id="reqInfo" type="text" class="form-control" placeholder="Collection Information" aria-label="Collection Information" value="^VALUE^" /> -->
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row g-3 Rale-Med">
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="reqExtent" class="form-label">Extent of Collection</label>
-                                                <input id="reqExtent" type="text" class="form-control" placeholder="Extent of Collection" title="Extent of Collection" aria-label="Extent of Collection" name="E_EXTENT_COLLECT" value="^VALUE^" />
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="reqSizeCollection" class="form-label">Size of Collection
-                                                    Items</label>
-                                                <input id="reqSizeCollection" type="text" class="form-control" placeholder="Size of Collection Items" title="Size of Collection Items" aria-label="Size of Collection Items" name="E_SIZE_COLLECT" value="^VALUE^" />
-                                            </div>
-
-                                        </div>
-
-
-                                        <div class="row g-3 Rale-Med">
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="reqGeo" class="form-label">Geographic Location</label>
-                                                <input id="reqGeo" type="text" class="form-control" placeholder="Geographic Location" title="Geographic Location" aria-label="Geographic Location" name="E_GEOG_LOC" value="^VALUE^" />
-                                            </div>
-
-
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="recTax" class="form-label">Tax Receipt Required</label>
-
-
-                                                <select id="recTax" class="form-select Rale-Med" name="E_RECEIPT" value="^VALUE^">
-                                                    <option value="N" selected>No</option>
-
-                                                    <option value="Y">Yes</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="reqPrevDonation" class="form-label">Previous
-                                                    Donations</label>
-                                                <input id="reqPrevDonation" type="text" class="form-control" placeholder="Previous Donations" title="Previous Donations" aria-label="Previous Donations" name="E_PREV_DONATE" value="^VALUE^" />
-                                            </div>
-
-                                        </div>
-                                    </div>
-
+                            <div class="row g-3 Rale-Med">
+                                <div class="col-md-12">
+                                    <label for="enqTopic" class="form-label">Topic*</label>
+                                    <select id="enqTopic" class="form-select Rale-Reg" name="ENQ_TOPIC" value="^VALUE^"
+                                        required>
+                                        <option selected>General Information</option>
+                                        <option>Accessing Collection Items</option>
+                                        <option>Finding Collection Items</option>
+                                        <option>Obtaining Reproductions</option>
+                                        <option>Art Collection Inquiries</option>
+                                        <option>Donations - Art</option>
+                                        <option>Educational Resources and Workshops</option>
+                                        <option>Loans - Digitization</option>
+                                        <option>Tours and Events</option>
+                                        <option>Exhibits</option>
+                                        <option>Website Technical Issues</option>
+                                        <option>Corrections to Descriptions</option>
+                                        <option>Loans - Exhibition</option>
+                                        <option>Donations - Archival and Library</option>
+                                        <option>Other</option>
+                                    </select>
                                 </div>
 
-                                <div id="loanForm" class="card secondForm">
+                                <div id="secondaryForm">
 
-                                    <div class="card-body">
+                                    <div id="donationForm" class="card secondForm">
 
-                                        <div class="row g-3 Rale-Med">
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqLoanType" class="form-label">Loan Type</label>
-                                                <select id="enqLoanType" class="form-select Rale-Reg" name="E_LOAN_TYPE" value="^VALUE^">
-                                                    <option selected> </option>
-                                                    <option>Outgoing Loan </option>
-                                                    <option>Internal Exhibition</option>
-                                                    <option>Exhibition</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqLoanDate" class="form-label">Proposed Date</label>
-                                                <input id="enqLoanDate" type="text" class="form-control" placeholder="Proposed Date" title="Proposed Date" aria-label="Proposed Date" name="E_PROPOSED_DATE" value="^VALUE^" />
-                                            </div>
+                                        <div class="card-body">
 
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqLoanDuration" class="form-label">Duration in Days</label>
-                                                <input id="enqLoanDuration" type="number" class="form-control" placeholder="Duration" title="Duration" aria-label="Duration" name="E_LOAN_DURATION" min="1" value="^VALUE^" />
-                                            </div>
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqLoanContact" class="form-label">Exhibit Contact</label>
-                                                <!-- <input name="E_COLLECT_INFO" id="reqInfo" type="text" class="form-control" placeholder="Collection Information" aria-label="Collection Information" /> -->
-                                                <input name="E_EXH_CONTACT" id="enqLoanContact" type="text" class="form-control" placeholder="Exhibit Contact" title="Exhibit Contact" aria-label="Exhibit Contact" value="^VALUE^" />
-                                            </div>
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqLoanRelocation" class="form-label">Loan
-                                                    Relocation</label>
-                                                <select id="enqLoanRelocation" class="form-select Rale-Reg" name="E_RELOC_YN" value="^VALUE^">
-                                                    <option selected=""></option>
-                                                    <option>Y</option>
-                                                    <option>N</option>
-                                                </select>
+                                            <div class="row g-3 Rale-Med">
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="reqDonor" class="form-label">Donor Type</label>
+                                                    <input id="reqDonor" type="text" class="form-control"
+                                                        placeholder="Donor Type" title="Donor Type"
+                                                        aria-label="Donor Type" name="E_DONOR_TYPE" value="^VALUE^" />
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="reqCreator" class="form-label">Creator</label>
+                                                    <input id="reqCreator" type="text" class="form-control"
+                                                        placeholder="Creator" n placeholder="Creator"
+                                                        aria-label="Creator" name="E_CREATOR" value="^VALUE^" />
+                                                </div>
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="reqInfo" class="form-label">Collection
+                                                        Information</label>
+                                                    <input name="E_COLLECT_INFO" id="reqInfo" type="test"
+                                                        class="form-control" placeholder="Collection Information"
+                                                        title="Collection Information"
+                                                        aria-label="Collection Information" value="^VALUE^" />
+                                                    <!-- <input name="E_COLLECT_INFO" id="reqInfo" type="text" class="form-control" placeholder="Collection Information" aria-label="Collection Information" value="^VALUE^" /> -->
+                                                </div>
                                             </div>
 
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqLoanRmv" class="form-label">Removal</label>
-                                                <select id="enqLoanRmv" class="form-select Rale-Reg" name="E_REMOVE_YN" value="^VALUE^">
-                                                    <option selected=""></option>
-                                                    <option>Y</option>
-                                                    <option>N</option>
-                                                </select>
+
+                                            <div class="row g-3 Rale-Med">
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="reqExtent" class="form-label">Extent of
+                                                        Collection</label>
+                                                    <input id="reqExtent" type="text" class="form-control"
+                                                        placeholder="Extent of Collection" title="Extent of Collection"
+                                                        aria-label="Extent of Collection" name="E_EXTENT_COLLECT"
+                                                        value="^VALUE^" />
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="reqSizeCollection" class="form-label">Size of Collection
+                                                        Items</label>
+                                                    <input id="reqSizeCollection" type="text" class="form-control"
+                                                        placeholder="Size of Collection Items"
+                                                        title="Size of Collection Items"
+                                                        aria-label="Size of Collection Items" name="E_SIZE_COLLECT"
+                                                        value="^VALUE^" />
+                                                </div>
+
                                             </div>
 
+
+                                            <div class="row g-3 Rale-Med">
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="reqGeo" class="form-label">Geographic Location</label>
+                                                    <input id="reqGeo" type="text" class="form-control"
+                                                        placeholder="Geographic Location" title="Geographic Location"
+                                                        aria-label="Geographic Location" name="E_GEOG_LOC"
+                                                        value="^VALUE^" />
+                                                </div>
+
+
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="recTax" class="form-label">Tax Receipt Required</label>
+
+
+                                                    <select id="recTax" class="form-select Rale-Med" name="E_RECEIPT"
+                                                        value="^VALUE^">
+                                                        <option value="N" selected>No</option>
+
+                                                        <option value="Y">Yes</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="reqPrevDonation" class="form-label">Previous
+                                                        Donations</label>
+                                                    <input id="reqPrevDonation" type="text" class="form-control"
+                                                        placeholder="Previous Donations" title="Previous Donations"
+                                                        aria-label="Previous Donations" name="E_PREV_DONATE"
+                                                        value="^VALUE^" />
+                                                </div>
+
+                                            </div>
                                         </div>
-
-
-
-
 
                                     </div>
 
-                                </div>
+                                    <div id="loanForm" class="card secondForm">
 
+                                        <div class="card-body">
 
-                                <div id="requestTransferForm" class="card secondForm">
+                                            <div class="row g-3 Rale-Med">
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqLoanType" class="form-label">Loan Type</label>
+                                                    <select id="enqLoanType" class="form-select Rale-Reg"
+                                                        name="E_LOAN_TYPE" value="^VALUE^">
+                                                        <option selected> </option>
+                                                        <option>Outgoing Loan </option>
+                                                        <option>Internal Exhibition</option>
+                                                        <option>Exhibition</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqLoanDate" class="form-label">Proposed Date</label>
+                                                    <input id="enqLoanDate" type="text" class="form-control"
+                                                        placeholder="Proposed Date" title="Proposed Date"
+                                                        aria-label="Proposed Date" name="E_PROPOSED_DATE"
+                                                        value="^VALUE^" />
+                                                </div>
 
-                                    <div class="card-body">
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqLoanDuration" class="form-label">Duration in
+                                                        Days</label>
+                                                    <input id="enqLoanDuration" type="number" class="form-control"
+                                                        placeholder="Duration" title="Duration" aria-label="Duration"
+                                                        name="E_LOAN_DURATION" min="1" value="^VALUE^" />
+                                                </div>
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqLoanContact" class="form-label">Exhibit
+                                                        Contact</label>
+                                                    <!-- <input name="E_COLLECT_INFO" id="reqInfo" type="text" class="form-control" placeholder="Collection Information" aria-label="Collection Information" /> -->
+                                                    <input name="E_EXH_CONTACT" id="enqLoanContact" type="text"
+                                                        class="form-control" placeholder="Exhibit Contact"
+                                                        title="Exhibit Contact" aria-label="Exhibit Contact"
+                                                        value="^VALUE^" />
+                                                </div>
 
-                                        <div class="row g-3 Rale-Med">
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferTypeRef" class="form-label">Transfer Type</label>
-                                                <select id="enqTransferTypeRef" class="form-select Rale-Reg" name="E_TRANSFER_TYPE" value="^VALUE^">
-                                                    <option selected></option>
-                                                    <option>New Transfer </option>
-                                                    <option>Direct Transfer</option>
-                                                </select>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqLoanRelocation" class="form-label">Loan
+                                                        Relocation</label>
+                                                    <select id="enqLoanRelocation" class="form-select Rale-Reg"
+                                                        name="E_RELOC_YN" value="^VALUE^">
+                                                        <option selected=""></option>
+                                                        <option>Y</option>
+                                                        <option>N</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqLoanRmv" class="form-label">Removal</label>
+                                                    <select id="enqLoanRmv" class="form-select Rale-Reg"
+                                                        name="E_REMOVE_YN" value="^VALUE^">
+                                                        <option selected=""></option>
+                                                        <option>Y</option>
+                                                        <option>N</option>
+                                                    </select>
+                                                </div>
+
                                             </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferName" class="form-label">Ministry/Public Body
-                                                    Name</label>
-                                                <input id="enqTransferName" type="text" class="form-control" placeholder="Ministry/Public Body Name" title="Ministry/Public Body Name" aria-label="Ministry/Public Body Name" name="E_TRANSFER_NAME" value="^VALUE^">
-                                            </div>
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferBranch" class="form-label">Branch/Program
-                                                    Area</label>
-                                                <input id="enqTransferBranch" type="text" class="form-control" placeholder="Branch/Program Area" title="Branch/Program Area" aria-label="Branch/Program Area" name="E_PROGRAM_AREA" value="^VALUE^">
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferCode" class="form-label">Branch Code</label>
-                                                <input id="enqTransferCode" type="text" class="form-control" placeholder="Branch Code" title="Branch Code" aria-label="Branch Code" name="E_BRANCH_CODE" value="^VALUE^">
-                                            </div>
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferContact" class="form-label">Contact
-                                                    Information</label>
-                                                <input id="enqTransferContact" type="text" class="form-control" placeholder="Contact Information" title="Contact Information" aria-label="Contact Information" name="E_CONTACT_INFO" value="^VALUE^">
-                                            </div>
-
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferSecondary" class="form-label">Secondary
-                                                    Contact</label>
-                                                <input id="enqTransferSecondary" type="text" class="form-control" placeholder="Secondary Contact" title="Secondary Contact" aria-label="Secondary Contact" name="E_2ND_CONTACT" value="^VALUE^">
-                                            </div>
-
-
-
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqTransferCust" class="form-label">Custodial Office
-                                                    Information</label>
-
-                                                <input name="E_CUSTODIAL_INFO" id="enqTransferCust" type="text" class="form-control" placeholder="Custodial Office Information" title="Custodial Office Information" aria-label="Custodial Office Information" value="^VALUE^">
-                                            </div>
-
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqTransferAddress" class="form-label">Pickup
-                                                    Address</label>
-
-                                                <input name="E_PICKUP_ADDRESS" id="enqTransferAddress" type="text" class="form-control" placeholder="Pickup Address" title="Pickup Address" aria-label="Pickup Address" value="^VALUE^">
-                                            </div>
-
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqTransferAddress2" class="form-label">Special
-                                                    Instructions</label>
-
-                                                <input name="E_SPECIAL_INST" id="enqTransferAddress2" type="text" class="form-control" placeholder="Special Instructions" title="Special Instructions" aria-label="Special Instructions" value="^VALUE^">
-                                            </div>
-
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferCust2" class="form-label">Courier
-                                                    Instruction</label>
-
-                                                <input name="E_COURIER_INFO" id="enqTransferCust2" type="text" class="form-control" placeholder="Courier Instruction" title="Courier Instruction" aria-label="Courier Instruction" value="^VALUE^">
-                                            </div>
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferGTA" class="form-label">In GTA</label>
-
-                                                <select id="enqTransferGTA" class="form-select Rale-Reg" name="E_GTA_AREA" value="^VALUE^">
-                                                    <option selected>Y</option>
-                                                    <option>N</option>
-                                                </select>
-                                            </div>
-
-
-
-                                        </div>
-
-
-
-
-
-                                    </div>
-
-                                </div>
-
-
-                                <div id="requestRefileForm" class="card secondForm">
-
-                                    <div class="card-body">
-
-                                        <div class="row g-3 Rale-Med">
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferType" class="form-label">Transfer Type</label>
-                                                <select id="enqTransferType" class="form-select Rale-Reg" name="E_REFILE_TYPE" value="^VALUE^">
-                                                    <option selected></option>
-                                                    <option>New Transfer </option>
-                                                    <option>Direct Transfer</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferName2" class="form-label">Ministry/Public Body
-                                                    Name</label>
-                                                <input id="enqTransferName2" type="text" class="form-control" placeholder="Ministry/Public Body Name" title="Ministry/Public Body Name" aria-label="Ministry/Public Body Name" name="EF_NAME" value="^VALUE^" />
-                                            </div>
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferBranch2" class="form-label">Branch/Program
-                                                    Area</label>
-                                                <input id="enqTransferBranch2" type="text" class="form-control" placeholder="Branch/Program Area" title="Branch/Program Area" aria-label="Branch/Program Area" name="EF_PROG_AREA" />
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferCode2" class="form-label">Branch Code</label>
-                                                <input id="enqTransferCode2" type="text" class="form-control" placeholder="Branch Code" title="Branch Code" aria-label="Branch Code" name="EF_BRANCH_CODE" value="^VALUE^" />
-                                            </div>
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferContact2" class="form-label">Contact
-                                                    Information</label>
-                                                <input id="enqTransferContact2" type="text" class="form-control" placeholder="Contact Information" title="Contact Information" aria-label="Contact Information" name="EF_CONTACT_INFO" value="^VALUE^" />
-                                            </div>
-
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferSecondary2" class="form-label">Secondary
-                                                    Contact</label>
-                                                <input id="enqTransferSecondary2" type="text" class="form-control" placeholder="Secondary Contact" title="Secondary Contact" aria-label="Secondary Contact" name="EF_2ND_CONTACT" value="^VALUE^" />
-                                            </div>
-
-
-
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqTransferCust3" class="form-label">Custodial Office
-                                                    Information</label>
-
-                                                <input name="EF_CUSTODIAL" id="enqTransferCust3" type="text" class="form-control" placeholder="Custodial Office Information" title="Custodial Office Information" aria-label="Custodial Office Information" value="^VALUE^" />
-                                            </div>
-
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqTransferAddress3" class="form-label">Pickup
-                                                    Address</label>
-
-                                                <textarea name="EF_PICKUP_ADDR" id="enqTransferAddress3" type="text" class="form-control" placeholder="Pickup Address" title="Pickup Address" aria-label="Pickup Address">^VALUE^</textarea>
-                                            </div>
-
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqTransferAddress4" class="form-label">Special
-                                                    Instructions</label>
-
-                                                <input name="EF_SPECIAL_INST" id="enqTransferAddress4" type="text" class="form-control" placeholder="Special Instructions" title="Special Instructions" aria-label="Special Instructions" value="^VALUE^" />
-                                            </div>
-
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferCust4" class="form-label">Courier
-                                                    Instruction</label>
-
-                                                <input name="EF_COURIER_INFO" id="enqTransferCust4" type="text" class="form-control" placeholder="Courier Instruction" title="Courier Instruction" aria-label="Courier Instruction" value="^VALUE^" />
-                                            </div>
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqTransferGTA2" class="form-label">In GTA</label>
-
-                                                <select id="enqTransferGTA2" class="form-select Rale-Reg" name="E_GTA_AREA" value="^VALUE^">
-                                                    <option selected>Y</option>
-                                                    <option>N</option>
-                                                </select>
-                                            </div>
-
-
-
-                                        </div>
-
-
-
-
-
-                                    </div>
-
-                                </div>
-
-
-                                <div id="requestScheduleForm" class="card secondForm">
-
-                                    <div class="card-body">
-
-                                        <div class="row g-3 Rale-Med">
-                                            <div class="col-md-4 col-sm-12">
-                                                <label for="enqScheduleType" class="form-label"> Type</label>
-                                                <select id="enqScheduleType" class="form-select Rale-Reg" name="E_RS_TYPE" value="^VALUE^">
-                                                    <option>Addition</option>
-                                                    <option>Adoption</option>
-                                                    <option>Deletion</option>
-                                                    <option>Revision</option>
-                                                    <option>Discontinuation</option>
-                                                    <option>Transfer Agreement</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-8 col-sm-12">
-                                                <label for="enqScheduleTitle" class="form-label">Record Schedule
-                                                    Title</label>
-                                                <input id="enqScheduleTitle" type="text" class="form-control" placeholder="Record Schedule Title" title="Record Schedule Title" aria-label="Record Schedule Title" name="E_RS_TITLE" value="^VALUE^" />
-                                            </div>
-
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqScheduleDesc" class="form-label">Description</label>
-                                                <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" title="Leave a comment here" id="enqScheduleDesc" name="E_RS_DESC">^VALUE^</textarea>
-                                            </div>
-
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqSchedulePurpose" class="form-label">Purpose</label>
-                                                <input id="enqSchedulePurpose" type="text" class="form-control" placeholder="Purpose" title="Purpose" aria-label="Purpose" name="E_RS_PURPOSE" value="^VALUE^" />
-                                            </div>
-
-
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqScheduleNumber" class="form-label">Schedule/Series
-                                                    Number</label>
-                                                <input id="enqScheduleNumber" type="text" class="form-control" placeholder="Schedule/Series Number" title="Schedule/Series Number" aria-label="Schedule/Series Number" name="E_RS_NUMBER" value="^VALUE^" />
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqScheduleStatus" class="form-label">Current Status</label>
-                                                <input id="enqScheduleStatus" type="text" class="form-control" placeholder="Current Status" title="Current Status" aria-label="Current Status" name="E_RS_STATUS" value="^VALUE^" />
-                                            </div>
-
-
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqScheduleDate" class="form-label">Date Range</label>
-                                                <input id="enqScheduleDate" type="text" class="form-control" placeholder="Date Range" title="Date Range" aria-label="Date Range" name="E_RS_DATE_RANGE" value="^VALUE^" />
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqScheduleFunction" class="form-label">Common
-                                                    Function</label>
-                                                <input id="enqScheduleFunction" type="text" class="form-control" placeholder="Common Function" title="Common Function" aria-label="Common Function" name="E_RS_FUNCTION" value="^VALUE^" />
-                                            </div>
-
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqScheduleAcc" class="form-label">Annual
-                                                    Accumulation</label>
-                                                <input id="enqScheduleAcc" type="text" class="form-control" placeholder="Annual Accumulation" title="Annual Accumulation" aria-label="Annual Accumulation" name="E_RS_ACCUMULATE" value="^VALUE^" />
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqScheduleFormat" class="form-label">Format</label>
-                                                <input id="enqScheduleFormat" type="text" class="form-control" placeholder="Format" title="Format" aria-label="Format" name="E_RS_FORMAT" value="^VALUE^" />
-                                            </div>
-
-
-
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqScheduleISPC" class="form-label">ISPC</label>
-                                                <input id="enqScheduleISPC" type="text" class="form-control" placeholder="ISPC" title="ISPC" aria-label="ISPC" name="E_RS_ISPC" value="^VALUE^" />
-                                            </div>
-                                            <div class="col-md-6 col-sm-12">
-                                                <label for="enqScheduleRetention" class="form-label">Total
-                                                    Retention</label>
-                                                <input id="enqScheduleRetention" type="text" class="form-control" placeholder="Total Retention" title="Total Retention" aria-label="Total Retention" name="E_RS_RETENTION" value="^VALUE^" />
-                                            </div>
-
-
 
 
 
@@ -493,167 +258,571 @@
 
                                         </div>
 
-
-
-
-
                                     </div>
 
-                                </div>
+
+                                    <div id="requestTransferForm" class="card secondForm">
+
+                                        <div class="card-body">
+
+                                            <div class="row g-3 Rale-Med">
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferTypeRef" class="form-label">Transfer
+                                                        Type</label>
+                                                    <select id="enqTransferTypeRef" class="form-select Rale-Reg"
+                                                        name="E_TRANSFER_TYPE" value="^VALUE^">
+                                                        <option selected></option>
+                                                        <option>New Transfer </option>
+                                                        <option>Direct Transfer</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferName" class="form-label">Ministry/Public Body
+                                                        Name</label>
+                                                    <input id="enqTransferName" type="text" class="form-control"
+                                                        placeholder="Ministry/Public Body Name"
+                                                        title="Ministry/Public Body Name"
+                                                        aria-label="Ministry/Public Body Name" name="E_TRANSFER_NAME"
+                                                        value="^VALUE^">
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferBranch" class="form-label">Branch/Program
+                                                        Area</label>
+                                                    <input id="enqTransferBranch" type="text" class="form-control"
+                                                        placeholder="Branch/Program Area" title="Branch/Program Area"
+                                                        aria-label="Branch/Program Area" name="E_PROGRAM_AREA"
+                                                        value="^VALUE^">
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferCode" class="form-label">Branch Code</label>
+                                                    <input id="enqTransferCode" type="text" class="form-control"
+                                                        placeholder="Branch Code" title="Branch Code"
+                                                        aria-label="Branch Code" name="E_BRANCH_CODE" value="^VALUE^">
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferContact" class="form-label">Contact
+                                                        Information</label>
+                                                    <input id="enqTransferContact" type="text" class="form-control"
+                                                        placeholder="Contact Information" title="Contact Information"
+                                                        aria-label="Contact Information" name="E_CONTACT_INFO"
+                                                        value="^VALUE^">
+                                                </div>
 
 
-                                <div id="transferForm" class="card secondForm">
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferSecondary" class="form-label">Secondary
+                                                        Contact</label>
+                                                    <input id="enqTransferSecondary" type="text" class="form-control"
+                                                        placeholder="Secondary Contact" title="Secondary Contact"
+                                                        aria-label="Secondary Contact" name="E_2ND_CONTACT"
+                                                        value="^VALUE^">
+                                                </div>
 
-                                    <div class="card-body">
 
-                                        <div class="row g-3 Rale-Med">
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqAgreementTransfer" class="form-label">Transferring Public
-                                                    Body</label>
-                                                <input id="enqAgreementTransfer" type="text" class="form-control" placeholder="Transferring Public Body" title="Transferring Public Body" aria-label="Transferring Public Body" name="E_TR_PUB_BODY" value="^VALUE^" />
+
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqTransferCust" class="form-label">Custodial Office
+                                                        Information</label>
+
+                                                    <input name="E_CUSTODIAL_INFO" id="enqTransferCust" type="text"
+                                                        class="form-control" placeholder="Custodial Office Information"
+                                                        title="Custodial Office Information"
+                                                        aria-label="Custodial Office Information" value="^VALUE^">
+                                                </div>
+
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqTransferAddress" class="form-label">Pickup
+                                                        Address</label>
+
+                                                    <input name="E_PICKUP_ADDRESS" id="enqTransferAddress" type="text"
+                                                        class="form-control" placeholder="Pickup Address"
+                                                        title="Pickup Address" aria-label="Pickup Address"
+                                                        value="^VALUE^">
+                                                </div>
+
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqTransferAddress2" class="form-label">Special
+                                                        Instructions</label>
+
+                                                    <input name="E_SPECIAL_INST" id="enqTransferAddress2" type="text"
+                                                        class="form-control" placeholder="Special Instructions"
+                                                        title="Special Instructions" aria-label="Special Instructions"
+                                                        value="^VALUE^">
+                                                </div>
+
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferCust2" class="form-label">Courier
+                                                        Instruction</label>
+
+                                                    <input name="E_COURIER_INFO" id="enqTransferCust2" type="text"
+                                                        class="form-control" placeholder="Courier Instruction"
+                                                        title="Courier Instruction" aria-label="Courier Instruction"
+                                                        value="^VALUE^">
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferGTA" class="form-label">In GTA</label>
+
+                                                    <select id="enqTransferGTA" class="form-select Rale-Reg"
+                                                        name="E_GTA_AREA" value="^VALUE^">
+                                                        <option selected>Y</option>
+                                                        <option>N</option>
+                                                    </select>
+                                                </div>
+
+
+
                                             </div>
-                                            <div class=" col-md-12 col-sm-12">
-                                                <label for="enqAgreementRec" class="form-label">Receiving Public
-                                                    Body</label>
-                                                <input id="enqAgreementRec" type="text" class="form-control" placeholder="Receiving Public Body" title="Receiving Public Body" aria-label="Receiving Public Body" name="E_TR_RC_PUB_BODY" value="^VALUE^" />
-                                            </div>
 
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqAgreementNumber" class="form-label">Record Schedule
-                                                    Number</label>
-                                                <input id="enqAgreementNumber" type="text" class="form-control" placeholder="Record Schedule Number" title="Record Schedule Number" aria-label="Record Schedule Number" name="E_TR_RS_NUMBER" value="^VALUE^" />
-                                            </div>
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqAgreementReason" class="form-label">Reason for
-                                                    Transfer</label>
 
-                                                <input name="E_TR_REASON" id="enqAgreementReason" type="text" class="form-control" placeholder="Reason for Transfer" title="Reason for Transfer" aria-label="Reason for Transfer" value="^VALUE^" />
-                                            </div>
+
 
 
                                         </div>
 
-
-
-
-
                                     </div>
 
-                                </div>
-                                <div id="dispositionForm" class="card secondForm">
 
-                                    <div class="card-body">
+                                    <div id="requestRefileForm" class="card secondForm">
 
-                                        <div class="row g-3 Rale-Med">
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqDisType" class="form-label">Hold Type</label>
-                                                <select id="enqDisType" class="form-select Rale-Reg" name="E_DISPOSE_HOLD" value="^VALUE^">
-                                                    <option selected>Administrative</option>
-                                                    <option>Legal</option>
-                                                </select>
+                                        <div class="card-body">
+
+                                            <div class="row g-3 Rale-Med">
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferType" class="form-label">Transfer
+                                                        Type</label>
+                                                    <select id="enqTransferType" class="form-select Rale-Reg"
+                                                        name="E_REFILE_TYPE" value="^VALUE^">
+                                                        <option selected></option>
+                                                        <option>New Transfer </option>
+                                                        <option>Direct Transfer</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferName2" class="form-label">Ministry/Public
+                                                        Body
+                                                        Name</label>
+                                                    <input id="enqTransferName2" type="text" class="form-control"
+                                                        placeholder="Ministry/Public Body Name"
+                                                        title="Ministry/Public Body Name"
+                                                        aria-label="Ministry/Public Body Name" name="EF_NAME"
+                                                        value="^VALUE^" />
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferBranch2" class="form-label">Branch/Program
+                                                        Area</label>
+                                                    <input id="enqTransferBranch2" type="text" class="form-control"
+                                                        placeholder="Branch/Program Area" title="Branch/Program Area"
+                                                        aria-label="Branch/Program Area" name="EF_PROG_AREA" />
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferCode2" class="form-label">Branch Code</label>
+                                                    <input id="enqTransferCode2" type="text" class="form-control"
+                                                        placeholder="Branch Code" title="Branch Code"
+                                                        aria-label="Branch Code" name="EF_BRANCH_CODE"
+                                                        value="^VALUE^" />
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferContact2" class="form-label">Contact
+                                                        Information</label>
+                                                    <input id="enqTransferContact2" type="text" class="form-control"
+                                                        placeholder="Contact Information" title="Contact Information"
+                                                        aria-label="Contact Information" name="EF_CONTACT_INFO"
+                                                        value="^VALUE^" />
+                                                </div>
+
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferSecondary2" class="form-label">Secondary
+                                                        Contact</label>
+                                                    <input id="enqTransferSecondary2" type="text" class="form-control"
+                                                        placeholder="Secondary Contact" title="Secondary Contact"
+                                                        aria-label="Secondary Contact" name="EF_2ND_CONTACT"
+                                                        value="^VALUE^" />
+                                                </div>
+
+
+
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqTransferCust3" class="form-label">Custodial Office
+                                                        Information</label>
+
+                                                    <input name="EF_CUSTODIAL" id="enqTransferCust3" type="text"
+                                                        class="form-control" placeholder="Custodial Office Information"
+                                                        title="Custodial Office Information"
+                                                        aria-label="Custodial Office Information" value="^VALUE^" />
+                                                </div>
+
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqTransferAddress3" class="form-label">Pickup
+                                                        Address</label>
+
+                                                    <textarea name="EF_PICKUP_ADDR" id="enqTransferAddress3" type="text"
+                                                        class="form-control" placeholder="Pickup Address"
+                                                        title="Pickup Address"
+                                                        aria-label="Pickup Address">^VALUE^</textarea>
+                                                </div>
+
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqTransferAddress4" class="form-label">Special
+                                                        Instructions</label>
+
+                                                    <input name="EF_SPECIAL_INST" id="enqTransferAddress4" type="text"
+                                                        class="form-control" placeholder="Special Instructions"
+                                                        title="Special Instructions" aria-label="Special Instructions"
+                                                        value="^VALUE^" />
+                                                </div>
+
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferCust4" class="form-label">Courier
+                                                        Instruction</label>
+
+                                                    <input name="EF_COURIER_INFO" id="enqTransferCust4" type="text"
+                                                        class="form-control" placeholder="Courier Instruction"
+                                                        title="Courier Instruction" aria-label="Courier Instruction"
+                                                        value="^VALUE^" />
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqTransferGTA2" class="form-label">In GTA</label>
+
+                                                    <select id="enqTransferGTA2" class="form-select Rale-Reg"
+                                                        name="E_GTA_AREA" value="^VALUE^">
+                                                        <option selected>Y</option>
+                                                        <option>N</option>
+                                                    </select>
+                                                </div>
+
+
+
                                             </div>
-                                            <div class="col-md-12">
-                                                <label for="enqDisDetail Rale-Med" class="form-label">Hold
-                                                    Details</label>
-                                                <textarea class="form-control Rale-Reg" placeholder="Enter detail" title="Enter detail" id="enqDisDetail" name="E_HOLD_DETAILS">^VALUE^</textarea>
-                                            </div>
+
+
+
+
 
                                         </div>
 
-
-
-
-
                                     </div>
 
-                                </div>
+
+                                    <div id="requestScheduleForm" class="card secondForm">
+
+                                        <div class="card-body">
+
+                                            <div class="row g-3 Rale-Med">
+                                                <div class="col-md-4 col-sm-12">
+                                                    <label for="enqScheduleType" class="form-label"> Type</label>
+                                                    <select id="enqScheduleType" class="form-select Rale-Reg"
+                                                        name="E_RS_TYPE" value="^VALUE^">
+                                                        <option>Addition</option>
+                                                        <option>Adoption</option>
+                                                        <option>Deletion</option>
+                                                        <option>Revision</option>
+                                                        <option>Discontinuation</option>
+                                                        <option>Transfer Agreement</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-8 col-sm-12">
+                                                    <label for="enqScheduleTitle" class="form-label">Record Schedule
+                                                        Title</label>
+                                                    <input id="enqScheduleTitle" type="text" class="form-control"
+                                                        placeholder="Record Schedule Title"
+                                                        title="Record Schedule Title" aria-label="Record Schedule Title"
+                                                        name="E_RS_TITLE" value="^VALUE^" />
+                                                </div>
+
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqScheduleDesc" class="form-label">Description</label>
+                                                    <textarea class="form-control Rale-Reg"
+                                                        placeholder="Leave a comment here" title="Leave a comment here"
+                                                        id="enqScheduleDesc" name="E_RS_DESC">^VALUE^</textarea>
+                                                </div>
+
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqSchedulePurpose" class="form-label">Purpose</label>
+                                                    <input id="enqSchedulePurpose" type="text" class="form-control"
+                                                        placeholder="Purpose" title="Purpose" aria-label="Purpose"
+                                                        name="E_RS_PURPOSE" value="^VALUE^" />
+                                                </div>
 
 
-                                <!-- START OF A FORM -->
 
-                                <div id="acquisitionForm" class="card secondForm">
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqScheduleNumber" class="form-label">Schedule/Series
+                                                        Number</label>
+                                                    <input id="enqScheduleNumber" type="text" class="form-control"
+                                                        placeholder="Schedule/Series Number"
+                                                        title="Schedule/Series Number"
+                                                        aria-label="Schedule/Series Number" name="E_RS_NUMBER"
+                                                        value="^VALUE^" />
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqScheduleStatus" class="form-label">Current
+                                                        Status</label>
+                                                    <input id="enqScheduleStatus" type="text" class="form-control"
+                                                        placeholder="Current Status" title="Current Status"
+                                                        aria-label="Current Status" name="E_RS_STATUS"
+                                                        value="^VALUE^" />
+                                                </div>
 
-                                    <div class="card-body">
 
-                                        <div class="row g-3 Rale-Med">
-                                            <div class="col-md-12 col-sm-12">
-                                                <label for="enqAcqType" class="form-label">Acquisition Type</label>
-                                                <input id="enqAcqType" type="text" class="form-control" placeholder="Acquisition Type" title="Acquisition Type" aria-label="Acquisition Type" name="E_ACQ_TYPE" value="^VALUE^" />
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqScheduleDate" class="form-label">Date Range</label>
+                                                    <input id="enqScheduleDate" type="text" class="form-control"
+                                                        placeholder="Date Range" title="Date Range"
+                                                        aria-label="Date Range" name="E_RS_DATE_RANGE"
+                                                        value="^VALUE^" />
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqScheduleFunction" class="form-label">Common
+                                                        Function</label>
+                                                    <input id="enqScheduleFunction" type="text" class="form-control"
+                                                        placeholder="Common Function" title="Common Function"
+                                                        aria-label="Common Function" name="E_RS_FUNCTION"
+                                                        value="^VALUE^" />
+                                                </div>
+
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqScheduleAcc" class="form-label">Annual
+                                                        Accumulation</label>
+                                                    <input id="enqScheduleAcc" type="text" class="form-control"
+                                                        placeholder="Annual Accumulation" title="Annual Accumulation"
+                                                        aria-label="Annual Accumulation" name="E_RS_ACCUMULATE"
+                                                        value="^VALUE^" />
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqScheduleFormat" class="form-label">Format</label>
+                                                    <input id="enqScheduleFormat" type="text" class="form-control"
+                                                        placeholder="Format" title="Format" aria-label="Format"
+                                                        name="E_RS_FORMAT" value="^VALUE^" />
+                                                </div>
+
+
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqScheduleISPC" class="form-label">ISPC</label>
+                                                    <input id="enqScheduleISPC" type="text" class="form-control"
+                                                        placeholder="ISPC" title="ISPC" aria-label="ISPC"
+                                                        name="E_RS_ISPC" value="^VALUE^" />
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <label for="enqScheduleRetention" class="form-label">Total
+                                                        Retention</label>
+                                                    <input id="enqScheduleRetention" type="text" class="form-control"
+                                                        placeholder="Total Retention" title="Total Retention"
+                                                        aria-label="Total Retention" name="E_RS_RETENTION"
+                                                        value="^VALUE^" />
+                                                </div>
+
+
+
+
+
+
+
                                             </div>
-                                            <div class=" col-md-12 col-sm-12">
-                                                <label for="enqAcqDate" class="form-label">Proposed Date</label>
-                                                <input id="enqAcqDate" type="text" class="form-control" placeholder="Proposed Date" title="Proposed Date" aria-label="Proposed Date" name="E_ACQ_DATE" value="^VALUE^" />
-                                            </div>
-                                            <div class=" col-md-12">
-                                                <label for="enqAcqDetail Rale-Med" class="form-label">Additional
-                                                    Information</label>
-                                                <textarea class="form-control Rale-Reg" placeholder="Enter detail" title="Enter detail" id="enqAcqDetail" name="ENQ_TOPIC_ACQ">^VALUE^</textarea>
-                                            </div>
+
+
+
+
 
                                         </div>
 
+                                    </div>
+
+
+                                    <div id="transferForm" class="card secondForm">
+
+                                        <div class="card-body">
+
+                                            <div class="row g-3 Rale-Med">
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqAgreementTransfer" class="form-label">Transferring
+                                                        Public
+                                                        Body</label>
+                                                    <input id="enqAgreementTransfer" type="text" class="form-control"
+                                                        placeholder="Transferring Public Body"
+                                                        title="Transferring Public Body"
+                                                        aria-label="Transferring Public Body" name="E_TR_PUB_BODY"
+                                                        value="^VALUE^" />
+                                                </div>
+                                                <div class=" col-md-12 col-sm-12">
+                                                    <label for="enqAgreementRec" class="form-label">Receiving Public
+                                                        Body</label>
+                                                    <input id="enqAgreementRec" type="text" class="form-control"
+                                                        placeholder="Receiving Public Body"
+                                                        title="Receiving Public Body" aria-label="Receiving Public Body"
+                                                        name="E_TR_RC_PUB_BODY" value="^VALUE^" />
+                                                </div>
+
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqAgreementNumber" class="form-label">Record Schedule
+                                                        Number</label>
+                                                    <input id="enqAgreementNumber" type="text" class="form-control"
+                                                        placeholder="Record Schedule Number"
+                                                        title="Record Schedule Number"
+                                                        aria-label="Record Schedule Number" name="E_TR_RS_NUMBER"
+                                                        value="^VALUE^" />
+                                                </div>
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqAgreementReason" class="form-label">Reason for
+                                                        Transfer</label>
+
+                                                    <input name="E_TR_REASON" id="enqAgreementReason" type="text"
+                                                        class="form-control" placeholder="Reason for Transfer"
+                                                        title="Reason for Transfer" aria-label="Reason for Transfer"
+                                                        value="^VALUE^" />
+                                                </div>
+
+
+                                            </div>
 
 
 
+
+
+                                        </div>
+
+                                    </div>
+                                    <div id="dispositionForm" class="card secondForm">
+
+                                        <div class="card-body">
+
+                                            <div class="row g-3 Rale-Med">
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqDisType" class="form-label">Hold Type</label>
+                                                    <select id="enqDisType" class="form-select Rale-Reg"
+                                                        name="E_DISPOSE_HOLD" value="^VALUE^">
+                                                        <option selected>Administrative</option>
+                                                        <option>Legal</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="enqDisDetail Rale-Med" class="form-label">Hold
+                                                        Details</label>
+                                                    <textarea class="form-control Rale-Reg" placeholder="Enter detail"
+                                                        title="Enter detail" id="enqDisDetail"
+                                                        name="E_HOLD_DETAILS">^VALUE^</textarea>
+                                                </div>
+
+                                            </div>
+
+
+
+
+
+                                        </div>
 
                                     </div>
 
+
+                                    <!-- START OF A FORM -->
+
+                                    <div id="acquisitionForm" class="card secondForm">
+
+                                        <div class="card-body">
+
+                                            <div class="row g-3 Rale-Med">
+                                                <div class="col-md-12 col-sm-12">
+                                                    <label for="enqAcqType" class="form-label">Acquisition Type</label>
+                                                    <input id="enqAcqType" type="text" class="form-control"
+                                                        placeholder="Acquisition Type" title="Acquisition Type"
+                                                        aria-label="Acquisition Type" name="E_ACQ_TYPE"
+                                                        value="^VALUE^" />
+                                                </div>
+                                                <div class=" col-md-12 col-sm-12">
+                                                    <label for="enqAcqDate" class="form-label">Proposed Date</label>
+                                                    <input id="enqAcqDate" type="text" class="form-control"
+                                                        placeholder="Proposed Date" title="Proposed Date"
+                                                        aria-label="Proposed Date" name="E_ACQ_DATE" value="^VALUE^" />
+                                                </div>
+                                                <div class=" col-md-12">
+                                                    <label for="enqAcqDetail Rale-Med" class="form-label">Additional
+                                                        Information</label>
+                                                    <textarea class="form-control Rale-Reg" placeholder="Enter detail"
+                                                        title="Enter detail" id="enqAcqDetail"
+                                                        name="ENQ_TOPIC_ACQ">^VALUE^</textarea>
+                                                </div>
+
+                                            </div>
+
+
+
+
+
+                                        </div>
+
+                                    </div>
+                                    <!-- END OF A FORM -->
+
                                 </div>
-                                <!-- END OF A FORM -->
-
+                                <div class="col-md-12 col-sm-12">
+                                    <label for="enqTitle" class="form-label">Subject*</label>
+                                    <input name="ENQ_TITLE" type="text" value="^VALUE^" id="enqTitle"
+                                        class="form-control" placeholder="Subject" title="Title" aria-label="Title"
+                                        required />
+                                </div>
                             </div>
-                            <div class="col-md-12 col-sm-12">
-                                <label for="enqTitle" class="form-label">Subject*</label>
-                                <input name="ENQ_TITLE" type="text" value="^VALUE^" id="enqTitle" class="form-control" placeholder="Subject" title="Title" aria-label="Title" required />
+
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <label for="enqDetail Rale-Med" class="form-label">Inquiry*</label>
+                                    <textarea class="form-control Rale-Reg" placeholder="Details"
+                                        title="Leave a comment here" id="enqDetail" name="ENQ_TOPIC_DETAIL"
+                                        required>^VALUE^</textarea>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row g-3">
-                            <div class="col-md-12">
-                                <label for="enqDetail Rale-Med" class="form-label">Inquiry*</label>
-                                <textarea class="form-control Rale-Reg" placeholder="Details" title="Leave a comment here" id="enqDetail" name="ENQ_TOPIC_DETAIL" required>^VALUE^</textarea>
+
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <div class="accordion" id="cor_div"> </div>
+                                </div>
                             </div>
-                        </div>
-
-
-                        <div class="row g-3">
-                            <div class="col-md-12">
-                                <div class="accordion" id="cor_div"> </div>
-                            </div>
-                        </div>
 
 
 
 
-                        <!-- <div class="row g-3">
-                            <div class="col-md-6 col-sm-12">
-                                <label for="enqPriority" class="form-label Rale-Med">Priority</label>
-                                <select id="enqPriority" class="form-select Rale-Med" name="ENQ_HIGH_PRI" value="^VALUE^">
-                                    <option value="N" selected>Low</option>
+                            <!-- <div class="row g-3">
+           
+                                <div class="col-md-6 col-sm-12">
+                                    <label for="enqPriority" class="form-label Rale-Med">Priority</label>
+                                    <select id="enqPriority" class="form-select Rale-Med" name="ENQ_HIGH_PRI" value="^VALUE^">
+                                        <option value="N" selected>Low</option>
+    
+                                        <option value="Y">High</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <label for="enqAffliation" class="form-label Rale-Med">Affliation*</label>
+                                    <input readonly name="ENQ_AFFILIATE" type="text" value="^VALUE^" id="enqAffliation" class="form-control" placeholder="Affliation" title="Affliation" aria-label="Affliation" required />
+                                </div>
+                            </div> -->
 
-                                    <option value="Y">High</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <label for="enqAffliation" class="form-label Rale-Med">Affliation*</label>
-                                <input readonly name="ENQ_AFFILIATE" type="text" value="^VALUE^" id="enqAffliation" class="form-control" placeholder="Affliation" title="Affliation" aria-label="Affliation" required />
-                            </div>
-                        </div> -->
-
-                        <div class="row Rale-Med" id="Enquiry-Button">
-                            <div class="col-md-6" id="submitBtn">
-                                <button class="btn btn-primary" type="submit" title="Submit">
-                                    Submit
-                                </button>
-                            </div>
-                            <div class="col-md-6" id="cancelBtn">
-                                <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/home.html">
-                                    <button class="btn btn-secondary" type="button" title="Cancel">
+                            <div class="row Rale-Med" id="Enquiry-Button">
+                                <div class="col-md-6" id="submitBtn">
+                                    <button id='submit-enquiry' class="btn btn-primary general-focus" type="submit" title="Submit">
+                                        Submit
+                                    </button>
+                                </div>
+                                <div class="col-md-6" id="cancelBtn">
+                                    <!-- <a href="^SESSID^?GET&file=[ao_assets]html~5chome.html&rid=aims-home">/ -->
+                                    <button class="btn btn-secondary general-focus" type="button" title="Cancel" onclick="onClickNavigationBtn(8)">
                                         Cancel
-                                    </button></a>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -661,6 +830,9 @@
 
     <!-- include virtual="[AO_INCLUDES]rightPanel.htm "-->
 </div>
+
+<div hidden id="enq_xml">^XML_TREE^</div>
+
 <script>
     // declare variables which are accessed by the fuunctions in the enquiry.js file
     var enquiry_submitted = false;

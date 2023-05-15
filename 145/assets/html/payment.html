@@ -1,0 +1,73 @@
+<!-- 
+login username
+paymount
+locale
+prod_id
+return_on_cancel
+return_on_success -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PaymentRequest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="maincontent">
+        <div id='Pay-Wrapper' class='Pay-Wrapper'>
+            <div id='Pay-Main' class='Pay-Main Pay-Content d-flex flex-column align-items-center'> 
+                <div id='Pay-Container' class='Rale-Reg'>
+                    <h1 class='Rale-Extra'>Pay Request Information</h1>
+                        <input id='Pay-Language' type='text' hidden>
+                        <label for="Pay-Language" hidden aria-hidden="true">placeholder</label>
+                        <input id='Return-Cancel' type='text' hidden>
+                        <label for="Return-Cancel" hidden aria-hidden="true">placeholder</label>
+                        <input id='Return-Success' type='text' hidden>
+                        <label for="Return-Success" hidden aria-hidden="true">placeholder</label>
+                        <div class='Pay-Item'>
+                            <label class='label Pay-Id-Label Rale-Bold'>Client Id:</label>
+                            <div id='Pay-Client-Id' type='number' class='Pay-Item-Value' ></div>
+                        </div>
+                        <div class='Pay-Item'>
+                            <label class='label Pay-Id-Label Rale-Bold'>Order No.:</label>
+                            <div id='Pay-Merchant-Num' type='number' class='Pay-Item-Value' ></div>
+                        </div>
+                        <div class='Pay-Item'>
+                            <label class='label Pay-Prod-Label Rale-Bold'>Product Id:</label>
+                            <div id="Pay-Product-Id" type='text' class='Pay-Item-Value' ></div>
+                        </div>
+                        <div class='Pay-Item'>
+                            <label class='label Pay-Prod-Label Rale-Bold'>Action:</label>
+                            <div id="Pay-Product-Topic" type='text' class='Pay-Item-Value' ></div>
+                        </div>
+                        <div class='Pay-Item'>
+                            <label class='label Pay-Prod-Label Rale-Bold'>Product Title:</label>
+                            <div id="Pay-Product-Title" type='text' class='Pay-Item-Value' ></div>
+                        </div>
+                        <div class='Pay-Item'>
+                            <label class='label Pay-Tax-Label Rale-Bold'>Tax:</label>
+                            <div id='Pay-Tax' type='number' class='Pay-Item-Value'> </div>
+                        </div>
+                        <div class='Pay-Item'>
+                            <label class='label Pay-Handling-Label Rale-Bold'>Handling:</label>
+                            <div id='Pay-Handling' type='number' class='Pay-Item-Value'> </div>
+                        </div>
+                        <div class='Pay-Item'>
+                            <label class='label Pay-Charge-Label Rale-Bold'>Charge Amount:</label>
+                            <div id='Pay-Charge' type='number' class='Pay-Item-Value'> </div>
+                        </div>
+                        <div class='Pay-Item'>
+                            <label class='label Pay-Amount-Label Rale-Bold'>Pay Amount:</label>
+                            <div id='Pay-Amount' type='number' class='Pay-Item-Value'> </div>
+                        </div>
+                        <button type='submit' title='Submit' class='action-button btn btn-primary general-focus' onclick="requestOrder()">Request Order</button>
+          
+                </div>
+            </div>
+        </div>                
+    </div>
+</body>
+</html>
+    
+ 

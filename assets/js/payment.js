@@ -124,8 +124,8 @@ const requestOrder = () => {
         "req_order_num": merchantNum,
         "req_patron_id": patronId,
         "pay_amount": amt.replace('$', '').toString(),
-        "success_url": `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
-        "cancel_url": `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+        "success_url": `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+        "cancel_url": `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
         "locale": "en",
         testLevel: 1
     }
@@ -144,7 +144,7 @@ const reqInitPay = (myData) => {
     setTimeout(() => controller.abort(), 3000);
 
 
-    fetch('https://uataopay.minisisinc.com/api/initPay', {
+    fetch('https://aimsaoccpay.minisisinc.com/api/initPay', {
         method: 'POST',
         signal: signal,
         headers: {
@@ -212,7 +212,7 @@ const settlePay = (orderNum) => {
         req_order_num: orderNum
     }
     
-    fetch ('https://uataopay.minisisinc.com/api/SettleLast', {
+    fetch ('https://aimsaoccpay.minisisinc.com/api/SettleLast', {
         method: 'POST',
         signal: signal,
         headers: {
@@ -254,7 +254,7 @@ const setFields = (orderNum, authCode, authTime, card, name) => {
 
     console.log(JSON.stringify(postData))   
 
-    fetch ('https://uataopay.minisisinc.com/api/SetFields', {
+    fetch ('https://aimsaoccpay.minisisinc.com/api/SetFields', {
         method: 'POST',
         signal: signal,
         headers: {
@@ -293,7 +293,7 @@ const queryLast = (orderNum) => {
         req_order_num: orderNum
     }
 
-    fetch ('https://uataopay.minisisinc.com/api/QueryLast', {
+    fetch ('https://aimsaoccpay.minisisinc.com/api/QueryLast', {
         method: 'POST',
         signal: signal,
         headers: {
@@ -331,7 +331,7 @@ const cancelLast = () => {
         req_order_num: orderNum
     }
 
-    fetch ('https://uataopay.minisisinc.com/api/CancelLast', {
+    fetch ('https://aimsaoccpay.minisisinc.com/api/CancelLast', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -359,7 +359,7 @@ const setPartialPaid = () => {
         req_partial_paid: amt
     }
 
-    fetch ('https://uataopay.minisisinc.com/api/SetPartialPaid', {
+    fetch ('https://aimsaoccpay.minisisinc.com/api/SetPartialPaid', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -374,6 +374,7 @@ const setPartialPaid = () => {
     .catch ( err => { throw new Error (`HTTP error! status: ${err}`) })
 }
 
+// This function disables
 const agreementChecked = () => {
     let checkbox = document.getElementById('pay-agreement');
     let payBtn   = document.getElementById('complete-pay-btn'); 
@@ -381,16 +382,19 @@ const agreementChecked = () => {
     if (checkbox.checked == true) payBtn.disabled = false;
     else payBtn.disabled = true;
 }
+
+// This function redirects back to client profile when in page back button is pressed
 const backToProfile = () => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const sess = urlParams.get('sess')
 
-    window.location = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/${sess}?GET&FILE=[AO_ASSETS]html/patronProfile.html`
+    window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/${sess}?GET&FILE=[AO_ASSETS]html/patronProfile.html`
 }
 
+// This function redirects to the client profile after successfully completing a payment transaction
 const successRedirectToProfile = async (orderNum) => {
-    let url       = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_FINAL/REQ_ORDER_NUM ${orderNum}?COMMANDSEARCH&sess=${sessionId}`
+    let url       = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_FINAL/REQ_ORDER_NUM ${orderNum}?COMMANDSEARCH&sess=${sessionId}`
     let animation = document.getElementById('animation-loader');
 
     animation.style.display = 'flex';
@@ -403,6 +407,10 @@ const successRedirectToProfile = async (orderNum) => {
     window.location = url;
 }
 
+/*
+ * This function gets the receipt for an order payment. It takes in a string representing the value of the search expression
+ *  @params { e } a string 
+ */
 const getReceiptOnClick = (e) => 
 {
     let url = `${home_sessid}/REQ_ORDER_NUM ${e.dataset.searchExp}?SEARCH_N_OUTPUTFILE&DATABASE=REQUEST_INFO&REPORT=CCPAY_PAY_RECEIPT&DOWNLOADPAGE=[AO_INCLUDES]pdf.htm&NOMSG=[AO_INCLUDES]error/nopayreceipt.htm&EXTENSION=PDF`;

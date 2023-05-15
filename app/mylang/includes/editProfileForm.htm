@@ -1,0 +1,234 @@
+<div class="row">
+    <span id="ClientFormPage"></span>
+    <div id="Client-Form">
+        <form id="editProfileForm" method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/editProfileConfirmation.html" onUnload="closeWindow()">
+
+
+            <div class="clientMainSection shadow-lg border border-dark border-2 row g-3 Rale-Med">
+                <h3 id="FormHeader" class="Rale-Bold d-flex justify-content-left">[--Main--]
+                </h3>
+
+                <div class="clientIDContainer col-md-4 col-sm-12">
+                    <label for="clientID" class="form-label">[--<b>Client ID*</b>--]</label>
+                    <input id="clientID" type="text" class="form-control" placeholder="[--Client ID--]" aria-label="[--Client ID--]" name="C_CARD_NUMBER" required />
+                </div>
+
+                <div class="clientEmailContainer col-md-4 col-sm-12">
+                    <label for="clientEmail" class="form-label">[--<b>Email*</b>--]</label>
+                    <input name="C_EMAIL" id="clientEmail" type="email" class="form-control" size="25" placeholder="[--Email--]" aria-label="[--EMAIL--]" required />
+                </div>
+
+                <div class="clientPasswordContainer col-md-4 col-sm-12">
+                    <label for="clientPassword" class="form-label">[--<b>Password*</b>--]</label>
+                    <input id="clientPassword" type="password" class="form-control" placeholder="[--Password--]" aria-label="[--Password--]" name="PATRON_PID" required />
+                </div>
+
+                <div class="clientFirstNameContainer col-md-4 col-sm-12">
+                    <label for="clientFirstName" class="form-label">[--<b>First Name*</b>--]</label>
+                    <input id="clientFirstName" type="text" class="form-control" placeholder="[--First name--]" aria-label="[--First name--]" name="C_NAME_FIRST" required />
+                </div>
+
+                <div class="clientLastNameContainer col-md-4 col-sm-12">
+                    <label for="clientLastName" class="form-label">[--<b>Last Name*</b>--]</label>
+                    <input id="clientLastName" type="text" class="form-control" placeholder="[--Last name--]" aria-label="[--Last name--]" name="C_NAME_LAST" required />
+                </div>
+
+                <div class="clientMiddleNameContainer col-md-4 col-sm-12">
+                    <label for="clientMiddleName" class="form-label">[--Middle Name--]</label>
+                    <input id="clientMiddleName" type="text" class="form-control" placeholder="[--Middle name--]" aria-label="[--Middle name--]" name="C_NAME_INIT" />
+                </div>
+
+                <div class="clientAliasContainer col-md-4 col-sm-12">
+                    <label for="clientAlias" class="form-label">[--Alias--]</label>
+                    <input id="clientAlias" type="text" class="form-control" placeholder="[--Alias--]" aria-label="[--Alias--]" name="C_NAME_ALIAS" />
+                </div>
+
+                <div id="clientDivisionID" class="clientDivisonContainer col-md-8 col-sm-12">
+                    <label for="clientDivision" class="form-label">[--<b>Affiliated Ministry*</b>--]</label>
+                    <select id="clientDivision" class="form-select form-control Rale-Reg" name="DIVISION" required>
+                        <option>Select Affiliated Ministry</option>
+                        <option>Ministry of Agriculture, Food and Rural Affairs</option>
+                        <option>Ministry of the Attorney General</option>
+                        <option>Ministry of Children, Community and Social Services
+                        </option>
+                        <option>Ministry of Citizenship and Multiculturalism</option>
+                        <option>Ministry of Colleges and Univers ities</option>
+                        <option>Ministry of Economic Development, Job Creation and Trade
+                        </option>
+                        <option>Ministry of Education</option>
+                        <option>Ministry of Energy</option>
+                        <option>Ministry of Environment, Conservation and Parks</option>
+                        <option>Ministry of Finance</option>
+                        <option>Ministry of Francophone Affairs</option>
+                        <option>Ministry of Government and Consumer Services</option>
+                        <option>Ministry of Health</option>
+                        <option>Ministry of Heritage, Sport, Tourism and Culture
+                            Industries</option>
+                        <option>Ministry of Indigenous Affairs</option>
+                        <option>Ministry of Infrastructure</option>
+                        <option>Ministry of Intergovernmental Affairs</option>
+                        <option>Ministry of Labour, Training and Skills Development
+                        </option>
+                        <option>Ministry of Long-Term Care</option>
+                        <option>Ministry of Municipal Affairs and Housing</option>
+                        <option>Ministry of Northern Development, Mines, Natural
+                            Resources and Forestry</option>
+                        <option>Ministry of Seniors and Accessibility</option>
+                        <option>Ministry of Solicitor General</option>
+                        <option>Ministry of Transportation</option>
+                        <option>Treasury Board Secretariat</option>
+                    </select>
+                </div>
+
+                <div class="clientRoleContainer col-md-4 col-sm-12">
+                    <label for="clientRole" class="form-label">[--<b>User Role*</b>--]</label>
+                    <input id="clientRole" type="text" class="form-control" placeholder="[--User Role--]" aria-label="[--Role--]" name="C_TYPE" required />
+                </div>
+
+                <div class="clientLanguageContainer col-md-4 col-sm-12">
+                    <label for="clientLanguage" class="form-label">[--Language--]</label>
+                    <select id="clientLanguage" class="form-select form-control Rale-Reg" name="C_LANGUAGE">
+                        <option>English</option>
+                        <option>French</option>
+                        <option>Spanish</option>
+                    </select>
+                </div>
+                <div class="clientOrgContainer col-md-4 col-sm-12">
+                    <label for="clientOrg" class="form-label">[--Organization--]</label>
+                    <input id="clientOrg" type="text" class="form-control" placeholder="[--Organization--]" aria-label="[--Organization--]" name="C_ORGANIZATION" />
+                </div>
+
+            </div>
+
+
+            <div class="clientAddressSection shadow-lg border border-dark border-2 row g-3 Rale-Med">
+                <h3 id="FormHeader" class="Rale-Bold d-flex justify-content-left">[--Address--]
+                </h3>
+                <div class="clientStreetOneContainer col-md-4 col-sm-12">
+                    <label for="clientStreetOne" class="form-label">[--Line 1--]</label>
+                    <input id="clientStreetOne" type="text" class="form-control" placeholder="[--Street--]" aria-label="[--Line 1--]" name="C_STREET" />
+                </div>
+                <div class="clientStreetTwoContainer col-md-4 col-sm-12">
+                    <label for="clientStreetTwo" class="form-label">[--Line 2--]</label>
+                    <input id="clientStreetTwo" type="text" class="form-control" placeholder="[--Street--]" aria-label="[--Line 2--]" name="C_STREET2" />
+                </div>
+                <div class="clientStreetThreeContainer col-md-4 col-sm-12">
+                    <label for="clientStreetThree" class="form-label">[--Line 3--]</label>
+                    <input id="clientStreetThree" type="text" class="form-control" placeholder="[--Street--]" aria-label="[--Line 3--]" name="C_STREET3" />
+                </div>
+
+                <div class="clientCityContainer col-md-3 col-sm-12">
+                    <label for="clientCity" class="form-label">[--City--]</label>
+                    <input id="clientCity" type="text" class="form-control" placeholder="[--City--]" aria-label="[--City--]" name="C_CITY" />
+                </div>
+                <div class="clientProvContainer col-md-3 col-sm-12">
+                    <label for="clientProv" class="form-label">[--Province--]</label>
+                    <input id="clientProv" type="text" class="form-control" placeholder="[--Province--]" aria-label="[--Province--]" name="C_PROV_STATE" />
+                </div>
+                <div class="clientCountryContainer col-md-3 col-sm-12">
+                    <label for="clientCountry" class="form-label">[--Country--]</label>
+                    <input id="clientCountry" type="text" class="form-control" placeholder="[--Country--]" aria-label="[--Country--]" name="C_COUNTRY" />
+                </div>
+                <div class="clientPostalContainer col-md-3 col-sm-12">
+                    <label for="clientPostal" class="form-label">[--Postal Code--]</label>
+                    <input id="clientPostal" type="text" class="form-control" placeholder="[--Postal Code--]" aria-label="[--Postal Code--]" name="C_POSTAL_ZIP" />
+                </div>
+
+
+            </div>
+
+
+            <div class="clientShipAddressSection shadow-lg border border-dark border-2 row g-3 Rale-Med">
+                <h3 id="FormHeader" class="Rale-Bold d-flex justify-content-left">[--Shipping Address--]
+                </h3>
+                <div class="clientStreetOneContainer col-md-4 col-sm-12">
+                    <label for="clientShipStreetOne" class="form-label">[--Line 1--]</label>
+                    <input id="clientShipStreetOne" type="text" class="form-control" placeholder="[--Street--]" aria-label="[--Line 1--]" name="C_S_STREET" />
+                </div>
+                <div class="clientStreetTwoContainer col-md-4 col-sm-12">
+                    <label for="clientShipStreetTwo" class="form-label">[--Line 2--]</label>
+                    <input id="clientShipStreetTwo" type="text" class="form-control" placeholder="[--Street--]" aria-label="[--Line 2--]" name="C_S_STREET2" />
+                </div>
+                <div class="clientStreetThreeContainer col-md-4 col-sm-12">
+                    <label for="clientShipStreetThree" class="form-label">[--Line 3--]</label>
+                    <input id="clientShipStreetThree" type="text" class="form-control" placeholder="[--Street--]" aria-label="[--Line 3--]" name="C_S_STREET3" />
+                </div>
+
+
+                <div class="clientCityContainer col-md-3 col-sm-12">
+                    <label for="clientShipCity" class="form-label">[--City--]</label>
+                    <input id="clientShipCity" type="text" class="form-control" placeholder="[--City--]" aria-label="[--City--]" name="C_S_CITY" />
+                </div>
+                <div class="clientProvContainer col-md-3 col-sm-12">
+                    <label for="clientShipProv" class="form-label">[--Province--]</label>
+                    <input id="clientShipProv" type="text" class="form-control" placeholder="[--Province--]" aria-label="[--Province--]" name="C_S_PROV_STATE" />
+                </div>
+                <div class="clientCountryContainer col-md-3 col-sm-12">
+                    <label for="clientShipCountry" class="form-label">[--Country--]</label>
+                    <input id="clientShipCountry" type="text" class="form-control" placeholder="[--Country--]" aria-label="[--Country--]" name="C_S_COUNTRY" />
+                </div>
+                <div class="clientPostalContainer col-md-3 col-sm-12">
+                    <label for="clientShipPostal" class="form-label">[--Postal Code--]</label>
+                    <input id="clientShipPostal" type="text" class="form-control" placeholder="[--Postal Code--]" aria-label="[--Postal Code--]" name="C_S_POSTAL_ZIP" />
+                </div>
+            </div>
+
+
+            <div class="clientTelephoneSection shadow-lg border border-dark border-2 row g-3 Rale-Med">
+                <h3 id="FormHeader" class="Rale-Bold d-flex justify-content-left">
+                    [--Telephone--]
+                </h3>
+                <div class="clientHomePhoneContainer col-md-3 col-sm-12">
+                    <label for="clientHomePhone" class="form-label">
+                        [--Home--]
+                    </label>
+                    <input id="clientHomePhone" type="text" class="form-control" placeholder="[--Home Telephone--]" aria-label="[--Home Telepone--]" name="C_TEL_HOME" />
+                </div>
+
+                <div class="clientWorkPhoneContainer col-md-3 col-sm-12">
+                    <label for="clientWorkPhone" class="form-label">
+                        [--Work--]
+                    </label>
+                    <input id="clientWorkPhone" type="text" class="form-control" placeholder="[--Work Telephone--]" aria-label="[--Work Telepone--]" name="C_TEL_WORK" />
+                </div>
+
+                <div class="clientCellPhoneContainer col-md-3 col-sm-12">
+                    <label for="clientCellPhone" class="form-label">
+                        [--Cell--]
+                    </label>
+                    <input id="clientCellPhone" type="text" class="form-control" placeholder="[--Cell Telephone--]" aria-label="[--Cell Telepone--]" name="C_TEL_CELL" />
+                </div>
+
+                <div class="clientFaxPhoneContainer col-md-3 col-sm-12">
+                    <label for="clientFaxPhone" class="form-label">
+                        [--Fax--]
+                    </label>
+                    <input id="clientFaxPhone" type="text" class="form-control" placeholder="[--Fax Telephone--]" aria-label="[--Fax Telepone--]" name="C_TEL_FAX" />
+                </div>
+
+
+            </div>
+
+
+            <div class="row Rale-Med" id="Client-Button">
+                <div class="col-md-6" id="submitBtn">
+                    <button id="editClientSubmit" class="btn btn-primary" onclick="updateProfile('editProfileForm')">
+                        [--Submit--]
+                    </button>
+                    <!-- <button id="editClientSubmit" class="btn btn-primary" type="submit">
+                        Submit
+                    </button> -->
+                </div>
+                <div class="col-md-6" id="cancelBtn">
+                    <a href="^SESSID^?GET&file=[ao_assets]html~5chome.html&rid=aims-home">
+                        <button id="editClientCancel" class="btn btn-secondary" onclick="cancelPressed()">
+                            [--Cancel--]
+                        </button></a>
+                        <!-- <button id="editClientCancel" class="btn btn-secondary" type="button">
+                            Cancel
+                        </button></a> -->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

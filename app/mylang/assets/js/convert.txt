@@ -1,0 +1,71 @@
+MinisisAzure066 - MINISIS UAT
+Public Secure 
+configps.js
+let conectoptions = {
+    issuer: 'https://stage.signin.ontario.ca/oauth2/aus187zrqyTXcJAHA5d7',
+    clientId: '0oa472jfxf2ixcXK55d7',
+    redirectUri: 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogin.html',
+    scopes: ['openid', 'profile', 'email'],
+    postLogoutRedirectUri: 'https://test.aims.archives.gov.on.ca',
+psLogin.js
+function authSignOut()
+    let redirectURI = 'https://test.aims.archives.gov.on.ca'
+index.js
+const onClickRegistrationBtn = () => window.location = 'https://stage.signin.ontario.ca/signin/register';
+
+
+CCPay
+testPay.js
+payment.js
+https://minaopay.minisisinc.com
+
+MinisisAzure050 - AO UAT
+Public Secure 
+configps.js
+let conectoptions = {
+    issuer: 'https://stage.signin.ontario.ca/oauth2/aus187zrqyTXcJAHA5d7',
+    clientId: '0oa472jfxf2ixcXK55d7',
+    redirectUri: 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogin.html',
+    scopes: ['openid', 'profile', 'email'],
+    postLogoutRedirectUri: 'https://test.aims.archives.gov.on.ca',
+psLogin.js
+function authSignOut()
+	let redirectURI = 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogout.html'
+index.js
+const onClickRegistrationBtn = () => window.location = 'https://stage.signin.ontario.ca/signin/register';
+PubSecureLoginFr.html
+                window.location = `https://stage.signin.ontario.ca/oauth2/aus187zrqyTXcJAHA5d7/v1/authorize?client_id=0oa472jfxf2ixcXK55d7&code_challenge=gx465tDX1NdJiNNwDA3cC8rOo5fo-iHdEZ6y38DEvOY&code_challenge_method=S256&nonce=zsny4V47A4K2DTNJCX41gXbGjToYj8lW3nL7WYZuIcf8XY7lKK9vPMAszvFBLOCA&redirect_uri=https%3A%2F%2Ftest.aims.archives.gov.on.ca%2Fassets%2Fhtml%2FPubSecureLoginFr.html&response_type=code&state=ZyAlkPtxV8jDoQ5BGywMUpMt2w5s4AOtYHGqqRGrelYSAk4Ju8Oy8w0vBXaTHhHC&scope=openid%20profile%20email`
+
+
+CCPay
+testPay.js
+payment.js
+https://uataopay.minisisinc.com
+
+
+MinisisAzure052 - AO PROD
+Public Secure 
+configps.js
+let conectoptions = {
+    issuer: 'https://signin.ontario.ca/oauth2/aus2957lteAY4cRQK5d7',
+    clientId: '0oa6644t12jysJ8PP5d7',
+    redirectUri: 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogin.html',
+    scopes: ['openid', 'profile', 'email'],
+    postLogoutRedirectUri: 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogout.html',
+
+psLogin.js
+function authSignOut()
+    let redirectURI = 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogout.html'
+index.js
+const onClickRegistrationBtn = () => window.location = 'https://signin.ontario.ca/signin/register';
+        let myOntarioAccount = `<a class="btn btn-dark btn-sm" style="margin-top:20px;width:100%" value="My Ontario Account" id="ontarioAccount" href="https://signin.ontario.ca/enduser/settings"> My Ontario Account </a>`;
+
+PubSecureLoginFr.html
+                window.location = `https://stage.signin.ontario.ca/oauth2/aus187zrqyTXcJAHA5d7/v1/authorize?client_id=0oa472jfxf2ixcXK55d7&code_challenge=gx465tDX1NdJiNNwDA3cC8rOo5fo-iHdEZ6y38DEvOY&code_challenge_method=S256&nonce=zsny4V47A4K2DTNJCX41gXbGjToYj8lW3nL7WYZuIcf8XY7lKK9vPMAszvFBLOCA&redirect_uri=https%3A%2F%2Ftest.aims.archives.gov.on.ca%2Fassets%2Fhtml%2FPubSecureLoginFr.html&response_type=code&state=ZyAlkPtxV8jDoQ5BGywMUpMt2w5s4AOtYHGqqRGrelYSAk4Ju8Oy8w0vBXaTHhHC&scope=openid%20profile%20email`
+
+
+CCPay
+testPay.js
+payment.js
+https://aimsaoccpay.minisisinc.com
+

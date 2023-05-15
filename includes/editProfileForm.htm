@@ -1,11 +1,11 @@
 <div class="row">
     <span id="ClientFormPage"></span>
     <div id="Client-Form">
-        <form id="editProfileForm" method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/editProfileConfirmation.html">
+        <form id="editProfileForm" method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/editProfileConfirmation.html" onSubmit="save_button_pressed = 1; return true" >
 
 
             <div class="clientMainSection shadow-lg border border-dark border-2 row g-3 Rale-Med">
-                <h3 id="FormHeader" class="Rale-Bold d-flex justify-content-left">Main
+                <h3 class="Rale-Bold FormHeader d-flex justify-content-left">Main
                 </h3>
 
                 <div class="clientIDContainer col-md-4 col-sm-12">
@@ -15,12 +15,12 @@
 
                 <div class="clientEmailContainer col-md-4 col-sm-12">
                     <label for="clientEmail" class="form-label"><b>Email*</b></label>
-                    <input name="C_EMAIL" id="clientEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required />
+                    <input name="C_EMAIL" id="clientEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="EMAIL" required />
                 </div>
 
                 <div class="clientPasswordContainer col-md-4 col-sm-12">
                     <label for="clientPassword" class="form-label"><b>Password*</b></label>
-                    <input id="clientPassword" type="password" class="form-control" placeholder="Password" aria-label="Password" name="PATRON_PID" required />
+                    <input id="clientPassword" type="password" class="form-control" placeholder="Password" aria-label="Password" name="PATRON_PID" required readonly/>
                 </div>
 
                 <div class="clientFirstNameContainer col-md-4 col-sm-12">
@@ -102,7 +102,7 @@
 
 
             <div class="clientAddressSection shadow-lg border border-dark border-2 row g-3 Rale-Med">
-                <h3 id="FormHeader" class="Rale-Bold d-flex justify-content-left">Address
+                <h3 class="Rale-Bold FormHeader d-flex justify-content-left">Address
                 </h3>
                 <div class="clientStreetOneContainer col-md-4 col-sm-12">
                     <label for="clientStreetOne" class="form-label">Line 1</label>
@@ -139,7 +139,7 @@
 
 
             <div class="clientShipAddressSection shadow-lg border border-dark border-2 row g-3 Rale-Med">
-                <h3 id="FormHeader" class="Rale-Bold d-flex justify-content-left">Shipping Address
+                <h3 class="Rale-Bold FormHeader d-flex justify-content-left">Shipping Address
                 </h3>
                 <div class="clientStreetOneContainer col-md-4 col-sm-12">
                     <label for="clientShipStreetOne" class="form-label">Line 1</label>
@@ -175,7 +175,7 @@
 
 
             <div class="clientTelephoneSection shadow-lg border border-dark border-2 row g-3 Rale-Med">
-                <h3 id="FormHeader" class="Rale-Bold d-flex justify-content-left">
+                <h3 class="Rale-Bold FormHeader d-flex justify-content-left">
                     Telephone
                 </h3>
                 <div class="clientHomePhoneContainer col-md-3 col-sm-12">
@@ -212,15 +212,18 @@
 
             <div class="row Rale-Med" id="Client-Button">
                 <div class="col-md-6" id="submitBtn">
-                    <button id="editClientSubmit" class="btn btn-primary" type="submit">
+                    <button id="editClientSubmit" class="btn btn-primary general-focus" type="submit">
                         Submit
                     </button>
                 </div>
                 <div class="col-md-6" id="cancelBtn">
-                    <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/home.html">
-                        <button id="editClientCancel" class="btn btn-secondary" type="button">
+                    <a href="^SESSID^?GET&file=[ao_assets]html~5chome.html&rid=aims-home">
+                        <button id="editClientCancel" class="btn btn-secondary general-focus" onclick="cancelPressed()">
                             Cancel
                         </button></a>
+                        <!-- <button id="editClientCancel" class="btn btn-secondary" type="button">
+                            Cancel
+                        </button></a> -->
                 </div>
             </div>
         </form>

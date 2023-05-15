@@ -1,0 +1,90 @@
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+<!-- include virtual="[AO_INCLUDES]header.htm"-->
+<title>Archives of Ontario - No Results</title>
+
+
+<div id='Content-Wrapper' class='Content-Wrapper'>
+
+    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+
+    <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+        <h1>No archival, no art and no library records exist for this authority</h1>
+        <div id="maincontent">
+            <div class='Form-Wrapper'>
+                <p style='font-size: 2em; text-align: center;'>
+                    Your search returned no results. Please try another search strategy.
+                </p>
+                <!-- <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&database=UNION_VIEW&ERRMSG=[AO_INCLUDES]error~5cnorecord.htm"> -->
+                <form id='Main-Form' class="minimum-font-size" method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&ERRMSG=[AO_INCLUDES]error~5cnorecord.htm">
+                    <div class='main-form-left'>
+                        <div class='main-login-mobile Rale-Bold'>
+                            <button type='button' class='main-form-btn pub-sec-login-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
+                            <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                            <button type='button' class='main-form-btn main-form-info Rale-Bold' title='For further information on how to search AIMS' onclick="howToSearch('default')">How to search our database</button>
+                        </div>
+                        <!-- https://search.lma.gov.uk/scripts/mwimain.dll/382872043?UNIONSEARCH&KEEP=Y&APPLICATION=UNION_VIEW&LANGUAGE=144&simple_exp=y&HISTORY=LMA_DESCRIPTION&ERRMSG=[WWW_LMA]err.htm&REPORT=WEB_SUMMARY -->
+                        <h3 class='search-area-h3 Rale-Reg'>Search archival, art, and library collection</h3>
+                        <br>
+                        <span id='Option-Choice' class='Rale-Bold' aria-label='Search type All Keywords Search'>Option 1: Keyword Search</span>
+                        <span id='Number-Results'></span>
+                        <div class='Input-Wrapper d-flex flex-column'>
+                            <label id="simple_search_input_label" class='Rale-Bold' for="simple_search_input">Enter a search term or terms:</label>
+                            <div id='simple-search-container'>
+                                <input id="simple_search_input" type='text' aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus/>
+                                <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='SEARCH' />
+                            </div>
+                        </div>
+                        <div class='Radio-Wrapper'>
+                            <fieldset>
+                                <legend class='visually-hidden'>Search Type</legend>
+                                <span>
+                                    <input type='radio' id='All-Keywords' class='search-input' aria-label='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
+                                    <label class='search-label Rale-Med' for='All-Keywords'>All of these keywords</label>
+                                </span>
+                                <span>
+                                    <input type='radio' id='Any-Keywords' class='search-input' aria-label='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
+                                    <label class='search-label Rale-Med' for='Any-Keywords'>Any of these Keywords</label>
+                                </span>
+                                <span>
+                                    <input type='radio' id='Exact-Phrase' class='search-input' aria-label='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
+                                    <label class='search-label Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
+                                </span>
+                            </fieldset>
+                        </div>
+                        <div class='Search-Options-Container'>
+                            <div class='search-options-top'>
+                                <button type='button' class='Search-Btn Rale-Bold'  aria-label='Go to Advanced Search' onclick="onClickNavigationBtn(1)" tabindex="0">
+                                    ADVANCED SEARCH
+                                </button>
+                                <button type='button' class='Search-Btn Rale-Bold' aria-label='More Search Options' onclick="onClickNavigationBtn(2)">
+                                    MORE SEARCH OPTIONS
+                                </button>
+                            </div>
+                            <div class='search-options-bottom Rale-Bold'>
+                                <button type='button' class='Search-Btn Rale-Bold'  aria-label='People Search' onclick="onClickNavigationBtn(3)">
+                                    PEOPLE SEARCH
+                                </button>
+                                <button type='button' class='Search-Btn Rale-Bold' aria-label='Organization search' onclick="onClickNavigationBtn(4)">
+                                    ORGANIZATION SEARCH
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='main-form-right Rale-Bold'>
+                        <button type='button' class='main-form-btn pub-sec-login-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
+                        <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                        <button type='button' class='main-form-btn main-form-info Rale-Bold' title='For further information on how to search AIMS' onclick="howToSearch('default')">How to search our database</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+
+</div>
+</div>
+
+
+<!-- include virtual="[AO_INCLUDES]footer.htm"-->

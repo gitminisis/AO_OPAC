@@ -78,14 +78,24 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 100%;
+
+    padding-left: 10px;
 }
 
 .pagination-btn {
     margin: 5px;
 }
-
+/* .pagination-container:first-child {
+    padding-left: 10px;
+} */
 .pagination-container a {
     text-decoration: none;
+    color: #000;
+}
+
+.pagination-container {
+    color: #000;
 }
 .pagination-container a:hover {
     text-decoration: underline;
@@ -193,9 +203,34 @@ textarea {
 .next-button:hover{
     font-weight: bold;
 }
+.bookmark-btn {
+    background-color: #047bc1;
+}
+.bookmark-btn:focus {
+    border: 3px solid #000;
+}
+
+.form-check-label {
+    color: #000;
+    border-color: #000;
+}
+
+.form-check-label:focus {
+    border: 3px solid #000;
+}
+
+#summary-page {
+    width: 100%;
+}
 
 .summary_result_check{
     text-align: center;
+}
+
+.summary-list-btn,
+.summary-grid-btn {
+    color: #000;
+    font-size: 1.5em;
 }
 
 .web_sum_form{
@@ -213,6 +248,53 @@ textarea {
 
 button.Bookmark {
     width:93%;
+}
+
+.Crowd-Body-Item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* text-align: center !important; */
+    justify-content: center;
+    padding: 10px 0 10px 0 !important;
+}
+
+#Crowd-Container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#cs-btn-row {   
+    text-align: center;
+}
+
+#cs-submit-btn {
+    width: 100px;
+}
+
+.Comments-Input {
+    display: flex;
+    flex: 4;
+}
+
+.crowd-temp-start,
+.crowd-temp-end {
+    display: flex; 
+    flex: 2;
+}
+
+#Crowd-Source-Comment {
+    box-sizing: border-box; 
+    max-width: 80%;
+}
+
+
+.Label {
+    display: flex;
+    flex: 2;
+
+    margin-right: 5px;
 }
 
 /*
@@ -399,6 +481,34 @@ form div .Crowd-Header-Title{
 }
 
 #search-result-container{
-    padding-left:20px;
-    padding-bottom:10px;
+    padding: 10px 0;
+}
+.CP-Summary{
+    margin: 1em 0;
+}
+
+@media only screen and (max-width: 1657px) {
+    #panelsStayOpen-collapseTwo{
+
+    }
+}
+[id^="filter_dropdown"]{
+    overflow-y: auto;
+    height:400px;
+}
+.filter-record-link{
+    font-size:16px;
+}
+
+.sort-header,
+.filter-header{
+    font-size: 1.25rem;
+}
+.sort-acc-body{
+    font-size: 18px;
+    overflow-y: scroll;
+    height: 450px;
+}
+.filter_ul_responsive{
+    height:auto;
 }

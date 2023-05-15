@@ -1,6 +1,6 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
 
-<body>
+<body onUnload="closeWindow()">
 
     <!-- include virtual="[AO_INCLUDES]simpleHeader.htm"-->
     <title>Edit Client Profile</title>
@@ -8,15 +8,15 @@
 
     <div id='Content-Wrapper' class='Content-Wrapper'>
 
-       
+
 
         <div id='Panel-Main' class='Panel-Main Main-Content align-items-center'>
             <div id="Request-Page">
-                
+
                 <div class="Page-Heading">
                     <h1 id='Copyright' class='Rale-Bold d-flex justify-content-center '>Edit Client Profile
                     </h1>
-                    <hr/>
+                    <hr />
                 </div>
             </div>
 
@@ -26,12 +26,34 @@
             </div>
         </div>
 
-       
+
     </div>
     </div>
     <script>
+
         $('#editClientCancel').on('click', function () {
             parent.$.colorbox.close();
         });
+
+        var saved_button_pressed = 0;
+
+        function closeWindow() {
+            debugger
+            if (saved_button_pressed == 1) {
+                save_button_pressed = 0;
+            }
+            else {
+                window.open('^SKIPRECORD^&DISCONNECT=Y&CLOSE=Y', "CLOSE", "menubar=no, scrollbars=yes, resizable=yes, location=no, toolbar=no, Width=50, Height=50")
+            }
+        }
+
+        function cancelPressed() {
+            debugger
+            if (saved_button_pressed == 0) {
+                saved_button_pressed = 1;
+                location = '^skiprecord^&disconnect=y&close=y&FILE=[AO_ASSETS]html/patronProfile.html';
+            }
+            else self.close()
+        }
     </script>
     <!-- include virtual="[AO_INCLUDES]simpleFooter.htm"-->

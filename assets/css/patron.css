@@ -1,5 +1,5 @@
 
-#Client-Bookmarks,
+/* #Client-Bookmarks,
 #Client-Crowd-Sourcing,
 #Client-Enquiry,
 #Client-Request,
@@ -18,9 +18,25 @@
 
     border-radius: 2px;
     box-shadow: 2px 2px 4px 1px #888888;
+} */
+
+.patron-btns {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 170px;
+    width: 150px;
+    margin: 5px;
+    background-color: #fff;
+
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px 1px #888888;
 }
 
-#Client-Bookmarks:hover,
+/* #Client-Bookmarks:hover,
 #Client-Crowd-Sourcing:hover,
 #Client-Enquiry:hover,
 #Client-Request:hover,
@@ -28,15 +44,24 @@
 #Client-Reproduction:hover {
     background-color: #808080;
     cursor: pointer;
+} */
+
+.patron-btns:hover {
+    background-color: #808080;
+    cursor: pointer;
 }
 
 
-#Client-Bookmarks > p,
+/* #Client-Bookmarks > p,
 #Client-Crowd-Sourcing > p,
 #Client-Enquiry > p,
 #Client-Request > p,
 #Client-Copyright > p,
 #Client-Reproduction > p {
+    margin: 0;
+} */
+
+.patron-btns > p {
     margin: 0;
 }
 
@@ -46,6 +71,16 @@
     display: flex;
     align-items: center;
     width: 85%;
+    padding: 1.75em 0;
+}
+
+#Client-Email {
+    color: #000;
+    /* text-decoration: unset; */
+}
+
+#Client-Email:hover {
+    color: #0C5ED7;
 }
 
 #Client-Info {
@@ -125,7 +160,11 @@
     border-radius:7px;
 }
 
-#FormHeader{
+#clientBookmarkInner{
+    padding-top: 1em;
+}
+
+.FormHeader{
     text-decoration: underline;
 }
 .client-button-row{
@@ -141,8 +180,6 @@
     text-align: center;
 }
 
-#Client-Crowd-Sourcing
-
 /* Your Enquiry*/
 
 /* Your Request */
@@ -151,7 +188,7 @@
     background:white;
 }
 .my-req-header {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     font-size: 60px;
 }
 .my-req-desc {
@@ -159,10 +196,6 @@
 }
 .my-req-text-cont {
     background: white;
-}
-
-.patron-p {
-    text-align: center;
 }
 /* Your Crowdsourced */
 

@@ -9,133 +9,159 @@
     <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
 
     <div id='Panel-Main' class='Panel-Main Main-Content'>
-        <div id="art-top">
-            <div id='banner'>
-                <img id='banner-img' src="/assets/img/AIMS_banner (003).jpg" alt="Archives of Ontario banner">
+        <div id="maincontent">
+            <div id="art-top">
+                <div id='banner'>
+                    <img id='banner-img' src="/assets/img/AIMS_banner.jpg" alt="A banner of AIMS  the Archives and Information Management System">
+                </div>
             </div>
-        </div>
-        <div id="art-content-container">
-            <div id="art-content-left">
-                <br>
-                <h2 class="Rale-Extra main-title-h2">Welcome to the Art Collection!</h2>
-                <div class='Form-Wrapper'>
-                    <p class='page-description Rale-Bold'>
-                        Explore a wide range of selected images from the Ontario Government's Art Collection. These images depict the province of Ontario's history, people and landscape.
-                        <br><br> Images are continually being added to the database, so check back often.
-                    </p>
-
-                    <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^SEARCH^&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm">
-                        <div class='main-form-left'>
-                            <div class='main-login-mobile Rale-Bold'>
-                                <button type='button' id='pub-sec-login-btn' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>
-                                    Client Portal Login
-                                </button>
+            <div id="art-content-container">
+                <div id="art-content-left">
+                    <br>
+                    <h2 class="Rale-Extra main-title-h2">Welcome to the Art Collection!</h2>
+                    <div class='Form-Wrapper'>
+                        <p class='page-description subheader Rale-Bold'>
+                            Explore a wide range of selected images from the Ontario Government's Art Collection. These images depict the province of Ontario's history, people and landscape.
+                            <br><br> Images are continually being added to the database, so check back often.
+                        </p>
+    
+                        <!-- <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^HOME_SESSID^?UNIONSEARCH&DATABASE=COLLECTIONS_WEB&REPORT=WEB_COLL_SUM&KEEP=Y&ERRMSG=[AO_INCLUDES]error/norecordArt.htm"> -->
+                        <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm">
+    
+                            <div class='main-form-left'>
+                                <div class='main-login-mobile Rale-Bold'>
+                                    <button type='button' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>
+                                        Client Portal Login
+                                    </button>
+                                    <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                                    <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS'>
+                                            How to search our
+                                    database
+                                    </button>
+                                </div>
+                                <h3 class='search-area-h3 Rale-Reg'>Search all Art only holdings</h3>
+                                <br>
+                                <div class="icon-container general-focus focus-red" aria-label="Searching for records">
+                                    <i class="loader"></i> Searching records ...
+                                </div>
+                                <span id='Option-Choice' class='Rale-Bold' aria-label='Search type All Keywords Search'>Option 1: Keyword Search</span>
+                                <span id='Number-Results'></span>
+                                <div class='Input-Wrapper d-flex flex-column'>
+                                    <label id="simple_search_input_label" class='Rale-Bold' for="simple_search_input">Enter a search term or terms:</label>
+                                    <div id='simple-search-container'>
+                                        <input id="simple_search_input" type='text' aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus/>
+                                        <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='SEARCH' />
+                                    </div>
+    
+                                </div>
+                                <div class='Radio-Wrapper'>
+                                    <fieldset>
+                                        <legend class='visually-hidden'>Search Type</legend>
+                                        <span>
+                                            <input type='radio' id='All-Keywords' class='search-input'
+                                                aria-label='All of these keywords' value='AND_WORD' name='FLDOP1'
+                                                onclick='onClickSearchOption("All Keyword Search")' checked />
+                                            <label class='search-label Rale-Med' for='All-Keywords'>All of these
+                                                keywords</label>
+                                        </span>
+                                        <span>
+                                            <input type='radio' id='Any-Keywords' class='search-input'
+                                                aria-label='Any of these keywords' value='OR_WORD' name='FLDOP1'
+                                                onclick='onClickSearchOption("Any Keyword Search")' />
+                                            <label class='search-label Rale-Med' for='Any-Keywords'>Any of these Keywords</label>
+                                        </span>
+                                        <span>
+                                            <input type='radio' id='Exact-Phrase' class='search-input' aria-label='Exact Phrase'
+                                                value='ADJ_WORD' name='FLDOP1'
+                                                onclick='onClickSearchOption("Exact Phrase")' />
+                                            <label class='search-label Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
+                                        </span>
+                                    </fieldset>
+                                </div>
+                                <div class='Search-Options-Container'>
+                                    <div class='search-options-top'>
+                                        <button id='Advanced-Search' type='button' class='Search-Btn Rale-Bold' alt='Advanced Search' title='Go to advanced search options' aria-label='Go to advanced search options' onclick="onClickNavigationBtn(5)">
+                                            ADVANCED SEARCH
+                                        </button>
+                                        <button type='button' class='Search-Btn Rale-Bold' aria-label='More Search Options' onclick="onClickNavigationBtn(2)">
+                                            MORE SEARCH OPTIONS
+                                        </button>
+                                    </div>
+                                    <div class='search-options-bottom Rale-Bold'>
+                                        <button type='button' class='Search-Btn Rale-Bold'  aria-label='People Search' onclick="onClickNavigationBtn(3)">
+                                            PEOPLE SEARCH
+                                        </button>
+                                        <button type='button' class='Search-Btn Rale-Bold' aria-label='Organization search' onclick="onClickNavigationBtn(4)">
+                                            ORGANIZATION SEARCH
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='main-form-right Rale-Bold'>
+                                <button type='button' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal
+                                    Login</button>
                                 <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                                <button type='button' id='main-form-info' class='main-form-btn Rale-Bold' onclick='' title='To to further information on how to search AIMS'>
-                                        For further information on
-                                        how to search within AIMS click here
-                                </button>
+                                <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS' onclick="howToSearch('art')">How to search our database</button>
                             </div>
-                            <!-- https://search.lma.gov.uk/scripts/mwimain.dll/382872043?UNIONSEARCH&APPLICATION=UNION_VIEW&LANGUAGE=144&simple_exp=y&HISTORY=LMA_DESCRIPTION&ERRMSG=[WWW_LMA]err.htm&REPORT=WEB_SUMMARY -->
-                            <span class='Rale-Reg'>Search all Art only holdings</span>
-                            <br>
-                            <span id='Option-Choice' class='Rale-Bold'>Option 1: Keyword Search</span>
-                            <span id='Number-Results'></span>
-                            <div class='Input-Wrapper d-flex flex-column'>
-                                <label class='Rale-Bold' for="simple_search_input">Enter a search term or terms:</label>
-                                <div id='simple-search-container'>
-                                    <input id="simple_search_input" type='text' alt='Enter a search term or terms' name="KEYWORD_CLUSTER" />
-                                    <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='SEARCH' />
-                                </div>
-                                <div class="icon-container">
-                                    <i class="loader"></i> Searching Records ...
-                                </div>
-                            </div>
-                            <div class='Radio-Wrapper'>
-                                <fieldset>
-                                    <legend class='visually-hidden'>Search Type</legend>
-                                    <span>
-                                        <input type='radio' id='All-Keywords' class='search-input'
-                                            title='All of these keywords' value='AND_WORD' name='FLDOP1'
-                                            onclick='onClickSearchOption("All Keyword Search")' checked />
-                                        <label class='search-label Rale-Med' for='All-Keywords'>All of these
-                                            keywords</label>
-                                    </span>
-                                    <span>
-                                        <input type='radio' id='Any-Keywords' class='search-input'
-                                            title='Any of these keywords' value='OR_WORD' name='FLDOP1'
-                                            onclick='onClickSearchOption("Any Keyword Search")' />
-                                        <label class='search-label Rale-Med' for='Any-Keywords'>Any of these
-                                            keyword</label>
-                                    </span>
-                                    <span>
-                                        <input type='radio' id='Exact-Phrase' class='search-input' title='Exact Phrase'
-                                            value='ADJ_WORD' name='FLDOP1'
-                                            onclick='onClickSearchOption("Exact Phrase")' />
-                                        <label class='search-label Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
-                                    </span>
-                                </fieldset>
-                            </div>
-                            <div class='Radio-Wrapper-Mobile'>
-                                <fieldset>
-                                    <legend class='visually-hidden'>Search Type</legend>
-                                    <div class='Search-Type-Item-Mobile'>
-                                        <input type='radio' id='All-Keywords-Mobile' class='search-input-mobile' title='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
-                                        <label class='search-label-mobile Rale-Med' for='All-Keywords-Mobile'>All
-                                            keywords</label>
-                                    </div>
-                                    <div class='Search-Type-Item-Mobile'>
-                                        <input type='radio' id='Any-Keywords-Mobile' class='search-input-mobile' title='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")' />
-                                        <label class='search-label-mobile Rale-Med' for='Any-Keywords-Mobile'>Any
-                                            keyword</label>
-                                    </div>
-                                    <div class='Search-Type-Item-Mobile'>
-                                        <input type='radio' id='Exact-Phrase-Mobile' class='search-input-mobile' title='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")' />
-                                        <label class='search-label-mobile Rale-Med' for='Exact-Phrase-Mobile'>Exact
-                                            Phrase</label>
-                                    </div>
-                                </fieldset>
-                            </div>
-                            <div class='Search-Options-Wrapper'>
-                                <!-- <a class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArt.html'>ADVANCED SEARCH</a> -->
-                                <button id='Advanced-Search' type='button' class='Search-Btn Rale-Bold' alt='Advanced Search' title='Go to advanced search options' onclick="redirectToArtAdvance()">
-                                    ADVANCED SEARCH
-                                </button>
-                                <!-- <a class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a> -->
-                                <button class='Search-Btn Rale-Bold' alt='More Search Options' title='More Search Options'><a id='More-Search'
-                                        href='^SESSID^?GET&FILE=[AO_ASSETS]html/moreSearchOptions.html'>MORE SEARCH
-                                        OPTIONS</a></button>
-                            </div>
-                        </div>
-                        <div class='main-form-right Rale-Bold'>
-                            <button type='button' id='pub-sec-login-btn' class='main-form-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal
-                                Login</button>
-                            <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                            <button type='button' id='main-form-info' class='main-form-btn Rale-Bold' onclick='' title='To to further information on how to search AIMS'>For further information on how
-                                to search within AIMS click here</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+    
                 </div>
-
-            </div>
-            <div id="art-content-aside">
-                <div id="art-carousel">
-                    <ul class="bxslider">
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac692880.jpg" sisn=215 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac693132.jpg" sisn=230 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac658489.jpg" sisn=696 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac632657.jpg" sisn=1140 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac632617.jpg" sisn=1337 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac623523.jpg" sisn=1409 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac622040.jpg" sisn=1647 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac624405.jpg" sisn=1448 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac621152.jpg" sisn=1752 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac619721.jpg" sisn=1760 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac619802.jpg" sisn=2124 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac619812.jpg" sisn=2132 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
-                        <li><img class='art-carousel-img' src="https://uataoopac.minisisinc.com/media/ac619835.jpg" sisn=2151 width="200" height="150" onclick='carouselImgOnclick(this)' /></li>
+                <div id="art-content-aside">
+                    <div id="art-carousel">
+                        <ul class="bxslider">
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac692880.jpg" tabindex="0" aria-label="Press enter to go the detailed record for The International Rapids Section of the St. Lawrence River as it will be upon Completion of the Seaway and Power Project" sisn=215 width="200" height="150" onclick='carouselImgOnclick(this)' alt="The International Rapids Section of the St. Lawrence River as it will be upon Completion of the Seaway and Power Project" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac693132.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Hon. donal Alexander Macdonald [Lieutenant Governor of Ontario, 1853-1880]" sisn=230 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Hon. donal Alexander Macdonald [Lieutenant Governor of Ontario, 1853-1880]" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac658489.jpg" tabindex="0" aria-label="Press enter to go the detailed record for untitled" sisn=696 width="200" height="150" onclick='carouselImgOnclick(this)' alt="untitled" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac632657.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Sunset on Lake Temagami" sisn=1140 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Sunset on Lake Temagami" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac632617.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Line Stone Garden" sisn=1337 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Line Stone Garden" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac623523.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Lieutenant Roberts Dunn V.C., at the Battle of Balaclava" sisn=1409 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Lieutenant Roberts Dunn V.C., at the Battle of Balaclava" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac622040.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Angel Panel" sisn=1647 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Angel Panel" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac624405.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Sir Adam Beck's #2, From Brown's Hotel" sisn=1448 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Sir Adam Beck's #2, From Brown's Hotel" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac621152.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Clover fields, Humber River" sisn=1752 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Clover fields, Humber River" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619721.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Ripening Fields, Port Hope" sisn=1760 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Ripening Fields, Port Hope" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619802.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Hon. Sir William Ralph Meredith, KC, LL D [Chielf Justice, 1894-23]" sisn=2124 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Hon. Sir William Ralph Meredith, KC, LL D [Chielf Justice, 1894-23]" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619812.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Breeze Swept Lake" sisn=2132 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Breeze Swept Lake" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619835.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Cairo by Moonlight" sisn=2151 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Cairo by Moonlight" /></li>
+                    </div>
                 </div>
-            </div>
+                <div id="art-content-tab">
+                    <div id="art-carousel">
+                        <ul class="bxslider-tab">
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac692880.jpg" tabindex="0" aria-label="Press enter to go the detailed record for The International Rapids Section of the St. Lawrence River as it will be upon Completion of the Seaway and Power Projec" sisn=215 width="200" height="150" onclick='carouselImgOnclick(this)' alt="The International Rapids Section of the St. Lawrence River as it will be upon Completion of the Seaway and Power Project"/></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac693132.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Hon. donal Alexander Macdonald [Lieutenant Governor of Ontario, 1853-1880" sisn=230 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Hon. donal Alexander Macdonald [Lieutenant Governor of Ontario, 1853-1880]"/></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac658489.jpg" tabindex="0" aria-label="Press enter to go the detailed record for untitled" sisn=696 width="200" height="150" onclick='carouselImgOnclick(this)' alt="untitled" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac632657.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Sunset on Lake Temagami" sisn=1140 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Sunset on Lake Temagami" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac632617.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Line Stone Garden" sisn=1337 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Line Stone Garden" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac623523.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Lieutenant Roberts Dunn V.C., at the Battle of Balaclava" sisn=1409 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Lieutenant Roberts Dunn V.C., at the Battle of Balaclava" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac622040.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Angel Panel" sisn=1647 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Angel Panel" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac624405.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Sir Adam Beck's #2, From Brown's Hotel" sisn=1448 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Sir Adam Beck's #2, From Brown's Hotel" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac621152.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Clover fields, Humber River" sisn=1752 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Clover fields, Humber River" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619721.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Ripening Fields, Port Hope" sisn=1760 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Ripening Fields, Port Hope" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619802.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Hon. Sir William Ralph Meredith, KC, LL D [Chielf Justice, 1894-23" sisn=2124 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Hon. Sir William Ralph Meredith, KC, LL D [Chielf Justice, 1894-23]"/></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619812.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Breeze Swept Lake" sisn=2132 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Breeze Swept Lake" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619835.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Cairo by Moonlight" sisn=2151 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Cairo by Moonlight" /></li>
+                    </div>
+                </div>
+                <div id="art-content-mobile">
+                    <div id="art-carousel">
+                        <ul class="bxslider-mobile">
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac692880.jpg" tabindex="0" aria-label="Press enter to go the detailed record for The International Rapids Section of the St. Lawrence River as it will be upon Completion of the Seaway and Power Projec" sisn=215 width="260" height="195" onclick='carouselImgOnclick(this)' alt="The International Rapids Section of the St. Lawrence River as it will be upon Completion of the Seaway and Power Project"/></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac693132.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Hon. donal Alexander Macdonald [Lieutenant Governor of Ontario, 1853-1880" sisn=230 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Hon. donal Alexander Macdonald [Lieutenant Governor of Ontario, 1853-1880]"/></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac658489.jpg" tabindex="0" aria-label="Press enter to go the detailed record for untitled" sisn=696 width="260" height="195" onclick='carouselImgOnclick(this)' alt="untitled" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac632657.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Sunset on Lake Temagami" sisn=1140 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Sunset on Lake Temagami" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac632617.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Line Stone Garden" sisn=1337 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Line Stone Garden" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac623523.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Lieutenant Roberts Dunn V.C., at the Battle of Balaclava" sisn=1409 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Lieutenant Roberts Dunn V.C., at the Battle of Balaclava" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac622040.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Angel Panel" sisn=1647 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Angel Panel" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac624405.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Sir Adam Beck's #2, From Brown's Hotel" sisn=1448 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Sir Adam Beck's #2, From Brown's Hotel" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac621152.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Clover fields, Humber River" sisn=1752 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Clover fields, Humber River" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619721.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Ripening Fields, Port Hope" sisn=1760 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Ripening Fields, Port Hope" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619802.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Hon. Sir William Ralph Meredith, KC, LL D [Chielf Justice, 1894-23" sisn=2124 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Hon. Sir William Ralph Meredith, KC, LL D [Chielf Justice, 1894-23]"/></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619812.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Breeze Swept Lake" sisn=2132 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Breeze Swept Lake" /></li>
+                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619835.jpg" tabindex="0" aria-label="Press enter to go the detailed record for Cairo by Moonlight" sisn=2151 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Cairo by Moonlight" /></li>
+                    </div>
+                </div>
+            </div>  
         </div>
     </div>
     <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->

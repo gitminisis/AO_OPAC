@@ -9,6 +9,7 @@ $(document).ready(function() {
     // console.log(parent.$tmp_data);
     // console.log(parent.$tmp_data2)
     // console.log(parent.$tmp_data3)
+    var SESSID = getCookie("HOME_SESSID");
 
     if (document.getElementById('reqTopic') != null) {
 
@@ -60,6 +61,27 @@ $(document).ready(function() {
         //     setupReqTopicForm(value)
         // })
     }
+
+    // This is a continuation function that requires storeAdditionalReqFields(btn_number) from detail.js
+    if(document.getElementById("direct-request-form") != null){
+        let call = sessionStorage.getItem("Call Number");
+        let vol  = sessionStorage.getItem("Volume ID");
+        let call_number = call == null ? 'N/A' : call
+        let volume_id = vol == null ? 'N/A' : vol
+
+        $(".para1").after("<p class='para2'>Call Number: <strong>" + call_number + "</strong></p><p class='para2'>Volume ID: <strong>" + volume_id + "</strong></p>");
+    }
+    if(document.getElementById("request-confirmation-form") != null){
+        let call = sessionStorage.getItem("Call Number");
+        let vol  = sessionStorage.getItem("Volume ID");
+        let call_number = call == null ? 'N/A' : call
+        let volume_id = vol == null ? 'N/A' : vol
+
+        $(".refd-dd").after("<dt class='call-num-dt'>Call Number</dt><dd class='call-number-dd'>" + call_number + "</dd><dt class='volume-id-dt'>Volume ID</dt><dd class='volume-id-dd'>" + volume_id + "</dd>");
+
+        sessionStorage.removeItem("Call Number");
+        sessionStorage.removeItem("Volume ID");
+    }
 });
 
 // Look for class Page-Heading in page. If found grab the id of the <h1> tag (it's first direct child)
@@ -68,9 +90,12 @@ let pageHeading = document.getElementsByClassName('Page-Heading')[0]
 // if (document.getElementById('donationForm')) {
 //     document.getElementById('donationForm').style.display = 'none'
 // }
-
 // if (document.getElementById('requestFormPage')) {
-if (patron_id != '') {
+let patronCookie = getCookie("M2L_PATRON_ID");
+if (patronCookie === undefined || patronCookie === '' || patronCookie === '[M2L_PATRON_ID]') {
+    displayAccountLinks(true);
+
+} else {
     // addRequesLink();
     displayAccountLinks(false);
     removePatronLoginLink();
@@ -78,8 +103,7 @@ if (patron_id != '') {
     // if (document.getElementById('Request-Page')) {
     getRequestClientInfo();
     // } 
-} else {
-    displayAccountLinks(true);
+
 }
 
 function displayAccountLinks(bool) {
@@ -109,11 +133,10 @@ function removePatronLoginLink() {
 
 function getRequestClientInfo() {
 
-    let patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
 
 
-    let url = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
+    let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
 
 
     if (document.getElementById('Request-Form') != null) {
@@ -167,10 +190,10 @@ const setRequestTopic = () => {
 }
 
 function goToClientRequest() {
-    var patron_id = getCookie('M2L_PATRON_ID');
+    let patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
 
-    window.location(`https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20${patron_id}&NOMSG=[AO_INCLUDES]error\\norequest.htm`)
+    window.location(`https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20${patron_id}&NOMSG=[AO_INCLUDES]error\\norequest.htm`)
 }
 
 function toggleReqTopicForm(value, option, id) {
@@ -190,4 +213,80 @@ function setupReqTopicForm(value) {
     toggleReqTopicForm(value, "Transfer Agreement", "transferForm")
     toggleReqTopicForm(value, "Record Disposition", "dispositionForm")
     toggleReqTopicForm(value, "Acquisitions", "acquisitionForm")
+}
+
+
+// get home session ID
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return '[' + cname + ']';
+}
+
+// decode encoded XML string
+function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    var result = txt.value;
+    if (result.indexOf('&') >= 0) {
+        txt.innerHTML = result;
+        result = txt.value;
+    }
+
+    return result;
+}
+
+// search for XML tag value
+function getXmlFieldValue(xml_parent, xml_tag) {
+    var result = "";
+
+    var xml_nodes = xml_parent.getElementsByTagName(xml_tag);
+    if (xml_nodes.length > 0) {
+        result = decodeHtml(xml_nodes[0].textContent);
+        if (result == null) {
+            result = "";
+        }
+    }
+
+    return result;
+}
+
+function cancel_request(req_order_num) {
+    var m2aonline_url = getCookie('HOME_SESSID') + "?MANIPXMLRECORD&KEY=REQ_ORDER_NUM&VALUE=" + req_order_num + "&DATABASE=REQUEST_INFO";
+    var xmlForm = '<?xml version="1.0" encoding="UTF-8"?>\n<RECORD>\n';
+    xmlForm = xmlForm.concat('<REC_STATUS>Deleted</REC_STATUS>\n');
+
+    $.ajax({
+        async: false,
+        type: "POST",
+        url: m2aonline_url,
+        contentType: "text/xml",
+        dataType: "xml",
+        data: xmlForm,
+        processData: false,
+        cache: false,
+        timeout: 300000,
+        success: function(data, textStatus, xhr) {
+            if (jQuery.isXMLDoc(data)) {
+                var xml_value = getXmlFieldValue(data, "error");
+                if (xml_value != '' && parseInt(xml_value, 10) == 0) {
+                    // alert ('Status is changed');
+                    window.location.reload();
+                }
+            }
+        },
+        error: function(e) {
+            console.log(e);
+        }
+    });
 }

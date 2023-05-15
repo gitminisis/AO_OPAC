@@ -2,7 +2,6 @@ let emailCheck = false;
 $(document).ready(function() {
     let useremail = sessionStorage.getItem('useremail');
     let usersub = sessionStorage.getItem('usersub');
-
     if (useremail) {
         document.getElementById('c_email').value = useremail;
     }
@@ -126,7 +125,7 @@ $(document).ready(function() {
 
 
         console.log(emailInput)
-        const res = await fetch(`https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${emailInput}"?SESSIONSEARCH&NOMSG=[AO_INCLUDES]noEmail.xml`)
+        const res = await fetch(`https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${emailInput}"?SESSIONSEARCH&NOMSG=[AO_INCLUDES]noEmail.xml`)
         const data = await res.text()
         console.log(data)
 

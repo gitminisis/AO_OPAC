@@ -6,162 +6,171 @@
 <div id="Content-Wrapper" class="Content-Wrapper">
     <!-- include virtual="[AO_INCLUDES]leftPanel.htm" -->
     <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
-        <div class="container-fluid" id="grad1">
-            <div class="row justify-content-center mt-0">
-                <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
-                    <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                        <h2 class="Rale-Extra">
-                            <strong>Sign Up Your User Account</strong>
-                        </h2>
-                        <p class="Rale-Reg">Fill all form field to go to next step</p>
-                        <div class="row">
-                            <div class="col-md-12 mx-0">
-                                <form id="msform" method="POST" action="^saverecord^">
-
-                                    <input type="text" id="hidden_reg_status" name="C_REG_STATUS" value="Pending" hidden />
-                                    <label for="hidden_reg_status" hidden>Reg status</label>
-                                    <ul id="progressbar">
-                                        <li class="active Rale-Bold " id="account">
-                                            <strong>Your Details</strong>
-                                        </li>
-                                        <li id="personal" class="Rale-Bold">
-                                            <strong>Current Addess</strong>
-                                        </li>
-                                        <li id="confirm" class="Rale-Bold">
-                                            <strong>Contacts</strong>
-                                        </li>
-                                        <li id="payment" class="Rale-Bold">
-                                            <strong>Research Interest</strong>
-                                        </li>
-                                    </ul>
-
-                                    <fieldset>
-                                        <div class="form-card">
-                                            <h2 class="fs-title Rale-Bold">Your Details</h2>
-                                            <input class="Rale-Reg" type="email" name="C_EMAIL" id="c_email" placeholder="Email address*" title="Email address*" size="25" required />
-                                            <input class="Rale-Reg" type="text" name="C_TITLE" placeholder="Title" title="Title" />
-                                            <input id="reg-firstname" class="Rale-Reg" type="text" name="C_NAME_FIRST" placeholder="First Name*" title="First Name*" required />
-                                            <input id="reg-lastname" class="Rale-Reg" type="text" name="C_NAME_LAST" placeholder="Last Name*" title="Last Name*" required />
-                                            <!-- <span> <input class="Rale-Reg" type="email" name="C_EMAIL" id="c_email"
-                                                    placeholder="Email address*" size="25" required /> <span
-                                                    class=" btn btn-warning btn-sm" id="email-check">Verify
-                                                    </button></span> -->
-                                            <input id="reg-status" class="Rale-Reg" type="text" name="C_REG_STATUS" value="APPROVED" hidden />
-
-                                            <input id="reg-password" class="Rale-Reg" type="password" name="PATRON_PID" placeholder="Password*" title="Password*" maxlength="20" hidden />
-                                            <!-- <input id="reg-alias" class="Rale-Reg" type="text" name="C_NAME_ALIAS" placeholder="Name Alias" title="Name Alias" /> -->
-                                            <input id="AOR_CARD_NO" class="Rale-Reg" type="text" name="AOR_CARD_NO" placeholder="AOR Card #" title="AOR Card #" />
-                                            <select class="Rale-Reg" name="REG_ASS_TYPE" id="reg-ass-type">
-                                                <option value="Association">Association</option>
-                                                <option value="Society">Society</option>
-                                                <option value="Organization">Organization</option>
-                                                <option value="Business">Business</option>
-                                                <option value="Government">Government</option>
-                                                <option value="Student">Student</option>
-                                                <option value="Legal">Legal</option>
-                                                <option value="Media">Media</option>
-                                                <option value="Private Citizen">Private Citizen</option>
-                                                <option value="Other">Other</option>
-                                            </select>
-
-
-
-                                            <!-- <input id="reg-role" class="Rale-Reg" type="text" name="C_TYPE" placeholder="Role" value="Public User" title="User Role" readonly /> -->
-
-
-                                        </div>
-                                        <button id="detail-next" class="next action-button btn btn-primary Rale-Reg" type="button" name="next">
-                                            Next
-                                        </button>
-                                    </fieldset>
-
-
-
-
-
-
-                                    <fieldset>
-                                        <div class="form-card">
-                                            <h2 class="fs-title">Current Address</h2>
-                                            <input type="text" id="c_street" name="C_STREET" placeholder="Address 1*" title="Address 1" required />
-                                            <input type="text" name="C_STREET2" placeholder="Address 2" title="Address 2" />
-                                            <input type="text" id="c_city" name="C_CITY" placeholder="City*" title="City" required />
-                                            <input type="text" id="c_prov_state" name="C_PROV_STATE" placeholder="Province/State*" title="Province/State" required />
-                                            <input type="text" id="c_postal_zip" name="C_POSTAL_ZIP" placeholder="Postal Code*" title="Postal Code" required />
-                                            <input type="text" id="c_country" name="C_COUNTRY" placeholder="Country*" title="Country" required />
-                                        </div>
-                                        <button type="button" name="previous" title="Previous" class="previous action-button-previous btn btn-primary">
-                                            Previous
-                                        </button>
-                                        <button type="button" name="next" title="Next" class="next action-button btn btn-primary">
-                                            Next
-                                        </button>
-                                    </fieldset>
-
-                                    <fieldset>
-                                        <div class="form-card">
-                                            <h2 class="fs-title">Contacts</h2>
-                                            <input type="text" name="C_ORGANIZATION" placeholder="Organization" title="Organization" />
-                                            <input type="text" name="C_TEL_WORK" placeholder="Work Number" title="Work Number" />
-                                            <input type="text" name="C_TEL_HOME" placeholder="Phone Number" title="Phone Number" />
-                                            <input type="text" name="C_TEL_FAX" placeholder="Fax Number" title="Fax Number" />
-
-                                        </div>
-                                        <button type="button" name="previous" title="previous" class="previous action-button-previous btn btn-primary">
-                                            Previous
-                                        </button>
-                                        <button type="button" name="next" title="next" class="next action-button btn btn-primary">
-                                            Next
-                                        </button>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-card">
-                                            <h2 class="fs-title">Research Interest</h2>
-                                            <strong>What is the main reason for wishing to visit Archives of Ontario?
-                                            </strong>
-                                            <p>(Please select one from the list)</p>
-
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault1" title="Personal leisure/recreation" value="Personal leisure/recreation" checked />
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    Personal leisure/recreation
-                                                </label>
+        <div id="maincontent">
+            <div class="container-fluid" id="grad1">
+                <div class="row justify-content-center mt-0">
+                    <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+                        <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                            <h2 class="Rale-Extra">
+                                <strong>Sign Up Your User Account</strong>
+                            </h2>
+                            <p class="Rale-Reg">Fill all form field to go to next step</p>
+                            <div class="row">
+                                <div class="col-md-12 mx-0">
+                                    <form id="msform" method="POST" action="^saverecord^">
+                                        <input type="text" id="hidden_reg_status" name="C_REG_STATUS" value="Pending" hidden />
+                                        <label for="hidden_reg_status" hidden>Reg status</label>
+                                        <ul id="progressbar">
+                                            <li class="active Rale-Bold " id="account">
+                                                <strong>Your Details</strong>
+                                            </li>
+                                            <li id="personal" class="Rale-Bold">
+                                                <strong>Current Addess</strong>
+                                            </li>
+                                            <li id="confirm" class="Rale-Bold">
+                                                <strong>Contacts</strong>
+                                            </li>
+                                            <li id="payment" class="Rale-Bold">
+                                                <strong>Research Interest</strong>
+                                            </li>
+                                        </ul>
+    
+                                        <fieldset>
+                                            <div class="form-card">
+                                                <h2 class="fs-title Rale-Bold">Your Details</h2>
+                                                <label for="C_EMAIL">Email Address *</label>
+                                                <input class="Rale-Reg" type="email" name="C_EMAIL" id="c_email" title="Email address*" size="25" required autofocus/>
+                                                <label for="C_TITLE">Title</label>
+                                                <input class="Rale-Reg" type="text" name="C_TITLE" title="Title" />
+                                                <label for="C_NAME_FIRST">First Name*</label>
+                                                <input id="reg-firstname" class="Rale-Reg" type="text" name="C_NAME_FIRST" title="First Name*" required />
+                                                <label for="C_NAME_LAST">Last Name*</label>
+                                                <input id="reg-lastname" class="Rale-Reg" type="text" name="C_NAME_LAST" title="Last Name*" required />
+                                                <!-- <span> <input class="Rale-Reg" type="email" name="C_EMAIL" id="c_email"
+                                                        placeholder="Email address*" size="25" required /> <span
+                                                        class=" btn btn-warning btn-sm" id="email-check">Verify
+                                                        </button></span> -->
+                                                <input id="reg-status" class="Rale-Reg" type="text" name="C_REG_STATUS" value="APPROVED" hidden />
+    
+                                                <input id="reg-password" class="Rale-Reg" type="password" name="PATRON_PID" placeholder="Password*" title="Password*" maxlength="20" hidden />
+                                                <!-- <input id="reg-alias" class="Rale-Reg" type="text" name="C_NAME_ALIAS" placeholder="Name Alias" title="Name Alias" /> -->
+                                                <label for="AOR_CARD_NO">AOR Card #</label>
+                                                <input id="AOR_CARD_NO" class="Rale-Reg" type="text" name="AOR_CARD_NO" title="AOR Card #" />
+                                                <label for="REG_ASS_TYPE">Association Type</label>
+    
+                                                <select class="Rale-Reg" name="REG_ASS_TYPE" id="reg-ass-type">
+                            <option value="Association">Association</option>
+                            <option value="Society">Society</option>
+                            <option value="Organization">Organization</option>
+                            <option value="Business">Business</option>
+                            <option value="Government">Government</option>
+                            <option value="Student">Student</option>
+                            <option value="Legal">Legal</option>
+                            <option value="Media">Media</option>
+                            <option value="Private Citizen">Private Citizen</option>
+                            <option value="Other">Other</option>
+                          </select>
+    
+                                                <!-- <input id="reg-role" class="Rale-Reg" type="text" name="C_TYPE" placeholder="Role" value="Public User" title="User Role" readonly /> -->
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault2" title="Non-leisure personal or family business" value="Non-leisure personal or family business" />
-                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                    Non-leisure personal or family business
-                                                </label>
+                                            <button id="detail-next" class="next action-button btn btn-primary general-focus Rale-Reg" type="button" name="next">
+                          Next
+                        </button>
+                                        </fieldset>
+    
+                                        <fieldset>
+                                            <div class="form-card">
+                                                <h2 class="fs-title">Current Address</h2>
+                                                <label for="C_STREET">Address 1*</label>
+                                                <input type="text" id="c_street" name="C_STREET" title="Address 1" required />
+                                                <label for="C_STREET2">Address 2</label>
+                                                <input type="text" name="C_STREET2" title="Address 2" />
+                                                <label for="C_CITY">City*</label>
+                                                <input type="text" id="c_city" name="C_CITY" title="City" required />
+                                                <label for="C_PROV_STATE">Province/State*</label>
+                                                <input type="text" id="c_prov_state" name="C_PROV_STATE" title="Province/State" required />
+                                                <label for="C_POSTAL_ZIP">Postal Code*</label>
+                                                <input type="text" id="c_postal_zip" name="C_POSTAL_ZIP" title="Postal Code" required />
+                                                <label for="C_COUNTRY">Country*</label>
+                                                <input type="text" id="c_country" name="C_COUNTRY" title="Country" required />
                                             </div>
-
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault3" title="Formal education as teacher" value="Formal education as teacher" />
-                                                <label class="form-check-label" for="flexRadioDefault3">
-                                                    Formal education as teacher
-                                                </label>
+                                            <button type="button" name="previous" title="Previous" class="previous action-button-previous btn btn-primary general-focus">
+                          Previous
+                        </button>
+                                            <button type="button" name="next" title="Next" class="next action-button btn btn-primary general-focus">
+                          Next
+                        </button>
+                                        </fieldset>
+    
+                                        <fieldset>
+                                            <div class="form-card">
+                                                <h2 class="fs-title">Contacts</h2>
+                                                <label for="C_ORGANIZATION">Organization</label>
+                                                <input type="text" name="C_ORGANIZATION" title="Organization" />
+                                                <label for="C_TEL_WORK">Work Number</label>
+                                                <input type="text" name="C_TEL_WORK" title="Work Number" />
+                                                <label for="C_TEL_HOME">Phone Number</label>
+                                                <input type="text" name="C_TEL_HOME" title="Phone Number" />
+                                                <label for="C_TEL_FAX">Fax Number</label>
+                                                <input type="text" name="C_TEL_FAX" title="Fax Number" />
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault4" title="Formal education as student/researcher" value="Formal education as student/researcher" />
-                                                <label class="form-check-label" for="flexRadioDefault4">
-                                                    Formal education as student/researcher
-                                                </label>
+                                            <button type="button" name="previous" title="previous" class="previous action-button-previous btn btn-primary general-focus">
+                          Previous
+                        </button>
+                                            <button type="button" name="next" title="next" class="next action-button btn btn-primary general-focus">
+                          Next
+                        </button>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-card">
+                                                <h2 class="fs-title">Research Interest</h2>
+                                                <strong>What is the main reason for wishing to visit Archives
+                            of Ontario?
+                          </strong>
+                                                <p>(Please select one from the list)</p>
+    
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault1" title="Personal leisure/recreation" value="Personal leisure/recreation" checked />
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                              Personal leisure/recreation
+                            </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault2" title="Non-leisure personal or family business" value="Non-leisure personal or family business" />
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                              Non-leisure personal or family business
+                            </label>
+                                                </div>
+    
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault3" title="Formal education as teacher" value="Formal education as teacher" />
+                                                    <label class="form-check-label" for="flexRadioDefault3">
+                              Formal education as teacher
+                            </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault4" title="Formal education as student/researcher" value="Formal education as student/researcher" />
+                                                    <label class="form-check-label" for="flexRadioDefault4">
+                              Formal education as student/researcher
+                            </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault5" title="Work in connection with employment" value="Work in connection with employment" />
+                                                    <label class="form-check-label" for="flexRadioDefault5">
+                              Work in connection with employment
+                            </label>
+                                                </div>
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="C_RES_PURPOSE" id="flexRadioDefault5" title="Work in connection with employment" value="Work in connection with employment" />
-                                                <label class="form-check-label" for="flexRadioDefault5">
-                                                    Work in connection with employment
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <button type="button" title="Previous" class="previous action-button-previous btn btn-primary">
-                                            Previous
-                                        </button>
-                                        <button id="submit_registation" type="submit" title="Confirm" class="action-button btn btn-primary">
-                                            Confirm
-                                        </button>
-                                    </fieldset>
-                                </form>
+    
+                                            <button type="button" title="Previous" class="previous action-button-previous btn btn-primary general-focus">
+                          Previous
+                        </button>
+                                            <button id="submit_registation" type="submit" title="Confirm" class="action-button btn btn-primary general-focus">
+                          Confirm
+                        </button>
+                                        </fieldset>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -171,11 +180,10 @@
     </div>
     <div id="reg_modal" class="modal fade" role="dialog" style=" top:25%;">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header" style="text-align: center;">
-                    <h3>Account Registration </h3>
+                    <h3>Account Registration</h3>
                 </div>
                 <div class="modal-body">
                     <!-- <p>Some text in the modal.</p> -->
@@ -185,7 +193,6 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div> -->
             </div>
-
         </div>
     </div>
     <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->

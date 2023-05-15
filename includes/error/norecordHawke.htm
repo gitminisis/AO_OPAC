@@ -1,0 +1,193 @@
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+<!-- include virtual="[AO_INCLUDES]header.htm"-->
+<title>Immigration Records</title>
+
+
+<div id='Content-Wrapper' class='Content-Wrapper'>
+
+    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+
+    <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+        <div id='banner'><img id='banner-img-hawke' src="/assets/img/banner-immigration.jpg" alt="Archives of Ontario banner"></div>
+        <br>
+        <!-- <h2 class="Rale-Extra main-title-h2">Welcome to the Archival Collection!</h2> -->
+        <div id="maincontent">
+            
+            <div id="hawke-content-container">
+                <div id="hawke-home-page" class='Form-Wrapper'>
+    
+                    <form id='Main-Form' class="minimum-font-size " method="post" name="simple_search" action="^SEARCH^&DATABASE=HAWKE&ERRMSG=[AO_INCLUDES]error/norecordHawke.htm">
+                        <div class='main-form-left'>
+                            <div class='main-login-mobile Rale-Bold'>
+                                <button type='button' class='main-form-btn pub-sec-login-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
+                                <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                                <button type='button' class='main-form-btn main-form-info Rale-Bold' title='For further information on how to search AIMS'>How to search our
+                                    database</button>
+                            </div>
+                            <span class='Rale-Reg'>
+                                <p style='font-size: 1.25em;'>
+                                    <strong>Your search returned no results. Please try another search strategy.</strong>
+                                </p>
+                                <p>
+                                    Enter a search term in one or more fields below.
+                                </p>
+                                <p>
+                                    Use the Browse buttons to choose from a list of possible values.
+                                </p>
+                            </span>
+                            <br>
+                            <div class="icon-container general-focus focus-red" aria-label="Searching for records">
+                                <i class="loader"></i> Searching records ...
+                            </div>
+    
+                            <div class='Form-Wrapper'>
+    
+                                <div class="input-group mb-3 Rale-Reg">
+                                    <div class="input-group-prepend adv-operator-container" hidden>
+                                        <select name="B01" id="B01" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                                <option value="and" selected="">And</option>
+                                            </select>
+                                    </div>
+    
+                                    <input type="text" class="form-control" name="SURNAME" aria-label="Sizing example input" placeholder="Last Name" title="Last Name" autofocus>
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="SURNAME_CL" aria-label="Browse Last Name"><i class="fas fa-bars"></i></button>
+                                    </div>
+                                </div>
+    
+                                <div class="input-group mb-3 Rale-Reg">
+                                    <div class="input-group-prepend adv-operator-container" hidden>
+                                        <select name="B02" id="B02" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                                <option value="and" selected="">And</option>
+                                            </select>
+                                    </div>
+    
+                                    <input type="text" class="form-control" name="GIVENNAME" aria-label="Sizing example input" placeholder="First Name(s)" title="First Name(s)">
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="GIVENNAME_CL" aria-label="Browse First Name"><i class="fas fa-bars"></i></button>
+                                    </div>
+                                </div>
+    
+                                <div class="input-group mb-3 Rale-Reg">
+                                    <div class="input-group-prepend adv-operator-container" hidden>
+                                        <select name="B03" id="B03" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                                <option value="and" selected="">And</option>
+                                            </select>
+                                    </div>
+    
+                                    <input type="text" class="form-control" name="NATION" aria-label="Sizing example input" placeholder="Nationality" title="Nationality">
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="NATION_CL" aria-label="Browse Nationality"><i class="fas fa-bars"></i></button>
+                                    </div>
+                                </div>
+    
+    
+                                <div class="input-group mb-3 Rale-Reg">
+                                    <div class="input-group-prepend adv-operator-container" hidden>
+                                        <select name="B04" id="B04" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                                <option value="and" selected="">And</option>
+                                            </select>
+                                    </div>
+    
+                                    <input type="text" class="form-control" name="TRADEWHOLE" aria-label="Sizing example input" placeholder="Trade" title="Trade">
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="TRADEWHOLE_CL" aria-label="Browse Trade"><i class="fas fa-bars"></i></button>
+                                    </div>
+                                </div>
+    
+                                <div class="input-group mb-3 Rale-Reg">
+                                    <div class="input-group-prepend adv-operator-container" hidden>
+                                        <select name="B05" id="B05" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                                <option value="and" selected="">And</option>
+                                            </select>
+                                    </div>
+    
+                                    <input type="text" class="form-control" name="SHIPWHOLE" aria-label="Sizing example input" placeholder="Ship" title="Ship">
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="SHIPWHOLE_CL" aria-label="Browse Ship"><i class="fas fa-bars"></i></button>
+                                    </div>
+                                </div>
+    
+                                <div class="input-group mb-3 Rale-Reg">
+                                    <div class="input-group-prepend adv-operator-container" hidden>
+                                        <select name="B06" id="B06" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                                <option value="and" selected="">And</option>
+                                            </select>
+                                    </div>
+    
+                                    <input type="text" class="form-control" name="DESTWHOLE" aria-label="Sizing example input" placeholder="Destination" title="Destination">
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="DESTWHOLE_CL" aria-label="Browse Destination"><i class="fas fa-bars"></i></button>
+                                    </div>
+                                </div>
+    
+                                <div class="input-group mb-3 Rale-Reg">
+                                    <div class="input-group-prepend adv-operator-container" hidden>
+                                        <select name="B07" id="B07" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                                <option value="and" selected="">And</option>
+                                            </select>
+                                    </div>
+    
+                                    <input type="text" class="form-control" name="YEAR" aria-label="Sizing example input" placeholder="Year" title="Year">
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="YEAR_CL" aria-label="Browse Year"><i class="fas fa-bars"></i></button>
+                                    </div>
+                                </div>
+    
+                                <!-- <div class="input-group mb-3 Rale-Reg">
+                                        <div class="input-group-prepend adv-operator-container" hidden>
+                                            <select name="B07" id="B07" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                                <option value="and" selected="">And</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="input-group-append hawke-select-year">
+                                            <select name="YEAR_CL" id="YEAR_CL" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                                <option name="YEAR_CL" id="YEAR_CL" value="@">All Years</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1865">1865</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1866">1866</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1867">1867</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1868">1868</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1869">1869</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1870">1870</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1871">1871</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1872">1872</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1873">1873</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1874">1874</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1875">1875</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1876">1876</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1877">1877</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1878">1878</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1879">1879</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1880">1880</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1881">1881</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1882">1882</option>
+                                                <option name="YEAR_CL" id="YEAR_CL" value="1883">1883</option>
+                                            </select>
+                                        </div>
+                                    </div> -->
+    
+                                <div id="Search-Form-Buttons-Hawke">
+                                    <button id="Submit-Button-Hawke" class="main-form-btn Rale-Bold" type="submit" title="Submit" value='SEARCH'>Search</button>
+                                    <button id="Clear-Button-Hawke" class="main-form-btn Rale-Bold" id="clear" type="reset" title="Clear" value='SEARCH'>Clear</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='main-form-right Rale-Bold'>
+                            <button type='button' class='main-form-btn pub-sec-login-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
+                            <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                            <button type='button' class='main-form-btn main-form-info Rale-Bold' title='For further information on how to search AIMS' onclick="howToSearch('desc')">How to search our database</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+</div>
+</div>
+<!-- include virtual="[AO_INCLUDES]advSearchBrowse.htm"-->
+
+<!-- include virtual="[AO_INCLUDES]footer.htm"-->

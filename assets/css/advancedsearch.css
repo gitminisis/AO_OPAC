@@ -56,3 +56,14 @@ ul.advsearch_checkbox li{
 .adv-operator-container{
     border: 1px solid black;
 }
+/* #record_creators_list{
+    width: 50%;
+} */
+@media only screen and (max-width: 1200px) {
+    #record_creators_list{
+        width: 100%;
+    }
+}
+.alpha-list{
+    margin: 1em;
+}

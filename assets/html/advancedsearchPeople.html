@@ -1,0 +1,86 @@
+
+    <!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+        
+        <!-- include virtual="[AO_INCLUDES]header.htm"-->
+        <title>Advanced Search - Library</title>
+
+        <div id='Content-Wrapper' class='Content-Wrapper'>
+
+            <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+
+            <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+                <h1  class='Rale-Extra Adv-Title'>People Authority Advanced Search</h1>
+                <p class='Form-Subheader Rale-Reg'>
+                    Refine your search using one or many of the specific search fields below.
+                </p>
+                <div id="maincontent">
+                    <div class='Form-Wrapper'>
+                       
+                        <form id='Main-Form' class="Advanced-Form" method="post" name="adv_search" action="^SEARCH^&DATABASE=PEOPLE_VAL_SYN&ERRMSG=[AO_INCLUDES]error/norecordPeople.htm">
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B01" id="B01" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="KEYWORDS"  aria-label="Search by Keywords" placeholder="Keywords" title="Keywords" autofocus>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Keywords" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="KEYWORDS_PEOPLE" aria-label="Browse Keywords"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B02" id="B02" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="KEYNAMES"  aria-label="Search by Key names" placeholder="Key names" title="Key names">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Key names" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="KEYNAMES_PEOPLE" aria-label="Browse Keynames"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B03" id="B03" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                <select name="P_AUTH_TYPE" id="P_AUTH_TYPE" aria-label="Select Authority type" class="form-control" aria-label="Search by ">
+                                    <option value="" selected>Select Authority Type</option>
+                                    <option value="Family Name">Family Name</option>
+                                    <option value="Personal Name">Personal Name</option>
+                                </select>
+                                <!-- <input type="text" class="form-control" name="P_AUTH_TYPE"   placeholder="Auhtority Type" title="Auhtority Type"> -->
+                                <div class="input-group-append">
+                                    <button disabled type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse " data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" aria-label="Browse Authority Types"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+                            
+                            <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
+                                <button class="btn btn-primary general-focus" type="submit" title="Search" value='SEARCH'>Submit</button>
+                                <button class="btn btn-outline-primary general-focus" id="clear" type="reset" title="Clear" value='SEARCH'>Clear</button>
+                            </div>
+                        </form>
+    
+                    </div>
+                </div>
+            </div>
+
+            <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+
+        </div>
+        <!-- include virtual="[AO_INCLUDES]advSearchBrowse.htm"-->
+        
+        <!-- include virtual="[AO_INCLUDES]footer.htm"-->

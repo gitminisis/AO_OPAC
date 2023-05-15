@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     let reproductionPage = document.getElementsByClassName('Reproduction')[0];
 
-    if (reproductionPage)
+    if (reproductionPage !== null)
         giveAttributePaymentButton();
 
 })
@@ -32,7 +32,7 @@ const payBtnClick = async (evt) => {
         width:"1200px",
         height:"780px",
         overlayClose: true,
-        href:`https://uataoopac.minisisinc.com/scripts/mwimain.dll/${sessionId}?GET&FILE=[AO_ASSETS]html/payment.html`,
+        href:`https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/${sessionId}?GET&FILE=[AO_ASSETS]html/payment.html`,
         onLoad:  function(evt) {
             // Nothing to do here yet
        },

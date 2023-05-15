@@ -1,0 +1,33 @@
+CREDIT CARD: 
+============
+Cardholder Name could be anything you want (Minimum 4 characters)
+
+CVV value should be set to 123 for VISA and MC. 
+
+Any future expiry date is good
+
+VI:
+4520016000008689
+4520016000007665
+4520010000014755  (declined)
+
+MC:
+5454245334130755
+5454312506488856
+5191230008471519   (declined)
+
+
+MC 2 Series new BIN Test cards:
+2223000048400011
+
+VISA DEBIT:
+4601660000000121
+4601660000000048
+
+MC DEBIT:
+5457210089020012
+
+INTERAC ONLINE:
+===============
+
+https://aoopac.minisisinc.com/scripts/mwimain.dll/122596077/REQ_ORDER_NUM/0000000885/WEB_PAY_RCPT_DET WEB_PAY_RCPT_DET?KEYSEARCH&DATABASE=REQUEST_INFO&ERRMSG=[AO_INCLUDES]error/nopayreceipt.html

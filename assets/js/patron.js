@@ -1,4 +1,24 @@
+
+let saveButtonPressed = 0;
+let testvalue = 'chicken'
+
 $(document).ready(function() {
+    // debugger;
+    // document.addEventListener('visibilitychange', () => {
+    //     if (document.visibilityState === 'hidden') {
+    //       navigator.sendBeacon(editSkipRecord, console.log('sending data'));
+    //     }
+    //   });
+
+    let editProfilePage = document.getElementById('edit-profile-page');
+    if (editProfilePage != null) {
+        window.onunload = () => {
+            console.log('about to unload')
+            if ( typeof closeWindow != "undefined" ) {
+                closeWindow();
+            }
+        }
+    }
 
     getPatronClientInfo()
     $('#clientPassword').on('input', function() {
@@ -24,65 +44,80 @@ $(document).ready(function() {
         setTimeout(function() { $('#reg_modal').modal('hide'); }, 1400);
     }
 
-    $("button.colorbox-edit-client").click(function(e) {
-        let evt = e;
-        // $(this).parent().parent().find(".cs-item-sisn");
-        var accession = $(this).parent().parent().find(".cs-item-id");
-        var reqSource = $(this).parent().parent().find(".cs-item-src");
-        var title = $(this).parent().parent().find(".cs-item-title");
-        var topicCheck = "reproductions";
+    // $("button.colorbox-edit-client").click(function(e) {
+    //     let evt = e;
+    //     // $(this).parent().parent().find(".cs-item-sisn");
+    //     var accession = $(this).parent().parent().find(".cs-item-id");
+    //     var reqSource = $(this).parent().parent().find(".cs-item-src");
+    //     var title = $(this).parent().parent().find(".cs-item-title");
+    //     var topicCheck = "reproductions";
 
-        var patron_id = getCookie('M2L_PATRON_ID');
-        patron_id = patron_id.split(']')[1];
+    //     var patron_id = getCookie('M2L_PATRON_ID');
+    //     patron_id = patron_id.split(']')[1];
 
-        let url = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
+    //     let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
+
+    //     let iframe;
+
+    //     $.ajax(url).done(function(res) {
+    //         var x2js = new X2JS();
+
+    //         var jsonObj = x2js.xml2json(res);
+    //         // console.log(jsonObj);
+    //         let card_number = jsonObj.client.card_number;
 
 
-        $.ajax(url).done(function(res) {
-            var x2js = new X2JS();
+    //         $.colorbox({
+    //             iframe: true,
+    //             transition: "elastic",
+    //             width: "1200px",
+    //             height: "780px",
+    //             overlayClose: false,
+    //             escKey: false,
+    //             // fastIframe: false,
+    //             href: HOME_SESSID + "?changesinglerecord&database=CLIENT_VIEW&de_form=[AO_ASSETS]html/editProfile.html&EXP=C_CARD_NUMBER%20" + card_number,
+    //             onOpen: function() {
+    //                 // this does nothing right now
+    //             },
+    //             onLoad: function() {
+    //                 $tmp_data = accession.text(); // ACCESSION NUMBER --- F 26 G
+    //                 $tmp_data2 = reqSource.text(); // REQ_SOURCE DESCRIPTION COLLECTION LIBRARY
+    //                 $tmp_data3 = title.text(); // LEGAL_TITLE -- Story Book Woman
 
-            var jsonObj = x2js.xml2json(res);
-            console.log(jsonObj);
-            let card_number = jsonObj.client.card_number;
+    //                 $tmp_topic = topicCheck;
+    //             },
+    //             onComplete: function() {
+    //             },
+    //             onCleanup: function() {
+    //                  window.open('^SKIPRECORD^&DISCONNECT=Y&CLOSE=Y', "CLOSE", "menubar=no, scrollbars=yes, resizable=yes, location=no, toolbar=no, Width=50, Height=50")
+                    
+    //             },
+    //             onClosed: function() {
+    //                 delete $tmp_data;
+    //                 delete $tmp_data2;
+    //                 delete $tmp_data3;
 
-
-            $.colorbox({
-                iframe: true,
-                transition: "elastic",
-                width: "1200px",
-                height: "780px",
-                overlayClose: true,
-                href: HOME_SESSID + "?changesinglerecord&database=CLIENT_VIEW&de_form=[AO_ASSETS]html/editProfile.html&EXP=C_CARD_NUMBER%20" + card_number,
-                onLoad: function() {
-                    console.log(evt);
-                    console.log(evt.target.id);
-                    $tmp_data = accession.text(); // ACCESSION NUMBER --- F 26 G
-                    $tmp_data2 = reqSource.text(); // REQ_SOURCE DESCRIPTION COLLECTION LIBRARY
-                    $tmp_data3 = title.text(); // LEGAL_TITLE -- Story Book Woman
-
-                    $tmp_topic = topicCheck;
-                },
-                onComplete: function() {
-                    //$("#test_btn").click();
-                },
-                onClose: function() {
-                    delete $tmp_data;
-                    delete $tmp_data2;
-                    delete $tmp_data3;
-
-                    delete $tmp_topic;
-                }
-
-            });
-        })
-
-    });
+    //                 delete $tmp_topic;
+	// 				if ( typeof closeWindow != "undefined" ) {
+	// 				   closeWindow();
+	// 				}					   
+    //                 // window.open('^SKIPRECORD^&DISCONNECT=Y&CLOSE=Y', "CLOSE", "menubar=no, scrollbars=yes, resizable=yes, location=no, toolbar=no, Width=50, Height=50")
+    //                 // location = '^skiprecord^&disconnect=y&close=y&FILE=[AO_ASSETS]html/editProfile.html';
+    //             } 
+    //         });
+    //     })
+    // });
 
     if (document.getElementById('editProfileForm') != null) {
         getEditProfileInfo();
     }
 });
 
+// window.onbeforeunload = () => {
+// }
+
+// window.onunload = () => {
+// }
 /*
  This function gets a clients information by taking a cookie (eg. M2L_Patron_ID) and creating a GET request
  for the clients information from the requisite MINISIS Database.
@@ -92,9 +127,8 @@ function getPatronClientInfo() {
     // Stored cookie containing a string of the Patron's ID
     var patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
-
-    let url = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
-        // let url = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%2020210001?SESSIONSEARCH`
+    let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
+        // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%2020210001?SESSIONSEARCH`
 
 
     let tempString = window.location.href;
@@ -102,20 +136,20 @@ function getPatronClientInfo() {
     // Split the URI on "/" and take the last element of the array
     let tempUrlCheck = tempString.split("/");
 
-    let myRequestURL = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`
+    let myRequestURL = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`
         // $("a.Patron-Link").attr("href", myRequestURL);
 
-    let myPatronLink = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`
+    let myPatronLink = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`
         // $(".Patron-Enquiry-Link").on('click', function() { window.location = myPatronLink })
 
-    let myCrowdURL = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`
+    let myCrowdURL = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`
         // $("a.Patron-Crowd-Link").attr("href", myCrowdURL);
 
-
+    let frame;
     // Check that the current window.location is patronProfile.html
     if (tempUrlCheck[tempUrlCheck.length - 1] == 'patronProfile.html') {
 
-        $.ajax(url).done(function(res) {
+        $.ajax(url).done( function(res) {
             var x2js = new X2JS();
 
             var jsonObj = x2js.xml2json(res);
@@ -161,36 +195,38 @@ function getPatronClientInfo() {
                 $(".homePhone-item").remove();
             }
         })
+
     } else return;
 
     if (document.getElementById('clientBookmarkInner')) {
-        $("#clientBookmarkInner").append("<a class='btn btn-primary btn-sm Client-Profile Rale-Reg' id='login-btn' href='https://uataoopac.minisisinc.com/scripts/mwimain.dll/182155290?GET&amp;FILE=[AO_ASSETS]html/patronProfile.html'>Back to Client Profile</a>");
+        $("#clientBookmarkInner").append("<a class='btn btn-primary btn-sm Client-Profile Rale-Reg' id='login-btn' href='" + home_sessid + "?GET&amp;FILE=[AO_ASSETS]html/patronProfile.html'>Back to Client Profile</a>");
     }
-
+    
 }
 
 const clientLinkOnclick = (e) => {
+    var patron_id = getCookie('M2L_PATRON_ID');
     let client_id = patron_id.split(']')[1];
-
+    console.log(client_id)
     // let bookmarkURL = '^HOME_SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\\nobookmark.htm&COOKIE=BOOKMARK'
     let bookmarkURL    = `${HOME_SESSID}?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\\nobookmark.htm&COOKIE=BOOKMARK`;
-    let myRequestURL   = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`;
-    let myClientLink   = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`;
-    let myCrowdURL     = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`;
-    let myCopyright    = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/REQUEST_VIEW/COPYRIGHT_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Copyright%20Services` + `&NOMSG=[AO_INCLUDES]error\\nocopyright.htm`;
-    let myReproduction = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/REQUEST_VIEW/REPROD_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Reproduction%2FCertification%20Services` + `&NOMSG=[AO_INCLUDES]error\\noreproduction.htm`;
+    let myRequestURL   = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`;
+    let myClientLink   = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`;
+    // let myCrowdURL     = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`;
+    // let myCopyright    = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/REQUEST_VIEW/COPYRIGHT_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Copyright%20Services` + `&NOMSG=[AO_INCLUDES]error\\nocopyright.htm`;
+    // let myReproduction = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/REQUEST_VIEW/REPROD_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Reproduction%2FCertification%20Services` + `&NOMSG=[AO_INCLUDES]error\\noreproduction.htm`;
 
     if (e.getAttribute('id') == 'Client-Request')
         window.location = myRequestURL;
-    else if (e.getAttribute('id') == 'Client-Crowd-Sourcing')
-        window.location = myCrowdURL;
     else if (e.getAttribute('id') == 'Client-Enquiry')
-        window.location = myClientLink;
-    else if (e.getAttribute('id') == 'Client-Copyright')
-        window.location = myCopyright;
-    else if (e.getAttribute('id') == 'Client-Reproduction')
-        window.location = myReproduction;
-    else
+    window.location = myClientLink;
+    // else if (e.getAttribute('id') == 'Client-Crowd-Sourcing')
+    //     window.location = myCrowdURL;
+    // else if (e.getAttribute('id') == 'Client-Copyright')
+    //     window.location = myCopyright;
+    // else if (e.getAttribute('id') == 'Client-Reproduction')
+    //     window.location = myReproduction;
+    else if (e.getAttribute('id') == 'Client-Bookmarks')
         window.location = bookmarkURL;
 }
 
@@ -198,13 +234,13 @@ function getEditProfileInfo() {
     var patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
 
-    let url = `https://uataoopac.minisisinc.com/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`;
+    let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`;
 
     $.ajax(url).done(function(res) {
         var x2js = new X2JS();
 
         var jsonObj = x2js.xml2json(res);
-        console.log(jsonObj);
+        // console.log(jsonObj);
 
         // Main 
         var card_number = jsonObj.client.card_number;
@@ -300,4 +336,26 @@ function getEditProfileInfo() {
 const returnToProfile = () => {
     const url = `${home_sessid}?GET&FILE=[AO_ASSETS]html/patronProfile.html`
     window.location = url
+}
+
+const redirectToEditProfile = () => {
+    let patron_id = getCookie('M2L_PATRON_ID');
+    patron_id = patron_id.split(']')[1];
+
+    let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
+
+    $.ajax(url).done( res => {
+        var x2js = new X2JS();
+
+        var jsonObj = x2js.xml2json(res);
+        // console.log(jsonObj);
+        let card_number = jsonObj.client.card_number;
+        let redirectURL = HOME_SESSID + "?changesinglerecord&database=CLIENT_VIEW&de_form=[AO_ASSETS]html/editProfile.html&EXP=C_CARD_NUMBER%20" + card_number
+        window.location = redirectURL
+    })
+    
+}
+
+const editSkipRecord = () => {
+    return '^SKIPRECORD^&DISCONNECT=N&CLOSE=Y&FILE=[AO_ASSETS]html/patronProfile.html'
 }
