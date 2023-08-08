@@ -26,7 +26,7 @@ function dynamicPassword(username) {
 
     try {
         // prepare password function
-        Prepare1Login();
+        PreparelLogin();
     } catch (e) {
         console.log(_et_(e));
     }

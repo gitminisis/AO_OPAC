@@ -80,8 +80,6 @@ function loginRedirect() {
 const authClient = new OktaAuth(conectoptions)
 
 async function login() {
-    //alert("Start of login page");
-    //debugger;
     let userinfo = null
     let useremail = null
     let usersubscription = null
@@ -95,7 +93,6 @@ async function login() {
                 // get the user info.
             userinfo = await authClient.getUser()
             if (userinfo) {
-                // debugger;
                 useremail = userinfo.email
                 usersubscription = userinfo.sub
 
@@ -123,8 +120,6 @@ async function login() {
             } else {
                 // for some reason the user information can not be retrieved error message or redirect to home page.
                 // console.log('Could not get the user info');
-                // debugger;
-
                 window.location = '/'
             }
         } catch (e) {

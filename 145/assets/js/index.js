@@ -23,7 +23,7 @@ const accessLinks = {
  * *                 * *
  * * * * * * * * * * * */
 $(document).ready(function() {
-    timerCountdown();
+    //timerCountdown();
     client_name = getCookie('M2L_PATRON_NAME');
     client_name = unescapeString(client_name);
     client_id = getCookie('M2L_PATRON_ID');

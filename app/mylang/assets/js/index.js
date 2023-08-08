@@ -24,7 +24,7 @@ const accessLinks = {
  * *                 * *
  * * * * * * * * * * * */
 $(document).ready(function() {
-    timerCountdown();
+    //timerCountdown();
     client_name = getCookie('M2L_PATRON_NAME');
     client_name = unescapeString(client_name);
     client_id = getCookie('M2L_PATRON_ID');
@@ -183,30 +183,30 @@ const onClickSearchOption = (value) => {
     span.innerText = option + value;
 }
 
-let timerCountdown = () => {
-    let timer = setInterval(() => {
-        timeout--;
-        if (timeout === 10) {
-            $('body').append(`<div id="timeoutModal" class="modal fade " tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Notification</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" > <p id="timeoutModalBody">Your session is going to timeout and you will be logged out in ${timeout} second(s)</p> </div> <div class="modal-footer"> <button type="button" id="sessionContinue" class="btn btn-primary">Continue</button> <button type="button" id="sessionEnd"  class="btn btn-secondary" data-dismiss="modal">Logout</button> </div> </div> </div> </div>`)
-            var myModal = new bootstrap.Modal(document.getElementById('timeoutModal'))
-            myModal.show()
+// let timerCountdown = () => {
+//     let timer = setInterval(() => {
+//         timeout--;
+//         if (timeout === 10) {
+//             $('body').append(`<div id="timeoutModal" class="modal fade " tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Notification</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" > <p id="timeoutModalBody">Your session is going to timeout and you will be logged out in ${timeout} second(s)</p> </div> <div class="modal-footer"> <button type="button" id="sessionContinue" class="btn btn-primary">Continue</button> <button type="button" id="sessionEnd"  class="btn btn-secondary" data-dismiss="modal">Logout</button> </div> </div> </div> </div>`)
+//             var myModal = new bootstrap.Modal(document.getElementById('timeoutModal'))
+//             myModal.show()
 
-            $("#sessionContinue").on('click', function() {
-                clearInterval(timer)
-                location.reload();
-            })
-            $("#sessionEnd").on('click', function() {
-                window.location = '/assets/html/PubSecureLogout.html'
-            })
-        } else if (timeout < 10 && timeout >= 0) {
-            $('#timeoutModalBody').text(`Your session is going to timeout and you will be logged out in ${timeout} second(s)`)
-        }
-        if (timeout === 0) {
-            clearInterval(timer)
-            window.location = '/assets/html/PubSecureLogout.html'
-        }
-    }, 1000);
-}
+//             $("#sessionContinue").on('click', function() {
+//                 clearInterval(timer)
+//                 location.reload();
+//             })
+//             $("#sessionEnd").on('click', function() {
+//                 window.location = '/assets/html/PubSecureLogout.html'
+//             })
+//         } else if (timeout < 10 && timeout >= 0) {
+//             $('#timeoutModalBody').text(`Your session is going to timeout and you will be logged out in ${timeout} second(s)`)
+//         }
+//         if (timeout === 0) {
+//             clearInterval(timer)
+//             window.location = '/assets/html/PubSecureLogout.html'
+//         }
+//     }, 1000);
+// }
 
 /* * * * * * * * * * * * *
  * *                   * *

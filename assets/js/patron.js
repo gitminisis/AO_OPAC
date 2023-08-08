@@ -113,11 +113,6 @@ $(document).ready(function() {
     }
 });
 
-// window.onbeforeunload = () => {
-// }
-
-// window.onunload = () => {
-// }
 /*
  This function gets a clients information by taking a cookie (eg. M2L_Patron_ID) and creating a GET request
  for the clients information from the requisite MINISIS Database.

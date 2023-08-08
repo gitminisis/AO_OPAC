@@ -97,9 +97,9 @@ $(document).ready(function() {
             setupTopicForm(value)
         })
         let status;
-        try{
+        try {
             status = document.getElementById('enqStatus').value;
-        } catch (e) {console.log(e)}
+        } catch (e) { console.log(e) }
 
         if (status === 'Closed') {
 
@@ -350,14 +350,14 @@ function generateCorForm(data, idx, len, edit = false) {
 //     }
 // }
 
-redirectToEnquiry = (sessid, subj=null) => {
+redirectToEnquiry = (sessid, subj = null) => {
     let url = `${sessid}?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[AO_OPAC]/145/assets/html/enquiry.html&subj=${subj}`;
     let url2 = `${sessid}?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[AO_OPAC]/145/assets/html/enquiry.html`
     window.location = url;
 }
 
 
-const descSubjGenerator = (sessid, refd, barcode=null, title) => {
+const descSubjGenerator = (sessid, refd, barcode = null, title) => {
     let subj;
     if (title != null) subj = title;
     else subj = `${refd}${barcode != null ? ` - ${barcode}` : ''}`
@@ -368,9 +368,9 @@ const artSubjGenerator = (sessid, e) => {
     redirectToEnquiry(sessid, title);
 }
 
-const biblioSubjGenerator = (sessid, barcode=null) => {
+const biblioSubjGenerator = (sessid, barcode = null) => {
     const title = document.getElementsByClassName('cs-item-title')[0].textContent
-    
+
     let subj
     if (!barcode) subj = title;
     else subj = `${barcode} - ${title}`
@@ -387,7 +387,7 @@ const setEnquiryTopic = () => {
     let enqSubj = document.getElementById('enqTitle');
 
     // if (enqTopic == null) return;
-    
+
 
     let url = window.location.href;
     let urlParams = new URL(url);
@@ -400,7 +400,7 @@ const setEnquiryTopic = () => {
     // let callNum = urlParams.searchParams.get('callNum');
     // let title = urlParams.searchParams.get('title');
 
-    enqSubj.value  = subj == 'null' ? enqSubj.value : subj;
+    enqSubj.value = subj == 'null' ? enqSubj.value : subj;
 
     // if (!barcode || !refd)
     // {

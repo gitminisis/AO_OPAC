@@ -11,9 +11,38 @@ Date.prototype.yyyymmdd = function() {
 
 $(document).ready(function() {
     enableDatePicker()
+
     let enq_id_confirm = $('#enq_id_confirm').text();
+
+    let enq_assisnged = $('#enq_assigned').text();
     if (enq_id_confirm) {
         $("#success-enquiry").append(`<br /><br /><span>Inquiry Reference Number: ${enq_id_confirm}</span>`)
+        let SESSID = getCookie("HOME_SESSID");
+        let subject = "New Incoming Inquiry";
+
+
+        let body = "New Incoming Inquiry\n\n"
+        body += `Please log in your personal profile portal to view the incoming message for the Inquiry: ${enq_id_confirm}`
+        $.ajax({
+            type: "GET",
+            url: `${SESSID}?MANIPXMLRECORD&READ=Y&DATABASE=USER_PROFILE&KEY=USER_NAME&VALUE=${enq_assisnged}`,
+        }).then(res => {
+            if (res.querySelector('error').innerHTML === '0') {
+                let email = res.querySelector('USER_EMAIL_ADDR').innerHTML;
+                // let email = "mikehoangdn1@gmail.com"
+                let url = `${SESSID}?save_mail_form&async=y&xml=y&subject_default=${subject}&from_default=noreplyaimstest@minisisinc.com&to_default=${email}`;
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    contentType: "text/html",
+                    data: `sender=noreplyaimstest@minisisinc.com&receiver=${email}&subject=${subject}&mailbody=${body}`,
+                }).then(res => {
+                    console.log(res)
+                })
+            }
+        })
+
+
     }
     getBarcodeInquiryInfo();
 
@@ -27,9 +56,10 @@ $(document).ready(function() {
 
         if (document.getElementById('first_cor')) {
             generateFirstCorrespondence()
+            setFileUploadHandler();
         } else if (document.getElementById('edit_enq')) {
             generateEditableCorrespondence();
-
+            setFileUploadHandler(false);
             document.getElementById('enqTopic').disabled = true;
             document.getElementById('enqTitle').readOnly = true;
             document.getElementById('enqDetail').readOnly = true;
@@ -77,10 +107,9 @@ $(document).ready(function() {
             }
         })
 
-        $('#enq-title').on('change', function() {
+        $('#enqTitle').on('change', function() {
             if (document.getElementById('first_cor')) {
                 document.getElementById('enqCorSub').value = $(this).val()
-                console.log(document.getElementById('enqCorSub').value)
             }
         })
 
@@ -203,7 +232,6 @@ function getClientInfo() {
             setAffinity(jsonObj.client.client_type);
 
 
-
             if (document.getElementById('first_cor')) {
                 document.getElementById('enqPatronID').value = patron_id;
 
@@ -218,6 +246,44 @@ function getClientInfo() {
 
 }
 
+function setFileUploadHandler(first_cor = true) {
+    let fileInput = document.getElementById("file-upload-input");
+    let fileSelect = document.getElementsByClassName("file-upload-select")[0];
+    fileSelect.onclick = function() {
+        fileInput.click();
+    }
+    fileInput.onchange = function() {
+        let prefix = new Date().toISOString().split('T')[0].split('-').join('.') + `.${new Date().getTime()}`
+        let filename = fileInput.files[0].name;
+        console.log(fileInput.files[0])
+        let selectName = document.getElementsByClassName("file-select-name")[0];
+        selectName.innerText = filename;
+        let url = (document.querySelector('#file-upload-url'));
+        let action = url.innerText.trim() + prefix
+        let form_data = new FormData();
+        form_data.append('file', $('input[type=file]')[0].files[0]);
+        $.ajax({
+            async: true,
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: action,
+            data: form_data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function(data) {
+                console.log(data)
+                let path = data.querySelector('path').innerHTML;
+                document.querySelector('#enqCorLink').value = path;
+
+
+
+            }
+        })
+    }
+
+}
 // send MWI SKIPRECORD command to unlock record ig web page is closed.
 function unlockRecord(close_url) {
     if (navigator.sendBeacon) {
@@ -248,14 +314,15 @@ function generateEditableCorrespondence() {
 
     let enq_id = document.getElementById('enqID').value;
     let xml_tree = document.getElementById('enq_xml');
-    console.log(xml_tree)
     let x2js = new X2JS({
         arrayAccessFormPaths: [
-            "record.correspond_grp.correspond_grp_occurrence"
+            "record.correspond_grp.correspond_grp_occurrence",
+            "record.correspond_grp.correspond_grp_occurrence.link_group.link_group_occurrence"
         ]
     });
 
     let jsonObj = x2js.xml2json(xml_tree);
+    console.log(jsonObj)
     let cor_div = document.getElementById("cor_div");
     let len = jsonObj.record.correspond_grp.correspond_grp_occurrence.length
 
@@ -298,22 +365,18 @@ function getHyperLinkTag(str) {
     });
 
 
-    // // replace all https, http
-    // str = decodeTextField(str).replace(/(http[s]?:\/\/[^ ]*)/g, function(match) {
-    //     return `<a href=${match}>${match}</a>`
-    // })
-
-    // // replace all www
-    // str = decodeTextField(str).replace(/(www\.[^ ]*)/g, function(match) {
-    //     return `<a href=${match}>${match}</a>`
-    // })
     return str
 }
 
 function generateCorForm(data, idx, len, edit = false) {
     let status = document.getElementById('enqStatus').value;
     let maxLength = status === "Closed" ? len : len + 1;
+    let link_group = data && data.link_group !== undefined ? data.link_group.link_group_occurrence : null;
+    let SESSID = getCookie("HOME_SESSID");
 
+    if (link_group && !Array.isArray(link_group)) {
+        link_group = [link_group]
+    }
     if (data && data.reply_text) {
         data.reply_text = getHyperLinkTag(data.reply_text)
     }
@@ -321,19 +384,18 @@ function generateCorForm(data, idx, len, edit = false) {
         data.message_text = getHyperLinkTag(data.message_text)
     }
 
+    let generatedMonth = new Date().getMonth();
+    let generatedDay   = new Date().getDate();
+    let month          = generatedMonth < 10 ? `0${generatedMonth + 1}` : generatedMonth + 1;
+    let day            = generatedDay < 10 ? `0${generatedDay}` : generatedDay
 
-    /** SENDER <div class="col-md-12 col-sm-12">
-        <label for="corWho" class="form-label">Sender</label>
-        <input name=${edit ? `CORRESPOND_WHO${newOcc}` : `"" `} value=${edit ? `"${$('#enqFullName').val()}"` : ` "${data.correspond_who ? data.correspond_who : ""}" `} type="text" id="corWho" class="form-control sender-control" placeholder="Sender" aria-label="Sender"  ${edit ? 'readonly' : 'readonly'} />
-        </div>
-        <br /> */
     let newOcc =
         `$${Number.parseInt(len) + 1}$1`;
     return (`<div class="card"> <div class="card-header"> <h5 class="mb-0"> <button class="btn" type="button" data-toggle="collapse show" data-target="collapse${idx}" aria-expanded="true" aria-controls="collapse${idx}">  Response ${Number.parseInt(idx) + 1}/${maxLength}: ${data && data.correspond_subj ? data.correspond_subj : "New Reply"}  </button> </h5> </div> <div id="collapse${idx}" class="collapse show" aria-labelledby="headingOne" data-parent="cor_div"> <div class="card-body row"> 
     
         <div class="col-md-6 col-sm-12">
         <label for="corDate" class="form-label">Date</label>
-        <input name=${edit ? `CORRESPOND_DATE${newOcc}` : `"" `}  value=${edit ? `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}` : data.correspond_date}  type="text" id=${edit ? ' "corDate" ' : ' "" '}class="form-control date-control" placeholder="Date" aria-label="Date"   ${edit ? 'readonly' : 'readonly'}/>
+        <input name=${edit ? `CORRESPOND_DATE${newOcc}` : `"" `}  value=${edit ? `${new Date().getFullYear()}-${month}-${day}` : data.correspond_date}  type="text" id=${edit ? ' "corDate" ' : ' "" '}class="form-control date-control" placeholder="Date" aria-label="Date"   ${edit ? 'readonly' : 'readonly'}/>
         </div>
         <div class="col-md-6 col-sm-12">
         <label for="corDueDate" class="form-label">Due Date</label>
@@ -342,14 +404,24 @@ function generateCorForm(data, idx, len, edit = false) {
        
         <br /><div class="col-md-12 col-sm-12">
         <label for="corSubj" class="form-label">Subject</label>
-        <input name=${edit ? `CORRESPOND_SUBJ${newOcc}` : `"" `} value=${edit ? ' "" ' : ` "${data.correspond_subj ? data.correspond_subj : ""}" `} type="text" id="corSubj" class="form-control subject-control" placeholder="Subject" aria-label="Subject"  ${edit ? '' : 'readonly'} />
+        <input name=${edit ? `CORRESPOND_SUBJ${newOcc}` : `"" `} value=${edit ? ` "${document.querySelector('#enqTitle').value}" ` : ` "${data.correspond_subj ? data.correspond_subj : ""}" `} type="text" id="corSubj" class="form-control subject-control" placeholder="Subject" aria-label="Subject"  ${edit ? '' : 'readonly'} />
         </div>  
         <br />
         <div class="col-md-12 col-sm-12">
         <label for="enqDetail" class="form-label">Message Text*</label>
     
-        ${edit ? ` <textarea class="form-control Rale-Reg"  placeholder="Leave a message here" id="enqDetail" name=${`MESSAGE_TEXT${newOcc}`} }></textarea>` : `<div class="enqCorrespondenceTextbox"> ${data.message_text ? decodeTextField(data.message_text) : ""}</div>`}
+        ${edit ? ` <textarea class="form-control Rale-Reg"  placeholder="Leave a message here" id="enqDetail" name=${`MESSAGE_TEXT${newOcc}`} ></textarea>` : `<div class="enqCorrespondenceTextbox"> ${data.message_text ? decodeTextField(data.message_text) : ""}</div>`}
 
+        ${edit ? `
+        <br /><div class="file-upload">
+            <div class="file-upload-select">
+                <span id="file-upload-url" hidden>${SESSID}?upload&target=[MEDIA]&prefix=</span>
+                <div class="file-select-button">Choose File</div>
+                <div class="file-select-name">No file chosen...</div>
+                <input type="text" name=${`LINK_PATH${newOcc}`} id="enqCorLink" hidden />
+                <input type="file"  id="file-upload-input">
+            </div>
+        </div>`: ""}
 
         ${!edit && data.reply_text ? `<br /><div class="col-md-12 col-sm-12">
         <label for="replyText" class="form-label">Reply Text</label>
@@ -359,8 +431,16 @@ function generateCorForm(data, idx, len, edit = false) {
     
         ${edit ?
             "" :
-            `${data.link_path != null}` ?
-                `<br /><div class="col-md-12 col-sm-12"><label for="linkPath" class="form-label">${data.link_path != null ? "Media" : ""}</label><a name=${`LINK_PATH${newOcc}`} id="linkPath" href=${data.link_path} target='_blank'>${data.link_path != null ? data.link_path : ""}</a></div>` :
+            link_group ?
+                `<br /><div class="col-md-12 col-sm-12"><label for="linkPath" class="form-label">Media:</label>
+            <ul>
+            ${link_group.map((e, i) => {
+                    let { link_type, link_path } = e;
+                    let name = link_path.replace('[MEDIA]', '');
+                    let path = link_path.replace('[MEDIA]', '/MEDIA/');
+                    return ` <li><a name=${`LINK_PATH${newOcc}`} id="linkPath" href=${path} target='_blank'>${link_path != null ? name : ""}</a></li>`
+                })}
+            </ul></div>` :
                 ""}
      
         
@@ -373,17 +453,7 @@ function generateCorForm(data, idx, len, edit = false) {
     
         </div> </div> </div>`)
 }
-// const redirectToEnquiry = (sessid, e, barcode, title, refd) => {
-//     sessionStorage.removeItem("Desc Inquiry");
-//     let url = `${sessid}?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[AO_ASSETS]html/enquiry.html&topic=${e.getAttribute('name')}&subj=${e.getAttribute('subj')}`;
-//     let url2 = `${sessid}?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[AO_ASSETS]html/enquiry.html&topic=${e.getAttribute('name')}&barcode=${barcode}&refd=${refd}&title=${title}`;
-//     let url3 = `${sessid}?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[AO_ASSETS]html/enquiry.html&subj=${e.getAttribute('subj')}&vol=${e.getAttribute('vol')}&callNum=${e.getAttribute('callNum')}&title=${e.getAttribute('title')}`;
-//     if (!barcode || !refd) window.location = url;
-//     else {
-//         sessionStorage.setItem("Desc Inquiry", "True");
-//         window.location = url2;
-//     }
-// }
+
 
 redirectToEnquiry = (sessid, subj = null) => {
     let url = `${sessid}?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[AO_ASSETS]html/enquiry.html&subj=${subj}`;
@@ -418,37 +488,20 @@ const biblioSubjGenerator = (sessid, barcode = null) => {
 
 
 const setEnquiryTopic = () => {
-
-    // let enqTopic = document.getElementById('enqTopic');
     let enqSubj = document.getElementById('enqTitle');
-
-    // if (enqTopic == null) return;
 
 
     let url = window.location.href;
     let urlParams = new URL(url);
-    // var topic = urlParams.searchParams.get('topic');
-    // let barcode = urlParams.searchParams.get('barcode');
-    // let refd = urlParams.searchParams.get('refd');
+
     let subj = urlParams.searchParams.get('subj');
 
-    // let vol = urlParams.searchParams.get('vol');
-    // let callNum = urlParams.searchParams.get('callNum');
-    // let title = urlParams.searchParams.get('title');
-    if (subj !== "null") {
+
+    if (subj !== "null" && subj !== null) {
         enqSubj.value = subj;
     }
 
-    // if (!barcode || !refd)
-    // {
-    //     // enqTopic.value = topic == 'null' ? document.getElementById('enqTopic').value : topic;
-    //     enqSubj.value  = subj == 'null' ? enqSubj.value : subj;
-    // }
-    // else {
-    //     let subj = `${refd} - ${barcode}`;
-    //     let enqTitle = document.getElementById('enq-title')
-    //     enqSubj.value =subj == 'null' ? enqSubj.value : subj;
-    // }
+
 
 
 }
@@ -587,13 +640,11 @@ const setCorrespondence = () => {
     let subjects = document.getElementsByClassName('subject-control');
     let subject = subjects[subjects.length - 1];
 
-    console.log(types[0].value)
-    console.log(senders[0].value)
-    console.log(subjects[0].value)
 
-    type.value = types[0].value;
-    sender.value = senders[0].value;
-    subject.value = subjects[0].value;
+
+    type.value = types[0]?.value;
+    sender.value = senders[0]?.value;
+    subject.value = subjects[0]?.value;
 }
 
 // This function is used when users click the Inquiry Button in Description Detailed Record

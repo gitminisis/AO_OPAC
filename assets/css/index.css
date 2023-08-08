@@ -90,7 +90,7 @@ body {
     width: 100%;
 }
 
-.alpha-list a{
+.alpha-list a {
     color: #000;
 }
 
@@ -110,9 +110,11 @@ body {
 .more-search-container p {
     text-align: left;
 }
+
 .more-search-container span {
     margin-bottom: 10px;
 }
+
 .alert {
     border-left: 0.8rem solid;
 }
@@ -151,9 +153,11 @@ body {
 .breadcrumb-item a {
     color: #000;
 }
+
 .breadcrumb-item a:hover {
     color: #047bc1;
 }
+
 .breadcrumb-item.active {
     color: #000;
     font-weight: bold;
@@ -359,6 +363,7 @@ body {
     border: unset;
     border: 3px solid #000 !important;
 }
+
 .general-focus.focus-red:focus {
     border: unset;
     border: 5px solid #FF0000 !important;
@@ -434,17 +439,81 @@ body {
     margin: 0.5em;
 }
 
-/* Skip nav styles from Liam */
-.skipnav {position: absolute; display: none; text-align: left; margin: 0; padding: 0} /*For all, including Opera. Display:none used to switch off the skip links for Opera users (it's redundant, Opera has excellent keyboard navigation)*/
-* html .skipnav {display: block} /*Switch on for IE6 and below*/
-*+html .skipnav {display: block} /*Switch on for IE7*/
-:root .skipnav {display: block} /*Switch on for Moz, FF and Safari*/
-.skipnav p {margin: 5px 0 0 0; padding: 0; position: absolute; font-size: 2em}
-.skipnav a {width: 26em; display:block; color: #fff; background: #333; text-decoration: none; padding: 5px; position: absolute; left: -1000em; top: 0; font-weight: bold}
-.skipnav a:visited {color: #fff}
-.skipnav a:focus, .skipnav a:active {z-index: 99; top: -3em; left: 0; border: solid #777 2px; color: #fff; background: #333 !important} /*Note IE bug that requires use of :active to mimic effect of :focus*/
 
-.skipnav a:hover {cursor: default}  
+/* Skip nav styles from Liam */
+
+.skipnav {
+    position: absolute;
+    display: none;
+    text-align: left;
+    margin: 0;
+    padding: 0
+}
+
+
+/*For all, including Opera. Display:none used to switch off the skip links for Opera users (it's redundant, Opera has excellent keyboard navigation)*/
+
+* html .skipnav {
+    display: block
+}
+
+
+/*Switch on for IE6 and below*/
+
+*+html .skipnav {
+    display: block
+}
+
+
+/*Switch on for IE7*/
+
+:root .skipnav {
+    display: block
+}
+
+
+/*Switch on for Moz, FF and Safari*/
+
+.skipnav p {
+    margin: 5px 0 0 0;
+    padding: 0;
+    position: absolute;
+    font-size: 2em
+}
+
+.skipnav a {
+    width: 26em;
+    display: block;
+    color: #fff;
+    background: #333;
+    text-decoration: none;
+    padding: 5px;
+    position: absolute;
+    left: -1000em;
+    top: 0;
+    font-weight: bold
+}
+
+.skipnav a:visited {
+    color: #fff
+}
+
+.skipnav a:focus,
+.skipnav a:active {
+    z-index: 99;
+    top: -3em;
+    left: 0;
+    border: solid #777 2px;
+    color: #fff;
+    background: #333 !important
+}
+
+
+/*Note IE bug that requires use of :active to mimic effect of :focus*/
+
+.skipnav a:hover {
+    cursor: default
+}
 
 .Header-Mobile {
     background-color: #000;
@@ -863,17 +932,16 @@ p {
 
 .enquiry-btn:focus {
     border: 3px solid #000 !important;
-
 }
 
 .enquiry-btn {
     background-color: #047bc1;
     color: #FFF;
 }
+
 .enquiry-btn:hover {
     background-color: #0C5ED7
 }
-
 
 .Enquiry-Link {
     color: #06c;
@@ -1646,3 +1714,44 @@ p {
 .slick-slide {
     height: inherit !important;
 }
+
+
+/** FILE UPLOAD CSS **/
+
+.file-upload .file-upload-select {
+    display: block;
+    color: #dbdbdb;
+    cursor: pointer;
+    text-align: left;
+    background: black;
+    overflow: hidden;
+    position: relative;
+    border-radius: 6px;
+}
+
+.file-upload .file-upload-select .file-select-button {
+    background: black;
+    padding: 10px;
+    display: inline-block;
+}
+
+.file-upload .file-upload-select .file-select-name {
+    display: inline-block;
+    padding: 10px;
+}
+
+.file-upload .file-upload-select:hover .file-select-button {
+    background: #324759;
+    color: #ffffff;
+    transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+}
+
+.file-upload .file-upload-select input[type="file"] {
+    display: none;
+}
+
+
+/** FILE UPLOAD CSS **/

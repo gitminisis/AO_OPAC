@@ -28,7 +28,7 @@
                     </h3>
                     <!-- <form id='Main-Form' class="minimum-font-size" method="post" name="simple_search" action="^HOME_SESSID^?UNIONSEARCH&DATABASE=DESCRIPTION_WEB&REPORT=WEB_DESC_SUM&KEEP=Y&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm"> -->
                     <form id='Main-Form' class="minimum-font-size" method="post" name="simple_search"
-                        action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm">
+                        action="^home_sessid^?SEARCH&KEEP=Y&APPLICATION=DESCRIPTION_WEB&language=144&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm">
 
                         <div class='main-form-left'>
                             <div class='main-login-mobile Rale-Bold'>
@@ -89,6 +89,19 @@
                                         <label class='search-label Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
                                     </span>
                                 </fieldset>
+                            </div>
+
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B01" id="B01" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                                        <option value="and" selected="">And</option>
+                                        <option value="or">Or</option>
+                                        <option value="and not">Not</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="REFD_CL"  aria-label="Search by Reference code" placeholder="Reference Code" title="Reference Code" autofocus>
+                                
                             </div>
                             <div class='Search-Options-Container'>
                                 <div class='search-options-top'>

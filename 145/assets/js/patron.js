@@ -2,7 +2,6 @@
 let saveButtonPressed = 0;
 
 $(document).ready(function() {
-    // debugger;
     // document.addEventListener('visibilitychange', () => {
     //     if (document.visibilityState === 'hidden') {
     //       navigator.sendBeacon(editSkipRecord, console.log('sending data'));
@@ -345,9 +344,7 @@ const redirectToEditProfile = () => {
 
     $.ajax(url).done( res => {
         var x2js = new X2JS();
-
         var jsonObj = x2js.xml2json(res);
-        // console.log(jsonObj);
         let card_number = jsonObj.client.card_number;
         let redirectURL = HOME_SESSID + "?changesinglerecord&database=CLIENT_VIEW&de_form=[AO_ASSETS]html/editProfile.html&EXP=C_CARD_NUMBER%20" + card_number
         window.location = redirectURL
