@@ -9,49 +9,38 @@
     <!-- include virtual="[AO_INCLUDES]home/leftPanel.html" -->
 
     <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
-        <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner.jpg" alt="A banner of AIMS  the Archives and Information Management System"></div>
-        <br>
-        <h2 class="Rale-Extra main-title-h2">Welcome to the Archives of Ontario!</h2>
+        <!-- <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner.jpg" alt="A banner of AIMS  the Archives and Information Management System"></div> -->
+      
         <div id="maincontent">  
             <div id='homepage-container'>
                 <div class='Form-Wrapper'>
-                    <!-- <p class='Form-Subheader Rale-Bold'>
-                        This Ministerial Department is responsible of the collection, preservation and management of Ontario's History and Public Documentation
-                    </p> -->
-                    <p class='Form-Subheader subheader Rale-Bold'>
-                        Welcome to AIMS, the Archive's new collections management system. AIMS provides integrated access to our archival, library and art collections. Search AIMS for descriptions of the records in our holdings
+                    <h1 class="Rale-Bold Main-Content-Heading">Search the Archives of Ontario!</h1>
+                 
+                    <p class="subheader Main-Content-Subtitle">
+                        Discover our archival, library, and art collections.
                     </p>
-                    <p class="subheader">
-                        <strong>IMPORTANT!</strong> You must have an AIMS account to order records. An AIMS account is not required to search records. AIMS and AOR account number are not the same.
-                    </p>
-                    <p class="subheader">
-                        <strong>
-                            <a href='/assets/html/PubSecureLogin.html' aria-label="Click here to go to Public Secure" style='color: #000'>Click here to go to Public Secure</a>
-                        </strong>
-                    </p>
-                    <p class="subheader">
-                        <strong>
-                            <a href='^HOME_SESSID^?GET&FILE=[AO_ASSETS]html/aimsSignupHelp.html' aria-label="Click here to find out how to get an AIMS account" style='color: #000'>How do I get an AIMS account?</a>
-                        </strong>
-                    </p>
-                    <!-- <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&DATABASE=DESCRIPTION&ERRMSG=[AO_INCLUDES]error~5cnorecord.htm"> -->
+                    <div class="subheader">
+                        <p>You can find descriptions of:</p>
+                        <ul>
+                            <li> <p>government and private documents, files, and correspondence</p></li>
+                            <li> <p>books, publications, and pamphlet</p></li>
+                            <li> <p>photos, art, sound recordings, and moving image</p> </li>
+                            <li> <p>maps and architectural plans</p></li>
+                        </ul>
+                    </div>
+
+ 
                     <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^home_sessid^?UNIONSEARCH&KEEP=Y&APPLICATION=UNION_VIEW&language=144&REPORT=WEB_UNION_SUM&ERRMSG=[AO_INCLUDES]error~5cnorecord.htm">
                         <div class='main-form-left'>
-                            <div class='main-login-mobile Rale-Bold'>
-                                <button type='button' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
-                                <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                                <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS'>How to search our
-                                    database</button>
-                            </div>
-                            <h3 class='search-area-h3 Rale-Reg'>Search archival, art, and library collection</h3>
-                            <br>
+                          
+                       
                             <div class="icon-container general-focus focus-red" aria-label="Searching for records">
                                 <i class="loader"></i> Searching records ...
                             </div>
-                            <span id='Option-Choice' class='Rale-Bold' aria-label='Search type All Keywords Search'>Option 1: Keyword Search</span>
+                  
                             <span id='Number-Results'></span>
                             <div class='Input-Wrapper d-flex flex-column'>
-                                <label id="simple_search_input_label" class='Rale-Bold' for="simple_search_input">Enter a search term or terms:</label>
+                              
                                 <div id='simple-search-container'>
                                     <input id="simple_search_input" type='text' aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus/>
                                     <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='SEARCH' />
@@ -123,11 +112,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class='main-form-right Rale-Bold'>
+                        <!-- <div class='main-form-right Rale-Bold'>
                             <button type='button' class='main-form-btn pub-sec-login-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
-                            <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                      
                             <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS' onclick="howToSearch('default')">How to search our database</button>
-                        </div>
+                        </div> -->
                     </form>
                     <br>
                     <p class="subheader">
@@ -136,6 +125,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 
     <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
