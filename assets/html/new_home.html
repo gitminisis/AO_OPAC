@@ -34,16 +34,16 @@
                         <div class='main-form-left'>
                           
                        
-                            <div class="icon-container general-focus focus-red" aria-label="Searching for records">
+                            <!-- <div class="icon-container general-focus focus-red" aria-label="Searching for records">
                                 <i class="loader"></i> Searching records ...
-                            </div>
+                            </div> -->
                   
                             <span id='Number-Results'></span>
                             <div class='Input-Wrapper d-flex flex-column'>
                               
                                 <div id='simple-search-container'>
-                                    <input id="simple_search_input" type='text' aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus/>
-                                    <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='SEARCH' />
+                                    <input id="simple_search_input" type='text' aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input"/>
+                                    <input aria-label="Search Button" class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search" title="Search" type="submit" value="Search" />
                                 </div>
                             </div>
                             <div class='Radio-Wrapper' role="radiogroup">
@@ -63,65 +63,22 @@
                                     </span>
                                 </fieldset>
                             </div>
-                            <!-- <div class='Radio-Wrapper-Mobile'>
-                                <fieldset>
-                                    <legend class='visually-hidden'>Search Type</legend>
-                                    <div class='Search-Type-Item-Mobile'>
-                                        <input type='radio' id='All-Keywords-Mobile' class='search-input-mobile' aria-label='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' />
-                                        <label class='search-label-mobile Rale-Med' for='All-Keywords-Mobile'>All keywords</label>
-                                    </div>
-                                    <div class='Search-Type-Item-Mobile'>
-                                        <input type='radio' id='Any-Keywords-Mobile' class='search-input-mobile' aria-label='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")' />
-                                        <label class='search-label-mobile Rale-Med' for='Any-Keywords-Mobile'>Any keyword</label>
-                                    </div>
-                                    <div class='Search-Type-Item-Mobile'>
-                                        <input type='radio' id='Exact-Phrase-Mobile' class='search-input-mobile' aria-label='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")' />
-                                        <label class='search-label-mobile Rale-Med' for='Exact-Phrase-Mobile'>Exact Phrase</label>
-                                    </div>
-                                </fieldset>
-                            </div> -->
-                            <div class='Search-Options-Container'>
-                                <!-- <a class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html'>ADVANCED SEARCH</a> -->
-                                <div class='search-options-top'>
-                                    <button type='button' class='Search-Btn Rale-Bold'  aria-label='Go to Advanced Search' onclick="onClickNavigationBtn(1)" tabindex="0">
-                                        ADVANCED SEARCH
-                                        <!-- <a id='Advanced-Search' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearch.html' title='Go to advanced search options' aria-label='Go to advanced search options'> ADVANCED SEARCH</a> -->
-                                    </button>
-                                    <!-- <a class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a> -->
-                                    <button type='button' class='Search-Btn Rale-Bold' aria-label='More Search Options' onclick="onClickNavigationBtn(2)">
-                                        MORE SEARCH OPTIONS
-                                        <!-- <a id='More-Search'
-                                            href='https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html'>
-                                            MORE SEARCH OPTIONS
-                                        </a> -->
-                                    </button>
-                                </div>
-                                <div class='search-options-bottom Rale-Bold'>
-                                    <button type='button' class='Search-Btn Rale-Bold'  aria-label='People Search' onclick="onClickNavigationBtn(3)">
-                                        PEOPLE SEARCH
-                                        <!-- <a id='More-Search' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html'>
-                                            PEOPLE SEARCH
-                                        </a> -->
-                                    </button>
-                                    <button type='button' class='Search-Btn Rale-Bold' aria-label='Organization search' onclick="onClickNavigationBtn(4)">
-                                        ORGANIZATION SEARCH
-                                        <!-- <a id='More-Search' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchOrganization.html'>
-                                            ORGANIZATION SEARCH
-                                        </a> -->
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class='main-form-right Rale-Bold'>
-                            <button type='button' class='main-form-btn pub-sec-login-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
+                          
                       
-                            <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS' onclick="howToSearch('default')">How to search our database</button>
-                        </div> -->
+                        </div>
+                     
                     </form>
                     <br>
-                    <p class="subheader">
-                        Find what you're looking for? <strong><a href='^SESSID^?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[AO_ASSETS]html/enquiry.html' aria-label="Click to Contact Us if you haven't found what you're looking for" style='color: #000'>Contact us</a></strong>                    to order and view the records at the Archives of Ontario.
-                    </p>
+                    <div class="subheader">
+                        <p class="Main-Sub-Header">Search by</p>
+                       <div>
+                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html">People</a>
+                        <span>|</span>
+                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchOrganization.html">Organization</a>
+                        <!-- <span>|</span> -->
+                        <!-- <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html">Creator List</a> -->
+                       </div>
+                    </div>
                 </div>
             </div>
         </div>
