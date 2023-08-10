@@ -46,32 +46,43 @@
                                     <input aria-label="Search Button" class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search" title="Search" type="submit" value="Search" />
                                 </div>
                             </div>
-                            <div class='Radio-Wrapper' role="radiogroup">
-                                <fieldset>
-                                    <legend class='visually-hidden'>Search Type</legend>
-                                    <span>
-                                            <input type='radio' id='All-Keywords' class='search-input' role='radio' aria-label='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
-                                            <label class='search-label Rale-Med' for='All-Keywords'>All of these keywords</label>
-                                        </span>
-                                    <span>
-                                            <input type='radio' id='Any-Keywords' class='search-input' role='radio' aria-label='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
-                                            <label class='search-label Rale-Med' for='Any-Keywords'>Any of these Keywords</label>
-                                        </span>
-                                    <span>
-                                            <input type='radio' id='Exact-Phrase' class='search-input' role='radio' aria-label='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
-                                            <label class='search-label Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
-                                    </span>
+
+                            <div class="ontario-form-group">
+                                <fieldset class="ontario-fieldset">
+                                    <legend class="visually-hidden">
+                                        Radio legend<span class="ontario-label__flag">(required/optional)</span>
+                                    </legend>
+                                    <div class="ontario-radios Main-Search-Radio">
+                                        <div class="ontario-radios__item ">
+                                            <input class="ontario-radios__input" id="radio-button-option-1"  type="radio" aria-label='All of these keywords' value='AND_WORD'  name='FLDOP1'  onclick='onClickSearchOption("All Keyword Search")' checked>
+                                            <label class="ontario-label ontario-radios__label" for="radio-button-option-1">
+                                              All keywords
+                                            </label>
+                                        </div>
+                                        <div class="ontario-radios__item">
+                                            <input class="ontario-radios__input" id="radio-button-option-2"  name='FLDOP1'  type="radio"  aria-label='Any of these keywords' value='OR_WORD' onclick='onClickSearchOption("Any Keyword Search")'>
+                                            <label class="ontario-label ontario-radios__label" for="radio-button-option-2">
+                                                Any keywords
+                                            </label>
+                                        </div>
+                                        <div class="ontario-radios__item">
+                                            <input class="ontario-radios__input" id="radio-button-option-3"    type="radio" aria-label='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'>
+                                            <label class="ontario-label ontario-radios__label" for="radio-button-option-3">
+Exact phrase                                            </label>
+                                        </div>
+                                    </div>
                                 </fieldset>
                             </div>
+
+                       
                           
                       
                         </div>
                      
                     </form>
-                    <br>
                     <div class="subheader">
                         <p class="Main-Sub-Header">Search by</p>
-                       <div>
+                       <div class="Main-Search-Options-Section">
                         <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html">People</a>
                         <span>|</span>
                         <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchOrganization.html">Organization</a>
