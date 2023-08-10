@@ -1808,30 +1808,6 @@ p {
 .Input-Wrapper {
   max-width: 48rem;
 }
-/* MOBILE VIEW STYLE */
-@media only screen and (max-width: 639px) {
-  #homepage-container h1 {
-    font-size: 32px;
-    line-height: 41px;
-  }
-
-  .Main-Content-Subtitle {
-    font-size: 20px;
-    line-height: 32px;
-  }
-  #homepage-container {
-    padding: 24px 18px;
-  }
-
-  .Main-Search-Radio {
-    flex-direction: column;
-  }
-
-  .Panel-Main {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
 
 /**SEARCH TIPS */
 
@@ -1863,9 +1839,35 @@ p {
 
 /**SEARCH TIPS */
 
+/* MOBILE VIEW STYLE */
+@media only screen and (max-width: 639px) {
+  #homepage-container h1 {
+    font-size: 32px;
+    line-height: 41px;
+  }
+
+  .Main-Content-Subtitle {
+    font-size: 20px;
+    line-height: 32px;
+  }
+  #homepage-container,
+  .search-tips-container {
+    padding: 24px 18px;
+  }
+
+  .Main-Search-Radio {
+    flex-direction: column;
+  }
+
+  .Panel-Main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 /* TABLE VIEW STYLE */
 @media only screen and (min-width: 640px) and (max-width: 1167px) {
-  #homepage-container {
+  #homepage-container,
+  .search-tips-container {
     padding: 24px;
   }
   .Panel-Main {
