@@ -3,7 +3,6 @@
 <!-- include virtual="[AO_INCLUDES]home/header.html"-->
 <title>Home</title>
 
-
 <div id='Content-Wrapper' class='Content-Wrapper'>
 
     <!-- include virtual="[AO_INCLUDES]home/leftPanel.html" -->
@@ -32,15 +31,8 @@
  
                     <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^home_sessid^?UNIONSEARCH&KEEP=Y&APPLICATION=UNION_VIEW&language=144&REPORT=WEB_UNION_SUM&ERRMSG=[AO_INCLUDES]error~5cnorecord.htm">
                         <div class='main-form-left'>
-                          
-                       
-                            <!-- <div class="icon-container general-focus focus-red" aria-label="Searching for records">
-                                <i class="loader"></i> Searching records ...
-                            </div> -->
-                  
                             <span id='Number-Results'></span>
                             <div class='Input-Wrapper d-flex flex-column'>
-                              
                                 <div id='simple-search-container'>
                                     <input id="simple_search_input" type='text' aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input"/>
                                     <input aria-label="Search Button" class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search" title="Search" type="submit" value="Search" />
@@ -67,16 +59,11 @@
                                         </div>
                                         <div class="ontario-radios__item">
                                             <input class="ontario-radios__input" id="radio-button-option-3"    type="radio" aria-label='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'>
-                                            <label class="ontario-label ontario-radios__label" for="radio-button-option-3">
-Exact phrase                                            </label>
+                                            <label class="ontario-label ontario-radios__label" for="radio-button-option-3">Exact phrase</label>
                                         </div>
                                     </div>
                                 </fieldset>
                             </div>
-
-                       
-                          
-                      
                         </div>
                      
                     </form>
@@ -86,18 +73,17 @@ Exact phrase                                            </label>
                         <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html">People</a>
                         <span>|</span>
                         <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchOrganization.html">Organization</a>
-                        <!-- <span>|</span> -->
-                        <!-- <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html">Creator List</a> -->
                        </div>
                     </div>
                 </div>
             </div>
+            
         </div>
-
-
+        
+        <!-- include virtual="[AO_INCLUDES]home/searchTips.html"-->
     </div>
 
-    <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+    <!-- include virtual="[AO_INCLUDES]home/rightPanel.html"-->
 </div>
 </div>
 <span hidden id="sessionid">^SESSID^</span>
