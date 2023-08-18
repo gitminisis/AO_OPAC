@@ -670,7 +670,7 @@ hr.Hr-1 {
   background: white;
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 24px;
   width: 100%;
 }
 
@@ -889,6 +889,7 @@ p {
   width: 100%;
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
+  padding: 0 8px;
 }
 
 .simple-search-btn {
@@ -1839,8 +1840,18 @@ p {
 
 /**SEARCH TIPS */
 
+#mobile-logo {
+  display: none;
+  filter: invert(100%);
+}
 /* MOBILE VIEW STYLE */
 @media only screen and (max-width: 639px) {
+  #desktop-logo {
+    display: none;
+  }
+  #mobile-logo {
+    display: block;
+  }
   #homepage-container h1 {
     font-size: 32px;
     line-height: 41px;
