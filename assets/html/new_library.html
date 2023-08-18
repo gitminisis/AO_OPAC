@@ -1,7 +1,7 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
 
 <!-- include virtual="[AO_INCLUDES]home/header.html"-->
-<title>Archive</title>
+<title>Library</title>
 
 <div id='Content-Wrapper' class='Content-Wrapper'>
 
@@ -13,20 +13,20 @@
         <div id="maincontent">  
             <div id='homepage-container'>
                 <div class='Form-Wrapper'>
-                    <h1 class="Rale-Bold Main-Content-Heading">Search archival collection</h1>
+                    <h1 class="Rale-Bold Main-Content-Heading">Search library collection</h1>
                  
-                
+                  
                     <div class="subheader">
-                        <p>The collection contains:</p>
+                        <p>The library collection has more than 85,000 print, electronic, and microform items, and can include:</p>
                         <ul>
-                            <li> <p>documents</p></li>
-                            <li> <p>photographs, maps, and architectural plans</p></li>
-                            <li> <p>sound and moving images</p></li>
+                            <li> <p>books, pamphlets, periodicals</p></li>
+                            <li> <p>Ontario government publications</p> </li>
+                            <li> <p>directories, schoolbooks, almanacs, and voters lists</p></li>
                         </ul>
                     </div>
 
  
-                    <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm">
+                    <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=BIBLIO_WEB&ERRMSG=[AO_INCLUDES]error/norecordLibrary.htm">
                         <div class='main-form-left'>
                             <span id='Number-Results'></span>
                             <div class='Input-Wrapper d-flex flex-column'>
@@ -70,13 +70,8 @@
                     <div class="subheader">
                         <p class="Main-Sub-Header">Search by</p>
                        <div class="Main-Search-Options-Section">
-                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArchives.html">Archival advanced</a>
-                        <span>|</span>
-                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html">People</a>
-                        <span>|</span>
-                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchOrganization.html">Organization</a>
-                        <span>|</span>
-                        <a href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html">Creator list</a>
+                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchLibrary.html">Library advanced</a>
+                      
                        </div>
                     </div>
                 </div>
@@ -86,9 +81,7 @@
         <div class="search-tips-container">
 
             <!-- include virtual="[AO_INCLUDES]home/searchTips.html"-->
-
-            <!-- include virtual="[AO_INCLUDES]home/archivalBannerRef.html"-->
-
+            <!-- include virtual="[AO_INCLUDES]home/libraryBannerRef.html"-->
         </div>
     </div>
 
