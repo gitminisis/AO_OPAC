@@ -1837,12 +1837,18 @@ p {
 .search-tips-container a:hover {
   color: #00478f;
 }
-
+.Search-Option-Button {
+  display: flex;
+  align-items: center;
+}
 /**SEARCH TIPS */
 
 #mobile-logo {
   display: none;
   filter: invert(100%);
+}
+.search-button-icon {
+  display: none;
 }
 /* MOBILE VIEW STYLE */
 @media only screen and (max-width: 639px) {
@@ -1851,6 +1857,12 @@ p {
   }
   #mobile-logo {
     display: block;
+  }
+  .search-button-icon {
+    display: block;
+  }
+  .search-button-label {
+    display: none;
   }
   #homepage-container h1 {
     font-size: 32px;
