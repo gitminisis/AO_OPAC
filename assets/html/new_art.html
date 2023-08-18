@@ -1,7 +1,7 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
 
 <!-- include virtual="[AO_INCLUDES]home/header.html"-->
-<title>Home</title>
+<title>Art</title>
 
 <div id='Content-Wrapper' class='Content-Wrapper'>
 
@@ -13,23 +13,17 @@
         <div id="maincontent">  
             <div id='homepage-container'>
                 <div class='Form-Wrapper'>
-                    <h1 class="Rale-Bold Main-Content-Heading">Search the Archives of Ontario!</h1>
+                    <h1 class="Rale-Bold Main-Content-Heading">Search art collection</h1>
                  
-                    <p class="subheader Main-Content-Subtitle">
+                    <!-- <p class="subheader Main-Content-Subtitle">
                         Discover our archival, library, and art collections.
-                    </p>
+                    </p> -->
                     <div class="subheader">
-                        <p>You can find descriptions of:</p>
-                        <ul>
-                            <li> <p>government and private documents, files, and correspondence</p></li>
-                            <li> <p>books, publications, and pamphlet</p></li>
-                            <li> <p>photos, art, sound recordings, and moving image</p> </li>
-                            <li> <p>maps and architectural plans</p></li>
-                        </ul>
+                        <p>Explore selected images and descriptions from the government of Ontario's art collection including Ontario's history, people, and landscape.</p>
                     </div>
 
  
-                    <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^home_sessid^?search&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm">
+                    <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^home_sessid^?UNIONSEARCH&KEEP=Y&APPLICATION=UNION_VIEW&language=144&REPORT=WEB_UNION_SUM&ERRMSG=[AO_INCLUDES]error~5cnorecord.htm">
                         <div class='main-form-left'>
                             <span id='Number-Results'></span>
                             <div class='Input-Wrapper d-flex flex-column'>
@@ -73,9 +67,9 @@
                     <div class="subheader">
                         <p class="Main-Sub-Header">Search by</p>
                        <div class="Main-Search-Options-Section">
-                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html">People</a>
+                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArt.html">Art advanced</a>
                         <span>|</span>
-                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchOrganization.html">Organization</a>
+                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html">People</a>
                         <span>|</span>
                         <a href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html">Creator list</a>
                        </div>
@@ -88,7 +82,7 @@
 
             <!-- include virtual="[AO_INCLUDES]home/searchTips.html"-->
 
-            <!-- include virtual="[AO_INCLUDES]home/homeBannerRef.html"-->
+            <!-- include virtual="[AO_INCLUDES]home/artBannerRef.html"-->
 
         </div>
     </div>

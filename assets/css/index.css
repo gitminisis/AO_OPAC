@@ -545,6 +545,7 @@ hr.Hr-1 {
   width: 100%;
   display: flex;
   flex-direction: row;
+  margin-top: 16px;
   background-color: #fff;
 }
 
