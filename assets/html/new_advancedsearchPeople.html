@@ -118,64 +118,67 @@
               <label class="ontario-label" for="P_AUTH_TYPE">
                 Select name type
               </label>
-            </div>
-            <div class="input-group mb-3 Rale-Reg">
-              <div class="input-group-prepend adv-operator-container">
+              <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B03"
+                    id="B03"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
+                </div>
                 <select
-                  name="B03"
-                  id="B03"
-                  aria-label="Select operator"
-                  class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  name="P_AUTH_TYPE"
+                  id="P_AUTH_TYPE"
+                  aria-label="Select Authority type"
+                  class="form-control"
+                  aria-label="Search by "
                 >
-                  <option value="and" selected="">And</option>
-                  <option value="or">Or</option>
-                  <option value="and not">Not</option>
+                  <option value="" selected>Select Authority Type</option>
+                  <option value="Family Name">Family Name</option>
+                  <option value="Personal Name">Personal Name</option>
                 </select>
+                <!-- <div class="input-group-append">
+                  <button
+                    disabled
+                    type="button"
+                    class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0"
+                    aria-label="Browse "
+                    data-bs-toggle="modal"
+                    data-bs-target="#fullHeightModalRight"
+                    aria-label="Browse Authority Types"
+                  >
+                    <i class="fas fa-bars"></i>
+                  </button>
+                </div> -->
               </div>
-              <select
-                name="P_AUTH_TYPE"
-                id="P_AUTH_TYPE"
-                aria-label="Select Authority type"
-                class="form-control"
-                aria-label="Search by "
-              >
-                <option value="" selected>Select Authority Type</option>
-                <option value="Family Name">Family Name</option>
-                <option value="Personal Name">Personal Name</option>
-              </select>
-              <!-- <div class="input-group-append">
-                <button
-                  disabled
-                  type="button"
-                  class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0"
-                  aria-label="Browse "
-                  data-bs-toggle="modal"
-                  data-bs-target="#fullHeightModalRight"
-                  aria-label="Browse Authority Types"
-                >
-                  <i class="fas fa-bars"></i>
-                </button>
-              </div> -->
             </div>
+          
             <!-- P_AUTH_TYPE INPUT -->
 
-            <div class="Search-Options-Wrapper d-flex justify-content-evenly">
+            <div class="Search-Options-Wrapper d-flex ">
               <button
-                class="btn btn-primary general-focus"
+                aria-label="Press Enter to submit form"
                 type="submit"
                 title="Search"
                 value="SEARCH"
+                class="ontario-button ontario-button--primary general-focus"
               >
-                Submit
+                Search
               </button>
               <button
-                class="btn btn-outline-primary general-focus"
+                aria-label="Press Enter to open clear form"
+                class="ontario-button ontario-button--secondary general-focus"
                 id="clear"
                 type="reset"
                 title="Clear"
-                value="SEARCH"
+                value="Clear"
               >
-                Clear
+                Clear all
               </button>
             </div>
           </form>

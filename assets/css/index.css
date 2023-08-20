@@ -667,7 +667,8 @@ hr.Hr-1 {
   transform: rotate(-45deg) translate(35px, 35px);
 }
 
-#homepage-container {
+#homepage-container,
+#advanced-search-container {
   background: white;
   display: flex;
   flex-direction: column;
@@ -861,7 +862,6 @@ p {
 
 .Search-Options-Wrapper {
   display: flex;
-  justify-content: space-evenly;
   margin-top: 0.5em;
 }
 
@@ -1213,7 +1213,8 @@ p {
   .Features-Container {
     border: none;
   }
-  #homepage-container {
+  #homepage-container,
+  #advanced-search-container {
     align-items: center;
     padding: 0;
   }
@@ -1761,14 +1762,16 @@ p {
   letter-spacing: 0px;
 }
 
-#homepage-container h1 {
+#homepage-container h1,
+#advanced-search-container h1 {
   font-size: 40px;
   font-weight: 700;
   line-height: 48px;
   letter-spacing: 0.6399999856948853px;
   text-align: left;
 }
-#homepage-container p {
+#homepage-container p,
+#advanced-search-container p {
   font-size: 16px;
   line-height: 25.6px;
 }
@@ -1818,6 +1821,9 @@ p {
   font-family: "Open Sans";
   margin-top: 16px;
 }
+.search-tips-container ol {
+  padding-left: 16px;
+}
 
 .search-tips-container h2,
 .search-tips-container h3 {
@@ -1851,6 +1857,20 @@ p {
 .search-button-icon {
   display: none;
 }
+
+/** Advanced Search Styling */
+/** ================================================================ */
+.input-wrap {
+  width: 100%;
+  max-width: 400px;
+}
+.input-group-prepend,
+.input-group input {
+  border: 2px solid black;
+}
+/** ================================================================ */
+
+/** Advanced Search Styling */
 /* MOBILE VIEW STYLE */
 @media only screen and (max-width: 639px) {
   #desktop-logo {
@@ -1865,7 +1885,8 @@ p {
   .search-button-label {
     display: none;
   }
-  #homepage-container h1 {
+  #homepage-container h1,
+  #advanced-search-container h1 {
     font-size: 32px;
     line-height: 41px;
   }
@@ -1875,7 +1896,7 @@ p {
     line-height: 32px;
   }
   #homepage-container,
-  .search-tips-container {
+  #advanced-search-container .search-tips-container {
     padding: 24px 18px;
   }
 
@@ -1891,6 +1912,7 @@ p {
 /* TABLE VIEW STYLE */
 @media only screen and (min-width: 640px) and (max-width: 1167px) {
   #homepage-container,
+  #advanced-search-container,
   .search-tips-container {
     padding: 24px;
   }
