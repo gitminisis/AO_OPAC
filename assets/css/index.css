@@ -720,6 +720,7 @@ p {
 .Panel-Right {
   display: flex;
   flex: 1;
+  background-color: #f6f7fc;
 }
 
 .Panel-Main {
@@ -1829,9 +1830,13 @@ p {
 .search-tips-container h3 {
   font-size: 16px;
   margin-top: 32px;
+  margin-bottom: 16px;
+}
+.search-tips-container ul {
+  margin-top: 16px;
 }
 .search-tips-container a,
-.search-tips-container li::marker {
+.search-tips-container ol li::marker {
   color: #0066cc;
 }
 
@@ -1862,13 +1867,15 @@ p {
 }
 .input-group-prepend,
 .input-group input,
-.input-group #P_AUTH_TYPE {
+.input-group #P_AUTH_TYPE,
+.input-group #VENDOR_ROLE {
   border: 2px solid black;
 }
 /** ================================================================ */
 
 /** Advanced Search Styling */
-/* MOBILE VIEW STYLE */
+
+/**  MOBILE VIEW STYLE */
 @media only screen and (max-width: 639px) {
   #desktop-logo {
     display: none;
@@ -1907,7 +1914,7 @@ p {
     padding-right: 0;
   }
 }
-/* TABLE VIEW STYLE */
+/** TABLE VIEW STYLE */
 @media only screen and (min-width: 640px) and (max-width: 1167px) {
   #homepage-container,
   #advanced-search-container,
@@ -1919,9 +1926,12 @@ p {
   }
 }
 
-/* DESKTOP VIEW STYLE  */
+/** DESKTOP VIEW STYLE  */
 @media only screen and (min-width: 1168px) {
   .Features-Container {
     align-items: center;
+  }
+  .Panel-Right {
+    background-color: white;
   }
 }
