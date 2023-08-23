@@ -1,61 +1,71 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
 
-<!-- include virtual="[AO_INCLUDES]header.html"-->
-<title>Home</title>
+<!-- include virtual="[AO_INCLUDES]home/header.html"-->
+<title>Art</title>
 
 <div id="Content-Wrapper" class="Content-Wrapper">
-    <!-- include virtual="[AO_INCLUDES]leftPanel.html" -->
+  <!-- include virtual="[AO_INCLUDES]home/leftPanel.html" -->
 
-    <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
-        <!-- <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner.jpg" alt="A banner of AIMS  the Archives and Information Management System"></div> -->
+  <div
+    id="Panel-Main"
+    class="Panel-Main Main-Content d-flex flex-column align-items-center"
+  >
+    <!-- <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner.jpg" alt="A banner of AIMS  the Archives and Information Management System"></div> -->
 
-        <div id="maincontent">
-            <div id="homepage-container">
-                <div class="Form-Wrapper">
-                    <h1 class="Rale-Bold Main-Content-Heading">
-                        Search the Archives of Ontario!
-                    </h1>
+    <div id="maincontent">
+      <div id="homepage-container">
+        <div class="Form-Wrapper">
+          <h1 class="Rale-Bold Main-Content-Heading">Search art collection</h1>
 
-                    <p class="subheader Main-Content-Subtitle">
+          <!-- <p class="subheader Main-Content-Subtitle">
                         Discover our archival, library, and art collections.
-                    </p>
-                    <div class="subheader">
-                        <p>You can find descriptions of:</p>
-                        <ul>
-                            <li>
-                                <p>
-                                    government and private documents, files, and correspondence
-                                </p>
-                            </li>
-                            <li>
-                                <p>books, publications, and pamphlet</p>
-                            </li>
-                            <li>
-                                <p>photos, art, sound recordings, and moving image</p>
-                            </li>
-                            <li>
-                                <p>maps and architectural plans</p>
-                            </li>
-                        </ul>
-                    </div>
+                    </p> -->
+          <div class="subheader">
+            <p>
+              Explore selected images and descriptions from the government of
+              Ontario's art collection including Ontario's history, people, and
+              landscape.
+            </p>
+          </div>
 
-                    <form id="Main-Form" class="minimum-font-size" method="post" name="simple_search" action="^home_sessid^?UNIONSEARCH&KEEP=Y&APPLICATION=UNION_VIEW&language=144&REPORT=WEB_UNION_SUM&ERRMSG=[AO_INCLUDES]error~5cnorecord.htm">
-                        <div class="main-form-left">
-                            <span id="Number-Results"></span>
-                            <div class="Input-Wrapper d-flex flex-column">
-                                <div id="simple-search-container">
-                                    <input id="simple_search_input" type="text" aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input" />
-                                    <button aria-label="Search Button" class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search" title="Search" type="submit" value="Search">
+          <form
+            id="Main-Form"
+            class="minimum-font-size"
+            method="post"
+            name="simple_search"
+            action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm"
+          >
+            <div class="main-form-left">
+              <span id="Number-Results"></span>
+              <div class="Input-Wrapper d-flex flex-column">
+                <div id="simple-search-container">
+                  <input
+                    id="simple_search_input"
+                    type="text"
+                    aria-labelledby="simple_search_input_label"
+                    name="KEYWORD_CLUSTER"
+                    autofocus
+                    aria-label="Simple Search Input"
+                  />
+                  <button
+                    aria-label="Search Button"
+                    class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary"
+                    alt="Search"
+                    title="Search"
+                    type="submit"
+                    value="Search"
+                  >
                     <i class="fas fa-search search-button-icon"></i>
                     <span class="search-button-label">Search</span>
                   </button>
-                                </div>
-                            </div>
+                </div>
+              </div>
 
-                            <div class="ontario-form-group">
-                                <fieldset class="ontario-fieldset">
-                                    <legend class="visually-hidden">
-                                        Radio legend<span class="ontario-label__flag">(required/optional)</span
+              <div class="ontario-form-group">
+                <fieldset class="ontario-fieldset">
+                  <legend class="visually-hidden">
+                    Radio legend<span class="ontario-label__flag"
+                      >(required/optional)</span
                     >
                   </legend>
                   <span
@@ -125,12 +135,13 @@
           <div class="subheader">
             <p class="Main-Sub-Header">Search by</p>
             <div class="Main-Search-Options-Section">
+              <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArt.html"
+                >Art advanced</a
+              >
+              <span>|</span>
               <a
                 href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html"
                 >People</a
-              >
-              <span>|</span>
-                                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchOrganization.html">Organization</a
               >
               <span>|</span>
               <a
@@ -143,13 +154,13 @@
       </div>
     </div>
     <div class="search-tips-container">
-      <!-- include virtual="[AO_INCLUDES]searchTips.html"-->
+      <!-- include virtual="[AO_INCLUDES]home/searchTips.html"-->
 
-      <!-- include virtual="[AO_INCLUDES]homeBannerRef.html"-->
+      <!-- include virtual="[AO_INCLUDES]home/artBannerRef.html"-->
     </div>
   </div>
 
-  <!-- include virtual="[AO_INCLUDES]rightPanel.html"-->
+  <!-- include virtual="[AO_INCLUDES]home/rightPanel.html"-->
 </div>
 <span hidden id="sessionid">^SESSID^</span>
 

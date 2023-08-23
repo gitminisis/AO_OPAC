@@ -1,7 +1,7 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
 
 <!-- include virtual="[AO_INCLUDES]home/header.html"-->
-<title>Archives of Ontario - No People Results</title>
+<title>Library</title>
 
 <div id="Content-Wrapper" class="Content-Wrapper">
   <!-- include virtual="[AO_INCLUDES]home/leftPanel.html" -->
@@ -10,57 +10,35 @@
     id="Panel-Main"
     class="Panel-Main Main-Content d-flex flex-column align-items-center"
   >
-    <div class="search-error-wrapper">
-      <p class="No-Record-Header">
-        No results found in Archives of Ontario:
-        <strong>people collection</strong>
-      </p>
+    <!-- <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner.jpg" alt="A banner of AIMS  the Archives and Information Management System"></div> -->
 
-      <ul>
-        <li>check your spelling</li>
-        <li>enter another search term</li>
-        <li>select a different keyword option (all, any, exact)</li>
-        <li>
-          search in a specific collection (<a
-            href="/scripts/mwimain.dll?logon&application=COLLECTIONS_WEB&language=144&file=[AO_ASSETS]html/art.html"
-            >art</a
-          >,
-          <a
-            href="/scripts/mwimain.dll?logon&application=DESCRIPTION_WEB&language=144&file=[AO_ASSETS]html/archival.html"
-            >archival</a
-          >,
-          <a
-            href="/scripts/mwimain.dll?logon&application=BIBLIO_WEB&language=144&file=[AO_ASSETS]html/library.html"
-            >library</a
-          >)
-        </li>
-      </ul>
-      <p>
-        <a
-          href="http://www.archives.gov.on.ca/en/about/contact.aspx"
-          target="_blank"
-          >Contact us</a
-        >
-        if you need help to find what you're looking for.
-      </p>
-    </div>
     <div id="maincontent">
       <div id="homepage-container">
         <div class="Form-Wrapper">
           <h1 class="Rale-Bold Main-Content-Heading">
-            Search the Archives of Ontario!
+            Search library collection
           </h1>
 
-          <p class="subheader Main-Content-Subtitle">
-            Discover our archival, library, and art collections.
-          </p>
+          <div class="subheader">
+            <p>
+              The library collection has more than 85,000 print, electronic, and
+              microform items, and can include:
+            </p>
+            <ul>
+              <li><p>books, pamphlets, periodicals</p></li>
+              <li><p>Ontario government publications</p></li>
+              <li>
+                <p>directories, schoolbooks, almanacs, and voters lists</p>
+              </li>
+            </ul>
+          </div>
 
           <form
             id="Main-Form"
             class="minimum-font-size"
             method="post"
             name="simple_search"
-            action="^home_sessid^?UNIONSEARCH&KEEP=Y&APPLICATION=UNION_VIEW&language=144&REPORT=WEB_UNION_SUM&ERRMSG=[AO_INCLUDES]error~5cnorecord.htm"
+            action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=BIBLIO_WEB&ERRMSG=[AO_INCLUDES]error/norecordLibrary.htm"
           >
             <div class="main-form-left">
               <span id="Number-Results"></span>
@@ -163,32 +141,22 @@
             <p class="Main-Sub-Header">Search by</p>
             <div class="Main-Search-Options-Section">
               <a
-                href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html"
-                >People</a
-              >
-              <span>|</span>
-              <a
-                href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchOrganization.html"
-                >Organization</a
-              >
-              <span>|</span>
-              <a
-                href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html"
-                >Creator list</a
+                href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchLibrary.html"
+                >Library advanced</a
               >
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="search-tips-container">
-      <!-- include virtual="[AO_INCLUDES]home/searchTips.html"-->
+      <!-- include virtual="[AO_INCLUDES]home/librarySearchTips.html"-->
+      <!-- include virtual="[AO_INCLUDES]home/libraryBannerRef.html"-->
     </div>
   </div>
+
   <!-- include virtual="[AO_INCLUDES]home/rightPanel.html"-->
 </div>
-
 <span hidden id="sessionid">^SESSID^</span>
 
 <!-- include virtual="[AO_INCLUDES]footer.htm"-->
