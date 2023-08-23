@@ -406,16 +406,18 @@ function editEnquiry(sessid) {
  * Disable simple search button
  * Submit form
  */
-function submitSimpleSearch() {
-    $("#Main-Form").on('submit', function(e) {
-        $(".icon-container").css('display', 'block');
-        $(".icon-container")[0].setAttribute('tabindex', "0")
-        $(".icon-container")[0].focus()
-        $(".simple-search-btn").attr('disabled', true);
-    })
-}
-
-submitSimpleSearch();
+$(window).bind("pageshow", function(event) {
+    $(".icon-container").hide();
+    $(".simple-search-btn").attr('disabled', false);
+    let clearMainForm = document.getElementById("Main-Form");
+    if(clearMainForm) clearMainForm.reset();
+});
+$("#Main-Form").on('submit', function(e) {
+    $(".icon-container").css('display', 'block');
+    $(".icon-container")[0].setAttribute('tabindex', "0")
+    $(".icon-container")[0].focus()
+    $(".simple-search-btn").attr('disabled', true);
+})
 
 // Added hard-code lang paramter in the URL
 const onClickLoginBtn = () => {

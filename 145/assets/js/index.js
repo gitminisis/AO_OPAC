@@ -419,16 +419,18 @@ function editEnquiry(sessid) {
  * Disable simple search button
  * Submit form
  */
- function submitSimpleSearch() {
-    $("#Main-Form").on('submit', function(e) {
-        $(".icon-container").css('display', 'block');
-        $(".icon-container")[0].setAttribute('tabindex', "0")
-        $(".icon-container")[0].focus()
-        $(".simple-search-btn").attr('disabled', true);
-    })
-}
+$(window).bind("pageshow", function(event) {
+    $(".icon-container").hide();
+    $(".simple-search-btn").attr('disabled', false);
+    if(clearMainForm) clearMainForm.reset();
+});
+$("#Main-Form").on('submit', function(e) {
+    $(".icon-container").css('display', 'block');
+    $(".icon-container")[0].setAttribute('tabindex', "0")
+    $(".icon-container")[0].focus()
+    $(".simple-search-btn").attr('disabled', true);
+})
 
-submitSimpleSearch();
 
 // Added hard-code lang paramter in the URL
 const onClickLoginBtn = () => window.location = '/145/assets/html/PubSecureLogin.html';
