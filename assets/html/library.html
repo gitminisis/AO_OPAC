@@ -8,100 +8,133 @@
 
     <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
 
-    <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
-        <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner.jpg" alt="A banner of AIMS  the Archives and Information Management System"></div>
-        <br>
-        <h2 class="Rale-Extra main-title-h2">Welcome to the Library Holdings!</h2>
+    <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
+        <!-- <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner.jpg" alt="A banner of AIMS  the Archives and Information Management System"></div> -->
+
         <div id="maincontent">
+            <div id="homepage-container">
+                <div class="Form-Wrapper">
+                    <h1 class="Rale-Bold Main-Content-Heading">
+                        Search library collection
+                    </h1>
+
+                    <div class="subheader">
+                        <p>
+                            The library collection has more than 85,000 print, electronic, and microform items, and can include:
+                        </p>
+                        <ul>
+                            <li>
+                                <p>books, pamphlets, periodicals</p>
+                            </li>
+                            <li>
+                                <p>Ontario government publications</p>
+                            </li>
+                            <li>
+                                <p>directories, schoolbooks, almanacs, and voters lists</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <form id="Main-Form" class="minimum-font-size" method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=BIBLIO_WEB&ERRMSG=[AO_INCLUDES]error/norecordLibrary.htm">
+                        <div class="main-form-left">
+                            <span id="Number-Results"></span>
+                            <div class="Input-Wrapper d-flex flex-column">
+                                <div id="simple-search-container">
+                                    <input id="simple_search_input" type="text" aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input" />
+                                    <button aria-label="Search Button" class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search" title="Search" type="submit" value="Search">
+                    <i class="fas fa-search search-button-icon"></i>
+                    <span class="search-button-label">Search</span>
+                  </button>
+                                </div>
+                            </div>
+
+                            <div class="ontario-form-group">
+                                <fieldset class="ontario-fieldset">
+                                    <legend class="visually-hidden">
+                                        Radio legend<span class="ontario-label__flag">(required/optional)</span
+                    >
+                  </legend>
+                  <span
+                    hidden
+                    id="Option-Choice"
+                    class="Rale-Bold"
+                    aria-label="Search type All Keywords Search"
+                    >Option 1: Keyword Search</span
+                  >
+                  <div class="ontario-radios Main-Search-Radio">
+                    <div class="ontario-radios__item">
+                      <input
+                        class="ontario-radios__input"
+                        id="radio-button-option-1"
+                        type="radio"
+                        aria-label="All of these keywords"
+                        value="AND_WORD"
+                        name="FLDOP1"
+                        onclick='onClickSearchOption("All Keyword Search")'
+                        checked
+                      />
+                      <label
+                        class="ontario-label ontario-radios__label"
+                        for="radio-button-option-1"
+                      >
+                        All keywords
+                      </label>
+                    </div>
+                    <div class="ontario-radios__item">
+                      <input
+                        class="ontario-radios__input"
+                        id="radio-button-option-2"
+                        name="FLDOP1"
+                        type="radio"
+                        aria-label="Any of these keywords"
+                        value="OR_WORD"
+                        onclick='onClickSearchOption("Any Keyword Search")'
+                      />
+                      <label
+                        class="ontario-label ontario-radios__label"
+                        for="radio-button-option-2"
+                      >
+                        Any keywords
+                      </label>
+                    </div>
+                    <div class="ontario-radios__item">
+                      <input
+                        class="ontario-radios__input"
+                        id="radio-button-option-3"
+                        type="radio"
+                        aria-label="Exact Phrase"
+                        value="ADJ_WORD"
+                        name="FLDOP1"
+                        onclick='onClickSearchOption("Exact Phrase")'
+                      />
+                      <label
+                        class="ontario-label ontario-radios__label"
+                        for="radio-button-option-3"
+                        >Exact phrase</label
+                      >
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+          <div class="subheader">
+            <p class="Main-Sub-Header">Search by</p>
+            <div class="Main-Search-Options-Section">
+              <a
+                href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchLibrary.html"
+                >Library advanced</a
+              >
+            </div>
+          </div>
         </div>
-        <div id='biblio-home-page' class='Form-Wrapper'>
-            <p class='page-description subheader Rale-Bold'>
-                Search for more than 35,000 titles held by the Archives of Ontario Library, including:
-            </p>
-
-            <div class="page-description-list subheader Rale-Bold">
-                <ul>
-                    <li>Books</li>
-                    <li>Pamphlets</li>
-                    <li>Periodicals</li>
-                    <li>Ontario Government Publications</li>
-                </ul>
-                <ul>
-                    <li>Directories, School books, Almanacs and Voters Lists</li>
-                    <li>Microfiche and Microfilm</li>
-                    <li>Electronic resources</li>
-                </ul>
-            </div>
-            <div class="page-links subheader Rale-Bold">
-                <a href='http://www.archives.gov.on.ca/en/about/library.aspx' aria-label="Click to see the J.J. Talman Library" title="Got to J.J. Talman Library">
-                                More about the library
-                        </a>
-                <a href="http://www.archives.gov.on.ca/en/historical_documents_project/historical_document_project.aspx" aria-label="Click to see Digitized Government Publications" title="Go to Digitized Government Publications">
-                            Digitized Government Publications
-                        </a>
-            </div>
-
-            <!-- <form id='Main-Form' class="minimum-font-size" method="post" name="simple_search" action="^HOME_SESSID^?UNIONSEARCH&DATABASE=BIBLIO_WEB&REPORT=WEB_BIBLIO_SUM&KEEP=Y&ERRMSG=[AO_INCLUDES]error/norecordLibrary.htm"> -->
-            <form id='Main-Form' class="minimum-font-size" method="post" name="simple_search" action="^home_sessid^?search&KEEP=Y&APPLICATION=BIBLIO_WEB&language=144&DATABASE=BIBLIO_WEB&ERRMSG=[AO_INCLUDES]error/norecordLibrary.htm">
-
-                <div class='main-form-left'>
-                    <div class='main-login-mobile Rale-Bold'>
-                        <button type='button' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>
-                                        Client Portal Login
-                                </button>
-                        <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                        <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS'>
-                                        How to search our database
-                                </button>
-                    </div>
-                    <h3 class='search-area-h3 Rale-Reg'>Search all Library Titles/items only</h3>
-                    <br>
-                    <div class="icon-container general-focus focus-red" aria-label="Searching for records">
-                        <i class="loader"></i> Searching records ...
-                    </div>
-                    <span id='Option-Choice' class='Rale-Bold' aria-label='Search type All Keywords Search'>Option 1: Keyword Search</span>
-                    <span id='Number-Results'></span>
-                    <div class='Input-Wrapper d-flex flex-column'>
-                        <label id="simple_search_input_label" class='Rale-Bold' for="simple_search_input">Enter a search term or terms:</label>
-                        <div id='simple-search-container'>
-                            <input id="simple_search_input" type='text' aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus/>
-                            <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='SEARCH' />
-                        </div>
-
-                    </div>
-                    <div class='Radio-Wrapper'>
-                        <fieldset>
-                            <legend class='visually-hidden'>Search Type</legend>
-                            <span>
-                                <input type='radio' id='All-Keywords' class='search-input' aria-label='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
-                                <label class='search-label Rale-Med' for='All-Keywords'>All of these keywords</label>
-                            </span>
-                            <span>
-                                <input type='radio' id='Any-Keywords' class='search-input' aria-label='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
-                                <label class='search-label Rale-Med' for='Any-Keywords'>Any of these Keywords</label>
-                            </span>
-                            <span>
-                                <input type='radio' id='Exact-Phrase' class='search-input' aria-label='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
-                                <label class='search-label Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
-                            </span>
-                        </fieldset>
-                    </div>
-                    <div class='Search-Options-Container'>
-                        <div class='search-options-top'>
-                            <button id='Advanced-Search' type='button' class='Search-Btn Rale-Bold' alt='Advanced Search' title='Go to advanced search options' aria-label='Go to advanced search options' onclick="onClickNavigationBtn(7)">
-                                ADVANCED SEARCH
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class='main-form-right Rale-Bold'>
-                    <button type='button' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
-                    <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                    <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS' onclick="howToSearch('biblio')">How to search our database</button>
-                </div>
-            </form>
-        </div>  
+      </div>
     </div>
+    <div class="search-tips-container">
+      <!-- include virtual="[AO_INCLUDES]librarySearchTips.htm"-->
+      <!-- include virtual="[AO_INCLUDES]libraryBannerRef.htm"-->
+    </div>
+  </div>
 
     <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
 </div>

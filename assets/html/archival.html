@@ -8,144 +8,145 @@
 
     <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
 
-    <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
-        <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner.jpg"
-                alt="A banner of AIMS  the Archives and Information Management System">
-        </div>
-        <br>
+    <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
+        <!-- <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner.jpg" alt="A banner of AIMS  the Archives and Information Management System"></div> -->
+
         <div id="maincontent">
-            <h2 class="Rale-Extra main-title-h2">Welcome to the Archival Collection!</h2>
-            <h2 class="Rale-Extra main-title-h4">Search the Archival Collection of the Archives of Ontario</h2>
-            <div id="archive-content-container">
-                <div class='Form-Wrapper'>
+            <div id="homepage-container">
+                <div class="Form-Wrapper">
+                    <h1 class="Rale-Bold Main-Content-Heading">
+                        Search archival collection
+                    </h1>
 
-                    <h3 class='search-area-h3 archive-h3 Rale-Reg'>This part of AIMS allows you to search the archival
-                        holdings of the Archives of Ontario using keywords. You can also refine your search with
-                        specific
-                        criteria using the Advanced Search button or use the More Search Options Browse Record
-                        Creators button to access descriptions of Government of Ontario agencies and private sector
-                        organizations, people and families that have created archival records.
-                    </h3>
-                    <!-- <form id='Main-Form' class="minimum-font-size" method="post" name="simple_search" action="^HOME_SESSID^?UNIONSEARCH&DATABASE=DESCRIPTION_WEB&REPORT=WEB_DESC_SUM&KEEP=Y&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm"> -->
-                    <form id='Main-Form' class="minimum-font-size" method="post" name="simple_search"
-                        action="^home_sessid^?SEARCH&KEEP=Y&APPLICATION=DESCRIPTION_WEB&language=144&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm">
+                    <div class="subheader">
+                        <p>The collection contains:</p>
+                        <ul>
+                            <li>
+                                <p>documents</p>
+                            </li>
+                            <li>
+                                <p>photographs, maps, and architectural plans</p>
+                            </li>
+                            <li>
+                                <p>sound and moving images</p>
+                            </li>
+                        </ul>
+                    </div>
 
-                        <div class='main-form-left'>
-                            <div class='main-login-mobile Rale-Bold'>
-                                <button type='button' class='main-form-btn pub-sec-login-btn Rale-Bold'
-                                    onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal
-                                    Login</button>
-                                <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                                <button type='button' class='main-form-btn Rale-Bold main-form-info'
-                                    title='For further information on how to search AIMS'>How to search our
-                                    database</button>
-                            </div>
-                            <h3 class='search-area-h3 archive-h3-mobile Rale-Reg'>This part of AIMS allows you to search
-                                the
-                                archival holdings of the Archives of Ontario using keywords. You can also refine your
-                                search
-                                with specific criteria using the Advanced Search button or use the More Search Options
-                                Browse Record Creators button to access descriptions of Government of Ontario agencies
-                                and
-                                private sector organizations, people and families that have created archival records.
-                            </h3>
-                            <br>
-                            <div class="icon-container general-focus focus-red" aria-label="Searching for records">
-                                <i class="loader"></i> Searching records ...
-                            </div>
-                            <span id='Option-Choice' class='Rale-Bold'
-                                aria-label='Search type All Keywords Search'>Keyword
-                                Search</span>
-                            <span id='Number-Results'></span>
-                            <div class='Input-Wrapper d-flex flex-column'>
-                                <label id="simple_search_input_label" class='Rale-Bold' for="simple_search_input">Enter a search term or terms:</label>
-                                <div id='simple-search-container'>
-                                    <input id="simple_search_input" type='text' aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus/>
-                                    <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='SEARCH' />
-                                </div>
-
-                            </div>
-                            <div class='Radio-Wrapper'>
-                                <fieldset>
-                                    <legend class='visually-hidden'>Search Type</legend>
-                                    <span>
-                                        <input type='radio' id='All-Keywords' class='search-input'
-                                            aria-label='All of these keywords' value='AND_WORD' name='FLDOP1'
-                                            onclick='onClickSearchOption("All Keyword Search")' checked />
-                                        <label class='search-label Rale-Med' for='All-Keywords'>All of these
-                                            keywords</label>
-                                    </span>
-                                    <span>
-                                        <input type='radio' id='Any-Keywords' class='search-input'
-                                            aria-label='Any of these keywords' value='OR_WORD' name='FLDOP1'
-                                            onclick='onClickSearchOption("Any Keyword Search")' />
-                                        <label class='search-label Rale-Med' for='Any-Keywords'>Any of these
-                                            Keywords</label>
-                                    </span>
-                                    <span>
-                                        <input type='radio' id='Exact-Phrase' class='search-input'
-                                            aria-label='Exact Phrase' value='ADJ_WORD' name='FLDOP1'
-                                            onclick='onClickSearchOption("Exact Phrase")' />
-                                        <label class='search-label Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
-                                    </span>
-                                </fieldset>
-                            </div>
-
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B01" id="B01" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and">And</option>
-                                        <option value="or" selected="">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                
-                                <input type="text" class="form-control" name="REFD_CL"  aria-label="Search by Reference code" placeholder="Reference Code" title="Reference Code" autofocus>
-                                
-                            </div>
-                            <div class='Search-Options-Container'>
-                                <div class='search-options-top'>
-                                    <button id='Advanced-Search' type='button' class='Search-Btn Rale-Bold'
-                                        alt='Advanced Search' title='Go to advanced search options'
-                                        aria-label='Go to advanced search options' onclick="onClickNavigationBtn(6)">
-                                        ADVANCED SEARCH
-                                    </button>
-
-                                    <button type='button' class='Search-Btn Rale-Bold' alt='More Search Options'
-                                        title='More Search Options' aria-label='More Search Options'
-                                        onclick="onClickNavigationBtn(2)">
-                                        MORE SEARCH OPTIONS
-                                    </button>
-                                </div>
-                                <div class='search-options-bottom Rale-Bold'>
-                                    <button type='button' class='Search-Btn Rale-Bold' alt='More Search Options'
-                                        title='More Search Options' aria-label='More Search Options'
-                                        onclick="onClickNavigationBtn(3)">
-                                        PEOPLE SEARCH
-                                    </button>
-                                    <button type='button' class='Search-Btn Rale-Bold' alt='More Search Options'
-                                        title='More Search Options' aria-label='More Search Options'
-                                        onclick="onClickNavigationBtn(4)">
-                                        ORGANIZATION SEARCH
-                                    </button>
+                    <form id="Main-Form" class="minimum-font-size" method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm">
+                        <div class="main-form-left">
+                            <span id="Number-Results"></span>
+                            <div class="Input-Wrapper d-flex flex-column">
+                                <div id="simple-search-container">
+                                    <input id="simple_search_input" type="text" aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input" />
+                                    <button aria-label="Search Button" class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search" title="Search" type="submit" value="Search">
+                    <i class="fas fa-search search-button-icon"></i>
+                    <span class="search-button-label">Search</span>
+                  </button>
                                 </div>
                             </div>
-                        </div>
-                        <div class='main-form-right Rale-Bold'>
-                            <button type='button' class='main-form-btn pub-sec-login-btn Rale-Bold'
-                                onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal
-                                Login</button>
-                            <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                            <button type='button' class='main-form-btn Rale-Bold main-form-info'
-                                title='For further information on how to search AIMS' onclick="howToSearch('desc')">How
-                                to
-                                search our database</button>
-                        </div>
-                    </form>
-                </div>
+
+                            <div class="ontario-form-group">
+                                <fieldset class="ontario-fieldset">
+                                    <legend class="visually-hidden">
+                                        Radio legend<span class="ontario-label__flag">(required/optional)</span
+                    >
+                  </legend>
+                  <span
+                    hidden
+                    id="Option-Choice"
+                    class="Rale-Bold"
+                    aria-label="Search type All Keywords Search"
+                    >Option 1: Keyword Search</span
+                  >
+                  <div class="ontario-radios Main-Search-Radio">
+                    <div class="ontario-radios__item">
+                      <input
+                        class="ontario-radios__input"
+                        id="radio-button-option-1"
+                        type="radio"
+                        aria-label="All of these keywords"
+                        value="AND_WORD"
+                        name="FLDOP1"
+                        onclick='onClickSearchOption("All Keyword Search")'
+                        checked
+                      />
+                      <label
+                        class="ontario-label ontario-radios__label"
+                        for="radio-button-option-1"
+                      >
+                        All keywords
+                      </label>
+                    </div>
+                    <div class="ontario-radios__item">
+                      <input
+                        class="ontario-radios__input"
+                        id="radio-button-option-2"
+                        name="FLDOP1"
+                        type="radio"
+                        aria-label="Any of these keywords"
+                        value="OR_WORD"
+                        onclick='onClickSearchOption("Any Keyword Search")'
+                      />
+                      <label
+                        class="ontario-label ontario-radios__label"
+                        for="radio-button-option-2"
+                      >
+                        Any keywords
+                      </label>
+                    </div>
+                    <div class="ontario-radios__item">
+                      <input
+                        class="ontario-radios__input"
+                        id="radio-button-option-3"
+                        type="radio"
+                        aria-label="Exact Phrase"
+                        value="ADJ_WORD"
+                        name="FLDOP1"
+                        onclick='onClickSearchOption("Exact Phrase")'
+                      />
+                      <label
+                        class="ontario-label ontario-radios__label"
+                        for="radio-button-option-3"
+                        >Exact phrase</label
+                      >
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
             </div>
+          </form>
+          <div class="subheader">
+            <p class="Main-Sub-Header">Search by</p>
+            <div class="Main-Search-Options-Section">
+              <a
+                href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArchives.html"
+                >Archival advanced</a
+              >
+              <span>|</span>
+                                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html">People</a
+              >
+              <span>|</span>
+              <a
+                href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchOrganization.html"
+                >Organization</a
+              >
+              <span>|</span>
+              <a
+                href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html"
+                >Creator list</a
+              >
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+    <div class="search-tips-container">
+      <!-- include virtual="[AO_INCLUDES]searchTips.htm"-->
+
+      <!-- include virtual="[AO_INCLUDES]archivalBannerRef.htm"-->
+    </div>
+  </div>
 
     <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
 </div>
