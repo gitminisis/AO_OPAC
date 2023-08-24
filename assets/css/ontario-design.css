@@ -1,454 +1,565 @@
-/** Ontario Input Label **/
-.ontario-hint-expander__button:focus,
-.ontario-hint-expander__button:active {
-  box-shadow: 0 0 0 4px #009adb;
-  outline: 4px solid transparent;
-  transition: box-shadow 0.1s ease-in-out;
-}
-.ontario-hint {
-  color: #4d4d4d;
-  display: inline-block;
-  margin: 0 0 1rem 0;
-  width: 100%;
-  max-width: 48rem;
-}
-.ontario-hint a[x-apple-data-detectors] {
-  color: inherit;
-  cursor: none;
-  text-decoration: none;
-}
-.ontario-hint-expander__container {
-  max-width: 48rem;
-}
-.ontario-hint-expander__button {
-  color: #06c;
-  cursor: pointer;
-  background: none;
-  border: none;
-  display: flex;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  text-align: left;
-  margin: 0 0 1rem 0;
-  padding: 0 0.25rem 0 0;
-}
-.ontario-hint-expander__button-icon--close {
-  display: none;
-  margin-right: 0.25rem;
-}
-.ontario-hint-expander__button-icon--open {
-  display: inline-block;
-  margin-right: 0.25rem;
-}
-.ontario-hint-expander__button:hover {
-  color: #00478f;
-}
-.ontario-hint-expander__button:active {
-  color: #002142;
-}
-.ontario-hint-expander__content {
-  border-left: 4px solid #ccc;
-  color: #1a1a1a;
-  background-color: #f2f2f2;
-  display: none;
-  padding: 1rem 1rem 1rem 1.25rem;
-  margin: 0 0 1rem 0.25rem;
-}
-.ontario-hint-expander__content *:last-child {
-  margin-bottom: 0;
-}
-.ontario-hint-expander__content img {
-  width: 100%;
-}
-@media screen and (min-width: 40em) {
-  .ontario-hint-expander__content img {
-    width: 50%;
-  }
-}
-.ontario-hint-expander__content.ontario-expander__content--opened {
-  display: block;
-}
-.ontario-hint-expander__container.ontario-expander--active
-  .ontario-hint-expander__button-icon--close {
-  display: inline-block;
-}
-.ontario-hint-expander__container.ontario-expander--active
-  .ontario-hint-expander__button-icon--open {
-  display: none;
-}
-.ontario-input + .ontario-hint-expander__container {
-  margin-top: -1.5rem !important;
-}
-.ontario-checkboxes__item .ontario-hint-expander__container,
-.ontario-radios__item .ontario-hint-expander__container {
-  margin-left: 0.5rem;
-}
-.ontario-checkboxes__label + .ontario-hint-expander__container,
-.ontario-radios__label + .ontario-hint-expander__container {
-  margin-top: 0.75rem;
-}
-@media screen and (max-width: 40em) {
-  .ontario-checkboxes__label + .ontario-hint-expander__container,
-  .ontario-radios__label + .ontario-hint-expander__container {
-    margin-top: 1rem;
-  }
-}
-h1 .ontario-label--heading {
-  font-style: normal;
-  font-weight: 700;
-  text-rendering: optimizeLegibility;
-  margin-bottom: 1rem;
-  font-feature-settings: normal;
-  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
-}
-h1 .ontario-label--heading {
-  font-size: 2rem;
-  letter-spacing: 0.04rem;
-  line-height: 1.29;
-  margin: 2.5rem 0 1.5rem 0;
-  max-width: 70rem;
-}
-@media screen and (min-width: 40em) {
-  h1 .ontario-label--heading {
-    font-size: 2.5rem;
-    letter-spacing: 0.04rem;
-    line-height: 1.2;
-  }
-}
-.ontario-label {
-  cursor: pointer;
-  color: #1a1a1a;
-  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
-  font-size: 1.1875rem;
-  font-weight: 700;
-  line-height: 1.5;
-  margin: 0 0 1rem 0;
-  max-width: 38.75em;
-  white-space: normal;
-  width: 100%;
-}
-@media screen and (max-width: 40em) {
-  .ontario-label {
-    font-size: 1.125rem;
-    line-height: 1.56;
-  }
-}
-.ontario-label--large {
-  font-size: 1.75rem;
-  letter-spacing: 0.02rem;
-  line-height: 1.2;
-  max-width: 26.25em;
-}
-@media screen and (max-width: 40em) {
-  .ontario-label--large {
-    font-size: 1.4375rem;
-    line-height: 1.39;
-  }
-}
-h1 .ontario-label--heading {
-  display: inline-block;
-  margin: 0;
-}
-.ontario-label__flag {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-}
-.ontario-label__flag:before {
-  content: " ";
+/** Ontario Dropdown */
+
+.ontario-input {
+    border: 2px solid #1a1a1a;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #1a1a1a;
+    display: block;
+    font-size: 1rem;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0 0 2.5rem;
+    max-width: 48rem;
+    width: 100%;
+    padding: 0.625rem 1rem;
+    transition: box-shadow .1s ease-in-out;
 }
 
+.ontario-dropdown {
+    appearance: none;
+    background-color: #fff;
+    background-image: url("https://designsystem.ontario.ca/icons/ontario-material-dropdown-arrow-48px.svg");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 2rem;
+    padding-right: 2.25rem;
+    cursor: pointer;
+}
+
+.ontario-dropdown::-ms-expand {
+    display: none;
+}
+
+.ontario-dropdown option {
+    font-weight: normal;
+}
+
+
 /** Ontario Input Label **/
+
+.ontario-hint-expander__button:focus,
+.ontario-hint-expander__button:active {
+    box-shadow: 0 0 0 4px #009adb;
+    outline: 4px solid transparent;
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+.ontario-hint {
+    color: #4d4d4d;
+    display: inline-block;
+    margin: 0 0 1rem 0;
+    width: 100%;
+    max-width: 48rem;
+}
+
+.ontario-hint a[x-apple-data-detectors] {
+    color: inherit;
+    cursor: none;
+    text-decoration: none;
+}
+
+.ontario-hint-expander__container {
+    max-width: 48rem;
+}
+
+.ontario-hint-expander__button {
+    color: #06c;
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: left;
+    margin: 0 0 1rem 0;
+    padding: 0 0.25rem 0 0;
+}
+
+.ontario-hint-expander__button-icon--close {
+    display: none;
+    margin-right: 0.25rem;
+}
+
+.ontario-hint-expander__button-icon--open {
+    display: inline-block;
+    margin-right: 0.25rem;
+}
+
+.ontario-hint-expander__button:hover {
+    color: #00478f;
+}
+
+.ontario-hint-expander__button:active {
+    color: #002142;
+}
+
+.ontario-hint-expander__content {
+    border-left: 4px solid #ccc;
+    color: #1a1a1a;
+    background-color: #f2f2f2;
+    display: none;
+    padding: 1rem 1rem 1rem 1.25rem;
+    margin: 0 0 1rem 0.25rem;
+}
+
+.ontario-hint-expander__content *:last-child {
+    margin-bottom: 0;
+}
+
+.ontario-hint-expander__content img {
+    width: 100%;
+}
+
+@media screen and (min-width: 40em) {
+    .ontario-hint-expander__content img {
+        width: 50%;
+    }
+}
+
+.ontario-hint-expander__content.ontario-expander__content--opened {
+    display: block;
+}
+
+.ontario-hint-expander__container.ontario-expander--active .ontario-hint-expander__button-icon--close {
+    display: inline-block;
+}
+
+.ontario-hint-expander__container.ontario-expander--active .ontario-hint-expander__button-icon--open {
+    display: none;
+}
+
+.ontario-input+.ontario-hint-expander__container {
+    margin-top: -1.5rem !important;
+}
+
+.ontario-checkboxes__item .ontario-hint-expander__container,
+.ontario-radios__item .ontario-hint-expander__container {
+    margin-left: 0.5rem;
+}
+
+.ontario-checkboxes__label+.ontario-hint-expander__container,
+.ontario-radios__label+.ontario-hint-expander__container {
+    margin-top: 0.75rem;
+}
+
+@media screen and (max-width: 40em) {
+    .ontario-checkboxes__label+.ontario-hint-expander__container,
+    .ontario-radios__label+.ontario-hint-expander__container {
+        margin-top: 1rem;
+    }
+}
+
+h1 .ontario-label--heading {
+    font-style: normal;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 1rem;
+    font-feature-settings: normal;
+    font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 .ontario-label--heading {
+    font-size: 2rem;
+    letter-spacing: 0.04rem;
+    line-height: 1.29;
+    margin: 2.5rem 0 1.5rem 0;
+    max-width: 70rem;
+}
+
+@media screen and (min-width: 40em) {
+    h1 .ontario-label--heading {
+        font-size: 2.5rem;
+        letter-spacing: 0.04rem;
+        line-height: 1.2;
+    }
+}
+
+.ontario-label {
+    cursor: pointer;
+    color: #1a1a1a;
+    font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.1875rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+    max-width: 38.75em;
+    white-space: normal;
+    width: 100%;
+}
+
+@media screen and (max-width: 40em) {
+    .ontario-label {
+        font-size: 1.125rem;
+        line-height: 1.56;
+    }
+}
+
+.ontario-label--large {
+    font-size: 1.75rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.2;
+    max-width: 26.25em;
+}
+
+@media screen and (max-width: 40em) {
+    .ontario-label--large {
+        font-size: 1.4375rem;
+        line-height: 1.39;
+    }
+}
+
+h1 .ontario-label--heading {
+    display: inline-block;
+    margin: 0;
+}
+
+.ontario-label__flag {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.ontario-label__flag:before {
+    content: " ";
+}
+
+
+/** Ontario Input Label **/
+
 
 /** Ontario Button **/
 
 .ontario-button:focus,
 .ontario-button:active {
-  box-shadow: 0 0 0 4px #009adb;
-  outline: 4px solid transparent;
-  transition: box-shadow 0.1s ease-in-out;
+    box-shadow: 0 0 0 4px #009adb;
+    outline: 4px solid transparent;
+    transition: box-shadow 0.1s ease-in-out;
 }
+
 .ontario-button {
-  border: none;
-  border-radius: 4px;
-  box-sizing: border-box;
-  box-shadow: none;
-  display: inline-block;
-  font-size: 1.125rem;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 600;
-  line-height: 1.5555555556;
-  margin: 0 calc(1rem + 0.75rem) 1.5rem 0;
-  min-width: 10rem;
-  padding: 0.625rem 1.5rem;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: none;
+    display: inline-block;
+    font-size: 1.125rem;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    line-height: 1.5555555556;
+    margin: 0 calc(1rem + 0.75rem) 1.5rem 0;
+    min-width: 10rem;
+    padding: 0.625rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
 }
+
 @media screen and (max-width: 40em) {
-  .ontario-button {
-    margin-right: 0;
-    display: block;
-    width: 100%;
-  }
+    .ontario-button {
+        margin-right: 0;
+        display: block;
+        width: 100%;
+    }
 }
+
 .ontario-button .ontario-icon {
-  margin-right: 4px;
+    margin-right: 4px;
 }
+
 .ontario-button--primary {
-  background-color: #06c;
-  color: #fff;
+    background-color: #06c;
+    color: #fff;
 }
+
 .ontario-button--primary:hover {
-  background-color: #00478f;
-  color: #fff;
+    background-color: #00478f;
+    color: #fff;
 }
+
 .ontario-button--primary:focus {
-  background-color: #00478f;
-  color: #fff;
-  transition: background-color 0.2s ease-out, box-shadow 0.1s ease-in-out;
+    background-color: #00478f;
+    color: #fff;
+    transition: background-color 0.2s ease-out, box-shadow 0.1s ease-in-out;
 }
+
 .ontario-button--primary:active {
-  background-color: #002142;
-  color: #fff;
-  transition: background-color 0s, box-shadow 0.1s ease-in-out;
+    background-color: #002142;
+    color: #fff;
+    transition: background-color 0s, box-shadow 0.1s ease-in-out;
 }
+
 .ontario-button--primary:visited {
-  color: #fff;
+    color: #fff;
 }
+
 .ontario-button--secondary {
-  background-color: #fff;
-  border: 2px solid #06c;
-  color: #06c;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+    background-color: #fff;
+    border: 2px solid #06c;
+    color: #06c;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
+
 .ontario-button--secondary:hover {
-  background-color: #e0f0ff;
-  border-color: #00478f;
-  color: #00478f;
+    background-color: #e0f0ff;
+    border-color: #00478f;
+    color: #00478f;
 }
+
 .ontario-button--secondary:focus {
-  background-color: #e0f0ff;
-  border-color: #00478f;
-  color: #00478f;
-  transition: background-color 0.2s ease-out, box-shadow 0.1s ease-in-out;
+    background-color: #e0f0ff;
+    border-color: #00478f;
+    color: #00478f;
+    transition: background-color 0.2s ease-out, box-shadow 0.1s ease-in-out;
 }
+
 .ontario-button--secondary:active {
-  background-color: #c2e0ff;
-  border-color: #002142;
-  color: #002142;
-  transition: background-color 0s, box-shadow 0.1s ease-in-out;
+    background-color: #c2e0ff;
+    border-color: #002142;
+    color: #002142;
+    transition: background-color 0s, box-shadow 0.1s ease-in-out;
 }
+
 .ontario-button--secondary:visited {
-  color: #06c;
+    color: #06c;
 }
+
 .ontario-button--tertiary {
-  background-color: transparent;
-  color: #06c;
-  text-decoration: underline;
+    background-color: transparent;
+    color: #06c;
+    text-decoration: underline;
 }
+
 .ontario-button--tertiary:hover {
-  background-color: #e8e8e8;
-  color: #00478f;
-  text-decoration: underline;
+    background-color: #e8e8e8;
+    color: #00478f;
+    text-decoration: underline;
 }
+
 .ontario-button--tertiary:focus {
-  background-color: #e8e8e8;
-  color: #00478f;
-  text-decoration: underline;
-  transition: background-color 0.2s ease-out, box-shadow 0.1s ease-in-out;
+    background-color: #e8e8e8;
+    color: #00478f;
+    text-decoration: underline;
+    transition: background-color 0.2s ease-out, box-shadow 0.1s ease-in-out;
 }
+
 .ontario-button--tertiary:active {
-  background-color: #d1d1d1;
-  color: #002142;
-  text-decoration: underline;
-  transition: background-color 0s, box-shadow 0.1s ease-in-out;
+    background-color: #d1d1d1;
+    color: #002142;
+    text-decoration: underline;
+    transition: background-color 0s, box-shadow 0.1s ease-in-out;
 }
+
 .ontario-button--tertiary:visited {
-  color: #06c;
+    color: #06c;
 }
+
+
 /** Ontario Button **/
+
+
 /** Ontario Radio Button */
+
 * .ontario-radios {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
 .ontario-radios {
-  padding: 0 0 0 0.125rem;
-  margin-bottom: 2.5rem;
-  max-width: 48rem;
+    padding: 0 0 0 0.125rem;
+    margin-bottom: 2.5rem;
+    max-width: 48rem;
 }
+
 .ontario-radios__item {
-  position: relative;
-  display: block;
-  margin: 0 0 1rem;
-  padding: 0 2rem 0;
+    position: relative;
+    display: block;
+    margin: 0 0 1rem;
+    padding: 0 2rem 0;
 }
+
 .ontario-radios__item:last-of-type {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
+
 .ontario-radios__input {
-  cursor: pointer;
-  margin: 0;
-  position: absolute;
-  opacity: 0;
-  top: -2px;
-  left: -2px;
-  width: 36px;
-  height: 36px;
-  z-index: 1;
-}
-@media screen and (max-width: 40em) {
-  .ontario-radios__input {
-    width: 40px;
-    height: 40px;
-    top: -1.5px;
-    left: -1.5px;
-  }
-}
-.ontario-radios__label {
-  display: inline-block;
-  font-size: 1rem;
-  margin: 0.2rem 0;
-  padding: 0 0.75rem;
-  touch-action: manipulation;
-  white-space: normal;
-}
-@media screen and (max-width: 40em) {
-  .ontario-radios__label {
-    margin: 0.3rem 0;
-    padding: 0 1rem;
-  }
-}
-.ontario-radios__label:before {
-  content: "";
-  border: 2px solid #1a1a1a;
-  border-radius: 50%;
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  transition: border 0.1s ease-in-out;
-}
-@media screen and (max-width: 40em) {
-  .ontario-radios__label:before {
+    cursor: pointer;
+    margin: 0;
+    position: absolute;
+    opacity: 0;
+    top: -2px;
+    left: -2px;
     width: 36px;
     height: 36px;
-  }
+    z-index: 1;
 }
-.ontario-radios__label:after {
-  content: "";
-  border-radius: 50%;
-  border: 10px solid #1a1a1a;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(6px, 6px);
-  opacity: 0;
-}
+
 @media screen and (max-width: 40em) {
-  .ontario-radios__label:after {
-    border: 12px solid #1a1a1a;
-  }
+    .ontario-radios__input {
+        width: 40px;
+        height: 40px;
+        top: -1.5px;
+        left: -1.5px;
+    }
 }
-.ontario-radios__input:focus + .ontario-radios__label:before {
-  box-shadow: 0 0 0 4px #009adb;
-  outline: 4px solid transparent;
-  transition: box-shadow 0.1s ease-in-out;
+
+.ontario-radios__label {
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0.2rem 0;
+    padding: 0 0.75rem;
+    touch-action: manipulation;
+    white-space: normal;
 }
-.ontario-radios__input:checked + .ontario-radios__label:after {
-  opacity: 1;
+
+@media screen and (max-width: 40em) {
+    .ontario-radios__label {
+        margin: 0.3rem 0;
+        padding: 0 1rem;
+    }
 }
+
+.ontario-radios__label:before {
+    content: "";
+    border: 2px solid #1a1a1a;
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    transition: border 0.1s ease-in-out;
+}
+
+@media screen and (max-width: 40em) {
+    .ontario-radios__label:before {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+.ontario-radios__label:after {
+    content: "";
+    border-radius: 50%;
+    border: 10px solid #1a1a1a;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(6px, 6px);
+    opacity: 0;
+}
+
+@media screen and (max-width: 40em) {
+    .ontario-radios__label:after {
+        border: 12px solid #1a1a1a;
+    }
+}
+
+.ontario-radios__input:focus+.ontario-radios__label:before {
+    box-shadow: 0 0 0 4px #009adb;
+    outline: 4px solid transparent;
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+.ontario-radios__input:checked+.ontario-radios__label:after {
+    opacity: 1;
+}
+
+
 /** Ontario Radio Button */
+
 
 /** Ontario Back Top Button */
 
 .ontario-back-to-top--default {
-  position: fixed;
-  bottom: 5%;
-  right: 2%;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.1s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 3rem;
-  padding: 0.5rem 1rem 0.5rem 0.75rem;
-  background: #e6e6e6;
-  border: 0.125rem solid #fff;
-  border-radius: 4px;
-  box-sizing: border-box;
-  box-shadow: 0 0.125rem 0.25rem rgba(26, 26, 26, 0.6);
-  color: #1a1a1a;
-  line-height: 1.25rem;
-  font-size: 1rem;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 600;
-  z-index: 10000;
-  cursor: pointer;
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    padding: 0.5rem 1rem 0.5rem 0.75rem;
+    background: #e6e6e6;
+    border: 0.125rem solid #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 0.125rem 0.25rem rgba(26, 26, 26, 0.6);
+    color: #1a1a1a;
+    line-height: 1.25rem;
+    font-size: 1rem;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    z-index: 10000;
+    cursor: pointer;
 }
+
 .ontario-back-to-top--default svg.ontario-icon {
-  margin: 0.125rem 0.5rem 0 0;
-  width: 2rem;
-  height: 2rem;
-}
-.ontario-back-to-top--default:hover {
-  background-color: #ccc;
-}
-.ontario-back-to-top--default:focus {
-  background-color: #e6e6e6;
-  box-shadow: 0 0 0 0.25rem #009adb,
-    0 0.1875rem 0.3125rem 0.1875rem rgba(0, 0, 0, 0.6);
-  outline: 0.25rem solid transparent;
-  transition: 0.1s ease-in-out;
-}
-.ontario-back-to-top--default:active {
-  background-color: #b2b2b2;
-  box-shadow: 0 0 0 0.25rem #009adb,
-    0 0.3125rem 0.4375rem 0.1875rem rgba(0, 0, 0, 0.6);
-  outline: 0.25rem solid transparent;
-  transition: background-color 0s, box-shadow 0.1s ease-in-out;
-}
-.ontario-back-to-top--default:visited {
-  color: #fff;
-}
-@media screen and (max-width: 73em) {
-  .ontario-back-to-top--default {
-    flex-direction: column;
-    height: 4.75rem;
-    padding: 0.375rem 0.75rem 0.5625rem 0.75rem;
-  }
-  .ontario-back-to-top--default svg.ontario-icon {
-    margin: 0.0625rem 0 0.25rem 0;
+    margin: 0.125rem 0.5rem 0 0;
     width: 2rem;
     height: 2rem;
-  }
 }
-@media screen and (max-width: 40em) {
-  .ontario-back-to-top--default {
-    display: block;
-    padding: 0.5rem;
-    font-size: 0;
-    width: 3rem;
-    height: 3rem;
-  }
-  .ontario-back-to-top--default svg.ontario-icon {
-    margin: 0;
-  }
-  @-moz-document url-prefix() {
-    .ontario-back-to-top--default svg.ontario-icon {
-      padding: 0 0.25rem 0.25rem 0;
+
+.ontario-back-to-top--default:hover {
+    background-color: #ccc;
+}
+
+.ontario-back-to-top--default:focus {
+    background-color: #e6e6e6;
+    box-shadow: 0 0 0 0.25rem #009adb, 0 0.1875rem 0.3125rem 0.1875rem rgba(0, 0, 0, 0.6);
+    outline: 0.25rem solid transparent;
+    transition: 0.1s ease-in-out;
+}
+
+.ontario-back-to-top--default:active {
+    background-color: #b2b2b2;
+    box-shadow: 0 0 0 0.25rem #009adb, 0 0.3125rem 0.4375rem 0.1875rem rgba(0, 0, 0, 0.6);
+    outline: 0.25rem solid transparent;
+    transition: background-color 0s, box-shadow 0.1s ease-in-out;
+}
+
+.ontario-back-to-top--default:visited {
+    color: #fff;
+}
+
+@media screen and (max-width: 73em) {
+    .ontario-back-to-top--default {
+        flex-direction: column;
+        height: 4.75rem;
+        padding: 0.375rem 0.75rem 0.5625rem 0.75rem;
     }
-  }
+    .ontario-back-to-top--default svg.ontario-icon {
+        margin: 0.0625rem 0 0.25rem 0;
+        width: 2rem;
+        height: 2rem;
+    }
 }
+
+@media screen and (max-width: 40em) {
+    .ontario-back-to-top--default {
+        display: block;
+        padding: 0.5rem;
+        font-size: 0;
+        width: 3rem;
+        height: 3rem;
+    }
+    .ontario-back-to-top--default svg.ontario-icon {
+        margin: 0;
+    }
+    @-moz-document url-prefix() {
+        .ontario-back-to-top--default svg.ontario-icon {
+            padding: 0 0.25rem 0.25rem 0;
+        }
+    }
+}
+
 .active {
-  visibility: visible;
-  opacity: 1;
+    visibility: visible;
+    opacity: 1;
 }
