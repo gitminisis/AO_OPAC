@@ -113,13 +113,9 @@
 }
 
 @media screen and (min-width: 40em) {
-    <<<<<<< HEAD .ontario-hint-expander__content img {
+    .ontario-hint-expander__content img {
         width: 50%;
     }
-    =======.ontario-hint-expander__content img {
-        width: 50%;
-    }
-    >>>>>>>19c8af5b403cd06e2c039c97cb823a881e259f1d
 }
 
 .ontario-hint-expander__content.ontario-expander__content--opened {
@@ -127,7 +123,7 @@
 }
 
 .ontario-hint-expander__container.ontario-expander--active .ontario-hint-expander__button-icon--close {
-    <<<<<<< HEAD display: inline-block;
+    display: inline-block;
 }
 
 .ontario-hint-expander__container.ontario-expander--active .ontario-hint-expander__button-icon--open {
@@ -136,16 +132,6 @@
 
 .ontario-input+.ontario-hint-expander__container {
     margin-top: -1.5rem !important;
-    =======display: inline-block;
-}
-
-.ontario-hint-expander__container.ontario-expander--active .ontario-hint-expander__button-icon--open {
-    display: none;
-}
-
-.ontario-input+.ontario-hint-expander__container {
-    margin-top: -1.5rem !important;
-    >>>>>>>19c8af5b403cd06e2c039c97cb823a881e259f1d
 }
 
 .ontario-checkboxes__item .ontario-hint-expander__container,
@@ -155,7 +141,7 @@
 
 .ontario-checkboxes__label+.ontario-hint-expander__container,
 .ontario-radios__label+.ontario-hint-expander__container {
-    <<<<<<< HEAD margin-top: 0.75rem;
+    margin-top: 0.75rem;
 }
 
 @media screen and (max-width: 40em) {
@@ -172,24 +158,6 @@ h1 .ontario-label--heading {
     margin-bottom: 1rem;
     font-feature-settings: normal;
     font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    =======margin-top: 0.75rem;
-}
-
-@media screen and (max-width: 40em) {
-    .ontario-checkboxes__label+.ontario-hint-expander__container,
-    .ontario-radios__label+.ontario-hint-expander__container {
-        margin-top: 1rem;
-    }
-}
-
-h1 .ontario-label--heading {
-    font-style: normal;
-    font-weight: 700;
-    text-rendering: optimizeLegibility;
-    margin-bottom: 1rem;
-    font-feature-settings: normal;
-    font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    >>>>>>>19c8af5b403cd06e2c039c97cb823a881e259f1d
 }
 
 h1 .ontario-label--heading {
@@ -201,7 +169,7 @@ h1 .ontario-label--heading {
 }
 
 @media screen and (min-width: 40em) {
-    <<<<<<< HEAD h1 .ontario-label--heading {
+    h1 .ontario-label--heading {
         font-size: 2.5rem;
         letter-spacing: 0.04rem;
         line-height: 1.2;
@@ -226,32 +194,6 @@ h1 .ontario-label--heading {
         font-size: 1.125rem;
         line-height: 1.56;
     }
-    =======h1 .ontario-label--heading {
-        font-size: 2.5rem;
-        letter-spacing: 0.04rem;
-        line-height: 1.2;
-    }
-}
-
-.ontario-label {
-    cursor: pointer;
-    color: #1a1a1a;
-    font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1.1875rem;
-    font-weight: 700;
-    line-height: 1.5;
-    margin: 0 0 1rem 0;
-    max-width: 38.75em;
-    white-space: normal;
-    width: 100%;
-}
-
-@media screen and (max-width: 40em) {
-    .ontario-label {
-        font-size: 1.125rem;
-        line-height: 1.56;
-    }
-    >>>>>>>19c8af5b403cd06e2c039c97cb823a881e259f1d
 }
 
 .ontario-label--large {
@@ -262,15 +204,10 @@ h1 .ontario-label--heading {
 }
 
 @media screen and (max-width: 40em) {
-    <<<<<<< HEAD .ontario-label--large {
+    .ontario-label--large {
         font-size: 1.4375rem;
         line-height: 1.39;
     }
-    =======.ontario-label--large {
-        font-size: 1.4375rem;
-        line-height: 1.39;
-    }
-    >>>>>>>19c8af5b403cd06e2c039c97cb823a881e259f1d
 }
 
 h1 .ontario-label--heading {
@@ -320,17 +257,11 @@ h1 .ontario-label--heading {
 }
 
 @media screen and (max-width: 40em) {
-    <<<<<<< HEAD .ontario-button {
+    .ontario-button {
         margin-right: 0;
         display: block;
         width: 100%;
     }
-    =======.ontario-button {
-        margin-right: 0;
-        display: block;
-        width: 100%;
-    }
-    >>>>>>>19c8af5b403cd06e2c039c97cb823a881e259f1d
 }
 
 .ontario-button .ontario-icon {
@@ -466,19 +397,12 @@ h1 .ontario-label--heading {
 }
 
 @media screen and (max-width: 40em) {
-    <<<<<<< HEAD .ontario-radios__input {
+    .ontario-radios__input {
         width: 40px;
         height: 40px;
         top: -1.5px;
         left: -1.5px;
     }
-    =======.ontario-radios__input {
-        width: 40px;
-        height: 40px;
-        top: -1.5px;
-        left: -1.5px;
-    }
-    >>>>>>>19c8af5b403cd06e2c039c97cb823a881e259f1d
 }
 
 .ontario-radios__label {
@@ -491,15 +415,10 @@ h1 .ontario-label--heading {
 }
 
 @media screen and (max-width: 40em) {
-    <<<<<<< HEAD .ontario-radios__label {
+    .ontario-radios__label {
         margin: 0.3rem 0;
         padding: 0 1rem;
     }
-    =======.ontario-radios__label {
-        margin: 0.3rem 0;
-        padding: 0 1rem;
-    }
-    >>>>>>>19c8af5b403cd06e2c039c97cb823a881e259f1d
 }
 
 .ontario-radios__label:before {
@@ -516,15 +435,10 @@ h1 .ontario-label--heading {
 }
 
 @media screen and (max-width: 40em) {
-    <<<<<<< HEAD .ontario-radios__label:before {
+    .ontario-radios__label:before {
         width: 36px;
         height: 36px;
     }
-    =======.ontario-radios__label:before {
-        width: 36px;
-        height: 36px;
-    }
-    >>>>>>>19c8af5b403cd06e2c039c97cb823a881e259f1d
 }
 
 .ontario-radios__label:after {
@@ -539,7 +453,7 @@ h1 .ontario-label--heading {
 }
 
 @media screen and (max-width: 40em) {
-    <<<<<<< HEAD .ontario-radios__label:after {
+    .ontario-radios__label:after {
         border: 12px solid #1a1a1a;
     }
 }
@@ -552,20 +466,6 @@ h1 .ontario-label--heading {
 
 .ontario-radios__input:checked+.ontario-radios__label:after {
     opacity: 1;
-    =======.ontario-radios__label:after {
-        border: 12px solid #1a1a1a;
-    }
-}
-
-.ontario-radios__input:focus+.ontario-radios__label:before {
-    box-shadow: 0 0 0 4px #009adb;
-    outline: 4px solid transparent;
-    transition: box-shadow 0.1s ease-in-out;
-}
-
-.ontario-radios__input:checked+.ontario-radios__label:after {
-    opacity: 1;
-    >>>>>>>19c8af5b403cd06e2c039c97cb823a881e259f1d
 }
 
 
@@ -611,7 +511,7 @@ h1 .ontario-label--heading {
 }
 
 .ontario-back-to-top--default:focus {
-    <<<<<<< HEAD background-color: #e6e6e6;
+    background-color: #e6e6e6;
     box-shadow: 0 0 0 0.25rem #009adb, 0 0.1875rem 0.3125rem 0.1875rem rgba(0, 0, 0, 0.6);
     outline: 0.25rem solid transparent;
     transition: 0.1s ease-in-out;
@@ -622,18 +522,6 @@ h1 .ontario-label--heading {
     box-shadow: 0 0 0 0.25rem #009adb, 0 0.3125rem 0.4375rem 0.1875rem rgba(0, 0, 0, 0.6);
     outline: 0.25rem solid transparent;
     transition: background-color 0s, box-shadow 0.1s ease-in-out;
-    =======background-color: #e6e6e6;
-    box-shadow: 0 0 0 0.25rem #009adb, 0 0.1875rem 0.3125rem 0.1875rem rgba(0, 0, 0, 0.6);
-    outline: 0.25rem solid transparent;
-    transition: 0.1s ease-in-out;
-}
-
-.ontario-back-to-top--default:active {
-    background-color: #b2b2b2;
-    box-shadow: 0 0 0 0.25rem #009adb, 0 0.3125rem 0.4375rem 0.1875rem rgba(0, 0, 0, 0.6);
-    outline: 0.25rem solid transparent;
-    transition: background-color 0s, box-shadow 0.1s ease-in-out;
-    >>>>>>>19c8af5b403cd06e2c039c97cb823a881e259f1d
 }
 
 .ontario-back-to-top--default:visited {
@@ -641,7 +529,7 @@ h1 .ontario-label--heading {
 }
 
 @media screen and (max-width: 73em) {
-    <<<<<<< HEAD .ontario-back-to-top--default {
+    .ontario-back-to-top--default {
         flex-direction: column;
         height: 4.75rem;
         padding: 0.375rem 0.75rem 0.5625rem 0.75rem;
@@ -674,38 +562,4 @@ h1 .ontario-label--heading {
 .active {
     visibility: visible;
     opacity: 1;
-    =======.ontario-back-to-top--default {
-        flex-direction: column;
-        height: 4.75rem;
-        padding: 0.375rem 0.75rem 0.5625rem 0.75rem;
-    }
-    .ontario-back-to-top--default svg.ontario-icon {
-        margin: 0.0625rem 0 0.25rem 0;
-        width: 2rem;
-        height: 2rem;
-    }
-}
-
-@media screen and (max-width: 40em) {
-    .ontario-back-to-top--default {
-        display: block;
-        padding: 0.5rem;
-        font-size: 0;
-        width: 3rem;
-        height: 3rem;
-    }
-    .ontario-back-to-top--default svg.ontario-icon {
-        margin: 0;
-    }
-    @-moz-document url-prefix() {
-        .ontario-back-to-top--default svg.ontario-icon {
-            padding: 0 0.25rem 0.25rem 0;
-        }
-    }
-}
-
-.active {
-    visibility: visible;
-    opacity: 1;
-    >>>>>>>19c8af5b403cd06e2c039c97cb823a881e259f1d
 }
