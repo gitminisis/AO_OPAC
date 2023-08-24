@@ -23,7 +23,7 @@ const accessLinks = {
  * *  Document Ready * *
  * *                 * *
  * * * * * * * * * * * */
-$(document).ready(function() {
+$(document).ready(function () {
     //timerCountdown();
     client_name = getCookie('M2L_PATRON_NAME');
     client_name = unescapeString(client_name);
@@ -34,7 +34,7 @@ $(document).ready(function() {
 
 
     // Detail Report "Save to Bookmark"
-    $('div.detail_result_check label').click(function() {
+    $('div.detail_result_check label').click(function () {
         // Basically, we want to check the invisible checkbox and submit the form
         // so that the "label" acts like a button.
         $(this).parent('div.detail_result_check').find('input[type=checkbox]').attr('checked', 'checked');
@@ -44,12 +44,12 @@ $(document).ready(function() {
     // Detail Bookmark
     // When Clicked ajax sends href to minisis to add selected record to list.
     // Once success, reload the page. Report Checks whether record is in the list or not
-    $('.bookmarkbutton').on('click', function() {
+    $('.bookmarkbutton').on('click', function () {
         console.log($(this).attr('url'))
         $.ajax({
             type: "GET",
             url: $(this).attr('url'),
-            success: function() {
+            success: function () {
                 console.log(this.url)
                 location.reload();
             }
@@ -169,7 +169,7 @@ $(document).ready(function() {
     }
     checkOrgAuthTable()
 
-    $(window).on('load', function() {
+    $(window).on('load', function () {
         chooseSlider(curWidth)
         window.addEventListener('resize', widthDidChange);
     })
@@ -226,7 +226,7 @@ const searchBtnDict = {
 
 const onClickNavigationBtn = page => {
     let url = null;
-    if ( page === 2 ) url = searchBtnDict[page];                                                                                                    
+    if (page === 2) url = searchBtnDict[page];
     else url = `${home_sessid}${searchBtnDict[page]}`
     window.location = url;
 }
@@ -406,22 +406,20 @@ function editEnquiry(sessid) {
  * Disable simple search button
  * Submit form
  */
-$(window).bind("pageshow", function(event) {
-    $(".icon-container").hide();
-    $(".simple-search-btn").attr('disabled', false);
-    let clearMainForm = document.getElementById("Main-Form");
-    if(clearMainForm) clearMainForm.reset();
-});
-$("#Main-Form").on('submit', function(e) {
-    $(".icon-container").css('display', 'block');
-    $(".icon-container")[0].setAttribute('tabindex', "0")
-    $(".icon-container")[0].focus()
-    $(".simple-search-btn").attr('disabled', true);
-})
+function submitSimpleSearch() {
+    $("#Main-Form").on('submit', function (e) {
+        $(".icon-container").css('display', 'block');
+        $(".icon-container")[0].setAttribute('tabindex', "0")
+        $(".icon-container")[0].focus()
+        $(".simple-search-btn").attr('disabled', true);
+    })
+}
+
+submitSimpleSearch();
 
 // Added hard-code lang paramter in the URL
 const onClickLoginBtn = () => {
-	window.location = '/assets/html/PubSecureLogin.html';
+    window.location = '/assets/html/PubSecureLogin.html';
 }
 
 const onClickRegistrationBtn = () => window.location = 'https://stage.signin.ontario.ca/signin/register';
@@ -473,7 +471,7 @@ const chooseSlider = (width) => {
     if (width >= 768) {
         try {
             // slider.destroySlider();
-            $(function() {
+            $(function () {
                 $('.bxslider').bxSlider({
                     mode: 'vertical',
                     easing: 'ease',
@@ -493,7 +491,7 @@ const chooseSlider = (width) => {
     } else if (width >= 425) {
         try {
             // slider.destroySlider();
-            $(function() {
+            $(function () {
                 $('.bxslider-tab').bxSlider({
                     mode: 'horizontal',
                     easing: 'ease',
@@ -516,7 +514,7 @@ const chooseSlider = (width) => {
     } else {
         try {
             // slider.destroySlider();
-            $(function() {
+            $(function () {
                 $('.bxslider-mobile').bxSlider({
                     mode: 'horizontal',
                     easing: 'ease',
@@ -551,3 +549,25 @@ const checkCookieExists = name => {
 }
 
 
+/**
+This code is to listen on simple_search_input input
+ */
+$('#simple_search_input').on('input', function (e) {
+    let value = $(this).val();
+    let resetBtn = $('#simple-search-reset')
+    // if value is not empty, show #simple-search-reset
+    if (value.trim() !== '') {
+        resetBtn.css('display', 'block');
+        resetBtn.on('click', function () {
+            $('#simple_search_input').val('')
+            resetBtn.css('display', 'none');
+        })
+        return;
+    }
+
+    // else hide it
+    else {
+        resetBtn.css('display', 'none');
+
+    }
+});
