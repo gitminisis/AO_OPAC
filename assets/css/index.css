@@ -1815,7 +1815,8 @@ p {
 
 .Main-Search-Options-Section a,
 #advanced-search-container a,
-#search-error-wrapper a {
+#search-error-wrapper a,
+.Record-Title a {
     color: #0066cc;
 }
 
@@ -1949,6 +1950,16 @@ p {
 .search-error-wrapper {
     width: 100%;
 }
+
+
+/** SUMMARY **/
+
+.media-container {
+    display: none !important
+}
+
+
+/** END OF SUMMARY **/
 
 
 /**  MOBILE VIEW STYLE */
