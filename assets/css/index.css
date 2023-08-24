@@ -1877,7 +1877,12 @@ p {
 .alpha-list a {
   color: #0066cc;
   font-weight: 400;
-  margin: 10px;
+  margin: 2px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #more-search-options-wrapper {
@@ -1886,6 +1891,20 @@ p {
 }
 #more-search-options-wrapper button {
   width: fit-content;
+}
+
+#creator-list-error-message {
+  color: #cd0000;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+#creator-list-error-message span {
+  display: none;
+}
+#creator-list-error-message i {
+  margin-right: 10px;
 }
 
 /** ================================================================ */
@@ -1978,5 +1997,7 @@ p {
   }
   .alpha-list a {
     margin: 0;
+    min-width: 5px;
+    min-height: 5px;
   }
 }

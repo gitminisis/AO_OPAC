@@ -564,11 +564,9 @@ $('#simple_search_input').on('input', function (e) {
         })
         return;
     }
-
     // else hide it
     else {
         resetBtn.css('display', 'none');
-
     }
 });
 
@@ -579,3 +577,23 @@ This function enables double click to search for creator list
 $('#record_creators_list option').dblclick(function () {
     $('button.ontario-button.ontario-button--primary').click();
 });
+
+
+/**
+This function is to check if an option has been selected before
+creator list form is submitted
+ */
+
+$('#keys').on('submit', function (e) {
+    e.preventDefault();
+    let selectedOption = $('#record_creators_list option:selected');
+
+    // If no option is selected, display warning message
+    if (selectedOption.text() === '') {
+        $('#creator-list-error-message span').css('display', 'block');
+    }
+    // else submit form
+    else {
+        $(this).submit();
+    }
+})
