@@ -571,3 +571,11 @@ $('#simple_search_input').on('input', function (e) {
 
     }
 });
+
+/**
+This function enables double click to search for creator list
+ */
+
+$('#record_creators_list option').dblclick(function () {
+    $('button.ontario-button.ontario-button--primary').click();
+});
