@@ -1816,7 +1816,8 @@ p {
 .Main-Search-Options-Section a,
 #advanced-search-container a,
 #search-error-wrapper a,
-.Record-Fields a {
+.Record-Fields a,
+.breadcrumb a {
     color: #0066cc;
 }
 
@@ -2002,7 +2003,7 @@ p {
     display: none
 }
 
-.btn.btn-outline-primary.btn-sm.form-check-label {
+#Panel-Main .btn.btn-outline-primary.btn-sm.form-check-label {
     display: none
 }
 
@@ -2087,6 +2088,11 @@ p {
 
 
 /** Detail Report Styling **/
+
+#Detail-Content {
+    font-family: "Open Sans", sans-serif !important;
+    font-size: 16px;
+}
 
 .access-collections-bottom table {
     font-family: "Open Sans", sans-serif !important;

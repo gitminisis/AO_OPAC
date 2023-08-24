@@ -39,7 +39,7 @@
     width: 100%;
     margin-top: 30px;
     padding: 0.1rem;
-    font-size: 20px;
+    /* font-size: 20px; */
 }
 
 .detail-buttons {
@@ -190,7 +190,7 @@ table {
     border-radius: 8px;
     overflow: hidden;
     width: 100%;
-    font-size: 24px;
+    /* font-size: 24px; */
 }
 
 #web_det_form {

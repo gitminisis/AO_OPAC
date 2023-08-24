@@ -385,9 +385,9 @@ function generateCorForm(data, idx, len, edit = false) {
     }
 
     let generatedMonth = new Date().getMonth();
-    let generatedDay   = new Date().getDate();
-    let month          = generatedMonth < 10 ? `0${generatedMonth + 1}` : generatedMonth + 1;
-    let day            = generatedDay < 10 ? `0${generatedDay}` : generatedDay
+    let generatedDay = new Date().getDate();
+    let month = generatedMonth < 10 ? `0${generatedMonth + 1}` : generatedMonth + 1;
+    let day = generatedDay < 10 ? `0${generatedDay}` : generatedDay
 
     let newOcc =
         `$${Number.parseInt(len) + 1}$1`;
@@ -458,7 +458,7 @@ function generateCorForm(data, idx, len, edit = false) {
 redirectToEnquiry = (sessid, subj = null) => {
     let url = `${sessid}?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[AO_ASSETS]html/enquiry.html&subj=${subj}`;
     // let url2 = `${sessid}?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[AO_ASSETS]html/enquiry.html`
-    window.location = url;
+    window.open(url, "_blank");
 }
 
 
