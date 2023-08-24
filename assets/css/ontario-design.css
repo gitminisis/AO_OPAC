@@ -1,3 +1,21 @@
+/** Ontario Dropdown */
+
+.ontario-dropdown {
+  background-color: #fff;
+  background-image: url("https://designsystem.ontario.ca/icons/ontario-material-dropdown-arrow-48px.svg");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  padding-right: 2.25rem;
+  cursor: pointer;
+}
+.ontario-dropdown::-ms-expand {
+  display: none;
+}
+.ontario-dropdown option {
+  font-weight: normal;
+}
+
 /** Ontario Input Label **/
 .ontario-hint-expander__button:focus,
 .ontario-hint-expander__button:active {

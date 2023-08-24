@@ -585,15 +585,16 @@ creator list form is submitted
  */
 
 $('#keys').on('submit', function (e) {
-    e.preventDefault();
+    // e.preventDefault();
     let selectedOption = $('#record_creators_list option:selected');
 
     // If no option is selected, display warning message
     if (selectedOption.text() === '') {
         $('#creator-list-error-message span').css('display', 'block');
+        return false
     }
     // else submit form
     else {
-        $(this).submit();
+        return true;
     }
 })
