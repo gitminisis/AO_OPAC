@@ -1910,7 +1910,7 @@ p {
 #record_creators_list {
   display: none;
 }
-#creator-list-dropdown {
+#mobile-creator-list {
   display: block;
 }
 
@@ -2007,7 +2007,7 @@ p {
     min-width: 5px;
     min-height: 5px;
   }
-  #creator-list-dropdown {
+  #mobile-creator-list {
     display: none;
   }
   #record_creators_list {
