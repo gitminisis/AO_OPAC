@@ -2085,4 +2085,12 @@ p {
     }
 }
 
-e;
+#Detail-Content table {
+    font-family: "Open Sans", sans-serif !important;
+    font-size: 16px;
+}
+
+.Crowd-Source {
+    display: none !important;
+    /* // Disable comment */
+}
