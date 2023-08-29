@@ -18,7 +18,8 @@
 }
 
 .media-container {
-    display: flex;
+    /* disable media-container */
+    display: none;
     flex-direction: column;
     border: 1px solid black;
     border-radius: 5px;
