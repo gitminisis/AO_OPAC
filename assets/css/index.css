@@ -2133,3 +2133,14 @@ p {
     margin: 0 !important;
     padding: 2px 20px !important;
 }
+
+.bookmark-record-tally {
+    width: 100%;
+    margin-bottom: 16px;
+    font-family: 'Open Sans';
+    padding: 0 !important;
+}
+
+.clientBookmark {
+    display: none;
+}
