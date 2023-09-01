@@ -8,12 +8,13 @@ let sessid = "^SESSID^";
 let patron_id = getCookie("M2L_PATRON_ID");
 let patron_name = getCookie("M2L_PATRON_NAME");
 let timeout = 900; // Timeout in seconds
+let curWidth = window.innerWidth
 
 const accessLinks = {
-    1: '/scripts/mwimain.dll/145/DESCRIPTION_WEB?DIRECTSEARCH',
-    2: '/scripts/mwimain.dll/145/BIBLIO_WEB?DIRECTSEARCH',
-    3: '/scripts/mwimain.dll/145/COLLECTIONS_WEB?DIRECTSEARCH',
-    4: 'http://ao.minisisinc.com/scripts/mwimain.dll/145/IMAGES?DIRECTSEARCH'
+    1: '/scripts/mwimain.dll/144/DESCRIPTION_WEB?DIRECTSEARCH',
+    2: '/scripts/mwimain.dll/144/BIBLIO_WEB?DIRECTSEARCH',
+    3: '/scripts/mwimain.dll/144/COLLECTIONS_WEB?DIRECTSEARCH',
+    4: 'http://ao.minisisinc.com/scripts/mwimain.dll/144/IMAGES?DIRECTSEARCH'
 }
 
 
@@ -22,7 +23,7 @@ const accessLinks = {
  * *  Document Ready * *
  * *                 * *
  * * * * * * * * * * * */
-$(document).ready(function() {
+$(document).ready(function () {
     //timerCountdown();
     client_name = getCookie('M2L_PATRON_NAME');
     client_name = unescapeString(client_name);
@@ -33,7 +34,7 @@ $(document).ready(function() {
 
 
     // Detail Report "Save to Bookmark"
-    $('div.detail_result_check label').click(function() {
+    $('div.detail_result_check label').click(function () {
         // Basically, we want to check the invisible checkbox and submit the form
         // so that the "label" acts like a button.
         $(this).parent('div.detail_result_check').find('input[type=checkbox]').attr('checked', 'checked');
@@ -43,11 +44,13 @@ $(document).ready(function() {
     // Detail Bookmark
     // When Clicked ajax sends href to minisis to add selected record to list.
     // Once success, reload the page. Report Checks whether record is in the list or not
-    $('.bookmarkbutton').on('click', function() {
+    $('.bookmarkbutton').on('click', function () {
+        console.log($(this).attr('url'))
         $.ajax({
             type: "GET",
-            url: $(this).attr('href'),
-            success: function() {
+            url: $(this).attr('url'),
+            success: function () {
+                console.log(this.url)
                 location.reload();
             }
         });
@@ -164,28 +167,14 @@ $(document).ready(function() {
     } else {
         $('#User-Id-Input').append(getCookie("M2L_PATRON_ID"));
     }
-
     checkOrgAuthTable()
 
-    try {
-        $(function() {
-            $('.bxslider').bxSlider({
-                mode: 'vertical',
-                easing: 'ease',
-                slideWidth: 300,
-                adaptiveHeight: true,
-                adaptiveHeightSpeed: 60,
-                responsive: true,
-                pager: false,
-                minSlides: 5,
-                wrapperClass: 'MyWrapper'
-            });
-        });
-    } catch (e) {
-        console.log('bxSlider Error: ', e)
-    }
+    $(window).on('load', function () {
+        chooseSlider(curWidth)
+        window.addEventListener('resize', widthDidChange);
+    })
 
-});
+})
 
 const checkOrgAuthTable = () => {
     let page = document.getElementsByClassName('Org-Dext');
@@ -195,8 +184,8 @@ const checkOrgAuthTable = () => {
     let auth3 = null;
     try {
         auth1 = document.getElementById('authority-1')
-        auth2 = document.getElementById('authority-2')  
-        auth3 = document.getElementById('authority-3')  
+        auth2 = document.getElementById('authority-2')
+        auth3 = document.getElementById('authority-3')
     } catch (e) {
         // console.log(e);
         return;
@@ -214,64 +203,62 @@ const checkOrgAuthTable = () => {
 }
 
 const loginOrRegListener = (node) => {
-    node.addEventListener('click', () => alert("Veuillez ouvrir une session ou vous inscrire pour utiliser cette fonction"))
+    node.addEventListener('click', () => alert("Please login or signup to use this feature"))
 }
 
 const onClickSearchOption = (value) => {
-    console.log(value)
-    let option = value == 'Recherche par mot-clé' ? 'Option 1: ' : 'Option 2: ';
+    let option = value == 'Keyword Search' ? 'Option 1: ' : 'Option 2: ';
     let span = document.getElementById('Option-Choice');
-    span.setAttribute('aria-label', `Type de recherche ${value}`)
+    span.setAttribute('aria-label', `Search type ${value}`)
     span.innerText = option + value;
 }
 
 const searchBtnDict = {
-    1: '?GET&FILE=[ao_opac]145/assets/html/advancedsearch.html',
-    2: 'https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[ao_opac]145/assets/html/moresearchoptions.html',
-    3: '?GET&FILE=[ao_opac]145/assets/html/advancedsearchPeople.html',
-    4: '?GET&FILE=[ao_opac]145/assets/html/advancedsearchOrganization.html',
-    5: '?GET&FILE=[ao_opac]/145/assets/html/advancedsearchArt.html',
-    6: '?GET&FILE=[ao_opac]/145/assets/html/advancedsearchArchives.html',
-    7: '?GET&FILE=[ao_opac]/145/assets/html/advancedsearchLibrary.html',
-    8: '?GET&file=[ao_opac]/145/assets/html~5chome.html&rid=aims-home'
+    1: '?GET&FILE=[AO_ASSETS]html/advancedsearch.html',
+    2: 'https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html',
+    3: '?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html',
+    4: '?GET&FILE=[AO_ASSETS]html/advancedsearchOrganization.html',
+    5: '?GET&FILE=[AO_ASSETS]/html/advancedsearchArt.html',
+    6: '?GET&FILE=[AO_ASSETS]/html/advancedsearchArchives.html',
+    7: '?GET&FILE=[AO_ASSETS]/html/advancedsearchLibrary.html',
+    8: '?GET&file=[ao_assets]html~5chome.html&rid=aims-home'
 }
 
 const onClickNavigationBtn = page => {
     let url = null;
-    if ( page === 2 ) url = searchBtnDict[page];
+    if (page === 2) url = searchBtnDict[page];
     else url = `${home_sessid}${searchBtnDict[page]}`
     window.location = url;
 }
 
-const redirectToArtAdvance = () => window.location = `${home_sessid}?GET&FILE=[ao_opac]/145/assets/html/advancedsearchArt.html`;
-const redirectToArchiveAdvance = () => window.location = `${home_sessid}?GET&FILE=[ao_opac]/145/assets/html/advancedsearchArchives.html`;
-const redirectToLibraryAdvance = () => window.location = `${home_sessid}?GET&FILE=[ao_opac]/145/assets/html/advancedsearchLibrary.html`;
+const redirectToArtAdvance = () => window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]/html/advancedsearchArt.html`;
+const redirectToArchiveAdvance = () => window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]/html/advancedsearchArchives.html`;
+const redirectToLibraryAdvance = () => window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]/html/advancedsearchLibrary.html`;
 
+// let timerCountdown = () => {
+//     let timer = setInterval(() => {
+//         timeout--;
+//         if (timeout === 20) {
+//             $('body').append(`<div id="timeoutModal" class="modal fade " tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Notification</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" > <p id="timeoutModalBody">Your session is going to timeout and you will be logged out in ${timeout} second(s)</p> </div> <div class="modal-footer"> <button type="button" id="sessionContinue" class="btn btn-primary">Continue</button> <button type="button" id="sessionEnd"  class="btn btn-secondary" data-dismiss="modal">Logout</button> </div> </div> </div> </div>`)
+//             var myModal = new bootstrap.Modal(document.getElementById('timeoutModal'))
+//             myModal.show()
 
-let timerCountdown = () => {
-    let timer = setInterval(() => {
-        timeout--;
-        if (timeout === 10) {
-            $('body').append(`<div id="timeoutModal" class="modal fade " tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Notification</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" > <p id="timeoutModalBody">Votre session va expirer et vous serez déconnecté dans ${timeout} seconde(s)</p> </div> <div class="modal-footer"> <button type="button" id="sessionContinue" class="btn btn-primary">Continuer</button> <button type="button" id="sessionEnd"  class="btn btn-secondary" data-dismiss="modal">Fermeture de session</button> </div> </div> </div> </div>`)
-            var myModal = new bootstrap.Modal(document.getElementById('timeoutModal'))
-            myModal.show()
-
-            $("#sessionContinue").on('click', function() {
-                clearInterval(timer)
-                location.reload();
-            })
-            $("#sessionEnd").on('click', function() {
-                window.location = '/145/assets/html/PubSecureLogout.html'
-            })
-        } else if (timeout < 10 && timeout >= 0) {
-            $('#timeoutModalBody').text(`Votre session va expirer et vous serez déconnecté dans ${timeout}seconde(s)`)
-        }
-        if (timeout === 0) {
-            clearInterval(timer)
-            window.location = '/145/assets/html/PubSecureLogout.html'
-        }
-    }, 1000);
-}
+//             $("#sessionContinue").on('click', function() {
+//                 clearInterval(timer)
+//                 location.reload();
+//             })
+//             $("#sessionEnd").on('click', function() {
+//                 window.location = '/assets/html/PubSecureLogout.html'
+//             })
+//         } else if (timeout < 20 && timeout >= 0) {
+//             $('#timeoutModalBody').text(`Your session is going to timeout and you will be logged out in ${timeout} second(s)`)
+//         }
+//         if (timeout === 0) {
+//             clearInterval(timer)
+//             window.location = '/assets/html/PubSecureLogout.html'
+//         }
+//     }, 1000);
+// }
 
 /* * * * * * * * * * * * *
  * *                   * *
@@ -389,10 +376,10 @@ function getAccountInfo() {
         $('#accountInfo').append(`<p> Welcome, <strong>${patron_name}</strong></p>`);
         let logout = `
                                 ` +
-            '<a  class="btn btn-dark right-panel-btn btn-sm" value="Log Out" id="logout" href="/145/assets/html/PubSecureLogout.html"> Log Out </a>' +
+            '<a  class="btn right-panel-btn btn-dark btn-sm" aria-label="Logout" value="Log Out" id="logout" href="/assets/html/PubSecureLogout.html"> Log Out </a>' +
             '';
         $('#accountInfo').append(logout);
-        let myOntarioAccount = `<a class="btn btn-dark right-panel-btn btn-sm" style="margin-top:20px;width:100%" value="My Ontario Account" id="ontarioAccount" href="https://stage.signin.ontario.ca/enduser/settings"> Compte My Ontario </a>`;
+        let myOntarioAccount = `<a class="btn right-panel-btn btn-dark btn-sm" style="margin-top:20px;width:100%" aria-label="Go to My Ontario Account" value="My Ontario Account" id="ontarioAccount" href="https://stage.signin.ontario.ca/enduser/settings"> My Ontario Account </a>`;
         $('#accountInfo').append(myOntarioAccount);
 
 
@@ -406,9 +393,9 @@ function unescapeString(str) {
 
 // prompt user to edit enquiry record
 function editEnquiry(sessid) {
-    var enquiry_id = prompt("Saisir l'ID de la demande", "");
+    var enquiry_id = prompt("Enter Enquiry ID ", "");
     if (enquiry_id !== null && enquiry_id != '') {
-        var url = sessid + '?changesinglerecord&database=ENQUIRIES_VIEW&de_form=[ao_opac]/145/assets/html/enquiry.html&exp=ENQ_ID%20"' + enquiry_id + '"';
+        var url = sessid + '?changesinglerecord&database=ENQUIRIES_VIEW&de_form=[AO_ASSETS]html/enquiry.html&exp=ENQ_ID%20"' + enquiry_id + '"';
         window.location = url;
     }
 }
@@ -419,21 +406,21 @@ function editEnquiry(sessid) {
  * Disable simple search button
  * Submit form
  */
-$(window).bind("pageshow", function(event) {
-    $(".icon-container").hide();
-    $(".simple-search-btn").attr('disabled', false);
-    if(clearMainForm) clearMainForm.reset();
-});
-$("#Main-Form").on('submit', function(e) {
-    $(".icon-container").css('display', 'block');
-    $(".icon-container")[0].setAttribute('tabindex', "0")
-    $(".icon-container")[0].focus()
-    $(".simple-search-btn").attr('disabled', true);
-})
+function submitSimpleSearch() {
+    $("#Main-Form").on('submit', function (e) {
+        $(".icon-container").css('display', 'block');
+        $(".icon-container")[0].setAttribute('tabindex', "0")
+        $(".icon-container")[0].focus()
+        $(".simple-search-btn").attr('disabled', true);
+    })
+}
 
+submitSimpleSearch();
 
 // Added hard-code lang paramter in the URL
-const onClickLoginBtn = () => window.location = '/145/assets/html/PubSecureLogin.html';
+const onClickLoginBtn = () => {
+    window.location = '/assets/html/PubSecureLogin.html';
+}
 
 const onClickRegistrationBtn = () => window.location = 'https://stage.signin.ontario.ca/signin/register';
 
@@ -443,10 +430,9 @@ const carouselImgOnclick = (e) => {
     // The img file name
     let sisn = e.getAttribute('sisn')
     console.log(sisn)
-    let siteAddress = 'https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/COLLECTIONS_WEB/WEB_COLL_DET'
-     window.location = `${home_sessid}/SISN/${sisn}?KEYSEARCH&DATABASE=COLLECTIONS_WEB&ERRMSG=[ao_opac]/145/includes/error/norecordArt.htm`
+    let siteAddress = 'https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/COLLECTIONS_WEB/WEB_COLL_DET'
+    window.location = `${home_sessid}/SISN/${sisn}?KEYSEARCH&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm`
 }
-
 
 
 const howToSearch = (db) => {
@@ -473,7 +459,6 @@ const widthDidChange = () => {
     else if (curWidth >= 425 && curWidth < 768 && newWidth >= 425 && newWidth < 768) return;
     else if (curWidth < 425 && newWidth < 425) return;
     else {
-        console.log('CHANGE')
         curWidth = newWidth;
         chooseSlider(curWidth);
     }
@@ -481,13 +466,12 @@ const widthDidChange = () => {
 }
 
 const chooseSlider = (width) => {
-    console.log(width)
     if (document.getElementById('art-content-container' == null)) return;
 
     if (width >= 768) {
         try {
             // slider.destroySlider();
-            $(function() {
+            $(function () {
                 $('.bxslider').bxSlider({
                     mode: 'vertical',
                     easing: 'ease',
@@ -497,7 +481,8 @@ const chooseSlider = (width) => {
                     responsive: true,
                     pager: false,
                     minSlides: 5,
-                    wrapperClass: 'slideWrapper'
+                    wrapperClass: 'slideWrapper',
+                    infiniteLoop: false
                 });
             });
         } catch (e) {
@@ -506,7 +491,7 @@ const chooseSlider = (width) => {
     } else if (width >= 425) {
         try {
             // slider.destroySlider();
-            $(function() {
+            $(function () {
                 $('.bxslider-tab').bxSlider({
                     mode: 'horizontal',
                     easing: 'ease',
@@ -519,6 +504,7 @@ const chooseSlider = (width) => {
                     responsive: true,
                     pager: true,
                     minSlides: 5,
+                    infiniteLoop: false
                     // wrapperClass: 'tabWrapper'
                 });
             });
@@ -526,10 +512,9 @@ const chooseSlider = (width) => {
             console.log('bxSlider Error: ', e)
         }
     } else {
-        console.log('less than 425')
         try {
             // slider.destroySlider();
-            $(function() {
+            $(function () {
                 $('.bxslider-mobile').bxSlider({
                     mode: 'horizontal',
                     easing: 'ease',
@@ -539,6 +524,7 @@ const chooseSlider = (width) => {
                     responsive: true,
                     pager: true,
                     minSlides: 1,
+                    infiniteLoop: false
                     // wrapperClass: 'mobWrapper'
                 });
             });
@@ -551,15 +537,87 @@ const chooseSlider = (width) => {
 const getDocumentCookie = name => {
     let regex = `/.\$${name}=[^;]+/gm`;
     console.log(regex)
-    document.cookie.match(regex)?.at(2);
+    document.cookie.match(regex).at(2);
 }
 
 const checkCookieExists = name => {
     let regex = `/.\$${name}=[^;]+/gm`;
-    console.log(regex)
+    // console.log(regex)
     let cookie = document.cookie.match(regex)
     if (cookie) return 1 // true
     else return 0 // false
 }
 
 
+/**
+This code is to listen on simple_search_input input
+ */
+$('#simple_search_input').on('input', function (e) {
+    let value = $(this).val();
+    let resetBtn = $('#simple-search-reset')
+    // if value is not empty, show #simple-search-reset
+    if (value.trim() !== '') {
+        resetBtn.css('display', 'block');
+        resetBtn.on('click', function () {
+            $('#simple_search_input').val('')
+            resetBtn.css('display', 'none');
+        })
+        return;
+    }
+    // else hide it
+    else {
+        resetBtn.css('display', 'none');
+    }
+});
+
+/**
+This function enables double click to search for creator list
+ */
+
+$('#record_creators_list option').dblclick(function () {
+    $('button.ontario-button.ontario-button--primary').click();
+});
+
+
+/**
+This function is to check if an option has been selected before
+creator list form is submitted
+ */
+
+$('#keys').on('submit', function (e) {
+    // e.preventDefault();
+    let selectedOption = $('#record_creators_list option:selected');
+
+    // If no option is selected, display warning message
+    if (selectedOption.text() === '') {
+        $('#creator-list-error-message span').css('display', 'block');
+        return false
+    }
+    // else submit form
+    else {
+        return true;
+    }
+})
+
+/** This function is to append the name of the 
+ * database on summary page - search statement
+ */
+
+const appendDatabaseToSearchStatement = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    let dbname = urlParams.get('DATABASE');
+    let dbspan = $("#db-name")
+    switch (dbname) {
+        case "DESCRIPTION_WEB":
+            dbspan.text('archival collection')
+        case "COLLECTIONS_WEB":
+            dbspan.text('art collection')
+        case "BIBLIO_WEB":
+            dbspan.text('library collection')
+        default:
+            dbspan.text('all collections')
+
+    }
+
+}
+appendDatabaseToSearchStatement()

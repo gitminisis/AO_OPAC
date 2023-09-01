@@ -1,169 +1,181 @@
 <!-- include virtual="[ao_opac]/145/includes/head.htm"-->
 
 <!-- include virtual="[ao_opac]/145/includes/header.htm"-->
-<title>Art</title>
+<title>Rechercher une collection d'art</title>
 
-
-<div id='Content-Wrapper' class='Content-Wrapper'>
-
-    <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm"-->
-
-    <div id='Panel-Main' class='Panel-Main Main-Content'>
-        <div id="art-top">
-            <div id='banner'>
-                <img id='banner-img' src="/145/assets/img/AIMS_portal_FR_banner.jpg" alt="Une banni&egrave;re d'AIMS le syst&egrave;me de gestion des archives et de l'information">
-            </div>
-        </div>
-        <div id="maincontent">
-            <div id="art-content-container">
-                <div id="art-content-left">
-                    <br>
-                    <h2 class="Rale-Extra main-title-h2">Bienvenue dans la collection d'arts</h2>
-                    <div class='Form-Wrapper'>
-                        <p class='page-description Rale-Bold'>
-                            Explorez une vaste gamme d'images tir&eacute;es de la Collection d'oeuvres d'art du gouvernement de l'Ontario. Les oeuvres choisies d&eacute;peignent l'histoire, la population et les paysages ontariens.
-                            <br><br> De nouvelles images sont ajout&eacute;es continuellement, et nous invitons &aacute; revisiter la base de donn&eacute;es de fa&ccedil;on r&eacute;guli&egrave;re.
-                        </p>
-    
-                        <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=145&DATABASE=COLLECTIONS_WEB&ERRMSG=[ao_opac]/145/includes/error/norecordArt.htm">
-                            <div class='main-form-left'>
-                                <div class='main-login-mobile Rale-Bold'>
-                                    <button type='button' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>
-                                        Connexion au portail client
-                                    </button>
-                                    <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                                    <button type='button' class='main-form-btn Rale-Bold main-form-info' title='Comment chercher dans notre base de donn&eacute;es'>
-                                        Comment chercher dans notre base de donn&eacute;es
-                                    </button>
-                                </div>
-                                <h3 class='search-area-h3 Rale-Reg'>Rechercher uniquement les collections d'art</h3>
-                                <br>
-                                <div class="icon-container general-focus focus-red" aria-label="recherche d'enregistrements">
-                                    <i class="loader"></i> Recherche d'enregistrements ...
-                                </div>
-                                <span id='Option-Choice' class='Rale-Bold' aria-label='Type de recherche Tous ces mots-cl&eacute;s'>Option 1 : Recherche par mot-cl&eacute;</span>
-                                <span id='Number-Results'></span>
-                                <div class='Input-Wrapper d-flex flex-column'>
-                                    <label class='Rale-Bold' aria-label="simple_search_input_label" for="simple_search_input">Saisissez un ou plusieurs termes de recherche :</label>
-                                    <div id='simple-search-container'>
-                                        <input id="simple_search_input" type='text' aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus/>
-                                        <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='Recherche' />
-                                    </div>
-    
-                                </div>
-                                <div class='Radio-Wrapper'>
-                                    <fieldset>
-                                        <legend class='visually-hidden'>Search Type</legend>
-                                        <span>
-                                            <input type='radio' id='All-Keywords' class='search-input'
-                                                aria-label='Tous ces mots-cl&eacute;s' value='AND_WORD' name='FLDOP1'
-                                                onclick='onClickSearchOption("Recherche par mot-cl&eacute;")' checked />
-                                            <label class='search-label Rale-Med' for='All-Keywords'>Touss ces mots-cl&eacute;s</label>
-                                        </span>
-                                        <span>
-                                            <input type='radio' id='Any-Keywords' class='search-input'
-                                                aria-label="N'importe lequel de ces mots-cl&eacute;s" value='OR_WORD' name='FLDOP1'
-                                                onclick='onClickSearchOption("N&#39;importe lequel de ces mots-cl&eacute;s")' />
-                                            <label class='search-label Rale-Med' for='Any-Keywords'>N'importe lequel de ces mots-cl&eacute;s</label>
-                                        </span>
-                                        <span>
-                                            <input type='radio' id='Exact-Phrase' class='search-input' aria-label='Termes exacts'
-                                                value='ADJ_WORD' name='FLDOP1'
-                                                onclick='onClickSearchOption("Termes exacts")' />
-                                            <label class='search-label Rale-Med' for='Exact-Phrase'>Termes exacts</label>
-                                        </span>
-                                    </fieldset>
-                                </div>
-                                <div class='Search-Options-Container'>
-                                    <div class='search-options-top'>
-                                        <button type='button' class='Search-Btn search-btn-fr Rale-Bold' alt='Advanced Search' title='Aller &agrave; la RECHERCHE AVANC&Eacute;E' aria-label='Aller &agrave; la RECHERCHE AVANC&Eacute;E' onclick="onClickNavigationBtn(5)" tabindex="0">
-                                            RECHERCHE AVANC&Egrave;E
-                                        </button>
-                                        <button type='button' class='Search-Btn search-btn-fr Rale-Bold' alt='More Search Options' title='More Search Options' aria-label="Aller &agrave; la PLUS D'OPTIONS DE RECHERCHE" onclick="onClickNavigationBtn(2)">
-                                            PLUS D'OPTIONS DE RECHERCHE
-                                        </button>
-                                    </div>
-                                    <div class='search-options-bottom Rale-Bold'>
-                                        <button type='button' class='Search-Btn search-btn-fr Rale-Bold' alt='More Search Options' title='More Search Options' aria-label='Aller &agrave; la RECHERCHE DE PERSONNES' onclick="onClickNavigationBtn(3)">
-                                            RECHERCHE DE PERSONNES
-                                    </button>
-                                        <button type='button' class='Search-Btn search-btn-fr Rale-Bold' alt='More Search Options' title='More Search Options' aria-label="Aller &agrave; la RECHERCHE D'ORGANISATION" onclick="onClickNavigationBtn(4)">
-                                                RECHERCHE D'ORGANISATION
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class='main-form-right Rale-Bold'>
-                                <button type='button' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>Connexion au portail client</button>
-                                <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                                <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS' onclick="howToSearch('art')">Comment chercher dans notre base de donn&eacute;es</button>
-                            </div>
-                        </form>
-                    </div>
-    
-                </div>
-                <div id="art-content-aside">
-                    <div id="art-carousel">
-                        <ul class="bxslider">
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac692880.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour The International Rapids Section of the St. Lawrence River as it will be upon Completion of the Seaway and Power Project" sisn=215 width="200" height="150" onclick='carouselImgOnclick(this)' alt="The International Rapids Section of the St. Lawrence River as it will be upon Completion of the Seaway and Power Project" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac693132.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Hon. donal Alexander Macdonald [Lieutenant Governor of Ontario, 1853-1880]" sisn=230 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Hon. donal Alexander Macdonald [Lieutenant Governor of Ontario, 1853-1880]" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac658489.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour untitled" sisn=696 width="200" height="150" onclick='carouselImgOnclick(this)' alt="untitled" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac632657.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Sunset on Lake Temagami" sisn=1140 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Sunset on Lake Temagami" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac632617.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Line Stone Garden" sisn=1337 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Line Stone Garden" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac623523.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Lieutenant Roberts Dunn V.C., at the Battle of Balaclava" sisn=1409 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Lieutenant Roberts Dunn V.C., at the Battle of Balaclava" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac622040.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Angel Panel" sisn=1647 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Angel Panel" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac624405.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Sir Adam Beck's #2, From Brown's Hotel" sisn=1448 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Sir Adam Beck's #2, From Brown's Hotel" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac621152.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Clover fields, Humber River" sisn=1752 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Clover fields, Humber River" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619721.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Ripening Fields, Port Hope" sisn=1760 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Ripening Fields, Port Hope" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619802.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Hon. Sir William Ralph Meredith, KC, LL D [Chielf Justice, 1894-23]" sisn=2124 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Hon. Sir William Ralph Meredith, KC, LL D [Chielf Justice, 1894-23]" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619812.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Breeze Swept Lake" sisn=2132 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Breeze Swept Lake" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619835.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Cairo by Moonlight" sisn=2151 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Cairo by Moonlight" /></li>
-                    </div>
-                </div>
-                <div id="art-content-tab">
-                    <div id="art-carousel">
-                        <ul class="bxslider-tab">
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac692880.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour The International Rapids Section of the St. Lawrence River as it will be upon Completion of the Seaway and Power Projec" sisn=215 width="200" height="150" onclick='carouselImgOnclick(this)' alt="The International Rapids Section of the St. Lawrence River as it will be upon Completion of the Seaway and Power Project"/></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac693132.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Hon. donal Alexander Macdonald [Lieutenant Governor of Ontario, 1853-1880" sisn=230 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Hon. donal Alexander Macdonald [Lieutenant Governor of Ontario, 1853-1880]"/></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac658489.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour untitled" sisn=696 width="200" height="150" onclick='carouselImgOnclick(this)' alt="untitled" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac632657.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Sunset on Lake Temagami" sisn=1140 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Sunset on Lake Temagami" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac632617.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Line Stone Garden" sisn=1337 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Line Stone Garden" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac623523.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Lieutenant Roberts Dunn V.C., at the Battle of Balaclava" sisn=1409 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Lieutenant Roberts Dunn V.C., at the Battle of Balaclava" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac622040.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Angel Panel" sisn=1647 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Angel Panel" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac624405.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Sir Adam Beck's #2, From Brown's Hotel" sisn=1448 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Sir Adam Beck's #2, From Brown's Hotel" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac621152.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Clover fields, Humber River" sisn=1752 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Clover fields, Humber River" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619721.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Ripening Fields, Port Hope" sisn=1760 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Ripening Fields, Port Hope" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619802.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Hon. Sir William Ralph Meredith, KC, LL D [Chielf Justice, 1894-23" sisn=2124 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Hon. Sir William Ralph Meredith, KC, LL D [Chielf Justice, 1894-23]"/></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619812.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Breeze Swept Lake" sisn=2132 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Breeze Swept Lake" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619835.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Cairo by Moonlight" sisn=2151 width="200" height="150" onclick='carouselImgOnclick(this)' alt="Cairo by Moonlight" /></li>
-                    </div>
-                </div>
-                <div id="art-content-mobile">
-                    <div id="art-carousel">
-                        <ul class="bxslider-mobile">
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac692880.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour The International Rapids Section of the St. Lawrence River as it will be upon Completion of the Seaway and Power Projec" sisn=215 width="260" height="195" onclick='carouselImgOnclick(this)' alt="The International Rapids Section of the St. Lawrence River as it will be upon Completion of the Seaway and Power Project"/></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac693132.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Hon. donal Alexander Macdonald [Lieutenant Governor of Ontario, 1853-1880" sisn=230 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Hon. donal Alexander Macdonald [Lieutenant Governor of Ontario, 1853-1880]"/></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac658489.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour untitled" sisn=696 width="260" height="195" onclick='carouselImgOnclick(this)' alt="untitled" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac632657.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Sunset on Lake Temagami" sisn=1140 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Sunset on Lake Temagami" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac632617.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Line Stone Garden" sisn=1337 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Line Stone Garden" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac623523.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Lieutenant Roberts Dunn V.C., at the Battle of Balaclava" sisn=1409 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Lieutenant Roberts Dunn V.C., at the Battle of Balaclava" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac622040.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Angel Panel" sisn=1647 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Angel Panel" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac624405.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Sir Adam Beck's #2, From Brown's Hotel" sisn=1448 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Sir Adam Beck's #2, From Brown's Hotel" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac621152.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Clover fields, Humber River" sisn=1752 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Clover fields, Humber River" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619721.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Ripening Fields, Port Hope" sisn=1760 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Ripening Fields, Port Hope" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619802.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Hon. Sir William Ralph Meredith, KC, LL D [Chielf Justice, 1894-23" sisn=2124 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Hon. Sir William Ralph Meredith, KC, LL D [Chielf Justice, 1894-23]"/></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619812.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Breeze Swept Lake" sisn=2132 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Breeze Swept Lake" /></li>
-                            <li><img class='art-carousel-img general-focus focus-red' src="https://test.aims.archives.gov.on.ca/media/ac619835.jpg" tabindex="0" aria-label="Appuyez sur Entr&eacute;e pour acc&eacute;der &agrave; la fiche d&eacute;taill&eacute;e pour Cairo by Moonlight" sisn=2151 width="260" height="195" onclick='carouselImgOnclick(this)' alt="Cairo by Moonlight" /></li>
-                    </div>
-                </div>
-            </div>            
-        </div>
+<div id="Content-Wrapper" class="Content-Wrapper">
+  <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm" -->
+  <div id="home-main-wrapper">
+    <div id="banner">
+      <img id="banner-img" src="/assets/img/art.png" alt="" />
     </div>
-    <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
-</div>
+    <div
+      id="Panel-Main"
+      class="Panel-Main Main-Content d-flex flex-column align-items-center"
+    >
+      <div id="maincontent">
+        <div id="homepage-container">
+          <div class="Form-Wrapper">
+            <h1 class="Rale-Bold Main-Content-Heading">
+              Rechercher une collection d'art
+            </h1>
 
-</div>
-</div>
+            <p class="subheader Main-Content-Subtitle">
+              Explorez des images et des descriptions sélectionnées de la
+              collection d'art du gouvernement de l'Ontario, y compris
+              l'histoire, les gens et le paysage de l'Ontario.
+            </p>
 
+            <form
+              id="Main-Form"
+              class="minimum-font-size"
+              method="post"
+              name="simple_search"
+              action="^home_sessid^?UNIONSEARCH&KEEP=Y&APPLICATION=UNION_VIEW&DATABASE=COLLECTIONS_WEB&language=145&REPORT=WEB_UNION_SUM_FR&ERRMSG=[ao_opac]/145/includes/error~5cnorecord.htm"
+            >
+              <div class="main-form-left">
+                <span id="Number-Results"></span>
+                <div class="Input-Wrapper d-flex flex-column">
+                  <div id="simple-search-container">
+                    <div id="simple-search-input-wrapper">
+                      <input
+                        id="simple_search_input"
+                        type="text"
+                        aria-labelledby="simple_search_input_label"
+                        name="KEYWORD_CLUSTER"
+                        autofocus
+                        aria-label="Simple Search Input"
+                      />
+
+                      <button
+                        aria-label="Clear search"
+                        id="simple-search-reset"
+                        alt="Clear search"
+                        title="Clear search"
+                        type="button"
+                      >
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                    <button
+                      aria-label="Search Button"
+                      class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary"
+                      alt="Recherche"
+                      title="Recherche"
+                      type="submit"
+                      value="Search"
+                    >
+                      <i class="fas fa-search search-button-icon"></i>
+                      <span class="search-button-label">Recherche</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="ontario-form-group">
+                  <fieldset class="ontario-fieldset">
+                    <legend class="visually-hidden">
+                      Radio legend<span class="ontario-label__flag"
+                        >(required/optional)</span
+                      >
+                    </legend>
+                    <span
+                      hidden
+                      id="Option-Choice"
+                      class="Rale-Bold"
+                      aria-label="Search type All Keywords Search"
+                      >Option 1: Keyword Search</span
+                    >
+                    <div class="ontario-radios Main-Search-Radio">
+                      <div class="ontario-radios__item">
+                        <input
+                          class="ontario-radios__input"
+                          id="radio-button-option-1"
+                          type="radio"
+                          aria-label="All of these keywords"
+                          value="AND_WORD"
+                          name="FLDOP1"
+                          onclick='onClickSearchOption("All Keyword Search")'
+                          checked
+                        />
+                        <label
+                          class="ontario-label ontario-radios__label"
+                          for="radio-button-option-1"
+                        >
+                          Tous les mots
+                        </label>
+                      </div>
+                      <div class="ontario-radios__item">
+                        <input
+                          class="ontario-radios__input"
+                          id="radio-button-option-2"
+                          name="FLDOP1"
+                          type="radio"
+                          aria-label="Any of these keywords"
+                          value="OR_WORD"
+                          onclick='onClickSearchOption("Any Keyword Search")'
+                        />
+                        <label
+                          class="ontario-label ontario-radios__label"
+                          for="radio-button-option-2"
+                        >
+                          Un de ces mots
+                        </label>
+                      </div>
+                      <div class="ontario-radios__item">
+                        <input
+                          class="ontario-radios__input"
+                          id="radio-button-option-3"
+                          type="radio"
+                          aria-label="Exact Phrase"
+                          value="ADJ_WORD"
+                          name="FLDOP1"
+                          onclick='onClickSearchOption("Exact Phrase")'
+                        />
+                        <label
+                          class="ontario-label ontario-radios__label"
+                          for="radio-button-option-3"
+                        >
+                          Expression exacte
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </form>
+
+            <div class="subheader">
+              <p class="Main-Sub-Header">Recherche par</p>
+              <div class="Main-Search-Options-Section">
+                <a
+                  href="^SESSID^?GET&FILE=[ao_opac]145/assets/html/advancedsearchArt.html"
+                  >Art avanc&eacute;
+                </a>
+                <span>|</span>
+                <a
+                  href="^SESSID^?GET&FILE=[ao_opac]145/assets/html/advancedsearchPeople.html"
+                  >Personnes</a
+                >
+                <span>|</span>
+
+                <a
+                  href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[ao_opac]145/assets/html/moresearchoptions.html"
+                  >Liste des créateurs</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-tips-container">
+        <!-- include virtual="[ao_opac]/145/includes/searchTips.htm"-->
+        <!-- include virtual="[ao_opac]/145/includes/artBannerRef.html"-->
+      </div>
+    </div>
+  </div>
+
+  <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
+</div>
 
 <!-- include virtual="[ao_opac]/145/includes/footer.htm"-->
