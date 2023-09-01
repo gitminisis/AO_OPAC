@@ -1,138 +1,202 @@
 <!-- include virtual="[ao_opac]/145/includes/head.htm"-->
 
 <!-- include virtual="[ao_opac]/145/includes/header.htm"-->
-<title>Home</title>
+<title>Recherche dans les Archives publiques de l'Ontario</title>
 
-
-<div id='Content-Wrapper' class='Content-Wrapper'>
-
-    <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm" -->
-
-    <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
-        <div id='banner'><img id='banner-img' src="/145/assets/img/AIMS_portal_FR_banner.jpg" alt="Une banni&egrave;re d'AIMS le syst&egrave;me de gestion des archives et de l'information"></div>
-        <br>
-        <h2 class="Rale-Extra main-title-h2">Bienvenue aux Archives publiques de l'Ontario!</h2>
-        <div id="maincontent">
-            <div id='homepage-container'>
-                <div class='Form-Wrapper'>
-                    <!-- <p class='Form-Subheader Rale-Bold'>
-                        This Ministerial Department is responsible of the collection, preservation and management of Ontario's History and Public Documentation
-                    </p> -->
-                    <p class='Form-Subheader subheader Rale-Bold'>
-                        Bienvenue &aacute; AIMS, le nouveau syst&egrave;me de gestion des collections des Archives. AIMS fournit un acc&egrave;s int&eacute;gr&eacute; &aacute; nos collections d'archives, de biblioth&egrave;ques et d'art. Recherchez dans AIMS les descriptions
-                        des documents de nos collections
-                    </p>
-                    <p class='subheader'>
-                        <strong>IMPORTANTE!</strong> Vous devez avoir un compte AIMS pour commander des enregistrements. Un compte AIMS n'est pas n&eacute;cessaire pour rechercher des enregistrements. Les num&eacute;ros de compte AIMS et AOR ne sont pas les
-                        mêmes.
-                    </p>
-                    <p class='subheader'>
-                        <strong>
-                            <a href='/145/assets/html/PubSecureLogin.html' aria-label="Cliquez ici pour acc&eacute;der &agrave; Public Secure" style='color: #000'>Cliquez ici pour acc&eacute;der &agrave; Acc&egrave;s public s&eacute;curis&eacute;
-                            </a>
-                        </strong>
-                    </p>
-                    <p class="subheader">
-                        <strong>
-                            <a href='^HOME_SESSID^?GET&FILE=[ao_opac]/145/assets/html/aimsSignupHelp.html' aria-label="Cliquez ici pour savoir comment obtenir un compte AIMS" style='color: #000'>Comment puis-je obtenir un compte AIMS?</a>
-                        </strong>
-                    </p>
-                    <!-- <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&DATABASE=DESCRIPTION&ERRMSG=[ao_opac]/145/includes/error~5cnorecord.htm"> -->
-                    <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^home_sessid^?UNIONSEARCH&KEEP=Y&APPLICATION=UNION_VIEW&language=145&REPORT=WEB_UNION_SUM_FR&ERRMSG=[ao_opac]/145/includes/error~5cnorecord.htm">
-                        <div class='main-form-left'>
-                            <div class='main-login-mobile Rale-Bold'>
-                                <button type='button' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>Connexion au portail client</button>
-                                <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                                <button type='button' class='main-form-btn Rale-Bold main-form-info' title='Comment chercher dans notre base de donn&egrave;es'>Comment chercher dans notre base de donn&eacute;es</button>
-                            </div>
-                            <h3 class='search-area-h3 Rale-Reg'>Recherche d'archives, d'oeuvres d'art et de ressources documentaires</h3>
-                            <br>
-                            <div class="icon-container general-focus focus-red" aria-label="recherche d'enregistrements">
-                                <i class="loader"></i> Recherche d'enregistrements ...
-                            </div>
-                            <span id='Option-Choice' class='Rale-Bold' aria-label='Type de recherche Tous ces mots-cl&eacute;s'>Option 1 : Recherche par mot-cl&eacute;</span>
-                            <span id='Number-Results'></span>
-                            <div class='Input-Wrapper d-flex flex-column'>
-                                <label class='Rale-Bold' aria-label="simple_search_input_label" for="simple_search_input">Saisissez un ou plusieurs termes de recherche :</label>
-                                <div id='simple-search-container'>
-                                    <input id="simple_search_input" type='text' aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus/>
-                                    <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='Recherche' />
-                                </div>
-                            </div>
-                            <div class='Radio-Wrapper' role="radiogroup">
-                                <fieldset>
-                                    <legend class='visually-hidden'>Search Type</legend>
-                                    <span>
-                                            <input type='radio' id='All-Keywords' class='search-input' role='radio' tabindex='0' aria-label='Tous ces mots-cl&eacute;s' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("Recherche par mot-cl&eacute;")' checked />
-                                            <label class='search-label Rale-Med' for='All-Keywords'>Tous ces mots-cl&eacute;s</label>
-                                        </span>
-                                    <span>
-                                            <input type='radio' id='Any-Keywords' class='search-input' role='radio' tabindex='0' aria-label="N'importe lequel de ces mots-cl&eacute;s" value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("N&#39;importe lequel de ces mots-cl&eacute;s")'/>
-                                            <label class='search-label Rale-Med' for='Any-Keywords'>N'importe lequel de ces mots-cl&eacute;s</label>
-                                        </span>
-                                    <span>
-                                            <input type='radio' id='Exact-Phrase' class='search-input' role='radio' tabindex='0' aria-label='Termes exacts' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Termes exacts")'/>
-                                            <label class='search-label Rale-Med' for='Exact-Phrase'>Termes exacts</label>
-                                        </span>
-                                </fieldset>
-                            </div>
-                            <!-- <div class='Radio-Wrapper-Mobile'>
-                                <fieldset>
-                                    <legend class='visually-hidden'>Search Type</legend>
-                                    <div class='Search-Type-Item-Mobile'>
-                                        <input type='radio' id='All-Keywords-Mobile' class='search-input-mobile' aria-label='Tous ces mots-cl&eacute;s' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("Recherche par mot-cl&eacute;")'/>
-                                        <label class='search-label-mobile Rale-Med' for='All-Keywords-Mobile'>Tous ces mots-cl&eacute;s</label>
-                                    </div>
-                                    <div class='Search-Type-Item-Mobile'>
-                                        <input type='radio' id='Any-Keywords-Mobile' class='search-input-mobile' aria-label="N'importe lequel de ces mots-cl&eacute;s" value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("N&#39;importe lequel de ces mots-cl&eacute;s")' />
-                                        <label class='search-label-mobile Rale-Med' for='Any-Keywords-Mobile'>N'importe lequel de ces mots-cl&eacute;s</label>
-                                    </div>
-                                    <div class='Search-Type-Item-Mobile'>
-                                        <input type='radio' id='Exact-Phrase-Mobile' class='search-input-mobile' aria-label='Termes exacts' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Termes exacts")' />
-                                        <label class='search-label-mobile Rale-Med' for='Exact-Phrase-Mobile'>Termes exacts</label>
-                                    </div>
-                                </fieldset>
-                            </div> -->
-                            <div class='Search-Options-Container'>
-                                <div class='search-options-top Rale-Bold'>
-                                    <button type='button' class='Search-Btn search-btn-fr Rale-Bold' alt='Advanced Search' title='Aller &agrave; la RECHERCHE AVANC&Eacute;E' aria-label='Aller &agrave; la RECHERCHE AVANC&Eacute;E' onclick="onClickNavigationBtn(1)" tabindex="0">
-                                        RECHERCHE AVANC&Egrave;E
-                                    </button>
-                                    <button type='button' class='Search-Btn search-btn-fr Rale-Bold' alt='More Search Options' title='More Search Options' aria-label="Aller &agrave; la PLUS D'OPTIONS DE RECHERCHE" onclick="onClickNavigationBtn(2)">
-                                        PLUS D'OPTIONS DE RECHERCHE
-                                    </button>
-                                </div>
-                                <div class='search-options-bottom Rale-Bold'>
-                                    <button type='button' class='Search-Btn search-btn-fr Rale-Bold' alt='More Search Options' title='More Search Options' aria-label='Aller &agrave; la RECHERCHE DE PERSONNES' onclick="onClickNavigationBtn(3)">
-                                            RECHERCHE DE PERSONNES
-                                    </button>
-                                    <button type='button' class='Search-Btn search-btn-fr Rale-Bold' alt='More Search Options' title='More Search Options' aria-label="Aller &agrave; la RECHERCHE D'ORGANISATION" onclick="onClickNavigationBtn(4)">
-                                            RECHERCHE D'ORGANISATION
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='main-form-right Rale-Bold'>
-                            <button type='button' class='main-form-btn pub-sec-login-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Connexion au portail client</button>
-                            <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                            <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS' onclick="howToSearch('default')">Comment chercher dans notre base de donn&eacute;es</button>
-                        </div>
-                    </form>
-                    <br>
-                    <p class='subheader'>
-                        Trouvez ce que vous cherchez? <strong><a href='^SESSID^?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[ao_opac]/145/assets/html/enquiry.html' aria-label="Cliquez pour nous contacter si vous n'avez pas trouv&eacute; ce que vous cherchez" style='color: #000'>NOUS JOINDRE</a></strong>                    pour commander et consulter les documents aux Archives publiques de l'Ontario.
-                    </p>
-                </div>
-            </div>
-        </div>
+<div id="Content-Wrapper" class="Content-Wrapper">
+  <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm" -->
+  <div id="home-main-wrapper">
+    <div id="banner">
+      <img id="banner-img" src="/assets/img/home.png" alt="" />
     </div>
+    <div
+      id="Panel-Main"
+      class="Panel-Main Main-Content d-flex flex-column align-items-center"
+    >
+      <div id="maincontent">
+        <div id="homepage-container">
+          <div class="Form-Wrapper">
+            <h1 class="Rale-Bold Main-Content-Heading">
+              Rechercher dans les Archives publiques de l'Ontario
+            </h1>
 
-    <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
-</div>
-</div>
+            <p class="subheader Main-Content-Subtitle">
+              Découvrez nos collections d'archives, de bibliothèque et d'art.
+            </p>
+            <div class="subheader">
+              <p>Vous pouvez trouver les descriptions de:</p>
+              <ul>
+                <li>
+                  <p>
+                    documents, dossiers et correspondance gouvernementales et
+                    privée
+                  </p>
+                </li>
+                <li>
+                  <p>livres, publications et brochures</p>
+                </li>
+                <li>
+                  <p>
+                    photos, œuvres d'art, enregistrements sonores et images
+                    animées
+                  </p>
+                </li>
+                <li>
+                  <p>cartes et plans architecturaux</p>
+                </li>
+              </ul>
+            </div>
 
+            <form
+              id="Main-Form"
+              class="minimum-font-size"
+              method="post"
+              name="simple_search"
+              action="^home_sessid^?UNIONSEARCH&KEEP=Y&APPLICATION=UNION_VIEW&language=145&REPORT=WEB_UNION_SUM_FR&ERRMSG=[ao_opac]/145/includes/error~5cnorecord.htm"
+            >
+              <div class="main-form-left">
+                <span id="Number-Results"></span>
+                <div class="Input-Wrapper d-flex flex-column">
+                  <div id="simple-search-container">
+                    <div id="simple-search-input-wrapper">
+                      <input
+                        id="simple_search_input"
+                        type="text"
+                        aria-labelledby="simple_search_input_label"
+                        name="KEYWORD_CLUSTER"
+                        autofocus
+                        aria-label="Simple Search Input"
+                      />
+
+                      <button
+                        aria-label="Clear search"
+                        id="simple-search-reset"
+                        alt="Clear search"
+                        title="Clear search"
+                        type="button"
+                      >
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                    <button
+                      aria-label="Search Button"
+                      class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary"
+                      alt="Recherche"
+                      title="Recherche"
+                      type="submit"
+                      value="Search"
+                    >
+                      <i class="fas fa-search search-button-icon"></i>
+                      <span class="search-button-label">Recherche</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="ontario-form-group">
+                  <fieldset class="ontario-fieldset">
+                    <legend class="visually-hidden">
+                      Radio legend<span class="ontario-label__flag"
+                        >(required/optional)</span
+                      >
+                    </legend>
+                    <span
+                      hidden
+                      id="Option-Choice"
+                      class="Rale-Bold"
+                      aria-label="Search type All Keywords Search"
+                      >Option 1: Keyword Search</span
+                    >
+                    <div class="ontario-radios Main-Search-Radio">
+                      <div class="ontario-radios__item">
+                        <input
+                          class="ontario-radios__input"
+                          id="radio-button-option-1"
+                          type="radio"
+                          aria-label="All of these keywords"
+                          value="AND_WORD"
+                          name="FLDOP1"
+                          onclick='onClickSearchOption("All Keyword Search")'
+                          checked
+                        />
+                        <label
+                          class="ontario-label ontario-radios__label"
+                          for="radio-button-option-1"
+                        >
+                          Tous les mots
+                        </label>
+                      </div>
+                      <div class="ontario-radios__item">
+                        <input
+                          class="ontario-radios__input"
+                          id="radio-button-option-2"
+                          name="FLDOP1"
+                          type="radio"
+                          aria-label="Any of these keywords"
+                          value="OR_WORD"
+                          onclick='onClickSearchOption("Any Keyword Search")'
+                        />
+                        <label
+                          class="ontario-label ontario-radios__label"
+                          for="radio-button-option-2"
+                        >
+                          Un de ces mots
+                        </label>
+                      </div>
+                      <div class="ontario-radios__item">
+                        <input
+                          class="ontario-radios__input"
+                          id="radio-button-option-3"
+                          type="radio"
+                          aria-label="Exact Phrase"
+                          value="ADJ_WORD"
+                          name="FLDOP1"
+                          onclick='onClickSearchOption("Exact Phrase")'
+                        />
+                        <label
+                          class="ontario-label ontario-radios__label"
+                          for="radio-button-option-3"
+                        >
+                          Expression exacte
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </form>
+
+            <div class="subheader">
+              <p class="Main-Sub-Header">Recherche par</p>
+              <div class="Main-Search-Options-Section">
+                <a
+                  href="^SESSID^?GET&FILE=[ao_opac]145/assets/html/advancedsearchPeople.html"
+                  >Personnes</a
+                >
+                <span>|</span>
+                <a
+                  href="^SESSID^?GET&FILE=[ao_opac]145/assets/html/advancedsearchOrganization.html"
+                  >Organisation </a
+                >
+                <span>|</span>
+                <a
+                  href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[ao_opac]145/assets/html/moresearchoptions.html"
+                  >Liste des créateurs</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-tips-container">
+        <!-- include virtual="[AO_INCLUDES]searchTips.htm"-->
+
+        <!-- include virtual="[AO_INCLUDES]homeBannerRef.html"-->
+      </div>
+    </div>
+  </div>
+
+  <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
+</div>
 
 <!-- include virtual="[ao_opac]/145/includes/footer.htm"-->
-<script>
-    sessionStorage.setItem('lang', 'en')
-</script>
