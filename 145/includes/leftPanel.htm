@@ -1,65 +1,93 @@
-<div id='Panel-Left' class='Panel-Left minimum-font-size'>
-
-    <div class="accordion Quick-Mobile-Container" id="accordionPanelsStayOpenLinks">
-        <div class="accordion-item">
-            <h2 class="accordion-header H2-Mobile-Nav d-flex justify-content-center" id="panelsStayOpen-quick-mobile">
-                <div id='Quick-Btn'>
-                    <button 
-                        id='accordion-button-quick' 
-                        onclick='navAccordionOnClick(this)' 
-                        class="accordion-button Quick-Accordion-Btn Rale-Med collapsed general-focus focus-red" 
-                        type="button" 
-                        data-bs-toggle="collapse" 
-                        data-bs-target="#panelsStayOpen-collapse-quick-mobile" 
-                        aria-expanded="false" 
-                        aria-controls="panelsStayOpen-collapse-quick-mobile"
-                        aria-label="Appuyez sur Entrée pour ouvrir le menu des liens rapides"
-                    >
-                        <div class='Quick-Btn-Hamburger'></div>
-                    </button>
-                </div>
-                <p class='Mobile-Quick-Title Rale-Bold'>Liens rapides</p>
-            </h2>
-            <div id='Nav-Btn-Container'>
-                <div id="panelsStayOpen-collapse-quick-mobile" class="accordion-collapse Rale-Med collapse" aria-labelledby="panelsStayOpen-quick-mobile">
-                    <div class="accordion-body Quick-Mobile Rale-Med">
-                        <div class='Quick-Mobile-Links d-flex flex-column align-items-center'>
-
-                            <a class='Quick-Links-Item Quick-Links-Home Rale-Bold' href='^home_sessid^?unionqueryform&application=UNION_VIEW&language=145&searchform=[AO_OPAC]/145/assets/html~5chome.html&AUX_SESSID=AO_SHARE'>Domicile</a>
-
-                            <!-- <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/about/index.aspx'>� propos de nous</a>
-                            <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/access/our_collection.aspx'>Acc�der � nos collections</a>
-                            <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/public/public.aspx'>Services au public</a>
-                            <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/tracing/index.aspx'>Suivi de vos ant�c�dents familiaux</a>
-                            <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/donating/index.aspx'>Acquisition de documents priv�s</a>
-                            <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/education/index.aspx'>�ducation aux Archives</a>
-                            <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/explore/index.aspx'>Explorez nos expositions</a>
-                            <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/recordkeeping/index.aspx'>Tenue de documents</a> -->
-
-
-                            <!-- <a class='Quick-Links-Item Client-Profile Rale-Bold' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/patronProfile.html'>Profil du client</a> -->
-                            <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?unionqueryform&application=UNION_VIEW&language=145&SEARCHFORM=[AO_OPAC]/145/assets/html/ART.HTML&AUX_SESSID=AO_SHARE' aria-label="Collection d'art seulement">Collection d'art (seulement)</a>
-                            <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?unionqueryform&application=UNION_VIEW&language=145&SEARCHFORM=[AO_OPAC]/145/assets/html/ARCHIVAL.HTML&AUX_SESSID=AO_SHARE' aria-label="D&#233;p&ocirc;t d'archives seulement">D&#233;p&ocirc;t d'archives (seulement)</a>
-                            <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?unionqueryform&application=UNION_VIEW&language=145&SEARCHFORM=[AO_OPAC]/145/assets/html/LIBRARY.HTML&AUX_SESSID=AO_SHARE' aria-label="Ressources documentaires seulement">Ressources documentaires (seulement)</a>
-                            <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?queryform&database=HAWKE&searchform=[AO_OPAC]/145/assets/html/hawke.html'>Registres d'immigration</a>
-                            <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?queryform&database=AOHEIRS&searchform=[ao_opac]/145/assets/html/heirs.html'>Base de donn&eacute;es de la seconde Commission des h&eacute;ritiers et l&eacute;gataires</a>
-                            <br>
-                            <button class='Quick-Links-Item enquiry-btn btn btn-primary Rale-Med' onclick='redirectToEnquiry("^sessid^")'><b>Renseignez-vous sur nos dossiers</b></button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div id="Panel-Left" class="Panel-Left minimum-font-size">
+  <div
+    class="accordion Quick-Mobile-Container"
+    id="accordionPanelsStayOpenLinks"
+  >
+    <div class="accordion-item">
+      <h2
+        class="accordion-header H2-Mobile-Nav"
+        id="panelsStayOpen-quick-mobile"
+      >
+        <div id="Quick-Btn">
+          <button
+            id="accordion-button-quick"
+            onclick="navAccordionOnClick(this)"
+            class="accordion-button Quick-Accordion-Btn Rale-Med collapsed general-focus focus-red"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapse-quick-mobile"
+            aria-expanded="false"
+            aria-controls="panelsStayOpen-collapse-quick-mobile"
+            aria-label="Appuyez sur Entrée pour ouvrir le menu des liens rapides"
+          >
+            <div class="Quick-Btn-Hamburger"></div>
+          </button>
+          <p class="Mobile-Quick-Title Rale-Bold">Liens rapides</p>
         </div>
+      </h2>
+      <div id="Nav-Btn-Container">
+        <div
+          id="panelsStayOpen-collapse-quick-mobile"
+          class="accordion-collapse Rale-Med collapse"
+          aria-labelledby="panelsStayOpen-quick-mobile"
+        >
+          <div class="accordion-body Quick-Mobile Rale-Med">
+            <div
+              class="Quick-Mobile-Links d-flex flex-column align-items-center"
+            >
+              <a
+                class="Quick-Links-Item Quick-Links-Home Rale-Bold"
+                href="^home_sessid^?unionqueryform&application=UNION_VIEW&language=145&searchform=[AO_OPAC]/145/assets/html~5chome.html&AUX_SESSID=AO_SHARE"
+                >Chercher toutes les collections</a
+              >
+
+              <a
+                class="Quick-Links-Item Rale-Bold"
+                href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=COLLECTIONS_WEB&language=144&file=[AO_OPAC]/145/assets/html/ART.HTML&AUX_SESSID=AO_SHARE"
+                aria-label="Recherche artistique"
+                >Recherche artistique</a
+              >
+              <a
+                class="Quick-Links-Item Rale-Bold"
+                href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=DESCRIPTION_WEB&language=144&file=[AO_OPAC]/145/assets/html/ARCHIVAL.HTML&AUX_SESSID=AO_SHARE"
+                aria-label="Recherche d'archives"
+                >Recherche d'archives</a
+              >
+              <a
+                class="Quick-Links-Item Rale-Bold"
+                href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=BIBLIO_WEB&language=144&file=[AO_OPAC]/145/assets/html/LIBRARY.HTML&AUX_SESSID=AO_SHARE"
+                aria-label="Recherche dans la bibliothèque"
+                >Recherche dans la biblioth&egrave;que</a
+              >
+              <a
+                class="Quick-Links-Item Rale-Bold"
+                href="^home_sessid^?queryform&database=HAWKE&searchform=[AO_OPAC]/145/assets/html/hawke.html"
+                >Recherche de dossier d'immigration</a
+              >
+              <a
+                class="Quick-Links-Item Rale-Bold"
+                href="^home_sessid^?queryform&database=AOHEIRS&searchform=[ao_opac]/145/assets/html/heirs.html"
+                >Recherche de dossiers de la Seconde Commission des
+                h&eacute;ritiers et l&eacute;gataires
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class='Quick-Links-Container d-flex flex-column Rale-Bold'>
-        <!-- <h2 class='Rale-Bold Quick-Title'>Quick Links</h2> -->
-        <br>
-        <a class='Quick-Links-Item Quick-Links-Home Rale-Bold' href='^home_sessid^?unionqueryform&application=UNION_VIEW&language=145&searchform=[AO_OPAC]/145/assets/html~5chome.html&AUX_SESSID=AO_SHARE'>Domicile</a>
+  </div>
+  <div class="Quick-Links-Container d-flex flex-column Rale-Bold">
+    <!-- <h2 class='Rale-Bold Quick-Title'>Quick Links</h2> -->
+    <br />
+    <a
+      class="Quick-Links-Item Quick-Links-Home Rale-Bold"
+      href="^home_sessid^?unionqueryform&application=UNION_VIEW&language=145&searchform=[AO_OPAC]/145/assets/html~5chome.html&AUX_SESSID=AO_SHARE"
+      >Chercher toutes les collections</a
+    >
 
-        <!-- <a class='Quick-Links-Item Client-Profile Rale-Bold' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/patronProfile.html'><hr>Profil du client</a> -->
+    <!-- <a class='Quick-Links-Item Client-Profile Rale-Bold' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/patronProfile.html'><hr>Profil du client</a> -->
 
-        <!-- <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/about/index.aspx'>� propos de nous</a>
+    <!-- <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/about/index.aspx'>� propos de nous</a>
         <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/access/our_collection.aspx'>Acc�der � nos collections</a>
         <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/public/public.aspx'>Services au public</a>
         <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/tracing/index.aspx'>Suivi de vos ant�c�dents familiaux</a>
@@ -69,15 +97,37 @@
         <a class='Quick-Links-Item' href='http://www.archives.gov.on.ca/en/recordkeeping/index.aspx'>Tenue de documents</a>
         <hr> -->
 
-        <!-- <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?queryform&database=COLLECTIONS_WEB'>Art collection (only)</a>
+    <!-- <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?queryform&database=COLLECTIONS_WEB'>Art collection (only)</a>
         <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?queryform&database=DESCRIPTION_WEB'>Archives Repository (only)</a>
         <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?queryform&database=BIBLIO_WEB'>Library Holdings (only)</a> -->
-        <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?unionqueryform&application=UNION_VIEW&language=145&SEARCHFORM=[AO_OPAC]/145/assets/html/ART.HTML&AUX_SESSID=AO_SHARE' aria-label="Collection d'art seulement">Collection d'art (seulement)</a>
-        <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?unionqueryform&application=UNION_VIEW&language=145&SEARCHFORM=[AO_OPAC]/145/assets/html/ARCHIVAL.HTML&AUX_SESSID=AO_SHARE' aria-label="D&#233;p&ocirc;t d'archives seulement">D&#233;p&ocirc;t d'archives (seulement)</a>
-        <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?unionqueryform&application=UNION_VIEW&language=145&SEARCHFORM=[AO_OPAC]/145/assets/html/LIBRARY.HTML&AUX_SESSID=AO_SHARE' aria-label="Ressources documentaires seulement">Ressources documentaires (seulement)</a>
-        <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?queryform&database=HAWKE&searchform=[AO_OPAC]/145/assets/html/hawke.html'>Registres d'immigration</a>
-        <a class='Quick-Links-Item Rale-Bold' href='^home_sessid^?queryform&database=AOHEIRS&searchform=[ao_opac]/145/assets/html/heirs.html'>Base de donn&eacute;es de la seconde Commission des h&eacute;ritiers et l&eacute;gataires</a>
-        <br>
-        <button class='Quick-Links-Item enquiry-btn btn btn-primary Rale-Med' onclick='redirectToEnquiry("^sessid^")'><b>Renseignez-vous sur nos dossiers</b></button>
-    </div>
+    <a
+      class="Quick-Links-Item Rale-Bold"
+      href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=COLLECTIONS_WEB&language=144&file=[AO_OPAC]/145/assets/html/ART.HTML&AUX_SESSID=AO_SHARE"
+      aria-label="Recherche artistique"
+      >Recherche artistique</a
+    >
+    <a
+      class="Quick-Links-Item Rale-Bold"
+      href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=DESCRIPTION_WEB&language=144&file=[AO_OPAC]/145/assets/html/ARCHIVAL.HTML&AUX_SESSID=AO_SHARE"
+      aria-label="Recherche d'archives"
+      >Recherche d'archives</a
+    >
+    <a
+      class="Quick-Links-Item Rale-Bold"
+      href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=BIBLIO_WEB&language=144&file=[AO_OPAC]/145/assets/html/LIBRARY.HTML&AUX_SESSID=AO_SHARE"
+      aria-label="Recherche dans la bibliothèque"
+      >Recherche dans la biblioth&egrave;que</a
+    >
+    <a
+      class="Quick-Links-Item Rale-Bold"
+      href="^home_sessid^?queryform&database=HAWKE&searchform=[AO_OPAC]/145/assets/html/hawke.html"
+      >Recherche de dossier d'immigration</a
+    >
+    <a
+      class="Quick-Links-Item Rale-Bold"
+      href="^home_sessid^?queryform&database=AOHEIRS&searchform=[ao_opac]/145/assets/html/heirs.html"
+      >Recherche de dossiers de la Seconde Commission des h&eacute;ritiers et
+      l&eacute;gataires</a
+    >
+  </div>
 </div>
