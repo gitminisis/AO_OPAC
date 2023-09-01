@@ -1,35 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <script type="text/javascript">
-        let langStorage = sessionStorage.getItem('lang');
-        if (langStorage && langStorage === 'fr') {
-            window.location = "https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=DESCRIPTION_WEB&language=145&file=[AO_ASSETS]html~5carchival.html"
+      let langStorage = sessionStorage.getItem("lang");
+      if (langStorage && langStorage === "fr") {
+        window.location =
+          "https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&database=DESCRIPTION_WEB&language=145&file=[AO_ASSETS]html~5carchival.html";
+      } else {
+        window.location =
+          "https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&database=DESCRIPTION_WEB&language=144&file=[AO_ASSETS]html~5carchival.html";
+      }
 
-        } else {
-            window.location = "https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=DESCRIPTION_WEB&language=144&file=[AO_ASSETS]html~5carchival.html"
-
-        }
-
-        // function deleteCookie(name) {
-        //     document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        // }
-        //deleteCookie("BOOKMARK");
+      // function deleteCookie(name) {
+      //     document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      // }
+      //deleteCookie("BOOKMARK");
     </script>
-
-</body>
-
+  </body>
 </html>
-
 
 <!-- Orginal -->
 <!-- <!DOCTYPE html>
