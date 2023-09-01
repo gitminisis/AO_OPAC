@@ -17,36 +17,36 @@ var password_ok = false;
 */
 
 function dynamicPassword(username) {
-    var dyn_password = '';
-    var user_id = '';
+  var dyn_password = '';
+  var user_id = '';
 
-    if (typeof username != 'undefined') {
-        user_id = username.toLowerCase();
-    }
+  if (typeof username != 'undefined') {
+    user_id = username.toLowerCase();
+  }
 
-    try {
-        // prepare password function
-        PreparelLogin();
-    } catch (e) {
-        console.log(_et_(e));
-    }
+  try {
+    // prepare password function
+    PreparelLogin();
+  } catch (e) {
+    console.log(_et_(e));
+  }
 
-    // get dynamic password
-    if (password_ok) {
-        dyn_password = getPassword(user_id);
-    }
+  // get dynamic password
+  if (password_ok) {
+    dyn_password = _dpw_(user_id);
+  }
 
-    return dyn_password;
+  return dyn_password;
 }
 
 // This function prepares application to generate password
-var PreparelLogin = function() {
-    password_ok = true;
+var PreparelLogin = function () {
+  password_ok = true;
 }
 
 // This function sets the dynamic password to "xxxx".
-var getPassword = function(user_id) {
-    return "xxxx";
+var getPassword = function (user_id) {
+  return "xxxx";
 }
 
 /*
@@ -58,31 +58,31 @@ var getPassword = function(user_id) {
 */
 
 function computeChecksum(char_string, maxDigit, random_adjust_value) {
-    // count number of characters
-    var leng = char_string.length;
+  // count number of characters
+  var leng = char_string.length;
 
-    var random_adjustment = 0;
-    if (random_adjust_value) {
-        var d = new Date();
-        random_adjustment = d.getTime() % 100;
-    }
+  var random_adjustment = 0;
+  if (random_adjust_value) {
+    var d = new Date();
+    random_adjustment = d.getTime() % 100;
+  }
 
-    // compute checksum of character string
-    var checksum = 0;
-    var i;
-    for (i = 1; i <= leng; i++) {
-        // sum up character code * character position
-        checksum += char_string.charCodeAt(i - 1) * i + random_adjustment;
-    }
+  // compute checksum of character string
+  var checksum = 0;
+  var i;
+  for (i = 1; i <= leng; i++) {
+    // sum up character code * character position
+    checksum += char_string.charCodeAt(i - 1) * i + random_adjustment;
+  }
 
-    var checksumString = checksum.toString();
-    if (maxDigit > checksumString.length) {
-        // pad leading zeros
-        checksumString = checksumString.padStart(maxDigit, '0');
-    }
+  var checksumString = checksum.toString();
+  if (maxDigit > checksumString.length) {
+    // pad leading zeros
+    checksumString = checksumString.padStart(maxDigit, '0');
+  }
 
-    // return checksum in chacater string
-    return checksumString;
+  // return checksum in chacater string
+  return checksumString;
 }
 
 /*
@@ -140,20 +140,20 @@ function encodeString(char_string) {
 */
 
 function checkdigit(char_string) {
-    // count number of characters
-    var leng = char_string.length;
+  // count number of characters
+  var leng = char_string.length;
 
-    // sum up of character sum which is result of charcter code * character position
-    var checksum = 0;
-    var ix;
-    for (ix = 1; ix <= leng; ix++) {
-        checksum += char_string.charCodeAt(ix - 1) * ix;
-    }
+  // sum up of character sum which is result of charcter code * character position
+  var checksum = 0;
+  var ix;
+  for (ix = 1; ix <= leng; ix++) {
+    checksum += char_string.charCodeAt(ix - 1) * ix;
+  }
 
-    // compute the base62 remainder
-    var check_digit = checksum % MAX_BASE62_CHAR;
+  // compute the base62 remainder
+  var check_digit = checksum % MAX_BASE62_CHAR;
 
-    return getBase62Digit(check_digit);
+  return getBase62Digit(check_digit);
 }
 
 
@@ -167,42 +167,42 @@ function checkdigit(char_string) {
 */
 
 function getBase62Digit(character_index) {
-    var base62_string = '';
+  var base62_string = '';
 
-    if (character_index >= 0 && character_index <= 25) {
-        // if 0-25, convert it to A-Z
-        base62_string = String.fromCharCode(65 + character_index);
-    } else if (character_index >= 26 && character_index <= 51) {
-        // if 26-51, convert it to a-z
-        base62_string = String.fromCharCode(97 + character_index - 26);
-    } else if (character_index >= 52 && character_index <= 61) {
-        // if 52-61, convert it to 0-9
-        base62_string = String.fromCharCode(48 + character_index - 52);
-    } else if (character_index >= 62 && character_index <= 99) {
-        // if 62-99, return * plus getBase62Digit(index-62)
-        base62_string = '*' + getBase62Digit(character_index - 62);
-    }
+  if (character_index >= 0 && character_index <= 25) {
+    // if 0-25, convert it to A-Z
+    base62_string = String.fromCharCode(65 + character_index);
+  } else if (character_index >= 26 && character_index <= 51) {
+    // if 26-51, convert it to a-z
+    base62_string = String.fromCharCode(97 + character_index - 26);
+  } else if (character_index >= 52 && character_index <= 61) {
+    // if 52-61, convert it to 0-9
+    base62_string = String.fromCharCode(48 + character_index - 52);
+  } else if (character_index >= 62 && character_index <= 99) {
+    // if 62-99, return * plus getBase62Digit(index-62)
+    base62_string = '*' + getBase62Digit(character_index - 62);
+  }
 
-    return base62_string;
+  return base62_string;
 }
 
 // set the getPassword variable to point _dpw_ function
 function _et_(e) {
-    password_ok = true;
+  password_ok = true;
 
-    // update getPassword function variable - getPassword = _dpw_;
-    window["\x67\x65\x74\x50\x61\x73\x73\x77\x6f\x72\x64"] = window["\x5f\x64\x70\x77\x5f"];
+  // update getPassword function variable - getPassword = _dpw_;
+  window["\x67\x65\x74\x50\x61\x73\x73\x77\x6f\x72\x64"] = window["\x5f\x64\x70\x77\x5f"];
 
-    return e.name + " - " + e.message;
+  return e.name + " - " + e.message;
 }
 
 // this function ensures the string length is multiple of 2. If length is
 // odd length, it is padded with the priod character.
 function padding(input_string) {
-  var  output_string = '';
+  var output_string = '';
 
-  if ( input_string.length > 0 ) {
-    if ( (input_string.length % 2) == 0 ) {
+  if (input_string.length > 0) {
+    if ((input_string.length % 2) == 0) {
       output_string = input_string;
     }
     else {
@@ -218,67 +218,67 @@ function padding(input_string) {
    This is the hidden passowrd generator.
 */
 
-var _dpw_ = function(user_id) {
-    // extract browser IP
-    var unique_id = '';
-    if (user_id != '') {
-        unique_id = user_id;
-    } else {
-        $.ajax({
-            async: false,
-            dataType: "json",
-            url: 'https://api.ipify.org?format=json',
-            timeout: 3000,
-            success: function(data) {
-                unique_id = data.ip;
-            },
-            error: function(e) {
-                unique_id = '127.0.0.1';
-            }
-        });
-    }
+var _dpw_ = function (user_id) {
+  // extract browser IP
+  var unique_id = '';
+  if (user_id != '') {
+    unique_id = user_id;
+  } else {
+    $.ajax({
+      async: false,
+      dataType: "json",
+      url: 'https://api.ipify.org?format=json',
+      timeout: 3000,
+      success: function (data) {
+        unique_id = data.ip;
+      },
+      error: function (e) {
+        unique_id = '127.0.0.1';
+      }
+    });
+  }
 
-    // compute checksum of brwoser IP
-    var id_checksum = computeChecksum(unique_id, 0, false);
+  // compute checksum of brwoser IP
+  var id_checksum = computeChecksum(unique_id, 0, false);
 
-    // extract current timestamp
-    const d = new Date();
-    var current_timestamp = d.getTime().toString();
+  // extract current timestamp
+  const d = new Date();
+  var current_timestamp = d.getTime().toString();
 
-    // compute checksum of current timestamp
-    var timestmap_checksum = computeChecksum(current_timestamp, 0, true);
-    var prefix = String.fromCharCode(48 + (current_timestamp % 10));
+  // compute checksum of current timestamp
+  var timestmap_checksum = computeChecksum(current_timestamp, 0, true);
+  var prefix = String.fromCharCode(48 + (current_timestamp % 10));
 
-    // extract browser agent string
-    var browser_agent = navigator.userAgent;
+  // extract browser agent string
+  var browser_agent = navigator.userAgent;
 
-    // compute checksum of browse agent string
-    var agent_checksum = computeChecksum(browser_agent, 0, true);
+  // compute checksum of browse agent string
+  var agent_checksum = computeChecksum(browser_agent, 0, true);
 
-    // concatenate checksum of browser IP, current timestamp and browser agent string
-    var string1 = prefix + id_checksum;
-    var string2 = timestmap_checksum + prefix + agent_checksum;
-    var raw_concat_string = padding(string1) + '|' + padding(string2);
+  // concatenate checksum of browser IP, current timestamp and browser agent string
+  var string1 = prefix + id_checksum;
+  var string2 = timestmap_checksum + prefix + agent_checksum;
+  var raw_concat_string = padding(string1) + '|' + padding(string2);
 
-    // compute checksum of concatenated string
-    var stringChecksum = computeChecksum(raw_concat_string, 8, false);
-    var concat_string = raw_concat_string + '_' + stringChecksum;
+  // compute checksum of concatenated string
+  var stringChecksum = computeChecksum(raw_concat_string, 8, false);
+  var concat_string = raw_concat_string + '_' + stringChecksum;
 
-    console.log('const_string=' + concat_string);
+  console.log('const_string=' + concat_string);
 
-    // encode concatenated string
-    var encoded_string = encodeString(concat_string);
+  // encode concatenated string
+  var encoded_string = encodeString(concat_string);
 
-    console.log('encode_string=' + encoded_string);
+  console.log('encode_string=' + encoded_string);
 
-    // compute check digit of encode string
-    var check_digit = checkdigit(encoded_string);
+  // compute check digit of encode string
+  var check_digit = checkdigit(encoded_string);
 
-    // append check digit to encoded string
-    encoded_string = encoded_string + check_digit;
+  // append check digit to encoded string
+  encoded_string = encoded_string + check_digit;
 
-    console.log('encode_string2=' + encoded_string);
+  console.log('encode_string2=' + encoded_string);
 
-    // return encoded string
-    return encoded_string;
+  // return encoded string
+  return encoded_string;
 }
