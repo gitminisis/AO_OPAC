@@ -1,15 +1,22 @@
 <div id="Panel-Right" class="Panel-Right">
-    <div class="Features-Container d-flex flex-column Rale-Reg">
-        <!-- <div class="" id="accountInfo"></div>
+  <div class="Features-Container d-flex flex-column Rale-Reg">
+    <!-- <div class="" id="accountInfo"></div>
           <div class="CP-Summary"><a class="btn btn-dark right-panel-btn btn-sm Client-Profile" aria-label="Go to My Client Profile" tabindex="0" href="^HOME_SESSID^?GET&amp;FILE=[AO_ASSETS]html/patronProfile.html">Client Profile</a></div> -->
-        <!-- <a
+    <!-- <a
         class="btn btn-outline-primary btn-sm form-check-label"
         href="^HOME_SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\nobookmark.htm&COOKIE=BOOKMARK"
         ><em class="icon-list-alt"></em> Bookmarks (^ITEMCOUNT=BOOKMARK^ items)</a
       > -->
 
-        <button aria-label="Press Enter to open bookmarks list" class="ontario-button ontario-button--secondary Right-Panel-Bookmark-Button">
-        Bookmarks (^ITEMCOUNT=BOOKMARK^ items) 
-      </button>
-    </div>
+    <button
+      aria-label="Press Enter to open bookmarks list"
+      class="ontario-button ontario-button--secondary Right-Panel-Bookmark-Button"
+    >
+      <a
+        href="^SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\nobookmark.htm&COOKIE=BOOKMARK"
+      >
+        Bookmarks (^ITEMCOUNT=BOOKMARK^ items)
+      </a>
+    </button>
+  </div>
 </div>
