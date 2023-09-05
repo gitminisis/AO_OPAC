@@ -1,84 +1,155 @@
+<!-- include virtual="[ao_opac]/145/includes/head.htm"-->
 
-    <!-- include virtual="[ao_opac]/145/includes/head.htm"-->
+<!-- include virtual="[ao_opac]/145/includes/header.htm"-->
+<title>Recherche par personne</title>
 
-        
-        <!-- include virtual="[ao_opac]/145/includes/header.htm"-->
-        <title>RECHERCHE AVANC&Eacute;E de fichiers d'autorit&eacute; des auteurs personnes physiques</title>
+<div id="Content-Wrapper" class="Content-Wrapper">
+  <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm"-->
 
-        <div id='Content-Wrapper' class='Content-Wrapper'>
-
-            <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm"-->
-
-            <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
-                <h1  class='Rale-Extra Adv-Title'>RECHERCHE AVANC&Eacute;E de fichiers d'autorit&eacute; des auteurs personnes physiques</h1>
-                <p class='Form-Subheader Rale-Reg'>
-                    Affinez votre recherche en utilisant un ou plusieurs des champs de recherche sp&eacute;cifiques ci-dessous.
-                </p>
-                <div id="maincontent">
-                    <div class='Form-Wrapper'>
-                       
-                        <form id='Main-Form' class="Advanced-Form" method="post" name="adv_search" action="^SEARCH^&DATABASE=PEOPLE_VAL_SYN&ERRMSG=[ao_opac]/145/includes/error/norecordPeople.htm">
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B01" id="B01" aria-label="S&eacute;lectionnez l'op&eacute;rateur" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">Et</option>
-                                        <option value="or">Ou</option>
-                                        <option value="and not">Ne pas</option>
-                                    </select>
-                                </div>
-                                <input type="text" class="form-control" name="KEYWORDS"  aria-label="Mots cl&eacute;s" placeholder="Mots cl&eacute;s" title="Mots cl&eacute;s" autofocus>
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 general-focus z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="KEYWORDS_PEOPLE" aria-label="Parcourir Mots cl&eacute;s"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B02" id="B02" aria-label="S&eacute;lectionnez l'op&eacute;rateur" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">Et</option>
-                                        <option value="or">Ou</option>
-                                        <option value="and not">Ne pas</option>
-                                    </select>
-                                </div>
-                                <input type="text" class="form-control" name="KEYNAMES"  aria-label="Noms cl&eacute;s" placeholder="Noms cl&eacute;s" title="Noms cl&eacute;s">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 general-focus z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="KEYNAMES_PEOPLE" aria-label="Parcourir Noms cl&eacute;s"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B03" id="B03" aria-label="S&eacute;lectionnez l'op&eacute;rateur" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">Et</option>
-                                        <option value="or">Ou</option>
-                                        <option value="and not">Ne pas</option>
-                                    </select>
-                                </div>
-                                <select name="P_AUTH_TYPE" id="P_AUTH_TYPE" class="form-control" aria-label="S&eacute;lectionnez le type d'autorit&eacute">
-                                    <option value="" selected>S&eacute;lectionnez le type d'autorit&eacute;</option>
-                                    <option value="Family Name">Nom de Famille</option>
-                                    <option value="Personal Name">Nom Personnel</option>
-                                </select>
-                                <!-- <input type="text" class="form-control" name="P_AUTH_TYPE"   placeholder="Auhtority Type" title="Auhtority Type"> -->
-                                <div class="input-group-append">
-                                    <button disabled type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 general-focus z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" aria-label="Parcourir Authority Types"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            
-                            <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
-                                <button class="btn btn-primary general-focus" type="submit" title="Search" value='Recherche'>Soumettre</button>
-                                <button class="btn btn-outline-primary general-focus" id="clear" type="reset" title="Clear" value='Recherche'>Effacer</button>
-                            </div>
-                        </form>
-    
-                    </div>
+  <div
+    id="Panel-Main"
+    class="Panel-Main Main-Content d-flex flex-column align-items-center"
+  >
+    <div id="maincontent">
+      <div id="advanced-search-container">
+        <div class="Form-Wrapper">
+          <h1 class="Rale-Bold Main-Content-Heading">Recherche par personne</h1>
+          <p class="subheader">
+            Recherchez des artistes ou d'autres personnes qui ont donné ou créé
+            du matériel.
+          </p>
+          <form
+            id="Main-Form"
+            class="Advanced-Form"
+            method="post"
+            name="adv_search"
+            action="^SEARCH^&DATABASE=PEOPLE_VAL_SYN&ERRMSG=[ao_opac]/145/includes/error/norecordPeople.htm"
+          >
+            <!-- KEYWORDS INPUT -->
+            <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="KEYWORDS">
+                Rechercher le nom du créateur
+              </label>
+              <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B01"
+                    id="B01"
+                    aria-label="S&eacute;lectionnez l'op&eacute;rateur"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
                 </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="KEYWORDS"
+                  aria-label="Mots cl&eacute;s"
+                  title="Mots cl&eacute;s"
+                  autofocus
+                />
+              </div>
             </div>
+            <!-- KEYWORDS INPUT -->
 
-            <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
+            <!-- KEYNAMES INPUT -->
+            <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="KEYNAMES">
+                Rechercher la description ou la biographie d'un créateur
+              </label>
 
+              <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B02"
+                    id="B02"
+                    aria-label="S&eacute;lectionnez l'op&eacute;rateur"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="KEYNAMES"
+                  aria-label="Noms cl&eacute;s"
+                  title="Noms cl&eacute;s"
+                />
+              </div>
+            </div>
+            <!-- KEYNAMES INPUT -->
+
+            <!-- P_AUTH_TYPE INPUT -->
+            <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="P_AUTH_TYPE">
+                Sélectionnez le type de nom
+              </label>
+              <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B03"
+                    id="B03"
+                    aria-label="S&eacute;lectionnez l'op&eacute;rateur"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                </div>
+                <select
+                  name="P_AUTH_TYPE"
+                  id="P_AUTH_TYPE"
+                  class="form-control"
+                  aria-label="S&eacute;lectionnez le type d'autorit&eacute"
+                >
+                  <option value="" selected>Sélectionner</option>
+                  <option value="Family Name">Nom de Famille</option>
+                  <option value="Personal Name">Nom Personnel</option>
+                </select>
+              </div>
+            </div>
+            <!-- P_AUTH_TYPE INPUT -->
+
+            <div class="Search-Options-Wrapper d-flex">
+              <button
+                aria-label="Press Enter to submit form"
+                type="submit"
+                title="Soumettre"
+                value="Soumettre"
+                class="ontario-button ontario-button--primary general-focus"
+              >
+                Soumettre
+              </button>
+              <button
+                aria-label="Press Enter to open clear form"
+                class="ontario-button ontario-button--secondary general-focus"
+                id="clear"
+                type="reset"
+                title="Effacer"
+                value="Effacer"
+              >
+                Effacer
+              </button>
+            </div>
+          </form>
         </div>
-        <!-- include virtual="[ao_opac]/145/includes/advSearchParcourir.htm"-->
-        
-        <!-- include virtual="[ao_opac]/145/includes/footer.htm"-->
+      </div>
+    </div>
+
+     <div class="search-tips-container">
+      <!-- include virtual="[ao_opac]/145/includes/advancedPeopleSearchTips.html"-->
+    </div>
+  </div>
+
+  <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
+</div>
+<!-- include virtual="[ao_opac]/145/includes/advSearchParcourir.htm"-->
+
+<!-- include virtual="[ao_opac]/145/includes/footer.htm"-->
