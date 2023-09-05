@@ -610,10 +610,13 @@ const appendDatabaseToSearchStatement = () => {
     switch (dbname) {
         case "DESCRIPTION_WEB":
             dbspan.text('archival collection')
+            break;
         case "COLLECTIONS_WEB":
             dbspan.text('art collection')
+            break;
         case "BIBLIO_WEB":
             dbspan.text('library collection')
+            break;
         default:
             dbspan.text('all collections')
 
