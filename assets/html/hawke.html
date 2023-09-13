@@ -5,7 +5,7 @@
 
 <div id="Content-Wrapper" class="Content-Wrapper">
   <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
-  <div id="home-main-wrapper">
+  <div id="home-main-wrapper" style="width: 100%">
     <div id="banner">
       <img
         id="banner-img-hawke"
@@ -18,8 +18,8 @@
       class="Panel-Main Main-Content d-flex flex-column align-items-center"
     >
       <div id="maincontent">
-        <div id="homepage-container">
-          <div id="hawke-content-container">
+        <div>
+          <div id="advanced-search-container">
             <div id="hawke-home-page" class="Form-Wrapper">
               <h1 class="Rale-Bold Main-Content-Heading">
                 Search immigration record collection
@@ -38,7 +38,7 @@
 
                 <!-- Last name -->
                 <div class="input-wrap ontario-form-group">
-                  <label class="ontario-label" for="KEYNAMES">
+                  <label class="ontario-label" for="SURNAME">
                     Search by last name
                   </label>
                   <div class="input-group mb-3 Rale-Reg">
@@ -61,7 +61,6 @@
                       class="form-control"
                       name="SURNAME"
                       aria-label="Search by Last name"
-                      placeholder="Last Name"
                       title="Last Name"
                       autofocus
                     />
@@ -71,7 +70,7 @@
 
                 <!-- First name -->
                 <div class="input-wrap ontario-form-group">
-                  <label class="ontario-label" for="KEYNAMES">
+                  <label class="ontario-label" for="GIVENNAME">
                     Search by last name
                   </label>
                   <div class="input-group mb-3 Rale-Reg">
@@ -94,223 +93,186 @@
                       class="form-control"
                       name="GIVENNAME"
                       aria-label="Search by First name"
-                      placeholder="First Name"
                       title="First Name"
                     />
-                 
                   </div>
                 </div>
                 <!-- First name -->
 
-                <div class="input-group mb-3 Rale-Reg">
-                  <div
-                    class="input-group-prepend adv-operator-container"
-                    hidden
-                  >
-                    <select
-                      name="B03"
-                      id="B03"
-                      aria-label="Select operator"
-                      class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                <!-- Nationality -->
+                <div class="input-wrap ontario-form-group">
+                  <label class="ontario-label" for="NATION">
+                    Search by nationality
+                  </label>
+                  <div class="input-group mb-3 Rale-Reg">
+                    <div
+                      class="input-group-prepend adv-operator-container"
+                      hidden
                     >
-                      <option value="and" selected="">And</option>
-                    </select>
-                  </div>
+                      <select
+                        name="B03"
+                        id="B03"
+                        aria-label="Select operator"
+                        class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                      >
+                        <option value="and" selected="">And</option>
+                      </select>
+                    </div>
 
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="NATION"
-                    aria-label="Search by Nationality"
-                    placeholder="Nationality"
-                    title="Nationality"
-                  />
-                  <div class="input-group-append">
-                    <button
-                      type="button"
-                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
-                      aria-label="Browse Nationalities"
-                      data-bs-toggle="modal"
-                      data-bs-target="#fullHeightModalRight"
-                      id="NATION_CL"
-                      aria-label="Browse Nationality"
-                    >
-                      <i class="fas fa-bars"></i>
-                    </button>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="NATION"
+                      aria-label="Search by Nationality"
+                      title="Nationality"
+                    />
                   </div>
                 </div>
+                <!-- Nationality -->
 
-                <div class="input-group mb-3 Rale-Reg">
-                  <div
-                    class="input-group-prepend adv-operator-container"
-                    hidden
-                  >
-                    <select
-                      name="B04"
-                      id="B04"
-                      aria-label="Select operator"
-                      class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                <!-- Trade -->
+                <div class="input-wrap ontario-form-group">
+                  <label class="ontario-label" for="TRADEWHOLE">
+                    Search by trade
+                  </label>
+                  <div class="input-group mb-3 Rale-Reg">
+                    <div
+                      class="input-group-prepend adv-operator-container"
+                      hidden
                     >
-                      <option value="and" selected="">And</option>
-                    </select>
-                  </div>
+                      <select
+                        name="B04"
+                        id="B04"
+                        aria-label="Select operator"
+                        class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                      >
+                        <option value="and" selected="">And</option>
+                      </select>
+                    </div>
 
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="TRADEWHOLE"
-                    aria-label="Search by Trade"
-                    placeholder="Trade"
-                    title="Trade"
-                  />
-                  <div class="input-group-append">
-                    <button
-                      type="button"
-                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
-                      aria-label="Browse Trades"
-                      data-bs-toggle="modal"
-                      data-bs-target="#fullHeightModalRight"
-                      id="TRADEWHOLE_CL"
-                      aria-label="Browse Trade"
-                    >
-                      <i class="fas fa-bars"></i>
-                    </button>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="TRADEWHOLE"
+                      aria-label="Search by Trade"
+                      title="Trade"
+                    />
                   </div>
                 </div>
+                <!-- Trade -->
 
-                <div class="input-group mb-3 Rale-Reg">
-                  <div
-                    class="input-group-prepend adv-operator-container"
-                    hidden
-                  >
-                    <select
-                      name="B05"
-                      id="B05"
-                      aria-label="Select operator"
-                      class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                <!-- Ship -->
+                <div class="input-wrap ontario-form-group">
+                  <label class="ontario-label" for="SHIPWHOLE">
+                    Search by ship
+                  </label>
+                  <div class="input-group mb-3 Rale-Reg">
+                    <div
+                      class="input-group-prepend adv-operator-container"
+                      hidden
                     >
-                      <option value="and" selected="">And</option>
-                    </select>
-                  </div>
+                      <select
+                        name="B05"
+                        id="B05"
+                        aria-label="Select operator"
+                        class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                      >
+                        <option value="and" selected="">And</option>
+                      </select>
+                    </div>
 
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="SHIPWHOLE"
-                    aria-label="Search by Ship"
-                    placeholder="Ship"
-                    title="Ship"
-                  />
-                  <div class="input-group-append">
-                    <button
-                      type="button"
-                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
-                      aria-label="Browse Ships"
-                      data-bs-toggle="modal"
-                      data-bs-target="#fullHeightModalRight"
-                      id="SHIPWHOLE_CL"
-                      aria-label="Browse Ship"
-                    >
-                      <i class="fas fa-bars"></i>
-                    </button>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="SHIPWHOLE"
+                      aria-label="Search by Ship"
+                      title="Ship"
+                    />
                   </div>
                 </div>
+                <!-- Ship -->
 
-                <div class="input-group mb-3 Rale-Reg">
-                  <div
-                    class="input-group-prepend adv-operator-container"
-                    hidden
-                  >
-                    <select
-                      name="B06"
-                      id="B06"
-                      aria-label="Select operator"
-                      class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                <!-- Destination -->
+                <div class="input-wrap ontario-form-group">
+                  <label class="ontario-label" for="DESTWHOLE">
+                    Search by destination
+                  </label>
+                  <div class="input-group mb-3 Rale-Reg">
+                    <div
+                      class="input-group-prepend adv-operator-container"
+                      hidden
                     >
-                      <option value="and" selected="">And</option>
-                    </select>
-                  </div>
+                      <select
+                        name="B06"
+                        id="B06"
+                        aria-label="Select operator"
+                        class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                      >
+                        <option value="and" selected="">And</option>
+                      </select>
+                    </div>
 
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="DESTWHOLE"
-                    aria-label="Search by Destination"
-                    placeholder="Destination"
-                    title="Destination"
-                  />
-                  <div class="input-group-append">
-                    <button
-                      type="button"
-                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
-                      aria-label="Browse Destinations"
-                      data-bs-toggle="modal"
-                      data-bs-target="#fullHeightModalRight"
-                      id="DESTWHOLE_CL"
-                      aria-label="Browse Destination"
-                    >
-                      <i class="fas fa-bars"></i>
-                    </button>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="DESTWHOLE"
+                      aria-label="Search by Destination"
+                      title="Destination"
+                    />
                   </div>
                 </div>
+                <!-- Destination -->
 
-                <div class="input-group mb-3 Rale-Reg">
-                  <div
-                    class="input-group-prepend adv-operator-container"
-                    hidden
-                  >
-                    <select
-                      name="B07"
-                      id="B07"
-                      aria-label="Select operator"
-                      class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                <!-- Year -->
+                <div class="input-wrap ontario-form-group">
+                  <label class="ontario-label" for="YEAR">
+                    Search by year
+                  </label>
+                  <div class="input-group mb-3 Rale-Reg">
+                    <div
+                      class="input-group-prepend adv-operator-container"
+                      hidden
                     >
-                      <option value="and" selected="">And</option>
-                    </select>
-                  </div>
+                      <select
+                        name="B07"
+                        id="B07"
+                        aria-label="Select operator"
+                        class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                      >
+                        <option value="and" selected="">And</option>
+                      </select>
+                    </div>
 
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="YEAR"
-                    aria-label="Search by Year"
-                    placeholder="Year"
-                    title="Year"
-                  />
-                  <div class="input-group-append">
-                    <button
-                      type="button"
-                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
-                      aria-label="Browse Years"
-                      data-bs-toggle="modal"
-                      data-bs-target="#fullHeightModalRight"
-                      id="YEAR_CL"
-                      aria-label="Browse Year"
-                    >
-                      <i class="fas fa-bars"></i>
-                    </button>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="YEAR"
+                      aria-label="Search by Year"
+                      title="Year"
+                    />
                   </div>
                 </div>
+                <!-- Year -->
 
-                <div id="Search-Form-Buttons-Hawke">
+                <div class="Search-Options-Wrapper d-flex">
                   <button
-                    id="Submit-Button-Hawke"
-                    class="main-form-btn Rale-Bold general-focus"
+                    aria-label="Press Enter to submit form"
                     type="submit"
-                    title="Submit"
+                    title="Search"
                     value="SEARCH"
+                    class="ontario-button ontario-button--primary general-focus"
                   >
                     Search
                   </button>
                   <button
-                    id="Clear-Button-Hawke"
-                    class="main-form-btn Rale-Bold general-focus"
+                    aria-label="Press Enter to open clear form"
+                    class="ontario-button ontario-button--secondary general-focus"
                     id="clear"
                     type="reset"
                     title="Clear"
-                    value="SEARCH"
+                    value="Clear"
                   >
-                    Clear
+                    Clear all
                   </button>
                 </div>
               </form>
