@@ -5,50 +5,33 @@
 
 <div id="Content-Wrapper" class="Content-Wrapper">
   <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
-
-  <div
-    id="Panel-Main"
-    class="Panel-Main Main-Content d-flex flex-column align-items-center"
-  >
+  <div id="home-main-wrapper" style="width: 100%">
     <div id="banner">
       <img
-        id="banner-img-heirs"
+        id="banner-img-hawke"
         src="/assets/img/banner-heir-devisee.jpg"
         alt="A banner of the Toronto Emigrant Office Assisted Immigration Registers Database"
       />
     </div>
-    <br />
-    <!-- <h2 class="Rale-Extra main-title-h2">Welcome to the Archival Collection!</h2>
-        <h4 class="Rale-Extra main-title-h4">Search the Archival Collection of the Archives of Ontario</h4> -->
-    <div id="maincontent">
-      <div id="heirs-content-container">
-        <div id="heirs-home-page" class="Form-Wrapper">
-          <form
-            id="Main-Form"
-            class="minimum-font-size"
-            method="post"
-            name="simple_search"
-            action="^SEARCH^&DATABASE=AOHEIRS&REPORT=WEB_HEIRS_SUM&ERRMSG=[AO_INCLUDES]error/norecordHeirs.htm&AUX_SESSID=AO_SHARE"
-          >
-            <div class="main-form-left">
-              <div class="main-login-mobile Rale-Bold">
-                <button
-                  type="button"
-                  class="main-form-btn pub-sec-login-btn Rale-Bold"
-                  onclick="onClickLoginBtn()"
-                  title="Go to client login portal"
-                >
-                  Client Portal Login
-                </button>
-                <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-                <button
-                  type="button"
-                  class="main-form-btn Rale-Bold main-form-info"
-                  title="For further information on how to search AIMS"
-                >
-                  How to search our database
-                </button>
-              </div>
+    <div
+      style="width: 100%"
+      id="Panel-Main"
+      class="Panel-Main Main-Content d-flex flex-column align-items-center"
+    >
+      <div id="maincontent">
+        <div id="advanced-search-container">
+          <div id="hawke-home-page" class="Form-Wrapper">
+            <h1 class="Rale-Bold Main-Content-Heading">
+              Search immigration record collection
+            </h1>
+
+            <form
+              id="Main-Form"
+              class="minimum-font-size Advanced-Form"
+              method="post"
+              name="simple_search"
+              action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=AOHEIRS&REPORT=WEB_HEIRS_SUM&ERRMSG=[AO_INCLUDES]error/norecordHeirs.htm"
+            >
               <span class="Rale-Reg">
                 <p>
                   This database is an index to the 5184 case files that document
@@ -65,15 +48,12 @@
                   >.
                 </p>
               </span>
-              <br />
-              <div
-                class="icon-container general-focus focus-red"
-                aria-label="Searching for records"
-              >
-                <i class="loader"></i> Searching records ...
-              </div>
 
-              <div class="Form-Wrapper">
+              <!-- Last name -->
+              <div class="input-wrap ontario-form-group">
+                <label class="ontario-label" for="HD_SURNAME">
+                  Search by last name
+                </label>
                 <div class="input-group mb-3 Rale-Reg">
                   <div
                     class="input-group-prepend adv-operator-container"
@@ -94,25 +74,18 @@
                     class="form-control"
                     name="HD_SURNAME"
                     aria-label="Search by Last name"
-                    placeholder="Last Name"
                     title="Last Name"
                     autofocus
                   />
-                  <div class="input-group-append">
-                    <button
-                      type="button"
-                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
-                      aria-label="Browse Last names"
-                      data-bs-toggle="modal"
-                      data-bs-target="#fullHeightModalRight"
-                      id="HD_SURNAME_CL"
-                      aria-label="Browse Reference Codes"
-                    >
-                      <i class="fas fa-bars"></i>
-                    </button>
-                  </div>
                 </div>
+              </div>
+              <!-- Last name -->
 
+              <!-- First name -->
+              <div class="input-wrap ontario-form-group">
+                <label class="ontario-label" for="GIVENNAME">
+                  Search by last name
+                </label>
                 <div class="input-group mb-3 Rale-Reg">
                   <div
                     class="input-group-prepend adv-operator-container"
@@ -131,26 +104,19 @@
                   <input
                     type="text"
                     class="form-control"
-                    name="HD_FIRSTNAME"
+                    name="GIVENNAME"
                     aria-label="Search by First name"
-                    placeholder="First Name(s)"
-                    title="First Name(s)"
+                    title="First Name"
                   />
-                  <div class="input-group-append">
-                    <button
-                      type="button"
-                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
-                      aria-label="Browse First names"
-                      data-bs-toggle="modal"
-                      data-bs-target="#fullHeightModalRight"
-                      id="HD_FIRSTNAME_CL"
-                      aria-label="Browse First Name"
-                    >
-                      <i class="fas fa-bars"></i>
-                    </button>
-                  </div>
                 </div>
+              </div>
+              <!-- First name -->
 
+              <!-- Town -->
+              <div class="input-wrap ontario-form-group">
+                <label class="ontario-label" for="NATION">
+                  Search by town
+                </label>
                 <div class="input-group mb-3 Rale-Reg">
                   <div
                     class="input-group-prepend adv-operator-container"
@@ -171,32 +137,25 @@
                     class="form-control"
                     name="HD_PLACE"
                     aria-label="Search by Township or Town"
-                    placeholder="Township or Town"
                     title="Township or Town"
                   />
-                  <div class="input-group-append">
-                    <button
-                      type="button"
-                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
-                      aria-label="Browse Townships or Towns"
-                      data-bs-toggle="modal"
-                      data-bs-target="#fullHeightModalRight"
-                      id="HD_PLACE_CL"
-                      aria-label="Browse Township or Town"
-                    >
-                      <i class="fas fa-bars"></i>
-                    </button>
-                  </div>
                 </div>
+              </div>
+              <!-- Town -->
 
+              <!-- Year -->
+              <div class="input-wrap ontario-form-group">
+                <label class="ontario-label" for="HD_DATE">
+                  Search by year
+                </label>
                 <div class="input-group mb-3 Rale-Reg">
                   <div
                     class="input-group-prepend adv-operator-container"
                     hidden
                   >
                     <select
-                      name="B04"
-                      id="B04"
+                      name="B07"
+                      id="B07"
                       aria-label="Select operator"
                       class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
                     >
@@ -209,53 +168,35 @@
                     class="form-control"
                     name="HD_DATE"
                     aria-label="Search by Year"
-                    placeholder="Year"
                     title="Year"
                   />
-                  <div class="input-group-append">
-                    <button
-                      type="button"
-                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
-                      aria-label="Browse Years"
-                      data-bs-toggle="modal"
-                      data-bs-target="#fullHeightModalRight"
-                      id="HD_DATE_CL"
-                      aria-label="Browse Year"
-                    >
-                      <i class="fas fa-bars"></i>
-                    </button>
-                  </div>
-                </div>
-
-                <div id="Search-Form-Buttons-Heirs">
-                  <button
-                    id="Submit-Button-Heirs"
-                    class="main-form-btn Rale-Bold general-focus"
-                    type="submit"
-                    title="Submit"
-                    value="SEARCH"
-                  >
-                    Search
-                  </button>
-                  <button
-                    id="Clear-Button-Heirs"
-                    class="main-form-btn Rale-Bold general-focus"
-                    id="clear"
-                    type="reset"
-                    title="Clear"
-                    value="SEARCH"
-                  >
-                    Clear
-                  </button>
                 </div>
               </div>
-            </div>
-            <div class="main-form-right Rale-Bold">
-              <!-- <button type='button' class='main-form-btn pub-sec-login-btn Rale-Bold general-focus' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button> -->
-              <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
-              <!-- <button type='button' class='main-form-btn Rale-Bold main-form-info general-focus' title='For further information on how to search AIMS' onclick="howToSearch('desc')">How to search our database</button> -->
-            </div>
-          </form>
+              <!-- Year -->
+
+              <div class="Search-Options-Wrapper d-flex">
+                <button
+                  aria-label="Press Enter to submit form"
+                  type="submit"
+                  title="Search"
+                  value="SEARCH"
+                  class="ontario-button ontario-button--primary general-focus"
+                >
+                  Search
+                </button>
+                <button
+                  aria-label="Press Enter to open clear form"
+                  class="ontario-button ontario-button--secondary general-focus"
+                  id="clear"
+                  type="reset"
+                  title="Clear"
+                  value="Clear"
+                >
+                  Clear all
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
