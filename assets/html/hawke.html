@@ -6,13 +6,13 @@
 <div id="Content-Wrapper" class="Content-Wrapper">
   <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
   <div id="home-main-wrapper" style="width: 100%">
-    <div id="banner">
+    <!-- <div id="banner">
       <img
         id="banner-img-hawke"
         src="/assets/img/banner-immigration.jpg"
         alt="A banner of the Toronto Emigrant Office Assisted Immigration Registers Database"
       />
-    </div>
+    </div> -->
     <div
       style="width: 100%"
       id="Panel-Main"
@@ -24,6 +24,31 @@
             <h1 class="Rale-Bold Main-Content-Heading">
               Search immigration registrations
             </h1>
+            <div class="subheader">
+              <p>
+                Find people who were registered by the Toronto Emigrant Office
+                between 1865 and 1883.
+              </p>
+            </div>
+            <div class="subheader">
+              <p>Learn more about:</p>
+              <ul>
+                <li>
+                  <a
+                    href="http://www.archives.gov.on.ca/en/db/hawke-search-help.aspx"
+                    target="_blank"
+                    >these registrations and get search tips</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="http://www.archives.gov.on.ca/en/tracing/index.aspx"
+                    target="_blank"
+                    >tracing your family historyt</a
+                  >
+                </li>
+              </ul>
+            </div>
 
             <form
               id="Main-Form"
@@ -32,13 +57,6 @@
               name="simple_search"
               action="^home_sessid^?SEARCH&DATABASE=HAWKE&ERRMSG=[AO_INCLUDES]error/norecordHawke.htm"
             >
-              <span class="Rale-Reg">
-                <p>
-                  Find people who were registered by the Toronto Emigrant Office
-                  between 1865 and 1883.
-                </p>
-              </span>
-
               <!-- Last name -->
               <div class="input-wrap ontario-form-group">
                 <label class="ontario-label" for="SURNAME"> Last name </label>
