@@ -1,224 +1,391 @@
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
 
-    <!-- include virtual="[AO_INCLUDES]head.htm"-->
+<!-- include virtual="[AO_INCLUDES]header.htm"-->
+<title>Advanced Search - Archives</title>
 
-        
-        <!-- include virtual="[AO_INCLUDES]header.htm"-->
-        <title>Advanced Search - Archives</title>
+<div id="Content-Wrapper" class="Content-Wrapper">
+  <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
 
-        <div id='Content-Wrapper' class='Content-Wrapper'>
-
-            <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
-
-            <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
-                <div id="maincontent">
-                    <h1 class='Rale-Extra Adv-Title'>Archives Advanced Search</h1>
-                    <p class='Form-Subheader Rale-Reg'>
-                        Refine your search using one or many of the specific search fields below.
-                    </p>
-                    <div class='Form-Wrapper'>
-                       
-                        <form id='Main-Form' class="Advanced-Form" method="post" name="adv_search" action="^SEARCH^&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm">
-                            
-                            
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B01" id="B01" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                
-                                <input type="text" class="form-control" name="REFD_CL"  aria-label="Search by Reference code" placeholder="Reference Code" title="Reference Code" autofocus>
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Reference Codes" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="REFD_CL" aria-label="Browse Reference Codes"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B02" id="B02" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                
-                                <input type="text" class="form-control" name="REFD_HIGHER_CL"  aria-label="Search by Higher reference code" placeholder="Higher Reference Code" title="Higher Reference Code">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Higher Reference Codes" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="REFD_HIGHER_CL" aria-label="Browse Higher Reference Codes"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B03" id="B03" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                
-                                <input type="text" class="form-control" name="TITLE_CL" aria-label="Search by Title" placeholder="Title" title="Title">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Titles" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="TITLE_CL" aria-label="Browse Record Titles"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B04" id="B04" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                
-                                <input type="text" class="form-control" name="FORMATS_CL" aria-label="Search by Format" placeholder="Format" title="Format">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Formats" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="FORMATS_CL" aria-label="Browse Record Formats"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B05" id="B05" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                <input type="text" class="form-control" name="SCOPE_CL" aria-label="Search by Scope" placeholder="Scope" title="Scope">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Scopes" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="SCOPE_CL" aria-label="Browse Record Scope"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                             <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B06" id="B06" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                <input type="text" class="form-control" name="ORIGIN_CL" aria-label="Search by Creator" placeholder="Creator" title="Creator">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Creators" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="ORIGIN_CL" aria-label="Browse Record Creators"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B07" id="B07" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                <input type="text" class="form-control" name="ASSO_ORG_CL" aria-label="Search by Associated people or Organisations" placeholder="Associated People/Organisations" title="Associated People/Organisations">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse People and Organizations" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="ASSO_ORG_CL" aria-label="Browse Record People and Organizations"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B08" id="B08" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                <input type="text" class="form-control" name="LEVEL_CL" aria-label="Search by Level" placeholder="Level" title="Level">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Levels" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="LEVEL_CL" aria-label="Browse Record Levels"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-                   
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B09" id="B09" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                <input type="text" class="form-control" name="SEARCH_DATE_CL" aria-label="Search by Search date" placeholder="Search Dates" title="Search Dates">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Search dates" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="SEARCH_DATE_CL" aria-label="Browse Search Dates"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-                            
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B10" id="B10" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                <input type="text" class="form-control" name="PHYS_DESC_CL" aria-label="Search by Physical description" placeholder="Physical Description" title="Physical Description">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Physical Descriptions" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="PHYS_DESC_CL" aria-label="Browse Physical Descriptions"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B11" id="B11" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                <input type="text" class="form-control" name="FINDAID_CL" aria-label="Search by Finding Aid" placeholder="Finding Aid Search" title="Finding Aid Search">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Finding Aids" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="FINDAID_CL" aria-label="Browse Finding Aids" ><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B12" id="B12" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                <input type="text" class="form-control" name="BARCODE_DESC_CL" aria-label="Search by Barcode" placeholder="Barcode" title="Barcode">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Barcodes" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="BARCODE_DESC_CL" aria-label="Select operator" aria-label="Browse Barcodes"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            <div class="input-group mb-3 Rale-Reg">
-                                <div class="input-group-prepend adv-operator-container">
-                                    <select name="B13" id="B13" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
-                                        <option value="and" selected="">And</option>
-                                        <option value="or">Or</option>
-                                        <option value="and not">Not</option>
-                                    </select>
-                                </div>
-                                <input type="text" class="form-control" name="SUBJECT_CL" aria-label="Search by Subject" placeholder="Subject" title="Subject">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-md btn-outline waves-effect general-focus m-0 px-3 py-2 z-depth-0" aria-label="Browse Subjects" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="SUBJECT_DESC_CL" aria-label="Browse Subjects"><i class="fas fa-bars"></i></button>
-                                </div>
-                            </div>
-    
-                            <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
-                                <button class="btn btn-outline-primary general-focus" type="submit" title="Submit" value='SEARCH'>Search</button>
-                                <button class="btn btn-outline-primary general-focus" id="clear" type="reset" title="Clear" value='SEARCH'>Clear</button>
-                            </div>
-                        </form>
-    
-                    </div>
+  <div
+    id="Panel-Main"
+    class="Panel-Main Main-Content d-flex flex-column align-items-center"
+  >
+   <div id="maincontent">
+        <div id="advanced-search-container">
+            <div class="Form-Wrapper">
+          <h1 class="Rale-Bold Main-Content-Heading">Archives advanced search</h1>
+          <p class="subheader">
+            Refine your search using one or many of the specific search fields
+            below.
+          </p>
+            <form
+              id="Main-Form"
+              class="Advanced-Form"
+              method="post"
+              name="adv_search"
+              action="^SEARCH^&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm"
+            >
+            
+        <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="REFD_HIGHER_CL"> Higher reference code </label>
+             
+              <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B02"
+                    id="B02"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
                 </div>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  name="REFD_HIGHER_CL"
+                  aria-label="Search by Higher reference code"
+                  title="Higher Reference Code"
+                />
+               
+              </div></div>
+            
+            <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="TITLE_CL"> Title </label>
+               <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B03"
+                    id="B03"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
+                </div>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  name="TITLE_CL"
+                  aria-label="Search by Title"
+                  title="Title"
+                />
+             
+              </div>
+              </div>
+             
+
+                    <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="FORMATS_CL"> Format </label>
+                
+                  <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B04"
+                    id="B04"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
+                </div>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  name="FORMATS_CL"
+                  aria-label="Search by Format"
+
+                  title="Format"
+                />
+             
+              </div>
+            
+            </div>
+                    <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="SCOPE_CL"> Scope </label>
+                  <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B05"
+                    id="B05"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="SCOPE_CL"
+                  aria-label="Search by Scope"
+                  title="Scope"
+                />
+              
+              </div>
+              </div>
+
+          
+      <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="ORIGIN_CL"> Creator </label>
+           
+             <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B06"
+                    id="B06"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="ORIGIN_CL"
+                  aria-label="Search by Creator"
+                  title="Creator"
+                />
+             
+              </div> </div>
+
+            
+        <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="ASSO_ORG_CL">  Associated people or organisations </label>
+                  <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B07"
+                    id="B07"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="ASSO_ORG_CL"
+                  aria-label="Search by Associated people or Organisations"
+                  title="Associated People/Organisations"
+                />
+              
+              </div>
+            
+            </div>
+         
+
+                        <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="LEVEL_CL"> Level </label>
+          
+          
+          <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B08"
+                    id="B08"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="LEVEL_CL"
+                  aria-label="Search by Level"
+                  title="Level"
+                />
+               
+              </div>  </div>
+              
+
+                 <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="SEARCH_DATE_CL"> Date </label>
+               <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B09"
+                    id="B09"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="SEARCH_DATE_CL"
+                  aria-label="Search by Search date"
+                  title="Search Dates"
+                />
+               
+              </div>
+ </div>
+            
+
+        <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="PHYS_DESC_CL"> Physical description </label>
+   <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B10"
+                    id="B10"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="PHYS_DESC_CL"
+                  aria-label="Search by Physical description"
+                  title="Physical Description"
+                />
+               
+              </div>
+              </div>
+           
+
+                          <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="FINDAID_CL"> Finding aid </label>
+                 <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B11"
+                    id="B11"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="FINDAID_CL"
+                  aria-label="Search by Finding Aid"
+                  title="Finding Aid Search"
+                />
+              
+              </div>
             </div>
 
-            <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+           
+            <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="BARCODE_DESC_CL"> Barcode </label>
+ <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B12"
+                    id="B12"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="BARCODE_DESC_CL"
+                  aria-label="Search by Barcode"
+                  title="Barcode"
+                />
+               
+              </div>
+              </div>
+             
 
+                 <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="SUBJECT_CL"> Subject </label>
+    <div class="input-group mb-3 Rale-Reg">
+                <div class="input-group-prepend adv-operator-container">
+                  <select
+                    name="B13"
+                    id="B13"
+                    aria-label="Select operator"
+                    class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus"
+                  >
+                    <option value="and" selected="">And</option>
+                    <option value="or">Or</option>
+                    <option value="and not">Not</option>
+                  </select>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="SUBJECT_CL"
+                  aria-label="Search by Subject"
+                  title="Subject"
+                />
+               
+              </div>
+              </div>
+          
+
+             <div class="Search-Options-Wrapper d-flex">
+              <button
+                aria-label="Press Enter to submit form"
+                type="submit"
+                title="Search"
+                value="SEARCH"
+                class="ontario-button ontario-button--primary general-focus"
+              >
+                Search
+              </button>
+              <button
+                aria-label="Press Enter to open clear form"
+                class="ontario-button ontario-button--secondary general-focus"
+                id="clear"
+                type="reset"
+                title="Clear"
+                value="Clear"
+              >
+                Clear all
+              </button>
+            </div>
+            </form>
+          </div>
         </div>
-        <!-- include virtual="[AO_INCLUDES]advSearchBrowse.htm"-->
-        
-        <!-- include virtual="[AO_INCLUDES]footer.htm"-->
+        </div>   
+      </div>
+
+      <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+    </div>
+    <!-- include virtual="[AO_INCLUDES]advSearchBrowse.htm"-->
+
+    <!-- include virtual="[AO_INCLUDES]footer.htm"-->
+  </div>
+</div>
