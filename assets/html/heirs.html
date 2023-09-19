@@ -6,13 +6,13 @@
 <div id="Content-Wrapper" class="Content-Wrapper">
   <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
   <div id="home-main-wrapper" style="width: 100%">
-    <div id="banner">
+    <!-- <div id="banner">
       <img
         id="banner-img-hawke"
         src="/assets/img/banner-heir-devisee.jpg"
         alt="A banner of the Toronto Emigrant Office Assisted Immigration Registers Database"
       />
-    </div>
+    </div> -->
     <div
       style="width: 100%"
       id="Panel-Main"
@@ -24,6 +24,18 @@
             <h1 class="Rale-Bold Main-Content-Heading">
               Search Second Heir and Devisee Commission case file collection
             </h1>
+            <div class="subheader">
+              <p>
+                Find claims for land made to the second Heir and Devisee
+                Commission between 1804 and 1895.
+              </p>
+              <a
+                href="http://www.archives.gov.on.ca/en/db/deviseedb.aspx"
+                target="_blank"
+                rel="noopener"
+                >Learn more about these case files and get search tips.
+              </a>
+            </div>
 
             <form
               id="Main-Form"
@@ -32,27 +44,10 @@
               name="simple_search"
               action="^home_sessid^?SEARCH&DATABASE=AOHEIRS&ERRMSG=[AO_INCLUDES]error/norecordHeirs.htm"
             >
-              <span class="Rale-Reg">
-                <p>
-                  This database is an index to the 5184 case files that document
-                  claims made to the second Heir and Devisee Commission.
-                </p>
-                <p>Enter a search term in one or more fields on the right.</p>
-                <p>
-                  For information about the second Heir and Devisee Commission,
-                  and for help with this database,
-                  <a
-                    href="http://www.archives.gov.on.ca/en/db/deviseedb.aspx"
-                    target="_blank"
-                    >click here</a
-                  >.
-                </p>
-              </span>
-
               <!-- Last name -->
               <div class="input-wrap ontario-form-group">
                 <label class="ontario-label" for="HD_SURNAME">
-                  Search by last name
+                  Last name
                 </label>
                 <div class="input-group mb-3 Rale-Reg">
                   <div
@@ -84,7 +79,7 @@
               <!-- First name -->
               <div class="input-wrap ontario-form-group">
                 <label class="ontario-label" for="HD_FIRSTNAME">
-                  Search by first name
+                  First name
                 </label>
                 <div class="input-group mb-3 Rale-Reg">
                   <div
@@ -115,7 +110,7 @@
               <!-- Town -->
               <div class="input-wrap ontario-form-group">
                 <label class="ontario-label" for="NATION">
-                  Search by town
+                  Town or township
                 </label>
                 <div class="input-group mb-3 Rale-Reg">
                   <div
@@ -145,9 +140,7 @@
 
               <!-- Year -->
               <div class="input-wrap ontario-form-group">
-                <label class="ontario-label" for="HD_DATE">
-                  Search by year
-                </label>
+                <label class="ontario-label" for="HD_DATE"> Year </label>
                 <div class="input-group mb-3 Rale-Reg">
                   <div
                     class="input-group-prepend adv-operator-container"
