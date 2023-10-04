@@ -3,175 +3,283 @@
 <!-- include virtual="[AO_INCLUDES]header.htm"-->
 <title>Client Profile</title>
 
-
-<div id='Content-Wrapper' class='Content-Wrapper'>
-
-    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
-    <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
-        <div id="maincontent">
-            <div id='Client-Container' class='d-flex flex-column'>
-                <h2 class='Rale-Extra client-profile-title'>Client Profile</h2>
-                <div id='Client-Info' class='d-flex flex-column'>
-                    <div class="client-button-row">
-                        <!-- <button class="btn btn-primary colorbox-edit-client Edit-Client function-buttons" id="Client-Edit">Edit Profile</button> -->
-                        <button id="Client-Edit" class="btn btn-primary Edit-Client function-buttons general-focus" onclick="redirectToEditProfile()">Edit Profile</button>
-                    </div>
-                    <div id='Client-Info-Inner-Container'>
-                        <div class='Client-Info-Item d-flex flex-row'>
-                            <!-- <div class='patron-temp'></div> -->
-                            <p class='Client-Info-Title Rale-Bold'>First Name: </p>
-                            <p id='Client-First' class='Client-Info-Value Rale-Reg'></p>
-                        </div>
-                        <div class='Client-Info-Item d-flex flex-row'>
-                            <!-- <div class='patron-temp'></div> -->
-                            <p class='Client-Info-Title Rale-Bold'>Last Name: </p>
-                            <p id='Client-Last' class='Client-Info-Value Rale-Reg'></p>
-                        </div>
-                        <div class='Client-Info-Item d-flex flex-row'>
-                            <!-- <div class='patron-temp'></div> -->
-                            <p class='Client-Info-Title Rale-Bold'>Email: </p>
-                            <p class='Client-Info-Value Rale-Reg'>
-                                <a id='Client-Email'></a>
-                            </p>
-                        </div>
-                        <div class='Client-Info-Item organization-item d-flex flex-row'>
-                            <!-- <div class='patron-temp'></div> -->
-                            <p class='Client-Info-Title Rale-Bold'>Organization: </p>
-                            <p id='Client-Org' class='Client-Info-Value Rale-Reg'></p>
-                        </div>
-                        <!-- This is not a card this is the ID -->
-                        <div class='Client-Info-Item card-id d-flex flex-row'>
-                            <!-- <div class='patron-temp'></div> -->
-                            <p class='Client-Info-Title Rale-Bold'>ID: </p>
-                            <p id='Client-Id' class='Client-Info-Value Rale-Reg'></p>
-                        </div>
-                        <div class='Client-Info-Item homePhone-item d-flex flex-row'>
-                            <!-- <div class='patron-temp'></div> -->
-                            <p class='Client-Info-Title Rale-Bold'>Home Phone: </p>
-                            <p id='Client-Tel' class='Client-Info-Value Rale-Reg'></p>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <br>
-                <div id='Client-Link-Container-Top' class="Rale-Bold">
-    
-                    <div id='Client-Request' class='patron-btns general-focus' title="Your Request" onclick="clientLinkOnclick(this)" tabindex="0">
-                        <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
-                        <div class='Link-Image'>
-                            <img src="/assets/img/request.png" alt='Your Request' width='50' height='50'>
-                        </div>
-                        <p>My </p>
-                        <p>Orders</p>
-                    </div>
-                    <div id='Client-Copyright' class='patron-btns general-focus disabled' title="Your Copyrights" onclick="clientLinkOnclick(this)" aria-disabled="true" disabled tabindex="0">
-                        <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
-                        <div class='Link-Image'>
-                            <i class="fa fa-copyright fa-3x" aria-hidden="true"></i>
-                        </div>
-                        <p>My </p>
-                        <p>Copyright </p>
-                        <p>Requests</p>
-                    </div>
-                    <div id='Client-Reproduction' class='patron-btns general-focus disabled' title="Your Reproductions" onclick="clientLinkOnclick(this)" aria-disabled="true" disabled tabindex="0">
-                        <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
-                        <div class='Link-Image'>
-                            <i class="far fa-copy fa-3x"></i>
-                        </div>
-                        <p>My </p>
-                        <p>Reproductions</p>
-                    </div>
-                </div>
-                <div id='Client-Link-Container-Bottom' title="Your Bookmarks" class="Rale-Bold">
-                    <div id='Client-Bookmarks' class='patron-btns general-focus' onclick="clientLinkOnclick(this)" tabindex="0">
-                        <!-- <a class="Bookmark-Link btn-sm d-flex flex-column form-check-label" href="^HOME_SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\nobookmark.htm&COOKIE=BOOKMARK"><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Bookmarks (^ITEMCOUNT=BOOKMARK^ items)</h4></a> -->
-                        <div class='Link-Image'>
-                            <img src="/assets/img/bookmark.png" alt='Your Bookmarks' width='50' height='50'>
-                        </div>
-                        <p>Bookmarks </p>
-                        <p>(^ITEMCOUNT=BOOKMARK^ items)</p>
-                    </div>
-                    <div id='Client-Enquiry' class='patron-btns general-focus' title="Your Enquiries" onclick="clientLinkOnclick(this)" tabindex="0">
-                        <!-- <a class="Client-Enquiry-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Enquiries</h4></a> -->
-                        <div class='Link-Image'>
-                            <i class="far fa-lightbulb fa-3x"></i>
-                        </div>
-                        <p>My </p>
-                        <p>Inquiries</p>
-                    </div>
-                    <div id='Client-Crowd-Sourcing' class='patron-btns general-focus disabled' title="Your Crowdsourced" onclick="clientLinkOnclick(this)" aria-disabled="true" disabled tabindex="0">
-                        <!-- <a class="Client-Crowd-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Crowdsourced</h4></a> -->
-                        <div class='Link-Image'>
-                            <i class="far fa-comment-dots fa-3x"></i>
-                        </div>
-                        <p>My </p>
-                        <p>Crowdsourced</p>
-                    </div>
-                </div>
-                <div id='Client-Mobile-Container' class='Rale-Bold'>
-                    <div class='Client-Mobile-Set Mobile-Pair-First'>
-                        <div id='Client-Request-Mobile' class='patron-btns general-focus' title="My Orders" onclick="clientLinkOnclick(this)" tabindex="0">
-                            <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
-                            <div class='Link-Image'>
-                                <img src="/assets/img/request.png" alt='Your Request' width='50' height='50'>
-                            </div>
-                            <p>Your </p>
-                            <p>Requests</p>
-                        </div>
-                        <div id='Client-Copyright-Mobile' class='patron-btns general-focus disabled' title="Your Copyrights" onclick="clientLinkOnclick(this)" aria-disabled="true" disabled tabindex="0">
-                            <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
-                            <div class='Link-Image'>
-                                <i class="fa fa-copyright fa-3x" aria-hidden="true"></i>
-                            </div>
-                            <p>Your </p>
-                            <p>Copyrights</p>
-                        </div>
-                    </div>
-                    <div class='Client-Mobile-Set Mobile-Pair-Second'>
-                        <div id='Client-Reproduction-Mobile' class='patron-btns general-focus disabled' title="Your Reproductions" onclick="clientLinkOnclick(this)" aria-disabled="true" disabled tabindex="0">
-                            <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
-                            <div class='Link-Image'>
-                                <i class="far fa-copy fa-3x"></i>
-                            </div>
-                            <p>Your </p>
-                            <p>Reproductions</p>
-                        </div>
-                        <div id='Client-Bookmarks-Mobile' class='patron-btns general-focus' onclick="clientLinkOnclick(this)" tabindex="0">
-                            <!-- <a class="Bookmark-Link btn-sm d-flex flex-column form-check-label" href="^HOME_SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\nobookmark.htm&COOKIE=BOOKMARK"><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Bookmarks (^ITEMCOUNT=BOOKMARK^ items)</h4></a> -->
-                            <div class='Link-Image'>
-                                <img src="/assets/img/bookmark.png" alt='Your Bookmarks' width='50' height='50'>
-                            </div>
-                            <p>Bookmarks </p>
-                            <p>(^ITEMCOUNT=BOOKMARK^ items)</p>
-                        </div>
-                    </div>
-                    <div class='Client-Mobile-Set Mobile-Pair-Third'>
-                        <div id='Client-Enquiry-Mobile' class='patron-btns general-focus' title="Your Enquiries" onclick="clientLinkOnclick(this)" tabindex="0">
-                            <!-- <a class="Client-Enquiry-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Enquiries</h4></a> -->
-                            <div class='Link-Image'>
-                                <i class="far fa-lightbulb fa-3x"></i>
-                            </div>
-                            <p>Your </p>
-                            <p>Enquiries</p>
-                        </div>
-                        <div id='Client-Crowd-Sourcing-Mobile' class='patron-btns general-focus disabled' title="Your Crowdsourced" onclick="clientLinkOnclick(this)" aria-disabled="true" disabled tabindex="0">
-                            <!-- <a class="Client-Crowd-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Crowdsourced</h4></a> -->
-                            <div class='Link-Image'>
-                                <i class="far fa-comment-dots fa-3x"></i>
-                            </div>
-                            <p>Your </p>
-                            <p>Crowdsourced</p>
-                        </div>
-                    </div>
-    
-    
-                </div>
-            </div>  
+<div id="Content-Wrapper" class="Content-Wrapper">
+  <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+  <div
+    id="Panel-Main"
+    class="Panel-Main Main-Content d-flex flex-column align-items-center"
+  >
+    <div id="maincontent">
+      <div id="Client-Container" class="d-flex flex-column">
+        <h2 class="Rale-Extra client-profile-title">Client Profile</h2>
+        <div id="Client-Info" class="d-flex flex-column">
+          <div class="client-button-row">
+            <!-- <button class="btn btn-primary colorbox-edit-client Edit-Client function-buttons" id="Client-Edit">Edit Profile</button> -->
+            <button
+              id="Client-Edit"
+              class="btn btn-primary Edit-Client function-buttons general-focus"
+              onclick="redirectToEditProfile()"
+            >
+              Edit Profile
+            </button>
+          </div>
+          <div id="Client-Info-Inner-Container">
+            <div class="Client-Info-Item d-flex flex-row">
+              <!-- <div class='patron-temp'></div> -->
+              <p class="Client-Info-Title Rale-Bold">First Name:</p>
+              <p id="Client-First" class="Client-Info-Value Rale-Reg"></p>
+            </div>
+            <div class="Client-Info-Item d-flex flex-row">
+              <!-- <div class='patron-temp'></div> -->
+              <p class="Client-Info-Title Rale-Bold">Last Name:</p>
+              <p id="Client-Last" class="Client-Info-Value Rale-Reg"></p>
+            </div>
+            <div class="Client-Info-Item d-flex flex-row">
+              <!-- <div class='patron-temp'></div> -->
+              <p class="Client-Info-Title Rale-Bold">Email:</p>
+              <p class="Client-Info-Value Rale-Reg">
+                <a id="Client-Email"></a>
+              </p>
+            </div>
+            <div class="Client-Info-Item organization-item d-flex flex-row">
+              <!-- <div class='patron-temp'></div> -->
+              <p class="Client-Info-Title Rale-Bold">Organization:</p>
+              <p id="Client-Org" class="Client-Info-Value Rale-Reg"></p>
+            </div>
+            <!-- This is not a card this is the ID -->
+            <div class="Client-Info-Item card-id d-flex flex-row">
+              <!-- <div class='patron-temp'></div> -->
+              <p class="Client-Info-Title Rale-Bold">ID:</p>
+              <p id="Client-Id" class="Client-Info-Value Rale-Reg"></p>
+            </div>
+            <div class="Client-Info-Item homePhone-item d-flex flex-row">
+              <!-- <div class='patron-temp'></div> -->
+              <p class="Client-Info-Title Rale-Bold">Home Phone:</p>
+              <p id="Client-Tel" class="Client-Info-Value Rale-Reg"></p>
+            </div>
+          </div>
         </div>
-
+        <hr />
+        <br />
+        <div id="Client-Link-Container-Top" class="Rale-Bold">
+          <div
+            id="Client-Request"
+            class="patron-btns general-focus"
+            title="Your Request"
+            onclick="clientLinkOnclick(this)"
+            tabindex="0"
+          >
+            <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
+            <div class="Link-Image">
+              <img
+                src="/assets/img/request.png"
+                alt="Your Request"
+                width="50"
+                height="50"
+              />
+            </div>
+            <p>My</p>
+            <p>Orders</p>
+          </div>
+          <div
+            id="Client-Copyright"
+            class="patron-btns general-focus disabled"
+            title="Your Copyrights"
+            onclick="clientLinkOnclick(this)"
+            aria-disabled="true"
+            disabled
+            tabindex="0"
+          >
+            <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
+            <div class="Link-Image">
+              <i class="fa fa-copyright fa-3x" aria-hidden="true"></i>
+            </div>
+            <p>My</p>
+            <p>Copyright</p>
+            <p>Requests</p>
+          </div>
+          <div
+            id="Client-Reproduction"
+            class="patron-btns general-focus disabled"
+            title="Your Reproductions"
+            onclick="clientLinkOnclick(this)"
+            aria-disabled="true"
+            disabled
+            tabindex="0"
+          >
+            <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
+            <div class="Link-Image">
+              <i class="far fa-copy fa-3x"></i>
+            </div>
+            <p>My</p>
+            <p>Reproductions</p>
+          </div>
+        </div>
+        <div
+          id="Client-Link-Container-Bottom"
+          title="Your Bookmarks"
+          class="Rale-Bold"
+        >
+          <div
+            id="Client-Bookmarks"
+            class="patron-btns general-focus"
+            onclick="clientLinkOnclick(this)"
+            tabindex="0"
+          >
+            <!-- <a class="Bookmark-Link btn-sm d-flex flex-column form-check-label" href="^HOME_SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\nobookmark.htm&COOKIE=BOOKMARK"><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Bookmarks (^ITEMCOUNT=BOOKMARK^ items)</h4></a> -->
+            <div class="Link-Image">
+              <img
+                src="/assets/img/bookmark.png"
+                alt="Your Bookmarks"
+                width="50"
+                height="50"
+              />
+            </div>
+            <p>Bookmarks</p>
+            <p>(^ITEMCOUNT=BOOKMARK^ items)</p>
+          </div>
+          <div
+            id="Client-Enquiry"
+            class="patron-btns general-focus"
+            title="Your Enquiries"
+            onclick="clientLinkOnclick(this)"
+            tabindex="0"
+          >
+            <!-- <a class="Client-Enquiry-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Enquiries</h4></a> -->
+            <div class="Link-Image">
+              <i class="far fa-lightbulb fa-3x"></i>
+            </div>
+            <p>My</p>
+            <p>Inquiries</p>
+          </div>
+          <div
+            id="Client-Crowd-Sourcing"
+            class="patron-btns general-focus disabled"
+            title="Your Crowdsourced"
+            onclick="clientLinkOnclick(this)"
+            aria-disabled="true"
+            disabled
+            tabindex="0"
+          >
+            <!-- <a class="Client-Crowd-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Crowdsourced</h4></a> -->
+            <div class="Link-Image">
+              <i class="far fa-comment-dots fa-3x"></i>
+            </div>
+            <p>My</p>
+            <p>Crowdsourced</p>
+          </div>
+        </div>
+        <div id="Client-Mobile-Container" class="Rale-Bold">
+          <div class="Client-Mobile-Set Mobile-Pair-First">
+            <div
+              id="Client-Request-Mobile"
+              class="patron-btns general-focus"
+              title="My Orders"
+              onclick="clientLinkOnclick(this)"
+              tabindex="0"
+            >
+              <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
+              <div class="Link-Image">
+                <img
+                  src="/assets/img/request.png"
+                  alt="Your Request"
+                  width="50"
+                  height="50"
+                />
+              </div>
+              <p>Your</p>
+              <p>Requests</p>
+            </div>
+            <div
+              id="Client-Copyright-Mobile"
+              class="patron-btns general-focus disabled"
+              title="Your Copyrights"
+              onclick="clientLinkOnclick(this)"
+              aria-disabled="true"
+              disabled
+              tabindex="0"
+            >
+              <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
+              <div class="Link-Image">
+                <i class="fa fa-copyright fa-3x" aria-hidden="true"></i>
+              </div>
+              <p>Your</p>
+              <p>Copyrights</p>
+            </div>
+          </div>
+          <div class="Client-Mobile-Set Mobile-Pair-Second">
+            <div
+              id="Client-Reproduction-Mobile"
+              class="patron-btns general-focus disabled"
+              title="Your Reproductions"
+              onclick="clientLinkOnclick(this)"
+              aria-disabled="true"
+              disabled
+              tabindex="0"
+            >
+              <!-- <a class="Client-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Request</h4></a> -->
+              <div class="Link-Image">
+                <i class="far fa-copy fa-3x"></i>
+              </div>
+              <p>Your</p>
+              <p>Reproductions</p>
+            </div>
+            <div
+              id="Client-Bookmarks-Mobile"
+              class="patron-btns general-focus"
+              onclick="clientLinkOnclick(this)"
+              tabindex="0"
+            >
+              <!-- <a class="Bookmark-Link btn-sm d-flex flex-column form-check-label" href="^HOME_SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\nobookmark.htm&COOKIE=BOOKMARK"><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Bookmarks (^ITEMCOUNT=BOOKMARK^ items)</h4></a> -->
+              <div class="Link-Image">
+                <img
+                  src="/assets/img/bookmark.png"
+                  alt="Your Bookmarks"
+                  width="50"
+                  height="50"
+                />
+              </div>
+              <p>Bookmarks</p>
+              <p>(^ITEMCOUNT=BOOKMARK^ items)</p>
+            </div>
+          </div>
+          <div class="Client-Mobile-Set Mobile-Pair-Third">
+            <div
+              id="Client-Enquiry-Mobile"
+              class="patron-btns general-focus"
+              title="Your Enquiries"
+              onclick="clientLinkOnclick(this)"
+              tabindex="0"
+            >
+              <!-- <a class="Client-Enquiry-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Enquiries</h4></a> -->
+              <div class="Link-Image">
+                <i class="far fa-lightbulb fa-3x"></i>
+              </div>
+              <p>Your</p>
+              <p>Enquiries</p>
+            </div>
+            <div
+              id="Client-Crowd-Sourcing-Mobile"
+              class="patron-btns general-focus disabled"
+              title="Your Crowdsourced"
+              onclick="clientLinkOnclick(this)"
+              aria-disabled="true"
+              disabled
+              tabindex="0"
+            >
+              <!-- <a class="Client-Crowd-Link btn-sm d-flex flex-column form-check-label" href=""><em class="icon-list-alt"></em><h4 class='Rale-Bold'>Your Crowdsourced</h4></a> -->
+              <div class="Link-Image">
+                <i class="far fa-comment-dots fa-3x"></i>
+              </div>
+              <p>Your</p>
+              <p>Crowdsourced</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+  </div>
+  <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
 </div>
-
 
 <!-- include virtual="[AO_INCLUDES]footer.htm"-->
