@@ -19,7 +19,7 @@ td {
 }
 
 .minimum-font-size {
-  font-size: 14.6667px;
+  font-size: 16px;
 }
 
 /* Access Collections Card Start*/
@@ -2033,7 +2033,7 @@ p {
 
 @media only screen and (min-width: 1168px) {
   .Features-Container {
-    align-items: center;
+    /* align-items: center; */
   }
   .Panel-Right {
     background-color: white;
