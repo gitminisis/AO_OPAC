@@ -2023,6 +2023,9 @@ p {
   .Panel-Main {
     padding: 16px;
   }
+  .Right-Panel-Bookmark-Button {
+    width: 328px !important;
+  }
 }
 
 /** DESKTOP VIEW STYLE  */
