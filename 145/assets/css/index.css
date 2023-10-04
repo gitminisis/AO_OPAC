@@ -1802,6 +1802,7 @@ p {
 .Right-Panel-Bookmark-Button {
   margin-right: 0 !important;
   margin-bottom: 0 !important;
+  font-size: 16px !important;
 }
 
 .Input-Wrapper {
@@ -2023,6 +2024,9 @@ p {
   .Panel-Main {
     padding: 16px;
   }
+  .Right-Panel-Bookmark-Button {
+    width: 328px !important;
+  }
 }
 
 /** DESKTOP VIEW STYLE  */
@@ -2103,4 +2107,10 @@ p {
 
 #db-name {
   font-weight: 700;
+}
+
+/* HIDE BARCODE INFORMATION */
+
+#barcode-info {
+  display: none !important;
 }
