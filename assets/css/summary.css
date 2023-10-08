@@ -88,13 +88,13 @@
 
 .pagination-container a {
     text-decoration: none;
-    color: #0066CC;
+    color: #0066cc;
 }
 
 .pagination-container,
 .pagination span,
 .pagination span:hover {
-    color: #0066CC;
+    color: #0066cc;
 }
 
 .pagination-container a:hover {
@@ -107,7 +107,7 @@
     flex: 1;
     margin: 5px;
     padding: 1em;
-    background-color: #FFF;
+    background-color: #fff;
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 5px 5px 10px #888888;
@@ -166,7 +166,7 @@ textarea {
     border: 1px solid transparent;
 }
 
-.Unchecked-Bookmark input[type='checkbox'] {
+.Unchecked-Bookmark input[type="checkbox"] {
     display: none;
 }
 
@@ -180,13 +180,13 @@ textarea {
     border-radius: 5px;
 }
 
-.Delete-Bookmark input[type='checkbox'] {
+.Delete-Bookmark input[type="checkbox"] {
     display: none;
 }
 
 .previous-button,
 .next-button {
-    color: #0066CC;
+    color: #0066cc;
     padding: 0 10px 0 10px;
     background-color: none;
     font-size: 18px !important;
@@ -194,7 +194,7 @@ textarea {
 
 .previous-button:hover,
 .next-button:hover {
-    color: #0066CC;
+    color: #0066cc;
     font-weight: bold;
 }
 
@@ -234,7 +234,7 @@ textarea {
 }
 
 .web_sum_form {
-    width: 100%
+    width: 100%;
 }
 
 .Bookmark,
@@ -408,7 +408,7 @@ form div .Crowd-Header-Title {
     flex-direction: row;
     margin-bottom: 10px;
     padding: 1em;
-    background-color: #FFF;
+    background-color: #fff;
     border: 1px solid black;
     border-radius: 5px;
     justify-content: center;
@@ -505,6 +505,10 @@ form div .Crowd-Header-Title {
 .sort-header,
 .filter-header {
     font-size: 1.25rem;
+}
+
+.sort-header {
+    width: 100%;
 }
 
 .sort-acc-body {
