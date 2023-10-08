@@ -1365,11 +1365,11 @@ p {
     font-size: 1.2rem;
   }
   .Footer-Navigation {
-    display: none;
+    /* display: none; */
   }
   .Footer-Navigation-Mobile {
-    display: flex;
-    flex-wrap: wrap;
+    display: none;
+    /* flex-wrap: wrap; */
   }
   .footer-mobile-left,
   .footer-mobile-right {
@@ -2120,5 +2120,8 @@ p {
   appearance: auto !important;
 }
 
- /* Hide .Reproduction, .Copyright */
-.Reproduction, .Copyright {display: none !important;}
+/* Hide .Reproduction, .Copyright */
+.Reproduction,
+.Copyright {
+  display: none !important;
+}
