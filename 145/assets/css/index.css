@@ -329,8 +329,6 @@ td {
 
 .Features-Container {
   border-left: 1px solid black;
-  margin-top: 1em;
-  margin-bottom: 1em;
   width: 100% !important;
   padding: 1em;
 }
@@ -399,7 +397,7 @@ td {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
   margin: 0 0 1em 0;
 }
@@ -740,8 +738,6 @@ p {
 .Quick-Links-Container {
   width: 100%;
   border-right: 1px solid #000;
-  margin-top: 1em;
-  margin-bottom: 1em;
   padding: 1em;
 }
 
@@ -914,6 +910,7 @@ p {
 }
 
 .subheader {
+  max-width: 48rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -2033,7 +2030,7 @@ p {
 
 @media only screen and (min-width: 1168px) {
   .Features-Container {
-    /* align-items: center; */
+    align-items: center;
   }
   .Panel-Right {
     background-color: white;
