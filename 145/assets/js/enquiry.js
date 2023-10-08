@@ -365,7 +365,8 @@ const descSubjGenerator = (sessid, refd, barcode = null, title) => {
 }
 const artSubjGenerator = (sessid, e) => {
     let title = e.getAttribute('title');
-    redirectToEnquiry(sessid, title);
+    // redirectToEnquiry(sessid, title);
+    window.location = "https://www.archives.gov.on.ca/fr/about/contact.aspx";
 }
 
 const biblioSubjGenerator = (sessid, barcode = null) => {
@@ -375,7 +376,8 @@ const biblioSubjGenerator = (sessid, barcode = null) => {
     if (!barcode) subj = title;
     else subj = `${barcode} - ${title}`
 
-    redirectToEnquiry(sessid, subj)
+    // redirectToEnquiry(sessid, subj)
+     window.location = "https://www.archives.gov.on.ca/fr/about/contact.aspx";
 }
 
 
