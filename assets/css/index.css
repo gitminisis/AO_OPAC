@@ -2119,3 +2119,6 @@ p {
 .form-control {
   appearance: auto !important;
 }
+
+ /* Hide .Reproduction, .Copyright */
+.Reproduction, .Copyright {display: none !important;}
