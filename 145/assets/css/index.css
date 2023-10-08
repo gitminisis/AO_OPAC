@@ -2116,3 +2116,6 @@ p {
 #barcode-info {
   display: none !important;
 }
+.form-control {
+  appearance: auto !important;
+}
