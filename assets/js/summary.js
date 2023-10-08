@@ -100,7 +100,7 @@ $(document).ready(function(){
         $('.bookmark-btn').on('click',function() {
             if (count == false){
                 count = true;
-                console.log("success")
+                // alert($(".web_sum_form").attr('data-action'))
                 $.ajax({
                     type: "POST",
                     url:$(".web_sum_form").attr('data-action'),
