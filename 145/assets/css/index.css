@@ -2116,3 +2116,12 @@ p {
 #barcode-info {
   display: none !important;
 }
+.form-control {
+  appearance: auto !important;
+}
+
+/* Hide .Reproduction, .Copyright */
+.Reproduction,
+.Copyright {
+  display: none !important;
+}
