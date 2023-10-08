@@ -1365,11 +1365,11 @@ p {
     font-size: 1.2rem;
   }
   .Footer-Navigation {
-    /* display: none; */
+    display: none;
   }
   .Footer-Navigation-Mobile {
-    display: none;
-    /* flex-wrap: wrap; */
+    display: flex;
+    flex-wrap: wrap;
   }
   .footer-mobile-left,
   .footer-mobile-right {
@@ -2060,10 +2060,6 @@ p {
 
 #Detail-Content {
   font-family: "Open Sans", sans-serif !important;
-  font-size: 16px;
-}
-
-#Detail-Content button {
   font-size: 16px;
 }
 

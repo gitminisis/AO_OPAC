@@ -2064,7 +2064,7 @@ p {
 }
 
 #Detail-Content button {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 .access-collections-bottom table {
