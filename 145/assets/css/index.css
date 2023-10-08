@@ -19,7 +19,7 @@ td {
 }
 
 .minimum-font-size {
-  font-size: 14.6667px;
+  font-size: 16px;
 }
 
 /* Access Collections Card Start*/
@@ -329,8 +329,6 @@ td {
 
 .Features-Container {
   border-left: 1px solid black;
-  margin-top: 1em;
-  margin-bottom: 1em;
   width: 100% !important;
   padding: 1em;
 }
@@ -399,7 +397,7 @@ td {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
   margin: 0 0 1em 0;
 }
@@ -740,8 +738,6 @@ p {
 .Quick-Links-Container {
   width: 100%;
   border-right: 1px solid #000;
-  margin-top: 1em;
-  margin-bottom: 1em;
   padding: 1em;
 }
 
@@ -914,6 +910,7 @@ p {
 }
 
 .subheader {
+  max-width: 48rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -1802,7 +1799,7 @@ p {
 .Right-Panel-Bookmark-Button {
   margin-right: 0 !important;
   margin-bottom: 0 !important;
-  max-width: 180px;
+  font-size: 16px !important;
 }
 
 .Input-Wrapper {
@@ -2024,6 +2021,9 @@ p {
   .Panel-Main {
     padding: 16px;
   }
+  .Right-Panel-Bookmark-Button {
+    width: 328px !important;
+  }
 }
 
 /** DESKTOP VIEW STYLE  */
@@ -2104,4 +2104,10 @@ p {
 
 #db-name {
   font-weight: 700;
+}
+
+/* HIDE BARCODE INFORMATION */
+
+#barcode-info {
+  display: none !important;
 }
