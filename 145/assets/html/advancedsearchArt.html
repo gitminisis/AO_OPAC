@@ -190,8 +190,11 @@ Description de l'objet
                     </div>
               </div>
                
-    
-                    <div class="input-group mb-3 Rale-Reg">
+               <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="MAKER_ORG">
+        Fabricant (Organisation)
+              </label>
+   <div class="input-group mb-3 Rale-Reg">
                         <div class="input-group-prepend adv-operator-container">
                             <select name="B08" id="B08" aria-label="S&eacute;lectionnez l'op&eacute;rateur"
                                 class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
@@ -202,7 +205,7 @@ Description de l'objet
                         </div>
     
                         <input type="text" class="form-control" name="MAKER_ORG" aria-label="Recherch&eacute; par Fabricant Organisation"
-                            placeholder="Fabricant (Organisation)" title="Fabricant Organisation">
+                  title="Fabricant Organisation">
                         <div class="input-group-append">
                             <button type="button"
                                 class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
@@ -210,8 +213,11 @@ Description de l'objet
                                 aria-label="Parcourir Fabricant Organisation"><i class="fas fa-bars"></i></button>
                         </div>
                     </div>
-    
-                    <div class="input-group mb-3 Rale-Reg">
+              </div>
+                 
+               <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="MEDIUM"> Technique </label>
+     <div class="input-group mb-3 Rale-Reg">
                         <div class="input-group-prepend adv-operator-container">
                             <select name="B09" id="B09" aria-label="S&eacute;lectionnez l'op&eacute;rateur"
                                 class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
@@ -222,7 +228,7 @@ Description de l'objet
                         </div>
     
                         <input type="text" class="form-control" name="MEDIUM" aria-label="Recherch&eacute; par Technique"
-                            placeholder="Technique" title="Technique">
+                         title="Technique">
                         <div class="input-group-append">
                             <button type="button"
                                 class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
@@ -230,8 +236,11 @@ Description de l'objet
                                 aria-label="Parcourir Technique"><i class="fas fa-bars"></i></button>
                         </div>
                     </div>
-    
-                    <div class="input-group mb-3 Rale-Reg">
+               </div>
+               
+                <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="MATERIAL_COO"> D&eacute;tails sur la technique </label>
+ <div class="input-group mb-3 Rale-Reg">
                         <div class="input-group-prepend adv-operator-container">
                             <select name="B10" id="B10" aria-label="S&eacute;lectionnez l'op&eacute;rateur"
                                 class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
@@ -242,7 +251,7 @@ Description de l'objet
                         </div>
     
                         <input type="text" class="form-control" name="MATERIAL_COO" aria-label="Recherch&eacute; par D&eacute;tails sur la technique"
-                            placeholder="D&eacute;tails sur la technique" title="D&eacute;tails sur la technique">
+                            placeholder="" title="D&eacute;tails sur la technique">
                         <div class="input-group-append">
                             <button type="button"
                                 class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
@@ -250,6 +259,8 @@ Description de l'objet
                                 aria-label="Parcourir D&eacute;tails sur la technique"><i class="fas fa-bars"></i></button>
                         </div>
                     </div>
+              </div>
+                   
     
                     <!-- <div class="input-group mb-3 Rale-Reg">
                                 <div class="input-group-prepend adv-operator-container">
@@ -264,12 +275,29 @@ Description de l'objet
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="BUILDING_CL" aria-label="S&eacute;lectionnez l'op&eacute;rateur" aria-label="Parcourir Locations"><i class="fas fa-bars"></i></button>
                                 </div> -->
-                    <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
-                        <button class="btn btn-outline-primary general-focus" type="submit" title="Search"
-                            value='Recherche'>Soumettre</button>
-                        <button class="btn btn-outline-primary general-focus" id="clear" type="reset" title="Clear"
-                            value='Recherche'>D&eacute;gager</button>
-                    </div>
+                   
+                     <div class="Search-Options-Wrapper d-flex">
+              <button
+                aria-label="Press Enter to submit form"
+                type="submit"
+                title="Search"
+                value="SEARCH"
+                class="ontario-button ontario-button--primary general-focus"
+              >
+                Soumettre
+              </button>
+              <button
+                aria-label="Press Enter to open clear form"
+                class="ontario-button ontario-button--secondary general-focus"
+                id="clear"
+                type="reset"
+                title="Clear"
+                value="Clear"
+              >
+               D&eacute;gager
+              </button>
+            </div>
+                              
                 </form>
             </div></div>
            
