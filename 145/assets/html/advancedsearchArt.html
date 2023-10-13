@@ -9,18 +9,20 @@
     <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm"-->
 
     <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
-        <h1 class='Rale-Extra Adv-Title'>RECHERCHE AVANC&Eacute;E d'art</h1>
-        <p class='Form-Subheader Rale-Reg'>
+     
+        <div id="maincontent">
+              <div id="advanced-search-container"> 
+                <div class='Form-Wrapper'>
+       <h1 class='Rale-Bold Main-Content-Heading'>Rechreche Avanc&eacute;e d'art</h1>
+        <p class='subheader'>
             Affinez votre recherche en utilisant un ou plusieurs des champs de recherche sp&eacute;cifiques ci-dessous.
         </p>
-        <div id="maincontent">
-            <div class='Form-Wrapper'>
-    
                 <form id='Main-Form' class="Advanced-Form" method="post" name="adv_search"
                     action="^home_sessid^?UNIONSEARCH&KEEP=Y&APPLICATION=UNION_VIEW&DATABASE=COLLECTIONS_WEB&language=145&REPORT=WEB_UNION_SUM_FR&ERRMSG=[ao_opac]/145/includes/error~5cnorecord.htm">
     
-    
-                    <div class="input-group mb-3 Rale-Reg">
+       <div class="input-wrap ontario-form-group">  <label class="ontario-label" for="ACCESSION_NUMBER">
+             Recherch&eacute; par Num&eacute;ro d'acquisition
+              </label>     <div class="input-group mb-3 Rale-Reg">
                         <div class="input-group-prepend adv-operator-container">
                             <select name="B01" id="B01" aria-label="S&eacute;lectionnez l'op&eacute;rateur"
                                 class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
@@ -31,16 +33,19 @@
                         </div>
     
                         <input type="text" class="form-control" name="ACCESSION_NUMBER" aria-label="Recherch&eacute; par Num&eacute;ro d'acquisition"
-                            placeholder="Num&eacute;ro d'acquisition" title="Num&eacute;ro d'acquisition" autofocus>
+         title="Num&eacute;ro d'acquisition" autofocus>
                         <div class="input-group-append">
                             <button type="button"
                                 class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
                                 data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="AN_CL"
                                 aria-label="Parcourir Num&eacute;ro d'acquisition"><i class="fas fa-bars"></i></button>
                         </div>
-                    </div>
+                    </div></div>
+               
     
-                    <div class="input-group mb-3 Rale-Reg">
+                      <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="LEGAL_TITLE">Titre </label>
+ <div class="input-group mb-3 Rale-Reg">
                         <div class="input-group-prepend adv-operator-container">
                             <select name="B02" id="B02" aria-label="S&eacute;lectionnez l'op&eacute;rateur"
                                 class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
@@ -51,7 +56,7 @@
                         </div>
     
                         <input type="text" class="form-control" name="LEGAL_TITLE" aria-label="Recherch&eacute; par Titre"
-                            placeholder="Titre" title="Titre">
+                             title="Titre">
                         <div class="input-group-append">
                             <button type="button"
                                 class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
@@ -59,8 +64,14 @@
                                 aria-label="Parcourir le Titre"><i class="fas fa-bars"></i></button>
                         </div>
                     </div>
+              </div>
+                   
     
-                    <div class="input-group mb-3 Rale-Reg">
+
+                     <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="OBJ_DESCRIPTION">
+Description de l'objet
+              </label> <div class="input-group mb-3 Rale-Reg">
                         <div class="input-group-prepend adv-operator-container">
                             <select name="B03" id="B03" aria-label="S&eacute;lectionnez l'op&eacute;rateur"
                                 class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
@@ -71,7 +82,7 @@
                         </div>
     
                         <input type="text" class="form-control" name="OBJ_DESCRIPTION" aria-label="Recherch&eacute; par Description de l'objet"
-                            placeholder="Description de l'objet" title="Description de l'objet">
+                          title="Description de l'objet">
                         <div class="input-group-append">
                             <button type="button"
                                 class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
@@ -79,8 +90,14 @@
                                 aria-label="Parcourir Description de l'objet"><i class="fas fa-bars"></i></button>
                         </div>
                     </div>
-    
-                    <div class="input-group mb-3 Rale-Reg">
+
+              </div>
+                   
+         <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="OBJECT_TYPE">
+               Cat&eacute;gorie/Type
+              </label>
+                <div class="input-group mb-3 Rale-Reg">
                         <div class="input-group-prepend adv-operator-container">
                             <select name="B04" id="B04" aria-label="S&eacute;lectionnez l'op&eacute;rateur"
                                 class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
@@ -91,7 +108,7 @@
                         </div>
     
                         <input type="text" class="form-control" name="OBJECT_TYPE" aria-label="Recherch&eacute; par Cat&eacute;gorie/Typ"
-                            placeholder="Cat&eacute;gorie/Type" title="Cat&eacute;gorie/Type">
+                title="Cat&eacute;gorie/Type">
                         <div class="input-group-append">
                             <button type="button"
                                 class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
@@ -99,8 +116,12 @@
                                 aria-label="Parcourir Cat&eacute;gorie/Type"><i class="fas fa-bars"></i></button>
                         </div>
                     </div>
+         </div>
+                  
     
-                    <div class="input-group mb-3 Rale-Reg">
+                     <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="SUB_KEYWORD"> Type de sujet </label>
+     <div class="input-group mb-3 Rale-Reg">
                         <div class="input-group-prepend adv-operator-container">
                             <select name="B05" id="B05" aria-label="S&eacute;lectionnez l'op&eacute;rateur"
                                 class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
@@ -111,17 +132,20 @@
                         </div>
     
                         <input type="text" class="form-control" name="SUB_KEYWORD" aria-label="Recherch&eacute; par Type de sujet"
-                            placeholder="Type de sujet" title="Type de sujet">
+                           title="Type de sujet">
                         <div class="input-group-append">
                             <button type="button"
                                 class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
                                 data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="SUB_CL"
                                 aria-label="Parcourir Type de sujet"><i class="fas fa-bars"></i></button>
                         </div>
-                    </div>
+                    </div></div>
+               
     
-    
-                    <div class="input-group mb-3 Rale-Reg">
+      <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="EARLY"> Date </label>
+
+   <div class="input-group mb-3 Rale-Reg">
                         <div class="input-group-prepend adv-operator-container">
                             <select name="B06" id="B06" aria-label="S&eacute;lectionnez l'op&eacute;rateur"
                                 class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
@@ -132,7 +156,7 @@
                         </div>
     
                         <input type="text" class="form-control" name="EARLY" aria-label="Recherch&eacute; par Date"
-                            placeholder="Date" title="Date">
+                        title="Date">
                         <div class="input-group-append">
                             <button type="button"
                                 class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
@@ -140,8 +164,12 @@
                                 aria-label="Parcourir Date"><i class="fas fa-bars"></i></button>
                         </div>
                     </div>
-    
-                    <div class="input-group mb-3 Rale-Reg">
+
+              </div>
+                 
+        <div class="input-wrap ontario-form-group">
+              <label class="ontario-label" for="MAKER_FULLNAME"> Artiste </label>
+     <div class="input-group mb-3 Rale-Reg">
                         <div class="input-group-prepend adv-operator-container">
                             <select name="B07" id="B07" aria-label="S&eacute;lectionnez l'op&eacute;rateur"
                                 class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
@@ -152,7 +180,7 @@
                         </div>
     
                         <input type="text" class="form-control" name="MAKER_FULLNAME" aria-label="Recherch&eacute; par Artiste"
-                            placeholder="Artiste" title="Artiste">
+                  title="Artiste">
                         <div class="input-group-append">
                             <button type="button"
                                 class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus"
@@ -160,6 +188,8 @@
                                 aria-label="Parcourir Artiste"><i class="fas fa-bars"></i></button>
                         </div>
                     </div>
+              </div>
+               
     
                     <div class="input-group mb-3 Rale-Reg">
                         <div class="input-group-prepend adv-operator-container">
@@ -241,7 +271,8 @@
                             value='Recherche'>D&eacute;gager</button>
                     </div>
                 </form>
-            </div>
+            </div></div>
+           
         </div>
     </div>
     <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
