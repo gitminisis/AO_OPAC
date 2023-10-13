@@ -1,6 +1,8 @@
 $(document).ready(function () {
   let page = document.getElementById("summary-page");
-  setPaginationAccessiblity(page);
+  try {
+    setPaginationAccessiblity(page);
+  } catch (error) {}
 
   if (page !== null) {
     let countImg = 1,
