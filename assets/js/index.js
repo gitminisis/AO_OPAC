@@ -679,6 +679,12 @@ const appendDatabaseToSearchStatement = () => {
     case "BIBLIO_WEB":
       dbspan.text("library collection");
       break;
+    case "PEOPLE_VAL_SYN":
+      dbspan.text("people collection");
+      break;
+    case "ORGANIZATION_VAL_SYN":
+      dbspan.text("organization collection");
+      break;
     default:
       dbspan.text("all collections");
   }
