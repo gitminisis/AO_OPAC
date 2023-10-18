@@ -1,91 +1,61 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
 
 <!-- include virtual="[AO_INCLUDES]header.htm"-->
-<title>Archive</title>
+<title>Archival search - Archives of Ontario</title>
 
 <div id="Content-Wrapper" class="Content-Wrapper">
-  <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
-  <div id="home-main-wrapper">
-    <div id="banner">
-      <img id="banner-img" src="/assets/img/archival.png" alt="" />
-    </div>
-    <div
-      id="Panel-Main"
-      class="Panel-Main Main-Content d-flex flex-column align-items-center"
-    >
-      <div id="maincontent">
-        <div id="homepage-container">
-          <div class="Form-Wrapper">
-            <h1 class="Rale-Bold Main-Content-Heading">
-              Search archival collection
-            </h1>
+    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+    <div id="home-main-wrapper">
+        <div id="banner">
+            <img id="banner-img" src="/assets/img/archival.png" alt="" />
+        </div>
+        <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
+            <div id="maincontent">
+                <div id="homepage-container">
+                    <div class="Form-Wrapper">
+                        <h1 class="Rale-Bold Main-Content-Heading">
+                            Search archival collection
+                        </h1>
 
-            <div class="subheader">
-              <p>The collection contains:</p>
-              <ul>
-                <li>
-                  <p>documents</p>
-                </li>
-                <li>
-                  <p>photographs, maps, and architectural plans</p>
-                </li>
-                <li>
-                  <p>sound and moving images</p>
-                </li>
-              </ul>
-            </div>
+                        <div class="subheader">
+                            <p>The collection contains:</p>
+                            <ul>
+                                <li>
+                                    <p>documents</p>
+                                </li>
+                                <li>
+                                    <p>photographs, maps, and architectural plans</p>
+                                </li>
+                                <li>
+                                    <p>sound and moving images</p>
+                                </li>
+                            </ul>
+                        </div>
 
-            <form
-              id="Main-Form"
-              class="minimum-font-size"
-              method="post"
-              name="simple_search"
-              action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm"
-            >
-              <div class="main-form-left">
-                <span id="Number-Results"></span>
-                <div class="Input-Wrapper d-flex flex-column">
-                  <div id="simple-search-container">
-                    <div id="simple-search-input-wrapper">
-                      <input
-                        id="simple_search_input"
-                        type="text"
-                        aria-labelledby="simple_search_input_label"
-                        name="KEYWORD_CLUSTER"
-                        autofocus
-                        aria-label="Simple Search Input"
-                      />
+                        <form id="Main-Form" class="minimum-font-size" method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm">
+                            <div class="main-form-left">
+                                <span id="Number-Results"></span>
+                                <div class="Input-Wrapper d-flex flex-column">
+                                    <div id="simple-search-container">
+                                        <div id="simple-search-input-wrapper">
+                                            <input id="simple_search_input" type="text" aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input" />
 
-                      <button
-                        aria-label="Clear search"
-                        id="simple-search-reset"
-                        alt="Clear search"
-                        title="Clear search"
-                        type="button"
-                      >
+                                            <button aria-label="Clear search" id="simple-search-reset" alt="Clear search" title="Clear search" type="button">
                         <i class="fas fa-times"></i>
                       </button>
-                    </div>
+                                        </div>
 
-                    <button
-                      aria-label="Search Button"
-                      class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary"
-                      alt="Search"
-                      title="Search"
-                      type="submit"
-                      value="Search"
-                    >
+                                        <button aria-label="Search Button" class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search" title="Search" type="submit" value="Search">
                       <i class="fas fa-search search-button-icon"></i>
                       <span class="search-button-label">Search</span>
                     </button>
-                  </div>
-                </div>
+                                    </div>
+                                </div>
 
-                <div class="ontario-form-group">
-                  <fieldset class="ontario-fieldset">
-                    <legend class="visually-hidden">
-                      Radio legend<span class="ontario-label__flag"
-                        >(required/optional)</span
+                                <div class="ontario-form-group">
+                                    <fieldset class="ontario-fieldset">
+                                        <legend class="visually-hidden">
+                                            Radio legend<span class="ontario-label__flag">(required/optional)</span
                       >
                     </legend>
                     <span
@@ -160,9 +130,7 @@
                   >Archival advanced</a
                 >
                 <span>|</span>
-                <a
-                  href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html"
-                  >People</a
+                                            <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html">People</a
                 >
                 <span>|</span>
                 <a

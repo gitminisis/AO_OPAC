@@ -677,16 +677,16 @@ const appendDatabaseToSearchStatement = () => {
             dbspan.text("library collection");
             break;
         case "PEOPLE_VAL_SYN":
-            dbspan.text("people collection");
+            dbspan.text("people");
             break;
         case "ORGANIZATION_VAL_SYN":
-            dbspan.text("organization collection");
+            dbspan.text("organization");
             break;
         case "AOHEIRS":
-            dbspan.text("second heir and devisee commission case file collection");
+            dbspan.text("second heir and devisee case files");
             break;
         case "HAWKE":
-            dbspan.text("immigrations record collection");
+            dbspan.text("immigration record collection");
             break;
         default:
             dbspan.text("all collections");

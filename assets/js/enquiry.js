@@ -1,384 +1,382 @@
-Date.prototype.yyyymmdd = function () {
-  var mm = this.getMonth() + 1; // getMonth() is zero-based
-  var dd = this.getDate();
+Date.prototype.yyyymmdd = function() {
+    var mm = this.getMonth() + 1; // getMonth() is zero-based
+    var dd = this.getDate();
 
-  return [
-    this.getFullYear(),
-    (mm > 9 ? "-" : "-0") + mm,
-    (dd > 9 ? "-" : "-0") + dd,
-  ].join("");
+    return [
+        this.getFullYear(),
+        (mm > 9 ? "-" : "-0") + mm,
+        (dd > 9 ? "-" : "-0") + dd,
+    ].join("");
 };
 
-$(document).ready(function () {
-  enableDatePicker();
+$(document).ready(function() {
+    enableDatePicker();
 
-  let enq_id_confirm = $("#enq_id_confirm").text();
+    let enq_id_confirm = $("#enq_id_confirm").text();
 
-  let enq_assisnged = $("#enq_assigned").text();
-  if (enq_id_confirm) {
-    $("#success-enquiry").append(
-      `<br /><br /><span>Inquiry Reference Number: ${enq_id_confirm}</span>`
-    );
-    let SESSID = getCookie("HOME_SESSID");
-    let subject = "New Incoming Inquiry";
+    let enq_assisnged = $("#enq_assigned").text();
+    if (enq_id_confirm) {
+        $("#success-enquiry").append(
+            `<br /><br /><span>Inquiry Reference Number: ${enq_id_confirm}</span>`
+        );
+        let SESSID = getCookie("HOME_SESSID");
+        let subject = "New Incoming Inquiry";
 
-    let body = "New Incoming Inquiry\n\n";
-    body += `Please log in your personal profile portal to view the incoming message for the Inquiry: ${enq_id_confirm}`;
-    $.ajax({
-      type: "GET",
-      url: `${SESSID}?MANIPXMLRECORD&READ=Y&DATABASE=USER_PROFILE&KEY=USER_NAME&VALUE=${enq_assisnged}`,
-    }).then((res) => {
-      if (res.querySelector("error").innerHTML === "0") {
-        let email = res.querySelector("USER_EMAIL_ADDR").innerHTML;
-        // let email = "mikehoangdn1@gmail.com"
-        let url = `${SESSID}?save_mail_form&async=y&xml=y&subject_default=${subject}&from_default=noreplyaimstest@minisisinc.com&to_default=${email}`;
+        let body = "New Incoming Inquiry\n\n";
+        body += `Please log in your personal profile portal to view the incoming message for the Inquiry: ${enq_id_confirm}`;
         $.ajax({
-          type: "POST",
-          url: url,
-          contentType: "text/html",
-          data: `sender=noreplyaimstest@minisisinc.com&receiver=${email}&subject=${subject}&mailbody=${body}`,
+            type: "GET",
+            url: `${SESSID}?MANIPXMLRECORD&READ=Y&DATABASE=USER_PROFILE&KEY=USER_NAME&VALUE=${enq_assisnged}`,
         }).then((res) => {
-          console.log(res);
+            if (res.querySelector("error").innerHTML === "0") {
+                let email = res.querySelector("USER_EMAIL_ADDR").innerHTML;
+                // let email = "mikehoangdn1@gmail.com"
+                let url = `${SESSID}?save_mail_form&async=y&xml=y&subject_default=${subject}&from_default=noreplyaimstest@minisisinc.com&to_default=${email}`;
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    contentType: "text/html",
+                    data: `sender=noreplyaimstest@minisisinc.com&receiver=${email}&subject=${subject}&mailbody=${body}`,
+                }).then((res) => {
+                    console.log(res);
+                });
+            }
         });
-      }
+    }
+    getBarcodeInquiryInfo();
+
+    if (document.getElementById("enqTopic") != null) {
+        setEnquiryTopic();
+
+        let value = document.getElementById("enqTopic").value;
+        setupTopicForm(value);
+
+        if (document.getElementById("first_cor")) {
+            generateFirstCorrespondence();
+            setFileUploadHandler();
+        } else if (document.getElementById("edit_enq")) {
+            generateEditableCorrespondence();
+            setFileUploadHandler(false);
+            document.getElementById("enqTopic").disabled = true;
+            document.getElementById("enqTitle").readOnly = true;
+            document.getElementById("enqDetail").readOnly = true;
+        }
+
+        let patron_id = getCookie("M2L_PATRON_ID");
+
+        if (patron_id !== "[M2L_PATRON_ID]") {
+            getClientInfo();
+        } else {
+            setAffinity("Public User");
+            document.getElementById("enqLastName").value;
+            document.getElementById("enqFirstName").focus();
+        }
+
+        // Confirm Page
+
+        $("#enqFirstName").on("change", function() {
+            let firstName = document.getElementById("enqFirstName").value;
+            let lastName = document.getElementById("enqLastName").value;
+
+            fullName = firstName + " " + lastName;
+            document.getElementById("enqFullName").value = fullName;
+            if (document.getElementById("first_cor")) {
+                document.getElementById("enqCorWho").value = fullName;
+            }
+        });
+
+        $("#enqLastName").on("change", function() {
+            let firstName = document.getElementById("enqFirstName").value;
+            let lastName = document.getElementById("enqLastName").value;
+
+            fullName = firstName + " " + lastName;
+            document.getElementById("enqFullName").value = fullName;
+            if (document.getElementById("first_cor")) {
+                document.getElementById("enqCorWho").value = fullName;
+            }
+        });
+
+        $("#enqTitle").on("change", function() {
+            if (document.getElementById("first_cor")) {
+                document.getElementById("enqCorSub").value = $(this).val();
+            }
+        });
+
+        $("#enqDetail").on("keyup", function() {
+            if (document.getElementById("first_cor")) {
+                document.getElementById("enqCorText").value = $(this).val();
+            }
+        });
+
+        $("#enqTopic").on("change", function(e) {
+            let value = e.target.value;
+            setupTopicForm(value);
+        });
+        let status;
+        try {
+            status = document.getElementById("enqStatus").value;
+        } catch (e) {
+            console.log(e);
+        }
+
+        if (status === "Closed") {
+            // Disable some input fields
+
+            $("#enqFirstName").prop("disabled", true);
+            $("#enqLastName").prop("disabled", true);
+            $("#enqEmail").prop("disabled", true);
+            $("#enqPhone").prop("disabled", true);
+
+            // Add closed status indication text
+            $("#Enquiry-Form").prepend(
+                '<h3 style="text-align: center; color:red">This inquiry has been closed</h3>'
+            );
+            $("#submit-enquiry").remove();
+        }
+
+        // parse ENQ_PATRON_NAME
+        var full_name = "";
+        if (document.getElementById("enqFullName") != null) {
+            full_name = document.getElementById("enqFullName").value;
+        }
+        var name_comp = full_name.split(" ");
+        var ix = 0;
+
+        // extract first name
+        while (ix < name_comp.length && name_comp[ix] == "") {
+            ix++;
+        }
+        if (ix < name_comp.length) {
+            // set "enqFirstName" field to first name
+            document.getElementById("enqFirstName").value = name_comp[ix].replace(
+                ",",
+                ""
+            );
+            ix++;
+        }
+
+        // extract last name
+        while (ix < name_comp.length && name_comp[ix] == "") {
+            ix++;
+        }
+        if (ix < name_comp.length) {
+            // set "enqLastName" field to last name
+            document.getElementById("enqLastName").value = name_comp[ix].replace(
+                ",",
+                ""
+            );
+            ix++;
+        }
+    } // if "EnqTopic" != null
+    // if (document.getElementById('enquiry-confirmation-FR')) return;
+    // else redirectEnquiryFr();
+
+    window.addEventListener("beforeunload", function(e) {
+        // e.preventDefault();  // turn off confirmation message
+
+        if (typeof enquiry_submitted != "undefined" && !enquiry_submitted) {
+            if (typeof close_enquiry_url != "undefined") {
+                unlockRecord(close_enquiry_url);
+            }
+        }
+        return true; // return true to close web page
     });
-  }
-  getBarcodeInquiryInfo();
-
-  if (document.getElementById("enqTopic") != null) {
-    setEnquiryTopic();
-
-    let value = document.getElementById("enqTopic").value;
-    setupTopicForm(value);
-
-    if (document.getElementById("first_cor")) {
-      generateFirstCorrespondence();
-      setFileUploadHandler();
-    } else if (document.getElementById("edit_enq")) {
-      generateEditableCorrespondence();
-      setFileUploadHandler(false);
-      document.getElementById("enqTopic").disabled = true;
-      document.getElementById("enqTitle").readOnly = true;
-      document.getElementById("enqDetail").readOnly = true;
-    }
-
-    let patron_id = getCookie("M2L_PATRON_ID");
-
-    if (patron_id !== "[M2L_PATRON_ID]") {
-      getClientInfo();
-    } else {
-      setAffinity("Public User");
-      document.getElementById("enqLastName").value;
-      document.getElementById("enqFirstName").focus();
-    }
-
-    // Confirm Page
-
-    $("#enqFirstName").on("change", function () {
-      let firstName = document.getElementById("enqFirstName").value;
-      let lastName = document.getElementById("enqLastName").value;
-
-      fullName = firstName + " " + lastName;
-      document.getElementById("enqFullName").value = fullName;
-      if (document.getElementById("first_cor")) {
-        document.getElementById("enqCorWho").value = fullName;
-      }
-    });
-
-    $("#enqLastName").on("change", function () {
-      let firstName = document.getElementById("enqFirstName").value;
-      let lastName = document.getElementById("enqLastName").value;
-
-      fullName = firstName + " " + lastName;
-      document.getElementById("enqFullName").value = fullName;
-      if (document.getElementById("first_cor")) {
-        document.getElementById("enqCorWho").value = fullName;
-      }
-    });
-
-    $("#enqTitle").on("change", function () {
-      if (document.getElementById("first_cor")) {
-        document.getElementById("enqCorSub").value = $(this).val();
-      }
-    });
-
-    $("#enqDetail").on("keyup", function () {
-      if (document.getElementById("first_cor")) {
-        document.getElementById("enqCorText").value = $(this).val();
-      }
-    });
-
-    $("#enqTopic").on("change", function (e) {
-      let value = e.target.value;
-      setupTopicForm(value);
-    });
-    let status;
-    try {
-      status = document.getElementById("enqStatus").value;
-    } catch (e) {
-      console.log(e);
-    }
-
-    if (status === "Closed") {
-      // Disable some input fields
-
-      $("#enqFirstName").prop("disabled", true);
-      $("#enqLastName").prop("disabled", true);
-      $("#enqEmail").prop("disabled", true);
-      $("#enqPhone").prop("disabled", true);
-
-      // Add closed status indication text
-      $("#Enquiry-Form").prepend(
-        '<h3 style="text-align: center; color:red">This inquiry has been closed</h3>'
-      );
-      $("#submit-enquiry").remove();
-    }
-
-    // parse ENQ_PATRON_NAME
-    var full_name = "";
-    if (document.getElementById("enqFullName") != null) {
-      full_name = document.getElementById("enqFullName").value;
-    }
-    var name_comp = full_name.split(" ");
-    var ix = 0;
-
-    // extract first name
-    while (ix < name_comp.length && name_comp[ix] == "") {
-      ix++;
-    }
-    if (ix < name_comp.length) {
-      // set "enqFirstName" field to first name
-      document.getElementById("enqFirstName").value = name_comp[ix].replace(
-        ",",
-        ""
-      );
-      ix++;
-    }
-
-    // extract last name
-    while (ix < name_comp.length && name_comp[ix] == "") {
-      ix++;
-    }
-    if (ix < name_comp.length) {
-      // set "enqLastName" field to last name
-      document.getElementById("enqLastName").value = name_comp[ix].replace(
-        ",",
-        ""
-      );
-      ix++;
-    }
-  } // if "EnqTopic" != null
-  // if (document.getElementById('enquiry-confirmation-FR')) return;
-  // else redirectEnquiryFr();
-
-  window.addEventListener("beforeunload", function (e) {
-    // e.preventDefault();  // turn off confirmation message
-
-    if (typeof enquiry_submitted != "undefined" && !enquiry_submitted) {
-      if (typeof close_enquiry_url != "undefined") {
-        unlockRecord(close_enquiry_url);
-      }
-    }
-    return true; // return true to close web page
-  });
 }); //Document Ready Function End
 
 function getClientInfo() {
-  let patron_id = getCookie("M2L_PATRON_ID");
+    let patron_id = getCookie("M2L_PATRON_ID");
 
-  patron_id = patron_id.split("]")[1];
+    patron_id = patron_id.split("]")[1];
 
-  let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?COMMANDSEARCH#`;
+    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?COMMANDSEARCH#`;
 
-  let tempString = window.location.href;
-  let tempUrlCheck = tempString.split("/");
-  let enquiry = tempUrlCheck[tempUrlCheck.length - 1].split("&")[0];
+    let tempString = window.location.href;
+    let tempUrlCheck = tempString.split("/");
+    let enquiry = tempUrlCheck[tempUrlCheck.length - 1].split("&")[0];
 
-  $.ajax(url).done(function (res) {
-    let x2js = new X2JS();
+    $.ajax(url).done(function(res) {
+        let x2js = new X2JS();
 
-    let jsonObj = x2js.xml2json(res);
-    if (jsonObj && jsonObj.client) {
-      let first_name = jsonObj.client.name_first;
-      let last_name = jsonObj.client.name_last;
-      let full_name = `${first_name} ${last_name}`;
-      let email = jsonObj.client.email;
-      let tel = jsonObj.client.tel_home;
+        let jsonObj = x2js.xml2json(res);
+        if (jsonObj && jsonObj.client) {
+            let first_name = jsonObj.client.name_first;
+            let last_name = jsonObj.client.name_last;
+            let full_name = `${first_name} ${last_name}`;
+            let email = jsonObj.client.email;
+            let tel = jsonObj.client.tel_home;
 
-      document.getElementById("enqFullName").value = full_name;
-      document.getElementById("enqFirstName").value = first_name;
-      document.getElementById("enqFirstName").readOnly = true;
-      document.getElementById("enqLastName").value = last_name;
-      document.getElementById("enqLastName").readOnly = true;
-      document.getElementById("enqEmail").value = email;
-      document.getElementById("enqEmail").readOnly = true;
-      if (tel) {
-        document.getElementById("enqPhone").value = tel;
-        document.getElementById("enqPhone").readOnly = true;
-      } else document.getElementById("enqPhone").focus();
+            document.getElementById("enqFullName").value = full_name;
+            document.getElementById("enqFirstName").value = first_name;
+            document.getElementById("enqFirstName").readOnly = true;
+            document.getElementById("enqLastName").value = last_name;
+            document.getElementById("enqLastName").readOnly = true;
+            document.getElementById("enqEmail").value = email;
+            document.getElementById("enqEmail").readOnly = true;
+            if (tel) {
+                document.getElementById("enqPhone").value = tel;
+                document.getElementById("enqPhone").readOnly = true;
+            } else document.getElementById("enqPhone").focus();
 
-      setAffinity(jsonObj.client.client_type);
+            setAffinity(jsonObj.client.client_type);
 
-      if (document.getElementById("first_cor")) {
-        document.getElementById("enqPatronID").value = patron_id;
+            if (document.getElementById("first_cor")) {
+                document.getElementById("enqPatronID").value = patron_id;
 
-        document.getElementById("enqCorWho").value = full_name;
-      }
-    }
-  });
+                document.getElementById("enqCorWho").value = full_name;
+            }
+        }
+    });
 }
 
 function setFileUploadHandler(first_cor = true) {
-  let fileInput = document.getElementById("file-upload-input");
-  let fileSelect = document.getElementsByClassName("file-upload-select")[0];
-  fileSelect.onclick = function () {
-    fileInput.click();
-  };
-  fileInput.onchange = function () {
-    let prefix =
-      new Date().toISOString().split("T")[0].split("-").join(".") +
-      `.${new Date().getTime()}`;
-    let filename = fileInput.files[0].name;
-    console.log(fileInput.files[0]);
-    let selectName = document.getElementsByClassName("file-select-name")[0];
-    selectName.innerText = filename;
-    let url = document.querySelector("#file-upload-url");
-    let action = url.innerText.trim() + prefix;
-    let form_data = new FormData();
-    form_data.append("file", $("input[type=file]")[0].files[0]);
-    $.ajax({
-      async: true,
-      type: "POST",
-      enctype: "multipart/form-data",
-      url: action,
-      data: form_data,
-      processData: false,
-      contentType: false,
-      cache: false,
-      timeout: 600000,
-      success: function (data) {
-        console.log(data);
-        let path = data.querySelector("path").innerHTML;
-        document.querySelector("#enqCorLink").value = path;
-      },
-    });
-  };
+    let fileInput = document.getElementById("file-upload-input");
+    let fileSelect = document.getElementsByClassName("file-upload-select")[0];
+    fileSelect.onclick = function() {
+        fileInput.click();
+    };
+    fileInput.onchange = function() {
+        let prefix =
+            new Date().toISOString().split("T")[0].split("-").join(".") +
+            `.${new Date().getTime()}`;
+        let filename = fileInput.files[0].name;
+        console.log(fileInput.files[0]);
+        let selectName = document.getElementsByClassName("file-select-name")[0];
+        selectName.innerText = filename;
+        let url = document.querySelector("#file-upload-url");
+        let action = url.innerText.trim() + prefix;
+        let form_data = new FormData();
+        form_data.append("file", $("input[type=file]")[0].files[0]);
+        $.ajax({
+            async: true,
+            type: "POST",
+            enctype: "multipart/form-data",
+            url: action,
+            data: form_data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function(data) {
+                console.log(data);
+                let path = data.querySelector("path").innerHTML;
+                document.querySelector("#enqCorLink").value = path;
+            },
+        });
+    };
 }
 // send MWI SKIPRECORD command to unlock record ig web page is closed.
 function unlockRecord(close_url) {
-  if (navigator.sendBeacon) {
-    // add dummy form data because sendBeacon sends post HTTP request
-    var formData = new FormData();
-    formData.append("SKIP", "YES");
-    var status = navigator.sendBeacon(close_url, formData);
-  }
+    if (navigator.sendBeacon) {
+        // add dummy form data because sendBeacon sends post HTTP request
+        var formData = new FormData();
+        formData.append("SKIP", "YES");
+        var status = navigator.sendBeacon(close_url, formData);
+    }
 }
 
 // send flag to indciate record has been unlocked
 function setSubmitFlag() {
-  if (typeof enquiry_submitted != "undefined") {
-    enquiry_submitted = true;
-  }
-  return true;
+    if (typeof enquiry_submitted != "undefined") {
+        enquiry_submitted = true;
+    }
+    return true;
 }
 
 function generateFirstCorrespondence() {
-  document.getElementById("enqCorDate").value = new Date().yyyymmdd();
+    document.getElementById("enqCorDate").value = new Date().yyyymmdd();
 }
 
 function setAffinity(affinity) {
-  $("#enqAffliation").val(affinity);
+    $("#enqAffliation").val(affinity);
 }
 
 function generateEditableCorrespondence() {
-  let enq_id = document.getElementById("enqID").value;
-  let xml_tree = document.getElementById("enq_xml");
-  let x2js = new X2JS({
-    arrayAccessFormPaths: [
-      "record.correspond_grp.correspond_grp_occurrence",
-      "record.correspond_grp.correspond_grp_occurrence.link_group.link_group_occurrence",
-    ],
-  });
-
-  let jsonObj = x2js.xml2json(xml_tree);
-  console.log(jsonObj);
-  let cor_div = document.getElementById("cor_div");
-  let len = jsonObj.record.correspond_grp.correspond_grp_occurrence.length;
-
-  let occ_type = typeof jsonObj.record.correspond_grp.correspond_grp_occurrence;
-  if (Array.isArray(jsonObj.record.correspond_grp.correspond_grp_occurrence)) {
-    jsonObj.record.correspond_grp.correspond_grp_occurrence.map((el, idx) => {
-      $("#cor_div").append(generateCorForm(el, idx, len, false));
+    let enq_id = document.getElementById("enqID").value;
+    let xml_tree = document.getElementById("enq_xml");
+    let x2js = new X2JS({
+        arrayAccessFormPaths: [
+            "record.correspond_grp.correspond_grp_occurrence",
+            "record.correspond_grp.correspond_grp_occurrence.link_group.link_group_occurrence",
+        ],
     });
-  } else if (occ_type === "object") {
-    $("#cor_div").append(
-      generateCorForm(
-        jsonObj.record.correspond_grp.correspond_grp_occurrence,
-        0,
-        1,
-        false
-      )
-    );
-    len = 1;
-  }
-  let status = document.getElementById("enqStatus").value;
-  if (status !== "Closed") {
-    $("#cor_div").append(generateCorForm(null, len, len, true));
-  }
 
-  $("#cor_div").slick({
-    infinite: false,
-    draggable: false,
-    prevArrow:
-      '<button type="button" id="inquiry-prev-btn"  class="slick-prev cor-prev-btn cor-btn btn btn-primary" disabled>Previous Message</button>',
-    nextArrow:
-      '<button type="button" id="inquiry-next-btn"  class="slick-next cor-next-btn cor-btn btn btn-primary">Next Message</button>',
-  });
-  nextObserver();
-  prevObserver();
+    let jsonObj = x2js.xml2json(xml_tree);
+    console.log(jsonObj);
+    let cor_div = document.getElementById("cor_div");
+    let len = jsonObj.record.correspond_grp.correspond_grp_occurrence.length;
+
+    let occ_type = typeof jsonObj.record.correspond_grp.correspond_grp_occurrence;
+    if (Array.isArray(jsonObj.record.correspond_grp.correspond_grp_occurrence)) {
+        jsonObj.record.correspond_grp.correspond_grp_occurrence.map((el, idx) => {
+            $("#cor_div").append(generateCorForm(el, idx, len, false));
+        });
+    } else if (occ_type === "object") {
+        $("#cor_div").append(
+            generateCorForm(
+                jsonObj.record.correspond_grp.correspond_grp_occurrence,
+                0,
+                1,
+                false
+            )
+        );
+        len = 1;
+    }
+    let status = document.getElementById("enqStatus").value;
+    if (status !== "Closed") {
+        $("#cor_div").append(generateCorForm(null, len, len, true));
+    }
+
+    $("#cor_div").slick({
+        infinite: false,
+        draggable: false,
+        prevArrow: '<button type="button" id="inquiry-prev-btn"  class="slick-prev cor-prev-btn cor-btn btn btn-primary" disabled>Previous Message</button>',
+        nextArrow: '<button type="button" id="inquiry-next-btn"  class="slick-next cor-next-btn cor-btn btn btn-primary">Next Message</button>',
+    });
+    nextObserver();
+    prevObserver();
 }
 
 function getHyperLinkTag(str) {
-  let regexp = /HYPERLINK.&quot;(.*?)&quot;/g;
+    let regexp = /HYPERLINK.&quot;(.*?)&quot;/g;
 
-  let matchAll = decodeTextField(str).matchAll(regexp);
+    let matchAll = decodeTextField(str).matchAll(regexp);
 
-  // replace all HYPERLINK delimeter
-  matchAll = Array.from(matchAll).map((exp, index) => {
-    let replaceString = index % 2 == 0 ? `<a href=${exp[1]}>` : `<a/>`;
-    str = decodeTextField(str).replace(exp[0], replaceString);
-  });
+    // replace all HYPERLINK delimeter
+    matchAll = Array.from(matchAll).map((exp, index) => {
+        let replaceString = index % 2 == 0 ? `<a href=${exp[1]}>` : `<a/>`;
+        str = decodeTextField(str).replace(exp[0], replaceString);
+    });
 
-  return str;
+    return str;
 }
 
 function generateCorForm(data, idx, len, edit = false) {
-  let status = document.getElementById("enqStatus").value;
-  let maxLength = status === "Closed" ? len : len + 1;
-  let link_group =
-    data && data.link_group !== undefined
-      ? data.link_group.link_group_occurrence
-      : null;
-  let SESSID = getCookie("HOME_SESSID");
+    let status = document.getElementById("enqStatus").value;
+    let maxLength = status === "Closed" ? len : len + 1;
+    let link_group =
+        data && data.link_group !== undefined ?
+        data.link_group.link_group_occurrence :
+        null;
+    let SESSID = getCookie("HOME_SESSID");
 
-  if (link_group && !Array.isArray(link_group)) {
-    link_group = [link_group];
-  }
-  if (data && data.reply_text) {
-    data.reply_text = getHyperLinkTag(data.reply_text);
-  }
-  if (data && data.message_text) {
-    data.message_text = getHyperLinkTag(data.message_text);
-  }
+    if (link_group && !Array.isArray(link_group)) {
+        link_group = [link_group];
+    }
+    if (data && data.reply_text) {
+        data.reply_text = getHyperLinkTag(data.reply_text);
+    }
+    if (data && data.message_text) {
+        data.message_text = getHyperLinkTag(data.message_text);
+    }
 
-  let generatedMonth = new Date().getMonth();
-  let generatedDay = new Date().getDate();
-  let month =
-    generatedMonth < 10 ? `0${generatedMonth + 1}` : generatedMonth + 1;
-  let day = generatedDay < 10 ? `0${generatedDay}` : generatedDay;
+    let generatedMonth = new Date().getMonth();
+    let generatedDay = new Date().getDate();
+    let month =
+        generatedMonth < 10 ? `0${generatedMonth + 1}` : generatedMonth + 1;
+    let day = generatedDay < 10 ? `0${generatedDay}` : generatedDay;
 
-  let newOcc = `$${Number.parseInt(len) + 1}$1`;
-  return `<div class="card"> <div class="card-header"> <h5 class="mb-0"> <button class="btn" type="button" data-toggle="collapse show" data-target="collapse${idx}" aria-expanded="true" aria-controls="collapse${idx}">  Response ${
+    let newOcc = `$${Number.parseInt(len) + 1}$1`;
+    return `<div class="card"> <div class="card-header"> <h5 class="mb-0"> <button class="btn" type="button" data-toggle="collapse show" data-target="collapse${idx}" aria-expanded="true" aria-controls="collapse${idx}">  Response ${
     Number.parseInt(idx) + 1
   }/${maxLength}: ${
     data && data.correspond_subj ? data.correspond_subj : "New Reply"
@@ -502,26 +500,27 @@ redirectToEnquiry = (sessid, subj = null) => {
 };
 
 const descSubjGenerator = (sessid, refd, barcode = null, title) => {
-  let subj;
-  if (title != null) subj = title;
-  else subj = `${refd}${barcode != null ? ` - ${barcode}` : ""}`;
-  redirectToEnquiry(sessid, subj);
+  // let subj;
+  // if (title != null) subj = title;
+  // else subj = `${refd}${barcode != null ? ` - ${barcode}` : ""}`;
+  // redirectToEnquiry(sessid, subj);
+  window.open("https://www.archives.gov.on.ca/en/about/contact.aspx");
 };
 const artSubjGenerator = (sessid, e) => {
   let title = e.getAttribute("title");
   // redirectToEnquiry(sessid, title);
-  window.location = "https://www.archives.gov.on.ca/en/about/contact.aspx";
+  window.open("https://www.archives.gov.on.ca/en/about/contact.aspx");
 };
 
 const biblioSubjGenerator = (sessid, barcode = null) => {
-  const title = document.getElementsByClassName("cs-item-title")[0].textContent;
+  // const title = document.getElementsByClassName("cs-item-title")[0].textContent;
 
-  let subj;
-  if (!barcode) subj = title;
-  else subj = `${barcode} - ${title}`;
+  // let subj;
+  // if (!barcode) subj = title;
+  // else subj = `${barcode} - ${title}`;
 
   // redirectToEnquiry(sessid, subj)
-  window.location = "https://www.archives.gov.on.ca/en/about/contact.aspx";
+  window.open("https://www.archives.gov.on.ca/en/about/contact.aspx");
 };
 
 const setEnquiryTopic = () => {
