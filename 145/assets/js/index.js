@@ -696,3 +696,21 @@ const appendDatabaseToSearchStatement = () => {
     }
 };
 appendDatabaseToSearchStatement();
+
+/** Handle Focus simple search input */
+$('#simple_search_input').focus(function() {
+    $('#simple-search-container').addClass('simple_search_input_focus')
+})
+
+$('#simple_search_input').blur(function() {
+    $('#simple-search-container').removeClass('simple_search_input_focus')
+})
+
+/** Handle Focus simple search input */
+$('.simple-search-btn').focus(function() {
+    $('#simple-search-container').addClass('simple_search_input_focus')
+})
+
+$('.simple-search-btn').blur(function() {
+    $('#simple-search-container').removeClass('simple_search_input_focus')
+})
