@@ -106,12 +106,11 @@
   display: flex;
   flex-direction: column;
   /* align-content: left; */
-  width: 40%;
+  /* width: 40%; */
   padding: 0;
-
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  margin: 0 10px;
 }
-
 .right-column {
   display: flex;
   flex-direction: column;
@@ -715,4 +714,8 @@ button.bookmarkbutton a:hover {
 #perma-btn {
   width: 100%;
   max-width: 300px;
+}
+
+.right-column{
+  display: none;
 }

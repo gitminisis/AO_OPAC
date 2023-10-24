@@ -645,17 +645,33 @@ creator list form is submitted
 
 $("#keys").on("submit", function(e) {
     // e.preventDefault();
-    let selectedOption = $("#record_creators_list option:selected");
+    if($(window).width() < 1168){
+        $('#record_creators_list').find('option:selected').remove();
+        let mobileSelectedOption = $("#creator-list-dropdown option:selected");
+        console.log(mobileSelectedOption.text())
+        if (mobileSelectedOption.text() === "") {
+            $("#creator-list-error-message span").css("display", "block");
+            return false;
+        }
+        // else submit form
+        else {
+            return true;
+        }
+    } else {
+        $('#creator-list-dropdown').find('option:selected').remove();
+        let selectedOption = $("#record_creators_list option:selected");
 
+        if (selectedOption.text() === "") {
+            $("#creator-list-error-message span").css("display", "block");
+            return false;
+        }
+        // else submit form
+        else {
+            return true;
+        }
+    }
     // If no option is selected, display warning message
-    if (selectedOption.text() === "") {
-        $("#creator-list-error-message span").css("display", "block");
-        return false;
-    }
-    // else submit form
-    else {
-        return true;
-    }
+    
 });
 
 /** This function is to append the name of the

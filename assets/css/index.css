@@ -2205,6 +2205,7 @@ p {
     border-left: none;
 }
 
-#search-result-container {
-    font-family: 'Open Sans';
+#search-result-container,
+#search-result-container .Rale-Bold {
+    font-family: 'Open Sans' !important;
 }
