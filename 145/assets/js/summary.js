@@ -163,6 +163,8 @@ $(document).ready(function() {
                     ""
                 )
             );
+            $("div#search-statement b").text($("div#search-statement b").text().trim().split(' and ').join(', ').split(' or ').join(', '))
+
         }
 
         // Truncate any fields in records that exceeds over a certain character amount
