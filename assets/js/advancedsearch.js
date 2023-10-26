@@ -187,7 +187,7 @@ $("#LEVEL_CL").on("click", function() {
 });
 
 $("#FINDAID_CL").on("click", function() {
-    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=FINDAID_LINK&DATABASE=DESCRIPTION_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=FINDAIDLINK&DATABASE=DESCRIPTION_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = FINDAID_FIELD;
 });

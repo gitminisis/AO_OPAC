@@ -645,7 +645,7 @@ creator list form is submitted
 
 $("#keys").on("submit", function(e) {
     // e.preventDefault();
-    if($(window).width() < 1168){
+    if ($(window).width() < 1168) {
         $('#record_creators_list').find('option:selected').remove();
         let mobileSelectedOption = $("#creator-list-dropdown option:selected");
         console.log(mobileSelectedOption.text())
@@ -710,7 +710,7 @@ const appendDatabaseToSearchStatement = () => {
             dbspan.text("toutes les collections");
     }
 };
-appendDatabaseToSearchStatement();
+// appendDatabaseToSearchStatement();
 
 /** Handle Focus simple search input */
 $('#simple_search_input').focus(function() {
@@ -729,3 +729,11 @@ $('.simple-search-btn').focus(function() {
 $('.simple-search-btn').blur(function() {
     $('#simple-search-container').removeClass('simple_search_input_focus')
 })
+
+
+let norecordstatement = $('#no-record-statement').text();
+
+$('#no-record-statement').text(norecordstatement.replace(
+    /KEYWORD_CLUSTER |ALL_TITLE_CL |LEGAL_TITLE |LEVEL_CL |SEARCH_DATE_CL |BARCODE_DESC_CL |FINDAID_CL |PHYS_DESC_CL  |ORGIN_CL |ALL_ |RECORD_ID_CL |ACCESSION_NUMBER |OBJ_DESCRIPTION |OBJECT_TYPE |SUB_KEYWORD |EARLY |MAKER_FULLNAME |MAKER_ORG |MEDIUM |MATERIAL_COO |OBJECT_STATUS |AUTHOR_CL |LIB_PUB_CL |ISBN_CL |ISSN_CL |MEDIA_TYPE_CL |BARCODE_CL |RECORD_ID_CL  |REFD_HIGHER_CL |ORIGIN_CL |ASSO_ORG_CL |DATES_EXISTED |VENDOR_ROLE |P_AUTH_TYPE |KEYWORDS |KEYNAMES |TITLE_CL |SCOPE_CL |DATE_CL |REFD_CL |ORIGINATOR_CL |PHYSICAL_DESC_CL |FORMATS_CL |SUBJECT_CL |RELATED_MAT_CL |AND_WORD |OR_WORD |ADJ_WORD |KEYWORD_CLUSTER AND_WORD |HD_FIRSTNAME&nbsp;|HD_SURNAME&nbsp;|HD_PLACE&nbsp;|HD_DATE&nbsp;|SURNAME&nbsp;|GIVENNAME&nbsp;|NATION&nbsp;|TRADEWHOLE&nbsp;|SHIPWHOLE&nbsp;|DESTWHOLE&nbsp;|YEAR&nbsp;|HD_FIRSTNAME |HD_SURNAME |HD_PLACE |HD_DATE |SURNAME |GIVENNAME |NATION |TRADEWHOLE |SHIPWHOLE |DESTWHOLE |YEAR /g,
+    ""
+)).replace('', '').trim().split(' and ').join(', ').split(' or ').join(', ')

@@ -2221,3 +2221,7 @@ p {
 .search-button-label {
     font-family: 'Open Sans' !important;
 }
+
+#no-record-statement {
+    font-weight: 700;
+}
