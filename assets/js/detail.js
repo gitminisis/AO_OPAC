@@ -433,15 +433,15 @@ $(document).ready(function() {
         // Detail Bookmark
         // When Clicked ajax sends href to minisis to add selected record to list.
         // Once success, reload the page. Report Checks whether record is in the list or not
-        $('.bookmarkbutton').on('click', function() {
-            $.ajax({
-                type: "GET",
-                url: $(this).attr('url'),
-                success: function() {
-                    location.reload();
-                }
-            });
-        });
+        // $('.bookmarkbutton').on('click', function() {
+        //     $.ajax({
+        //         type: "GET",
+        //         url: $(this).attr('url'),
+        //         success: function() {
+        //             location.reload();
+        //         }
+        //     });
+        // });
 
 
         crowdsourceBtnClick();
