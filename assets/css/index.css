@@ -2225,3 +2225,7 @@ p {
 #no-record-statement {
     font-weight: 700;
 }
+
+input {
+    font-family: 'Open Sans' !important;
+}
