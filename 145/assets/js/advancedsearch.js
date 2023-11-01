@@ -399,6 +399,28 @@ $("#DATES_EXISTED").on("click", function() {
 
 
 
+// AOHEIRS
+$("#HD_SURNAME_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=HD_SURNAME&DATABASE=AOHEIRS&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = HEIRS_HD_SURNAME;
+});
+$("#HD_FIRSTNAME_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=HD_FIRSTNAME&DATABASE=AOHEIRS&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = HEIRS_HD_FIRSTNAME;
+});
+$("#HD_PLACE_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=HD_PLACE&DATABASE=AOHEIRS&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = HEIRS_HD_PLACE;
+});
+$("#HD_DATE_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=HD_DATE&DATABASE=AOHEIRS&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = HEIRS_HD_DATE;
+});
+
 // paste selected value to search form
 function assignValue() {
     var jquery_input = null;
