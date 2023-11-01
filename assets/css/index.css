@@ -2226,6 +2226,7 @@ p {
     font-weight: 700;
 }
 
-input {
+input,
+button {
     font-family: 'Open Sans' !important;
 }
