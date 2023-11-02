@@ -46,7 +46,7 @@
                                 <div class="Input-Wrapper d-flex flex-column">
                                     <div id="simple-search-container">
                                         <div id="simple-search-input-wrapper">
-                                            <input id="simple_search_input" type="text" aria-labelledby="simple_search_input_label" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input" />
+                                            <input id="simple_search_input" type="text" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input" />
 
                                             <button aria-label="Clear search" id="simple-search-reset" alt="Clear search" title="Clear search" type="button">
                         <i class="fas fa-times"></i>
@@ -136,30 +136,29 @@
                    href="^home_sessid^?queryform&database=PEOPLE_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchPeople.html">
 				  People</a>
                 <span>|</span>
-                <a href="^home_sessid^?queryform&database=ORGANIZATION_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchOrganization.html">
+                                            <a href="^home_sessid^?queryform&database=ORGANIZATION_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchOrganization.html">
 			      Organization</a>
-                <span>|</span>
-                <a
-                  href="^home_sessid^?queryform&database=PEOPLE_VAL&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html">
+                                            <span>|</span>
+                                            <a href="^home_sessid^?queryform&database=PEOPLE_VAL&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html">
 				  Creator list</a>
-              </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="search-tips-container">
+                <!-- include virtual="[AO_INCLUDES]searchTips.htm"-->
+
+                <!-- include virtual="[AO_INCLUDES]homeBannerRef.html"-->
+            </div>
         </div>
-      </div>
-      <div class="search-tips-container">
-        <!-- include virtual="[AO_INCLUDES]searchTips.htm"-->
-
-        <!-- include virtual="[AO_INCLUDES]homeBannerRef.html"-->
-      </div>
     </div>
-  </div>
 
-  <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+    <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
 </div>
 <span hidden id="sessionid">^SESSID^</span>
 
 <!-- include virtual="[AO_INCLUDES]footer.htm"-->
 <script>
-  sessionStorage.setItem("lang", "en");
+    sessionStorage.setItem("lang", "en");
 </script>

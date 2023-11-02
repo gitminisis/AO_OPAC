@@ -4,6 +4,51 @@ $(document).ready(function() {
         setPaginationAccessiblity(page);
     } catch (error) {}
 
+
+    var count = false;
+
+    $(".bookmark-btn").on("click", function() {
+        if (count == false) {
+            count = true;
+            // alert($(".web_sum_form").attr('data-action'))
+            $.ajax({
+                type: "POST",
+                url: $(".web_sum_form").attr("data-action"),
+                data: $(this).find("input").attr("name") +
+                    "=" +
+                    $(this).find("input").attr("value"),
+                success: function(textStatus, status) {
+                    console.log(textStatus);
+                    console.log(status);
+                },
+                error: function(xhr, textStatus, error) {
+                    console.log(xhr.responseText);
+                    console.log(xhr.statusText);
+                    console.log(textStatus);
+                    console.log(error);
+                },
+            }).done(function() {
+                location.reload();
+            });
+        }
+    });
+    $("#web_sum_form").on("submit", function(e) {
+        e.preventDefault();
+    });
+    $(".Delete-Bookmark").on("click", function() {
+        debugger;
+        $.ajax({
+            url: $("#web_sum_form").attr("action"),
+            type: "POST",
+            data: $(this).find("input").attr("name") +
+                "=" +
+                $(this).find("input").attr("value"),
+        }).then(function(data) {
+            location.reload();
+        });
+    });
+
+
     if (page !== null) {
         let countImg = 1,
             countDoc = 1,
@@ -101,47 +146,7 @@ $(document).ready(function() {
         //onchange="this.form.submit()"
         // Summary Bookmark
 
-        var count = false;
 
-        $(".bookmark-btn").on("click", function() {
-            if (count == false) {
-                count = true;
-                // alert($(".web_sum_form").attr('data-action'))
-                $.ajax({
-                    type: "POST",
-                    url: $(".web_sum_form").attr("data-action"),
-                    data: $(this).find("input").attr("name") +
-                        "=" +
-                        $(this).find("input").attr("value"),
-                    success: function(textStatus, status) {
-                        console.log(textStatus);
-                        console.log(status);
-                    },
-                    error: function(xhr, textStatus, error) {
-                        console.log(xhr.responseText);
-                        console.log(xhr.statusText);
-                        console.log(textStatus);
-                        console.log(error);
-                    },
-                }).done(function() {
-                    location.reload();
-                });
-            }
-        });
-        $("#web_sum_form").on("submit", function(e) {
-            e.preventDefault();
-        });
-        $(".Delete-Bookmark").on("click", function() {
-            $.ajax({
-                url: $("#web_sum_form").attr("action"),
-                type: "POST",
-                data: $(this).find("input").attr("name") +
-                    "=" +
-                    $(this).find("input").attr("value"),
-            }).then(function(data) {
-                location.reload();
-            });
-        });
         // var bookmark_desc = document.getElementById("bookmark-database")
         // $.ajax({
         //     url: $("#bookmark-id-btn").attr("action"),

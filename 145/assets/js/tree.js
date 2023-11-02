@@ -9,10 +9,12 @@ const CURRENT_RECORD_STYLE = {
 const RECORD_STYLE = { class: "record" };
 const NEXT_TITLE = "Click To View Next Page ...";
 const PREV_TITLE = "Click To View Previous Page ...";
-let REFD = document.getElementById('hiddenREFD').innerText;
-
+let REFD = '';
+if (document.getElementById('hiddenREFD') != null) {
+    REFD = document.getElementById('hiddenREFD').innerText;
+}
+let isLoaded = false;
 let showTree = false;
-
 
 // let REFD = getCookie("$REFD");
 /**
@@ -488,8 +490,8 @@ const disableTreeDisplay = () => {
     let treeBtn;
     try {
         treeBtn = document.getElementsByClassName('tree-btn')[0];
-    treeBtn.style.background = 'grey';
-    treeBtn.style.borderColor = 'grey';
+        treeBtn.style.background = 'grey';
+        treeBtn.style.borderColor = 'grey';
     } catch (e) { console.log(enableTreeDisplay) }
 }
 
