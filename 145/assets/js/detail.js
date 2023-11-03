@@ -556,7 +556,7 @@ function unescapeHtml(safe) {
 
 const copyPermalinkFR = (e, rep) => {
     let exp = e.value
-    let params = rep == 'desc' ? 'DESCRIPTION_WEB/WEB_DESC_DET_FR?SESSIONSEARCH&exp=sisn%20' : rep == 'biblio' ? 'BIBLIO_WEB/WEB_BIBLIO_DET_FR?SESSIONSEARCH&exp=sisn%20' : rep == 'people' ? 'PEOPLE_VAL/WEB_PEOPLE_DET_OPAC_FR?SESSIONSEARCH&exp=PERSON_ID%20' : 'ORGANIZATION_VAL/WEB_ORG_DET_OPAC_FR?SESSIONSEARCH&exp=ORG_ID%20'
+    let params = rep == 'coll' ? 'COLLECTIONS_WEB/WEB_COLL_DET_FR?SESSIONSEARCH&exp=sisn%20' : 'desc' ? 'DESCRIPTION_WEB/WEB_DESC_DET_FR?SESSIONSEARCH&exp=sisn%20' : rep == 'biblio' ? 'BIBLIO_WEB/WEB_BIBLIO_DET_FR?SESSIONSEARCH&exp=sisn%20' : rep == 'people' ? 'PEOPLE_VAL/WEB_PEOPLE_DET_OPAC_FR?SESSIONSEARCH&exp=PERSON_ID%20' : 'ORGANIZATION_VAL/WEB_ORG_DET_OPAC_FR?SESSIONSEARCH&exp=ORG_ID%20'
     let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/${params}${exp}`
         // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/DESCRIPTION_WEB/WEB_DESC_DET/SISN ${sisn}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
     console.log(url)

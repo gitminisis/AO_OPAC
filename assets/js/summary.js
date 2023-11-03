@@ -7,30 +7,49 @@ $(document).ready(function() {
 
     var count = false;
 
+
     $(".bookmark-btn").on("click", function() {
-        if (count == false) {
-            count = true;
-            // alert($(".web_sum_form").attr('data-action'))
-            $.ajax({
-                type: "POST",
-                url: $(".web_sum_form").attr("data-action"),
-                data: $(this).find("input").attr("name") +
-                    "=" +
-                    $(this).find("input").attr("value"),
-                success: function(textStatus, status) {
-                    console.log(textStatus);
-                    console.log(status);
-                },
-                error: function(xhr, textStatus, error) {
-                    console.log(xhr.responseText);
-                    console.log(xhr.statusText);
-                    console.log(textStatus);
-                    console.log(error);
-                },
-            }).done(function() {
-                location.reload();
-            });
-        }
+
+        // Create a form dynamically
+
+        var form_string = '<form method="post" action="' + $(".web_sum_form").attr("data-action") + '"></form>';
+
+        var myform = $(form_string);
+
+        var input_field = '<input type="text" name="' + $(this).find("input").attr("name") + '" value="' + $(this).find("input").attr("value") + '">';
+
+        myform.append(input_field);
+
+        $('body').append(myform);
+
+        // sumbit form
+
+        $(myform).submit();
+        /*
+          if (count == false) {
+              count = true;
+              // alert($(".web_sum_form").attr('data-action'))
+              $.ajax({
+                  type: "POST",
+                  url: $(".web_sum_form").attr("data-action"),
+                  data: $(this).find("input").attr("name") +
+                      "=" +
+                      $(this).find("input").attr("value"),
+                  success: function(textStatus, status) {
+                      console.log(textStatus);
+                      console.log(status);
+                  },
+                  error: function(xhr, textStatus, error) {
+                      console.log(xhr.responseText);
+                      console.log(xhr.statusText);
+                      console.log(textStatus);
+                      console.log(error);
+                  },
+              }).done(function() {
+                  location.reload();
+              });
+          }
+        */
     });
     $("#web_sum_form").on("submit", function(e) {
         e.preventDefault();
@@ -159,6 +178,7 @@ $(document).ready(function() {
         checkMedia();
         // Remove minisis search cluster
         if (document.getElementById("search-statement")) {
+            debugger;
             $("div#search-statement").html(
                 $("div#search-statement")
                 .html()
@@ -167,7 +187,7 @@ $(document).ready(function() {
                     ""
                 )
             );
-            $("div#search-statement b").text($("div#search-statement b").text().trim().split(' and ').join(', ').split(' or ').join(', '))
+            // $("div#search-statement b").text($("div#search-statement b").text().trim().split(' and ').join(', ').split(' or ').join(', '))
 
 
         }

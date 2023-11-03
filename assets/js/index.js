@@ -125,7 +125,8 @@ $(document).ready(function() {
                         .nodeValue;
                     var item_link =
                         item_group.getElementsByTagName("item_link")[0].childNodes[0]
-                        .nodeValue;
+                        .nodeValue
+                        .replace('&DATABASE=UNION_VIEW', '');
                     var item_selected =
                         item_group.getElementsByTagName("item_selected")[0].childNodes[0]
                         .nodeValue;
@@ -271,30 +272,30 @@ const redirectToArchiveAdvance = () =>
 const redirectToLibraryAdvance = () =>
     (window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]/html/advancedsearchLibrary.html`);
 
-// let timerCountdown = () => {
-//     let timer = setInterval(() => {
-//         timeout--;
-//         if (timeout === 20) {
-//             $('body').append(`<div id="timeoutModal" class="modal fade " tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Notification</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" > <p id="timeoutModalBody">Your session is going to timeout and you will be logged out in ${timeout} second(s)</p> </div> <div class="modal-footer"> <button type="button" id="sessionContinue" class="btn btn-primary">Continue</button> <button type="button" id="sessionEnd"  class="btn btn-secondary" data-dismiss="modal">Logout</button> </div> </div> </div> </div>`)
-//             var myModal = new bootstrap.Modal(document.getElementById('timeoutModal'))
-//             myModal.show()
+let timerCountdown = () => {
+    let timer = setInterval(() => {
+        timeout--;
+        if (timeout === 20) {
+            $('body').append(`<div id="timeoutModal" class="modal fade " tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Notification</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" > <p id="timeoutModalBody">Your session is going to timeout and you will be logged out in ${timeout} second(s)</p> </div> <div class="modal-footer"> <button type="button" id="sessionContinue" class="btn btn-primary">Continue</button> <button type="button" id="sessionEnd"  class="btn btn-secondary" data-dismiss="modal">Logout</button> </div> </div> </div> </div>`)
+            var myModal = new bootstrap.Modal(document.getElementById('timeoutModal'))
+            myModal.show()
 
-//             $("#sessionContinue").on('click', function() {
-//                 clearInterval(timer)
-//                 location.reload();
-//             })
-//             $("#sessionEnd").on('click', function() {
-//                 window.location = '/assets/html/PubSecureLogout.html'
-//             })
-//         } else if (timeout < 20 && timeout >= 0) {
-//             $('#timeoutModalBody').text(`Your session is going to timeout and you will be logged out in ${timeout} second(s)`)
-//         }
-//         if (timeout === 0) {
-//             clearInterval(timer)
-//             window.location = '/assets/html/PubSecureLogout.html'
-//         }
-//     }, 1000);
-// }
+            $("#sessionContinue").on('click', function() {
+                clearInterval(timer)
+                location.reload();
+            })
+            $("#sessionEnd").on('click', function() {
+                window.location = '/assets/html/PubSecureLogout.html'
+            })
+        } else if (timeout < 20 && timeout >= 0) {
+            $('#timeoutModalBody').text(`Your session is going to timeout and you will be logged out in ${timeout} second(s)`)
+        }
+        if (timeout === 0) {
+            clearInterval(timer)
+            window.location = '/assets/html/PubSecureLogout.html'
+        }
+    }, 1000);
+}
 
 /* * * * * * * * * * * * *
  * *                   * *
@@ -468,7 +469,6 @@ function submitSimpleSearch() {
     });
 }
 
-submitSimpleSearch();
 
 // Added hard-code lang paramter in the URL
 const onClickLoginBtn = () => {
@@ -729,11 +729,25 @@ $('.simple-search-btn').blur(function() {
 })
 
 
+
+
 if (document.querySelector('#no-record-statement')) {
+
     let norecordstatement = $('#no-record-statement').text();
 
     $('#no-record-statement').text(norecordstatement.replace(
         /KEYWORD_CLUSTER |ALL_TITLE_CL |LEGAL_TITLE |LEVEL_CL |SEARCH_DATE_CL |BARCODE_DESC_CL |FINDAID_CL |PHYS_DESC_CL  |ORGIN_CL |ALL_ |RECORD_ID_CL |ACCESSION_NUMBER |OBJ_DESCRIPTION |OBJECT_TYPE |SUB_KEYWORD |EARLY |MAKER_FULLNAME |MAKER_ORG |MEDIUM |MATERIAL_COO |OBJECT_STATUS |AUTHOR_CL |LIB_PUB_CL |ISBN_CL |ISSN_CL |MEDIA_TYPE_CL |BARCODE_CL |RECORD_ID_CL  |REFD_HIGHER_CL |ORIGIN_CL |ASSO_ORG_CL |DATES_EXISTED |VENDOR_ROLE |P_AUTH_TYPE |KEYWORDS |KEYNAMES |TITLE_CL |SCOPE_CL |DATE_CL |REFD_CL |ORIGINATOR_CL |PHYSICAL_DESC_CL |FORMATS_CL |SUBJECT_CL |RELATED_MAT_CL |AND_WORD |OR_WORD |ADJ_WORD |KEYWORD_CLUSTER AND_WORD |HD_FIRSTNAME&nbsp;|HD_SURNAME&nbsp;|HD_PLACE&nbsp;|HD_DATE&nbsp;|SURNAME&nbsp;|GIVENNAME&nbsp;|NATION&nbsp;|TRADEWHOLE&nbsp;|SHIPWHOLE&nbsp;|DESTWHOLE&nbsp;|YEAR&nbsp;|HD_FIRSTNAME |HD_SURNAME |HD_PLACE |HD_DATE |SURNAME |GIVENNAME |NATION |TRADEWHOLE |SHIPWHOLE |DESTWHOLE |YEAR /g,
         ""
-    )).replace('%1D', '').trim().split(' and ').join(', ').split(' or ').join(', ')
+    ))
+    let statement = $('#no-record-statement').text().split('').filter((e, i) => {
+        return i !== 0 && i !== $('#no-record-statement').text().length - 1
+    }).join('')
+
+    $('#no-record-statement').text(statement);
 }
+
+
+$('.print-btn').on('click', function() {
+    window.print();
+    return false;
+})

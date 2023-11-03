@@ -2163,6 +2163,10 @@ p {
     text-align: left;
 }
 
+#bookmark-header p {
+    margin-bottom: 0;
+}
+
 .Delete-Bookmark {
     margin: 0 !important;
     padding: 2px 20px !important;

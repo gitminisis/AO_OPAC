@@ -564,7 +564,8 @@ function unescapeHtml(safe) {
 
 const copyPermalink = (e, rep) => {
     let exp = e.value
-    let params = rep == 'desc' ? 'DESCRIPTION_WEB/WEB_DESC_DET?SESSIONSEARCH&exp=sisn%20' : rep == 'biblio' ? 'BIBLIO_WEB/WEB_BIBLIO_DET?SESSIONSEARCH&exp=sisn%20' : rep == 'people' ? 'PEOPLE_VAL_SYN/WEB_PEOPLE_DET_OPAC?SESSIONSEARCH&exp=PERSON_ID%20' : 'ORGANIZATION_VAL/WEB_ORG_DET_OPAC?SESSIONSEARCH&exp=ORG_ID%20'
+    let params = rep == 'coll' ? 'COLLECTIONS_WEB/WEB_COLL_DET?SESSIONSEARCH&exp=sisn%20' :
+        'desc' ? 'DESCRIPTION_WEB/WEB_DESC_DET?SESSIONSEARCH&exp=sisn%20' : rep == 'biblio' ? 'BIBLIO_WEB/WEB_BIBLIO_DET?SESSIONSEARCH&exp=sisn%20' : rep == 'people' ? 'PEOPLE_VAL_SYN/WEB_PEOPLE_DET_OPAC?SESSIONSEARCH&exp=PERSON_ID%20' : 'ORGANIZATION_VAL/WEB_ORG_DET_OPAC?SESSIONSEARCH&exp=ORG_ID%20'
         // let report = rep == 'desc' ? 'DESCRIPTION_WEB/WEB_DESC_DET' : rep == 'biblio'? 'BIBLIO_WEB/WEB_BIBLIO_DET/001' : rep == 'people' ? 'PEOPLE_VAL/WEB_PEOPLE_DET_OPAC/PERSON_ID' : 'ORGANIZATION_VAL/WEB_ORG_DET_OPAC/ORG_ID'
     let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${params}${exp}`
         // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm&exp=sisn%20${exp}`;

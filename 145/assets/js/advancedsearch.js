@@ -41,7 +41,7 @@ const MATERIAL_FIELD = "MATERIAL_COO";
 const OBJECT_NAME_FIELD = "OBJECT_NAME";
 const PRIMARY_FIELD = "PRIMARY";
 const BUILDING_FIELD = "BUILDING";
-
+const OBJECT_STATUS_FIELD = "OBJECT_STATUS";
 
 // BIBLIO
 const ALL_TITLE_FIELD = "ALL_TITLE_WORD";
@@ -56,7 +56,7 @@ const MEDIA_TYPE_FIELD = "MEDIA_TYPE"; //
 const MAT_TYPE_FIELD = "I_COLLECT_CODE"; //
 const HOLD_CENTRE_FIELD = "HOLDING_CENTRE"; //
 const BARCODE_FIELD = "BARCODE"; //
-const OTHER_ID_FIELD = "024_A";
+const RECORD_ID_FIELD = "001";
 
 const FIELD_020_A = "020_A";
 const FIELD_022_A = "022_A";
@@ -66,16 +66,36 @@ const FIELD_022_A = "022_A";
 const FULLNAME3_FIELD = "FULLNAME3";
 const ORG_MAIN_BODY_FIELD = "ORG_MAIN_BODY";
 
-// PEOPLE_VAL_SYN RECHERCHE AVANCÉE
+
+// PEOPLE_VAL_SYN ADVANCED SEARCH
 const KEYWORDS_PEOPLE_FIELD = "KEYWORDS";
 const KEYNAMES_PEOPLE_FIELD = "KEYNAMES";
 // const P_AUTH_TYPE_FIELD     = "P_AUTH_TYPE;"
 
-// ORGANIZATION_VAL_SYN RECHERCHE AVANCÉE
+
+// ORGANIZATION_VAL_SYN ADVANCED SEARCH
 const KEYWORDS_FIELD = "KEYWORDS";
 const KEYNAMES_FIELD = "KEYNAMES";
 // const VENDER_ROLES_FIELD          = 'VENDER_ROLES';
 const DATES_EXISTED_FIELD = "DATES_EXISTED";
+
+
+// HAWKE
+const HAWKE_SURNAME = "SURNAME";
+const HAWKE_GIVENNAME = "GIVENNAME";
+const HAWKE_NATION = "NATION";
+const HAWKE_TRADEWHOLE = "TRADEWHOLE";
+const HAWKE_SHIPWHOLE = "SHIPWHOLE";
+const HAWKE_DESTWHOLE = "DESTWHOLE";
+const HAWKE_YEAR = "YEAR";
+
+
+// AOHEIRS
+const HEIRS_HD_SURNAME = "HD_SURNAME";
+const HEIRS_HD_FIRSTNAME = "HD_FIRSTNAME";
+const HEIRS_HD_PLACE = "HD_PLACE";
+const HEIRS_HD_DATE = "HD_DATE";
+
 
 
 var clustername = "";
@@ -171,7 +191,7 @@ $("#FINDAID_CL").on("click", function() {
     load_index_page(url);
     clustername = FINDAID_FIELD;
 });
-$("#BARCODE_CL").on("click", function() {
+$("#BARCODE_DESC_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=BARCODE_ID&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = BARCODE_DESC_FIELD;
@@ -261,6 +281,11 @@ $("#PRIMARY_CL").on("click", function() {
     clustername = PRIMARY_FIELD;
 });
 
+$("#OBJ_STATUS_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=OBJECT_STATUS&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = OBJECT_STATUS_FIELD;
+});
 
 
 // LIBRARY 
@@ -327,10 +352,10 @@ $("#BARCODE_CL").on("click", function() {
     clustername = BARCODE_FIELD;
 });
 
-$("#OTHER_ID_CL").on("click", function() {
-    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=024_A&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+$("#RECORD_ID_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=001&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
-    clustername = OTHER_ID_FIELD;
+    clustername = RECORD_ID_FIELD;
 });
 
 
@@ -351,7 +376,7 @@ $("#ORG_MAIN_BODY").on("click", function() {
 });
 
 
-//PEOPLE_VAL_SYN & ORGANIZATION_VAL_SYN RECHERCHE AVANCÉE
+//PEOPLE_VAL_SYN & ORGANIZATION_VAL_SYN ADVANCED SEARCH
 
 $("#KEYWORDS_PEOPLE").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=KEYWORDS&DATABASE=PEOPLE_VAL_SYN&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
@@ -397,6 +422,43 @@ $("#DATES_EXISTED").on("click", function() {
 });
 
 
+// HAWKE
+
+$("#SURNAME_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=SURNAME&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = HAWKE_SURNAME;
+});
+$("#GIVENNAME_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=GIVENNAME&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = HAWKE_GIVENNAME;
+});
+$("#NATION_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=NATION&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = HAWKE_NATION;
+});
+$("#TRADEWHOLE_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=TRADEWHOLE&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = HAWKE_TRADEWHOLE;
+});
+$("#SHIPWHOLE_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=SHIPWHOLE&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = HAWKE_SHIPWHOLE;
+});
+$("#DESTWHOLE_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=DESTWHOLE&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = HAWKE_DESTWHOLE;
+});
+$("#YEAR_CL").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=YEAR&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = HAWKE_YEAR;
+});
 
 
 // AOHEIRS
@@ -420,6 +482,8 @@ $("#HD_DATE_CL").on("click", function() {
     load_index_page(url);
     clustername = HEIRS_HD_DATE;
 });
+
+
 
 // paste selected value to search form
 function assignValue() {
@@ -465,7 +529,7 @@ function assignValue() {
             jquery_input = $("input[name=FINDAID_CL]");
             break;
         case BARCODE_DESC_FIELD:
-            jquery_input = $("input[name=BARCODE_CL]");
+            jquery_input = $("input[name=BARCODE_DESC_CL]");
             break;
         case SUBJECT_DESC_FIELD:
             jquery_input = $("input[name=SUBJECT_DESC_CL]");
@@ -511,6 +575,9 @@ function assignValue() {
         case BUILDING_FIELD:
             jquery_input = $("input[name=BUILDING]");
             break;
+        case OBJECT_STATUS_FIELD:
+            jquery_input = $("input[name=OBJECT_STATUS]");
+            break;
 
             // LIBRARY
         case ALL_TITLE_FIELD:
@@ -549,8 +616,8 @@ function assignValue() {
         case BARCODE_FIELD:
             jquery_input = $("input[name=BARCODE_CL]");
             break;
-        case OTHER_ID_FIELD:
-            jquery_input = $("input[name=OTHER_ID_CL]");
+        case RECORD_ID_FIELD:
+            jquery_input = $("input[name=RECORD_ID_CL]");
             break;
 
             // PEOPLE_VAL
@@ -561,7 +628,7 @@ function assignValue() {
             jquery_input = $("input[name=ORG_MAIN_BODY]");
             break;
 
-            // PEOPLE_VAL RECHERCHE AVANCÉE
+            // PEOPLE_VAL ADVANCED SEARCH
         case KEYWORDS_PEOPLE_FIELD:
             jquery_input = $("input[name=KEYWORDS]");
             break;
@@ -573,7 +640,7 @@ function assignValue() {
             //   break;
 
 
-            // ORGANIZATION_VAL_SYN RECHERCHE AVANCÉE
+            // ORGANIZATION_VAL_SYN ADVANCED SEARCH
         case KEYWORDS_FIELD:
             jquery_input = $("input[name=KEYWORDS]");
             break;
@@ -587,7 +654,47 @@ function assignValue() {
             jquery_input = $("input[name=DATES_EXISTED]");
             break;
 
+
+            // HAWKE
+        case HAWKE_SURNAME:
+            jquery_input = $("input[name=SURNAME]");
+            break;
+        case HAWKE_GIVENNAME:
+            jquery_input = $("input[name=GIVENNAME]");
+            break;
+        case HAWKE_NATION:
+            jquery_input = $("input[name=NATION]");
+            break;
+        case HAWKE_TRADEWHOLE:
+            jquery_input = $("input[name=TRADEWHOLE]");
+            break;
+        case HAWKE_SHIPWHOLE:
+            jquery_input = $("input[name=SHIPWHOLE]");
+            break;
+        case HAWKE_DESTWHOLE:
+            jquery_input = $("input[name=DESTWHOLE]");
+            break;
+        case HAWKE_YEAR:
+            jquery_input = $("input[name=YEAR]");
+            break;
+
+            // AOHEIRS
+        case HEIRS_HD_SURNAME:
+            jquery_input = $("input[name=HD_SURNAME]");
+            break;
+        case HEIRS_HD_FIRSTNAME:
+            jquery_input = $("input[name=HD_FIRSTNAME]");
+            break;
+        case HEIRS_HD_PLACE:
+            jquery_input = $("input[name=HD_PLACE]");
+            break;
+        case HEIRS_HD_DATE:
+            jquery_input = $("input[name=HD_DATE]");
+            break;
+
     }
+
+
 
 
     if (jquery_input != null) {
@@ -596,7 +703,7 @@ function assignValue() {
             selected_value = jquery_select.val();
         }
         if (typeof selected_value == 'undefined' || selected_value == "") {
-            alert("Aucune valeur sélectionnée");
+            alert("[--No value is selected--]");
         } else {
             clustername = "";
             jquery_input.val(selected_value);
@@ -646,3 +753,8 @@ $("#listSearch").keypress(
             event.preventDefault();
         }
     });
+
+
+if (document.getElementById('cluster-body')) {
+    $('#listSearch').attr('placeholder', '')
+}

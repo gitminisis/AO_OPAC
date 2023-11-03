@@ -106,31 +106,48 @@ $(document).ready(function() {
 
         var count = false;
 
+
         $(".bookmark-btn").on("click", function() {
-            if (count == false) {
-                count = true;
-                console.log("success");
-                $.ajax({
-                    type: "POST",
-                    url: $(".web_sum_form").attr("data-action"),
-                    data: $(this).find("input").attr("name") +
-                        "=" +
-                        $(this).find("input").attr("value"),
-                    success: function(textStatus, status) {
-                        // console.log(textStatus);
-                        // console.log(status);
-                    },
-                    error: function(xhr, textStatus, error) {
-                        // console.log(xhr.responseText);
-                        // console.log(xhr.statusText);
-                        // console.log(textStatus);
-                        // console.log(error);
-                    },
-                }).done(function() {
-                    console.log("reloading");
-                    location.reload();
-                });
-            }
+
+            // Create a form dynamically
+
+            var form_string = '<form method="post" action="' + $(".web_sum_form").attr("data-action") + '"></form>';
+
+            var myform = $(form_string);
+
+            var input_field = '<input type="text" name="' + $(this).find("input").attr("name") + '" value="' + $(this).find("input").attr("value") + '">';
+
+            myform.append(input_field);
+
+            $('body').append(myform);
+
+            // sumbit form
+
+            $(myform).submit();
+            // if (count == false) {
+            //     count = true;
+            //     console.log("success");
+            //     $.ajax({
+            //         type: "POST",
+            //         url: $(".web_sum_form").attr("data-action"),
+            //         data: $(this).find("input").attr("name") +
+            //             "=" +
+            //             $(this).find("input").attr("value"),
+            //         success: function(textStatus, status) {
+            //             // console.log(textStatus);
+            //             // console.log(status);
+            //         },
+            //         error: function(xhr, textStatus, error) {
+            //             // console.log(xhr.responseText);
+            //             // console.log(xhr.statusText);
+            //             // console.log(textStatus);
+            //             // console.log(error);
+            //         },
+            //     }).done(function() {
+            //         console.log("reloading");
+            //         location.reload();
+            //     });
+            // }
         });
         $(".Delete-Bookmark").on("click", function() {
             $.ajax({
