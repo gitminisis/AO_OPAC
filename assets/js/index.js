@@ -759,7 +759,7 @@ $('body').append(`<div id="popup-message" class="modal fade" tabindex="-1" role=
 <p class="">
 We appreciate your visit to our website. We are currently performing scheduled updates and apologize for any inconvenience.
 </p>
-<p>The AIMS accounts will be disabled shortly. Please ensure you have the information you need including any inquiries or bookmarks saved as these will no longer be available. Inquiries can now be sent directly to <a href="mailto:reference@ontario.ca">reference@ontario.ca</a>.</>p>
+<p>The AIMS accounts will be disabled shortly. Please ensure you have the information you need including any inquiries or bookmarks saved as these will no longer be available. Inquiries can now be sent directly to <a href="mailto:reference@ontario.ca">reference@ontario.ca</a>.</p>
 <p class="">We encourage you to check back later.</p>
 <p class="">Thank you for your patience and understanding.</p></div> <div class="modal-footer">  <button type="button" id="test"  class="btn btn-secondary test-btn" data-dismiss="modal">Close</button> </div> </div> </div> </div>`)
 if (sessionStorage.getItem('announcement') !== "true") {
