@@ -750,20 +750,21 @@ $('.print-btn').on('click', function() {
 })
 
 
-$('body').append(`<div id="popup-message" class="modal fade" tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Notification</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" >  
+$('body').append(`<div id="popup-message" class="modal fade" tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Avertissement</h5> <button type="button" class="close test-btn" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" >  
 <p class=" ">À nos visiteurs,</p>
 <p class=" ">
     Nous vous remercions de votre visite sur notre site Web. Nous procédons actuellement à des mises à jour planifiées et nous nous excusons pour tout inconvénient.
 </p>
-<p class=" ">
-    Les comptes AIMS seront bientôt désactivés. Veuillez-vous assurer que vous disposez des informations dont vous avez besoin, y compris les demandes de renseignements ou les favoris enregistrés, car ceux-ci ne seront plus disponibles. Les demandes de renseignements
-    peuvent désormais être envoyées directement à : <a href="mailto:reference@ontario.ca">reference@ontario.ca</a>
-</p>
+<p>Les comptes AIMS seront bientôt désactivés. Veuillez-vous assurer que vous disposez des informations dont vous avez besoin, y compris les demandes de renseignements ou les favoris enregistrés, car ceux-ci ne seront plus disponibles. Les demandes de renseignements peuvent désormais être envoyées directement à : <a href="mailto:reference@ontario.ca">reference@ontario.ca</a>.</p>
+
 
 <p class=" ">Nous vous invitons à revenir plus tard.</p>
 <p class=" ">Merci de votre patience et de votre compréhension.</p>
-</div> <div class="modal-footer">  <button type="button" id="test"  class="btn btn-secondary" data-dismiss="modal">Fermer</button> </div> </div> </div> </div>`)
-new bootstrap.Modal(document.getElementById('popup-message')).show()
-$('#test').on('click', function() {
+</div> <div class="modal-footer">  <button type="button" class="test-btn"  class="btn btn-secondary" data-dismiss="modal">Fermer</button> </div> </div> </div> </div>`)
+if (sessionStorage.getItem('announcement') !== "true") {
+    new bootstrap.Modal(document.getElementById('popup-message')).show()
+}
+$('.test-btn').on('click', function() {
+    sessionStorage.setItem('announcement', true)
     $('#popup-message').modal('hide')
 })

@@ -2168,6 +2168,7 @@ p {
 }
 
 .Delete-Bookmark {
+    font-size: 16px;
     margin: 0 !important;
     padding: 2px 20px !important;
 }
@@ -2233,4 +2234,11 @@ p {
 input,
 button {
     font-family: 'Open Sans' !important;
+}
+
+.copy-record-link a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: #06c
 }
