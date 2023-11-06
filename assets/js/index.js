@@ -31,6 +31,25 @@ $(document).ready(function() {
     // Display Account Info after Login
     getAccountInfo();
 
+
+    const bookmarkRecord = (url, SISN, database, fn) => {
+        return $.ajax({
+            method: "post",
+            url: `${url}?ADDSELECTION&COOKIE=BOOKMARK`,
+            data: `mcheckbox_${SISN}=${SISN}-${database}`,
+        }).then(function(res) {
+            console.log(res)
+            location.reload()
+        });
+    };
+
+    $('.detail-bm-btn').on('click', function() {
+        let url = $('#bm-url').text().trim()
+        let sisn = $('#bm-sisn').text().trim()
+        let db = $('#bm-db').text().trim()
+        bookmarkRecord(url, sisn, db)
+    })
+
     // Detail Report "Save to Bookmark"
     $("div.detail_result_check label").click(function() {
         // Basically, we want to check the invisible checkbox and submit the form

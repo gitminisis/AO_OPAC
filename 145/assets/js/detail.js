@@ -596,10 +596,14 @@ const formatCarouselNav = () => {
     }
     carNav = carNavArr[0];
     prev = document.getElementsByClassName('is-prev')[0];
+    if (!carNav) {
+        return
+    }
     try {
         carNav.prepend(prev);
     } catch (e) {
-        console.error(e, "There is no carousel")
+        console.error(e);
+        return;
     }
 }
 
@@ -617,7 +621,9 @@ const setCarouselNavListener = () => {
     try {
         prev = document.getElementsByClassName('is-prev')[0];
         next = document.getElementsByClassName('is-next')[0];
-
+        if (!prev || !next) {
+            return;
+        }
         prev.addEventListener("keypress", e => {
             if (e.key === "Enter") {
                 updateCarouselSelected();
