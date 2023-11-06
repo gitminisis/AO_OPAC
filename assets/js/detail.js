@@ -157,7 +157,7 @@ const disableRequestBtn = (url) => {
     patron_id = patron_id.split(']')[1];
 
     if (patrion_id != '') {
-        let url1 = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/CHECK_REQUEST_STATUS/REQ_PATRON_ID%20${patron_id}?COMMANDSEARCH#`;
+        let url1 = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/CHECK_REQUEST_STATUS/REQ_PATRON_ID%20${patron_id}?COMMANDSEARCH#`;
 
         $.ajax(url1).done(function(res) {
             var x2js = new X2JS();
@@ -563,34 +563,30 @@ function unescapeHtml(safe) {
 
 
 const copyPermalink = (e, rep) => {
-/*	
-    let exp = e.value
-    let params = rep == 'coll' ? 'COLLECTIONS_WEB/WEB_COLL_DET?SESSIONSEARCH&exp=sisn%20' :
-        'desc' ? 'DESCRIPTION_WEB/WEB_DESC_DET?SESSIONSEARCH&exp=sisn%20' : rep == 'biblio' ? 'BIBLIO_WEB/WEB_BIBLIO_DET?SESSIONSEARCH&exp=sisn%20' : rep == 'people' ? 'PEOPLE_VAL_SYN/WEB_PEOPLE_DET_OPAC?SESSIONSEARCH&exp=PERSON_ID%20' : 'ORGANIZATION_VAL/WEB_ORG_DET_OPAC?SESSIONSEARCH&exp=ORG_ID%20'
-        // let report = rep == 'desc' ? 'DESCRIPTION_WEB/WEB_DESC_DET' : rep == 'biblio'? 'BIBLIO_WEB/WEB_BIBLIO_DET/001' : rep == 'people' ? 'PEOPLE_VAL/WEB_PEOPLE_DET_OPAC/PERSON_ID' : 'ORGANIZATION_VAL/WEB_ORG_DET_OPAC/ORG_ID'
-*/
+    /*	
+        let exp = e.value
+        let params = rep == 'coll' ? 'COLLECTIONS_WEB/WEB_COLL_DET?SESSIONSEARCH&exp=sisn%20' :
+            'desc' ? 'DESCRIPTION_WEB/WEB_DESC_DET?SESSIONSEARCH&exp=sisn%20' : rep == 'biblio' ? 'BIBLIO_WEB/WEB_BIBLIO_DET?SESSIONSEARCH&exp=sisn%20' : rep == 'people' ? 'PEOPLE_VAL_SYN/WEB_PEOPLE_DET_OPAC?SESSIONSEARCH&exp=PERSON_ID%20' : 'ORGANIZATION_VAL/WEB_ORG_DET_OPAC?SESSIONSEARCH&exp=ORG_ID%20'
+            // let report = rep == 'desc' ? 'DESCRIPTION_WEB/WEB_DESC_DET' : rep == 'biblio'? 'BIBLIO_WEB/WEB_BIBLIO_DET/001' : rep == 'people' ? 'PEOPLE_VAL/WEB_PEOPLE_DET_OPAC/PERSON_ID' : 'ORGANIZATION_VAL/WEB_ORG_DET_OPAC/ORG_ID'
+    */
     let exp = e.value;
     let params = '';
 
-    if ( rep == 'coll' ) {
-      params = 'COLLECTIONS_WEB/WEB_COLL_DET?SESSIONSEARCH&exp=sisn%20';
+    if (rep == 'coll') {
+        params = 'COLLECTIONS_WEB/WEB_COLL_DET?SESSIONSEARCH&exp=sisn%20';
+    } else if (rep == 'desc') {
+        params = 'DESCRIPTION_WEB/WEB_DESC_DET?SESSIONSEARCH&exp=sisn%20';
+    } else if (rep == 'biblio') {
+        params = 'BIBLIO_WEB/WEB_BIBLIO_DET?SESSIONSEARCH&exp=sisn%20';
+    } else if (rep == 'people') {
+        params = 'PEOPLE_VAL_SYN/WEB_PEOPLE_DET_OPAC?SESSIONSEARCH&exp=PERSON_ID%20';
+    } else {
+        params = 'ORGANIZATION_VAL_SYN/WEB_ORG_DET_OPAC?SESSIONSEARCH&exp=ORG_ID%20';
     }
-    else if ( rep == 'desc' ) {
-      params = 'DESCRIPTION_WEB/WEB_DESC_DET?SESSIONSEARCH&exp=sisn%20';
-    }
-    else if ( rep == 'biblio' ) {
-      params = 'BIBLIO_WEB/WEB_BIBLIO_DET?SESSIONSEARCH&exp=sisn%20';
-    }
-    else if ( rep == 'people' ) {
-      params = 'PEOPLE_VAL_SYN/WEB_PEOPLE_DET_OPAC?SESSIONSEARCH&exp=PERSON_ID%20';
-    }
-    else {
-      params = 'ORGANIZATION_VAL_SYN/WEB_ORG_DET_OPAC?SESSIONSEARCH&exp=ORG_ID%20';
-    }
-		
-    let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${params}${exp}`
-        // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm&exp=sisn%20${exp}`;
-        // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report} ${exp}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
+
+    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/${params}${exp}`
+        // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm&exp=sisn%20${exp}`;
+        // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report} ${exp}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
         // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/DESCRIPTION_WEB/WEB_DESC_DET/SISN ${sisn}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
     console.log(url)
     navigator.clipboard.writeText(url);

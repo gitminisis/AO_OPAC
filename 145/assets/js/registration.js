@@ -125,7 +125,7 @@ $(document).ready(function() {
 
 
         console.log(emailInput)
-        const res = await fetch(`https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${emailInput}"?SESSIONSEARCH&NOMSG=[ao_opac]/145/includes/noEmail.xml`)
+        const res = await fetch(`https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${emailInput}"?SESSIONSEARCH&NOMSG=[ao_opac]/145/includes/noEmail.xml`)
         const data = await res.text()
         console.log(data)
 

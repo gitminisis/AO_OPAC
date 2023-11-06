@@ -63,17 +63,17 @@ $(document).ready(function() {
     }
 
     // This is a continuation function that requires storeAdditionalReqFields(btn_number) from detail.js
-    if(document.getElementById("direct-request-form") != null){
+    if (document.getElementById("direct-request-form") != null) {
         let call = sessionStorage.getItem("Call Number");
-        let vol  = sessionStorage.getItem("Volume ID");
+        let vol = sessionStorage.getItem("Volume ID");
         let call_number = call == null ? 'N/A' : call
         let volume_id = vol == null ? 'N/A' : vol
 
         $(".para1").after("<p class='para2'>Call Number: <strong>" + call_number + "</strong></p><p class='para2'>Volume ID: <strong>" + volume_id + "</strong></p>");
     }
-    if(document.getElementById("request-confirmation-form") != null){
+    if (document.getElementById("request-confirmation-form") != null) {
         let call = sessionStorage.getItem("Call Number");
-        let vol  = sessionStorage.getItem("Volume ID");
+        let vol = sessionStorage.getItem("Volume ID");
         let call_number = call == null ? 'N/A' : call
         let volume_id = vol == null ? 'N/A' : vol
 
@@ -136,7 +136,7 @@ function getRequestClientInfo() {
     patron_id = patron_id.split(']')[1];
 
 
-    let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
+    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
 
 
     if (document.getElementById('Request-Form') != null) {
@@ -193,7 +193,7 @@ function goToClientRequest() {
     let patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
 
-    window.location(`https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20${patron_id}&NOMSG=[AO_INCLUDES]error\\norequest.htm`)
+    window.location(`https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20${patron_id}&NOMSG=[AO_INCLUDES]error\\norequest.htm`)
 }
 
 function toggleReqTopicForm(value, option, id) {

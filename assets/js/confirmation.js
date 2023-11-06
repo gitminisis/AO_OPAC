@@ -29,7 +29,7 @@ $(document).ready(function() {
                 $('#confirmTime').text(time)
                 if (time === 0) {
                     clearInterval(interval)
-                    window.location = `https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogin.html`
+                    window.location = `https://aims.archives.gov.on.ca/assets/html/PubSecureLogin.html`
 
                 } else {
                     time--;

@@ -52,7 +52,7 @@
         const authClient = new OktaAuth(conectoptions);
         let checkEmail = async(email) => {
 
-            const res = await fetch(`https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[ao_opac]/145/includes/noEmail.xml`)
+            const res = await fetch(`https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[ao_opac]/145/includes/noEmail.xml`)
             const data = await res.text()
 
 
@@ -104,10 +104,10 @@
                                 // Existing Account
                                 else {
                                     console.log('Existing Acc')
-                                    window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSecureLogin.html`
+                                    window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSecureLogin.html`
                                 }
                             })
-                            // window.location = "https://test.aims.archives.gov.on.ca";
+                            // window.location = "https://aims.archives.gov.on.ca";
                             /*
                                 if (useremail is a MINISIS user) {
                                     log in to MINISIS using this email.
@@ -132,7 +132,7 @@
                         // console.log('Could not get the user info');
                         // debugger;
 
-                        // window.location = "https://test.aims.archives.gov.on.ca";
+                        // window.location = "https://aims.archives.gov.on.ca";
                     }
                 } catch (e) {
                     // the most likely cause of an exception will be an URL with bad parameters that the 
@@ -140,7 +140,7 @@
                     // console.log(e);
                     // debugger;
 
-                    // window.location = "https://test.aims.archives.gov.on.ca";
+                    // window.location = "https://aims.archives.gov.on.ca";
                 }
             } else if (!await authClient.isAuthenticated()) {
                 // Not logged in. Redirect to the public secure logon page.
@@ -151,7 +151,7 @@
 
             } else {
                 if (getCookie('M2L_AUDIENCE') && getCookie('M2L_PATRON_ID') && getCookie('M2L_PATRON_NAME')) {
-                    window.location = "https://test.aims.archives.gov.on.ca";
+                    window.location = "https://aims.archives.gov.on.ca";
                 } else {
                     // parse tokens from the redirect and store.
                     // await authClient.storeTokensFromRedirect();
@@ -164,7 +164,7 @@
                     // window.location = `${getCookie('HOME_SESSID')}?GET&FILE=[ao_opac]/145/assets/html/publicSecureLogin.html`
                     console.log('has not log in')
                     console.log(userinfo)
-                    window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSecureLogin.html`
+                    window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSecureLogin.html`
                 }
                 // user is already logged in - Could add some checks that the user is logged in on the MINISIS 
                 // side and then redirect back to the home page.
