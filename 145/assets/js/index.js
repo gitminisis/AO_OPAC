@@ -7,7 +7,7 @@ let sessionId = home_sessid.split("/").pop();
 let sessid = "^SESSID^";
 let patron_id = getCookie("M2L_PATRON_ID");
 let patron_name = getCookie("M2L_PATRON_NAME");
-let timeout = 900; // Timeout in seconds
+let timeout = 1200; // Timeout in seconds
 let curWidth = window.innerWidth;
 
 const accessLinks = {
@@ -23,7 +23,7 @@ const accessLinks = {
  * *                 * *
  * * * * * * * * * * * */
 $(document).ready(function() {
-    //timerCountdown();
+    timerCountdown();
     client_name = getCookie("M2L_PATRON_NAME");
     client_name = unescapeString(client_name);
     client_id = getCookie("M2L_PATRON_ID");
@@ -271,30 +271,30 @@ const redirectToArchiveAdvance = () =>
 const redirectToLibraryAdvance = () =>
     (window.location = `${home_sessid}?GET&FILE=[AO_ASSETS]/html/advancedsearchLibrary.html`);
 
-// let timerCountdown = () => {
-//     let timer = setInterval(() => {
-//         timeout--;
-//         if (timeout === 20) {
-//             $('body').append(`<div id="timeoutModal" class="modal fade " tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Notification</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" > <p id="timeoutModalBody">Your session is going to timeout and you will be logged out in ${timeout} second(s)</p> </div> <div class="modal-footer"> <button type="button" id="sessionContinue" class="btn btn-primary">Continue</button> <button type="button" id="sessionEnd"  class="btn btn-secondary" data-dismiss="modal">Logout</button> </div> </div> </div> </div>`)
-//             var myModal = new bootstrap.Modal(document.getElementById('timeoutModal'))
-//             myModal.show()
+let timerCountdown = () => {
+    let timer = setInterval(() => {
+        timeout--;
+        if (timeout === 20) {
+            $('body').append(`<div id="timeoutModal" class="modal fade " tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Avertissement!</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" > <p id="timeoutModalBody">Votre session va expirer et vous serez déconnecté dans ${timeout} seconde(s)</p> </div> <div class="modal-footer"> <button type="button" id="sessionContinue" class="btn btn-primary">Continuer</button> <button type="button" id="sessionEnd"  class="btn btn-secondary" data-dismiss="modal">Revenir à la page d'accueil</button> </div> </div> </div> </div>`)
+            var myModal = new bootstrap.Modal(document.getElementById('timeoutModal'))
+            myModal.show()
 
-//             $("#sessionContinue").on('click', function() {
-//                 clearInterval(timer)
-//                 location.reload();
-//             })
-//             $("#sessionEnd").on('click', function() {
-//                 window.location = '/assets/html/PubSecureLogout.html'
-//             })
-//         } else if (timeout < 20 && timeout >= 0) {
-//             $('#timeoutModalBody').text(`Your session is going to timeout and you will be logged out in ${timeout} second(s)`)
-//         }
-//         if (timeout === 0) {
-//             clearInterval(timer)
-//             window.location = '/assets/html/PubSecureLogout.html'
-//         }
-//     }, 1000);
-// }
+            $("#sessionContinue").on('click', function() {
+                clearInterval(timer)
+                location.reload();
+            })
+            $("#sessionEnd").on('click', function() {
+                window.location = '/'
+            })
+        } else if (timeout < 20 && timeout >= 0) {
+            $('#timeoutModalBody').text(`Votre session va expirer et vous serez déconnecté dans ${timeout} seconde(s)`)
+        }
+        if (timeout === 0) {
+            clearInterval(timer)
+            window.location = '/'
+        }
+    }, 1000);
+}
 
 /* * * * * * * * * * * * *
  * *                   * *
@@ -747,4 +747,23 @@ if (document.querySelector('#no-record-statement')) {
 $('.print-btn').on('click', function() {
     window.print();
     return false;
+})
+
+
+$('body').append(`<div id="popup-message" class="modal fade" tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Notification</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" >  
+<p class=" ">À nos visiteurs,</p>
+<p class=" ">
+    Nous vous remercions de votre visite sur notre site Web. Nous procédons actuellement à des mises à jour planifiées et nous nous excusons pour tout inconvénient.
+</p>
+<p class=" ">
+    Les comptes AIMS seront bientôt désactivés. Veuillez-vous assurer que vous disposez des informations dont vous avez besoin, y compris les demandes de renseignements ou les favoris enregistrés, car ceux-ci ne seront plus disponibles. Les demandes de renseignements
+    peuvent désormais être envoyées directement à : <a href="mailto:reference@ontario.ca">reference@ontario.ca</a>
+</p>
+
+<p class=" ">Nous vous invitons à revenir plus tard.</p>
+<p class=" ">Merci de votre patience et de votre compréhension.</p>
+</div> <div class="modal-footer">  <button type="button" id="test"  class="btn btn-secondary" data-dismiss="modal">Fermer</button> </div> </div> </div> </div>`)
+new bootstrap.Modal(document.getElementById('popup-message')).show()
+$('#test').on('click', function() {
+    $('#popup-message').modal('hide')
 })
