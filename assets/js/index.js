@@ -44,6 +44,10 @@ $(document).ready(function() {
     };
 
     $('.detail-bm-btn').on('click', function() {
+<<<<<<< HEAD
+        $('.detail-bm-btn').off('click');
+=======
+>>>>>>> b3ee62768b6c46fdb4601e4590221591250f39b3
         let url = $('#bm-url').text().trim()
         let sisn = $('#bm-sisn').text().trim()
         let db = $('#bm-db').text().trim()
@@ -757,12 +761,9 @@ if (document.querySelector('#no-record-statement')) {
     $('#no-record-statement').text(norecordstatement.replace(
         /KEYWORD_CLUSTER |ALL_TITLE_CL |LEGAL_TITLE |LEVEL_CL |SEARCH_DATE_CL |BARCODE_DESC_CL |FINDAID_CL |PHYS_DESC_CL  |ORGIN_CL |ALL_ |RECORD_ID_CL |ACCESSION_NUMBER |OBJ_DESCRIPTION |OBJECT_TYPE |SUB_KEYWORD |EARLY |MAKER_FULLNAME |MAKER_ORG |MEDIUM |MATERIAL_COO |OBJECT_STATUS |AUTHOR_CL |LIB_PUB_CL |ISBN_CL |ISSN_CL |MEDIA_TYPE_CL |BARCODE_CL |RECORD_ID_CL  |REFD_HIGHER_CL |ORIGIN_CL |ASSO_ORG_CL |DATES_EXISTED |VENDOR_ROLE |P_AUTH_TYPE |KEYWORDS |KEYNAMES |TITLE_CL |SCOPE_CL |DATE_CL |REFD_CL |ORIGINATOR_CL |PHYSICAL_DESC_CL |FORMATS_CL |SUBJECT_CL |RELATED_MAT_CL |AND_WORD |OR_WORD |ADJ_WORD |KEYWORD_CLUSTER AND_WORD |HD_FIRSTNAME&nbsp;|HD_SURNAME&nbsp;|HD_PLACE&nbsp;|HD_DATE&nbsp;|SURNAME&nbsp;|GIVENNAME&nbsp;|NATION&nbsp;|TRADEWHOLE&nbsp;|SHIPWHOLE&nbsp;|DESTWHOLE&nbsp;|YEAR&nbsp;|HD_FIRSTNAME |HD_SURNAME |HD_PLACE |HD_DATE |SURNAME |GIVENNAME |NATION |TRADEWHOLE |SHIPWHOLE |DESTWHOLE |YEAR /g,
         ""
-    ))
-    let statement = $('#no-record-statement').text().split('').filter((e, i) => {
-        return i !== 0 && i !== $('#no-record-statement').text().length - 1
-    }).join('')
+    ).replace(/\x1D/g, ''))
+   
 
-    $('#no-record-statement').text(statement);
 }
 
 
@@ -774,13 +775,13 @@ $('.print-btn').on('click', function() {
 
 
 $('body').append(`<div id="popup-message" class="modal fade" tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Notification</h5> <button type="button" class="close test-btn" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" >  
-<p class="">Dear Visitor,</p>
+<p class="">Dear valued Visitor,</p>
 <p class="">
-We appreciate your visit to our website. We are currently performing scheduled updates and apologize for any inconvenience.
+We have recently updated our archives system and we hope the updated version will provide a better user experience. We made changes to the design and simplified the content based on client feedback received.
 </p>
-<p>The AIMS accounts will be disabled shortly. Please ensure you have the information you need including any inquiries or bookmarks saved as these will no longer be available. Inquiries can now be sent directly to <a href="mailto:reference@ontario.ca">reference@ontario.ca</a>.</p>
-<p class="">We encourage you to check back later.</p>
-<p class="">Thank you for your patience and understanding.</p></div> <div class="modal-footer">  <button type="button" id="test"  class="btn btn-secondary test-btn" data-dismiss="modal">Close</button> </div> </div> </div> </div>`)
+<p>Your account is no longer required to access the archives system and we have removed the inquiry option.  However, we will respond to your active inquiries via the email you provided.</p>
+<p class="">You may now reach us via <a href="mailto:reference@ontario.ca">reference@ontario.ca</a> for all inquiries and service requests.</p>
+</div> <div class="modal-footer">  <button type="button" id="test"  class="btn btn-secondary test-btn" data-dismiss="modal">Close</button> </div> </div> </div> </div>`)
 if (sessionStorage.getItem('announcement') !== "true") {
     new bootstrap.Modal(document.getElementById('popup-message')).show()
 }
