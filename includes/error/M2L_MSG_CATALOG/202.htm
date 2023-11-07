@@ -1,0 +1,47 @@
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+<!-- include virtual="[AO_INCLUDES]header.htm"-->
+<title>Login</title>
+
+<div id="Content-Wrapper" class="Content-Wrapper">
+    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+    <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
+        <div class="container-fluid" id="grad1">
+            <div class="row justify-content-center mt-0">
+                <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+                    <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                        <h2 class="Rale-Extra"><strong>Sign In To Your Account</strong></h2>
+
+                        <div class="row">
+                            <div class="col-md-12 mx-0">
+                                <form id="msform" method="POST" action="/scripts/mwimain.dll?patronlogin&application=UNION_VIEW&language=144&file=[AO_ASSETS]html%5chome.html">
+                                    <fieldset id="Login-Form">
+                                        <div class="form-card">
+
+                                            <h2 class="fs-title Rale-Bold">Your Account</h2>
+                                            <p style="text-align: center; color:red">Invalid Account Number or Password</p>
+                                            <input class="Rale-Reg" type="text" id="username" name="C_CLIENT_NUMBER" autocomplete="off" placeholder="Account Number" title="Account Number" />
+
+                                            <input class="Rale-Reg" type="password" id="password" name="PATRON_PID" placeholder="Password" title="Password" />
+                                        </div>
+                                        <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/signup.html">
+                                            <button type="button" name="previous" class="action-button-previous btn btn-secondary">
+                        Signup
+                      </button></a>
+                                        <button type="submit" name="submit" class=" action-button btn btn-primary">
+                      Login
+                    </button>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+</div>
+
+<!-- include virtual="[AO_INCLUDES]footer.htm"-->

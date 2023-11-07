@@ -1,0 +1,306 @@
+<!-- include virtual="[ao_opac]/145/includes/head.htm"-->
+
+<!-- include virtual="[ao_opac]/145/includes/header.htm"-->
+<title>Recherche avancée d'archives</title>
+
+<div id="Content-Wrapper" class="Content-Wrapper">
+    <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm"-->
+
+    <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
+        <div id="maincontent">
+            <div id="advanced-search-container">
+                <div class="Form-Wrapper">
+                    <h1 class="Rale-Bold Main-Content-Headin">
+                        Recherche avancée d'archives
+                    </h1>
+                    <p class="subheader">
+                        Affinez votre recherche en utilisant un ou plusieurs des champs de recherche spécifiques ci-dessous.
+                    </p>
+                    <form id="Main-Form" class="Advanced-Form" method="post" name="adv_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=145&DATABASE=DESCRIPTION_WEB&REPORT=WEB_UNION_SUM_FR&SHOWSINGLE=Y&ERRMSG=[ao_opac]/145/includes/error~5cnorecordArchives.htm">
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="REFD_CL"> Code de référence</label>
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B01" id="B01" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+
+                                <input type="text" class="form-control" name="REFD_CL" aria-label="Sizing example input" placeholder="" title="Code de référence" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="REFD_CL" aria-label="Browse Higher Reference Codes">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="REFD_HIGHER_CL">
+                Code de référence supérieur
+              </label>
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B02" id="B02" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+
+                                <input type="text" class="form-control" name="REFD_HIGHER_CL" aria-label="Sizing example input" placeholder="" title="Code de référence supérieur" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="REFD_HIGHER_CL" aria-label="Browse Higher Reference Codes">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="TITLE_CL"> Titre </label>
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B03" id="B03" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+
+                                <input type="text" class="form-control" name="TITLE_CL" aria-label="Sizing example input" title="Titre" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="TITLE_CL" aria-label="Browse Record Titles">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="FORMATS_CL"> Format </label>
+
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B04" id="B04" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+
+                                <input type="text" class="form-control" name="FORMATS_CL" aria-label="Sizing example input" title="Format" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="FORMATS_CL" aria-label="Browse Record Formats">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="SCOPE_CL"> Portée </label>
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B05" id="B05 adv_operators" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+                                <input type="text" class="form-control" name="SCOPE_CL" aria-label="Sizing example input" title="Portée" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="SCOPE_CL" aria-label="Browse Record Scope">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="ORIGIN_CL"> Créateur </label>
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B06" id="B06" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+                                <input type="text" class="form-control" name="ORIGIN_CL" aria-label="Sizing example input" title="Créateur" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="ORIGIN_CL" aria-label="Browse Record Creators">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="ASSO_ORG_CL">
+                Personnes/organisations associées
+              </label>
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B07" id="B07" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+                                <input type="text" class="form-control" name="ASSO_ORG_CL" aria-label="Sizing example input" placeholder="" title="Personnes/organisations associées" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="ASSO_ORG_CL" aria-label="Browse Record People and Organizations">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="LEVEL_CL"> Niveau </label>
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B08" id="B08" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+                                <input type="text" class="form-control" name="LEVEL_CL" aria-label="Sizing example input" placeholder="" title="Niveau" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="LEVEL_CL" aria-label="Browse Record Levels">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="SEARCH_DATE_CL">
+                Dates de recherche
+              </label>
+
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B09" id="B09" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+                                <input type="text" class="form-control" name="SEARCH_DATE_CL" aria-label="Sizing example input" placeholder="" title="Dates de recherche" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="SEARCH_DATE_CL" aria-label="Browse Search Dates">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="PHYS_DESC_CL">
+                Description physique
+              </label>
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B10" id="B10" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+                                <input type="text" class="form-control" name="PHYS_DESC_CL" aria-label="Sizing example input" placeholder="" title="Description physique" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="PHYS_DESC_CL" aria-label="Browse Physical Descriptions">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="FINDAID_CL">
+                Aide à la recherche
+              </label>
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B11" id="B11" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+                                <input type="text" class="form-control" name="FINDAID_CL" aria-label="Sizing example input" placeholder="" title="Aide à la recherche" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="FINDAID_CL" aria-label="Browse Finding Aids">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="BARCODE_DESC_CL">
+                Code à barre
+              </label>
+
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B12" id="B12" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+                                <input type="text" class="form-control" name="BARCODE_CL" aria-label="Sizing example input" placeholder="" title="code à barre" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="BARCODE_CL" aria-label="Browse Barcodes">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="SUBJECT_CL">
+                Type de sujet
+              </label>
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B13" id="B13" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+                                <input type="text" class="form-control" name="SUBJECT_CL" aria-label="Sizing example input" placeholder="Type de sujet" title="Type de sujet" />
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="SUBJECT_DESC_CL" aria-label="Browse Subjects">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="Search-Options-Wrapper d-flex">
+                            <button aria-label="Press Enter to submit form" type="submit" title="Search" value="SEARCH" class="ontario-button ontario-button--primary general-focus">
+                Soumettre
+              </button>
+                            <button aria-label="Press Enter to open clear form" class="ontario-button ontario-button--secondary general-focus" id="clear" type="reset" title="Clear" value="Clear">
+                D&eacute;gager
+              </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
+</div>
+<!-- include virtual="[ao_opac]/145/includes/advSearchBrowse.htm"-->
+
+<!-- include virtual="[ao_opac]/145/includes/footer.htm"-->

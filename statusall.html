@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AIMS OPAC - Instance Status</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+      // parameter values
+      var  maxInstances = 5;
+
+      var status_array = [];
+
+      // extract an instance of status report
+      function getInstanceStatus ( instance, username, userpassword )
+      {
+        if ( instance > maxInstances ) {
+          var running_icon = document.getElementById( 'running' );
+          if ( running_icon != null ) {
+            $(running_icon).css('display', 'none' );
+          }
+
+          var result = $('#result');
+          for ( var ix = 0 ; ix < maxInstances ; ix++ ) {
+            result.append ( status_array[ix] );
+          }
+          return;
+        }
+        else {
+          // update oprogress message
+          var progress_message = document.getElementById( 'progress' );
+          if ( progress_message != null ) {
+            $(progress_message).text(".....loading status of Instance " + instance );
+          }
+        }
+
+        var result_string = '<div><hr/><h2>Instance #' + instance + ' status</h2><hr/>';
+        var url = './scripts/mwimain.dll?SYSTEMCTRL';
+
+        // prepare formdata
+        var formdata = '';
+        var instance_string = instance.toString();
+        formdata = formdata + 'USERNAME=' + username;
+        formdata = formdata + '&USERPASSWORD=' + userpassword;
+        formdata = formdata + '&INSTANCE=' + instance_string;
+        formdata = formdata + '&SHOWREP=' + 'X';
+        formdata = formdata + '&DBLANG=' + '0';
+
+        // call request handler to get instance status
+        $.ajax({
+          async: true,
+          type: "POST",
+          dataType: "html",
+          url: url,
+          data: formdata,
+          processData: false,
+          contentType: false,
+          cache: false,
+          timeout: 12000,
+          success: function (data) {
+            if ( data != null && data != "" ) {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(data, "text/html");
+
+              var status_body_id = 'status_body';
+
+              if ( doc.getElementById('MWI-error') != null ) {
+                result_string = result_string + data;
+              }
+              else if ( doc.getElementById(status_body_id) != null ) {
+                result_string = result_string + doc.getElementById(status_body_id).innerHTML;
+              }
+              else {
+                result_string = result_string + 'Unknown error';
+              }
+            }
+            else {
+              result_string = result_string + 'Unknown response';
+            }
+            status_array[instance-1] = result_string + '</div>';
+            delete formdata;
+            getInstanceStatus ( instance+1, username, userpassword );
+          },
+          error: function (xhr, status) {
+            result_string = result_string + "<h3>Unable to obtain instance status because of " + status + "</h3>";
+            status_array[instance-1] = result_string + '</div>';
+            delete formdata;
+            getInstanceStatus ( instance+1, username, userpassword );
+          }
+        });
+
+        return;
+      }
+
+      // create overall status report
+      function createStatusTab()
+      {
+        var username = $('#username').val();
+        if ( typeof username == 'undefined' ) {
+          username = '';
+        }
+        var userpassword = $('#userpassword').val();
+        if ( typeof userpassword == 'undefined' ) {
+          userpassword = '';
+        }
+
+        if ( username == '' ) {
+          alert ( "User name has not been entered." );
+        }
+        else {
+          var result = $('#result');
+          if ( result.length > 0 ) {
+            result.empty();
+
+            var numInstances =  document.getElementById( 'INSTANCE' );
+            if ( numInstances == null ) {
+              maxInstances = 1;
+            }
+            else {
+              if ( $(numInstances).val() == '' ) {
+                maxInstances = 1;
+              }
+              else {
+                maxInstances = parseInt($(numInstances).val(), 10 );
+              }
+            }
+
+            var progress_message = document.getElementById( 'progress' );
+            if ( progress_message != null ) {
+              $(progress_message).text(" ");
+            }
+
+            var running_icon = document.getElementById( 'running' );
+            if ( running_icon != null ) {
+              $(running_icon).css('display', 'block' );
+            }
+
+            // give up CPU for refreshing form
+            setTimeout (getInstanceStatus, 1000, 1, username, userpassword );
+          }
+        }
+      }
+    </script>
+</head>
+<body>
+    <h1>AIMS - Instance Status</h1>
+    <form method="post" action="#">
+        <p>
+            <label for="USERNAME">Username:</label>
+            <input type="text" id="username" value="admin">
+            &nbsp;&nbsp;&nbsp;
+            <label for="PASSWORD">Password:</label>
+            <input type="password" id="userpassword" value="Titan123">
+      </p>
+        <p>
+            <label for="INSTANCE">Show Number of Instances:</label>
+            <input type="number" id="INSTANCE" value="5">
+        </p>
+
+
+        <p>
+            <input type="button" value="Get Status" onclick="createStatusTab();">
+            <input type="reset" value="Clear">
+        </p>
+    <form>
+
+    <div class="loading" id="running" style="display:none;"><i class="fa fa-spin fa-gear fa-4x"></i>
+    &nbsp;<b><p id="progress" style="display:inline">&nbsp;</p></b></div>
+
+    <div id="result">
+    </div>
+</body>
+</html>

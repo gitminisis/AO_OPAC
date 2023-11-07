@@ -1,0 +1,93 @@
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+<!-- include virtual="[AO_INCLUDES]header.htm"-->
+<title>Art</title>
+
+
+<div id='Content-Wrapper' class='Content-Wrapper'>
+
+    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+
+    <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+        <div id='banner'><img id='banner-img' src="/assets/img/AIMS_banner.jpg" alt="Archives of Ontario banner"></div>
+        <br>
+        <h2 class="Rale-Extra main-title-h2">Welcome to the Art Collection!</h2>
+        <div class='Form-Wrapper'>
+            <p class='page-description Rale-Bold'>
+                This Ministerial Department is responsible of the collection, preservation and management of Ontario's History and Public Documentation
+            </p>
+
+            <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^SEARCH^&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm">
+                <div class='main-form-left'>
+                    <div class='main-login-mobile Rale-Bold'>
+                        <button type='button' class='main-form-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
+                        <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                        <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS' onclick="howToSearch('default')">How to search our database</button>
+                    </div>
+                    <h3 class='search-area-h3 Rale-Reg'>Search archival, art, and library collection</h3>
+                    <br>
+                    <span id='Option-Choice' class='Rale-Bold' aria-label='Search type All Keywords Search'>Option 1: Keyword Search</span>
+                    <span id='Number-Results'></span>
+                    <div class='Input-Wrapper d-flex flex-column'>
+                        <label id="simple_search_input_label" class='Rale-Bold' for="simple_search_input">Enter a search term or terms:</label>
+                        <div id='simple-search-container'>
+                            <input id="simple_search_input" type='text' alt='Enter a search term or terms' name="KEYWORD_CLUSTER" />
+                            <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='SEARCH' />
+                        </div>
+                    </div>
+                    <div class='Radio-Wrapper'>
+                        <fieldset>
+                            <legend class='visually-hidden'>Search Type</legend>
+                            <span>
+                                        <input type='radio' id='All-Keywords' class='search-input' aria-label='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
+                                        <label class='search-label Rale-Med' for='All-Keywords'>All of these keywords</label>
+                                    </span>
+                            <span>
+                                        <input type='radio' id='Any-Keywords' class='search-input' aria-label='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
+                                        <label class='search-label Rale-Med' for='Any-Keywords'>Any of these Keywords</label>
+                                    </span>
+                            <span>
+                                        <input type='radio' id='Exact-Phrase' class='search-input' aria-label='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
+                                        <label class='search-label Rale-Med' for='Exact-Phrase'>Exact Phrase</label>
+                                    </span>
+                        </fieldset>
+                    </div>
+                    <div class='Radio-Wrapper-Mobile'>
+                        <fieldset>
+                            <legend class='visually-hidden'>Search Type</legend>
+                            <div class='Search-Type-Item-Mobile'>
+                                <input type='radio' id='All-Keywords-Mobile' class='search-input-mobile' aria-label='All of these keywords' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
+                                <label class='search-label-mobile Rale-Med' for='All-Keywords-Mobile'>All keywords</label>
+                            </div>
+                            <div class='Search-Type-Item-Mobile'>
+                                <input type='radio' id='Any-Keywords-Mobile' class='search-input-mobile' aria-label='Any of these keywords' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")' />
+                                <label class='search-label-mobile Rale-Med' for='Any-Keywords-Mobile'>Any keyword</label>
+                            </div>
+                            <div class='Search-Type-Item-Mobile'>
+                                <input type='radio' id='Exact-Phrase-Mobile' class='search-input-mobile' aria-label='Exact Phrase' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")' />
+                                <label class='search-label-mobile Rale-Med' for='Exact-Phrase-Mobile'>Exact Phrase</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class='Search-Options-Wrapper'>
+                        <!-- <a class='Rale-Med' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArt.html'>ADVANCED SEARCH</a> -->
+                        <button class='Search-Btn Rale-Bold' alt='Advanced Search' title='Advanced Search' aria-label='Go to Advanced Search'><a id='Advanced-Search' href='^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArt.html' title='Go to advanced search options' aria-label='Go to advanced search options'>ADVANCED SEARCH</a></button>
+                        <!-- <a class='Rale-Med' href='#'>MORE SEARCH OPTIONS</a> -->
+                        <button class='Search-Btn Rale-Bold' alt='More Search Options' title='More Search Options' aria-label='More Search Options'><a id='More-Search' href='^SESSID^?GET&FILE=[AO_ASSETS]html/moreSearchOptions.html'>MORE SEARCH OPTIONS</a></button>
+                    </div>
+                </div>
+                <div class='main-form-right Rale-Bold'>
+                    <button type='button' class='main-form-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Client Portal Login</button>
+                    <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                    <button type='button' class='main-form-btn Rale-Bold main-form-info' title='For further information on how to search AIMS' onclick="howToSearch('default')">How to search our database</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+</div>
+</div>
+
+
+<!-- include virtual="[AO_INCLUDES]footer.htm"-->

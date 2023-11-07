@@ -1,0 +1,124 @@
+<div class="row">
+    <span id="requestFormPage"></span>
+    <div id="maincontent">
+        <div id="Request-Form">
+            <form method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/requestConfirmation.html">
+                <input id="reqFullName" hidden value="" name="REQ_PATRON_NAME" />
+                <label for="reqFullName" hidden aria-hidden="true">placeholder</label>
+                <!-- <input id="reqFullName" hidden value="" name="R_PATRON_NAME" /> -->
+                <input id="reqClientID" hidden value="" name="REQ_PATRON_ID" aria-hidden="true"/>
+                <label for="reqClientID" hidden aria-hidden="true">placeholder</label>
+                <input id="reqMethodRequest" hidden value="" name="METHOD_REQUEST" aria-hidden="true"/>
+                <label for="reqMethodRequest" hidden aria-hidden="true">placeholder</label>
+                <input id="reqItemTitle" hidden value="" name="REQ_TITLE" aria-hidden="true"/>
+                <label for="reqItemTitle" hidden aria-hidden="true">placeholder</label>
+    
+    
+                <div class="row g-3 Rale-Med">
+                    <div class="reqFirstNameContainer col-md-6 col-sm-12">
+                        <label for="reqFirstName" class="form-label">First Name*</label>
+                        <input id="reqFirstName" type="text" class="form-control" placeholder="First name" title="First name" aria-label="First name" name="" required/>
+                    </div>
+                    <div class="reqLastNameContainer col-md-6 col-sm-12">
+                        <label for="reqLastName" class="form-label">Last Name*</label>
+                        <input id="reqLastName" type="text" class="form-control" placeholder="Last name" title="Last name" aria-label="Last name" name="" required />
+                    </div>
+                    <div class="reqEmailContainer col-md-6 col-sm-12">
+                        <label for="reqEmail" class="form-label">Email*</label>
+                        <input name="REQ_PATRON_EMAIL" id="reqEmail" type="email" class="form-control" size="25" placeholder="Email" title="Email" aria-label="Email" required />
+                        <!-- <input name="R_PATRON_EMAIL" id="reqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required /> -->
+                    </div>
+                  
+                    <div class="reqAffiliationContainer col-md-6 col-sm-12">
+                        <label for="reqAffiliation" class="form-label Rale-Med">Affiliation*</label>
+                        <input name="REQ_AFFILIATE" id="reqAffiliation" type="text" class="form-control" placeholder="Affliation" title="Affliation" aria-label="Affiliation" required />
+                    </div>
+                </div>
+    
+                
+                <div class="reqTopicContainer g-3 Rale-Med">
+                    <div class="col-md-12">
+                        <label for="reqTopic" class="form-label">Topic*</label>
+                        <select id="reqTopic" class="form-select Rale-Reg" name="REQ_TOPIC" required>
+                        <!-- <select id="reqTopic" class="form-select Rale-Reg" name="R_TOPIC" required> -->
+                            <option id="reqGeneral" selected="">General</option>
+                            <option id="reqAcq">Acquisitions</option>
+                            <option id="reqArt">Art</option>
+                            <option id="reqDonation">Donations</option>
+                            <option id="reqFH">Family History</option>
+                            <option id="reqFOI">FOI Requests</option>
+                            <option id="reqRS">Retrieval Services</option>
+                            <option id="reqReproduction">Reproduction/Certification Services</option>
+                            <option id="reqPreserve">Preservation</option>
+                            <option id="reqCopyright">Copyright Services</option>
+                            <option id="reqLoan">Loan/Exhibitions</option>
+                            <option id="reqWebsite">Website</option>
+                            <option id="reqLibraryColl">Library Collection</option>
+                            <option id="reqVitalstat">Vital statistics</option>
+                            <option id="reqLitigation">Litigation</option>
+                            <option id="reqSemiActive">Semi-active collections</option>
+                            <option id="reqRecordKeep">Recordkeeping</option>
+                            <option id="reqAccessPrivacy">Access &amp; Privacy</option>
+                            <option id="reqRequestTrans">Request Transfer</option>
+                            <option id="reqRefileInterfile">Request Refile/Interfile</option>
+                            <option id="reqRecordSched">Record Schedule</option>
+                            <option id="reqTransAgreement">Transfer Agreement</option>
+                            <option id="reqRecDiposition">Record Disposition</option>
+                            <option id="reqOther">Other</option>
+                            <option id="reqSpecialReq">Special Request</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="reqTypeContainer g-3 Rale-Med">
+                    <div class="col-md-12">
+                        <label for="reqType" class="form-label">Topic*</label>
+                        <div class="row-container">
+                            <select id="reqType" class="form-select Rale-Reg" name="REQ_REPRO_TYPE" required>
+                            <!-- <select id="reqTopic" class="form-select Rale-Reg" name="R_TOPIC" required> -->
+                                <option id="reqGeneral" selected="">Digital Copy up to 18" x 25"</option>
+                                <option id="reqAcq">Digital Copy up to 18" x 56"</option>
+                                <option id="reqArt">Hi-Resolution Copy</option>
+                                <option id="reqDonation">Sound & Moving Images</option>
+                                <option id="reqFH">Print up to 11" x 17"</option>
+                                <option id="reqFOI">Print up to 11" x 36"</option>
+                                <option id="reqRS">Certified Copies</option>
+                            </select>
+                            <a href="/assets/pdf/customer_service_guide_105_reproduction_services_and_fees.pdf" target="_blank"><span hidden aria-hidden="true">placeholder</span><i class="far fa-question-circle fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="Rale-Med">
+                    <div class="reqRushContainer">
+                        <input type="checkbox" name="REQ_RUSH" id="reqRush" aria-label="Rush" value='X' />
+                        <label for="reqRush" class="form-label Rale-Med">Rush</label>
+                    </div>
+                </div>
+    
+                <div class="reqAdditionalInfo g-3 Rale-Med">
+                    <div class="col-md-12">
+                        <label for="reqDetail" class="form-label Rale-Med">Additional Information*</label>
+                        <textarea id="reqDetail" class="form-control Rale-Reg" placeholder="Leave a comment here" title="Leave a comment here" id="reqDetail" name="REQ_TOPIC_GL" required autofocus></textarea>
+                        <!-- <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="reqDetail" name="R_TOPIC_GL" required></textarea> -->
+                    </div>
+                </div>
+    
+                
+    
+                <div class="row Rale-Med" id="Request-Button">
+                    <div class="col-md-6" id="submitBtn">
+                        <button class="btn btn-primary general-focus" type="submit" title="Submit">
+                            Submit
+                        </button>
+                    </div>
+                    <div class="col-md-6" id="cancelBtn">
+                        <button class="btn btn-secondary general-focus" type="button" title="Cancel" onclick="onClickNavigationBtn(8)">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>      
+    </div>
+</div>

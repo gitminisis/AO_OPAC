@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/145/assets/css/testPay.css" rel="stylesheet" />
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id='Test-Pay'>
+        <div class='Test-Pay-Item'>
+            <label class='label Test-Pay-Id-Label Rale-Bold'>Client Id:</label>
+            <div id='Test-Pay-Client-Id' type='number' class='Test-Pay-Item-Value' ></div>
+        </div>
+        <div class='Test-Pay-Item'>
+            <label class='label Test-Pay-Id-Label Rale-Bold'>Order No.:</label>
+            <div id='Test-Pay-Merchant-Num' type='number' class='Test-Pay-Item-Value' ></div>
+        </div>
+
+        <div class='Test-Pay-Item'>
+            <label class='label Test-Pay-Amount-Label Rale-Bold'>Pay Amount:</label>
+            <div id='Test-Pay-Amount' type='number' class='Test-Pay-Item-Value'> </div>
+        </div>
+
+        <button type='submit' title='Submit' class='action-button btn btn-primary' onclick="requestTestOrder()">Request Order</button>
+    </div>
+    <script src='/145/assets/js/index.js'> </script>
+    <script src='/145/assets/js/testPay.js'> </script>
+</body>
+</html>

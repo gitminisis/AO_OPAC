@@ -1,0 +1,193 @@
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+<!-- include virtual="[AO_INCLUDES]home/header.html"-->
+<title>Archives of Ontario - No Archives Results</title>
+
+<div id="Content-Wrapper" class="Content-Wrapper">
+    <!-- include virtual="[AO_INCLUDES]home/leftPanel.html" -->
+
+    <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
+        <div class="search-error-wrapper">
+            <p class="No-Record-Header">
+                No results found for <span id="no-record-statement">^parm1^</span> in Archives of Ontario:
+                <strong>archival collection</strong>
+            </p>
+
+            <ul>
+                <li>check your spelling</li>
+                <li>enter another search term</li>
+                <li>select a different keyword option (all, any, exact)</li>
+                <li>
+                    search in a specific collection (<a href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=COLLECTIONS_WEB&language=144&file=[AO_ASSETS]html/art.html">art</a
+          >,
+          <a
+            href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=DESCRIPTION_WEB&language=144&file=[AO_ASSETS]html/archival.html"
+            >archival</a
+          >,
+          <a
+            href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=BIBLIO_WEB&language=144&file=[AO_ASSETS]html/library.html"
+            >library</a
+          >)
+        </li>
+      </ul>
+      <p>
+        <a
+          href="http://www.archives.gov.on.ca/en/about/contact.aspx"
+          target="_blank"
+          >Contact us</a
+        >
+        if you need help to find what you're looking for.
+      </p>
+    </div>
+    <div id="maincontent">
+      <div id="homepage-container">
+        <div class="Form-Wrapper">
+          <h1 class="Rale-Bold Main-Content-Heading">
+            Search archival collection
+          </h1>
+
+          <form
+            id="Main-Form"
+            class="minimum-font-size"
+            method="post"
+            name="simple_search"
+            action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm&report=WEB_DESC_SUM"
+          >
+            <div class="main-form-left">
+              <span id="Number-Results"></span>
+              <div class="Input-Wrapper d-flex flex-column">
+                <div id="simple-search-container">
+                  <input
+                    id="simple_search_input"
+                    type="text"
+                    
+                    name="KEYWORD_CLUSTER"
+                    autofocus
+                    aria-label="Simple Search Input"
+                  />
+                  <button
+                    aria-label="Search Button"
+                    class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary"
+                    alt="Search"
+                    title="Search"
+                    type="submit"
+                    value="Search"
+                  >
+                    <i class="fas fa-search search-button-icon"></i>
+                    <span class="search-button-label">Search</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="ontario-form-group">
+                <fieldset class="ontario-fieldset">
+                  <legend class="visually-hidden">
+                    Radio legend<span class="ontario-label__flag"
+                      >(required/optional)</span
+                    >
+                  </legend>
+                  <span
+                    hidden
+                    id="Option-Choice"
+                    class="Rale-Bold"
+                    aria-label="Search type All Keywords Search"
+                    >Option 1: Keyword Search</span
+                  >
+                  <div class="ontario-radios Main-Search-Radio">
+                    <div class="ontario-radios__item">
+                      <input
+                        class="ontario-radios__input"
+                        id="radio-button-option-1"
+                        type="radio"
+                        aria-label="All of these keywords"
+                        value="AND_WORD"
+                        name="FLDOP1"
+                        onclick='onClickSearchOption("All Keyword Search")'
+                        checked
+                      />
+                      <label
+                        class="ontario-label ontario-radios__label"
+                        for="radio-button-option-1"
+                      >
+                        All keywords
+                      </label>
+                    </div>
+                    <div class="ontario-radios__item">
+                      <input
+                        class="ontario-radios__input"
+                        id="radio-button-option-2"
+                        name="FLDOP1"
+                        type="radio"
+                        aria-label="Any of these keywords"
+                        value="OR_WORD"
+                        onclick='onClickSearchOption("Any Keyword Search")'
+                      />
+                      <label
+                        class="ontario-label ontario-radios__label"
+                        for="radio-button-option-2"
+                      >
+                        Any keywords
+                      </label>
+                    </div>
+                    <div class="ontario-radios__item">
+                      <input
+                        class="ontario-radios__input"
+                        id="radio-button-option-3"
+                        type="radio"
+                        aria-label="Exact Phrase"
+                        value="ADJ_WORD"
+                        name="FLDOP1"
+                        onclick='onClickSearchOption("Exact Phrase")'
+                      />
+                      <label
+                        class="ontario-label ontario-radios__label"
+                        for="radio-button-option-3"
+                        >Exact phrase</label
+                      >
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+          <div class="subheader">
+            <p class="Main-Sub-Header">Search by</p>
+            <div class="Main-Search-Options-Section">
+              <a
+                href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArchives.html"
+                >Archival advanced</a
+              >
+              <span>|</span>
+              <a
+                href="^home_sessid^?queryform&database=PEOPLE_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchPeople.html"
+                >People</a
+              >
+              <span>|</span>
+              <a
+                href="/scripts/mwimain.dll?logon&application=UNION_VIEW&DATABASE=ORGANIZATION_VAL_SYN&language=144&file=[AO_ASSETS]html/advancedsearchPeople.html"
+                >Organization</a
+              >
+              <span>|</span>
+              <a
+                href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html"
+                >Creator list</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-tips-container">
+      <!-- include virtual="[AO_INCLUDES]home/searchTips.html"-->
+    </div>
+  </div>
+
+  <!-- include virtual="[AO_INCLUDES]home/rightPanel.html"-->
+</div>
+
+<span hidden id="sessionid">^SESSID^</span>
+
+<!-- include virtual="[AO_INCLUDES]footer.htm"-->
+<script>
+  sessionStorage.setItem("lang", "en");
+</script>

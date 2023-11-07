@@ -1,0 +1,53 @@
+
+    <!-- include virtual="[ao_opac]/145/includes/head.htm"-->
+
+        
+        <!-- include virtual="[ao_opac]/145/includes/header.htm"-->
+        <title>RECHERCHE AVANC&Eacute;E</title>
+
+        <div id='Content-Wrapper' class='Content-Wrapper'>
+
+            <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm"-->
+
+            <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+                <h1  class='Rale-Extra'>RECHERCHE AVANC&Eacute;E</h1>
+                <div id="maincontent">
+                    <div class='Form-Wrapper'>
+                       
+                        <form id='Main-Form' class="Advanced-Form" method="post" name="adv_search" action="^home_sessid^?unionsearch&KEEP=Y&application=union_view&language=145&SIMPLE_EXP=Y&ERRMSG=[ao_opac]/145/includes/error~5cnorecord.htm">
+                            
+    
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container" hidden>
+                                    <select name="B01" id="B01" aria-label="S&eacute;lectionnez l'op&eacute;rateur" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                        <option value="and" selected="">Et</option>
+                                        <option value="or">Ou</option>
+                                        <option value="and not">Ne pas</option>
+                                    </select>
+                                </div>
+                                
+                                <input type="text" class="form-control" title='title' name="UN_TITLE_CL" aria-label="Recherch&eacute; par Titre" aria-describedby="inputGroup-sizing-default" placeholder="Titre" autofocus>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0 general-focus" aria-label="Parcourir le Titre" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="UN_TITLE_CL"><i class="fas fa-bars"></i></button>
+                                </div>
+                            </div>
+    
+                            
+    
+                           
+                            <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
+                                
+                                <button class="btn btn-outline-primary general-focus" type="submit" title="Search" value='Recherche'>Soumettre</button>
+                                <button class="btn btn-outline-primary general-focus" id="clear" type="reset" title="Clear" value='Recherche'>D&eacute;gager</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
+
+        </div>
+        <!-- include virtual="[ao_opac]/145/includes/advSearchBrowse.htm"-->
+        
+        <!-- include virtual="[ao_opac]/145/includes/footer.htm"-->

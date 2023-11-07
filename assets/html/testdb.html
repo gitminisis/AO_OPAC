@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <form method="POST" action="^SAVERECORD^&FILE=[AO_ASSETS]html/recordsaved.html&DISCONNECT=Y" onsubmit="return setSubmitFlag();">
+	  <label for="CODE">Code</label>
+      <input id="CODE" name="CODE" type="text" value="^VALUE^" required /><br/><br/>
+	  <label for="VALUE">Value</label>
+      <input id="VALUE" name="VALUE" type="text" value="^VALUE^" /><br/><br/>
+	  <input type="submit" value="Submit">&nbsp;
+	  <a href="#" onclick="cancelchanges();"><input type="button" value="Cancel"></a>
+   	</form>
+    <script>
+      var enquiry_submitted = false;
+      var close_enquiry_url = "^SKIP_N_STOP_RECORD^&DISCONNECT=Y";
+
+      // send MWI SKIPRECORD command to unlock record ig web page is closed.
+      function unlockRecord(close_url) {
+        if (navigator.sendBeacon) {
+          // add dummy form data because sendBeacon sends post HTTP request
+          var formData = new FormData();
+          formData.append('SKIP', 'YES');
+          var status = navigator.sendBeacon(close_url, formData);
+        }
+      }
+
+      // send flag to indciate record has been unlocked
+      function setSubmitFlag() {
+        if (typeof enquiry_submitted != 'undefined') {
+          enquiry_submitted = true;
+        }
+        return true;
+      }
+	  
+	  function cancelchanges()
+	  {
+	    setSubmitFlag(); 
+		unlockRecord(close_enquiry_url); 
+		window.location='https://aims.archives.gov.on.ca/scripts/mwimain.dll?GET&FILE=[AO_ASSETS]html/changecancelled.html';
+	  }
+	  
+	  window.addEventListener('DOMContentLoaded', (event) => {
+         console.log('DOM fully loaded and parsed');
+      });
+	  
+	  $(document).ready(function() {
+        window.addEventListener('beforeunload', function(e) {
+          if (typeof enquiry_submitted != 'undefined' && !enquiry_submitted) {
+            if (typeof close_enquiry_url != 'undefined') {
+              unlockRecord(close_enquiry_url);
+            }  
+          }
+          return true; // return true to close web page
+        });
+      }); //Document Ready Function End
+    </script>
+  </body>
+</html>

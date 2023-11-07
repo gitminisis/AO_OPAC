@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AIMS - Unlock Record</title>
+</head>
+<body>
+    <h1>AIMS - Unlock Record</h1>
+    <form method="post" action="/scripts/mwimain.dll?SYSTEMCTRL">
+        <p>
+            <label for="USERNAME">Username:</label>
+            <input type="text" name="USERNAME">
+        </p>
+
+        <p>
+            <label for="PASSWORD">Password:</label>
+            <input type="password" name="USERPASSWORD">
+        </p>
+
+        <input type="hidden" name="DBLANG" value="0">
+        <input type="hidden" name="SHOWREP" value="X">
+        <input type="hidden" name="SITELANG" value="0">
+
+        <p>
+            <label for="UNLOCKISN">Unlock Record</label>
+            <input type="text" name="UNLOCKISN">
+
+            <label for="UNLOCKDB">of database</label>
+            <select name="UNLOCKDB">
+			  <option value="ENQUIRIES">Inquiries</option>
+			  <option value="REQUEST_INFO">Request</option>
+			  <option value="DESCRIPTION">Description</option>
+			  <option value="BIBLIO">Library</option>
+			  <option value="CLIENT">Client</option>
+			  <option value="CONTAINER">Container</option>
+			  <option value="COLLECTIONS">Collections</option>
+			  <option value="PEOPLE_VAL">People</option>
+			  <option value="ORGANIZATION_VAL">Organization</option>
+			  <option value="LAON_OUT">Loan Out</option>			  
+			</select>
+        </p>
+
+        <p>
+            <input type="submit" value="OK">
+            <input type="reset" value="Clear">
+        </p>
+    </form>
+</body>
+</html>

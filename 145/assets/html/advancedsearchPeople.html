@@ -1,0 +1,100 @@
+<!-- include virtual="[ao_opac]/145/includes/head.htm"-->
+
+<!-- include virtual="[ao_opac]/145/includes/header.htm"-->
+<title>Recherche par personne - Archives publiques de l'Ontario
+</title>
+
+<div id="Content-Wrapper" class="Content-Wrapper">
+    <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm"-->
+
+    <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
+        <div id="maincontent">
+            <div id="advanced-search-container">
+                <div class="Form-Wrapper">
+                    <h1 class="Rale-Bold Main-Content-Heading">Recherche par personne</h1>
+                    <p class="subheader">
+                        Recherchez des artistes ou d'autres personnes qui ont donné ou créé du matériel.
+                    </p>
+                    <form id="Main-Form" class="Advanced-Form" method="post" name="adv_search" action="^SEARCH^&DATABASE=PEOPLE_VAL_SYN&aux_sessid=ao_shared&ERRMSG=[ao_opac]/145/includes/error/norecordPeople.htm">
+                        <!-- KEYWORDS INPUT -->
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="KEYNAMES">
+                Rechercher le nom du créateur
+              </label>
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B01" id="B01" aria-label="S&eacute;lectionnez l'op&eacute;rateur" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+                                <input type="text" class="form-control" name="KEYNAMES" aria-label="Mots cl&eacute;s" title="Mots cl&eacute;s" autofocus />
+                            </div>
+                        </div>
+                        <!-- KEYWORDS INPUT -->
+
+                        <!-- KEYNAMES INPUT -->
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="KEYWORDS">
+                Rechercher la description ou la biographie d'un créateur
+              </label>
+
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B02" id="B02" aria-label="S&eacute;lectionnez l'op&eacute;rateur" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+                                <input type="text" class="form-control" name="KEYWORDS" aria-label="Noms cl&eacute;s" title="Noms cl&eacute;s" />
+                            </div>
+                        </div>
+                        <!-- KEYNAMES INPUT -->
+
+                        <!-- P_AUTH_TYPE INPUT -->
+                        <div class="input-wrap ontario-form-group">
+                            <label class="ontario-label" for="P_AUTH_TYPE">
+                Sélectionnez le type de nom
+              </label>
+                            <div class="input-group mb-3 Rale-Reg">
+                                <div class="input-group-prepend adv-operator-container">
+                                    <select name="B03" id="B03" aria-label="S&eacute;lectionnez l'op&eacute;rateur" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect general-focus">
+                    <option value="and" selected="">Et</option>
+                    <option value="or">Ou</option>
+                    <option value="and not">Ne pas</option>
+                  </select>
+                                </div>
+                                <select name="P_AUTH_TYPE" id="P_AUTH_TYPE" class=" ontario-input ontario-dropdown people-select" aria-label="S&eacute;lectionnez le type d'autorit&eacute">
+                  <option value="" selected>Sélectionner</option>
+                  <option value="Family Name">Nom de Famille</option>
+                  <option value="Personal Name">Nom Personnel</option>
+                </select>
+                            </div>
+                        </div>
+                        <!-- P_AUTH_TYPE INPUT -->
+
+                        <div class="Search-Options-Wrapper d-flex">
+                            <button aria-label="Press Enter to submit form" type="submit" title="Soumettre" value="Soumettre" class="ontario-button ontario-button--primary general-focus">
+                Soumettre
+              </button>
+                            <button aria-label="Press Enter to open clear form" class="ontario-button ontario-button--secondary general-focus" id="clear" type="reset" title="Effacer" value="Effacer">
+                Effacer
+              </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-tips-container">
+            <!-- include virtual="[ao_opac]/145/includes/advancedPeopleSearchTips.html"-->
+        </div>
+    </div>
+
+    <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
+</div>
+<!-- include virtual="[ao_opac]/145/includes/advSearchParcourir.htm"-->
+
+<!-- include virtual="[ao_opac]/145/includes/footer.htm"-->

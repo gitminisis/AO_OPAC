@@ -1,0 +1,135 @@
+<div id='Panel-Left' class='Panel-Left minimum-font-size' style='display: none;'>
+
+    <div class="accordion Quick-Mobile-Container" id="accordionPanelsStayOpenLinks">
+        <div class="accordion-item">
+            <h2 class="accordion-header H2-Mobile-Nav d-flex justify-content-center" id="panelsStayOpen-quick-mobile">
+                <div id='Quick-Btn'>
+                    <div id='accordion-button-quick' onclick='navAccordionOnClick(this)' class="accordion-button Quick-Accordion-Btn Rale-Med collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse-quick-mobile" aria-expanded="false" aria-controls="panelsStayOpen-collapse-quick-mobile">
+                        <div class='Quick-Btn-Hamburger'></div>
+                    </div>
+                </div>
+                <p class='Mobile-Quick-Title Rale-Bold'>Quick Links</p>
+            </h2>
+            <div id='Nav-Btn-Container'>
+                <div id="panelsStayOpen-collapse-quick-mobile" class="accordion-collapse Rale-Med collapse" aria-labelledby="panelsStayOpen-quick-mobile">
+                    <div class="accordion-body Quick-Mobile Rale-Med">
+                        <div class='Quick-Mobile-Links d-flex flex-column align-items-center'>
+                            <!-- <h3 class='Rale-Bold'>Quick Links</h3> -->
+                            <br>
+                            <a class='Quick-Links-Item Rale-Bold' href='https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html~5chome.html&rid=aims-home'>HOME</a>
+                            <br>
+
+                            <!-- <a class='Quick-Links-Item Rale-Reg' href='https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=DESCRIPTION_WEB&language=145&file=[ao_opac]/145/assets/html~5chome.html&rid=aims-home'>HOME</a> -->
+                            <!-- <a class='Quick-Links-Item Patron-Reg Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/signup.html'>
+            Client Registration
+        </a>
+                            <a class='Quick-Links-Item Patron-Reg Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/publicBodySignup.html'>
+            Public Body Registration
+        </a>
+                            <a class='Quick-Links-Item Patron-Reg Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/staffSignup.html'>
+            Staff Registration
+        </a> -->
+                            <a id='Patron-Login-Mobile' class='Quick-Links-Item Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/login.html'>
+            Client Login
+        </a>
+                            <a class='Quick-Links-Item Client-Profile Rale-Bold' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/patronProfile.html'>
+            Client Profile
+        </a>
+                            <!-- <input type='submit' value="Logout" class='Quick-Links-Item Rale-Reg' id='logout-input' title='' href='#' hidden> -->
+                            <br>
+
+                            <a class='Quick-Links-Item Rale-Med' href='https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/ENQUIRIES_VIEW/WEB_FAQ_SUM/ENQ_ACTION%20FAQ?SESSIONSEARCH#'>FAQ</a>
+                            <a class='Quick-Links-Item Rale-Med' href='^SESSID^?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[ao_opac]/145/assets/html/enquiry.html'><b>Submit anEnquiry</b></a>
+                            <!-- <a class='Quick-Links-Item Rale-Med' href='#' onclick="editEnquiry('^sessid^')"><b>Update an Enquiry</b></a> -->
+                            <!-- <a class='Quick-Links-Item Rale-Med' name='enquiry' onclick='setEnquiryTopic()'><b>Submit an Enquiry</b></a> -->
+                            <a class='Quick-Links-Item Rale-Med enqLink' name='Donations' onclick='redirectToEnquiry("^sessid^", this)'><b>Enquiry for Donations</b></a>
+                            <a class='Quick-Links-Item Rale-Med enqLink' name='Loan/Exhibitions' onclick='redirectToEnquiry("^sessid^", this)'><b>Enquiry for Loans</b></a>
+                            <a class='Quick-Links-Item Rale-Med enqLink' name='Retrieval Services' onclick='redirectToEnquiry("^sessid^", this)'><b>Enquiry for Retrieval Services</b></a>
+                            <!-- <a class='Quick-Links-Item Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/question.html'>Submit a Question</a>
+        <a class='Quick-Links-Item Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/FOI.html'>Submit a FOI Request</a>
+        <a class='Quick-Links-Item Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/donation.html'>Submit a Donation</a> -->
+                            <br>
+
+                            <!-- <span id="Request-Link"></span> -->
+                            <!-- <a class='Quick-Links-Item Req-Topic Rale-Med' name='request' hidden><b>Submit a Request</b></a>
+        <a class='Quick-Links-Item Req-Topic Rale-Reg' name='retrieval' hidden>Retrieval Services</a> -->
+                            <!-- <a class='Quick-Links-Item Rale-Reg' href='#'>Donation</a> -->
+                            <!-- <a class='Quick-Links-Item Req-Topic Rale-Reg' name='reproductionCertification' hidden>Reproduction/Certifications</a>
+        <a class='Quick-Links-Item Req-Topic Rale-Reg' name='copyright'  hidden>Copyright Services</a>
+        <a class='Quick-Links-Item Req-Topic Rale-Reg' name='restrictedHolding'  hidden>Restricted Holdings</a>
+        <a class='Quick-Links-Item Req-Topic Rale-Reg' name='loan' hidden>Loan</a>
+        <a class='Quick-Links-Item Req-Topic Rale-Reg' name='semiHolding'  hidden>Semi-Active Archival Holdings</a>
+        <a class='Quick-Links-Item Req-Topic Rale-Reg' name='vitalStats' hidden>Vital Statistics Records</a> -->
+                            <br>
+                            <span class='Rale-Bold'>Collections</span>
+                            <a class='Quick-Links-Item Rale-Reg' href='/scripts/mwimain.dll/145/COLLECTIONS_WEB?DIRECTSEARCH'>Art collection (only)</a>
+                            <a class='Quick-Links-Item Rale-Reg' href='/scripts/mwimain.dll/145/DESCRIPTION_WEB?DIRECTSEARCH'>Archives Repository (only)</a>
+                            <a class='Quick-Links-Item Rale-Reg' href='/scripts/mwimain.dll/145/BIBLIO_WEB?DIRECTSEARCH'>Library Holdings (only)</a>
+                            <br>
+                            <!-- <a class='Quick-Links-Item Color-Red Rale-Reg' href='#'>Online Exhibits</a> -->
+                            <!-- <a class='Quick-Links-Item Color-Pink Rale-Reg' href='#'>Crowdsourcing</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='Quick-Links-Container d-flex flex-column'>
+        <h2 class='Rale-Bold Quick-Title'>Quick Links</h2>
+        <br>
+        <a class='Quick-Links-Item Rale-Bold' href='https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html~5chome.html&rid=aims-home'>HOME</a>
+        <br>
+
+        <!-- <a class='Quick-Links-Item Rale-Reg' href='https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=DESCRIPTION_WEB&language=145&file=[ao_opac]/145/assets/html~5chome.html&rid=aims-home'>HOME</a> -->
+        <!-- <a class='Quick-Links-Item Patron-Reg Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/signup.html'>
+            Client Registration
+        </a>
+        <a class='Quick-Links-Item Patron-Reg Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/publicBodySignup.html'>
+            Public Body Registration
+        </a>
+        <a class='Quick-Links-Item Patron-Reg Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/staffSignup.html'>
+            Staff Registration
+        </a> -->
+        <a id='Patron-Login' class='Quick-Links-Item Rale-Reg' href='/145/assets/html/PubSecureLogin.html'>
+            Client Login
+        </a>
+        <a class='Quick-Links-Item Client-Profile Rale-Bold' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/patronProfile.html'>
+            Client Profile
+        </a>
+        <!-- <input type='submit' value="Logout" class='Quick-Links-Item Rale-Reg' id='logout-input' title='' href='#' hidden> -->
+        <br>
+
+        <a class='Quick-Links-Item Rale-Med' href='https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/ENQUIRIES_VIEW/WEB_FAQ_SUM/ENQ_ACTION%20FAQ?SESSIONSEARCH#'>FAQ</a>
+        <br>
+        <a class='Quick-Links-Item Rale-Med' href='^SESSID^?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[ao_opac]/145/assets/html/enquiry.html'><b>Submit an
+                Enquiry</b></a>
+        <!-- <a class='Quick-Links-Item Rale-Med' href='#' onclick="editEnquiry('^sessid^')"><b>Update an Enquiry</b></a> -->
+        <!-- <a class='Quick-Links-Item Rale-Med' name='enquiry' onclick='setEnquiryTopic()'><b>Submit an Enquiry</b></a> -->
+        <a class='Quick-Links-Item Rale-Med enqLink' name='Donations' onclick='redirectToEnquiry( "^sessid^", this)'><b>Enquiry for Donations</b></a>
+        <a class='Quick-Links-Item Rale-Med enqLink' name='Loan/Exhibitions' onclick='redirectToEnquiry( "^sessid^", this)'><b>Enquiry for Loans</b></a>
+        <a class='Quick-Links-Item Rale-Med enqLink' name='Retrieval Services' onclick='redirectToEnquiry( "^sessid^", this)'><b>Enquiry for Retrieval Services</b></a>
+        <!-- <a class='Quick-Links-Item Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/question.html'>Submit a Question</a>
+        <a class='Quick-Links-Item Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/FOI.html'>Submit a FOI Request</a>
+        <a class='Quick-Links-Item Rale-Reg' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/donation.html'>Submit a Donation</a> -->
+        <br>
+
+        <!-- <span id="Request-Link"></span> -->
+        <!-- <a class='Quick-Links-Item Req-Topic Rale-Med' name='request' hidden><b>Submit a Request</b></a>
+        <a class='Quick-Links-Item Req-Topic Rale-Reg' name='retrieval' hidden>Retrieval Services</a> -->
+        <!-- <a class='Quick-Links-Item Rale-Reg' href='#'>Donation</a> -->
+        <!-- <a class='Quick-Links-Item Req-Topic Rale-Reg' name='reproductionCertification' hidden>Reproduction/Certifications</a>
+        <a class='Quick-Links-Item Req-Topic Rale-Reg' name='copyright'  hidden>Copyright Services</a>
+        <a class='Quick-Links-Item Req-Topic Rale-Reg' name='restrictedHolding'  hidden>Restricted Holdings</a>
+        <a class='Quick-Links-Item Req-Topic Rale-Reg' name='loan' hidden>Loan</a>
+        <a class='Quick-Links-Item Req-Topic Rale-Reg' name='semiHolding'  hidden>Semi-Active Archival Holdings</a>
+        <a class='Quick-Links-Item Req-Topic Rale-Reg' name='vitalStats' hidden>Vital Statistics Records</a> -->
+        <br>
+        <span class='Rale-Bold'>Collections</span>
+        <a class='Quick-Links-Item Rale-Reg' href='/scripts/mwimain.dll/145/COLLECTIONS_WEB?DIRECTSEARCH'>Art collection (only)</a>
+        <a class='Quick-Links-Item Rale-Reg' href='/scripts/mwimain.dll/145/DESCRIPTION_WEB?DIRECTSEARCH'>Archives Repository (only)</a>
+        <a class='Quick-Links-Item Rale-Reg' href='/scripts/mwimain.dll/145/BIBLIO_WEB?DIRECTSEARCH'>Library Holdings (only)</a>
+        <br>
+        <a class='Quick-Links-Item Color-Red Rale-Reg' href='#'>Online Exhibits</a>
+        <!-- <a class='Quick-Links-Item Color-Pink Rale-Reg' href='#'>Crowdsourcing</a> -->
+    </div>
+</div>
