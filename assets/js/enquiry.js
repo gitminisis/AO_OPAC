@@ -188,7 +188,7 @@ function getClientInfo() {
 
     patron_id = patron_id.split("]")[1];
 
-    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?COMMANDSEARCH#`;
+    let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?COMMANDSEARCH#`;
 
     let tempString = window.location.href;
     let tempUrlCheck = tempString.split("/");

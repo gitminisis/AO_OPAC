@@ -28,9 +28,9 @@ const conectoptions = {
 let conectoptions = {
     issuer: 'https://stage.signin.ontario.ca/oauth2/aus187zrqyTXcJAHA5d7',
     clientId: '0oa472jfxf2ixcXK55d7',
-    redirectUri: 'https://aimsprod.minisisinc.com/assets/html/PubSecureLogin.html',
+    redirectUri: 'https://test.aimsprod.minisisinc.com/assets/html/PubSecureLogin.html',
     scopes: ['openid', 'profile', 'email'],
-    postLogoutRedirectUri: 'https://aimsprod.minisisinc.com',
+    postLogoutRedirectUri: 'https://test.aimsprod.minisisinc.com',
     pkce: true,
 
 

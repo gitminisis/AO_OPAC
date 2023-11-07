@@ -63,13 +63,13 @@ $(document).ready(function() {
     }
 
     // This is a continuation function that requires storeAdditionalReqFields(btn_number) from detail.js
-    if(document.getElementById("direct-request-form") != null){
+    if (document.getElementById("direct-request-form") != null) {
         let call_number = sessionStorage.getItem("Call Number");
         let volume_id = sessionStorage.getItem("Volume ID");
         console.log('call number: ', call_number, 'vol id: ', volume_id)
         $(".para1").after("<p class='para2'>Numéro d'appel : <strong>" + 'chicken' + "</strong></p><p class='para2'>ID de volume : <strong>" + volume_id + "</strong></p>");
     }
-    if(document.getElementById("request-confirmation-form") != null){
+    if (document.getElementById("request-confirmation-form") != null) {
         let call_number = sessionStorage.getItem("Call Number");
         let volume_id = sessionStorage.getItem("Volume ID");
         console.log('call number: ', call_number, 'vol id: ', volume_id)

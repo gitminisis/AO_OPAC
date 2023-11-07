@@ -587,7 +587,7 @@ const copyPermalink = (e, rep) => {
     let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${params}${exp}`
         // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm&exp=sisn%20${exp}`;
         // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report} ${exp}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
-        // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/DESCRIPTION_WEB/WEB_DESC_DET/SISN ${sisn}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
+        // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/DESCRIPTION_WEB/WEB_DESC_DET/SISN ${sisn}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
     console.log(url)
     navigator.clipboard.writeText(url);
     e.textContent = 'Link Copied!';

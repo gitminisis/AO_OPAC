@@ -22,25 +22,15 @@ const conectoptions = {
 	pkce: true,
 	disableHttpsCheck: true,
 };
-/*
-let conectoptions = {
-    issuer: 'https://stage.signin.ontario.ca/oauth2/aus187zrqyTXcJAHA5d7',
-    clientId: '0oa472jfxf2ixcXK55d7',
-    redirectUri: 'https://test.aimsprod.minisisinc.com/assets/html/PubSecureLogin.html',
-    scopes: ['openid', 'profile', 'email'],
-    postLogoutRedirectUri: 'https://test.aimsprod.minisisinc.com',
-    pkce: true,
-
 
 */
 
-
 let conectoptions = {
-    issuer: 'https://stage.signin.ontario.ca/oauth2/aus187zrqyTXcJAHA5d7',
-    clientId: '0oa472jfxf2ixcXK55d7',
+    issuer: 'https://signin.ontario.ca/oauth2/aus2957lteAY4cRQK5d7',
+    clientId: '0oa6644t12jysJ8PP5d7',
     redirectUri: 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogin.html',
     scopes: ['openid', 'profile', 'email'],
-    postLogoutRedirectUri: 'https://test.aims.archives.gov.on.ca',
+    postLogoutRedirectUri: 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogout.html',
     pkce: true,
     storageManager: {
         token: {

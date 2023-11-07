@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        let langStorage = sessionStorage.getItem('lang');
+        if (langStorage && langStorage === 'fr') {
+            window.location = "https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html~5chomeFr.html"
+        } else {
+            window.location = "https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html~5chome.html"
+        }
+    </script>
+</body>
+
+</html>
