@@ -43,7 +43,10 @@ $(document).ready(function() {
     };
 
     $('.detail-bm-btn').on('click', function() {
+<<<<<<< HEAD
         $('.detail-bm-btn').off('click');
+=======
+>>>>>>> b3ee62768b6c46fdb4601e4590221591250f39b3
         let url = $('#bm-url').text().trim()
         let sisn = $('#bm-sisn').text().trim()
         let db = $('#bm-db').text().trim()
