@@ -555,9 +555,24 @@ function unescapeHtml(safe) {
 // }
 
 const copyPermalinkFR = (e, rep) => {
-    let exp = e.value
-    let params = rep == 'coll' ? 'COLLECTIONS_WEB/WEB_COLL_DET_FR?SESSIONSEARCH&exp=sisn%20' : 'desc' ? 'DESCRIPTION_WEB/WEB_DESC_DET_FR?SESSIONSEARCH&exp=sisn%20' : rep == 'biblio' ? 'BIBLIO_WEB/WEB_BIBLIO_DET_FR?SESSIONSEARCH&exp=sisn%20' : rep == 'people' ? 'PEOPLE_VAL/WEB_PEOPLE_DET_OPAC_FR?SESSIONSEARCH&exp=PERSON_ID%20' : 'ORGANIZATION_VAL/WEB_ORG_DET_OPAC_FR?SESSIONSEARCH&exp=ORG_ID%20'
+    let exp = e.value;
+    let params = '';
+
+    if (rep == 'coll') {
+        params = 'COLLECTIONS_WEB/WEB_COLL_DET_FR?SESSIONSEARCH&exp=sisn%20';
+    } else if (rep == 'desc') {
+        params = 'DESCRIPTION_WEB/WEB_DESC_DET_FR?SESSIONSEARCH&exp=sisn%20';
+    } else if (rep == 'biblio') {
+        params = 'BIBLIO_WEB/WEB_BIBLIO_DET_FR?SESSIONSEARCH&exp=sisn%20';
+    } else if (rep == 'people') {
+        params = 'PEOPLE_VAL_SYN/WEB_PEOPLE_DET_OPAC_FR?SESSIONSEARCH&exp=PERSON_ID%20';
+    } else {
+        params = 'ORGANIZATION_VAL_SYN/WEB_ORG_DET_OPAC_FR?SESSIONSEARCH&exp=ORG_ID%20';
+    }
+
     let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/${params}${exp}`
+        // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm&exp=sisn%20${exp}`;
+        // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report} ${exp}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
         // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/DESCRIPTION_WEB/WEB_DESC_DET/SISN ${sisn}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
     console.log(url)
     navigator.clipboard.writeText(url);
