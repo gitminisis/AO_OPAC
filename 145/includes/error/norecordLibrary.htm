@@ -1,0 +1,209 @@
+<!-- include virtual="[ao_opac]/145/includes/head.htm"-->
+
+<!-- include virtual="[ao_opac]/145/includes/header.htm"-->
+<title>
+    Archives publiques de l'Ontario - Aucun r&eacute;sultat dans la biblioth&egrave;que
+</title>
+
+<div id="Content-Wrapper" class="Content-Wrapper">
+    <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm"-->
+
+    <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
+        <div class="search-error-wrapper">
+            <p class="No-Record-Header">
+                Aucun résultat trouvé pour « <span id="no-record-statement">^parm1^</span> » dans Archives publiques de l'Ontario
+                <strong>collection de la bibliothèque</strong>
+            </p>
+
+            <ul>
+                <li>vérifiez votre orthographe</li>
+                <li>saisissez un autre terme de recherche</li>
+                <li>
+                    sélectionnez une autre option de mot-clé (tous, un des mots, mots exacts)
+                </li>
+                <li>
+                    recherchez dans une collection spécifique (<a href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=COLLECTIONS_WEB&language=144&file=[AO_OPAC]/145/assets/html/ART.HTML&AUX_SESSID=AO_SHARE">art</a
+          >,
+          <a
+            href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=DESCRIPTION_WEB&language=144&file=[AO_OPAC]/145/assets/html/ARCHIVAL.HTML&AUX_SESSID=AO_SHARE"
+            >archives</a
+          >,
+          <a
+            href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=BIBLIO_WEB&language=144&file=[AO_OPAC]/145/assets/html/LIBRARY.HTML&AUX_SESSID=AO_SHARE"
+            >bibliothèque</a
+          >)
+        </li>
+      </ul>
+      <p>
+        <a
+          href="http://www.archives.gov.on.ca/fr/about/contact.aspx"
+          target="_blank"
+          >Contactez-nous</a
+        >
+        si vous avez besoin d'aide pour trouver ce que vous cherchez.
+      </p>
+    </div>
+
+    <div id="maincontent">
+      <div id="homepage-container">
+        <div class="Form-Wrapper">
+          <h1 class="Rale-Bold Main-Content-Heading">
+            Rechercher dans la collection de la bibliothèque
+          </h1>
+
+          <div class="subheader">
+            <p>
+              La collection de la bibliothèque compte plus de 85 000 documents
+              imprimés, électroniques et microformes, et peut inclure :
+            </p>
+            <ul>
+              <li>
+                <p>livres, brochures, périodiques</p>
+              </li>
+              <li>
+                <p>publications du gouvernement de l'Ontario</p>
+              </li>
+              <li>
+                <p>
+                  annuaires, manuels scolaires, almanachs et listes électorales
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <form
+            id="Main-Form"
+            class="minimum-font-size"
+            method="post"
+            name="simple_search"
+            action="^home_sessid^?UNIONSEARCH&KEEP=Y&APPLICATION=UNION_VIEW&DATABASE=BIBLIO_WEBlanguage=145&REPORT=WEB_UNION_SUM_FR&ERRMSG=[ao_opac]/145/includes/error~5cnorecord.htm"
+          >
+            <div class="main-form-left">
+              <span id="Number-Results"></span>
+              <div class="Input-Wrapper d-flex flex-column">
+                <div id="simple-search-container">
+                  <div id="simple-search-input-wrapper">
+                    <input
+                      id="simple_search_input"
+                      type="text"
+                      
+                      name="KEYWORD_CLUSTER"
+                      autofocus
+                      aria-label="Simple Search Input"
+                    />
+
+                    <button
+                      aria-label="Clear search"
+                      id="simple-search-reset"
+                      alt="Clear search"
+                      title="Clear search"
+                      type="button"
+                    >
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                  <button
+                    aria-label="Search Button"
+                    class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary"
+                    alt="Recherche"
+                    title="Recherche"
+                    type="submit"
+                    value="Search"
+                  >
+                    <i class="fas fa-search search-button-icon"></i>
+                    <span class="search-button-label">Recherche</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="ontario-form-group">
+                <fieldset class="ontario-fieldset">
+                  <legend class="visually-hidden">
+                    Radio legend<span class="ontario-label__flag"
+                      >(required/optional)</span
+                    >
+                  </legend>
+                  <span
+                    hidden
+                    id="Option-Choice"
+                    class="Rale-Bold"
+                    aria-label="Search type All Keywords Search"
+                    >Option 1: Keyword Search</span
+                  >
+                  <div class="ontario-radios Main-Search-Radio">
+                    <div class="ontario-radios__item">
+                      <input
+                        class="ontario-radios__input"
+                        id="radio-button-option-1"
+                        type="radio"
+                        aria-label="All of these keywords"
+                        value="AND_WORD"
+                        name="FLDOP1"
+                        onclick='onClickSearchOption("All Keyword Search")'
+                        checked
+                      />
+                      <label
+                        class="ontario-label ontario-radios__label"
+                        for="radio-button-option-1"
+                      >
+                        Tous les mots
+                      </label>
+                    </div>
+                    <div class="ontario-radios__item">
+                      <input
+                        class="ontario-radios__input"
+                        id="radio-button-option-2"
+                        name="FLDOP1"
+                        type="radio"
+                        aria-label="Any of these keywords"
+                        value="OR_WORD"
+                        onclick='onClickSearchOption("Any Keyword Search")'
+                      />
+                      <label
+                        class="ontario-label ontario-radios__label"
+                        for="radio-button-option-2"
+                      >
+                        Un de ces mots
+                      </label>
+                    </div>
+                    <div class="ontario-radios__item">
+                      <input
+                        class="ontario-radios__input"
+                        id="radio-button-option-3"
+                        type="radio"
+                        aria-label="Exact Phrase"
+                        value="ADJ_WORD"
+                        name="FLDOP1"
+                        onclick='onClickSearchOption("Exact Phrase")'
+                      />
+                      <label
+                        class="ontario-label ontario-radios__label"
+                        for="radio-button-option-3"
+                      >
+                        Expression exacte
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+
+          <div class="subheader">
+            <p class="Main-Sub-Header">Recherche par</p>
+            <div class="Main-Search-Options-Section">
+              <a
+                href="^SESSID^?GET&FILE=[ao_opac]145/assets/html/advancedsearchLibrary.html"
+                >Bibliothèque avancée</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
+</div>
+
+<!-- include virtual="[ao_opac]/145/includes/footer.htm"-->

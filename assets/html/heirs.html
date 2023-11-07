@@ -1,0 +1,138 @@
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+<!-- include virtual="[AO_INCLUDES]header.htm"-->
+<title>Second Heir and Devisee Commission search - Archives of Ontario
+</title>
+
+<div id="Content-Wrapper" class="Content-Wrapper">
+    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+    <div id="home-main-wrapper" style="width: 100%">
+        <div id="banner">
+            <img id="banner-img" src="/assets/img/heirs.png" alt="" />
+        </div>
+        <div style="width: 100%" id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
+            <div id="maincontent">
+                <div id="advanced-search-container">
+                    <div id="hawke-home-page" class="Form-Wrapper">
+                        <h1 class="Rale-Bold Main-Content-Heading">
+                            Search Second Heir and Devisee Commission case file collection
+                        </h1>
+                        <div class="subheader">
+                            <p>
+                                Find claims for land made to the second Heir and Devisee Commission between 1804 and 1895.
+                            </p>
+                            <br />
+                            <a href="http://www.archives.gov.on.ca/en/db/deviseedb.aspx" target="_blank" rel="noopener">Learn more about these case files and get search tips.
+              </a>
+                        </div>
+
+                        <form id="Main-Form" class="minimum-font-size Advanced-Form" method="post" name="simple_search" action="^home_sessid^?SEARCH&DATABASE=AOHEIRS&aux_sessid=ao_shared&ERRMSG=[AO_INCLUDES]error/norecordHeirs.htm&report=WEB_HEIRS_SUM">
+                            <!-- Last name -->
+                            <div class="input-wrap ontario-form-group">
+                                <label class="ontario-label" for="HD_SURNAME">
+                  Last name
+                </label>
+                                <div class="input-group mb-3 Rale-Reg">
+                                    <div class="input-group-prepend adv-operator-container" hidden>
+                                        <select name="B01" id="B01" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
+                      <option value="and" selected="">And</option>
+                    </select>
+                                    </div>
+
+                                    <input type="text" class="form-control" name="HD_SURNAME" aria-label="Search by Last name" title="Last Name" autofocus />
+
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="HD_SURNAME_CL" aria-label="Browse ">
+                      <i class="fas fa-bars"></i>
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Last name -->
+
+                            <!-- First name -->
+                            <div class="input-wrap ontario-form-group">
+                                <label class="ontario-label" for="HD_FIRSTNAME">
+                  First name
+                </label>
+                                <div class="input-group mb-3 Rale-Reg">
+                                    <div class="input-group-prepend adv-operator-container" hidden>
+                                        <select name="B02" id="B02" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
+                      <option value="and" selected="">And</option>
+                    </select>
+                                    </div>
+
+                                    <input type="text" class="form-control" name="HD_FIRSTNAME" aria-label="Search by First name" title="First Name" />
+
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="HD_FIRSTNAME_CL" aria-label="Browse ">
+                      <i class="fas fa-bars"></i>
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- First name -->
+
+                            <!-- Town -->
+                            <div class="input-wrap ontario-form-group">
+                                <label class="ontario-label" for="NATION">
+                  Town or township
+                </label>
+                                <div class="input-group mb-3 Rale-Reg">
+                                    <div class="input-group-prepend adv-operator-container" hidden>
+                                        <select name="B03" id="B03" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
+                      <option value="and" selected="">And</option>
+                    </select>
+                                    </div>
+
+                                    <input type="text" class="form-control" name="HD_PLACE" aria-label="Search by Township or Town" title="Township or Town" />
+
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="HD_PLACE_CL" aria-label="Browse ">
+                      <i class="fas fa-bars"></i>
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Town -->
+
+                            <!-- Year -->
+                            <div class="input-wrap ontario-form-group">
+                                <label class="ontario-label" for="HD_DATE"> Year </label>
+                                <div class="input-group mb-3 Rale-Reg">
+                                    <div class="input-group-prepend adv-operator-container" hidden>
+                                        <select name="B07" id="B07" aria-label="Select operator" class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect">
+                      <option value="and" selected="">And</option>
+                    </select>
+                                    </div>
+
+                                    <input type="text" class="form-control" name="HD_DATE" aria-label="Search by Year" title="Year" />
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="HD_DATE_CL" aria-label="Browse ">
+                      <i class="fas fa-bars"></i>
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Year -->
+
+                            <div class="Search-Options-Wrapper d-flex">
+                                <button aria-label="Press Enter to submit form" type="submit" title="Search" value="SEARCH" class="ontario-button ontario-button--primary general-focus">
+                  Search
+                </button>
+                                <button aria-label="Press Enter to open clear form" class="ontario-button ontario-button--secondary general-focus" id="clear" type="reset" title="Clear" value="Clear">
+                  Clear all
+                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+</div>
+<!-- include virtual="[AO_INCLUDES]advSearchBrowse.htm"-->
+
+<!-- include virtual="[AO_INCLUDES]footer.htm"-->

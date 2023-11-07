@@ -1,0 +1,92 @@
+<!-- include virtual="[ao_opac]/145/includes/head.htm"-->
+
+<!-- include virtual="[ao_opac]/145/includes/header.htm"-->
+<title>Archives publiques de l'Ontario - Aucun r&eacute;sultat</title>
+
+
+<div id='Content-Wrapper' class='Content-Wrapper'>
+
+    <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm"-->
+
+    <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+        <div class='back-nav'>
+            <i class="fas fa-arrow-circle-left back-profile" onclick='returnToProfile()'></i>
+        </div>
+        <h2 class='Rale-Extra main-title-h2'>Aucun enregistrement de demande de renseignements</h2>
+        <div id="maincontent">
+            <div class='Form-Wrapper'>
+                <p style='font-size: 2em; text-align: center;'>
+                    Il n'y a aucune demande de renseignements disponible. Cliquez sur le lien Submit an Enquiry pour cr&eacute;er une demande de renseignements.
+                </p>
+                <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&ERRMSG=[ao_opac]/145/includes/error~5cnorecord.htm">
+                    <div class='main-form-left'>
+                        <div class='main-login-mobile Rale-Bold'>
+                            <button type='button' class='main-form-btn pub-sec-login-btn Rale-Bold' onclick='onClickLoginBtn()' title="Acc&eacute;der au portail d'ouverture de session du client">Connexion au portail client</button>
+                            <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title="Acc&eacute;der &agrave; la page d'inscription du client">Inscription du client</button> -->
+                            <button type='button' class='main-form-btn main-form-info Rale-Bold' title="Pour obtenir de plus amples renseignements sur la façon de chercher dans le Système de gestion des archives et de l'information" onclick="howToSearch('default')">Comment chercher dans notre base de donn&eacute;es</button>
+                        </div>
+                        <!-- https://search.lma.gov.uk/scripts/mwimain.dll/382872043?UNIONSEARCH&KEEP=Y&APPLICATION=UNION_VIEW&language=145&simple_exp=y&HISTORY=LMA_DESCRIPTION&ERRMSG=[WWW_LMA]err.htm&REPORT=WEB_SUMMARY -->
+                        <h3 class='search-area-h3 Rale-Reg'>Recherche d'archives, d'oeuvres d''rt et de ressources documentaires</h3>
+                        <br>
+                        <span id='Option-Choice' class='Rale-Bold' aria-label='Type de recherche Tous ces mots-cl&eacute;s'>Option 1 : Recherche par mot-cl&eacute;</span>
+                        <span id='Number-Results'></span>
+                        <div class='Input-Wrapper d-flex flex-column'>
+                            <label class='Rale-Bold' for="simple_search_input">Saisissez un ou plusieurs termes de recherche:</label>
+                            <div id='simple-search-container'>
+                                <input id="simple_search_input" type='text'  name="KEYWORD_CLUSTER" autofocus/>
+                                <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title="Recherche" type='submit' value='Recherche' />
+                            </div>
+                        </div>
+                        <div class='Radio-Wrapper'>
+                            <fieldset>
+                                <legend class='visually-hidden'>Type de recherche</legend>
+                                <span>
+                                           <input type='radio' id='All-Keywords' class='search-input' aria-label="Tous ces mots-cl&eacute;s" value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("Recherche par mot-cl&eacute;")' checked />
+                                           <label class='search-label Rale-Med' for='All-Keywords'>Tous ces mots-cl&eacute;s</label>
+                                       </span>
+                                <span>
+                                           <input type='radio' id='Any-Keywords' class='search-input' aria-label="N'importe lequel de ces mots-cl&eacute;s" value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("N&#39;importe lequel de ces mots-cl&eacute;s")'/>
+                                           <label class='search-label Rale-Med' for='Any-Keywords'>N'importe lequel de ces mots-cl&eacute;s</label>
+                                       </span>
+                                <span>
+                                           <input type='radio' id='Exact-Phrase' class='search-input' aria-label="Termes exacts" value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Termes exacts")'/>
+                                           <label class='search-label Rale-Med' for='Exact-Phrase'>Termes exacts</label>
+                                       </span>
+                            </fieldset>
+                        </div>
+                        <div class='Search-Options-Container'>
+                            <div class='search-options-top Rale-Bold'>
+                                <button type='button' class='Search-Btn search-btn-fr Rale-Bold' alt='Advanced Search' title='Aller &agrave; la RECHERCHE AVANC&Eacute;E' aria-label='Aller &agrave; la RECHERCHE AVANC&Eacute;E' onclick="onClickNavigationBtn(1)" tabindex="0">
+                                    RECHERCHE AVANC&Egrave;E
+                                </button>
+                                <button type='button' class='Search-Btn search-btn-fr Rale-Bold' alt='More Search Options' title='More Search Options' aria-label="Aller &agrave; la PLUS D'OPTIONS DE RECHERCHE" onclick="onClickNavigationBtn(2)">
+                                    PLUS D'OPTIONS DE RECHERCHE
+                                </button>
+                            </div>
+                            <div class='search-options-bottom Rale-Bold'>
+                                <button type='button' class='Search-Btn search-btn-fr Rale-Bold' alt='More Search Options' title='More Search Options' aria-label='Aller &agrave; la RECHERCHE DE PERSONNES' onclick="onClickNavigationBtn(3)">
+                                        RECHERCHE DE PERSONNES
+                                </button>
+                                <button type='button' class='Search-Btn search-btn-fr Rale-Bold' alt='More Search Options' title='More Search Options' aria-label="Aller &agrave; la RECHERCHE D'ORGANISATION" onclick="onClickNavigationBtn(4)">
+                                        RECHERCHE D'ORGANISATION
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='main-form-right Rale-Bold'>
+                        <button type='button' class='main-form-btn pub-sec-login-btn Rale-Bold' onclick='onClickLoginBtn()' title="Acc&eacute;der au portail d'ouverture de session du client">Connexion au portail client</button>
+                        <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title="Acc&eacute;der &agrave; la page d'inscription du client">Inscription du client</button> -->
+                        <button type='button' class='main-form-btn main-form-info Rale-Bold' title="Pour obtenir de plus amples renseignements sur la façon de chercher dans le Système de gestion des archives et de l'information" onclick="howToSearch('default')">Comment chercher dans notre base de donn&eacute;es</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </div>
+
+    <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
+
+</div>
+</div>
+
+
+<!-- include virtual="[ao_opac]/145/includes/footer.htm"-->

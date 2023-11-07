@@ -1,0 +1,32 @@
+<form method="post" class="mb-4" id="listSearch-form" action="^FIND^">
+  <input type="hidden" name="KEYNAME" value="^KEYNAME^">
+    <div class="row input-group">
+      <div class="col-md-9" style="padding-right:0;">
+        <input class="form-control" id="listSearch" type="text" name="KEYVALUE" placeholder="Type something to search list items" >
+      </div>
+
+      <div class="col-md-3">     
+        <button type="submit" class="btn btn-primary select" onclick="searchValue('listSearch-form', '^FIND^');">Search</button>
+      </div>
+  </div>
+</form>
+
+
+<div style="text-align: center;" id="myList">
+  <button type="button" class="btn btn-primary" title="Previous" onclick='clusterButton(event,"^PREV^")'>Previous</button>
+  <button type="button" class="btn btn-primary" title="Next" onclick='clusterButton(event,"^NEXT^")'>Next</button>
+</div>
+</div>
+&nbsp;
+
+<div id="search-value-wraper">
+  <select class="form-control" id="search-value" name="keyvalue_list" size="15">
+          ^INDEX_LIST^
+  </select>
+  &nbsp;
+
+  <div style="text-align: center;">
+    <button type="button" class="btn btn-primary" title="First" onclick='clusterButton(event,"^FIRST^")'>First</button>
+    <button type="button" class="btn btn-primary" title="Last" onclick='clusterButton(event,"^LAST^")'>Last</button>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+
+
+        function deleteCookie(name) {
+            document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+
+        function wrapupMinisisSession() {
+          deleteCookie('M2L_AUDIENCE');
+          deleteCookie('M2L_PATRON_ID');
+          deleteCookie('M2L_PATRON_NAME');
+          deleteCookie('ETUDE')
+        }
+
+        location.href="^WWW_ROOT^";
+    </script>
+
+    <!-- <p>On logout page</p> -->
+</body>
+
+</html>

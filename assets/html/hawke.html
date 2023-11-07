@@ -1,0 +1,375 @@
+<!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+<!-- include virtual="[AO_INCLUDES]header.htm"-->
+<title> Immigration record search - Archives of Ontario</title>
+
+<div id="Content-Wrapper" class="Content-Wrapper">
+    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+    <div id="home-main-wrapper" style="width: 100%">
+        <div id="banner">
+            <img id="banner-img" src="/assets/img/hawke.png" alt="" />
+        </div>
+        <div style="width: 100%" id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
+            <div id="maincontent">
+                <div id="advanced-search-container">
+                    <div id="hawke-home-page" class="Form-Wrapper">
+                        <h1 class="Rale-Bold Main-Content-Heading">
+                            Search immigration registrations
+                        </h1>
+                        <div class="subheader">
+                            <p>
+                                Find people who were registered by the Toronto Emigrant Office between 1865 and 1883.
+                            </p>
+                        </div>
+                        <div class="subheader">
+                            <br />
+                            <p>Learn more about:</p>
+                            <ul>
+                                <li>
+                                    <a href="http://www.archives.gov.on.ca/en/db/hawke-search-help.aspx" target="_blank">these registrations and get search tips</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="http://www.archives.gov.on.ca/en/tracing/index.aspx"
+                    target="_blank"
+                    >tracing your family history</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <form
+              id="Main-Form"
+              class="minimum-font-size Advanced-Form"
+              method="post"
+              name="simple_search"
+              action="^home_sessid^?SEARCH&DATABASE=HAWKE&aux_sessid=ao_shared&ERRMSG=[AO_INCLUDES]error/norecordHawke.htm&report=WEB_HAWKE_SUM"
+            >
+              <!-- Last name -->
+              <div class="input-wrap ontario-form-group">
+                <label class="ontario-label" for="SURNAME"> Last name </label>
+                <div class="input-group mb-3 Rale-Reg">
+                  <div
+                    class="input-group-prepend adv-operator-container"
+                    hidden
+                  >
+                    <select
+                      name="B01"
+                      id="B01"
+                      aria-label="Select operator"
+                      class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                    >
+                      <option value="and" selected="">And</option>
+                    </select>
+                  </div>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="SURNAME"
+                    aria-label="Search by Last name"
+                    title="Last Name"
+                    autofocus
+                  />
+                  <div class="input-group-append">
+                    <button
+                      type="button"
+                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#fullHeightModalRight"
+                      id="SURNAME_CL"
+                      aria-label="Browse"
+                    >
+                      <i class="fas fa-bars"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Last name -->
+
+              <!-- First name -->
+              <div class="input-wrap ontario-form-group">
+                <label class="ontario-label" for="GIVENNAME">
+                  First name
+                </label>
+                <div class="input-group mb-3 Rale-Reg">
+                  <div
+                    class="input-group-prepend adv-operator-container"
+                    hidden
+                  >
+                    <select
+                      name="B02"
+                      id="B02"
+                      aria-label="Select operator"
+                      class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                    >
+                      <option value="and" selected="">And</option>
+                    </select>
+                  </div>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="GIVENNAME"
+                    aria-label="Search by First name"
+                    title="First Name"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      type="button"
+                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#fullHeightModalRight"
+                      id="GIVENNAME_CL"
+                      aria-label="Browse"
+                    >
+                      <i class="fas fa-bars"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- First name -->
+
+              <!-- Nationality -->
+              <div class="input-wrap ontario-form-group">
+                <label class="ontario-label" for="NATION"> Nationality </label>
+                <div class="input-group mb-3 Rale-Reg">
+                  <div
+                    class="input-group-prepend adv-operator-container"
+                    hidden
+                  >
+                    <select
+                      name="B03"
+                      id="B03"
+                      aria-label="Select operator"
+                      class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                    >
+                      <option value="and" selected="">And</option>
+                    </select>
+                  </div>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="NATION"
+                    aria-label="Search by Nationality"
+                    title="Nationality"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      type="button"
+                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#fullHeightModalRight"
+                      id="NATION_CL"
+                      aria-label="Browse"
+                    >
+                      <i class="fas fa-bars"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Nationality -->
+
+              <!-- Trade -->
+              <div class="input-wrap ontario-form-group">
+                <label class="ontario-label" for="TRADEWHOLE">
+                  Job or trade
+                </label>
+                <div class="input-group mb-3 Rale-Reg">
+                  <div
+                    class="input-group-prepend adv-operator-container"
+                    hidden
+                  >
+                    <select
+                      name="B04"
+                      id="B04"
+                      aria-label="Select operator"
+                      class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                    >
+                      <option value="and" selected="">And</option>
+                    </select>
+                  </div>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="TRADEWHOLE"
+                    aria-label="Search by Trade"
+                    title="Trade"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      type="button"
+                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#fullHeightModalRight"
+                      id="TRADEWHOLE_CL"
+                      aria-label="Browse"
+                    >
+                      <i class="fas fa-bars"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Trade -->
+
+              <!-- Ship -->
+              <div class="input-wrap ontario-form-group">
+                <label class="ontario-label" for="SHIPWHOLE"> Ship </label>
+                <div class="input-group mb-3 Rale-Reg">
+                  <div
+                    class="input-group-prepend adv-operator-container"
+                    hidden
+                  >
+                    <select
+                      name="B05"
+                      id="B05"
+                      aria-label="Select operator"
+                      class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                    >
+                      <option value="and" selected="">And</option>
+                    </select>
+                  </div>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="SHIPWHOLE"
+                    aria-label="Search by Ship"
+                    title="Ship"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      type="button"
+                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#fullHeightModalRight"
+                      id="SHIPWHOLE_CL"
+                      aria-label="Browse"
+                    >
+                      <i class="fas fa-bars"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Ship -->
+
+              <!-- Destination -->
+              <div class="input-wrap ontario-form-group">
+                <label class="ontario-label" for="DESTWHOLE">
+                  Destination
+                </label>
+                <div class="input-group mb-3 Rale-Reg">
+                  <div
+                    class="input-group-prepend adv-operator-container"
+                    hidden
+                  >
+                    <select
+                      name="B06"
+                      id="B06"
+                      aria-label="Select operator"
+                      class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                    >
+                      <option value="and" selected="">And</option>
+                    </select>
+                  </div>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="DESTWHOLE"
+                    aria-label="Search by Destination"
+                    title="Destination"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      type="button"
+                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#fullHeightModalRight"
+                      id="DESTWHOLE_CL"
+                      aria-label="Browse"
+                    >
+                      <i class="fas fa-bars"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Destination -->
+
+              <!-- Year -->
+              <div class="input-wrap ontario-form-group">
+                <label class="ontario-label" for="YEAR"> Year </label>
+                <div class="input-group mb-3 Rale-Reg">
+                  <div
+                    class="input-group-prepend adv-operator-container"
+                    hidden
+                  >
+                    <select
+                      name="B07"
+                      id="B07"
+                      aria-label="Select operator"
+                      class="btn btn-md m-0 px-3 py-2 z-depth-0 general-focus waves-effect"
+                    >
+                      <option value="and" selected="">And</option>
+                    </select>
+                  </div>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="YEAR"
+                    aria-label="Search by Year"
+                    title="Year"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      type="button"
+                      class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#fullHeightModalRight"
+                      id="YEAR_CL"
+                      aria-label="Browse"
+                    >
+                      <i class="fas fa-bars"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Year -->
+
+              <div class="Search-Options-Wrapper d-flex">
+                <button
+                  aria-label="Press Enter to submit form"
+                  type="submit"
+                  title="Search"
+                  value="SEARCH"
+                  class="ontario-button ontario-button--primary general-focus"
+                >
+                  Search
+                </button>
+                <button
+                  aria-label="Press Enter to open clear form"
+                  class="ontario-button ontario-button--secondary general-focus"
+                  id="clear"
+                  type="reset"
+                  title="Clear"
+                  value="Clear"
+                >
+                  Clear all
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+</div>
+<!-- include virtual="[AO_INCLUDES]advSearchBrowse.htm"-->
+
+<!-- include virtual="[AO_INCLUDES]footer.htm"-->
