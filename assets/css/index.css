@@ -2242,3 +2242,26 @@ button {
     font-size: 1.125rem;
     color: #06c
 }
+
+.pagination a b,
+.pagination-container a b {
+    height: 26px;
+    width: 26px;
+    flex-shrink: 0;
+    /* color: red; */
+    background: #06C;
+    color: white;
+    border-radius: 6px;
+    padding: 4px 10px;
+}
+
+.pagination,
+.pagination-container {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.pagination a,
+.pagination-container a {
+    margin: 0 4px;
+}
