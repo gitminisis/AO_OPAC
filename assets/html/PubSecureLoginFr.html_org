@@ -145,11 +145,7 @@
         let checkEmail = async email => {
             //TODO: Change lang depends $LANG
             const res = await fetch(
-<<<<<<< HEAD
                 `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[AO_INCLUDES]noEmail.xml`
-=======
-                `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[AO_INCLUDES]noEmail.xml`
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
             )
             const data = await res.text()
 
@@ -191,20 +187,12 @@
 
                             // Account has not been created
                             if (res) {
-<<<<<<< HEAD
                                 window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSignup${frPostFix}.html`
-=======
-                                window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSignup${frPostFix}.html`
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                                     // window.location = `${HOME_SESSID}?addsinglerecord&database=client_registration&de_form=[AO_ASSETS]html/registration.html`
                             }
                             // Existing Account
                             else {
-<<<<<<< HEAD
                                 window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html`
-=======
-                                window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html`
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                             }
                         })
                     } else {
@@ -212,11 +200,7 @@
                         // console.log('Could not get the user info');
                         // debugger;
 
-<<<<<<< HEAD
                         window.location = 'https://test.aims.archives.gov.on.ca'
-=======
-                        window.location = 'https://aims.archives.gov.on.ca'
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                     }
                 } catch (e) {
                     if (
@@ -245,11 +229,7 @@
                     getCookie('M2L_PATRON_ID') &&
                     getCookie('M2L_PATRON_NAME')
                 ) {
-<<<<<<< HEAD
                     window.location = 'https://test.aims.archives.gov.on.ca'
-=======
-                    window.location = 'https://aims.archives.gov.on.ca'
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                 } else {
                     // parse tokens from the redirect and store.
                     // await authClient.storeTokensFromRedirect();
@@ -270,11 +250,7 @@
                         }
                         // Existing Account
                         else {
-<<<<<<< HEAD
                             window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLoginFr.html`
-=======
-                            window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLoginFr.html`
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                         }
                     })
                 }

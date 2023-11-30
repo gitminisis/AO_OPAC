@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 let saveButtonPressed = 0;
 
 $(document).ready(function() {
@@ -15,11 +11,7 @@ $(document).ready(function() {
     if (editProfilePage != null) {
         window.onunload = () => {
             console.log('about to unload')
-<<<<<<< HEAD
             if (typeof closeWindow != "undefined") {
-=======
-            if ( typeof closeWindow != "undefined" ) {
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                 closeWindow();
             }
         }
@@ -60,11 +52,7 @@ $(document).ready(function() {
     //     var patron_id = getCookie('M2L_PATRON_ID');
     //     patron_id = patron_id.split(']')[1];
 
-<<<<<<< HEAD
     //     let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
-=======
-    //     let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
     //     let iframe;
 
@@ -99,11 +87,6 @@ $(document).ready(function() {
     //             },
     //             onCleanup: function() {
     //                  window.open('^SKIPRECORD^&DISCONNECT=Y&CLOSE=Y', "CLOSE", "menubar=no, scrollbars=yes, resizable=yes, location=no, toolbar=no, Width=50, Height=50")
-<<<<<<< HEAD
-
-=======
-                    
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
     //             },
     //             onClosed: function() {
     //                 delete $tmp_data;
@@ -111,15 +94,9 @@ $(document).ready(function() {
     //                 delete $tmp_data3;
 
     //                 delete $tmp_topic;
-<<<<<<< HEAD
     // 				if ( typeof closeWindow != "undefined" ) {
     // 				   closeWindow();
     // 				}					   
-=======
-	// 				if ( typeof closeWindow != "undefined" ) {
-	// 				   closeWindow();
-	// 				}					   
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
     //                 // window.open('^SKIPRECORD^&DISCONNECT=Y&CLOSE=Y', "CLOSE", "menubar=no, scrollbars=yes, resizable=yes, location=no, toolbar=no, Width=50, Height=50")
     //                 // location = '^skiprecord^&disconnect=y&close=y&FILE=[AO_ASSETS]html/editProfile.html';
     //             } 
@@ -146,13 +123,8 @@ function getPatronClientInfo() {
     // Stored cookie containing a string of the Patron's ID
     var patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
-<<<<<<< HEAD
     let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
         // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%2020210001?SESSIONSEARCH`
-=======
-    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
-        // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%2020210001?SESSIONSEARCH`
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
 
     let tempString = window.location.href;
@@ -160,7 +132,6 @@ function getPatronClientInfo() {
     // Split the URI on "/" and take the last element of the array
     let tempUrlCheck = tempString.split("/");
 
-<<<<<<< HEAD
     let myRequestURL = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`
         // $("a.Patron-Link").attr("href", myRequestURL);
 
@@ -168,26 +139,13 @@ function getPatronClientInfo() {
         // $(".Patron-Enquiry-Link").on('click', function() { window.location = myPatronLink })
 
     let myCrowdURL = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`
-=======
-    let myRequestURL = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`
-        // $("a.Patron-Link").attr("href", myRequestURL);
-
-    let myPatronLink = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`
-        // $(".Patron-Enquiry-Link").on('click', function() { window.location = myPatronLink })
-
-    let myCrowdURL = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + patron_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         // $("a.Patron-Crowd-Link").attr("href", myCrowdURL);
 
     let frame;
     // Check that the current window.location is patronProfile.html
     if (tempUrlCheck[tempUrlCheck.length - 1] == 'patronProfile.html') {
 
-<<<<<<< HEAD
         $.ajax(url).done(function(res) {
-=======
-        $.ajax(url).done( function(res) {
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
             var x2js = new X2JS();
 
             var jsonObj = x2js.xml2json(res);
@@ -202,21 +160,12 @@ function getPatronClientInfo() {
             let tel = jsonObj.client.tel_home;
 
             document.getElementById('Client-First').innerText = first_name;
-<<<<<<< HEAD
             document.getElementById('Client-First').readOnly = true;
             document.getElementById('Client-Last').innerText = last_name;
             document.getElementById('Client-Last').readOnly = true;
             // document.getElementById('Client-Full').innerText = full_name;
             // document.getElementById('Client-Full').readOnly = true;
             document.getElementById('Client-Email').innerText = email;
-=======
-            document.getElementById('Client-First').readOnly  = true;
-            document.getElementById('Client-Last').innerText  = last_name;
-            document.getElementById('Client-Last').readOnly   = true;
-            // document.getElementById('Client-Full').innerText = full_name;
-            // document.getElementById('Client-Full').readOnly = true;
-            document.getElementById('Client-Email').innerText   = email;
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
             document.getElementById('Client-Email').setAttribute("href", emailLink);
 
 
@@ -248,62 +197,33 @@ function getPatronClientInfo() {
     if (document.getElementById('clientBookmarkInner')) {
         $("#clientBookmarkInner").append("<a class='btn btn-primary btn-sm Client-Profile Rale-Reg' id='login-btn' href='" + home_sessid + "?GET&amp;FILE=[AO_ASSETS]html/patronProfile.html'>Back to Client Profile</a>");
     }
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 }
 
 const clientLinkOnclick = (e) => {
     var patron_id = getCookie('M2L_PATRON_ID');
     let client_id = patron_id.split(']')[1];
     console.log(client_id)
-<<<<<<< HEAD
         // let bookmarkURL = '^HOME_SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\\nobookmark.htm&COOKIE=BOOKMARK'
     let bookmarkURL = `${HOME_SESSID}?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\\nobookmark.htm&COOKIE=BOOKMARK`;
     let myRequestURL = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`;
     let myClientLink = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`;
-    // let myCrowdURL     = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`;
     // let myCopyright    = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/REQUEST_VIEW/COPYRIGHT_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Copyright%20Services` + `&NOMSG=[AO_INCLUDES]error\\nocopyright.htm`;
     // let myReproduction = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/REQUEST_VIEW/REPROD_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Reproduction%2FCertification%20Services` + `&NOMSG=[AO_INCLUDES]error\\noreproduction.htm`;
-=======
-    // let bookmarkURL = '^HOME_SESSID^?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\\nobookmark.htm&COOKIE=BOOKMARK'
-    let bookmarkURL    = `${HOME_SESSID}?SHOWORDERLIST&NOMSG=[AO_INCLUDES]error\\nobookmark.htm&COOKIE=BOOKMARK`;
-    let myRequestURL   = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\norequest.htm`;
-    let myClientLink   = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_SUMMARY?SESSIONSEARCH&EXP=ENQ_PATRON_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\noenquiry.htm`;
-    // let myCrowdURL     = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/COMMENTS_VIEW/CROWD_SOURCE_SUMMARY?SESSIONSEARCH&EXP=CREATOR_ID%20` + client_id + `&NOMSG=[AO_INCLUDES]error\\nocrowd.htm`;
-    // let myCopyright    = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/REQUEST_VIEW/COPYRIGHT_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Copyright%20Services` + `&NOMSG=[AO_INCLUDES]error\\nocopyright.htm`;
-    // let myReproduction = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/REQUEST_VIEW/REPROD_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20` + client_id + `%20AND%20REQ_TOPIC%20Reproduction%2FCertification%20Services` + `&NOMSG=[AO_INCLUDES]error\\noreproduction.htm`;
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
-
-    if (e.getAttribute('id') == 'Client-Request')
-        window.location = myRequestURL;
-    else if (e.getAttribute('id') == 'Client-Enquiry')
-<<<<<<< HEAD
-        window.location = myClientLink;
-=======
-    window.location = myClientLink;
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
     // else if (e.getAttribute('id') == 'Client-Crowd-Sourcing')
     //     window.location = myCrowdURL;
     // else if (e.getAttribute('id') == 'Client-Copyright')
     //     window.location = myCopyright;
     // else if (e.getAttribute('id') == 'Client-Reproduction')
     //     window.location = myReproduction;
-    else if (e.getAttribute('id') == 'Client-Bookmarks')
-        window.location = bookmarkURL;
+    // else if (e.getAttribute('id') == 'Client-Bookmarks')
+    //     window.location = bookmarkURL;
 }
 
 function getEditProfileInfo() {
     var patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
 
-<<<<<<< HEAD
     let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`;
-=======
-    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`;
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
     $.ajax(url).done(function(res) {
         var x2js = new X2JS();
@@ -313,7 +233,6 @@ function getEditProfileInfo() {
 
         // Main 
         var card_number = jsonObj.client.card_number;
-<<<<<<< HEAD
         var email = jsonObj.client.email;
         var password = jsonObj.client.password;
         var first_name = jsonObj.client.name_first;
@@ -345,45 +264,11 @@ function getEditProfileInfo() {
         var ship_prov = jsonObj.client.ship_address_prov;
         var ship_country = jsonObj.client.ship_address_country;
         var ship_zip = jsonObj.client.ship_address_zip;
-=======
-        var email       = jsonObj.client.email;
-        var password    = jsonObj.client.password;
-        var first_name  = jsonObj.client.name_first;
-        var last_name   = jsonObj.client.name_last;
-        var middle_name = jsonObj.client.middle_name;
-        var alias_name  = jsonObj.client.alias_name;
-        var full_name   = jsonObj.client.full_name;
-        var division    = jsonObj.client.client_division;
-        var c_type      = jsonObj.client.client_type;
-        var title       = jsonObj.client.title;
-        var suffix      = jsonObj.client.suffix;
-        var language    = jsonObj.client.language;
-        var org         = jsonObj.client.organization;
-
-        // Address
-        var line_1  = jsonObj.client.address_line1;
-        var line_2  = jsonObj.client.address_line2;
-        var line_3  = jsonObj.client.address_line3;
-        var city    = jsonObj.client.address_city;
-        var prov    = jsonObj.client.address_prov;
-        var country = jsonObj.client.address_country;
-        var zip     = jsonObj.client.address_zip;
-
-        // Shipping Address
-        var ship_line_1  = jsonObj.client.ship_address_line1;
-        var ship_line_2  = jsonObj.client.ship_address_line2;
-        var ship_line_3  = jsonObj.client.ship_address_line3;
-        var ship_city    = jsonObj.client.ship_address_city;
-        var ship_prov    = jsonObj.client.ship_address_prov;
-        var ship_country = jsonObj.client.ship_address_country;
-        var ship_zip     = jsonObj.client.ship_address_zip;
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
         // Telephone 
         var tel_home = jsonObj.client.tel_home;
         var tel_work = jsonObj.client.tel_work;
         var tel_cell = jsonObj.client.tel_cell;
-<<<<<<< HEAD
         var tel_fax = jsonObj.client.tel_fax;
 
 
@@ -398,22 +283,6 @@ function getEditProfileInfo() {
         document.getElementById('clientLastName').readOnly = true;
         middle_name ? document.getElementById('clientMiddleName').value = middle_name : '';
         alias_name ? document.getElementById('clientAlias').value = alias_name : '';
-=======
-        var tel_fax  = jsonObj.client.tel_fax;
-
-
-        document.getElementById('clientID').value           = card_number;
-        document.getElementById('clientID').readOnly        = true;
-        document.getElementById('clientEmail').value        = email;
-        document.getElementById('clientEmail').readOnly     = true;
-        document.getElementById('clientPassword').value     = password;
-        document.getElementById('clientFirstName').value    = first_name;
-        document.getElementById('clientFirstName').readOnly = true;
-        document.getElementById('clientLastName').value     = last_name;
-        document.getElementById('clientLastName').readOnly  = true;
-        middle_name ? document.getElementById('clientMiddleName').value = middle_name : '';
-        alias_name ? document.getElementById('clientAlias').value       = alias_name : '';
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
         if (c_type == "Public Body") {
             document.getElementById('clientDivision').value = division;
@@ -421,7 +290,6 @@ function getEditProfileInfo() {
             document.getElementById('clientDivisionID').remove();
         }
 
-<<<<<<< HEAD
         document.getElementById('clientRole').value = c_type;
         document.getElementById('clientRole').readOnly = true;
         document.getElementById('clientLanguage').value = language;
@@ -444,39 +312,11 @@ function getEditProfileInfo() {
         ship_prov ? document.getElementById('clientShipProv').value = ship_prov : '';
         ship_country ? document.getElementById('clientShipCountry').value = ship_country : '';
         ship_zip ? document.getElementById('clientShipPostal').value = ship_zip : '';
-=======
-        document.getElementById('clientRole').value     = c_type;
-        document.getElementById('clientRole').readOnly  = true;
-        document.getElementById('clientLanguage').value = language;
-        document.getElementById('clientRole').value     = c_type;
-        document.getElementById('clientOrg').value      = org;
-
-
-        line_1 != null ? document.getElementById('clientStreetOne').value = line_1 : '';
-        line_2 ? document.getElementById('clientStreetTwo').value         = line_2 : '';
-        line_3 ? document.getElementById('clientStreetThree').value       = line_3 : '';
-        city ? document.getElementById('clientCity').value                = city : '';
-        prov ? document.getElementById('clientProv').value                = prov : '';
-        country ? document.getElementById('clientCountry').value          = country : '';
-        zip ? document.getElementById('clientPostal').value               = zip : '';
-
-        ship_line_1 ? document.getElementById('clientShipStreetOne').value   = ship_line_1 : '';
-        ship_line_2 ? document.getElementById('clientShipStreetTwo').value   = ship_line_2 : '';
-        ship_line_3 ? document.getElementById('clientShipStreetThree').value = ship_line_3 : '';
-        ship_city ? document.getElementById('clientShipCity').value          = ship_city : '';
-        ship_prov ? document.getElementById('clientShipProv').value          = ship_prov : '';
-        ship_country ? document.getElementById('clientShipCountry').value    = ship_country : '';
-        ship_zip ? document.getElementById('clientShipPostal').value         = ship_zip : '';
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
         tel_home ? document.getElementById('clientHomePhone').value = tel_home : '';
         tel_work ? document.getElementById('clientWorkPhone').value = tel_work : '';
         tel_cell ? document.getElementById('clientCellPhone').value = tel_cell : '';
-<<<<<<< HEAD
         tel_fax ? document.getElementById('clientFaxPhone').value = tel_fax : '';
-=======
-        tel_fax ? document.getElementById('clientFaxPhone').value   = tel_fax : '';
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
 
     })
@@ -491,32 +331,17 @@ const redirectToEditProfile = () => {
     let patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
 
-<<<<<<< HEAD
     let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
 
     $.ajax(url).done(res => {
-=======
-    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
-
-    $.ajax(url).done( res => {
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         var x2js = new X2JS();
         var jsonObj = x2js.xml2json(res);
         let card_number = jsonObj.client.card_number;
         let redirectURL = HOME_SESSID + "?changesinglerecord&database=CLIENT_VIEW&de_form=[AO_ASSETS]html/editProfile.html&EXP=C_CARD_NUMBER%20" + card_number
         window.location = redirectURL
     })
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 }
 
 const editSkipRecord = () => {
     return '^SKIPRECORD^&DISCONNECT=N&CLOSE=Y&FILE=[AO_ASSETS]html/patronProfile.html'
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128

@@ -157,11 +157,7 @@ const disableRequestBtn = (url) => {
     patron_id = patron_id.split(']')[1];
 
     if (patrion_id != '') {
-<<<<<<< HEAD
         let url1 = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/CHECK_REQUEST_STATUS/REQ_PATRON_ID%20${patron_id}?COMMANDSEARCH#`;
-=======
-        let url1 = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/CHECK_REQUEST_STATUS/REQ_PATRON_ID%20${patron_id}?COMMANDSEARCH#`;
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
         $.ajax(url1).done(function(res) {
             var x2js = new X2JS();
@@ -588,17 +584,10 @@ const copyPermalink = (e, rep) => {
         params = 'ORGANIZATION_VAL_SYN/WEB_ORG_DET_OPAC?SESSIONSEARCH&exp=ORG_ID%20';
     }
 
-<<<<<<< HEAD
     let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${params}${exp}`
         // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm&exp=sisn%20${exp}`;
         // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report} ${exp}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
         // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/DESCRIPTION_WEB/WEB_DESC_DET/SISN ${sisn}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
-=======
-    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/${params}${exp}`
-        // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm&exp=sisn%20${exp}`;
-        // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report} ${exp}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
-        // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/DESCRIPTION_WEB/WEB_DESC_DET/SISN ${sisn}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
     console.log(url)
     navigator.clipboard.writeText(url);
     e.textContent = 'Link Copied!';

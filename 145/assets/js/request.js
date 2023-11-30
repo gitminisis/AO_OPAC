@@ -63,21 +63,13 @@ $(document).ready(function() {
     }
 
     // This is a continuation function that requires storeAdditionalReqFields(btn_number) from detail.js
-<<<<<<< HEAD
     if (document.getElementById("direct-request-form") != null) {
-=======
-    if(document.getElementById("direct-request-form") != null){
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         let call_number = sessionStorage.getItem("Call Number");
         let volume_id = sessionStorage.getItem("Volume ID");
         console.log('call number: ', call_number, 'vol id: ', volume_id)
         $(".para1").after("<p class='para2'>Numéro d'appel : <strong>" + 'chicken' + "</strong></p><p class='para2'>ID de volume : <strong>" + volume_id + "</strong></p>");
     }
-<<<<<<< HEAD
     if (document.getElementById("request-confirmation-form") != null) {
-=======
-    if(document.getElementById("request-confirmation-form") != null){
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         let call_number = sessionStorage.getItem("Call Number");
         let volume_id = sessionStorage.getItem("Volume ID");
         console.log('call number: ', call_number, 'vol id: ', volume_id)
@@ -140,11 +132,7 @@ function getRequestClientInfo() {
     patron_id = patron_id.split(']')[1];
 
 
-<<<<<<< HEAD
     let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
-=======
-    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
 
     if (document.getElementById('Request-Form') != null) {
@@ -201,11 +189,7 @@ function goToClientRequest() {
     let patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
 
-<<<<<<< HEAD
     window.location(`https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20${patron_id}&NOMSG=[ao_opac]/145/includes/error\\norequest.htm`)
-=======
-    window.location(`https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20${patron_id}&NOMSG=[ao_opac]/145/includes/error\\norequest.htm`)
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 }
 
 function toggleReqTopicForm(value, option, id) {

@@ -2241,7 +2241,6 @@ button {
     font-weight: 600;
     font-size: 1.125rem;
     color: #06c
-<<<<<<< HEAD
 }
 
 .pagination a b,
@@ -2265,6 +2264,4 @@ button {
 .pagination a,
 .pagination-container a {
     margin: 0 4px;
-=======
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 }

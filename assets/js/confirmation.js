@@ -29,11 +29,7 @@ $(document).ready(function() {
                 $('#confirmTime').text(time)
                 if (time === 0) {
                     clearInterval(interval)
-<<<<<<< HEAD
                     window.location = `https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogin.html`
-=======
-                    window.location = `https://aims.archives.gov.on.ca/assets/html/PubSecureLogin.html`
->>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
                 } else {
                     time--;
