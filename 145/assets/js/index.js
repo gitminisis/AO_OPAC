@@ -44,6 +44,7 @@ $(document).ready(function() {
 
     $('.detail-bm-btn').on('click', function() {
         $('.detail-bm-btn').off('click');
+
         let url = $('#bm-url').text().trim()
         let sisn = $('#bm-sisn').text().trim()
         let db = $('#bm-db').text().trim()
@@ -781,3 +782,4 @@ $('.print-btn').on('click', function() {
 //     sessionStorage.setItem('announcement_fr', true)
 //     $('#popup-message').modal('hide')
 // })
+

@@ -772,13 +772,13 @@ $('.print-btn').on('click', function() {
 
 
 // $('body').append(`<div id="popup-message" class="modal fade" tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Notification</h5> <button type="button" class="close test-btn" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" >  
-// <p class="">Dear valued Visitor,</p>
+// <p class="">Dear Visitor,</p>
 // <p class="">
-// We have recently updated our archives system and we hope the updated version will provide a better user experience. We made changes to the design and simplified the content based on client feedback received.
+// We appreciate your visit to our website. We are currently performing scheduled updates and apologize for any inconvenience.
 // </p>
-// <p>Your account is no longer required to access the archives system and we have removed the inquiry option.  However, we will respond to your active inquiries via the email you provided.</p>
-// <p class="">You may now reach us via <a href="mailto:reference@ontario.ca">reference@ontario.ca</a> for all inquiries and service requests.</p>
-// </div> <div class="modal-footer">  <button type="button" id="test"  class="btn btn-secondary test-btn" data-dismiss="modal">Close</button> </div> </div> </div> </div>`)
+// <p>The AIMS accounts will be disabled shortly. Please ensure you have the information you need including any inquiries or bookmarks saved as these will no longer be available. Inquiries can now be sent directly to <a href="mailto:reference@ontario.ca">reference@ontario.ca</a>.</p>
+// <p class="">We encourage you to check back later.</p>
+// <p class="">Thank you for your patience and understanding.</p></div> <div class="modal-footer">  <button type="button" id="test"  class="btn btn-secondary test-btn" data-dismiss="modal">Close</button> </div> </div> </div> </div>`)
 // if (sessionStorage.getItem('announcement') !== "true") {
 //     new bootstrap.Modal(document.getElementById('popup-message')).show()
 // }
