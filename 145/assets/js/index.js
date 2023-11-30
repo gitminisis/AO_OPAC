@@ -766,18 +766,18 @@ $('.print-btn').on('click', function() {
 })
 
 
-$('body').append(`<div id="popup-message" class="modal fade" tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Avertissement</h5> <button type="button" class="close test-btn" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" >  
-<p class=" ">À nos visiteurs,</p>
-<p class=" ">
-Nous avons récemment mis à jour notre système d'archives et nous espérons que la nouvelle version vous offrira une meilleure expérience utilisateur. Nous avons apporté des modifications à la conception et simplifié le contenu en fonction des commentaires reçus du public.
-</p>
-<p>Votre compte n'est plus nécessaire pour accéder au système d'archives et nous avons supprimé l'option de demande de renseignements. Cependant, nous répondrons à vos demandes actives en utilisant l'adresse courriel que vous avez fourni.</p>
-<p class=" ">Vous pouvez maintenant nous joindre via <a href="mailto:reference@ontario.ca">reference@ontario.ca</a> pour toutes questions et demandes de service.</p>
-</div> <div class="modal-footer">  <button type="button" class="test-btn"  class="btn btn-secondary" data-dismiss="modal">Fermer</button> </div> </div> </div> </div>`)
-if (sessionStorage.getItem('announcement_fr') !== "true") {
-    new bootstrap.Modal(document.getElementById('popup-message')).show()
-}
-$('.test-btn').on('click', function() {
-    sessionStorage.setItem('announcement_fr', true)
-    $('#popup-message').modal('hide')
-})
+// $('body').append(`<div id="popup-message" class="modal fade" tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Avertissement</h5> <button type="button" class="close test-btn" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" >  
+// <p class=" ">À nos visiteurs,</p>
+// <p class=" ">
+// Nous avons récemment mis à jour notre système d'archives et nous espérons que la nouvelle version vous offrira une meilleure expérience utilisateur. Nous avons apporté des modifications à la conception et simplifié le contenu en fonction des commentaires reçus du public.
+// </p>
+// <p>Votre compte n'est plus nécessaire pour accéder au système d'archives et nous avons supprimé l'option de demande de renseignements. Cependant, nous répondrons à vos demandes actives en utilisant l'adresse courriel que vous avez fourni.</p>
+// <p class=" ">Vous pouvez maintenant nous joindre via <a href="mailto:reference@ontario.ca">reference@ontario.ca</a> pour toutes questions et demandes de service.</p>
+// </div> <div class="modal-footer">  <button type="button" class="test-btn"  class="btn btn-secondary" data-dismiss="modal">Fermer</button> </div> </div> </div> </div>`)
+// if (sessionStorage.getItem('announcement_fr') !== "true") {
+//     new bootstrap.Modal(document.getElementById('popup-message')).show()
+// }
+// $('.test-btn').on('click', function() {
+//     sessionStorage.setItem('announcement_fr', true)
+//     $('#popup-message').modal('hide')
+// })
