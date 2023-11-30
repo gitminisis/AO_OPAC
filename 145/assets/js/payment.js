@@ -1,9 +1,18 @@
 window.onload = () => {
+<<<<<<< HEAD
     setpayCss(); // temporary measure for proof of concept
 
     if (document.getElementById('cancel-page'))
         cancelLast();
     else if (document.getElementById('receipt-page')) {
+=======
+    setpayCss();  // temporary measure for proof of concept
+
+    if (document.getElementById('cancel-page'))
+        cancelLast();
+    else if (document.getElementById('receipt-page'))
+    {
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         console.log('setting partial paid')
         setPartialPaid();
     }
@@ -13,6 +22,7 @@ window.onload = () => {
 // (if you look at the HTMLCOLLECTION object you will see that every over index/property is filled with empty-string text)
 let ReproEnum = {
     MERCHANTNUM: 1,
+<<<<<<< HEAD
     PRODID: 3,
     TOPIC: 5,
     TITLE: 7,
@@ -26,15 +36,38 @@ class Payment {#
     privatePaymentItem;
 
     constructor(node) {
+=======
+    PRODID:      3,
+    TOPIC:       5,
+    TITLE:       7,
+    AMOUNT:      11,
+    TAX:         17,
+    HANDLING:    19,
+    CHARGE:      21
+}
+
+class Payment {
+    #privatePaymentItem;
+
+    constructor(node){
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         this.#privatePaymentItem = node;
     }
 
     initClientSidePayment = () => {
+<<<<<<< HEAD
         let trNodes = this.#privateGetReproductionRowValues(this.#privatePaymentItem);
         let payNodes = this.#privateGetPayNodes();
         this.#privateSetForm(trNodes, payNodes);
     }
 
+=======
+        let trNodes  = this.#privateGetReproductionRowValues(this.#privatePaymentItem);
+        let payNodes = this.#privateGetPayNodes();
+        this.#privateSetForm(trNodes, payNodes); 
+    }
+    
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
     /* 
         This functions takes in a HTML Node and gets the values needed to
         prepopulate a payment form
@@ -42,12 +75,17 @@ class Payment {#
         @params { node }       a JSON object (HTMLCOLLECTION Object)
         @return { formValues } a JSON object
     */
+<<<<<<< HEAD
     #
     privateGetReproductionRowValues = (node) => {
+=======
+    #privateGetReproductionRowValues = (node) => {
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         let formValues = {};
         let childNodes = node.childNodes;
 
         console.log(childNodes)
+<<<<<<< HEAD
 
         formValues.patronId = patron_id.split(']')[1];
         formValues.merchantNum = childNodes[ReproEnum.MERCHANTNUM].innerText;
@@ -66,13 +104,37 @@ class Payment {#
         return formValues;
     }
 
+=======
+        
+        formValues.patronId    = patron_id.split(']')[1];
+        formValues.merchantNum = childNodes[ReproEnum.MERCHANTNUM].innerText;
+        formValues.locale      = document.getElementsByTagName('html')[0].getAttribute('Lang');;
+        formValues.prodId      = childNodes[ReproEnum.PRODID].innerText;
+        formValues.topic       = childNodes[ReproEnum.TOPIC].innerText;
+        formValues.title       = childNodes[ReproEnum.TITLE].innerText;
+        formValues.amt         = childNodes[ReproEnum.AMOUNT].innerText;
+        formValues.tax         = childNodes[ReproEnum.TAX].innerText;
+        formValues.handling    = childNodes[ReproEnum.HANDLING].innerText;
+        formValues.charge      = childNodes[ReproEnum.CHARGE].innerText;
+        formValues.successUrl  = undefined;
+        formValues.cancelUrl   = undefined;
+    
+    
+        return formValues;        
+    }
+    
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
     /*  
         This function takes in an object containting values for the payment form
         @param { formValues } a JSON object
         @param { payNodes }   a JSON object
     */
+<<<<<<< HEAD
     #
     privateSetForm = (formValues, payNodes) => {
+=======
+    #privateSetForm = (formValues, payNodes) => {
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
         payNodes.patronId.innerText = formValues.patronId;
         payNodes.merchantNum.innerText = formValues.merchantNum;
@@ -84,14 +146,22 @@ class Payment {#
         payNodes.handling.innerText = `$${formValues.handling}`;
         payNodes.charge.innerText = `$${formValues.charge}`;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
     /*
         This function gets the HTML nodes for the colorbox payform and return it as a JSON.
     
         @returns { JSON } a JSON object
     */
+<<<<<<< HEAD
     #
     privateGetPayNodes = () => {
+=======
+    #privateGetPayNodes = () => {
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         let patronId = document.getElementById('Pay-Client-Id');
         let merchantNum = document.getElementById('Pay-Merchant-Num');
         let prodId = document.getElementById('Pay-Product-Id');
@@ -102,7 +172,11 @@ class Payment {#
         let handling = document.getElementById('Pay-Handling');
         let charge = document.getElementById('Pay-Charge');
 
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         return { patronId, merchantNum, prodId, topic, title, amt, tax, handling, charge };
     }
 
@@ -110,7 +184,11 @@ class Payment {#
 
 const requestOrder = () => {
     // let formData = new FormData();
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
     let patronId = document.getElementById('Pay-Client-Id').innerText;
     let merchantNum = document.getElementById('Pay-Merchant-Num').innerText;
     // let prodId = document.getElementById('Pay-Product-Id').innerText;
@@ -121,12 +199,22 @@ const requestOrder = () => {
     // let handling = document.getElementById('Pay-Handling').innerText;
 
     // AOPay expected POST data for InitPay
+<<<<<<< HEAD
     let myData = {
         "req_order_num": merchantNum,
         "req_patron_id": patronId,
         "pay_amount": amt.replace('$', '').toString(),
         "success_url": `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
         "cancel_url": `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+=======
+    let myData = 
+    {
+        "req_order_num": merchantNum,
+        "req_patron_id": patronId,
+        "pay_amount": amt.replace('$', '').toString(),
+        "success_url": `https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+        "cancel_url": `https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         "locale": "en",
         testLevel: 1
     }
@@ -146,6 +234,7 @@ const reqInitPay = (myData) => {
 
 
     fetch('https://minaopay.minisisinc.com/api/initPay', {
+<<<<<<< HEAD
             method: 'POST',
             signal: signal,
             headers: {
@@ -165,6 +254,28 @@ const reqInitPay = (myData) => {
                 reqInitPay(myData)
             } else console.error(`Error: ${err}`)
         })
+=======
+        method: 'POST',
+        signal: signal,
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application.json'
+        },
+        body: JSON.stringify(myData)
+    })
+    .then  (res => res.json())
+    .then  (data => { 
+        console.log('Success:', data) 
+        window.location = data.redirect_url;
+    })
+    .catch (err => { 
+        if (err.name === 'AbortError') {
+            console.log('Fetch aborted');   
+            reqInitPay(myData)
+        } 
+        else console.error(`Error: ${err}`) 
+    })
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 }
 
 /*
@@ -183,11 +294,19 @@ const setpayCss = () => {
 /*
     Function begins process of clientside payment settlement.
 */
+<<<<<<< HEAD
 const completePayment = async() => {
     console.log('starting payment completion')
     let orderNum = document.getElementById('req-order-num').innerHTML
 
     settlePay(orderNum); // Settle the payment with CCPAY
+=======
+const completePayment = async () => {
+    console.log('starting payment completion')
+    let orderNum = document.getElementById('req-order-num').innerHTML 
+
+    settlePay(orderNum);     // Settle the payment with CCPAY
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 }
 
 
@@ -207,6 +326,7 @@ const settlePay = (orderNum) => {
     setTimeout(() => controller.abort(), 3000);
 
     // AOPay expected POST data for SettleLast
+<<<<<<< HEAD
     let postData = {
         req_order_num: orderNum
     }
@@ -231,11 +351,43 @@ const settlePay = (orderNum) => {
                 settlePay(orderNum)
             } else throw new Error(`HTTP error! status: ${err}`)
         })
+=======
+    let postData =
+    {
+        req_order_num: orderNum
+    }
+    
+    fetch ('https://minaopay.minisisinc.com/api/SettleLast', {
+        method: 'POST',
+        signal: signal,
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+    .then  ( res => res.json())
+    .then  ( data => {
+        console.log(data)
+        queryLast(orderNum)
+    })
+    .catch ( err => { 
+        if (err.name === 'AbortError') {
+            console.log('Fetch aborted');
+            settlePay(orderNum)
+        } 
+        else throw new Error (`HTTP error! status: ${err}`) 
+    })
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
 }
 
 const setFields = (orderNum, authCode, authTime, card, name) => {
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
     console.log('setting record fields')
     const controller = new AbortController();
     const signal = controller.signal;
@@ -243,14 +395,19 @@ const setFields = (orderNum, authCode, authTime, card, name) => {
     setTimeout(() => controller.abort(), 3000);
 
     // AOPay expected POST data for SetFields
+<<<<<<< HEAD
     let postData = {
         req_order_num: orderNum,
+=======
+    let postData = {req_order_num: orderNum,
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         gwy_auth_code: authCode,
         gwy_auth_time: authTime,
         maskedCard: card,
         nameOnCard: name
     }
 
+<<<<<<< HEAD
     console.log(JSON.stringify(postData))
 
     fetch('https://minaopay.minisisinc.com/api/SetFields', {
@@ -273,6 +430,31 @@ const setFields = (orderNum, authCode, authTime, card, name) => {
                 setFields = (orderNum, authCode, authTime, card, name)
             } else throw new Error(`HTTP error! status: ${err}`)
         })
+=======
+    console.log(JSON.stringify(postData))   
+
+    fetch ('https://minaopay.minisisinc.com/api/SetFields', {
+        method: 'POST',
+        signal: signal,
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+    .then  ( data => { 
+        console.log("Finished setting fields")
+        console.log(data)
+        successRedirectToProfile(orderNum)
+    })
+    .catch ( err => { 
+        if (err.name === 'AbortError') {
+            console.log('Fetch aborted');
+            setFields = (orderNum, authCode, authTime, card, name)
+        } 
+        else throw new Error (`HTTP error! status: ${err}`) 
+    })
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
 }
 
@@ -286,6 +468,7 @@ const queryLast = (orderNum) => {
     setTimeout(() => controller.abort(), 3000);
 
     // AOPay expected POST data for QueryLast
+<<<<<<< HEAD
     let postData = {
         req_order_num: orderNum
     }
@@ -314,6 +497,38 @@ const queryLast = (orderNum) => {
                 queryLast(orderNum)
             } else throw new Error(`HTTP error! status: ${err}`)
         })
+=======
+    let postData = 
+    {
+        req_order_num: orderNum
+    }
+
+    fetch ('https://minaopay.minisisinc.com/api/QueryLast', {
+        method: 'POST',
+        signal: signal,
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+    .then  ( res => res.json())
+    .then  ( data => { 
+        console.log(data)
+        let code = data.gwy_auth_code;
+        let time = data.gwy_auth_time;
+        let card = data.maskedCard;
+        let name = data.nameOnCard;
+        setFields(orderNum, code, time, card, name); 
+    })
+    .catch ( err => { 
+        if (err.name === 'AbortError') {
+            console.log('Fetch aborted');
+            queryLast(orderNum)
+        } 
+        else throw new Error (`HTTP error! status: ${err}`) 
+    })
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 }
 
 
@@ -322,6 +537,7 @@ const cancelLast = () => {
     console.log('getting cancel information');
 
     let orderNum = document.getElementById('req-order-num').innerHTML
+<<<<<<< HEAD
     let postData = {
         req_order_num: orderNum
     }
@@ -337,6 +553,24 @@ const cancelLast = () => {
         .then(res => res.json())
         .then(data => console.log(data))
         .catch(err => { throw new Error(`HTTP error! status: ${err}`) })
+=======
+    let postData = 
+    {
+        req_order_num: orderNum
+    }
+
+    fetch ('https://minaopay.minisisinc.com/api/CancelLast', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+    .then  ( res => res.json())
+    .then  ( data => console.log(data))
+    .catch ( err => { throw new Error (`HTTP error! status: ${err}`) })
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 }
 
 const setPartialPaid = () => {
@@ -348,11 +582,17 @@ const setPartialPaid = () => {
 
     console.log(orderNum, amt)
 
+<<<<<<< HEAD
     let postData = {
+=======
+    let postData = 
+    {
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         req_order_num: orderNum,
         req_partial_paid: amt
     }
 
+<<<<<<< HEAD
     fetch('https://minaopay.minisisinc.com/api/SetPartialPaid', {
             method: 'POST',
             headers: {
@@ -367,11 +607,30 @@ const setPartialPaid = () => {
             console.log(data)
         })
         .catch(err => { throw new Error(`HTTP error! status: ${err}`) })
+=======
+    fetch ('https://minaopay.minisisinc.com/api/SetPartialPaid', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+    // .then  ( res => res.json())
+    .then  ( data =>{
+        console.log('set partial paid')
+         console.log(data)})
+    .catch ( err => { throw new Error (`HTTP error! status: ${err}`) })
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 }
 
 const agreementChecked = () => {
     let checkbox = document.getElementById('pay-agreement');
+<<<<<<< HEAD
     let payBtn = document.getElementById('complete-pay-btn');
+=======
+    let payBtn   = document.getElementById('complete-pay-btn'); 
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
 
     if (checkbox.checked == true) payBtn.disabled = false;
     else payBtn.disabled = true;
@@ -381,11 +640,19 @@ const backToProfile = () => {
     const urlParams = new URLSearchParams(queryString);
     const sess = urlParams.get('sess')
 
+<<<<<<< HEAD
     window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/${sess}?GET&FILE=[ao_opac]/145/assets/html/patronProfile.html`
 }
 
 const successRedirectToProfile = async(orderNum) => {
     let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/PAYMENT_VIEW/WEB_PAY_RCPT_FINAL/REQ_ORDER_NUM ${orderNum}?COMMANDSEARCH&sess=${sessionId}`
+=======
+    window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/${sess}?GET&FILE=[ao_opac]/145/assets/html/patronProfile.html`
+}
+
+const successRedirectToProfile = async (orderNum) => {
+    let url       = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/PAYMENT_VIEW/WEB_PAY_RCPT_FINAL/REQ_ORDER_NUM ${orderNum}?COMMANDSEARCH&sess=${sessionId}`
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
     let animation = document.getElementById('animation-loader');
 
     animation.style.display = 'flex';
@@ -402,12 +669,24 @@ const successRedirectToProfile = async(orderNum) => {
  * This function gets the receipt for an order payment.
  * @param {} e 
  */
+<<<<<<< HEAD
 const getReceiptOnClick = (e) => {
+=======
+const getReceiptOnClick = (e) => 
+{
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
     let url = `${home_sessid}/REQ_ORDER_NUM ${e.dataset.searchExp}?SEARCH_N_OUTPUTFILE&DATABASE=REQUEST_INFO&REPORT=CCPAY_PAY_RECEIPT&DOWNLOADPAGE=[ao_opac]/145/includes/pdf.htm&NOMSG=[ao_opac]/145/includes/error/nopayreceipt.htm&EXTENSION=PDF`;
     // let url = `${home_sessid}/REQ_ORDER_NUM ${e.dataset.searchExp}?SEARCH_N_OUTPUTFILE&DATABASE=REQUEST_INFO&REPORT=CCPAY_PAY_RECEIPT&NOMSG=[ao_opac]/145/includes/error/nopayreceipt.htm&EXTENSION=PDF`;
     console.log(url);
 
     // <!-- RL-20211221 - load /includes/load_pdf.htm page in the separate form tab -->
     $outputfile_url = url;
+<<<<<<< HEAD
     window.open('/includes/load_pdf.htm', "_blank");
 }
+=======
+    window.open ('/includes/load_pdf.htm', "_blank");
+}
+
+
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128

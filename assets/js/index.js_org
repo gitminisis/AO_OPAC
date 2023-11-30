@@ -375,7 +375,11 @@ const carouselImgOnclick = (e) => {
     // The img file name
     let sisn = e.getAttribute('sisn')
     console.log(sisn)
+<<<<<<< HEAD
     let siteAddress = 'https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/COLLECTIONS_WEB/WEB_COLL_DET'
+=======
+    let siteAddress = 'https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/COLLECTIONS_WEB/WEB_COLL_DET'
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
     window.location = `${home_sessid}/SISN/${sisn}?KEYSEARCH&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm`
 }
 

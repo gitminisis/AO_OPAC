@@ -145,7 +145,11 @@
         let checkEmail = async email => {
             //TODO: Change lang depends 145
             const res = await fetch(
+<<<<<<< HEAD
                 `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[ao_opac]/145/includes/noEmail.xml`
+=======
+                `https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[ao_opac]/145/includes/noEmail.xml`
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
             )
             const data = await res.text()
 
@@ -187,12 +191,20 @@
 
                             // Account has not been created
                             if (res) {
+<<<<<<< HEAD
                                 window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSignup${frPostFix}.html`
+=======
+                                window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSignup${frPostFix}.html`
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                                     // window.location = `${HOME_SESSID}?addsinglerecord&database=client_registration&de_form=[ao_opac]/145/assets/html/registration.html`
                             }
                             // Existing Account
                             else {
+<<<<<<< HEAD
                                 window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSecureLogin.html`
+=======
+                                window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSecureLogin.html`
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                             }
                         })
                     } else {
@@ -200,7 +212,11 @@
                         // console.log('Could not get the user info');
                         // debugger;
 
+<<<<<<< HEAD
                         window.location = 'https://test.aims.archives.gov.on.ca'
+=======
+                        window.location = 'https://aims.archives.gov.on.ca'
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                     }
                 } catch (e) {
                     if (
@@ -229,7 +245,11 @@
                     getCookie('M2L_PATRON_ID') &&
                     getCookie('M2L_PATRON_NAME')
                 ) {
+<<<<<<< HEAD
                     window.location = 'https://test.aims.archives.gov.on.ca'
+=======
+                    window.location = 'https://aims.archives.gov.on.ca'
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                 } else {
                     // parse tokens from the redirect and store.
                     // await authClient.storeTokensFromRedirect();
@@ -246,11 +266,19 @@
                         // Account has not been created
                         if (res) {
                             window.location = `
+<<<<<<< HEAD
                 https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSignupFr.html`
                         }
                         // Existing Account
                         else {
                             window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSecureLoginFr.html`
+=======
+                https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSignupFr.html`
+                        }
+                        // Existing Account
+                        else {
+                            window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSecureLoginFr.html`
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                         }
                     })
                 }

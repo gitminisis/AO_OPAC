@@ -32,7 +32,11 @@ const payBtnClick = async (evt) => {
         width:"1200px",
         height:"780px",
         overlayClose: true,
+<<<<<<< HEAD
         href:`https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/${sessionId}?GET&FILE=[AO_ASSETS]html/payment.html`,
+=======
+        href:`https://aims.archives.gov.on.ca/scripts/mwimain.dll/${sessionId}?GET&FILE=[AO_ASSETS]html/payment.html`,
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
         onLoad:  function(evt) {
             // Nothing to do here yet
        },

@@ -1,0 +1,11 @@
+<script>
+    fetch('https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[ao_assets]html~5chome.html&rid=aims-home')
+        .then((response) => response.text())
+        .then((data) => {
+            var doc = new DOMParser().parseFromString(data, "text/html");
+            console.log(doc)
+            let sessid = doc.getElementById('Main-Form').getAttribute("action").split('?UNIONSEARCH')[0];
+            console.log(sessid);
+            window.location = `${sessid}?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[AO_OPAC]/145/assets/html/enquiry.html&subj=null`
+        }); 
+</script>

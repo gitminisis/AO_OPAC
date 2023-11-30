@@ -52,7 +52,11 @@
         const authClient = new OktaAuth(conectoptions);
         let checkEmail = async(email) => {
 
+<<<<<<< HEAD
             const res = await fetch(`https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[ao_opac]/145/includes/noEmail.xml`)
+=======
+            const res = await fetch(`https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[ao_opac]/145/includes/noEmail.xml`)
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
             const data = await res.text()
 
 
@@ -104,10 +108,17 @@
                                 // Existing Account
                                 else {
                                     console.log('Existing Acc')
+<<<<<<< HEAD
                                     window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSecureLogin.html`
                                 }
                             })
                             // window.location = "https://test.aims.archives.gov.on.ca";
+=======
+                                    window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSecureLogin.html`
+                                }
+                            })
+                            // window.location = "https://aims.archives.gov.on.ca";
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                             /*
                                 if (useremail is a MINISIS user) {
                                     log in to MINISIS using this email.
@@ -132,7 +143,11 @@
                         // console.log('Could not get the user info');
                         // debugger;
 
+<<<<<<< HEAD
                         // window.location = "https://test.aims.archives.gov.on.ca";
+=======
+                        // window.location = "https://aims.archives.gov.on.ca";
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                     }
                 } catch (e) {
                     // the most likely cause of an exception will be an URL with bad parameters that the 
@@ -140,7 +155,11 @@
                     // console.log(e);
                     // debugger;
 
+<<<<<<< HEAD
                     // window.location = "https://test.aims.archives.gov.on.ca";
+=======
+                    // window.location = "https://aims.archives.gov.on.ca";
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                 }
             } else if (!await authClient.isAuthenticated()) {
                 // Not logged in. Redirect to the public secure logon page.
@@ -151,7 +170,11 @@
 
             } else {
                 if (getCookie('M2L_AUDIENCE') && getCookie('M2L_PATRON_ID') && getCookie('M2L_PATRON_NAME')) {
+<<<<<<< HEAD
                     window.location = "https://test.aims.archives.gov.on.ca";
+=======
+                    window.location = "https://aims.archives.gov.on.ca";
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                 } else {
                     // parse tokens from the redirect and store.
                     // await authClient.storeTokensFromRedirect();
@@ -164,7 +187,11 @@
                     // window.location = `${getCookie('HOME_SESSID')}?GET&FILE=[ao_opac]/145/assets/html/publicSecureLogin.html`
                     console.log('has not log in')
                     console.log(userinfo)
+<<<<<<< HEAD
                     window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSecureLogin.html`
+=======
+                    window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html/publicSecureLogin.html`
+>>>>>>> 08dbde68d64df01cdb7fd31cb451ee6a4eef3128
                 }
                 // user is already logged in - Could add some checks that the user is logged in on the MINISIS 
                 // side and then redirect back to the home page.
