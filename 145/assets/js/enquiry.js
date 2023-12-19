@@ -167,7 +167,7 @@ function getClientInfo() {
     patron_id = patron_id.split(']')[1];
 
 
-    let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?COMMANDSEARCH#`
+    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?COMMANDSEARCH#`
 
     let tempString = window.location.href;
     let tempUrlCheck = tempString.split("/");
@@ -250,7 +250,7 @@ function setAffinity(affinity) {
 function generateEditableCorrespondence() {
 
     let enq_id = document.getElementById('enqID').value;
-    let url_str = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_DETAIL?COMMANDSEARCH&EXP=ENQ_ID ${enq_id}&NOMSG=[AO_INCLUDES]error/noenquiry.htm#`
+    let url_str = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/ENQUIRIES_VIEW/ENQUIRY_DETAIL?COMMANDSEARCH&EXP=ENQ_ID ${enq_id}&NOMSG=[AO_INCLUDES]error/noenquiry.htm#`
 
     $.ajax(url_str).done(function(res) {
         let x2js = new X2JS({

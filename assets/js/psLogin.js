@@ -201,7 +201,7 @@ function clearStorage() {
 function authSignOut() {
 
     let tokenStorage = sessionStorage.getItem('okta-token-storage');
-    let redirectURI = 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogout.html'
+    let redirectURI = 'https://aims.archives.gov.on.ca/assets/html/PubSecureLogout.html'
     if (tokenStorage) {
         let ts = JSON.parse(tokenStorage);
         clearStorage()

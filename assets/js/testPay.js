@@ -3,13 +3,13 @@ window.onload = () => {
 }
 
 
-// REMINDER https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/177070042?GET&FILE=[AO_ASSETS]html/patronProfile.html
+// REMINDER https://aims.archives.gov.on.ca/scripts/mwimain.dll/177070042?GET&FILE=[AO_ASSETS]html/patronProfile.html
 
 
 let req_order_num = '0000000894';
-// let nomsg = 'https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/?GET&FILE=[AO_INCLUDES]error/nopayreceipt.html';
+// let nomsg = 'https://aims.archives.gov.on.ca/scripts/mwimain.dll/?GET&FILE=[AO_INCLUDES]error/nopayreceipt.html';
 // let testSuccessUrl2 = `${home_sessid}/144/REQUEST_INFO/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${req_order_num}?SESSIONSEARCH`;
-let testSuccessUrl = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${req_order_num}?COMMANDSEARCH`;
+let testSuccessUrl = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${req_order_num}?COMMANDSEARCH`;
 
 
 {
@@ -39,7 +39,7 @@ let testPay = {
     req_patron_id: "karl@minisisinc.com",
     pay_amount: "10.00",
     success_url: testSuccessUrl,
-    cancel_url: `https://test.aims.archives.gov.on.ca/assets/html/paymentCancel.html?REQ_ORDER_NUM=${req_order_num}`,
+    cancel_url: `https://aims.archives.gov.on.ca/assets/html/paymentCancel.html?REQ_ORDER_NUM=${req_order_num}`,
     locale: "en",
     testLevel: 1
 }
@@ -55,7 +55,7 @@ const setTestPayForm = (testPay) => {
 }
 
 const requestTestOrder = () => {
-    fetch('https://test.aimsaoccpay.minisisinc.com/api/initPay', {
+    fetch('https://aimsaoccpay.minisisinc.com/api/initPay', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

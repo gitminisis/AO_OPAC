@@ -132,7 +132,7 @@ function getRequestClientInfo() {
     patron_id = patron_id.split(']')[1];
 
 
-    let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
+    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/CLIENT_REGISTRATION/WEB_CLIENT/C_CLIENT_NUMBER%20${patron_id}?SESSIONSEARCH#`
 
 
     if (document.getElementById('Request-Form') != null) {
@@ -189,7 +189,7 @@ function goToClientRequest() {
     let patron_id = getCookie('M2L_PATRON_ID');
     patron_id = patron_id.split(']')[1];
 
-    window.location(`https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20${patron_id}&NOMSG=[ao_opac]/145/includes/error\\norequest.htm`)
+    window.location(`https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/DOC_REQUEST/REQUEST_SUMMARY?SESSIONSEARCH&EXP=REQ_PATRON_ID%20${patron_id}&NOMSG=[ao_opac]/145/includes/error\\norequest.htm`)
 }
 
 function toggleReqTopicForm(value, option, id) {

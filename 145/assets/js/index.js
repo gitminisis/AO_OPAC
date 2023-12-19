@@ -268,7 +268,7 @@ const onClickSearchOption = (value) => {
 
 const searchBtnDict = {
     1: "?GET&FILE=[AO_ASSETS]html/advancedsearch.html",
-    2: "https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html",
+    2: "https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html",
     3: "?GET&FILE=[AO_ASSETS]html/advancedsearchPeople.html",
     4: "?GET&FILE=[AO_ASSETS]html/advancedsearchOrganization.html",
     5: "?GET&FILE=[AO_ASSETS]/html/advancedsearchArt.html",
@@ -504,7 +504,7 @@ const carouselImgOnclick = (e) => {
     let sisn = e.getAttribute("sisn");
     console.log(sisn);
     let siteAddress =
-        "https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/COLLECTIONS_WEB/WEB_COLL_DET";
+        "https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/COLLECTIONS_WEB/WEB_COLL_DET";
     window.location = `${home_sessid}/SISN/${sisn}?KEYSEARCH&DATABASE=COLLECTIONS_WEB&ERRMSG=[AO_INCLUDES]error/norecordArt.htm`;
 };
 

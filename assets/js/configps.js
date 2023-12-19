@@ -5,9 +5,9 @@
 const conectoptions = {
 	issuer: 'https://dev-99611549.okta.com/oauth2/default',
 	clientId: '0oa1masb8aMGvH7SH5d7',
-	redirectUri: 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogin.html',
+	redirectUri: 'https://aims.archives.gov.on.ca/assets/html/PubSecureLogin.html',
 	scopes: ['openid', 'profile', 'email'],
-	postLogoutRedirectUri: 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogout.html',
+	postLogoutRedirectUri: 'https://aims.archives.gov.on.ca/assets/html/PubSecureLogout.html',
 	pkce: true,
 	disableHttpsCheck: true,
 };
@@ -16,9 +16,9 @@ const conectoptions = {
 const conectoptions = {
 	issuer: 'https://dev2.signin.ontario.ca/oauth2/ausuccif1VwZ0aYKW5d6',
 	clientId: '0oauih0hx8dlYsozp5d6',
-	redirectUri: 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogin.html',
+	redirectUri: 'https://aims.archives.gov.on.ca/assets/html/PubSecureLogin.html',
 	scopes: ['openid', 'profile', 'email'],
-	postLogoutRedirectUri: 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogout.html',
+	postLogoutRedirectUri: 'https://aims.archives.gov.on.ca/assets/html/PubSecureLogout.html',
 	pkce: true,
 	disableHttpsCheck: true,
 };
@@ -26,9 +26,9 @@ const conectoptions = {
 let conectoptions = {
     issuer: 'https://stage.signin.ontario.ca/oauth2/aus187zrqyTXcJAHA5d7',
     clientId: '0oa472jfxf2ixcXK55d7',
-    redirectUri: 'https://test.aimsprod.minisisinc.com/assets/html/PubSecureLogin.html',
+    redirectUri: 'https://aimsprod.minisisinc.com/assets/html/PubSecureLogin.html',
     scopes: ['openid', 'profile', 'email'],
-    postLogoutRedirectUri: 'https://test.aimsprod.minisisinc.com',
+    postLogoutRedirectUri: 'https://aimsprod.minisisinc.com',
     pkce: true,
 
 
@@ -38,9 +38,9 @@ let conectoptions = {
 let conectoptions = {
     issuer: 'https://stage.signin.ontario.ca/oauth2/aus187zrqyTXcJAHA5d7',
     clientId: '0oa472jfxf2ixcXK55d7',
-    redirectUri: 'https://test.aims.archives.gov.on.ca/assets/html/PubSecureLogin.html',
+    redirectUri: 'https://aims.archives.gov.on.ca/assets/html/PubSecureLogin.html',
     scopes: ['openid', 'profile', 'email'],
-    postLogoutRedirectUri: 'https://test.aims.archives.gov.on.ca',
+    postLogoutRedirectUri: 'https://aims.archives.gov.on.ca',
     pkce: true,
     storageManager: {
         token: {

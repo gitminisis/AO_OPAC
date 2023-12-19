@@ -121,8 +121,8 @@ const requestOrder = () => {
         "req_order_num": merchantNum,
         "req_patron_id": patronId,
         "pay_amount": amt.replace('$', '').toString(),
-        "success_url": `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
-        "cancel_url": `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+        "success_url": `https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+        "cancel_url": `https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
         "locale": "en",
         testLevel: 1
     }
@@ -376,11 +376,11 @@ const backToProfile = () => {
     const urlParams = new URLSearchParams(queryString);
     const sess = urlParams.get('sess')
 
-    window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/${sess}?GET&FILE=[ao_opac]/145/assets/html/patronProfile.html`
+    window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/${sess}?GET&FILE=[ao_opac]/145/assets/html/patronProfile.html`
 }
 
 const successRedirectToProfile = async(orderNum) => {
-    let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/PAYMENT_VIEW/WEB_PAY_RCPT_FINAL/REQ_ORDER_NUM ${orderNum}?COMMANDSEARCH&sess=${sessionId}`
+    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/145/PAYMENT_VIEW/WEB_PAY_RCPT_FINAL/REQ_ORDER_NUM ${orderNum}?COMMANDSEARCH&sess=${sessionId}`
     let animation = document.getElementById('animation-loader');
 
     animation.style.display = 'flex';
