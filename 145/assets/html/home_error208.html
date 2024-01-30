@@ -1,0 +1,143 @@
+<!-- include virtual="[ao_opac]/145/includes/head.htm"-->
+
+<!-- include virtual="[ao_opac]/145/includes/header.htm"-->
+<title>Home</title>
+
+
+<div id='Content-Wrapper' class='Content-Wrapper'>
+
+    <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm" -->
+
+    <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+        <div id='banner'><img id='banner-img' src="/145/assets/img/AIMS_banner.jpg" alt="Archives of Ontario banner"></div>
+        <br>
+        <h2 class="Rale-Extra main-title-h2">Bienvenue aux Archives publiques de l'Ontario!</h2>
+        <div id='homepage-container'>
+            <div class='Form-Wrapper'>
+                <!-- <p class='Form-Subheader Rale-Bold'>
+                    This Ministerial Department is responsible of the collection, preservation and management of Ontario's History and Public Documentation
+                </p> -->
+                <p class='Form-Subheader subheader Rale-Bold'>
+                    Bienvenue &aacute; AIMS, le nouveau syst&egrave;me de gestion des collections des Archives. AIMS fournit un acc&egrave;s int&eacute;gr&eacute; &aacute; nos collections d'archives, de biblioth&egrave;ques et d'art. Recherchez dans AIMS les descriptions des documents de nos collections
+                </p>
+                <p class='subheader'>
+                    <strong>IMPORTANTE!</strong> Vous devez avoir un compte AIMS pour commander des enregistrements. Un compte AIMS n'est pas n&eacute;cessaire pour rechercher des enregistrements. Les num&eacute;ros de compte AIMS et AOR ne sont pas les mêmes.
+                </p>
+                <p class='subheader'>
+                    <strong>
+                        <a href='/145/assets/html/PubSecureLogin.html' style='color: #000'>Cliquez ici pour acc&eacute;der &agrave; Acc&egrave;s public s&eacute;curis&eacute;
+                        </a>
+                    </strong>
+                </p>
+                <p class="subheader">
+                    <strong>
+                        <a href='^HOME_SESSID^?GET&FILE=[ao_opac]/145/assets/html/aimsSignupHelp.html' style='color: #000'>Comment puis-je obtenir un compte AIMS?</a>
+                    </strong>
+                </p>
+                <div style="color:red"><h3>Votre session a expiré.</h3></div>
+                <!-- <form id='Main-Form' method="post" name="simple_search" action="^SEARCH^&DATABASE=DESCRIPTION&ERRMSG=[ao_opac]/145/includes/error~5cnorecord.htm"> -->
+                <form id='Main-Form' class='minimum-font-size' method="post" name="simple_search" action="^home_sessid^?unionsearch&REPORT=WEB_UNION_SUM_FR&KEEP=Y&APPLICATION=UNION_VIEW&language=145&ERRMSG=[ao_opac]/145/includes/error~5cnorecord.htm">
+                    <div class='main-form-left'>
+                        <div class='main-login-mobile Rale-Bold'>
+                            <button type='button' id='pub-sec-login-btn' class='main-form-btn Rale-Bold pub-sec-login-btn' onclick='onClickLoginBtn()' title='Go to client login portal'>Connexion au portail client</button>
+                            <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                            <button type='button' id='main-form-info' class='main-form-btn Rale-Bold'  title='Comment chercher dans notre base de donn&egrave;es'>Comment chercher dans notre base de donn&eacute;es</button>
+                        </div>
+                        <span class='Rale-Reg'>« Recherche d'archives, d'œuvres d'art et de ressources documentaires »</span>
+                        <br>
+                        <div class="icon-container">
+                            <i class="loader"></i> Recherche d'enregistrements ...
+                        </div>
+                        <span id='Option-Choice' class='Rale-Bold'>Option 1 : Recherche par mot-cl&eacute;</span>
+                        <span id='Number-Results'></span>
+                        <div class='Input-Wrapper d-flex flex-column'>
+                            <label class='Rale-Bold' for="simple_search_input">Saisissez un ou plusieurs termes de recherche :</label>
+                            <div id='simple-search-container'>
+                                <input id="simple_search_input" type='text' alt='Enter a search term or terms' name="KEYWORD_CLUSTER" />
+                                <input class='Search-Option-Button simple-search-btn Rale-Bold' alt='Search' title='Search' type='submit' value='Recherche' />
+                            </div>
+                        </div>
+                        <div class='Radio-Wrapper'>
+                            <fieldset>
+                                <legend class='visually-hidden'>Search Type</legend>
+                                <span>
+                                        <input type='radio' id='All-Keywords' class='search-input' title='Tous ces mots-cl&eacute;s' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
+                                        <label class='search-label Rale-Med' for='All-Keywords'>Tous ces mots-cl&eacute;s</label>
+                                    </span>
+                                <span>
+                                        <input type='radio' id='Any-Keywords' class='search-input' title="N'importe lequel de ces mots-cl&eacute;s" value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")'/>
+                                        <label class='search-label Rale-Med' for='Any-Keywords'>N'importe lequel de ces mots-cl&eacute;s</label>
+                                    </span>
+                                <span>
+                                        <input type='radio' id='Exact-Phrase' class='search-input' title='Termes exacts' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")'/>
+                                        <label class='search-label Rale-Med' for='Exact-Phrase'>Termes exacts</label>
+                                    </span>
+                            </fieldset>
+                        </div>
+                        <div class='Radio-Wrapper-Mobile'>
+                            <fieldset>
+                                <legend class='visually-hidden'>Search Type</legend>
+                                <div class='Search-Type-Item-Mobile'>
+                                    <input type='radio' id='All-Keywords-Mobile' class='search-input-mobile' title='Tous ces mots-cl&eacute;s' value='AND_WORD' name='FLDOP1' onclick='onClickSearchOption("All Keyword Search")' checked />
+                                    <label class='search-label-mobile Rale-Med' for='All-Keywords-Mobile'>Tous ces mots-cl&eacute;s</label>
+                                </div>
+                                <div class='Search-Type-Item-Mobile'>
+                                    <input type='radio' id='Any-Keywords-Mobile' class='search-input-mobile' title='N'importe lequel de ces mots-cl&eacute;s' value='OR_WORD' name='FLDOP1' onclick='onClickSearchOption("Any Keyword Search")' />
+                                    <label class='search-label-mobile Rale-Med' for='Any-Keywords-Mobile'>N'importe lequel de ces mots-cl&eacute;s</label>
+                                </div>
+                                <div class='Search-Type-Item-Mobile'>
+                                    <input type='radio' id='Exact-Phrase-Mobile' class='search-input-mobile' title='Termes exacts' value='ADJ_WORD' name='FLDOP1' onclick='onClickSearchOption("Exact Phrase")' />
+                                    <label class='search-label-mobile Rale-Med' for='Exact-Phrase-Mobile'>Termes exacts</label>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class='Search-Options-Container'>
+                            <!-- <a class='Rale-Med' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/advancedsearch.html'>RECHERCHE AVANC&eacute;E</a> -->
+                            <div class='search-options-top'>
+                                <button class='Search-Btn Rale-Bold' alt='Advanced Search' title='Advanced Search'>
+                                    <a id='Advanced-Search' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/advancedsearch.html' title='Go to advanced search options'> RECHERCHE AVANC&Egrave;E</a>
+                                </button>
+                                <!-- <a class='Rale-Med' href='#'>PLUS D'OPTIONS DE RECHERCHE</a> -->
+                                <button class='Search-Btn Rale-Bold' alt='More Search Options' title='More Search Options'><a id='More-Search'
+                                        href='https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/145/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[ao_opac]/145/assets/html/moresearchoptions.html'>
+                                        PLUS D'OPTIONS DE RECHERCHE
+                                    </a>
+                                </button>
+                            </div>
+                            <div class='search-options-bottom Rale-Bold'>
+                                <button class='Search-Btn Rale-Bold' alt='More Search Options' title='More Search Options'>
+                                    <a id='More-Search' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/advancedsearchPeople.html'>
+                                        RECHERCHE DE PERSONNES
+                                </a>
+                                </button>
+                                <button class='Search-Btn Rale-Bold' alt='More Search Options' title='More Search Options'>
+                                    <a id='More-Search' href='^SESSID^?GET&FILE=[ao_opac]/145/assets/html/advancedsearchOrganization.html'>
+                                        RECHERCHE D'ORGANISATION
+                                    </a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='main-form-right Rale-Bold'>
+                        <button type='button' id='pub-sec-login-btn' class='main-form-btn pub-sec-login-btn Rale-Bold' onclick='onClickLoginBtn()' title='Go to client login portal'>Connexion au portail client</button>
+                        <!-- <button type='button' id='pub-sec-reg-btn' class='main-form-btn Rale-Bold' onclick='onClickRegistrationBtn()' title='Go to client registration page'>Client Registration</button> -->
+                        <button type='button' id='main-form-info' class='main-form-btn Rale-Bold' title='For further information on how to search AIMS' onclick="howToSearch('default')">Comment chercher dans notre base de donn&eacute;es</button>
+                    </div>
+                </form>
+                <br>
+                <p class='subheader'>
+                    Trouvez ce que vous cherchez? <strong><a href='^SESSID^?addsinglerecord&database=ENQUIRIES_VIEW&de_form=[ao_opac]/145/assets/html/enquiry.html' style='color: #000'>NOUS JOINDRE</a></strong> pour commander et consulter les documents aux Archives publiques de l'Ontario.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- include virtual="[ao_opac]/145/includes/rightPanel.htm"-->
+</div>
+</div>
+
+
+<!-- include virtual="[ao_opac]/145/includes/footer.htm"-->
+<script>
+    sessionStorage.setItem('lang', 'en')
+</script>

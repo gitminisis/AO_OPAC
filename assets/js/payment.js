@@ -22,8 +22,8 @@ let ReproEnum = {
     CHARGE: 21
 }
 
-class Payment {#
-    privatePaymentItem;
+class Payment {
+    #privatePaymentItem;
 
     constructor(node) {
         this.#privatePaymentItem = node;
@@ -41,9 +41,8 @@ class Payment {#
     
         @params { node }       a JSON object (HTMLCOLLECTION Object)
         @return { formValues } a JSON object
-    */
-    #
-    privateGetReproductionRowValues = (node) => {
+    */   
+    #privateGetReproductionRowValues = (node) => {
         let formValues = {};
         let childNodes = node.childNodes;
 
@@ -71,8 +70,7 @@ class Payment {#
         @param { formValues } a JSON object
         @param { payNodes }   a JSON object
     */
-    #
-    privateSetForm = (formValues, payNodes) => {
+    #privateSetForm = (formValues, payNodes) => {
 
         payNodes.patronId.innerText = formValues.patronId;
         payNodes.merchantNum.innerText = formValues.merchantNum;
@@ -90,8 +88,7 @@ class Payment {#
     
         @returns { JSON } a JSON object
     */
-    #
-    privateGetPayNodes = () => {
+    #privateGetPayNodes = () => {
         let patronId = document.getElementById('Pay-Client-Id');
         let merchantNum = document.getElementById('Pay-Merchant-Num');
         let prodId = document.getElementById('Pay-Product-Id');
@@ -125,8 +122,8 @@ const requestOrder = () => {
         "req_order_num": merchantNum,
         "req_patron_id": patronId,
         "pay_amount": amt.replace('$', '').toString(),
-        "success_url": `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
-        "cancel_url": `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+        "success_url": `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
+        "cancel_url": `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_CANCEL_DET/REQ_ORDER_NUM ${merchantNum}?COMMANDSEARCH&sess=${sessionId}`,
         "locale": "en",
         testLevel: 1
     }
@@ -384,12 +381,12 @@ const backToProfile = () => {
     const urlParams = new URLSearchParams(queryString);
     const sess = urlParams.get('sess')
 
-    window.location = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/${sess}?GET&FILE=[AO_ASSETS]html/patronProfile.html`
+    window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/${sess}?GET&FILE=[AO_ASSETS]html/patronProfile.html`
 }
 
 // This function redirects to the client profile after successfully completing a payment transaction
 const successRedirectToProfile = async(orderNum) => {
-    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_FINAL/REQ_ORDER_NUM ${orderNum}?COMMANDSEARCH&sess=${sessionId}`
+    let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/PAYMENT_VIEW/WEB_PAY_RCPT_FINAL/REQ_ORDER_NUM ${orderNum}?COMMANDSEARCH&sess=${sessionId}`
     let animation = document.getElementById('animation-loader');
 
     animation.style.display = 'flex';

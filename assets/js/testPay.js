@@ -55,7 +55,7 @@ const setTestPayForm = (testPay) => {
 }
 
 const requestTestOrder = () => {
-    fetch('https://test.aimsaoccpay.minisisinc.com/api/initPay', {
+    fetch('https://aimsaoccpay.minisisinc.com/api/initPay', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

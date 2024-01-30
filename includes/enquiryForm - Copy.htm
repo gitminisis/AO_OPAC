@@ -1,0 +1,100 @@
+<div class="row">
+    <div id="Enquiry-Form">
+        <form method="POST" action="^saverecord^&RETURN_URL=[AO_ASSETS]html/enquiryConfirmation.html">
+            <input id="enqFullName" hidden value="" name="ENQ_PATRON_NAME" />
+            <input id="enqMethod" hidden value="Web" name="E_METHOD_REQUEST" />
+            <input id="enqCorrespondence" hidden value="Incoming" name="CORRESPOND_TYPE" />
+            <div class=" row g-3 Rale-Med">
+                <div class="col-md-6 col-sm-12">
+                    <label for="enqFirstName" class="form-label">First Name*</label>
+                    <input id="enqFirstName" type="text" class="form-control" placeholder="First name" aria-label="First name" required />
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label for="enqLastName" class="form-label">Last Name*</label>
+                    <input id="enqLastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="" required />
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <label for="enqEmail" class="form-label">Email*</label>
+                    <input name="ENQ_PATRON_EMAIL" id="enqEmail" type="email" class="form-control" size="25" placeholder="Email" aria-label="Email" required />
+                </div>
+            </div>
+
+
+            <div class="row g-3 Rale-Med">
+                <div class="col-md-12">
+                    <label for="enqTopic" class="form-label">Topic*</label>
+                    <select id="enqTopic" class="form-select Rale-Reg" name="ENQ_TOPIC" required>
+                        <option selected="">General</option>
+                        <option>Acquisitions</option>
+                        <option>Art</option>
+                        <option>Donations</option>
+                        <option>Family History</option>
+                        <option>FOI Requests</option>
+                        <option>Retrieval Services</option>
+                        <option>Reproduction/Certification Services</option>
+                        <option>Preservation</option>
+                        <option>Copyright Services</option>
+                        <option>Loan/Exhibitions</option>
+                        <option>Website</option>
+                        <option>Library Collection</option>
+                        <option>Vital statistics</option>
+                        <option>Litigation</option>
+                        <option>Semi-active collections</option>
+                        <option>Recordkeeping</option>
+                        <option>Access &amp; Privacy</option>
+
+                      <option>Request Transfer</option> 
+
+<option>Request Refile/Interfile</option>
+
+<option>Record Schedule</option>
+
+<option>Transfer Agreement</option>
+
+<option>Record Disposition</option>
+
+<option>Other</option>
+
+<option>Special Request</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-12">
+                    <label for="enqDetail Rale-Med" class="form-label">Detail*</label>
+                    <textarea class="form-control Rale-Reg" placeholder="Leave a comment here" id="enqDetail" name="ENQ_TOPIC_DETAIL" required></textarea>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-6 col-sm-12">
+                    <label for="enqPriority" class="form-label Rale-Med">Priority</label>
+                    <select id="enqPriority" class="form-select Rale-Med" name="ENQ_HIGH_PRI"> 
+                        <option value="N" selected>Low</option>
+
+                        <option value="Y">High</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <label for="enqAffliation" class="form-label Rale-Med">Affliation*</label>
+                    <input name="ENQ_AFFILIATE" id="enqAffliation" type="text" class="form-control" placeholder="Affliation" aria-label="Affliation" required />
+                </div>
+            </div>
+
+            <div class="row Rale-Med" id="Enquiry-Button">
+                <div class="col-md-6" id="submitBtn">
+                    <button class="btn btn-primary" type="submit">
+                        Submit
+                    </button>
+                </div>
+                <div class="col-md-6" id="cancelBtn">
+                    <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/home.html">
+                        <button class="btn btn-secondary" type="button">
+                            Cancel
+                        </button></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

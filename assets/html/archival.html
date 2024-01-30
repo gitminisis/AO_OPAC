@@ -38,6 +38,7 @@
                                 <div class="Input-Wrapper d-flex flex-column">
                                     <div id="simple-search-container">
                                         <div id="simple-search-input-wrapper">
+                                            <input name="MULTISEARCH" value="M-S" type="hidden" /> <!-- NW 20240109 -->
                                             <input id="simple_search_input" type="text" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input" />
 
                                             <button aria-label="Clear search" id="simple-search-reset" alt="Clear search" title="Clear search" type="button">
@@ -46,13 +47,22 @@
                                         </div>
 
                                         <button aria-label="Search Button" class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search" title="Search" type="submit" value="Search">
-                      <i class="fas fa-search search-button-icon"></i>
-                      <span class="search-button-label">Search</span>
-                    </button>
+                                          <i class="fas fa-search search-button-icon"></i>
+                                          <span class="search-button-label">Search</span>
+                                        </button>
                                     </div>
                                 </div>
-
-                                <div class="ontario-form-group">
+                        <!-- NW 20240109 start -->
+                        <div class="ontario-form-group ranking-form-group">
+                          <br/>
+                          <p class="Main-Sub-Header">Ranking:</p>
+                          <select class="ontario-input ontario-dropdown ranking-dropdown" id="dropdown-list-example" name="$RANKING" style="width:25%">
+                              <option value="Y" selected>Enable</option>
+                              <option value="N">Disable</option>
+                          </select>
+                        </div>
+                        <!-- NW 20240109 end -->
+                     <!--           <div class="ontario-form-group">
                                     <fieldset class="ontario-fieldset">
                                         <legend class="visually-hidden">
                                             Radio legend<span class="ontario-label__flag">(required/optional)</span
@@ -65,7 +75,7 @@
                       aria-label="Search type All Keywords Search"
                       >Option 1: Keyword Search</span
                     >
-                    <div class="ontario-radios Main-Search-Radio">
+                     <div class="ontario-radios Main-Search-Radio">
                       <div class="ontario-radios__item">
                         <input
                           class="ontario-radios__input"
@@ -117,9 +127,9 @@
                           >Exact phrase</label
                         >
                       </div>
-                    </div>
+                    </div> 
                   </fieldset>
-                </div>
+                </div>-->
               </div>
             </form>
             <div class="subheader">

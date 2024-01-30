@@ -494,6 +494,7 @@ const showSingleImage = () => {
     }
 }
 
+/*  comment out dead code
 try {
     // Initialise Carousel
     const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
@@ -509,6 +510,7 @@ try {
 } catch (e) {
     console.log(e)
 }
+*/
 
 // Thumbnails
 // const thumbCarousel = new Carousel(document.querySelector("#thumbCarousel"), {
