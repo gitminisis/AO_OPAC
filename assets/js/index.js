@@ -85,7 +85,7 @@ $(document).ready(function() {
             //console.log(filter_xml);
             parser = new DOMParser();
             var xml_doc = parser.parseFromString(filter_xml, "text/xml");
-
+            console.log(xml_doc)
             var filter_tag_list = xml_doc.getElementsByTagName("filter");
             var filter_count = filter_tag_list.length;
             //$('.filter-class').prepend($("<div class='filter_list_container'></div>"));
