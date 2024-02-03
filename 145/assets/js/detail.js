@@ -585,7 +585,7 @@ const copyPermalinkFR = (e, rep) => {
 
 const permaOut = (e) => {
     e.textContent = "Copiez le lien de l'enregistrement";
-    e.style.backgroundColor = '#047BC1'
+    e.style.backgroundColor = '#0066CC'
 }
 
 // function outFunc() {

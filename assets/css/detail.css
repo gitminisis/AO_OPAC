@@ -145,8 +145,8 @@
     max-width: 300px;
     margin-top: 5px;
     margin-bottom: 5px;
-    background-color: #047bc1;
-    border-color: #047bc1;
+    background-color: #0066CC;
+    border-color: #0066CC;
 }
 
 
@@ -154,8 +154,8 @@
   width: 80%;
   margin-top: 5px;
   margin-bottom: 5px;
-  background-color: #047bc1;
-  border-color: #047bc1;
+  background-color: #0066CC;
+  border-color: #0066CC;
 } */
 
 .rec-det-btn {
@@ -783,6 +783,6 @@ button.bookmarkbutton a:hover {
     max-width: 300px;
 }
 
-.right-column{
+.right-column {
     display: none;
 }

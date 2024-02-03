@@ -595,7 +595,7 @@ const copyPermalink = (e, rep) => {
 
 const permaOut = (e) => {
     e.textContent = "Copy the Record's Link";
-    e.style.backgroundColor = '#047BC1'
+    e.style.backgroundColor = '#0066CC'
 }
 
 // function outFunc() {

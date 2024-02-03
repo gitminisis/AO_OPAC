@@ -3,15 +3,15 @@ const SESSION_ID = getCookie("HOME_SESSID");
 const MAX_CHARS = 10000;
 const PAGE_LINK_STYLE = { style: "color : #337ab7", class: "record" };
 const CURRENT_RECORD_STYLE = {
-    style: "background-color : #047BC1;  color: white !important;",
+    style: "background-color : #0066CC;  color: white !important;",
     class: "tree-highlight record",
 };
 const RECORD_STYLE = { class: "record" };
 const NEXT_TITLE = "Click To View Next Page ...";
 const PREV_TITLE = "Click To View Previous Page ...";
 let REFD = '';
-if ( document.getElementById('hiddenREFD') != null ) {
-  REFD = document.getElementById('hiddenREFD').innerText;
+if (document.getElementById('hiddenREFD') != null) {
+    REFD = document.getElementById('hiddenREFD').innerText;
 }
 let isLoaded = false;
 let showTree = false;
@@ -483,8 +483,8 @@ $(document).ready(function() {
 const enableTreeDisplay = () => {
     let treeBtn = document.getElementsByClassName('tree-btn')[0];
     treeBtn.disabled = false;
-    treeBtn.style.background = '#047BC1'
-    treeBtn.style.borderColor = '#047BC1'
+    treeBtn.style.background = '#0066CC'
+    treeBtn.style.borderColor = '#0066CC'
 }
 
 const disableTreeDisplay = () => {
