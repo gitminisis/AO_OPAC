@@ -183,7 +183,14 @@
     word-break: break-word;
     word-wrap: break-word;
     white-space: wrap;
-    padding: 0.5rem 0 !important;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #F2F2F2 !important;
+}
+
+table td {
+    padding: 1rem 0.5rem !important;
 }
 
 .detail-label {

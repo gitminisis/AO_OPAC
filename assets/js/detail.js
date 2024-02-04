@@ -355,73 +355,74 @@ $(document).ready(function() {
         let xml = document.getElementById("item_info");
         //console.log(xml);
         if (xml) {
-            let xmlText = new XMLSerializer().serializeToString(xml);
-            let itemInfoObject = toJson(xmlText);
+
             //console.log(itemInfoObject.item_info)
             //   if (itemInfoObject) {
             //     let itemInfoTable = new ItemsInfoTable(itemInfoObject.item_info);
             //     itemInfoTable.render();
             //   }
-        }
-        let xmlText;
-        let itemInfoObject;
-        let itemDetailLength;
-        let itemNum;
-        let itemDetailJson;
-        let holdingsAction;
-        let holdingsSISN;
-        let biblioAN;
-        let holdingsCallNumber;
-        let holdingsVolumeID;
-        try {
-            xmlText = new XMLSerializer().serializeToString(xml);
-            itemInfoObject = toJson(xmlText);
-            console.log(itemInfoObject)
-            itemDetailLength = itemInfoObject.item_info.item_detail.length;
-            itemNum = 1;
-            itemDetailJson = itemInfoObject.item_info.item_detail;
-            holdingsAction = 'action=' + document.getElementsByClassName("holdings-action")[0].innerHTML;
-            holdingsSISN = document.getElementsByClassName("holdings-sisn")[0].innerHTML;
-            biblioAN = document.getElementsByClassName("cs-item-id")[0].innerHTML;
-            // console.log(holdingsAction)
-            // console.log(itemDetailJson);
-            // console.log(biblioAN)
 
-        } catch (e) {
-            console.log(e)
-        }
-        if (itemDetailLength > 0) {
-            let itemTable = '<tr><table class="holdings-table">';
-            let titleForHoldings = document.getElementsByClassName("titleForHoldings")[0].innerHTML;
+            let xmlText;
+            let itemInfoObject;
+            let itemDetailLength;
+            let itemNum;
+            let itemDetailJson;
+            let holdingsAction;
+            let holdingsSISN;
+            let biblioAN;
+            let holdingsCallNumber;
+            let holdingsVolumeID;
+            try {
+                xmlText = new XMLSerializer().serializeToString(xml);
+                itemInfoObject = toJson(xmlText);
+                console.log(itemInfoObject)
+                itemDetailLength = itemInfoObject.item_info.item_detail.length;
+                itemNum = 1;
+                itemDetailJson = itemInfoObject.item_info.item_detail;
+                holdingsAction = 'action=' + document.getElementsByClassName("holdings-action")[0].innerHTML;
+                holdingsSISN = document.getElementsByClassName("holdings-sisn")[0].innerHTML;
+                biblioAN = document.getElementsByClassName("cs-item-id")[0].innerHTML;
+                // console.log(holdingsAction)
+                // console.log(itemDetailJson);
+                // console.log(biblioAN)
 
-            itemTable += "<tr class='holdings-title'><th>Copy</th><th>Call Number</th><th>Vol/Issue</th><th>Location</th><th>Note</th><th>Media</th><th>Circ Type</th><th>Request</th></tr>";
-
-            for (var i = 0; i < itemDetailLength; ++i) {
-                itemTable += "<tr class='holdings-record-row'>";
-                itemTable += "<td>" + (itemDetailJson[i].copy_number != null ? itemDetailJson[i].copy_number : "N/A") + "</td>";
-                itemTable += "<td>" + (itemDetailJson[i].item_call_number != null ? itemDetailJson[i].item_call_number : "N/A") + "</td>";
-                holdingsFieldArray.push((itemDetailJson[i].item_call_number != null ? itemDetailJson[i].item_call_number : "N/A"));
-                itemTable += "<td>" + (itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id : "N/A") + "</td>";
-                holdingsFieldArray.push((itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id : "N/A"));
-                itemTable += "<td>" + (itemDetailJson[i].location != null ? itemDetailJson[i].location : "N/A") + "</td>";
-                itemTable += "<td>" + (itemDetailJson[i].public_note != null ? itemDetailJson[i].public_note : "N/A") + "</td>";
-                itemTable += "<td>" + (itemDetailJson[i].i_collect_code != null ? itemDetailJson[i].i_collect_code : "N/A") + "</td>";
-                itemTable += "<td>" + (itemDetailJson[i].item_status != null ? itemDetailJson[i].item_status : "N/A") + "</td>";
-                // itemTable += "<td>" + (itemDetailJson[i].barcode != null ? "<form class='form-request' method='post' onsubmit='storeAdditionalReqFields("+ (i+1) +");' id='request_form' " + holdingsAction + "><input type='hidden' name='ITEM_REQ_TIME' value='9:00'><input type='hidden' name='METHOD_REQUEST' value='Web'><input type='hidden' name='REQ_TOPIC' value='Retrieval Services'><input type='hidden' name='REQ_APPL_NAME' value='M2A'><input type='hidden' name='REQ_DB_NAME' value='LIBRARY'><input type='hidden' name='REQ_DB_RECID' value='BARCODE'><input type='hidden' name='REQ_TITLE' value='"+ biblioAN + "'><input type='hidden' name='REQ_DB_LINK3' value='" + holdingsSISN + "'><input type='hidden' name='REQ_ITEM_ID' value='" + itemDetailJson[i].barcode + "'><input type='hidden' name='REQ_ITEM_TITLE' value='" + titleForHoldings + "'><input type='hidden' name='REQ_QUEUE' value='X'><input type='hidden' name='REQ_CALL_NUMBER' value='" + itemDetailJson[i].item_call_number + "'><input type='hidden' name='REQ_VOLUME_ID' value='" + (itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id 
-                //   : "S. O.")+ "'><button id='holdings_record_" + itemDetailJson[i].barcode +  "' class='holdings_req_btn_" + (i+1) + "' onclick='biblioRedirectToEnquiry(^sessid^, this)' title=" + itemDetailJson[i].barcode + " vol=" + itemDetailJson[i].volume_id + " barcode=" + itemDetailJson[i].barcode + " callNum=" + itemDetailJson[i].item_call_number + ">Inquiry</button>" 
-                //   : "Unavailable")  + "</form></td>";
-                itemTable += "<td>" + (itemDetailJson[i].barcode != null ? `<button id='holdings_record_${itemDetailJson[i].barcode}' class='holdings_req_btn_${i + 1} general-focus focus-red' onclick='biblioSubjGenerator(sessid, "${itemDetailJson[i].barcode}")'>Inquiry</button>` :
-                    "Unavailable") + "</td>";
-                // itemTable += "<td>" + (itemDetailJson[i].barcode != null ? "<button id='holdings_record_" + itemDetailJson[i].barcode + " class='holdings_req_btn_" + (i+1) + "' " + "onclick='biblioSubjGenerator(" + title + ", " +  itemDetailJson[i].barcode + ">Inquiry</button>" : "Unavailable")  + "</td>";
-                itemTable += "</tr>";
+            } catch (e) {
+                console.log(e)
             }
-            itemTable += "</table></tr>";
-            // console.log(itemTable)
-            $('#item-details').addClass('item-details');
-            if (document.getElementById("item-details")) {
-                document.getElementById("item-details").innerHTML = itemTable;
+            if (itemDetailLength > 0) {
+                let itemTable = '<tr><table class="holdings-table">';
+                let titleForHoldings = document.getElementsByClassName("titleForHoldings")[0].innerHTML;
+
+                itemTable += "<tr class='holdings-title'><th>Copy</th><th>Call Number</th><th>Vol/Issue</th><th>Location</th><th>Note</th><th>Media</th><th>Circ Type</th><th>Request</th></tr>";
+
+                for (var i = 0; i < itemDetailLength; ++i) {
+                    itemTable += "<tr class='holdings-record-row'>";
+                    itemTable += "<td>" + (itemDetailJson[i].copy_number != null ? itemDetailJson[i].copy_number : "N/A") + "</td>";
+                    itemTable += "<td>" + (itemDetailJson[i].item_call_number != null ? itemDetailJson[i].item_call_number : "N/A") + "</td>";
+                    holdingsFieldArray.push((itemDetailJson[i].item_call_number != null ? itemDetailJson[i].item_call_number : "N/A"));
+                    itemTable += "<td>" + (itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id : "N/A") + "</td>";
+                    holdingsFieldArray.push((itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id : "N/A"));
+                    itemTable += "<td>" + (itemDetailJson[i].location != null ? itemDetailJson[i].location : "N/A") + "</td>";
+                    itemTable += "<td>" + (itemDetailJson[i].public_note != null ? itemDetailJson[i].public_note : "N/A") + "</td>";
+                    itemTable += "<td>" + (itemDetailJson[i].i_collect_code != null ? itemDetailJson[i].i_collect_code : "N/A") + "</td>";
+                    itemTable += "<td>" + (itemDetailJson[i].item_status != null ? itemDetailJson[i].item_status : "N/A") + "</td>";
+                    // itemTable += "<td>" + (itemDetailJson[i].barcode != null ? "<form class='form-request' method='post' onsubmit='storeAdditionalReqFields("+ (i+1) +");' id='request_form' " + holdingsAction + "><input type='hidden' name='ITEM_REQ_TIME' value='9:00'><input type='hidden' name='METHOD_REQUEST' value='Web'><input type='hidden' name='REQ_TOPIC' value='Retrieval Services'><input type='hidden' name='REQ_APPL_NAME' value='M2A'><input type='hidden' name='REQ_DB_NAME' value='LIBRARY'><input type='hidden' name='REQ_DB_RECID' value='BARCODE'><input type='hidden' name='REQ_TITLE' value='"+ biblioAN + "'><input type='hidden' name='REQ_DB_LINK3' value='" + holdingsSISN + "'><input type='hidden' name='REQ_ITEM_ID' value='" + itemDetailJson[i].barcode + "'><input type='hidden' name='REQ_ITEM_TITLE' value='" + titleForHoldings + "'><input type='hidden' name='REQ_QUEUE' value='X'><input type='hidden' name='REQ_CALL_NUMBER' value='" + itemDetailJson[i].item_call_number + "'><input type='hidden' name='REQ_VOLUME_ID' value='" + (itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id 
+                    //   : "S. O.")+ "'><button id='holdings_record_" + itemDetailJson[i].barcode +  "' class='holdings_req_btn_" + (i+1) + "' onclick='biblioRedirectToEnquiry(^sessid^, this)' title=" + itemDetailJson[i].barcode + " vol=" + itemDetailJson[i].volume_id + " barcode=" + itemDetailJson[i].barcode + " callNum=" + itemDetailJson[i].item_call_number + ">Inquiry</button>" 
+                    //   : "Unavailable")  + "</form></td>";
+                    itemTable += "<td>" + (itemDetailJson[i].barcode != null ? `<button id='holdings_record_${itemDetailJson[i].barcode}' class='holdings_req_btn_${i + 1} general-focus focus-red' onclick='biblioSubjGenerator(sessid, "${itemDetailJson[i].barcode}")'>Inquiry</button>` :
+                        "Unavailable") + "</td>";
+                    // itemTable += "<td>" + (itemDetailJson[i].barcode != null ? "<button id='holdings_record_" + itemDetailJson[i].barcode + " class='holdings_req_btn_" + (i+1) + "' " + "onclick='biblioSubjGenerator(" + title + ", " +  itemDetailJson[i].barcode + ">Inquiry</button>" : "Unavailable")  + "</td>";
+                    itemTable += "</tr>";
+                }
+                itemTable += "</table></tr>";
+                // console.log(itemTable)
+                $('#item-details').addClass('item-details');
+                if (document.getElementById("item-details")) {
+                    document.getElementById("item-details").innerHTML = itemTable;
+                }
             }
         }
+
 
 
 
@@ -453,6 +454,7 @@ $(document).ready(function() {
             setCarouselNavListener();
             initImgCarouselSelected()
             formatCarouselNav();
+            renderDescriptionTreeAccordion();
         } catch (e) {
             console.error(e)
         }
@@ -692,4 +694,11 @@ const updateCarouselSelected = () => {
             slide.classList.remove('is-selected')
         }
     }
+}
+
+const renderDescriptionTreeAccordion = () => {
+    const accordion = '<div class="ontario-accordion" id="accordion-1"> <h3 class="ontario-accordion-heading"> <button class="ontario-accordion__button" id="accordion-button-id-1" aria-controls="accordion-content-1" aria-expanded="false" data-toggle="ontario-collapse" > <span class="ontario-accordion__button-icon--close"> <svg class="ontario-icon" alt="" aria-hidden="true" focusable="false" sol:category="primary" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" > <use href="#ontario-icon-chevron-up"></use> </svg> </span> <span class="ontario-accordion__button-icon--open"> <svg class="ontario-icon" alt="" aria-hidden="true" focusable="false" sol:category="primary" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" > <use href="#ontario-icon-chevron-down"></use> </svg> </span> View the Description Hierarchy </button> </h3> <section class="ontario-accordion__content" id="accordion-content-1" aria-labelledby="accordion-button-id-1" aria-hidden="true" data-toggle="ontario-expander-content">  </section> </div>'
+
+    $('#tree-expand').append(accordion);
+
 }
