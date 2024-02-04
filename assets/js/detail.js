@@ -157,7 +157,7 @@ const disableRequestBtn = (url) => {
     patron_id = patron_id.split(']')[1];
 
     if (patrion_id != '') {
-        let url1 = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/CHECK_REQUEST_STATUS/REQ_PATRON_ID%20${patron_id}?COMMANDSEARCH#`;
+        let url1 = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/DOC_REQUEST/CHECK_REQUEST_STATUS/REQ_PATRON_ID%20${patron_id}?COMMANDSEARCH#`;
 
         $.ajax(url1).done(function(res) {
             var x2js = new X2JS();
@@ -355,74 +355,73 @@ $(document).ready(function() {
         let xml = document.getElementById("item_info");
         //console.log(xml);
         if (xml) {
-
+            let xmlText = new XMLSerializer().serializeToString(xml);
+            let itemInfoObject = toJson(xmlText);
             //console.log(itemInfoObject.item_info)
             //   if (itemInfoObject) {
             //     let itemInfoTable = new ItemsInfoTable(itemInfoObject.item_info);
             //     itemInfoTable.render();
             //   }
+        }
+        let xmlText;
+        let itemInfoObject;
+        let itemDetailLength;
+        let itemNum;
+        let itemDetailJson;
+        let holdingsAction;
+        let holdingsSISN;
+        let biblioAN;
+        let holdingsCallNumber;
+        let holdingsVolumeID;
+        try {
+            xmlText = new XMLSerializer().serializeToString(xml);
+            itemInfoObject = toJson(xmlText);
+            console.log(itemInfoObject)
+            itemDetailLength = itemInfoObject.item_info.item_detail.length;
+            itemNum = 1;
+            itemDetailJson = itemInfoObject.item_info.item_detail;
+            holdingsAction = 'action=' + document.getElementsByClassName("holdings-action")[0].innerHTML;
+            holdingsSISN = document.getElementsByClassName("holdings-sisn")[0].innerHTML;
+            biblioAN = document.getElementsByClassName("cs-item-id")[0].innerHTML;
+            // console.log(holdingsAction)
+            // console.log(itemDetailJson);
+            // console.log(biblioAN)
 
-            let xmlText;
-            let itemInfoObject;
-            let itemDetailLength;
-            let itemNum;
-            let itemDetailJson;
-            let holdingsAction;
-            let holdingsSISN;
-            let biblioAN;
-            let holdingsCallNumber;
-            let holdingsVolumeID;
-            try {
-                xmlText = new XMLSerializer().serializeToString(xml);
-                itemInfoObject = toJson(xmlText);
-                console.log(itemInfoObject)
-                itemDetailLength = itemInfoObject.item_info.item_detail.length;
-                itemNum = 1;
-                itemDetailJson = itemInfoObject.item_info.item_detail;
-                holdingsAction = 'action=' + document.getElementsByClassName("holdings-action")[0].innerHTML;
-                holdingsSISN = document.getElementsByClassName("holdings-sisn")[0].innerHTML;
-                biblioAN = document.getElementsByClassName("cs-item-id")[0].innerHTML;
-                // console.log(holdingsAction)
-                // console.log(itemDetailJson);
-                // console.log(biblioAN)
+        } catch (e) {
+            console.log(e)
+        }
+        if (itemDetailLength > 0) {
+            let itemTable = '<tr><table class="holdings-table">';
+            let titleForHoldings = document.getElementsByClassName("titleForHoldings")[0].innerHTML;
 
-            } catch (e) {
-                console.log(e)
+            itemTable += "<tr class='holdings-title'><th>Copy</th><th>Call Number</th><th>Vol/Issue</th><th>Location</th><th>Note</th><th>Media</th><th>Circ Type</th><th>Request</th></tr>";
+
+            for (var i = 0; i < itemDetailLength; ++i) {
+                itemTable += "<tr class='holdings-record-row'>";
+                itemTable += "<td>" + (itemDetailJson[i].copy_number != null ? itemDetailJson[i].copy_number : "N/A") + "</td>";
+                itemTable += "<td>" + (itemDetailJson[i].item_call_number != null ? itemDetailJson[i].item_call_number : "N/A") + "</td>";
+                holdingsFieldArray.push((itemDetailJson[i].item_call_number != null ? itemDetailJson[i].item_call_number : "N/A"));
+                itemTable += "<td>" + (itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id : "N/A") + "</td>";
+                holdingsFieldArray.push((itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id : "N/A"));
+                itemTable += "<td>" + (itemDetailJson[i].location != null ? itemDetailJson[i].location : "N/A") + "</td>";
+                itemTable += "<td>" + (itemDetailJson[i].public_note != null ? itemDetailJson[i].public_note : "N/A") + "</td>";
+                itemTable += "<td>" + (itemDetailJson[i].i_collect_code != null ? itemDetailJson[i].i_collect_code : "N/A") + "</td>";
+                itemTable += "<td>" + (itemDetailJson[i].item_status != null ? itemDetailJson[i].item_status : "N/A") + "</td>";
+                // itemTable += "<td>" + (itemDetailJson[i].barcode != null ? "<form class='form-request' method='post' onsubmit='storeAdditionalReqFields("+ (i+1) +");' id='request_form' " + holdingsAction + "><input type='hidden' name='ITEM_REQ_TIME' value='9:00'><input type='hidden' name='METHOD_REQUEST' value='Web'><input type='hidden' name='REQ_TOPIC' value='Retrieval Services'><input type='hidden' name='REQ_APPL_NAME' value='M2A'><input type='hidden' name='REQ_DB_NAME' value='LIBRARY'><input type='hidden' name='REQ_DB_RECID' value='BARCODE'><input type='hidden' name='REQ_TITLE' value='"+ biblioAN + "'><input type='hidden' name='REQ_DB_LINK3' value='" + holdingsSISN + "'><input type='hidden' name='REQ_ITEM_ID' value='" + itemDetailJson[i].barcode + "'><input type='hidden' name='REQ_ITEM_TITLE' value='" + titleForHoldings + "'><input type='hidden' name='REQ_QUEUE' value='X'><input type='hidden' name='REQ_CALL_NUMBER' value='" + itemDetailJson[i].item_call_number + "'><input type='hidden' name='REQ_VOLUME_ID' value='" + (itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id 
+                //   : "S. O.")+ "'><button id='holdings_record_" + itemDetailJson[i].barcode +  "' class='holdings_req_btn_" + (i+1) + "' onclick='biblioRedirectToEnquiry(^sessid^, this)' title=" + itemDetailJson[i].barcode + " vol=" + itemDetailJson[i].volume_id + " barcode=" + itemDetailJson[i].barcode + " callNum=" + itemDetailJson[i].item_call_number + ">Inquiry</button>" 
+                //   : "Unavailable")  + "</form></td>";
+                itemTable += "<td>" + (itemDetailJson[i].barcode != null ? `<button id='holdings_record_${itemDetailJson[i].barcode}' class='holdings_req_btn_${i + 1} general-focus focus-red' onclick='biblioSubjGenerator(sessid, "${itemDetailJson[i].barcode}")'>Inquiry</button>` :
+                    "Unavailable") + "</td>";
+                // itemTable += "<td>" + (itemDetailJson[i].barcode != null ? "<button id='holdings_record_" + itemDetailJson[i].barcode + " class='holdings_req_btn_" + (i+1) + "' " + "onclick='biblioSubjGenerator(" + title + ", " +  itemDetailJson[i].barcode + ">Inquiry</button>" : "Unavailable")  + "</td>";
+                itemTable += "</tr>";
             }
-            if (itemDetailLength > 0) {
-                let itemTable = '<tr><table class="holdings-table">';
-                let titleForHoldings = document.getElementsByClassName("titleForHoldings")[0].innerHTML;
-
-                itemTable += "<tr class='holdings-title'><th>Copy</th><th>Call Number</th><th>Vol/Issue</th><th>Location</th><th>Note</th><th>Media</th><th>Circ Type</th><th>Request</th></tr>";
-
-                for (var i = 0; i < itemDetailLength; ++i) {
-                    itemTable += "<tr class='holdings-record-row'>";
-                    itemTable += "<td>" + (itemDetailJson[i].copy_number != null ? itemDetailJson[i].copy_number : "N/A") + "</td>";
-                    itemTable += "<td>" + (itemDetailJson[i].item_call_number != null ? itemDetailJson[i].item_call_number : "N/A") + "</td>";
-                    holdingsFieldArray.push((itemDetailJson[i].item_call_number != null ? itemDetailJson[i].item_call_number : "N/A"));
-                    itemTable += "<td>" + (itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id : "N/A") + "</td>";
-                    holdingsFieldArray.push((itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id : "N/A"));
-                    itemTable += "<td>" + (itemDetailJson[i].location != null ? itemDetailJson[i].location : "N/A") + "</td>";
-                    itemTable += "<td>" + (itemDetailJson[i].public_note != null ? itemDetailJson[i].public_note : "N/A") + "</td>";
-                    itemTable += "<td>" + (itemDetailJson[i].i_collect_code != null ? itemDetailJson[i].i_collect_code : "N/A") + "</td>";
-                    itemTable += "<td>" + (itemDetailJson[i].item_status != null ? itemDetailJson[i].item_status : "N/A") + "</td>";
-                    // itemTable += "<td>" + (itemDetailJson[i].barcode != null ? "<form class='form-request' method='post' onsubmit='storeAdditionalReqFields("+ (i+1) +");' id='request_form' " + holdingsAction + "><input type='hidden' name='ITEM_REQ_TIME' value='9:00'><input type='hidden' name='METHOD_REQUEST' value='Web'><input type='hidden' name='REQ_TOPIC' value='Retrieval Services'><input type='hidden' name='REQ_APPL_NAME' value='M2A'><input type='hidden' name='REQ_DB_NAME' value='LIBRARY'><input type='hidden' name='REQ_DB_RECID' value='BARCODE'><input type='hidden' name='REQ_TITLE' value='"+ biblioAN + "'><input type='hidden' name='REQ_DB_LINK3' value='" + holdingsSISN + "'><input type='hidden' name='REQ_ITEM_ID' value='" + itemDetailJson[i].barcode + "'><input type='hidden' name='REQ_ITEM_TITLE' value='" + titleForHoldings + "'><input type='hidden' name='REQ_QUEUE' value='X'><input type='hidden' name='REQ_CALL_NUMBER' value='" + itemDetailJson[i].item_call_number + "'><input type='hidden' name='REQ_VOLUME_ID' value='" + (itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id 
-                    //   : "S. O.")+ "'><button id='holdings_record_" + itemDetailJson[i].barcode +  "' class='holdings_req_btn_" + (i+1) + "' onclick='biblioRedirectToEnquiry(^sessid^, this)' title=" + itemDetailJson[i].barcode + " vol=" + itemDetailJson[i].volume_id + " barcode=" + itemDetailJson[i].barcode + " callNum=" + itemDetailJson[i].item_call_number + ">Inquiry</button>" 
-                    //   : "Unavailable")  + "</form></td>";
-                    itemTable += "<td>" + (itemDetailJson[i].barcode != null ? `<button id='holdings_record_${itemDetailJson[i].barcode}' class='holdings_req_btn_${i + 1} general-focus focus-red' onclick='biblioSubjGenerator(sessid, "${itemDetailJson[i].barcode}")'>Inquiry</button>` :
-                        "Unavailable") + "</td>";
-                    // itemTable += "<td>" + (itemDetailJson[i].barcode != null ? "<button id='holdings_record_" + itemDetailJson[i].barcode + " class='holdings_req_btn_" + (i+1) + "' " + "onclick='biblioSubjGenerator(" + title + ", " +  itemDetailJson[i].barcode + ">Inquiry</button>" : "Unavailable")  + "</td>";
-                    itemTable += "</tr>";
-                }
-                itemTable += "</table></tr>";
-                // console.log(itemTable)
-                $('#item-details').addClass('item-details');
-                if (document.getElementById("item-details")) {
-                    document.getElementById("item-details").innerHTML = itemTable;
-                }
+            itemTable += "</table></tr>";
+            // console.log(itemTable)
+            $('#item-details').addClass('item-details');
+            if (document.getElementById("item-details")) {
+                document.getElementById("item-details").innerHTML = itemTable;
             }
         }
-
 
 
 
@@ -454,7 +453,6 @@ $(document).ready(function() {
             setCarouselNavListener();
             initImgCarouselSelected()
             formatCarouselNav();
-            renderDescriptionTreeAccordion();
         } catch (e) {
             console.error(e)
         }
@@ -501,7 +499,6 @@ const showSingleImage = () => {
     }
 }
 
-/* comment out dead code
 try {
     // Initialise Carousel
     const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
@@ -510,13 +507,14 @@ try {
 
     var myCarousel = null;
     if (document.querySelector(".carousel") != null) {
-        myCarousel = new Carousel(document.querySelector(".carousel"), {Dots: false});
+        myCarousel = new Carousel(document.querySelector(".carousel"), {
+            Dots: false
+        });
     }
-} 
-catch (e) {
-    console.log(e);
+} catch (e) {
+    console.log(e)
 }
-*/
+
 
 
 // Thumbnails
@@ -586,10 +584,10 @@ const copyPermalink = (e, rep) => {
         params = 'ORGANIZATION_VAL_SYN/WEB_ORG_DET_OPAC?SESSIONSEARCH&exp=ORG_ID%20';
     }
 
-    let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${params}${exp}`
-        // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm&exp=sisn%20${exp}`;
-        // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report} ${exp}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
-        // let url = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/DESCRIPTION_WEB/WEB_DESC_DET/SISN ${sisn}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
+    let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/${params}${exp}`
+        // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm&exp=sisn%20${exp}`;
+        // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/${report} ${exp}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
+        // let url = `https://aims.archives.gov.on.ca/scripts/mwimain.dll/144/DESCRIPTION_WEB/WEB_DESC_DET/SISN ${sisn}?SESSIONSEARCH&NOMSG=[ao_opac]/includes/error/norecordArchives.htm`;
     console.log(url)
     navigator.clipboard.writeText(url);
     e.textContent = 'Link Copied!';
@@ -597,7 +595,7 @@ const copyPermalink = (e, rep) => {
 
 const permaOut = (e) => {
     e.textContent = "Copy the Record's Link";
-    e.style.backgroundColor = '#0066CC'
+    e.style.backgroundColor = '#047BC1'
 }
 
 // function outFunc() {
@@ -694,13 +692,4 @@ const updateCarouselSelected = () => {
             slide.classList.remove('is-selected')
         }
     }
-}
-
-const renderDescriptionTreeAccordion = () => {
-    const accordion = '<div class="accordion" id="accordionPanelsStayOpenExample"> <div class="accordion-item"> <h2 class="accordion-header" id="panelsStayOpen-headingOne"> <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> View the Description Hierarchy </button> </h2> <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingOne"> <div class="accordion-body" id="tree-body">  </div> </div> </div> </div> '
-
-    // $('#tree-expand').append(accordion);
-
-    const treeBody = $('#tree-body');
-
 }
