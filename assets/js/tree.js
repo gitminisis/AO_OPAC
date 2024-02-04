@@ -478,12 +478,20 @@ $(document).ready(function() {
 });
 
 
-// const enableTreeDisplay = () => {
-//     let treeBtn = document.getElementsByClassName('tree-btn')[0];
-//     treeBtn.disabled = false;
-//     treeBtn.style.background = '#0066CC'
-//     treeBtn.style.borderColor = '#0066CC'
-// }
+const renderLoading = () => {
+        const container = $('#panelsStayOpen-collapseOne');
+        const loader = "<div class='ontario-loading-indicator__overlay' aria-hidden='false' role='alert' aria-live='assertive'> <div class='ontario-loading-indicator'> <svg class='ontario-loading-indicator__spinner' viewBox='25 25 50 50' xmlns='http://www.w3.org/2000/svg'> <circle cx='50' cy='50' r='20' fill='none' stroke-width='4' /> </svg>  </div> </div>"
+
+        container.append(container);
+
+
+    }
+    // const enableTreeDisplay = () => {
+    //     let treeBtn = document.getElementsByClassName('tree-btn')[0];
+    //     treeBtn.disabled = false;
+    //     treeBtn.style.background = '#0066CC'
+    //     treeBtn.style.borderColor = '#0066CC'
+    // }
 
 // const disableTreeDisplay = () => {
 //     let treeBtn;
@@ -494,19 +502,19 @@ $(document).ready(function() {
 //     } catch (e) { console.log(e) }
 // }
 
-const focusTree = () => {
+// const focusTree = () => {
 
-    if (isLoaded) {
-        let tree = document.getElementsByClassName('jstree-1')[0];
+//     if (isLoaded) {
+//         let tree = document.getElementsByClassName('jstree-1')[0];
 
-        if (!showTree) {
-            tree.scrollIntoView({ behavior: 'smooth' });
-            showTree = true;
+//         if (!showTree) {
+//             tree.scrollIntoView({ behavior: 'smooth' });
+//             showTree = true;
 
-        } else showTree = false;
-    } else {
-        main();
-        isLoaded = true;
-    }
+//         } else showTree = false;
+//     } else {
+//         main();
+//         isLoaded = true;
+//     }
 
-}
+// }
