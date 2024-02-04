@@ -15,6 +15,7 @@ if (document.getElementById('hiddenREFD') != null) {
 }
 let isLoaded = false;
 let showTree = false;
+const TREE_REF = "#tree-body"
 
 
 // let REFD = getCookie("$REFD");
@@ -314,21 +315,20 @@ function Tree() {
         });
     };
     this.refreshTree = function(data) {
-        $("#treeTest").jstree(true).settings.core.data = data;
-        let tree = $("#treeTest").jstree(true);
+        $(TREE_REF).jstree(true).settings.core.data = data;
+        let tree = $(TREE_REF).jstree(true);
 
         tree.refresh(true);
     };
 
     this.renderTree = function(treeArray, curRefd) {
         let tree = this;
-        $("#treeTest")
+        $(TREE_REF)
             .on("refresh.jstree", function() {
                 formatLineIndentation();
-                $("#treeTest").prepend('<h3 id="description-tree" tabindex="-1">Description Hierarchy</h3>')
             })
             .on("ready.jstree", function(e, data) {
-                let curNode = $("#treeTest").jstree(true).get_node(tree.currentRefd);
+                let curNode = $(TREE_REF).jstree(true).get_node(tree.currentRefd);
 
                 let jsTree = $(this);
                 curNode.parents.map(function(parent) {
@@ -337,7 +337,7 @@ function Tree() {
                 jsTree.jstree("open_node", tree.currentRefd);
 
                 tree.refreshTree(tree.getNodeArray());
-                $("#treeTest").prepend('<h3 id="description-tree" tabindex="-1">Description Hierarchy</h3>')
+                $(TREE_REF).prepend('<h3 id="description-tree" tabindex="-1">Description Hierarchy</h3>')
             })
             .on("select_node.jstree", function(e, data) {
                 let node = tree.getNode(data.node.id);
@@ -472,32 +472,29 @@ function main() {
 }
 
 $(document).ready(function() {
-    if (document.getElementById("treeTest")) {
-        // disableTreeDisplay();
-        enableTreeDisplay();
-
+    if (document.querySelector(TREE_REF)) {
+        main();
     }
 });
 
 
-const enableTreeDisplay = () => {
-    let treeBtn = document.getElementsByClassName('tree-btn')[0];
-    treeBtn.disabled = false;
-    treeBtn.style.background = '#0066CC'
-    treeBtn.style.borderColor = '#0066CC'
-}
+// const enableTreeDisplay = () => {
+//     let treeBtn = document.getElementsByClassName('tree-btn')[0];
+//     treeBtn.disabled = false;
+//     treeBtn.style.background = '#0066CC'
+//     treeBtn.style.borderColor = '#0066CC'
+// }
 
-const disableTreeDisplay = () => {
-    let treeBtn;
-    try {
-        treeBtn = document.getElementsByClassName('tree-btn')[0];
-        treeBtn.style.background = 'grey';
-        treeBtn.style.borderColor = 'grey';
-    } catch (e) { console.log(e) }
-}
+// const disableTreeDisplay = () => {
+//     let treeBtn;
+//     try {
+//         treeBtn = document.getElementsByClassName('tree-btn')[0];
+//         treeBtn.style.background = 'grey';
+//         treeBtn.style.borderColor = 'grey';
+//     } catch (e) { console.log(e) }
+// }
 
 const focusTree = () => {
-
 
     if (isLoaded) {
         let tree = document.getElementsByClassName('jstree-1')[0];

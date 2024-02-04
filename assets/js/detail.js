@@ -697,8 +697,10 @@ const updateCarouselSelected = () => {
 }
 
 const renderDescriptionTreeAccordion = () => {
-    const accordion = '<div class="ontario-accordion" id="accordion-1"> <h3 class="ontario-accordion-heading"> <button class="ontario-accordion__button" id="accordion-button-id-1" aria-controls="accordion-content-1" aria-expanded="false" data-toggle="ontario-collapse" > <span class="ontario-accordion__button-icon--close"> <svg class="ontario-icon" alt="" aria-hidden="true" focusable="false" sol:category="primary" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" > <use href="#ontario-icon-chevron-up"></use> </svg> </span> <span class="ontario-accordion__button-icon--open"> <svg class="ontario-icon" alt="" aria-hidden="true" focusable="false" sol:category="primary" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" > <use href="#ontario-icon-chevron-down"></use> </svg> </span> View the Description Hierarchy </button> </h3> <section class="ontario-accordion__content" id="accordion-content-1" aria-labelledby="accordion-button-id-1" aria-hidden="true" data-toggle="ontario-expander-content">  </section> </div>'
+    const accordion = '<div class="accordion" id="accordionPanelsStayOpenExample"> <div class="accordion-item"> <h2 class="accordion-header" id="panelsStayOpen-headingOne"> <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> View the Description Hierarchy </button> </h2> <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingOne"> <div class="accordion-body" id="tree-body">  </div> </div> </div> </div> '
 
-    $('#tree-expand').append(accordion);
+    // $('#tree-expand').append(accordion);
+
+    const treeBody = $('#tree-body');
 
 }
