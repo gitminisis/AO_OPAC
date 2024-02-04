@@ -2265,3 +2265,7 @@ button {
 .pagination-container a {
     margin: 0 4px;
 }
+
+.ontario-label {
+    font-weight: bold !important;
+}
