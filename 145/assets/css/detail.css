@@ -2485,4 +2485,16 @@ button.bookmarkbutton a:hover {
 .accordion-body {
     padding: 16px 10px !important;
     font-weight: bold !important;
+    min-height: 150px !important;
+}
+
+#panelsStayOpen-collapseOne {
+    position: relative !important;
+}
+
+.ontario-loading-indicator__overlay {
+    position: absolute !important;
+    background-color: #E6E6E6 !important;
+    padding: 40px 0px !important;
+    display: none;
 }

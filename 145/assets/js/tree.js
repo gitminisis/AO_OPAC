@@ -16,7 +16,7 @@ if (document.getElementById('hiddenREFD') != null) {
 let isLoaded = false;
 let showTree = false;
 const TREE_REF = "#tree-body"
-
+const TREE_LOADER_REF = "tree-loader"
 
 // let REFD = getCookie("$REFD");
 /**
@@ -256,7 +256,7 @@ function Tree() {
         } else {
             // url = url.substring(0, url.length - 1);
         }
-
+        toggleLoader(true)
         return $.ajax(url).then(function(response) {
             let json = xmlToJson(response);
 
@@ -266,6 +266,8 @@ function Tree() {
             }
 
             tree.refreshTree(tree.getNodeArray());
+            toggleLoader(false)
+
         });
     };
 
@@ -290,7 +292,7 @@ function Tree() {
 
     this.initTree = function(refd, tree) {
         let url = tree.getURL(refd);
-
+        toggleLoader(true)
         return $.ajax(url).then(function(response) {
             let json = xmlToJson(response);
 
@@ -312,6 +314,7 @@ function Tree() {
 
             let root = tree.getNode(refd);
             root.setRoot(json.links);
+            toggleLoader(false)
         });
     };
     this.refreshTree = function(data) {
@@ -326,7 +329,6 @@ function Tree() {
         $(TREE_REF)
             .on("refresh.jstree", function() {
                 formatLineIndentation();
-                $(TREE_REF).prepend('<h3 id="description-tree" tabindex="-1">Description Hierarchy</h3>')
             })
             .on("ready.jstree", function(e, data) {
                 let curNode = $(TREE_REF).jstree(true).get_node(tree.currentRefd);
@@ -338,7 +340,6 @@ function Tree() {
                 jsTree.jstree("open_node", tree.currentRefd);
 
                 tree.refreshTree(tree.getNodeArray());
-                $(TREE_REF).prepend('<h3 id="description-tree" tabindex="-1">Description Hierarchy</h3>')
             })
             .on("select_node.jstree", function(e, data) {
                 let node = tree.getNode(data.node.id);
@@ -475,16 +476,30 @@ function main() {
 $(document).ready(function() {
     if (document.querySelector(TREE_REF)) {
         main();
+        renderLoader();
     }
 });
 
 
-// const enableTreeDisplay = () => {
-//     let treeBtn = document.getElementsByClassName('tree-btn')[0];
-//     treeBtn.disabled = false;
-//     treeBtn.style.background = '#0066CC'
-//     treeBtn.style.borderColor = '#0066CC'
-// }
+const renderLoader = () => {
+    const container = $('#panelsStayOpen-collapseOne');
+    const loader = `<div id=${TREE_LOADER_REF} class='ontario-loading-indicator__overlay' aria-hidden='false' role='alert' aria-live='assertive'> <div class='ontario-loading-indicator'> <svg class='ontario-loading-indicator__spinner' viewBox='25 25 50 50' xmlns='http://www.w3.org/2000/svg'> <circle cx='50' cy='50' r='20' fill='none' stroke-width='4' /> </svg>  </div> </div>`
+
+    container.append(loader);
+
+}
+
+const toggleLoader = (show) => {
+
+        $(`#${TREE_LOADER_REF}`).css('display', show ? 'block' : 'none')
+
+    }
+    // const enableTreeDisplay = () => {
+    //     let treeBtn = document.getElementsByClassName('tree-btn')[0];
+    //     treeBtn.disabled = false;
+    //     treeBtn.style.background = '#0066CC'
+    //     treeBtn.style.borderColor = '#0066CC'
+    // }
 
 // const disableTreeDisplay = () => {
 //     let treeBtn;
@@ -495,19 +510,19 @@ $(document).ready(function() {
 //     } catch (e) { console.log(e) }
 // }
 
-const focusTree = () => {
+// const focusTree = () => {
 
-    if (isLoaded) {
-        let tree = document.getElementsByClassName('jstree-1')[0];
+//     if (isLoaded) {
+//         let tree = document.getElementsByClassName('jstree-1')[0];
 
-        if (!showTree) {
-            tree.scrollIntoView({ behavior: 'smooth' });
-            showTree = true;
+//         if (!showTree) {
+//             tree.scrollIntoView({ behavior: 'smooth' });
+//             showTree = true;
 
-        } else showTree = false;
-    } else {
-        main();
-        isLoaded = true;
-    }
+//         } else showTree = false;
+//     } else {
+//         main();
+//         isLoaded = true;
+//     }
 
-}
+// }
