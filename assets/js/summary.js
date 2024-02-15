@@ -55,7 +55,7 @@ $(document).ready(function() {
         e.preventDefault();
     });
     $(".Delete-Bookmark").on("click", function() {
-        debugger;
+        // debugger;
         $.ajax({
             url: $("#web_sum_form").attr("action"),
             type: "POST",

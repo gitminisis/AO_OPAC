@@ -81,7 +81,7 @@ td {
 #accordion-button-header,
 #accordion-button-quick {
     box-shadow: none;
-    background: none;
+    background: none !important;
 }
 
 .accordion-header {

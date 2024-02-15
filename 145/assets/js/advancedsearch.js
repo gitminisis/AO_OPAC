@@ -358,6 +358,12 @@ $("#RECORD_ID_CL").on("click", function() {
     clustername = RECORD_ID_FIELD;
 });
 
+$("#ITEM_CALL_NUMBER").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ITEM_CALL_NUMBER&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = RECORD_ID_FIELD;
+});
+
 
 
 

@@ -22,17 +22,17 @@ let ReproEnum = {
     CHARGE: 21
 }
 
-class Payment {#
+class Payment {
     privatePaymentItem;
 
     constructor(node) {
-        this.#privatePaymentItem = node;
+        this.privatePaymentItem = node;
     }
 
     initClientSidePayment = () => {
-        let trNodes = this.#privateGetReproductionRowValues(this.#privatePaymentItem);
-        let payNodes = this.#privateGetPayNodes();
-        this.#privateSetForm(trNodes, payNodes);
+        let trNodes = this.privateGetReproductionRowValues(this.privatePaymentItem);
+        let payNodes = this.privateGetPayNodes();
+        this.privateSetForm(trNodes, payNodes);
     }
 
     /* 
