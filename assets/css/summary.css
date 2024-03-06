@@ -502,8 +502,16 @@ form div .Crowd-Header-Title {
 }
 
 .sort-header,
-.filter-header {
-    font-size: 1.25rem;
+.filter-header,
+.sort-acc-body .accordion-body,
+.filter-li {
+    font-size: 16px !important;
+    font-weight: bold;
+    font-family: "Open Sans" !important;
+}
+
+.filter-li {
+    text-align: left !important;
 }
 
 .sort-header {
@@ -513,7 +521,6 @@ form div .Crowd-Header-Title {
 .sort-acc-body {
     font-size: 18px;
     overflow-y: scroll;
-    height: 450px;
 }
 
 .filter_ul_responsive {

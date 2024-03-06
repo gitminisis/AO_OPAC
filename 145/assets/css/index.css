@@ -681,6 +681,10 @@ hr.Hr-1 {
     transform: rotate(-45deg) translate(35px, 35px);
 }
 
+#homepage-container #Main-Form {
+    margin-bottom: 32px;
+}
+
 #homepage-container,
 #advanced-search-container {
     background: white;

@@ -53,3 +53,9 @@
 .jstree-icon {
     height: 24px !important;
 }
+
+.jstree-container-ul {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* max-height: 300px; */
+}

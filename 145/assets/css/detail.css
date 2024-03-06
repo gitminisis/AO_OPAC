@@ -143,10 +143,9 @@
     justify-content: space-evenly;
     width: 100%;
     max-width: 300px;
-    margin-top: 5px;
-    margin-bottom: 5px;
     background-color: #0066CC;
     border-color: #0066CC;
+    margin: 5px 0 !important;
 }
 
 
@@ -636,12 +635,12 @@ button.bookmarkbutton a:hover {
 }
 
 .authority-date-td {
-    font-size: 20px;
+    font-size: 16px;
     white-space: nowrap;
 }
 
 .authority-officeA-td {
-    font-size: 20px;
+    font-size: 16px;
     width: 50%;
     text-align: left;
     padding: 0 0.5em;
@@ -653,7 +652,7 @@ button.bookmarkbutton a:hover {
 }
 
 .authority-officeC-td {
-    font-size: 20px;
+    font-size: 16px;
     width: 35%;
     text-align: left;
     padding-left: 0.5em;
@@ -670,7 +669,7 @@ button.bookmarkbutton a:hover {
     .authority-officeA-td,
     .authority-date-td,
     .authority-officeC-td {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
@@ -1498,7 +1497,7 @@ button.bookmarkbutton a:hover {
     .authority-officeA-td,
     .authority-date-td,
     .authority-officeC-td {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
@@ -2292,12 +2291,12 @@ button.bookmarkbutton a:hover {
 }
 
 .authority-date-td {
-    font-size: 20px;
+    font-size: 16px;
     white-space: nowrap;
 }
 
 .authority-officeA-td {
-    font-size: 20px;
+    font-size: 16px;
     width: 50%;
     text-align: left;
     padding: 0 0.5em;
@@ -2309,7 +2308,7 @@ button.bookmarkbutton a:hover {
 }
 
 .authority-officeC-td {
-    font-size: 20px;
+    font-size: 16px;
     width: 35%;
     text-align: left;
     padding-left: 0.5em;
@@ -2485,7 +2484,7 @@ button.bookmarkbutton a:hover {
 .accordion-body {
     padding: 16px 10px !important;
     font-weight: bold !important;
-    min-height: 150px !important;
+    /* min-height: 150px !important; */
 }
 
 #panelsStayOpen-collapseOne {

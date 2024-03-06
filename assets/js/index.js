@@ -728,7 +728,7 @@ const appendDatabaseToSearchStatement = () => {
             dbspan.text("all collections");
     }
 };
-// appendDatabaseToSearchStatement();
+appendDatabaseToSearchStatement();
 
 /** Handle Focus simple search input */
 $('#simple_search_input').focus(function() {
