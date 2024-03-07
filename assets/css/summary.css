@@ -494,7 +494,7 @@ form div .Crowd-Header-Title {
 
 [id^="filter_dropdown"] {
     overflow-y: auto;
-    height: 400px;
+    /* height: 400px; */
 }
 
 .filter-record-link {
@@ -510,7 +510,8 @@ form div .Crowd-Header-Title {
     font-family: "Open Sans" !important;
 }
 
-.filter-li {
+.filter-li,
+.filter-title {
     text-align: left !important;
 }
 
