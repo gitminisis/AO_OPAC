@@ -49,3 +49,7 @@
 .jstree-leaf a {
     height: auto !important;
 }
+
+.jstree-icon {
+    height: 24px !important;
+}
