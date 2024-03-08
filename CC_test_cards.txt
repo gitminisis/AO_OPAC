@@ -30,4 +30,4 @@ MC DEBIT:
 INTERAC ONLINE:
 ===============
 
-https://aoopac.minisisinc.com/scripts/mwimain.dll/122596077/REQ_ORDER_NUM/0000000885/WEB_PAY_RCPT_DET WEB_PAY_RCPT_DET?KEYSEARCH&DATABASE=REQUEST_INFO&ERRMSG=[AO_INCLUDES]error/nopayreceipt.html
+https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/122596077/REQ_ORDER_NUM/0000000885/WEB_PAY_RCPT_DET WEB_PAY_RCPT_DET?KEYSEARCH&DATABASE=REQUEST_INFO&ERRMSG=[AO_INCLUDES]error/nopayreceipt.html

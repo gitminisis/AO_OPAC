@@ -81,7 +81,7 @@ td {
 #accordion-button-header,
 #accordion-button-quick {
     box-shadow: none;
-    background: none;
+    background: none !important;
 }
 
 .accordion-header {
@@ -154,7 +154,7 @@ td {
 }
 
 .breadcrumb-item a:hover {
-    color: #047bc1;
+    color: #0066CC;
 }
 
 .breadcrumb-item.active {
@@ -163,7 +163,7 @@ td {
 }
 
 .Color-Blue {
-    color: #047bc1;
+    color: #0066CC;
 }
 
 .Color-Coast {
@@ -681,6 +681,10 @@ hr.Hr-1 {
     transform: rotate(-45deg) translate(35px, 35px);
 }
 
+#homepage-container #Main-Form {
+    margin-bottom: 32px;
+}
+
 #homepage-container,
 #advanced-search-container {
     background: white;
@@ -994,7 +998,7 @@ p {
 }
 
 .enquiry-btn {
-    background-color: #047bc1;
+    background-color: #0066CC;
     color: #fff;
 }
 
@@ -2264,4 +2268,8 @@ button {
 .pagination a,
 .pagination-container a {
     margin: 0 4px;
+}
+
+.ontario-label {
+    font-weight: bold !important;
 }

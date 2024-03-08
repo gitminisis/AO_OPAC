@@ -359,6 +359,12 @@ $("#RECORD_ID_CL").on("click", function() {
 });
 
 
+$("#ITEM_CALL_NUMBER").on("click", function() {
+    var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ITEM_CALL_NUMBER&DATABASE=BIBLIO_WEB&form=[AO_ASSETS]%2fhtml%2findex-body.html&TITLE=Browse%20values";
+    load_index_page(url);
+    clustername = RECORD_ID_FIELD;
+});
+
 
 
 // PEOPLE_VAL_SYN
@@ -737,6 +743,7 @@ function searchValue(form_id, request_url) {
         data: form_data,
         success: function(data) {
             if (data != "") {
+                console.log(data)
                 document.getElementById(CLUSTER_BODY_ID).innerHTML = data;
             } else {
                 alert("[--Search key is not found--]");
