@@ -38,6 +38,9 @@
                                 <div class="Input-Wrapper d-flex flex-column">
                                     <div id="simple-search-container">
                                         <div id="simple-search-input-wrapper">
+                                            <input name="$RANKING" value="Y" type="hidden" />
+
+                                            <input name="MULTISEARCH" value="M-S" type="hidden" />
                                             <input id="simple_search_input" type="text" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input" />
 
                                             <button aria-label="Clear search" id="simple-search-reset" alt="Clear search" title="Clear search" type="button">
@@ -51,7 +54,7 @@
                                     </div>
                                 </div>
 
-                                <div class="ontario-form-group">
+                                <!-- <div class="ontario-form-group">
                                     <fieldset class="ontario-fieldset">
                                         <legend class="visually-hidden">
                                             Radio legend<span class="ontario-label__flag">(required/optional)</span
@@ -119,16 +122,14 @@
                       </div>
                     </div>
                   </fieldset>
-                </div>
-              </div>
-            </form>
+                </div> -->
+                            </div>
+                        </form>
 
-            <div class="subheader">
-              <p class="Main-Sub-Header">Recherche par</p>
-              <div class="Main-Search-Options-Section">
-                <a
-                  href="^SESSID^?GET&FILE=[ao_opac]145/assets/html/advancedsearchArchives.html"
-                  >Archivage avancé</a
+                        <div class="subheader">
+                            <p class="Main-Sub-Header">Recherche par</p>
+                            <div class="Main-Search-Options-Section">
+                                <a href="^SESSID^?GET&FILE=[ao_opac]145/assets/html/advancedsearchArchives.html">Archivage avancé</a
                 >
                 <span>|</span>
                                             <a href="/scripts/mwimain.dll?logon&application=UNION_VIEW&DATABASE=PEOPLE_VAL_SYN&language=145&file=[ao_opac]145/assets/html/advancedsearchPeople.html">Personnes</a
@@ -138,8 +139,8 @@
                   href="/scripts/mwimain.dll?logon&application=UNION_VIEW&DATABASE=ORGANIZATION_VAL_SYN&language=145&file=[ao_opac]145/assets/html/advancedsearchOrganization.html"
                   >Organisation
                 </a>
-                                            <span>|</span>
-                                            <a href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[ao_opac]145/assets/html/moresearchoptions.html">Liste des créateurs</a
+                                <span>|</span>
+                                <a href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[ao_opac]145/assets/html/moresearchoptions.html">Liste des créateurs</a
                 >
               </div>
             </div>
@@ -148,7 +149,7 @@
       </div>
 
       <div class="search-tips-container">
-        <!-- include virtual="[ao_opac]/145/includes/searchTips.htm"-->
+        <!-- include virtual="[ao_opac]/145/includes/archivalSearchTips.htm"-->
         <!-- include virtual="[ao_opac]/145/includes/archivalBannerRef.htm"-->
       </div>
     </div>

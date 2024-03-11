@@ -410,7 +410,7 @@ $(document).ready(function() {
                 // itemTable += "<td>" + (itemDetailJson[i].barcode != null ? "<form class='form-request' method='post' onsubmit='storeAdditionalReqFields("+ (i+1) +");' id='request_form' " + holdingsAction + "><input type='hidden' name='ITEM_REQ_TIME' value='9:00'><input type='hidden' name='METHOD_REQUEST' value='Web'><input type='hidden' name='REQ_TOPIC' value='Retrieval Services'><input type='hidden' name='REQ_APPL_NAME' value='M2A'><input type='hidden' name='REQ_DB_NAME' value='LIBRARY'><input type='hidden' name='REQ_DB_RECID' value='BARCODE'><input type='hidden' name='REQ_TITLE' value='"+ biblioAN + "'><input type='hidden' name='REQ_DB_LINK3' value='" + holdingsSISN + "'><input type='hidden' name='REQ_ITEM_ID' value='" + itemDetailJson[i].barcode + "'><input type='hidden' name='REQ_ITEM_TITLE' value='" + titleForHoldings + "'><input type='hidden' name='REQ_QUEUE' value='X'><input type='hidden' name='REQ_CALL_NUMBER' value='" + itemDetailJson[i].item_call_number + "'><input type='hidden' name='REQ_VOLUME_ID' value='" + (itemDetailJson[i].volume_id != null ? itemDetailJson[i].volume_id 
                 //   : "S. O.")+ "'><button id='holdings_record_" + itemDetailJson[i].barcode +  "' class='holdings_req_btn_" + (i+1) + "' onclick='biblioRedirectToEnquiry(^sessid^, this)' title=" + itemDetailJson[i].barcode + " vol=" + itemDetailJson[i].volume_id + " barcode=" + itemDetailJson[i].barcode + " callNum=" + itemDetailJson[i].item_call_number + ">Inquiry</button>" 
                 //   : "Unavailable")  + "</form></td>";
-                itemTable += "<td>" + (itemDetailJson[i].barcode != null ? `<button id='holdings_record_${itemDetailJson[i].barcode}' class='holdings_req_btn_${i+1} general-focus focus-red' onclick='biblioSubjGenerator(sessid, "${itemDetailJson[i].barcode}")'>Inquiry</button>` :
+                itemTable += "<td>" + (itemDetailJson[i].barcode != null ? `<button id='holdings_record_${itemDetailJson[i].barcode}' class='holdings_req_btn_${i + 1} general-focus focus-red' onclick='biblioSubjGenerator(sessid, "${itemDetailJson[i].barcode}")'>Inquiry</button>` :
                     "Unavailable") + "</td>";
                 // itemTable += "<td>" + (itemDetailJson[i].barcode != null ? "<button id='holdings_record_" + itemDetailJson[i].barcode + " class='holdings_req_btn_" + (i+1) + "' " + "onclick='biblioSubjGenerator(" + title + ", " +  itemDetailJson[i].barcode + ">Inquiry</button>" : "Unavailable")  + "</td>";
                 itemTable += "</tr>";
@@ -433,13 +433,13 @@ $(document).ready(function() {
         // Detail Bookmark
         // When Clicked ajax sends href to minisis to add selected record to list.
         // Once success, reload the page. Report Checks whether record is in the list or not
-        // $('.bookmarkbutton').on('click',function() {
+        // $('.bookmarkbutton').on('click', function() {
         //     $.ajax({
-        //     type: "GET",
-        //     url:$(this).attr('href'),
-        //     success:function() {
-        //         location.reload();
-        //     }
+        //         type: "GET",
+        //         url: $(this).attr('url'),
+        //         success: function() {
+        //             location.reload();
+        //         }
         //     });
         // });
 
@@ -448,9 +448,14 @@ $(document).ready(function() {
         copyrightBtnClick();
         reproductionBtnClick();
         showSingleImage();
-        setCarouselNavListener();
-        initImgCarouselSelected()
-        formatCarouselNav();
+
+        try {
+            setCarouselNavListener();
+            initImgCarouselSelected()
+            formatCarouselNav();
+        } catch (e) {
+            console.error(e)
+        }
 
     }
 
@@ -583,7 +588,7 @@ const copyPermalinkFR = (e, rep) => {
 
 const permaOut = (e) => {
     e.textContent = "Copiez le lien de l'enregistrement";
-    e.style.backgroundColor = '#047BC1'
+    e.style.backgroundColor = '#0066CC'
 }
 
 // function outFunc() {

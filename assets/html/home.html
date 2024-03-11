@@ -46,20 +46,36 @@
                                 <div class="Input-Wrapper d-flex flex-column">
                                     <div id="simple-search-container">
                                         <div id="simple-search-input-wrapper">
+                                            <input name="$RANKING" value="Y" type="hidden" />
+
+                                            <input name="MULTISEARCH" value="M-S" type="hidden" />
+                                            <!-- NW 20240109 -->
                                             <input id="simple_search_input" type="text" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input" />
 
                                             <button aria-label="Clear search" id="simple-search-reset" alt="Clear search" title="Clear search" type="button">
-                        <i class="fas fa-times"></i>
-                      </button>
+                                              <i class="fas fa-times"></i>
+                                            </button>
                                         </div>
                                         <button aria-label="Search Button" class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search" title="Search" type="submit" value="Search">
-                      <i class="fas fa-search search-button-icon"></i>
-                      <span class="search-button-label">Search</span>
-                    </button>
+                                          <i class="fas fa-search search-button-icon"></i>
+                                          <span class="search-button-label">Search</span>
+                                        </button>
                                     </div>
                                 </div>
+                                <!-- NW 20240109 start -->
+                                <!-- <div class="ontario-form-group ranking-form-group">
+                                    <br/>
+                                    <p class="Main-Sub-Header">Ranking:</p>
+                                    <select class="ontario-input ontario-dropdown ranking-dropdown" id="dropdown-list-example" name="$RANKING" style="width:25%">
+                                      <option value="Y" selected>Enable</option>
+                                      <option value="N">Disable</option>
+                                  </select>
+                                </div> -->
+                                <!-- NW 20240109 end -->
 
-                                <div class="ontario-form-group">
+
+
+                                <!--div class="ontario-form-group">
                                     <fieldset class="ontario-fieldset">
                                         <legend class="visually-hidden">
                                             Radio legend<span class="ontario-label__flag">(required/optional)</span
@@ -126,23 +142,23 @@
                       </div>
                     </div>
                   </fieldset>
-                </div>
-              </div>
-            </form>
-            <div class="subheader">
-              <p class="Main-Sub-Header">Search by</p>
-              <div class="Main-Search-Options-Section">
-                <a
-                   href="^home_sessid^?queryform&database=PEOPLE_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchPeople.html">
-				  People</a>
-                <span>|</span>
-                                            <a href="^home_sessid^?queryform&database=ORGANIZATION_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchOrganization.html">
-			      Organization</a>
-                                            <span>|</span>
-                                            <a href="^home_sessid^?queryform&database=PEOPLE_VAL&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html">
-				  Creator list</a>
-                                </div>
+                </div> -->
+                                <br>
                             </div>
+                        </form>
+                        <div class="subheader">
+                            <p class="Main-Sub-Header">Search by</p>
+                            <div class="Main-Search-Options-Section">
+                                <a href="^home_sessid^?queryform&database=PEOPLE_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchPeople.html">
+				  People</a>
+                                <span>|</span>
+                                <a href="^home_sessid^?queryform&database=ORGANIZATION_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchOrganization.html">
+			      Organization</a>
+                                <span>|</span>
+                                <a href="^home_sessid^?queryform&database=PEOPLE_VAL&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html">
+				  Creator list</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

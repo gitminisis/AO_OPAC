@@ -22,8 +22,8 @@ let ReproEnum = {
     CHARGE: 21
 }
 
-class Payment {#
-    privatePaymentItem;
+class Payment {
+    #privatePaymentItem;
 
     constructor(node) {
         this.#privatePaymentItem = node;
@@ -41,9 +41,8 @@ class Payment {#
     
         @params { node }       a JSON object (HTMLCOLLECTION Object)
         @return { formValues } a JSON object
-    */
-    #
-    privateGetReproductionRowValues = (node) => {
+    */   
+    #privateGetReproductionRowValues = (node) => {
         let formValues = {};
         let childNodes = node.childNodes;
 
@@ -71,8 +70,7 @@ class Payment {#
         @param { formValues } a JSON object
         @param { payNodes }   a JSON object
     */
-    #
-    privateSetForm = (formValues, payNodes) => {
+    #privateSetForm = (formValues, payNodes) => {
 
         payNodes.patronId.innerText = formValues.patronId;
         payNodes.merchantNum.innerText = formValues.merchantNum;
@@ -90,8 +88,7 @@ class Payment {#
     
         @returns { JSON } a JSON object
     */
-    #
-    privateGetPayNodes = () => {
+    #privateGetPayNodes = () => {
         let patronId = document.getElementById('Pay-Client-Id');
         let merchantNum = document.getElementById('Pay-Merchant-Num');
         let prodId = document.getElementById('Pay-Product-Id');
