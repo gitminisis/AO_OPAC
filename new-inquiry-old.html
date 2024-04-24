@@ -1,5 +1,5 @@
 <script>
-    fetch('https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[ao_assets]html~5chome.html&rid=aims-home')
+    fetch('https://aimsarchives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[ao_assets]html~5chome.html&rid=aims-home')
         .then((response) => response.text())
         .then((data) => {
             var doc = new DOMParser().parseFromString(data, "text/html");

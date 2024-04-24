@@ -1,0 +1,51 @@
+
+    <!-- include virtual="[AO_INCLUDES]head.htm"-->
+
+        
+        <!-- include virtual="[AO_INCLUDES]header.htm"-->
+        <title>Advanced Search</title>
+
+        <div id='Content-Wrapper' class='Content-Wrapper'>
+
+            <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+
+            <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+                <h1  class='Rale-Extra'>Advanced Search</h1>
+                <div class='Form-Wrapper'>
+                   
+                    <form id='Main-Form' class="Advanced-Form" method="post" name="adv_search" action="^home_sessid^?unionsearch&KEEP=Y&application=union_view&language=144&SIMPLE_EXP=Y&ERRMSG=[AO_INCLUDES]error~5cnorecord.htm">
+                        
+
+                        <div class="input-group mb-3 Rale-Reg">
+                            <div class="input-group-prepend adv-operator-container" hidden>
+                                <select name="B01" id="B01" class="btn btn-md m-0 px-3 py-2 z-depth-0 waves-effect">
+                                    <option value="and" selected="">And</option>
+                                    <option value="or">Or</option>
+                                    <option value="and not">Not</option>
+                                </select>
+                            </div>
+                            
+                            <input type="text" class="form-control" title='title' name="UN_TITLE_CL" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Title">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-md btn-outline waves-effect m-0 px-3 py-2 z-depth-0" data-bs-toggle="modal" data-bs-target="#fullHeightModalRight" id="UN_TITLE_CL"><i class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+
+                        
+
+                       
+                        <div class='Search-Options-Wrapper d-flex justify-content-evenly'>
+                            
+                            <input class='Search-Option-Button' alt='Search' title='Search' type='submit' value='SEARCH'/>
+                            <button class="Search-Option-Button" alt='Clear' title='Clear' id="clear" type="reset">CLEAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
+
+        </div>
+        <!-- include virtual="[AO_INCLUDES]advSearchBrowse.htm"-->
+        
+        <!-- include virtual="[AO_INCLUDES]footer.htm"-->

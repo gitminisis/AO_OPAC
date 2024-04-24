@@ -1,0 +1,64 @@
+.advsearch_checkbox{
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0 20px 0;
+}
+
+ul.advsearch_checkbox li{
+    margin: 0;
+    width: 40%;
+    padding: 5px 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+}
+
+@media only screen and (max-width: 1025px) {
+    
+    .Form-Subheader {
+        font-size: 1.25em;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    
+    .Form-Subheader {
+        font-size: 1em;
+    }
+}
+
+#adv-search-field::placeholder{
+    font-style: italic;
+    white-space:pre-line;
+    position:relative;
+   
+}
+
+.form-control{
+    border-color:black !important;
+}
+.form-control:focus{
+    border-color:black !important;
+    border: 2px solid black;
+    box-shadow: none;
+}
+
+
+.btn:focus{
+    box-shadow: none !important;
+    border: 1px solid black;
+    border-radius: 0px;
+}
+
+.adv-operator-container{
+    border: 1px solid black;
+}
+#record_creators_list{
+    width: 50%
+}
+.alpha-list{
+    margin: 1em;
+}

@@ -1,0 +1,28 @@
+#my-requests {
+    font-size: 0.85rem;
+}
+
+.reprod-item {
+    display: flex;
+    flex-direction: row;
+}
+
+.reprod-item > span {
+    display: flex;
+    flex: 7
+    /* justify-content: flex-start; */
+}
+
+.reprod-item > label {
+    display: flex;
+    flex :3
+    /* justify-content: flex-start; */
+}
+
+.enq-title,
+.enq-topic {
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: wrap;  
+    width: 10%;
+}

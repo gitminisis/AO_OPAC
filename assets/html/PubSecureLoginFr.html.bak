@@ -145,7 +145,7 @@
         let checkEmail = async email => {
             //TODO: Change lang depends $LANG
             const res = await fetch(
-                `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[AO_INCLUDES]noEmail.xml`
+                `https://aimsarchives.gov.on.ca/scripts/mwimain.dll/144/CLIENT_REGISTRATION/WEB_EMAIL_CHECK/C_EMAIL "${email}"?SESSIONSEARCH&NOMSG=[AO_INCLUDES]noEmail.xml`
             )
             const data = await res.text()
 
@@ -187,12 +187,12 @@
 
                             // Account has not been created
                             if (res) {
-                                window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSignup${frPostFix}.html`
+                                window.location = `https://aimsarchives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSignup${frPostFix}.html`
                                     // window.location = `${HOME_SESSID}?addsinglerecord&database=client_registration&de_form=[AO_ASSETS]html/registration.html`
                             }
                             // Existing Account
                             else {
-                                window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html`
+                                window.location = `https://aimsarchives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLogin.html`
                             }
                         })
                     } else {
@@ -200,7 +200,7 @@
                         // console.log('Could not get the user info');
                         // debugger;
 
-                        window.location = 'https://test.aims.archives.gov.on.ca'
+                        window.location = 'https://aimsarchives.gov.on.ca'
                     }
                 } catch (e) {
                     if (
@@ -222,14 +222,14 @@
                 // After the user signs into public secure they will be redirected to this page
                 // with tokens in the URL
                 //alert("In the sign in with redirect");
-                window.location = `https://stage.signin.ontario.ca/oauth2/aus187zrqyTXcJAHA5d7/v1/authorize?client_id=0oa472jfxf2ixcXK55d7&code_challenge=gx465tDX1NdJiNNwDA3cC8rOo5fo-iHdEZ6y38DEvOY&code_challenge_method=S256&nonce=zsny4V47A4K2DTNJCX41gXbGjToYj8lW3nL7WYZuIcf8XY7lKK9vPMAszvFBLOCA&redirect_uri=https%3A%2F%2Ftest.aims.archives.gov.on.ca%2Fassets%2Fhtml%2FPubSecureLoginFr.html&response_type=code&state=ZyAlkPtxV8jDoQ5BGywMUpMt2w5s4AOtYHGqqRGrelYSAk4Ju8Oy8w0vBXaTHhHC&scope=openid%20profile%20email`
+                window.location = `https://stage.signin.ontario.ca/oauth2/aus187zrqyTXcJAHA5d7/v1/authorize?client_id=0oa472jfxf2ixcXK55d7&code_challenge=gx465tDX1NdJiNNwDA3cC8rOo5fo-iHdEZ6y38DEvOY&code_challenge_method=S256&nonce=zsny4V47A4K2DTNJCX41gXbGjToYj8lW3nL7WYZuIcf8XY7lKK9vPMAszvFBLOCA&redirect_uri=https%3A%2F%2Faimsarchives.gov.on.ca%2Fassets%2Fhtml%2FPubSecureLoginFr.html&response_type=code&state=ZyAlkPtxV8jDoQ5BGywMUpMt2w5s4AOtYHGqqRGrelYSAk4Ju8Oy8w0vBXaTHhHC&scope=openid%20profile%20email`
             } else {
                 if (
                     getCookie('M2L_AUDIENCE') &&
                     getCookie('M2L_PATRON_ID') &&
                     getCookie('M2L_PATRON_NAME')
                 ) {
-                    window.location = 'https://test.aims.archives.gov.on.ca'
+                    window.location = 'https://aimsarchives.gov.on.ca'
                 } else {
                     // parse tokens from the redirect and store.
                     // await authClient.storeTokensFromRedirect();
@@ -246,11 +246,11 @@
                         // Account has not been created
                         if (res) {
                             window.location = `
-                https: //test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSignupFr.html`
+                https: //aimsarchives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSignupFr.html`
                         }
                         // Existing Account
                         else {
-                            window.location = `https://test.aims.archives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLoginFr.html`
+                            window.location = `https://aimsarchives.gov.on.ca/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[AO_ASSETS]html/publicSecureLoginFr.html`
                         }
                     })
                 }
