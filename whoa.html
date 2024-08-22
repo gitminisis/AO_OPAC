@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -59,20 +59,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
 </head>
 
-<body></body>
-
-</html>
-
+<body>
 
 <header>
     <div class='Header-Wrapper'>
-        <div id="skip">
-            <div id="skipnav">
-                <p class="skipnav">
-                    <a href="#maincontent" aria-label="Skip directly to main content" role="link">skip to main content (Press Enter)</a>
-                </p>
-            </div>
-        </div>
         <div class='d-flex flex-row justify-content-between Header-Row'>
             <div id='Header-Logo'>
                 <a class="Header-Logo-Anchor" href='https://www.ontario.ca/page/government-ontario'>
@@ -82,9 +72,10 @@
                 </a>
             </div>
             <div class="Header-Row-Top">
-                <a class="Header-Row-Link" href='/announcement_fr.html'>Fran&ccedil;ais</a>
+                <a class="Header-Row-Link" href='/scripts/mwimain.dll?logon&application=UNION_VIEW&language=145&file=[ao_opac]/145/assets/html~5chome.html'>Fran&ccedil;ais</a>
             </div>
         </div>
+        <!-- <h1 class='Ministry-Header Rale-Bold'>Ministry of Public and Business Service Delivery</h1> -->
         <div id="top"></div>
         <div class="accordion Header-Mobile-Nav" id="accordionPanelsStayOpen">
             <div class="accordion-item">
@@ -121,38 +112,19 @@
         </div>
 </header>
 
-<title>Archives of Ontario search</title>
-
-<div id="Content-Wrapper" class="Content-Wrapper">
+<title>OPAC reloading</title>
 
 
-    <div id="home-main-wrapper">
+<div id='Content-Wrapper' class='Content-Wrapper'>
 
-        <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
-            <div id="maincontent">
-                <div id="homepage-container">
-                    <div class="Form-Wrapper">
-                        <h1 class="Rale-Bold Main-Content-Heading">
-                            Search the Archives of Ontario
-                        </h1>
-                        <br />
-                        <p class="subheader ">Dear Visitor,</p>
-                        <p class="subheader ">
-                            We appreciate your visit to our website. We are currently performing scheduled updates and apologize for any inconvenience.
-                        </p>
-                        <p class="subheader ">
-                            The AIMS accounts will be disabled shortly. Please ensure you have the information you need including any inquiries or bookmarks saved as these will no longer be available. Inquiries can now be sent directly to reference@ontario.ca
-                        </p>
 
-                        <p class="subheader ">We encourage you to check back later.</p>
-                        <p class="subheader ">Thank you for your patience and understanding.</p>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div id='Panel-Main' class='Panel-Main Main-Content d-flex flex-column align-items-center'>
+        <h2 style="text-align: center;">Web site is being refreshed. Please visit us in few minutes.</h2>
+		<br/>
+		<a href="https://test_aims.archives.gov.on.ca"><button class="action-button btn btn-primary">Home</button></a>
     </div>
 
+</div>
 </div>
 
 <footer>
@@ -177,99 +149,7 @@
     <div class='Footer-Navigation'><a id='copy-king' href="https://www.ontario.ca/page/copyright-information"><i class="far fa-copyright fa-3xs"></i> King's printer for Ontario, 2012-24</a></div>
 
 </footer>
-<button onClick="scrollToTop()" id="actual-btt-button" class="ontario-back-to-top--default">
-  <svg
-    class="ontario-icon"
-    alt=""
-    aria-hidden="true"
-    focusable="false"
-    sol:category="primary"
-    viewBox="0 0 24 24"
-    preserveAspectRatio="xMidYMid meet"
-  >
-    <path d="M0 0h24v24H0V0z" fill="none" />
-    <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" />
-    <use href="#ontario-icon-arrow-up"></use>
-  </svg>
-  Top
-</button>
-<script>
-    window.addEventListener("scroll", function() {
-        let scroll = document.getElementById("actual-btt-button");
-        scroll.classList.toggle("active", window.scrollY > 200);
-    });
-
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth"
-        });
-    }
-</script>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-
-
-<!-- Lightgallery v1.3.1-->
-<!-- <script src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.3.1/dist/js/lightgallery.min.js"></script> -->
-<script src="/assets/js/lightgallery.js"></script>
-
-<!-- Lightgallery v1.3.0-->
-<!-- <script src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.3.0/dist/lg-zoom.min.js"></script> -->
-<script src="/assets/js/lg-zoom.js"></script>
-
-
-
-<!-- Lightgallery v1.2.0-->
-<!-- <script src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script> -->
-<script src="/assets/js/lg-thumbnail.js"></script>
-
-
-<script src="/assets/js/index.js"></script>
-<script src="/assets/js/advancedsearch.js"></script>
-<script src="/assets/js/enquiry.js"></script>
-<script src="/assets/js/dynpkey.js"></script>
-<script src="/assets/js/registration.js"></script>
-<script src="/assets/js/summary.js"></script>
-<script src="/assets/js/detail.js"></script>
-
-<script type="text/javascript">
-    lightGallery(document.getElementById('lightgallery'), {
-        selector: '.carousel__slide',
-        mode: 'lg-slide',
-        cssEasing: 'ease',
-        // getCaptionFromTitleOrAlt: true,
-        keyPress: true,
-        thumbnail: true,
-        zoom: true,
-        scale: 1,
-        counter: true
-    });
-</script>
-
-<script src="/assets/js/confirmation.js"></script>
-<script src="/assets/js/patron.js"></script>
-<script src="/assets/js/profanityWords.js"></script>
-<script src="/assets/js/profanity.js"></script>
-<script src="/assets/js/payment.js"></script>
-<script src="/assets/js/reproduction.js"></script>
-<script src="/assets/js/request.js"></script>
-<script src="/assets/js/tree.js"></script>
-<script src="/assets/js/xml2json.min.js"></script>
-<script src="/assets/js/marc.js"></script>
-
-
-
-
-
-
 
 </body>
 
 </html>
-
-
-</script>

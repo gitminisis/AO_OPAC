@@ -7,12 +7,12 @@
     margin-right: 5px;
 }
 
-.authority-h3 {
+.authority-h2 {
     font-size: 24px;
     padding: 0 0.5rem;
 }
 
-.authority-h4 {
+.authority-h3 {
     font-size: 24px !important;
     padding: 0 0.5rem;
 }
@@ -188,7 +188,8 @@
     background-color: #F2F2F2 !important;
 }
 
-table td {
+table td,
+table th {
     padding: 1rem 0.5rem !important;
 }
 
@@ -203,6 +204,10 @@ table {
     overflow: hidden;
     width: 100%;
     /* font-size: 24px; */
+}
+
+table a {
+    color: #0066cc;
 }
 
 #web_det_form {
@@ -825,7 +830,7 @@ button.bookmarkbutton a:hover {
     padding: 24px 12px !important;
 }
 
-..no-margin {
+.no-margin {
     margin: 0;
 }
 
@@ -834,12 +839,12 @@ button.bookmarkbutton a:hover {
     margin-right: 5px;
 }
 
-.authority-h3 {
+.authority-h2 {
     font-size: 24px;
     padding: 0 0.5rem;
 }
 
-.authority-h4 {
+.authority-h3 {
     font-size: 24px !important;
     padding: 0 0.5rem;
 }
@@ -1657,7 +1662,7 @@ button.bookmarkbutton a:hover {
     padding: 12px !important;
 }
 
-..no-margin {
+.no-margin {
     margin: 0;
 }
 
@@ -1666,12 +1671,12 @@ button.bookmarkbutton a:hover {
     margin-right: 5px;
 }
 
-.authority-h3 {
+.authority-h2 {
     font-size: 24px;
     padding: 0 0.5rem;
 }
 
-.authority-h4 {
+.authority-h3 {
     font-size: 24px !important;
     padding: 0 0.5rem;
 }

@@ -7,12 +7,12 @@
     margin-right: 5px;
 }
 
-.authority-h3 {
+.authority-h2 {
     font-size: 24px;
     padding: 0 0.5rem;
 }
 
-.authority-h4 {
+.authority-h3 {
     font-size: 24px !important;
     padding: 0 0.5rem;
 }
@@ -825,7 +825,7 @@ button.bookmarkbutton a:hover {
     padding: 24px 12px !important;
 }
 
-..no-margin {
+.no-margin {
     margin: 0;
 }
 
@@ -834,12 +834,12 @@ button.bookmarkbutton a:hover {
     margin-right: 5px;
 }
 
-.authority-h3 {
+.authority-h2 {
     font-size: 24px;
     padding: 0 0.5rem;
 }
 
-.authority-h4 {
+.authority-h3 {
     font-size: 24px !important;
     padding: 0 0.5rem;
 }
@@ -1653,7 +1653,7 @@ button.bookmarkbutton a:hover {
     padding: 12px !important;
 }
 
-..no-margin {
+.no-margin {
     margin: 0;
 }
 
@@ -1662,12 +1662,12 @@ button.bookmarkbutton a:hover {
     margin-right: 5px;
 }
 
-.authority-h3 {
+.authority-h2 {
     font-size: 24px;
     padding: 0 0.5rem;
 }
 
-.authority-h4 {
+.authority-h3 {
     font-size: 24px !important;
     padding: 0 0.5rem;
 }

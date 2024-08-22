@@ -335,14 +335,13 @@ const crowdsourceBtnClick = () => {
  * *                   * *
  * * * * * * * * * * * * */
 $(document).ready(function() {
-
+    
     let countMarcBtn = 1,
         countMarcXML = 1;
     let page = document.getElementById('Detail-Content');
 
     if (page !== null) {
         // disableRequestBtn();
-
         if ($(".Detail-Container").length === 1) {
             $(".marc-btn").each(function() {
                 $(this).attr("data-bs-target", "#marcModal" + countMarcBtn++);

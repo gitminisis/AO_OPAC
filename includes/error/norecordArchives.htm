@@ -4,38 +4,31 @@
 <title>Archives of Ontario - No Archives Results</title>
 
 <div id="Content-Wrapper" class="Content-Wrapper">
-    <!-- include virtual="[AO_INCLUDES]home/leftPanel.html" -->
+  <!-- include virtual="[AO_INCLUDES]home/leftPanel.html" -->
 
-    <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
-        <div class="search-error-wrapper">
-            <p class="No-Record-Header">
-                No results found for <span id="no-record-statement">^parm1^</span> in Archives of Ontario:
-                <strong>archival collection</strong>
-            </p>
+  <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center" aria-label="Content"
+    role="main">
+    <div class="search-error-wrapper">
+      <p class="No-Record-Header">
+        No results found for <span id="no-record-statement">^parm1^</span> in Archives of Ontario:
+        <strong>archival collection</strong>
+      </p>
 
-            <ul>
-                <li>check your spelling</li>
-                <li>enter another search term</li>
-                <li>select a different keyword option (all, any, exact)</li>
-                <li>
-                    search in a specific collection (<a href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=COLLECTIONS_WEB&language=144&file=[AO_ASSETS]html/art.html">art</a
-          >,
+      <ul>
+        <li>check your spelling</li>
+        <li>enter another search term</li>
+        <li>select a different keyword option (all, any, exact)</li>
+        <li>
+          search in a specific collection (<a
+            href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=COLLECTIONS_WEB&language=144&file=[AO_ASSETS]html/art.html">art</a>,
           <a
-            href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=DESCRIPTION_WEB&language=144&file=[AO_ASSETS]html/archival.html"
-            >archival</a
-          >,
+            href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=DESCRIPTION_WEB&language=144&file=[AO_ASSETS]html/archival.html">archival</a>,
           <a
-            href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=BIBLIO_WEB&language=144&file=[AO_ASSETS]html/library.html"
-            >library</a
-          >)
+            href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=BIBLIO_WEB&language=144&file=[AO_ASSETS]html/library.html">library</a>)
         </li>
       </ul>
       <p>
-        <a
-          href="http://www.archives.gov.on.ca/en/about/contact.aspx"
-          target="_blank"
-          >Contact us</a
-        >
+        <a href="http://www.archives.gov.on.ca/en/about/contact.aspx" target="_blank">Contact us</a>
         if you need help to find what you're looking for.
       </p>
     </div>
@@ -46,64 +39,40 @@
             Search archival collection
           </h1>
 
-          <form
-            id="Main-Form"
-            class="minimum-font-size"
-            method="post"
-            name="simple_search"
+          <form id="Main-Form" class="minimum-font-size" method="post" name="simple_search"
             action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm&report=WEB_DESC_SUM"
-          >
+            role="search">
             <div class="main-form-left">
               <span id="Number-Results"></span>
               <div class="Input-Wrapper d-flex flex-column">
                 <div id="simple-search-container">
-                  <input
-                    id="simple_search_input"
-                    type="text"
-                    
-                    name="KEYWORD_CLUSTER"
-                    autofocus
-                    aria-label="Simple Search Input"
-                  />
-                  <button
-                    aria-label="Search Button"
-                    class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary"
-                    alt="Search"
-                    title="Search"
-                    type="submit"
-                    value="Search"
-                  >
+                  <input id="simple_search_input" type="text" name="KEYWORD_CLUSTER" aria-label="Enter your search here to find archival results" />
+                  <button aria-label="Search Button"
+                    class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search"
+                    title="Search Button" type="submit" value="Search">
                     <i class="fas fa-search search-button-icon"></i>
                     <span class="search-button-label">Search</span>
                   </button>
                 </div>
               </div>
 
-            
+
             </div>
           </form>
           <div class="subheader">
             <p class="Main-Sub-Header">Search by</p>
             <div class="Main-Search-Options-Section">
-              <a
-                href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArchives.html"
-                >Archival advanced</a
-              >
+              <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArchives.html">Archival advanced</a>
               <span>|</span>
               <a
-                href="^home_sessid^?queryform&database=PEOPLE_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchPeople.html"
-                >People</a
-              >
+                href="^home_sessid^?queryform&database=PEOPLE_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchPeople.html">People</a>
               <span>|</span>
               <a
-                href="/scripts/mwimain.dll?logon&application=UNION_VIEW&DATABASE=ORGANIZATION_VAL_SYN&language=144&file=[AO_ASSETS]html/advancedsearchOrganization.html"
-                >Organization</a
-              >
+                href="/scripts/mwimain.dll?logon&application=UNION_VIEW&DATABASE=ORGANIZATION_VAL_SYN&language=144&file=[AO_ASSETS]html/advancedsearchOrganization.html">Organization</a>
               <span>|</span>
               <a
-                href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html"
-                >Creator list</a
-              >
+                href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html">Creator
+                list</a>
             </div>
           </div>
         </div>

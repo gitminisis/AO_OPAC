@@ -221,21 +221,14 @@ const setPaginationAccessiblity = (page) => {
     let list = null;
     let grid = null;
 
-    for (let i = 0; i < 2; i++) {
-        for (let j = 1; j < len - 1; j++) {
-            let pageIdx = paginations[i].children[j];
-            pageIdx.setAttribute("aria-label", `Page ${pageIdx.textContent}`);
-        }
-    }
-
-    dblright = [...document.getElementsByClassName("summary-double-right")];
+    dblRight = [...document.getElementsByClassName("summary-double-right")];
     dblLeft = [...document.getElementsByClassName("summary-double-left")];
     prev = [...document.getElementsByClassName("summary-prev-btn")];
     next = [...document.getElementsByClassName("summary-next-btn")];
     list = [...document.getElementsByClassName("summary-list-btn")];
     grid = [...document.getElementsByClassName("summary-grid-btn")];
 
-    dblright.forEach((elem) => {
+    dblRight.forEach((elem) => {
         let parent = elem.parentNode;
         parent.nodeName == "A" ?
             elem.parentNode.setAttribute("aria-label", "Next Page") :
@@ -271,6 +264,12 @@ const setPaginationAccessiblity = (page) => {
             elem.parentNode.setAttribute("aria-label", "Switch to Grid View") :
             elem.setAttribute("aria-label", "Switch to Grid View");
     });
+    for (let i = 0; i < 2; i++) {
+        for (let j = 1; j < len - 1; j++) {
+            let pageIdx = paginations[i].children[j];
+            pageIdx.setAttribute("aria-label", `Page ${pageIdx.textContent}`);
+        }
+    }
 };
 
 let artCarousel = [...document.getElementsByClassName("art-carousel-img")];

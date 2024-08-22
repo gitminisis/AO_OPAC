@@ -124,9 +124,9 @@ $(document).ready(function() {
                 $(".filter-class").append(
                     $(
                         newline +
-                        "<h4 class='filter-title' style='font-size:18px; text-align:center;'><b>" +
+                        "<h3 class='filter-title' style='font-size:18px; text-align:center;'><b>" +
                         filter_title +
-                        "</b></h4><ul id=" +
+                        "</b></h3><ul id=" +
                         filter_dropdown_id +
                         " list-group' class='general-desc filter-ul " +
                         filter_ul_responsive +
@@ -734,11 +734,15 @@ appendDatabaseToSearchStatement();
 $('#simple_search_input').focus(function() {
     $('#simple-search-container').addClass('simple_search_input_focus')
 })
-
+$('.input-group-prepend select, .form-control, .input-group-append button').focus(function() {
+    $(this).parent().addClass('simple_search_input_focus')
+})
 $('#simple_search_input').blur(function() {
     $('#simple-search-container').removeClass('simple_search_input_focus')
 })
-
+$('.input-group-prepend select, .form-control, .input-group-append button').blur(function() {
+    $(this).parent().removeClass('simple_search_input_focus')
+})
 /** Handle Focus simple search input */
 $('.simple-search-btn').focus(function() {
     $('#simple-search-container').addClass('simple_search_input_focus')

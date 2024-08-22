@@ -527,3 +527,7 @@ form div .Crowd-Header-Title {
 .filter_ul_responsive {
     height: auto;
 }
+
+.media-title {
+    font-size: 1.25rem;
+}

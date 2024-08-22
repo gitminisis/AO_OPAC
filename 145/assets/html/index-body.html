@@ -1,6 +1,8 @@
 <form method="post" class="mb-4" id="listSearch-form" action="^FIND^">
     <input type="hidden" name="KEYNAME" value="^KEYNAME^">
     <div class="row input-group">
+        <label class="ontario-label visually-hidden" for="listSearch">
+            Recherche dans la Liste d'index</label>
         <div class="col-md-9" style="padding-right:0;">
             <input class="form-control" id="listSearch" type="text" name="KEYVALUE" placeholder="Tapez quelque chose pour rechercher des &eacute;l&eacute;ments de liste
             ">
@@ -13,19 +15,21 @@
 
 
 <div style="text-align: center;" id="myList">
-    <button type="button" class="btn btn-primary" title="Pr&eacute;c&eacute;dent" onclick='clusterButton(event,"^PREV^")'>Pr&eacute;c&eacute;dent</button>
-    <button type="button" class="btn btn-primary" title="Suivant" onclick='clusterButton(event,"^NEXT^")'>Suivant</button>
+    <button type="button" class="btn btn-primary" title="Bouton Pr&eacute;c&eacute;dent" onclick='clusterButton(event,"^PREV^")'>Pr&eacute;c&eacute;dent</button>
+    <button type="button" class="btn btn-primary" title="Bouton Suivant" onclick='clusterButton(event,"^NEXT^")'>Suivant</button>
 </div>
 </div>
 &nbsp;
 
 <div id="search-value-wraper">
+    <label class="ontario-label visually-hidden" for="search-value">Liste d'index</label>
     <select class="form-control" id="search-value" name="keyvalue_list" size="15">
           ^INDEX_LIST^
-  </select> &nbsp;
+    </select> 
+    &nbsp;
 
     <div style="text-align: center;">
-        <button type="button" class="btn btn-primary" title="D'abord" onclick='clusterButton(event,"^FIRST^")'>D'abord</button>
-        <button type="button" class="btn btn-primary" title="Dernier" onclick='clusterButton(event,"^LAST^")'>Dernier</button>
+        <button type="button" class="btn btn-primary" title="Bouton D'abord" onclick='clusterButton(event,"^FIRST^")'>D'abord</button>
+        <button type="button" class="btn btn-primary" title="Bouton Dernier" onclick='clusterButton(event,"^LAST^")'>Dernier</button>
     </div>
 </div>

@@ -4,63 +4,67 @@
 <title>Library search - Archives of Ontario</title>
 
 <div id="Content-Wrapper" class="Content-Wrapper">
-    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
-    <div id="home-main-wrapper">
-        <div id="banner">
-            <img id="banner-img" src="/assets/img/library.png" alt="" />
-        </div>
-        <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
-            <div id="maincontent">
-                <div id="homepage-container">
-                    <div class="Form-Wrapper">
-                        <h1 class="Rale-Bold Main-Content-Heading">
-                            Search library collection
-                        </h1>
+  <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+  <div id="home-main-wrapper">
+    <div id="banner">
+      <img id="banner-img" src="/assets/img/library.png" alt="" />
+    </div>
+    <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center" aria-label="Content" role="main">
+      <div id="maincontent">
+        <div id="homepage-container">
+          <div class="Form-Wrapper">
+            <h1 class="Rale-Bold Main-Content-Heading">
+              Search library collection
+            </h1>
 
-                        <div class="subheader">
-                            <p>
-                                The library collection has more than 85,000 print, electronic, and microform items, and can include:
-                            </p>
-                            <ul>
-                                <li>
-                                    <p>books, pamphlets, periodicals</p>
-                                </li>
-                                <li>
-                                    <p>Ontario government publications</p>
-                                </li>
-                                <li>
-                                    <p>directories, schoolbooks, almanacs, and voters lists</p>
-                                </li>
-                            </ul>
-                        </div>
+            <div class="subheader">
+              <p>
+                The library collection has more than 85,000 print, electronic, and microform items, and can include:
+              </p>
+              <ul>
+                <li>
+                  <p>books, pamphlets, periodicals</p>
+                </li>
+                <li>
+                  <p>Ontario government publications</p>
+                </li>
+                <li>
+                  <p>directories, schoolbooks, almanacs, and voters lists</p>
+                </li>
+              </ul>
+            </div>
 
-                        <form id="Main-Form" class="minimum-font-size" method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=BIBLIO_WEB&ERRMSG=[AO_INCLUDES]error/norecordLibrary.htm&report=WEB_BIBLIO_SUM">
-                            <div class="main-form-left">
-                                <span id="Number-Results"></span>
-                                <div class="Input-Wrapper d-flex flex-column">
-                                    <div id="simple-search-container">
-                                        <div id="simple-search-input-wrapper">
-                                            <input name="$RANKING" value="Y" type="hidden" />
+            <form id="Main-Form" class="minimum-font-size" method="post" name="simple_search"
+              action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=BIBLIO_WEB&ERRMSG=[AO_INCLUDES]error/norecordLibrary.htm&report=WEB_BIBLIO_SUM" role="search">
+              <div class="main-form-left">
+                <span id="Number-Results"></span>
+                <div class="Input-Wrapper d-flex flex-column">
+                  <div id="simple-search-container">
+                    <div id="simple-search-input-wrapper">
+                      <input name="$RANKING" value="Y" type="hidden" />
 
-                                            <input name="MULTISEARCH" value="M-S" type="hidden" />
-                                            <!-- NW 20240109 -->
-                                            <input id="simple_search_input" type="text" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input" />
+                      <input name="MULTISEARCH" value="M-S" type="hidden" />
+                      <!-- NW 20240109 -->
+                      <input id="simple_search_input" type="text" name="KEYWORD_CLUSTER"                      aria-label="Simple Search Input" />
 
-                                            <button aria-label="Clear search" id="simple-search-reset" alt="Clear search" title="Clear search" type="button">
+                      <button aria-label="Clear search" id="simple-search-reset" alt="Clear search" title="Clear search"
+                        type="button">
                         <i class="fas fa-times"></i>
                       </button>
-                                        </div>
+                    </div>
 
-                                        <button aria-label="Search Button" class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search" title="Search" type="submit" value="Search">
+                    <button aria-label="Search Button"
+                      class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search"
+                      title="Search Button" type="submit" value="Search">
                       <i class="fas fa-search search-button-icon"></i>
                       <span class="search-button-label">Search</span>
                     </button>
-                                    </div>
-                                </div>
+                  </div>
+                </div>
 
 
-                                <!-- NW 20240109 start -->
-                                <!-- <div class="ontario-form-group ranking-form-group">
+                <!-- NW 20240109 start -->
+                <!-- <div class="ontario-form-group ranking-form-group">
                           <br/>
                           <p class="Main-Sub-Header">Ranking:</p>
                           <select class="ontario-input ontario-dropdown ranking-dropdown" id="dropdown-list-example" name="$RANKING" style="width:25%">
@@ -68,8 +72,8 @@
                               <option value="N">Disable</option>
                           </select>
                         </div> -->
-                                <!-- NW 20240109 end -->
-                                <!-- <div class="ontario-form-group">
+                <!-- NW 20240109 end -->
+                <!-- <div class="ontario-form-group">
                                     <fieldset class="ontario-fieldset">
                                         <legend class="visually-hidden">
                                             Radio legend<span class="ontario-label__flag">(required/optional)</span
@@ -137,13 +141,12 @@
                     </div>
                   </fieldset>
                 </div> -->
-                            </div>
-                        </form>
-                        <div class="subheader">
-                            <p class="Main-Sub-Header">Search by</p>
-                            <div class="Main-Search-Options-Section">
-                                <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchLibrary.html">Library advanced</a
-                >
+              </div>
+            </form>
+            <div class="subheader">
+              <p class="Main-Sub-Header">Search by</p>
+              <div class="Main-Search-Options-Section">
+                <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchLibrary.html">Library advanced</a>
               </div>
             </div>
           </div>

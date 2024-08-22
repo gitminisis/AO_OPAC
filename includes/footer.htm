@@ -74,9 +74,6 @@
 <script src="/assets/js/tree.js"></script>
 <script src="/assets/js/xml2json.min.js"></script>
 <script src="/assets/js/marc.js"></script>
-
-
-
 <script type="text/javascript">
     // var sessid = "^SESSID^";
     // var patron_id = getCookie("M2L_PATRON_ID");
@@ -97,7 +94,22 @@
     //     $("#login-btn").attr("hidden", false);
     // }
 </script>
-
+<script type="text/javascript">
+    if($(".Detail-Container").length && $("#tree-expand").length){
+        $( ".accordion-button" ).on( "click", function() {
+            $("#tree-expand #panelsStayOpen-collapseOne #tree-body .jstree-children li").each(function(){
+                let testing = $(this).attr("aria-labelledby")
+                $(this).removeAttr("aria-labelledby")
+                $(this).attr("aria-label",testing)
+                
+            });
+            $("#tree-expand #panelsStayOpen-collapseOne #tree-body ul.jstree-children").each(function(){
+                $(this).attr("aria-label","Description Hiearchy Content")
+            });
+            
+        });
+    }
+</script>
 
 
 </body>

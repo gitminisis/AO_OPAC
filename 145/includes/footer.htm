@@ -103,7 +103,17 @@
     //     $("#login-btn").attr("hidden", false);
     // }
 </script>
-
+<script type="text/javascript">
+    if($(".Detail-Container").length && $("#tree-expand").length){
+        $( ".accordion-button" ).on( "click", function() {
+            $("#tree-expand #panelsStayOpen-collapseOne #tree-body .jstree-children li").each(function(){
+                let testing = $(this).attr("aria-labelledby")
+                $(this).removeAttr("aria-labelledby")
+                $(this).attr("aria-label",testing)
+            });
+        })
+    }
+</script>
 
 
 </body>

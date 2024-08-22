@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Reset IPA OPAC</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+<body>
+  <h3>Reset IPA OPAC</h3>
+  <form method="post" action="https://test.aims.archives.gov.on.ca/reset?aoopac" onsubmit="return show_icon();">
+    <p>Access Code <input type="password" name="ACCESSCODE">
+    <p>
+      <input type="submit" value="Submit">
+    </p>
+  </form>
+    <div class="loading" style="display:none;" id="reset-waiting"><i class="fa fa-spin fa-gear fa-4x"></i></div>
+    <script>
+      function show_icon()
+      {
+        // enable wiating icon
+        var waiting_icon = document.getElementById("reset-waiting");
+        if ( waiting_icon != null ) {
+          waiting_icon.style.display = "block";
+        }
+        return true;
+      }
+    </script>
+</body>
+</html>

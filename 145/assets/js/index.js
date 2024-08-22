@@ -124,9 +124,9 @@ $(document).ready(function() {
                 $(".filter-class").append(
                     $(
                         newline +
-                        "<h4 class='filter-title' style='font-size:18px; text-align:center;'><b>" +
+                        "<h3 class='filter-title' style='font-size:18px; text-align:center;'><b>" +
                         filter_title +
-                        "</b></h4><ul id=" +
+                        "</b></h3><ul id=" +
                         filter_dropdown_id +
                         " list-group' class='general-desc filter-ul " +
                         filter_ul_responsive +
@@ -295,7 +295,7 @@ let timerCountdown = () => {
     let timer = setInterval(() => {
         timeout--;
         if (timeout === 20) {
-            $('body').append(`<div id="timeoutModal" class="modal fade " tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Avertissement!</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" > <p id="timeoutModalBody">Votre session va expirer et vous serez déconnecté dans ${timeout} seconde(s)</p> </div> <div class="modal-footer"> <button type="button" id="sessionContinue" class="btn btn-primary">Continuer</button> <button type="button" id="sessionEnd"  class="btn btn-secondary" data-dismiss="modal">Revenir à la page d'accueil</button> </div> </div> </div> </div>`)
+            $('body').append(`<div id="timeoutModal" class="modal fade " tabindex="-1" role="dialog"> <div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <h2 class="modal-title">Avertissement!</h2> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body" > <p id="timeoutModalBody">Votre session va expirer et vous serez déconnecté dans ${timeout} seconde(s)</p> </div> <div class="modal-footer"> <button type="button" id="sessionContinue" class="btn btn-primary">Continuer</button> <button type="button" id="sessionEnd"  class="btn btn-secondary" data-dismiss="modal">Revenir à la page d'accueil</button> </div> </div> </div> </div>`)
             var myModal = new bootstrap.Modal(document.getElementById('timeoutModal'))
             myModal.show()
 
@@ -735,11 +735,15 @@ appendDatabaseToSearchStatement();
 $('#simple_search_input').focus(function() {
     $('#simple-search-container').addClass('simple_search_input_focus')
 })
-
+$('.input-group-prepend select, .form-control, .input-group-append button').focus(function() {
+    $(this).parent().addClass('simple_search_input_focus')
+})
 $('#simple_search_input').blur(function() {
     $('#simple-search-container').removeClass('simple_search_input_focus')
 })
-
+$('.input-group-prepend select, .form-control, .input-group-append button').blur(function() {
+    $(this).parent().removeClass('simple_search_input_focus')
+})
 /** Handle Focus simple search input */
 $('.simple-search-btn').focus(function() {
     $('#simple-search-container').addClass('simple_search_input_focus')

@@ -14,6 +14,7 @@ body {
 a,
 p,
 tr,
+th,
 td {
     font-family: "Open Sans", sans-serif !important;
 }
@@ -490,8 +491,10 @@ td {
     text-decoration: none;
     padding: 5px;
     position: absolute;
-    left: -1000em;
-    top: 0;
+    /* left: -1000em;
+    top: 0; */
+    top: -40px;
+    left: 0;
     font-weight: bold;
 }
 
@@ -502,13 +505,12 @@ td {
 .skipnav a:focus,
 .skipnav a:active {
     z-index: 99;
-    top: -3em;
+    top: 0;
     left: 0;
     border: solid #777 2px;
     color: #fff;
     background: #333 !important;
 }
-
 
 /*Note IE bug that requires use of :active to mimic effect of :focus*/
 
@@ -935,7 +937,7 @@ p {
 }
 
 .simple_search_input_focus {
-    width: 100%;
+    z-index: 999;
     outline: none;
     background: #FFF;
     box-shadow: 0px 0px 0px 4px #009ADB;
@@ -1846,7 +1848,7 @@ p {
 
 .Main-Search-Options-Section a,
 #advanced-search-container a,
-#search-error-wrapper a,
+.search-error-wrapper a,
 .Record-Fields a,
 .breadcrumb a {
     color: #0066cc;
@@ -1942,6 +1944,10 @@ p {
     max-width: 400px;
     margin-top: 16px;
     margin-bottom: 16px;
+}
+
+.input-group-prepend select{
+    height: 100%;
 }
 
 .input-group-prepend,
@@ -2272,4 +2278,8 @@ button {
 
 .ontario-label {
     font-weight: bold !important;
+}
+
+.modal-title {
+    font-size: 1.5rem;
 }

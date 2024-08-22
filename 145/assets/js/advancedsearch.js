@@ -121,7 +121,7 @@ function load_index_page(url) {
 }
 
 // UNION
-$("#UN_TITLE_CL").on("click", function() {
+$("button#UN_TITLE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=UN_TITLE_CL&DATABASE=UNION_VIEW&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = UN_TITLE_FIELD;
@@ -129,159 +129,159 @@ $("#UN_TITLE_CL").on("click", function() {
 
 
 // DESCRIPTION
-$("#REFD_CL").on("click", function() {
+$("button#REFD_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=REFD&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = REFD_FIELD;
 });
-$("#REFD_HIGHER_CL").on("click", function() {
+$("button#REFD_HIGHER_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=REFD_HIGHER&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = REFD_HIGHER_FIELD;
 });
 
-$("#TITLE_CL").on("click", function() {
+$("button#TITLE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=TITLE&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = TITLE_FIELD;
 });
-$("#FORMATS_CL").on("click", function() {
+$("button#FORMATS_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=FORMATS_CL&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = TITLE_FIELD;
 });
-$("#SCOPE_CL").on("click", function() {
+$("button#SCOPE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=SCOPE&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = SCOPE_FIELD;
 });
 
-$("#ORIGIN_CL").on("click", function() {
+$("button#ORIGIN_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ORIGINATOR&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = ORIGINATOR_FIELD;
 });
 
-$("#ASSO_ORG_CL").on("click", function() {
+$("button#ASSO_ORG_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ASSO_ORG_CL&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = ASSO_ORG_FIELD;
 });
 
-$("#PHYS_DESC_CL").on("click", function() {
+$("button#PHYS_DESC_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=PHYSICAL_DESC&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = PHYS_DESC_FIELD;
 });
 
-$("#SEARCH_DATE_CL").on("click", function() {
+$("button#SEARCH_DATE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=DATE_SEARCH&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = SEARCH_DATE_FIELD;
 });
 
-$("#LEVEL_CL").on("click", function() {
+$("button#LEVEL_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=LEVEL_DESC&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = LEVEL_FIELD;
 });
 
-$("#FINDAID_CL").on("click", function() {
+$("button#FINDAID_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=FINDAIDLINK&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = FINDAID_FIELD;
 });
-$("#BARCODE_DESC_CL").on("click", function() {
+$("button#BARCODE_DESC_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=BARCODE_ID&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = BARCODE_DESC_FIELD;
 });
-$("#SUBJECT_DESC_CL").on("click", function() {
+$("button#SUBJECT_DESC_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=SUBJECT&DATABASE=DESCRIPTION_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = SUBJECT_DESC_FIELD;
 });
 
 // COLLECTIONS
-$("#AN_CL").on("click", function() {
+$("button#AN_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ACCESSION_NUMBER&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = AN_FIELD;
 });
 
-$("#LEGAL_TITLE_CL").on("click", function() {
+$("button#LEGAL_TITLE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=LEGAL_TITLE&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = LEGAL_TITLE_FIELD;
 });
 
-$("#OBJ_DESC_CL").on("click", function() {
+$("button#OBJ_DESC_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=OBJ_DESCRIPTION&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = OBJ_DESC_FIELD;
 });
 
-$("#OBJ_TYPE_CL").on("click", function() {
+$("button#OBJ_TYPE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=OBJECT_TYPE&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = OBJ_TYPE_FIELD;
 });
 
-$("#SUB_CL").on("click", function() {
+$("button#SUB_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=SUB_KEYWORD&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = SUB_KEYWORD_FIELD;
 });
 
-$("#EARLY_CL").on("click", function() {
+$("button#EARLY_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=EARLY&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = EARLY_FIELD;
 });
 
-$("#MAKER_CL").on("click", function() {
+$("button#MAKER_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=MAKER_FULLNAME&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = MAKER_FULLNAME_FIELD;
 });
 
-$("#MAKER_ORG_CL").on("click", function() {
+$("button#MAKER_ORG_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=MAKER_ORG&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = MAKE_ORG_FIELD;
 });
 
-$("#MEDIUM_CL").on("click", function() {
+$("button#MEDIUM_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=MEDIUM&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = MEDIUM_FIELD;
 });
-$("#MATERIAL_CL").on("click", function() {
+$("button#MATERIAL_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=MATERIAL_COO&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = MATERIAL_FIELD;
 });
 
-$("#BUILDING_CL").on("click", function() {
+$("button#BUILDING_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=BUILDING&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = BUILDING_FIELD;
 });
 
 
-$("#OBJ_NAME_CL").on("click", function() {
+$("button#OBJ_NAME_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=OBJECT_NAME&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = OBJECT_NAME_FIELD;
 });
 
-$("#PRIMARY_CL").on("click", function() {
+$("button#PRIMARY_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=PRIMARY&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = PRIMARY_FIELD;
 });
 
-$("#OBJ_STATUS_CL").on("click", function() {
+$("button#OBJ_STATUS_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=OBJECT_STATUS&DATABASE=COLLECTIONS_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = OBJECT_STATUS_FIELD;
@@ -290,75 +290,75 @@ $("#OBJ_STATUS_CL").on("click", function() {
 
 // LIBRARY 
 
-$("#ALL_TITLE_CL").on("click", function() {
+$("button#ALL_TITLE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ALL_TITLE_WORD&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = ALL_TITLE_FIELD;
 });
 
-$("#AUTHOR_CL").on("click", function() {
+$("button#AUTHOR_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=AUTHOR_WORD&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = AUTHOR_FIELD;
 });
 
-$("#LIB_PUB_CL").on("click", function() {
+$("button#LIB_PUB_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=LIB_PUB_CL&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = LIB_PUB_FIELD;
 });
-$("#ISBN_CL").on("click", function() {
+$("button#ISBN_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=020_A&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = ISBN_FIELD;
 });
-$("#ISSN_CL").on("click", function() {
+$("button#ISSN_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=022_A&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = ISSN_FIELD;
 });
-$("#SUBJECT_CL").on("click", function() {
+$("button#SUBJECT_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=SUBJECT_WORD&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = SUBJECT_FIELD;
 });
-$("#CIT_REF_CL").on("click", function() {
+$("button#CIT_REF_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=511_A&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = CIT_REF_FIELD;
 });
 
-$("#MEDIA_TYPE_CL").on("click", function() {
+$("button#MEDIA_TYPE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=MEDIA_TYPE&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = MEDIA_TYPE_FIELD;
 });
 
-$("#MAT_TYPE_CL").on("click", function() {
+$("button#MAT_TYPE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=I_COLLECT_CODE&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = MAT_TYPE_FIELD;
 });
 
-$("#HOLD_CENTRE_CL").on("click", function() {
+$("button#HOLD_CENTRE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=HOLDING_CENTRE&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = HOLD_CENTRE_FIELD;
 });
 
-$("#BARCODE_CL").on("click", function() {
+$("button#BARCODE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=BARCODE&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = BARCODE_FIELD;
 });
 
-$("#RECORD_ID_CL").on("click", function() {
+$("button#RECORD_ID_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=001&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = RECORD_ID_FIELD;
 });
 
-$("#ITEM_CALL_NUMBER").on("click", function() {
+$("button#ITEM_CALL_NUMBER").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ITEM_CALL_NUMBER&DATABASE=BIBLIO_WEB&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = RECORD_ID_FIELD;
@@ -368,14 +368,14 @@ $("#ITEM_CALL_NUMBER").on("click", function() {
 
 
 // PEOPLE_VAL_SYN
-$("#FULLNAME3").on("click", function() {
+$("button#FULLNAME3").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=FULLNAME3&DATABASE=PEOPLE_VAL_SYN&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = FULLNAME3_FIELD;
 });
 
 // ORGANIZATION_VAL_SYN
-$("#ORG_MAIN_BODY").on("click", function() {
+$("button#ORG_MAIN_BODY").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=ORG_MAIN_BODY&DATABASE=ORGANIZATION_VAL_SYN&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = ORG_MAIN_BODY_FIELD;
@@ -384,44 +384,44 @@ $("#ORG_MAIN_BODY").on("click", function() {
 
 //PEOPLE_VAL_SYN & ORGANIZATION_VAL_SYN ADVANCED SEARCH
 
-$("#KEYWORDS_PEOPLE").on("click", function() {
+$("button#KEYWORDS_PEOPLE").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=KEYWORDS&DATABASE=PEOPLE_VAL_SYN&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = KEYWORDS_PEOPLE_FIELD;
 });
 
-$("#KEYNAMES_PEOPLE").on("click", function() {
+$("button#KEYNAMES_PEOPLE").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=KEYNAMES&DATABASE=PEOPLE_VAL_SYN&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = KEYNAMES_PEOPLE_FIELD;
 });
 
-// $("#P_AUTH_TYPE").on("click", function() {
+// $("button#P_AUTH_TYPE").on("click", function() {
 //   var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=P_AUTH_TYPE&DATABASE=PEOPLE_VAL_SYN&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
 //   load_index_page ( url );
 //   clustername = P_AUTH_TYPE_FIELD;
 // });
 
 
-$("#KEYWORDS").on("click", function() {
+$("button#KEYWORDS").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=KEYWORDS&DATABASE=ORGANIZATION_VAL_SYN&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = KEYWORDS_FIELD;
 });
 
-$("#KEYNAMES").on("click", function() {
+$("button#KEYNAMES").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=KEYNAMES&DATABASE=ORGANIZATION_VAL_SYN&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = KEYNAMES_FIELD;
 });
 
-// $("#VENDER_ROLE").on("click", function() {
+// $("button#VENDER_ROLE").on("click", function() {
 //   var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=VENDER_ROLE&DATABASE=ORGANIZATION_VAL_SYN&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
 //   load_index_page ( url );
 //   clustername = VENDER_ROLE_FIELD;
 // });
 
-$("#DATES_EXISTED").on("click", function() {
+$("button#DATES_EXISTED").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=DATES_EXISTED&DATABASE=ORGANIZATION_VAL_SYN&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = DATES_EXISTED_FIELD;
@@ -430,37 +430,37 @@ $("#DATES_EXISTED").on("click", function() {
 
 // HAWKE
 
-$("#SURNAME_CL").on("click", function() {
+$("button#SURNAME_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=SURNAME&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = HAWKE_SURNAME;
 });
-$("#GIVENNAME_CL").on("click", function() {
+$("button#GIVENNAME_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=GIVENNAME&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = HAWKE_GIVENNAME;
 });
-$("#NATION_CL").on("click", function() {
+$("button#NATION_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=NATION&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = HAWKE_NATION;
 });
-$("#TRADEWHOLE_CL").on("click", function() {
+$("button#TRADEWHOLE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=TRADEWHOLE&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = HAWKE_TRADEWHOLE;
 });
-$("#SHIPWHOLE_CL").on("click", function() {
+$("button#SHIPWHOLE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=SHIPWHOLE&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = HAWKE_SHIPWHOLE;
 });
-$("#DESTWHOLE_CL").on("click", function() {
+$("button#DESTWHOLE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=DESTWHOLE&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = HAWKE_DESTWHOLE;
 });
-$("#YEAR_CL").on("click", function() {
+$("button#YEAR_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=YEAR&DATABASE=HAWKE&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = HAWKE_YEAR;
@@ -468,22 +468,22 @@ $("#YEAR_CL").on("click", function() {
 
 
 // AOHEIRS
-$("#HD_SURNAME_CL").on("click", function() {
+$("button#HD_SURNAME_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=HD_SURNAME&DATABASE=AOHEIRS&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = HEIRS_HD_SURNAME;
 });
-$("#HD_FIRSTNAME_CL").on("click", function() {
+$("button#HD_FIRSTNAME_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=HD_FIRSTNAME&DATABASE=AOHEIRS&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = HEIRS_HD_FIRSTNAME;
 });
-$("#HD_PLACE_CL").on("click", function() {
+$("button#HD_PLACE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=HD_PLACE&DATABASE=AOHEIRS&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = HEIRS_HD_PLACE;
 });
-$("#HD_DATE_CL").on("click", function() {
+$("button#HD_DATE_CL").on("click", function() {
     var url = HOME_SESSID + "/FIRST?INDEXLIST&KEYNAME=HD_DATE&DATABASE=AOHEIRS&form=[ao_opac]/145/assets/%2fhtml%2findex-body.html&TITLE=Browse%20values";
     load_index_page(url);
     clustername = HEIRS_HD_DATE;

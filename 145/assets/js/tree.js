@@ -7,8 +7,8 @@ const CURRENT_RECORD_STYLE = {
     class: "tree-highlight record",
 };
 const RECORD_STYLE = { class: "record" };
-const NEXT_TITLE = "Click To View Next Page ...";
-const PREV_TITLE = "Click To View Previous Page ...";
+const NEXT_TITLE = "Voir la page Suivante ...";
+const PREV_TITLE = "Voir la page Précédente ...";
 let REFD = '';
 if (document.getElementById('hiddenREFD') != null) {
     REFD = document.getElementById('hiddenREFD').innerText;

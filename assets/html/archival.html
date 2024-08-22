@@ -1,62 +1,66 @@
 <!-- include virtual="[AO_INCLUDES]head.htm"-->
-
 <!-- include virtual="[AO_INCLUDES]header.htm"-->
 <title>Archival search - Archives of Ontario</title>
 
 <div id="Content-Wrapper" class="Content-Wrapper">
-    <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
-    <div id="home-main-wrapper">
-        <div id="banner">
-            <img id="banner-img" src="/assets/img/archival.png" alt="" />
-        </div>
-        <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
-            <div id="maincontent">
-                <div id="homepage-container">
-                    <div class="Form-Wrapper">
-                        <h1 class="Rale-Bold Main-Content-Heading">
-                            Search archival collection
-                        </h1>
+  <!-- include virtual="[AO_INCLUDES]leftPanel.htm"-->
+  <div id="home-main-wrapper">
+    <div id="banner">
+      <img id="banner-img" src="/assets/img/archival.png" alt="" />
+    </div>
+    <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center" aria-label="Content" role="main">
+      <div id="maincontent">
+        <div id="homepage-container">
+          <div class="Form-Wrapper">
+            <h1 class="Rale-Bold Main-Content-Heading">
+              Search archival collection
+            </h1>
 
-                        <div class="subheader">
-                            <p>The collection contains:</p>
-                            <ul>
-                                <li>
-                                    <p>documents</p>
-                                </li>
-                                <li>
-                                    <p>photographs, maps, and architectural plans</p>
-                                </li>
-                                <li>
-                                    <p>sound and moving images</p>
-                                </li>
-                            </ul>
-                        </div>
+            <div class="subheader">
+              <p>The collection contains:</p>
+              <ul>
+                <li>
+                  <p>documents</p>
+                </li>
+                <li>
+                  <p>photographs, maps, and architectural plans</p>
+                </li>
+                <li>
+                  <p>sound and moving images</p>
+                </li>
+              </ul>
+            </div>
 
-                        <form id="Main-Form" class="minimum-font-size" method="post" name="simple_search" action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm&report=WEB_DESC_SUM">
-                            <div class="main-form-left">
-                                <span id="Number-Results"></span>
-                                <div class="Input-Wrapper d-flex flex-column">
-                                    <div id="simple-search-container">
-                                        <div id="simple-search-input-wrapper">
+            <form id="Main-Form" class="minimum-font-size" method="post" name="simple_search"
+              action="^home_sessid^?unionsearch&KEEP=Y&APPLICATION=UNION_VIEW&language=144&DATABASE=DESCRIPTION_WEB&ERRMSG=[AO_INCLUDES]error/norecordArchives.htm&report=WEB_DESC_SUM" role="search">
+              <div class="main-form-left">
+                <span id="Number-Results"></span>
+                <div class="Input-Wrapper d-flex flex-column">
+                  <div id="simple-search-container">
+                    <div id="simple-search-input-wrapper">
 
-                                            <input name="$RANKING" value="Y" type="hidden" />
-                                            <input name="MULTISEARCH" value="M-S" type="hidden" />
-                                            <!-- NW 20240109 -->
-                                            <input id="simple_search_input" type="text" name="KEYWORD_CLUSTER" autofocus aria-label="Simple Search Input" />
+                      <input name="$RANKING" value="Y" type="hidden" />
+                      <input name="MULTISEARCH" value="M-S" type="hidden" />
+                      <!-- NW 20240109 -->
+                      <input id="simple_search_input" type="text" name="KEYWORD_CLUSTER" 
+                        aria-label="Enter your search here to find archival results" />
 
-                                            <button aria-label="Clear search" id="simple-search-reset" alt="Clear search" title="Clear search" type="button">
+                      <button aria-label="Clear search" id="simple-search-reset" alt="Clear search" title="Clear search"
+                        type="button">
                         <i class="fas fa-times"></i>
                       </button>
-                                        </div>
+                    </div>
 
-                                        <button aria-label="Search Button" class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search" title="Search" type="submit" value="Search">
-                                          <i class="fas fa-search search-button-icon"></i>
-                                          <span class="search-button-label">Search</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- NW 20240109 start -->
-                                <!-- <div class="ontario-form-group ranking-form-group">
+                    <button aria-label="Search Button"
+                      class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search"
+                      title="Search Button" type="submit" value="Search">
+                      <i class="fas fa-search search-button-icon"></i>
+                      <span class="search-button-label">Search</span>
+                    </button>
+                  </div>
+                </div>
+                <!-- NW 20240109 start -->
+                <!-- <div class="ontario-form-group ranking-form-group">
                                     <br/>
                                     <p class="Main-Sub-Header">Ranking:</p>
                                     <select class="ontario-input ontario-dropdown ranking-dropdown" id="dropdown-list-example" name="$RANKING" style="width:25%">
@@ -64,8 +68,8 @@
                               <option value="N">Disable</option>
                           </select>
                                 </div> -->
-                                <!-- NW 20240109 end -->
-                                <!--           <div class="ontario-form-group">
+                <!-- NW 20240109 end -->
+                <!--           <div class="ontario-form-group">
                                     <fieldset class="ontario-fieldset">
                                         <legend class="visually-hidden">
                                             Radio legend<span class="ontario-label__flag">(required/optional)</span
@@ -133,26 +137,22 @@
                     </div> 
                   </fieldset>
                 </div>-->
-                            </div>
-                        </form>
-                        <div class="subheader">
-                            <p class="Main-Sub-Header">Search by</p>
-                            <div class="Main-Search-Options-Section">
-                                <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArchives.html">Archival advanced</a
-                >
-                <span>|</span>
-                                            <a href="^home_sessid^?queryform&database=PEOPLE_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchPeople.html">People</a
-                >
+              </div>
+            </form>
+            <div class="subheader">
+              <p class="Main-Sub-Header">Search by</p>
+              <div class="Main-Search-Options-Section">
+                <a href="^SESSID^?GET&FILE=[AO_ASSETS]html/advancedsearchArchives.html">Archival advanced</a>
                 <span>|</span>
                 <a
-                  href="^home_sessid^?queryform&database=ORGANIZATION_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchOrganization.html"
-                  >Organization</a
-                >
+                  href="^home_sessid^?queryform&database=PEOPLE_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchPeople.html">People</a>
                 <span>|</span>
                 <a
-                  href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html"
-                  >Creator list</a
-                >
+                  href="^home_sessid^?queryform&database=ORGANIZATION_VAL_SYN&searchform=[AO_ASSETS]html/advancedsearchOrganization.html">Organization</a>
+                <span>|</span>
+                <a
+                  href="/scripts/mwimain.dll/144/PEOPLE_VAL?DIRECTSEARCH&INDEXLIST=Y&OPTION=FIRST&KEYNAME=RECORD_CRTOR&FORM=[AO_ASSETS]html/moresearchoptions.html">Creator
+                  list</a>
               </div>
             </div>
           </div>
@@ -160,7 +160,6 @@
       </div>
       <div class="search-tips-container">
         <!-- include virtual="[AO_INCLUDES]archivalSearchTips.htm"-->
-
         <!-- include virtual="[AO_INCLUDES]archivalBannerRef.htm"-->
       </div>
     </div>
@@ -168,5 +167,4 @@
 
   <!-- include virtual="[AO_INCLUDES]rightPanel.htm"-->
 </div>
-
 <!-- include virtual="[AO_INCLUDES]footer.htm"-->

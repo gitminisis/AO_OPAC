@@ -935,7 +935,7 @@ p {
 }
 
 .simple_search_input_focus {
-    width: 100%;
+    z-index: 999;
     outline: none;
     background: #FFF;
     box-shadow: 0px 0px 0px 4px #009ADB;
@@ -1944,6 +1944,10 @@ p {
     margin-bottom: 16px;
 }
 
+.input-group-prepend select{
+    height: 100%;
+}
+
 .input-group-prepend,
 .input-group input,
 .input-group #P_AUTH_TYPE,
@@ -2272,4 +2276,8 @@ button {
 
 .ontario-label {
     font-weight: bold !important;
+}
+
+.modal-title {
+    font-size: 1.5rem;
 }

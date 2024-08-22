@@ -7,8 +7,8 @@ const CURRENT_RECORD_STYLE = {
     class: "tree-highlight record",
 };
 const RECORD_STYLE = { class: "record" };
-const NEXT_TITLE = "Click To View Next Page ...";
-const PREV_TITLE = "Click To View Previous Page ...";
+const NEXT_TITLE = "View Next Page ...";
+const PREV_TITLE = "View Previous Page ...";
 let REFD = '';
 if (document.getElementById('hiddenREFD') != null) {
     REFD = document.getElementById('hiddenREFD').innerText;
@@ -295,7 +295,6 @@ function Tree() {
         toggleLoader(true)
         return $.ajax(url).then(function(response) {
             let json = xmlToJson(response);
-
             if (hasChildren(json)) {
                 tree.renderChildrenNodes(json, refd, tree);
             }
@@ -308,7 +307,6 @@ function Tree() {
                 let newNode = new Node(parent, tree);
                 newNode.setParent();
                 tree.addNode(newNode);
-
                 return tree.initTree(parent, tree);
             }
 

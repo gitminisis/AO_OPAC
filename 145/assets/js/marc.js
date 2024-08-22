@@ -78,7 +78,7 @@ const MARC_TITLE = {
 
         let marc_xml = document.querySelector("#marc" + countMarc);
         let table =
-        '<div class="modal fade" id="marcModal' + countMarc + '" tabindex="-1" role="dialog" aria-labelledby="marcModal" style="display: none;" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg" role="document"> <div class="modal-content"> <div class="modal-header" style=" background-color: #414042 !important; "> <h5 class="modal-title" id="exampleModalLongTitle" style="color:white !important">Valeurs MARC</h5> <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true" hidden="">×</span> </button> </div> <div class="modal-body"><table id="marc-table">';
+        '<div class="modal fade" id="marcModal' + countMarc + '" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg" role="document"> <div class="modal-content"> <div class="modal-header" style=" background-color: #414042 !important; "> <h3 class="modal-title" id="exampleModalLongTitle" style="color:white !important">Valeurs MARC</h3> <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true" hidden="">×</span> </button> </div> <div class="modal-body"><table id="marc-table">';
 
         table += "<tr><th>MARC Field</th><th>MARC Title</th><th>MARC Value</th></tr>";
         
