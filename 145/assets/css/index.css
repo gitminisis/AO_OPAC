@@ -490,8 +490,10 @@ td {
     text-decoration: none;
     padding: 5px;
     position: absolute;
-    left: -1000em;
-    top: 0;
+    /* left: -1000em;
+    top: 0; */
+    top: -315px;
+    left: 0;
     font-weight: bold;
 }
 
