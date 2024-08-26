@@ -8,7 +8,7 @@
     <!-- include virtual="[ao_opac]/145/includes/leftPanel.htm"-->
 
     <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center">
-        <div id="maincontent">
+        <div id="maincontent" role="main">
             <div id="advanced-search-container">
                 <div class="Form-Wrapper">
                     <h1 class="Rale-Bold Main-Content-Heading">Recherche par personne</h1>
@@ -31,8 +31,8 @@
                                         <option value="and not">Ne pas</option>
                                     </select>
                                 </div>
-                                <input id="KEYNAMES" type="text" class="form-control" name="KEYNAMES" aria-label="Mots cl&eacute;s"
-                                    title="Mots cl&eacute;s"/>
+                                <input id="KEYNAMES" type="text" class="form-control" name="KEYNAMES"
+                                    aria-label="Mots cl&eacute;s" title="Mots cl&eacute;s" />
                             </div>
                         </div>
                         <!-- KEYWORDS INPUT -->
@@ -52,8 +52,8 @@
                                         <option value="and not">Ne pas</option>
                                     </select>
                                 </div>
-                                <input id="KEYWORDS" type="text" class="form-control" name="KEYWORDS" aria-label="Noms cl&eacute;s"
-                                    title="Noms cl&eacute;s" />
+                                <input id="KEYWORDS" type="text" class="form-control" name="KEYWORDS"
+                                    aria-label="Noms cl&eacute;s" title="Noms cl&eacute;s" />
                             </div>
                         </div>
                         <!-- KEYNAMES INPUT -->
@@ -84,13 +84,14 @@
                         <!-- P_AUTH_TYPE INPUT -->
 
                         <div class="Search-Options-Wrapper d-flex">
-                            <button aria-label="Press Enter to submit form" type="submit" title="Soumettre"
-                                value="Soumettre" class="ontario-button ontario-button--primary general-focus">
+                            <button aria-label="Press Enter to submit form" type="submit" title="Soumettre la recherche"
+                                value="Soumettre la recherche"
+                                class="ontario-button ontario-button--primary general-focus">
                                 Soumettre
                             </button>
                             <button aria-label="Press Enter to open clear form"
                                 class="ontario-button ontario-button--secondary general-focus" id="clear" type="reset"
-                                title="Effacer" value="Effacer">
+                                title="Effacer le texte" value="Effacer le texte">
                                 Effacer
                             </button>
                         </div>
