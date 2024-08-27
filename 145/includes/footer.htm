@@ -110,8 +110,13 @@
                 let testing = $(this).attr("aria-labelledby")
                 $(this).removeAttr("aria-labelledby")
                 $(this).attr("aria-label",testing)
+                
             });
-        })
+            $("#tree-expand #panelsStayOpen-collapseOne #tree-body ul.jstree-children").each(function(){
+                $(this).attr("aria-label","Description Hiearchy Content")
+            });
+            
+        });
     }
 </script>
 

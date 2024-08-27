@@ -492,7 +492,7 @@ td {
     position: absolute;
     /* left: -1000em;
     top: 0; */
-    top: -315px;
+    top: -1000px;
     left: 0;
     font-weight: bold;
 }
@@ -504,8 +504,8 @@ td {
 .skipnav a:focus,
 .skipnav a:active {
     z-index: 99;
-    top: -3em;
-    left: 0;
+    top: -25px;
+    left: -10px;
     border: solid #777 2px;
     color: #fff;
     background: #333 !important;
@@ -1785,6 +1785,7 @@ p {
 
 .Header-Row,
 .Header-Row-Top {
+    position: relative;
     display: flex;
     align-items: center;
 }

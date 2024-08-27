@@ -1,22 +1,23 @@
-<header aria-label="External Site" role="navigation">
+<header aria-label="Site externe" role="navigation">
     <div class='Header-Wrapper'>
-        <div id="skip">
-            <div id="skipnav">
-                <p class="skipnav">
-                    <a href="#maincontent" aria-label="Skip directly to main content" role="link">skip to main content (Press Enter)</a>
-                </p>
-            </div>
-        </div>
         <div class='d-flex flex-row justify-content-between Header-Row'>
             <div id='Header-Logo'>
                 <a class="Header-Logo-Anchor" href='https://www.ontario.ca/fr/page/gouvernement-de-lontario'>
-                    <img src='/assets/img/logo-ontario-blk@2x.png' alt='Ontario Logo' width='150' height='38.75' id="desktop-logo" />
-                    <img src='https://www.ontario.ca/themes/ontario_2021/assets/ontario-logo--mobile.svg' alt='Ontario Logo' id="mobile-logo" height='38.75' />
+                    <img src='/assets/img/logo-ontario-blk@2x.png' alt='Ontario Logo' width='150' height='38.75'
+                        id="desktop-logo" />
+                    <img src='https://www.ontario.ca/themes/ontario_2021/assets/ontario-logo--mobile.svg'
+                        alt='Ontario Logo' id="mobile-logo" height='38.75' />
 
                 </a>
             </div>
+            <p class="skipnav">
+                <a href="#maincontent" aria-label="Skip directly to main content" role="link" tabindex="0">skip to main
+                    content (Press Enter)</a>
+            </p>
             <div class="Header-Row-Top">
-                <a class="Header-Row-Link" href='/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[ao_opac]/assets/html/home.html' aria-label="This link will change the language of the site to English">English</a>
+                <a class="Header-Row-Link"
+                    href='/scripts/mwimain.dll?logon&application=UNION_VIEW&language=144&file=[ao_opac]/assets/html/home.html'
+                    aria-label="This link will change the language of the site to English">English</a>
             </div>
         </div>
         <div id="top"></div>
@@ -24,43 +25,50 @@
             <div class="accordion-item">
                 <h2 class="accordion-header H2-Mobile-Nav" id="panelsStayOpen-headerMobile">
                     <div id='Header-Btn'>
-                        <button 
-                            id='accordion-button-header' 
-                            onclick='headAccordionOnclick(this)' 
-                            class="accordion-button Header-Accordion-Btn Rale-Med collapsed general-focus focus-red" 
-                            type="button" 
-                            data-bs-toggle="collapse"       
-                            data-bs-target="#panelsStayOpen-collapseheaderMobile" 
-                            aria-expanded="true"
+                        <button id='accordion-button-header' onclick='headAccordionOnclick(this)'
+                            class="accordion-button Header-Accordion-Btn Rale-Med collapsed general-focus focus-red"
+                            type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseheaderMobile" aria-expanded="true"
                             aria-controls="panelsStayOpen-collapseheaderMobile"
-                            aria-label="Appuyez sur Entrée pour ouvrir le menu de navigation"
-                            >
+                            aria-label="Appuyez sur Entrée pour ouvrir le menu de navigation">
                             <div class='Header-Btn-Hamburger'></div>
-                    </button>
-                    
+                        </button>
+
                         <!-- empty space added to line up hamburger menus -->
                         <h1 class='Mobile-Nav-Title Rale-Bold'>Menu</h1>
                 </h2>
                 <div id='Nav-Btn-Container-Link'>
-                    <div id="panelsStayOpen-collapseheaderMobile" class="accordion-collapse Rale-Med collapse" aria-labelledby="panelsStayOpen-headerMobile">
+                    <div id="panelsStayOpen-collapseheaderMobile" class="accordion-collapse Rale-Med collapse"
+                        aria-labelledby="panelsStayOpen-headerMobile">
                         <div class="accordion-body Header-Mobile Rale-Med">
-                            <div class='Header-Mobile-Links d-flex flex-column justify-content-center align-items-center'>
-                                <a class='Rale-Med' title="Page d'accueil des Archives bouton" href='http://www.archives.gov.on.ca/fr/index.aspx'>Page d'accueil des Archives</a>
-                                <a class='Rale-Med' title="Pr&egrave;parez-vous pour votre visite bouton" href='http://www.archives.gov.on.ca/fr/about/prepare.aspx'>Pr&egrave;parez-vous pour votre visite</a>
-                                <a class='Rale-Med' title="Commencez votre recherche bouton" href='http://www.archives.gov.on.ca/fr/about/research_home.aspx'>Commencez votre recherche</a>
-                                <a class='Rale-Med' title="Nous Joindre bouton" href='http://www.archives.gov.on.ca/fr/about/contact.aspx'>Nous Joindre</a>
+                            <div
+                                class='Header-Mobile-Links d-flex flex-column justify-content-center align-items-center'>
+                                <a class='Rale-Med' title="Page d'accueil des Archives bouton"
+                                    href='http://www.archives.gov.on.ca/fr/index.aspx'>Page d'accueil des Archives</a>
+                                <a class='Rale-Med' title="Pr&egrave;parez-vous pour votre visite bouton"
+                                    href='http://www.archives.gov.on.ca/fr/about/prepare.aspx'>Pr&egrave;parez-vous pour
+                                    votre visite</a>
+                                <a class='Rale-Med' title="Commencez votre recherche bouton"
+                                    href='http://www.archives.gov.on.ca/fr/about/research_home.aspx'>Commencez votre
+                                    recherche</a>
+                                <a class='Rale-Med' title="Nous Joindre bouton"
+                                    href='http://www.archives.gov.on.ca/fr/about/contact.aspx'>Nous Joindre</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
-            </div>
-
-            <div class='Header-Navigation d-flex justify-content-center align-items-center'>
-                <a class='Rale-Med' title="Page d'accueil des Archives bouton" href='http://www.archives.gov.on.ca/fr/index.aspx'>Page d'accueil des Archives</a> |
-                <a class='Rale-Med' title="Pr&egrave;parez-vous pour votre visite bouton" href='http://www.archives.gov.on.ca/fr/about/prepare.aspx'>Pr&egrave;parez-vous pour votre visite</a> |
-                <a class='Rale-Med' title="Commencez votre recherche bouton" href='http://www.archives.gov.on.ca/fr/about/research_home.aspx'>Commencez votre recherche</a> |
-                <a class='Rale-Med' title="Nous Joindre bouton" href='http://www.archives.gov.on.ca/fr/about/contact.aspx'>Nous Joindre</a>
             </div>
         </div>
+
+        <div class='Header-Navigation d-flex justify-content-center align-items-center'>
+            <a class='Rale-Med' title="Page d'accueil des Archives bouton"
+                href='http://www.archives.gov.on.ca/fr/index.aspx'>Page d'accueil des Archives</a> |
+            <a class='Rale-Med' title="Pr&egrave;parez-vous pour votre visite bouton"
+                href='http://www.archives.gov.on.ca/fr/about/prepare.aspx'>Pr&egrave;parez-vous pour votre visite</a> |
+            <a class='Rale-Med' title="Commencez votre recherche bouton"
+                href='http://www.archives.gov.on.ca/fr/about/research_home.aspx'>Commencez votre recherche</a> |
+            <a class='Rale-Med' title="Nous Joindre bouton"
+                href='http://www.archives.gov.on.ca/fr/about/contact.aspx'>Nous Joindre</a>
+        </div>
+    </div>
 </header>
