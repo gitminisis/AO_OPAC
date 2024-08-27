@@ -8,31 +8,32 @@
 
   <div id="Panel-Main" class="Panel-Main Main-Content d-flex flex-column align-items-center" aria-label="Content"
     role="main">
-    <div class="search-error-wrapper">
-      <p class="No-Record-Header">
-        No results found for <span id="no-record-statement">^parm1^</span> in Archives of Ontario:
-        <strong>archival collection</strong>
-      </p>
-
-      <ul>
-        <li>check your spelling</li>
-        <li>enter another search term</li>
-        <li>select a different keyword option (all, any, exact)</li>
-        <li>
-          search in a specific collection (<a
-            href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=COLLECTIONS_WEB&language=144&file=[AO_ASSETS]html/art.html">art</a>,
-          <a
-            href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=DESCRIPTION_WEB&language=144&file=[AO_ASSETS]html/archival.html">archival</a>,
-          <a
-            href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=BIBLIO_WEB&language=144&file=[AO_ASSETS]html/library.html">library</a>)
-        </li>
-      </ul>
-      <p>
-        <a href="http://www.archives.gov.on.ca/en/about/contact.aspx" target="_blank">Contact us</a>
-        if you need help to find what you're looking for.
-      </p>
-    </div>
     <div id="maincontent">
+      <div class="search-error-wrapper">
+        <p class="No-Record-Header">
+          No results found for <span id="no-record-statement">^parm1^</span> in Archives of Ontario:
+          <strong>archival collection</strong>
+        </p>
+
+        <ul>
+          <li>check your spelling</li>
+          <li>enter another search term</li>
+          <li>select a different keyword option (all, any, exact)</li>
+          <li>
+            search in a specific collection (<a
+              href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=COLLECTIONS_WEB&language=144&file=[AO_ASSETS]html/art.html">art</a>,
+            <a
+              href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=DESCRIPTION_WEB&language=144&file=[AO_ASSETS]html/archival.html">archival</a>,
+            <a
+              href="/scripts/mwimain.dll?logon&application=UNION_VIEW&database=BIBLIO_WEB&language=144&file=[AO_ASSETS]html/library.html">library</a>)
+          </li>
+        </ul>
+        <p>
+          <a href="http://www.archives.gov.on.ca/en/about/contact.aspx" target="_blank">Contact us</a>
+          if you need help to find what you're looking for.
+        </p>
+      </div>
+
       <div id="homepage-container">
         <div class="Form-Wrapper">
           <h1 class="Rale-Bold Main-Content-Heading">
@@ -46,7 +47,8 @@
               <span id="Number-Results"></span>
               <div class="Input-Wrapper d-flex flex-column">
                 <div id="simple-search-container">
-                  <input id="simple_search_input" type="text" name="KEYWORD_CLUSTER" aria-label="Enter your search here to find archival results" />
+                  <input id="simple_search_input" type="text" name="KEYWORD_CLUSTER"
+                    aria-label="Enter your search here to find archival results" />
                   <button aria-label="Search Button"
                     class="Search-Option-Button simple-search-btn Rale-Bold Button-Primary" alt="Search"
                     title="Search Button" type="submit" value="Search">
